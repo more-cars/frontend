@@ -1,9 +1,11 @@
 {
   "author": "Dennis Gerike",
   "dependencies": {
+    "@tailwindcss/cli": "4.1.8",
     "@types/express": "5.0.3",
     "express": "5.1.0",
     "pug": "3.0.3",
+    "tailwindcss": "4.1.8",
     "ts-node": "10.9.2",
     "typescript": "5.8.3"
   },
@@ -18,7 +20,8 @@
   "repository": "https://github.com/more-cars/rest-api",
   "scripts": {
     "start": "npx ts-node src/server.ts",
-    "local:start": "node --watch -r ts-node/register src/server.ts"
+    "local:app:start": "node --watch -r ts-node/register src/server.ts",
+    "local:css:build": "npx @tailwindcss/cli -i ./src/routes/views/stylesheets/brands.css -o ./public/stylesheets/brands.css --watch"
   },
   "version": "0.1.0"
 }

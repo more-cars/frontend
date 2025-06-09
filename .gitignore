@@ -3,3 +3,6 @@ node_modules
 
 # IDE
 .idea
+
+# generated files
+public
