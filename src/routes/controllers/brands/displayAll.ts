@@ -1,9 +1,12 @@
 import express from "express"
+import {Brand} from "../../../models/Brand"
 
 export async function displayAll(req: express.Request, res: express.Response) {
-    const renderedView = "<h1>All Brands</h1>"
+    const brands = Brand.findAll()
 
-    res.status(200)
-    res.set('Content-Type', 'text/html')
-    res.send(renderedView)
+    res.render('brands/index', {
+        title: 'All Brands - More Cars',
+        message: 'All Brands',
+        collection: brands
+    })
 }
