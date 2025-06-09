@@ -1,0 +1,22 @@
+{
+  "author": "Dennis Gerike",
+  "dependencies": {
+    "@types/express": "5.0.3",
+    "express": "5.1.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.8.3"
+  },
+  "description": "Frontend for the open car database 'More Cars'",
+  "devDependencies": {
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "name": "@more-cars/rest-api",
+  "repository": "https://github.com/more-cars/rest-api",
+  "scripts": {
+    "start": "npx ts-node src/server.ts"
+  },
+  "version": "0.1.0"
+}
