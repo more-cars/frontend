@@ -16,7 +16,8 @@
   "name": "@more-cars/rest-api",
   "repository": "https://github.com/more-cars/rest-api",
   "scripts": {
-    "start": "npx ts-node src/server.ts"
+    "start": "npx ts-node src/server.ts",
+    "local:start": "node --watch -r ts-node/register src/server.ts"
   },
   "version": "0.1.0"
 }
