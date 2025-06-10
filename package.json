@@ -11,6 +11,7 @@
   },
   "description": "Frontend for the open car database 'More Cars'",
   "devDependencies": {
+    "@playwright/test": "1.52.0"
   },
   "engines": {
     "node": ">=22"
@@ -21,7 +22,10 @@
   "scripts": {
     "start": "npx ts-node src/server.ts",
     "local:app:start": "node --watch -r ts-node/register src/server.ts",
-    "local:css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch"
+    "local:css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
+    "test:run:gui": "npx playwright test --ui",
+    "test:run:cli": "npx playwright test",
+    "test:report:show": "npx playwright show-report"
   },
   "version": "0.1.0"
 }
