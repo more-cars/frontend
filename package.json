@@ -21,7 +21,7 @@
   "scripts": {
     "start": "npx ts-node src/server.ts",
     "local:app:start": "node --watch -r ts-node/register src/server.ts",
-    "local:css:build": "npx @tailwindcss/cli -i ./src/routes/views/stylesheets/brands.css -o ./public/stylesheets/brands.css --watch"
+    "local:css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch"
   },
   "version": "0.1.0"
 }
