@@ -6,7 +6,7 @@ export async function displayAll(req: express.Request, res: express.Response) {
 
     res.render('brands/index', {
         title: 'All Brands - More Cars',
-        message: 'All Brands',
+        nodeType: 'Brand',
         collection: brands
     })
 }
