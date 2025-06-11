@@ -1,0 +1,14 @@
+html
+    head
+        title #{pageTitle} - More Cars
+        block styles
+            link(rel='stylesheet', href='/stylesheets/main.css')
+
+    body.bg-gray-100
+        main(class="p-8 bg-amber-50")
+            block main
+
+        footer(class="bg-gray-800 text-blue-50 p-8")
+            block footer
+
+        block debug

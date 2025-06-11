@@ -4,9 +4,9 @@ import {Brand} from "../../models/Brand"
 export async function displayAll(req: express.Request, res: express.Response) {
     const brands = Brand.findAll()
 
-    res.render('brands/index', {
-        title: 'All Brands - More Cars',
+    res.render('templates/brands/index', {
+        pageTitle: 'All Brands',
         nodeType: 'Brand',
-        collection: brands
+        nodeCollection: brands
     })
 }

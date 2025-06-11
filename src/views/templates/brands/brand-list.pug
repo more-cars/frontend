@@ -1,0 +1,4 @@
+ul.list-disc.list-inside
+    each item in nodeCollection
+        li
+            a(href=`/brands/${item.id}`) #{item.name} (##{item.id})
