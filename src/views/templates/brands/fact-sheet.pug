@@ -1,0 +1,7 @@
+h2(class="text-xl") Fact Sheet
+
+dl(class="divide-y divide-gray-100 max-w-lg")
+    each value, property in brand
+        div(class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0")
+            dt(class="text-sm/6 text-gray-900") #{property}
+            dd(class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0") #{value}
