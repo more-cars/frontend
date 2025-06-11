@@ -1,7 +1,14 @@
 import {BrandNode} from "../types/brands/BrandNode"
+import {getBrandById} from "../data/brands/getBrandById"
 
 export class Brand {
-    static findById(id: number): BrandNode {
+    static async findById(id: number): Promise<BrandNode> {
+        const brand = await getBrandById(0)
+
+        if (brand) {
+            return brand
+        }
+
         return {
             id: 356,
             name: "Alfa Romeo",

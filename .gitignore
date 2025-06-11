@@ -8,3 +8,6 @@ node_modules
 public
 tests/reports
 tests/artifacts
+
+# config files
+.env
