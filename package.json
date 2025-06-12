@@ -14,6 +14,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "11.2.0",
     "@playwright/test": "1.52.0",
+    "@types/k6": "1.0.2",
     "playwright-bdd": "8.2.1"
   },
   "engines": {
@@ -30,7 +31,8 @@
     "tests:e2e:cli": "npx playwright test --project=e2e",
     "tests:e2e:report": "npx playwright show-report tests/reports/html",
     "tests:behavior:gui": "npx bddgen && npx playwright test --ui --project=behavior",
-    "tests:behavior:cli": "npx bddgen && npx playwright test --project=behavior"
+    "tests:behavior:cli": "npx bddgen && npx playwright test --project=behavior",
+    "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=tests/reporsts/performance/report.html k6 run -e FRONTEND_URL=http://localhost:3001 tests/performance/get-all-brands.ts"
   },
   "version": "0.1.0"
 }
