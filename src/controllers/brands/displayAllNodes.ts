@@ -5,6 +5,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const brands = Brand.findAll()
 
     res.render('templates/brands/brands-page', {
+        pageTitle: 'All Brands',
         nodeCollection: brands
     })
 }
