@@ -12,6 +12,7 @@
   },
   "description": "Frontend for the open car database 'More Cars'",
   "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
     "@cucumber/cucumber": "11.2.0",
     "@playwright/test": "1.52.0",
     "@types/k6": "1.0.2",
