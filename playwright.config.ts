@@ -1,9 +1,7 @@
 import {defineConfig, devices} from '@playwright/test'
+import {cucumberReporter, defineBddConfig} from "playwright-bdd"
 
 export default defineConfig({
-    // Look for test files in the "tests" directory, relative to this configuration file.
-    testDir: 'tests/e2e',
-
     // Folder for test artifacts such as screenshots, videos, traces, etc.
     outputDir: 'tests/artifacts',
 
@@ -22,7 +20,8 @@ export default defineConfig({
     // Reporter to use
     reporter: [
         ['html', {outputFolder: 'tests/reports/html'}],
-        ['list']
+        ['list'],
+        cucumberReporter('html', {outputFile: 'tests/reports/cucumber/index.html'}),
     ],
 
     use: {
@@ -32,11 +31,20 @@ export default defineConfig({
         // Collect trace when retrying the failed test.
         trace: 'on-first-retry',
     },
-    // Configure projects for major browsers.
+
     projects: [
         {
-            name: 'chromium',
+            name: 'e2e',
             use: {...devices['Desktop Chrome']},
+            testDir: 'tests/e2e',
+        },
+        {
+            name: 'behavior',
+            use: {...devices['Desktop Chrome']},
+            testDir: defineBddConfig({
+                features: ['specification/**/*.feature'],
+                steps: ['tests/behavior/**/*.ts'],
+            })
         },
     ],
     // Run your local dev server before starting the tests.

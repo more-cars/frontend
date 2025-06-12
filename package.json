@@ -26,9 +26,11 @@
     "start": "npx ts-node src/server.ts",
     "local:app:start": "node --watch --env-file=.env -r ts-node/register src/server.ts",
     "local:css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
-    "test:run:gui": "npx playwright test --ui",
-    "test:run:cli": "npx playwright test",
-    "test:report:show": "npx playwright show-report"
+    "tests:e2e:gui": "npx playwright test --ui --project=e2e",
+    "tests:e2e:cli": "npx playwright test --project=e2e",
+    "tests:e2e:report": "npx playwright show-report tests/reports/html",
+    "tests:behavior:gui": "npx bddgen && npx playwright test --ui --project=behavior",
+    "tests:behavior:cli": "npx bddgen && npx playwright test --project=behavior"
   },
   "version": "0.1.0"
 }

@@ -5,6 +5,7 @@ node_modules
 .idea
 
 # generated files
+.features-gen
 public
 tests/reports
 tests/artifacts
