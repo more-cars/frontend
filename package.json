@@ -12,7 +12,9 @@
   },
   "description": "Frontend for the open car database 'More Cars'",
   "devDependencies": {
-    "@playwright/test": "1.52.0"
+    "@cucumber/cucumber": "11.2.0",
+    "@playwright/test": "1.52.0",
+    "playwright-bdd": "8.2.1"
   },
   "engines": {
     "node": ">=22"
