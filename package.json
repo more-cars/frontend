@@ -14,9 +14,11 @@
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",
     "@cucumber/cucumber": "11.2.0",
+    "@eslint/js": "9.26.0",
     "@playwright/test": "1.52.0",
     "@types/k6": "1.0.2",
-    "playwright-bdd": "8.2.1"
+    "playwright-bdd": "8.2.1",
+    "typescript-eslint": "8.32.0"
   },
   "engines": {
     "node": ">=22"
@@ -28,6 +30,7 @@
     "start": "npx ts-node src/server.ts",
     "local:app:start": "node --watch --env-file=.env -r ts-node/register src/server.ts",
     "local:css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
+    "tests:lint": "npx eslint src",
     "tests:e2e:gui": "npx playwright test --ui --project=e2e",
     "tests:e2e:cli": "npx playwright test --project=e2e",
     "tests:e2e:report": "npx playwright show-report tests/reports/html",
