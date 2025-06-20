@@ -1,5 +1,6 @@
 import {BrandNode} from "../types/brands/BrandNode"
 import {getBrandById} from "../data/brands/getBrandById"
+import {getAllBrands} from "../data/brands/getAllBrands"
 
 export class Brand {
     static async findById(id: number): Promise<BrandNode> {
@@ -17,7 +18,13 @@ export class Brand {
         }
     }
 
-    static findAll(): Array<BrandNode> {
+    static async findAll(): Promise<Array<BrandNode>> {
+        const brands = await getAllBrands()
+
+        if (brands) {
+            return brands
+        }
+
         return [
             {
                 id: 356,
