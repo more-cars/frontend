@@ -6,7 +6,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brand = await Brand.findById(brandId)
 
     res.render('templates/brands/brand-page', {
-        pageTitle: 'Brand xyz',
+        pageTitle: `${brand.name} - Car Brand`,
         brand
     })
 }

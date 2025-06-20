@@ -4,7 +4,7 @@ import {getAllBrands} from "../data/brands/getAllBrands"
 
 export class Brand {
     static async findById(id: number): Promise<BrandNode> {
-        const brand = await getBrandById(0)
+        const brand = await getBrandById(id)
 
         if (brand) {
             return brand
