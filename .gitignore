@@ -7,8 +7,7 @@ node_modules
 # generated files
 .features-gen
 public
-tests/reports
-tests/artifacts
+test-reports
 
 # config files
 .env

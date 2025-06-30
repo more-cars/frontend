@@ -2,55 +2,21 @@ import {defineConfig, devices} from '@playwright/test'
 import {cucumberReporter, defineBddConfig} from "playwright-bdd"
 
 export default defineConfig({
-    // Folder for test artifacts such as screenshots, videos, traces, etc.
-    outputDir: 'tests/artifacts',
-
-    // Run all tests in parallel.
+    testDir: defineBddConfig({
+        features: ['specification/**/*.feature'],
+        steps: ['tests/behavior/**/*.ts'],
+        outputDir: 'tests/behavior/.features-gen'
+    }),
+    outputDir: 'test-reports/behavior/artifacts',
     fullyParallel: false,
-
-    // Fail the build on CI if you accidentally left test.only in the source code.
-    forbidOnly: !!process.env.CI,
-
-    // Retry on CI only.
-    retries: process.env.CI ? 2 : 0,
-
-    // Opt out of parallel tests on CI.
-    workers: process.env.CI ? 1 : undefined,
-
-    // Reporter to use
     reporter: [
-        ['html', {outputFolder: 'tests/reports/html'}],
+        ['html', {outputFolder: 'test-reports/behavior/html'}],
         ['list'],
-        cucumberReporter('html', {outputFile: 'tests/reports/cucumber/index.html'}),
+        cucumberReporter('html', {outputFile: 'test-reports/behavior/cucumber/index.html'}),
     ],
-
     use: {
-        // Base URL to use in actions like `await page.goto('/')`.
         baseURL: 'http://localhost:3001',
-
-        // Collect trace when retrying the failed test.
         trace: 'on-first-retry',
+        ...devices['Desktop Chrome']
     },
-
-    projects: [
-        {
-            name: 'e2e',
-            use: {...devices['Desktop Chrome']},
-            testDir: 'tests/e2e',
-        },
-        {
-            name: 'behavior',
-            use: {...devices['Desktop Chrome']},
-            testDir: defineBddConfig({
-                features: ['specification/**/*.feature'],
-                steps: ['tests/behavior/**/*.ts'],
-            })
-        },
-    ],
-    // Run your local dev server before starting the tests.
-    // webServer: {
-    //     command: 'npm run start',
-    //     url: 'http://localhost:3000',
-    //     reuseExistingServer: !process.env.CI,
-    // },
 })
