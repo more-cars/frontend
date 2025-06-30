@@ -24,8 +24,8 @@
     "node": ">=23.6.0"
   },
   "license": "MIT",
-  "name": "@more-cars/rest-api",
-  "repository": "https://github.com/more-cars/rest-api",
+  "name": "@more-cars/frontend",
+  "repository": "https://github.com/more-cars/frontend",
   "scripts": {
     "start": "node src/server.ts",
     "local:app:start": "node --watch --env-file=.env src/server.ts",
