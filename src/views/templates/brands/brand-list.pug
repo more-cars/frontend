@@ -1,4 +1,12 @@
-ul.list-disc.list-inside
+ul(class="max-w-160 m-auto" aria-label="List of all Brands")
     each item in nodeCollection
-        li
-            a(href=`/brands/${item.id}`) #{item.name} (##{item.id})
+        li(class="bg-lime-100 mb-4")
+            div(class="grid grid-flow-col grid-cols-4 gap-4")
+                div(class="col-span-1 p-4 border-2 bg-orange-50")
+                    div(class="aspect-16/9") IMG
+                div(class="col-span-3")
+                    a(class="inline-block font-bold text-xl mt-3" href=`/brands/${item.id}`) #{item.name}
+                    br
+                    span(class="inline-block mb-4 text-gray-700") #{item.full_name}
+                    div Founded: #{item.founded}
+                    div(class="mb-4") Defunct: #{item.defunct}
