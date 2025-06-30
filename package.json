@@ -21,14 +21,14 @@
     "typescript-eslint": "8.32.0"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=23.6.0"
   },
   "license": "MIT",
   "name": "@more-cars/rest-api",
   "repository": "https://github.com/more-cars/rest-api",
   "scripts": {
-    "start": "npx ts-node src/server.ts",
-    "local:app:start": "node --watch --env-file=.env -r ts-node/register src/server.ts",
+    "start": "node src/server.ts",
+    "local:app:start": "node --watch --env-file=.env src/server.ts",
     "local:css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
     "tests:lint": "npx eslint src",
     "tests:e2e:gui": "npx playwright test --ui --project=e2e",
@@ -38,5 +38,6 @@
     "tests:behavior:cli": "npx bddgen && npx playwright test --project=behavior",
     "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=tests/reporsts/performance/report.html k6 run -e FRONTEND_URL=http://localhost:3001 tests/performance/get-all-brands.ts"
   },
+  "type": "module",
   "version": "0.1.0"
 }

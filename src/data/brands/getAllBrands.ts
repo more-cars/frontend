@@ -1,4 +1,4 @@
-import {BrandNode} from "../../types/brands/BrandNode"
+import type {BrandNode} from "../../types/brands/BrandNode.mts"
 import axios from "axios"
 
 export async function getAllBrands(): Promise<false | Array<BrandNode>> {

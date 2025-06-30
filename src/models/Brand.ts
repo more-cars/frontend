@@ -1,6 +1,6 @@
-import {BrandNode} from "../types/brands/BrandNode"
-import {getBrandById} from "../data/brands/getBrandById"
-import {getAllBrands} from "../data/brands/getAllBrands"
+import type {BrandNode} from "../types/brands/BrandNode.mts"
+import {getBrandById} from "../data/brands/getBrandById.ts"
+import {getAllBrands} from "../data/brands/getAllBrands.ts"
 
 export class Brand {
     static async findById(id: number): Promise<BrandNode> {
