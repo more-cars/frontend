@@ -21,29 +21,10 @@ export class Brand {
     static async findAll(): Promise<Array<BrandNode>> {
         const brands = await getAllBrands()
 
-        if (brands) {
-            return brands
+        if (!brands) {
+            return []
         }
 
-        return [
-            {
-                id: 356,
-                name: "Alfa Romeo",
-                created_at: "2025-01-01T00:00:00Z",
-                updated_at: "2025-01-02T00:00:00Z",
-            },
-            {
-                id: 324,
-                name: "Bentley",
-                created_at: "2025-01-01T00:00:00Z",
-                updated_at: "2025-01-02T00:00:00Z",
-            },
-            {
-                id: 341,
-                name: "Chevrolet",
-                created_at: "2025-01-01T00:00:00Z",
-                updated_at: "2025-01-02T00:00:00Z",
-            }
-        ]
+        return brands
     }
 }
