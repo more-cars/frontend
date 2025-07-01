@@ -1,0 +1,8 @@
+.dockerignore
+.env*
+.git*
+.idea
+eslint.config.mjs
+deployment
+node_modules
+test-reports
