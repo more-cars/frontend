@@ -19,3 +19,8 @@ spec:
         - name: more-cars-frontend
           image: localhost/mc-frontend:dev
           imagePullPolicy: Never
+          env:
+            - name: API_HOST
+              value: $(API_SERVICE_SERVICE_HOST)
+            - name: API_PORT
+              value: $(API_SERVICE_SERVICE_PORT)
