@@ -5,8 +5,16 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brandId = parseInt(req.params.id)
     const brand = await Brand.findById(brandId)
 
+    if (!brand) {
+        res.statusCode = 404
+        return res.render('templates/brands/brand-not-found-page', {
+            pageTitle: `Brand not found`,
+            brand
+        })
+    }
+
     res.render('templates/brands/brand-page', {
-        pageTitle: `${brand.name} - Car Brand`,
+        pageTitle: `${brand.name} - Brand`,
         brand
     })
 }
