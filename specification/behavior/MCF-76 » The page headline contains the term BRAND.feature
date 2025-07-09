@@ -11,4 +11,3 @@ Feature: Brand - Overview Page - Basic
   Scenario: The page headline contains the term "BRAND"
     When the user visits the "BRAND" overview page
     Then the page headline should contain the the term "BRAND"
-

@@ -13,4 +13,3 @@ Feature: Brand - Overview Page - Basic
     When the user visits the "BRAND" overview page
     Then the BRAND list should not be displayed
     And a message should be displayed that there are no BRANDs
-
