@@ -1,7 +1,10 @@
 extends ../../layouts/base/layout
 
 block main
-    h1(class="mb-2 text-3xl font-bold underline") #{brand.name}
+    h1(class=`text-center
+        mb-8
+        text-3xl
+        font-bold`) #{brand.name}
     include fact-sheet
 
 block footer
