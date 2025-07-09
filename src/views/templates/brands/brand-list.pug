@@ -12,13 +12,15 @@ else
         data-testid="brands-list"
     )
         each item in nodeCollection
-            li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+            li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
                 div(class="grid grid-flow-col grid-cols-4 gap-4")
                     div(class="col-span-1 p-4 border-2 bg-orange-50")
                         div(class="aspect-16/9") IMG
                     div(class="col-span-3")
-                        a(class="inline-block font-bold text-xl mt-3" href=`/brands/${item.id}`) #{item.name}
+                        a(class="inline-block font-bold text-xl mt-3" href=`/brands/${item.id}`)
+                            span(aria-label="name") #{item.name}
                         br
-                        span(class="inline-block mb-4 text-gray-700") #{item.full_name}
-                        div Founded: #{item.founded}
-                        div(class="mb-4") Defunct: #{item.defunct}
+                        span(aria-label="full name" class="inline-block mb-4 text-gray-700") #{item.full_name}
+                        div(aria-label="founded") Founded: #{item.founded}
+                        div(aria-label="defunct" class="mb-4") Defunct: #{item.defunct}
+
