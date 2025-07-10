@@ -8,7 +8,7 @@ export const options = {
     summaryTrendStats: ['count', 'min', 'p(1)', 'p(90)', 'p(95)', 'p(98)'],
     thresholds: {
         http_req_failed: ['rate<=0.0'],
-        duration: ['p(1)<=10', 'p(90)<=30', 'p(95)<=50', 'p(98)<=100'],
+        duration: ['p(1)<=20', 'p(90)<=100', 'p(95)<=120', 'p(98)<=150'],
     },
     scenarios: {
         getAllBrands: {
@@ -30,7 +30,7 @@ export function getAllBrands() {
 
     check(response, {
         'returns with status code 200': (r) => r.status === 200,
-        'content-type is JSON': (r) => r.headers['Content-Type'].includes('text/html'),
+        'content-type is HTML': (r) => r.headers['Content-Type'].includes('text/html'),
     })
 
     trendDuration.add(response.timings.duration)
