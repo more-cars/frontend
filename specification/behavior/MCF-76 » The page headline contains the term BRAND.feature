@@ -10,4 +10,4 @@ Feature: Brand - Overview Page - Basic
   @TEST_MCF-76 @implemented
   Scenario: The page headline contains the term "BRAND"
     When the user visits the "BRAND" overview page
-    Then the page headline should contain the the term "BRAND"
+    Then the page headline should contain the term "BRAND"

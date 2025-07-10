@@ -1,7 +1,9 @@
 extends ../../layouts/base/layout
 
 block main
-    h1(class=`text-center
+    h1(
+        aria-label="brand name"
+        class=`text-center
         mb-8
         text-3xl
         font-bold`) #{brand.name}
