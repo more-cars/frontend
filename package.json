@@ -42,6 +42,8 @@
     "minikube:undeploy:dev": "deployment/minikube-app-undeploy.sh dev",
     "minikube:import-dev-image": "minikube image load localhost/mc-frontend:dev -p morecars",
     "minikube:delete-dev-image": "minikube image rm localhost/mc-frontend:dev -p morecars",
+    "gke:deploy:prod": "deployment/gke-app-deploy.sh prod",
+    "gke:undeploy:prod": "deployment/gke-app-undeploy.sh prod",
     "tests:lint": "npx eslint src",
     "tests:a11y:gui": "npx playwright test --config tests/a11y --ui",
     "tests:a11y:cli": "npx playwright test --config tests/a11y",
