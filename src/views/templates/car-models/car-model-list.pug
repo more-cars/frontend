@@ -21,6 +21,7 @@ else
                             span(aria-label="name") #{item.name}
                         if item.internal_code
                             span(aria-label="internal code")  (#{item.internal_code})
-                        div(aria-label="built from" class="mt-4") Built from: #{item.built_from}
-                        div(aria-label="built to" class="mb-4") Built to: #{item.built_to}
+                        ul
+                            li(aria-label="built from" class="mt-4") Built from: #{item.built_from}
+                            li(aria-label="built to" class="mb-4") Built to: #{item.built_to}
 
