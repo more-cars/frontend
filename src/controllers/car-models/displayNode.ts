@@ -7,7 +7,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     if (!carModel) {
         res.statusCode = 404
-        return res.render('templates/car-models/brand-not-found-page', {
+        return res.render('templates/car-models/car-model-not-found-page', {
             pageTitle: `Car Model not found`
         })
     }
