@@ -5,6 +5,6 @@ const {Then} = createBdd()
 
 Then('the page headline should contain the term {string}',
     async function ({page}, term: string) {
-        await expect(page.getByRole('heading', {name: "brand name"}))
+        await expect(page.locator('h1'))
             .toContainText(term, {ignoreCase: true})
     })
