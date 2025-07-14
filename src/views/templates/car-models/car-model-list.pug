@@ -1,0 +1,26 @@
+if nodeCollection.length === 0
+    div(
+        class="max-w-160 m-auto p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700"
+        data-testid="car-model-list-empty"
+    )
+        p(class="font-bold") No Car Models
+        p No car models were found. Either there are none or this is a temporary issue. Please try again later.
+else
+    ul(
+        class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto"
+        aria-label="List of all Car Models"
+        data-testid="car-model-list"
+    )
+        each item in nodeCollection
+            li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+                div(class="grid grid-flow-col grid-cols-4 gap-4")
+                    div(class="col-span-1 p-4 border-2 bg-orange-50")
+                        div(class="aspect-16/9") IMG
+                    div(class="col-span-3")
+                        a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${item.id}`)
+                            span(aria-label="name") #{item.name}
+                        if item.internal_code
+                            span(aria-label="internal code")  (#{item.internal_code})
+                        div(aria-label="built from" class="mt-4") Built from: #{item.built_from}
+                        div(aria-label="built to" class="mb-4") Built to: #{item.built_to}
+
