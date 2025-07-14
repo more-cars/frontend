@@ -9,9 +9,9 @@ Feature: Brand - Overview Page - Basic
 
   @TEST_MCF-77 @implemented
   Scenario: A list of all BRANDs is displayed
-    Given there exist 10 BRANDs
+    Given there exist 290 BRANDs
     When the user visits the "BRAND" overview page
     Then the BRAND list should be displayed
-    And the BRAND list should contain 10 items
+    And the BRAND list should contain 290 items
     And each item in the BRAND list should contain the primary BRAND information
     And each item in the BRAND list should link to the respective detail page
