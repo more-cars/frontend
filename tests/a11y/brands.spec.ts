@@ -1,7 +1,7 @@
 import {test} from '@playwright/test'
 import {runAccessibilityScanner} from "./runAccessibilityScanner.js"
 
-test('Brands', async ({page}) => {
+test('Brands: Overview Page', async ({page}) => {
     await page.goto('/brands')
 
     await runAccessibilityScanner(page)
