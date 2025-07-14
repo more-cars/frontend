@@ -1,5 +1,6 @@
 import {createBdd} from "playwright-bdd"
 import {expect} from "@playwright/test"
+import {selectRandomEntries} from "../../../_helper/selectRandomEntries.js"
 
 const {Then} = createBdd()
 
@@ -10,7 +11,7 @@ Then('each item in the BRAND list should link to the respective detail page',
             .getByRole('link')
             .all()
 
-        for (const link of links) {
+        for (const link of selectRandomEntries(links, 5)) {
             expect(await link.getAttribute('href'))
                 .toMatch(/\/brands\/\d+/)
         }

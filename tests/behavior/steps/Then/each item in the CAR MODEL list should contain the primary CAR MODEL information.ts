@@ -1,5 +1,6 @@
 import {createBdd} from "playwright-bdd"
 import {expect, test} from "@playwright/test"
+import {selectRandomEntries} from "../../../_helper/selectRandomEntries.js"
 
 const {Then} = createBdd()
 
@@ -10,7 +11,7 @@ Then('each item in the CAR MODEL list should contain the primary CAR MODEL infor
             .getByRole('listitem', {name: "car-model"})
             .all()
 
-        for (const carModel of carModels.slice(0, 10)) { // TODO select a handful of random items
+        for (const carModel of selectRandomEntries(carModels, 5)) {
             await expect(carModel.locator('[aria-label="name"]'))
                 .not.toBeEmpty()
             await expect(carModel.locator('[aria-label="built from"]'))
