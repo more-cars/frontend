@@ -8,8 +8,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     if (!brand) {
         res.statusCode = 404
         return res.render('templates/brands/brand-not-found-page', {
-            pageTitle: `Brand not found`,
-            brand
+            pageTitle: `Brand not found`
         })
     }
 
