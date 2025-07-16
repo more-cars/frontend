@@ -4,6 +4,7 @@ import {Brand} from "../../models/Brand.ts"
 export async function displayNode(req: express.Request, res: express.Response) {
     const brandId = parseInt(req.params.id)
     const brand = await Brand.findById(brandId)
+    const connectedCarModels = await Brand.findConnectedCarModels(brandId)
 
     if (!brand) {
         res.statusCode = 404
@@ -14,6 +15,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/brands/brand-page', {
         pageTitle: `${brand.name} - Brand`,
-        brand
+        brand,
+        carModels: connectedCarModels,
     })
 }
