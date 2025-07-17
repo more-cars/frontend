@@ -33,12 +33,12 @@
     "css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css",
     "docker:build-image": "docker build -t mc-frontend -f deployment/Dockerfile .",
     "docker:tag-image:dev": "docker image tag mc-frontend localhost/mc-frontend:dev",
-    "docker:tag-image:dockerhub": "docker image tag mc-frontend docker.io/dennisgerike/more-cars-frontend:0.1.0",
-    "docker:tag-image:github": "docker image tag mc-frontend ghcr.io/more-cars/frontend:0.1.0",
+    "docker:tag-image:dockerhub": "docker image tag mc-frontend docker.io/dennisgerike/more-cars-frontend:0.2.0",
+    "docker:tag-image:github": "docker image tag mc-frontend ghcr.io/more-cars/frontend:0.2.0",
     "docker:login:dockerhub": "docker login docker.io",
     "docker:login:github": "docker login ghcr.io",
-    "docker:push-image:dockerhub": "docker push docker.io/dennisgerike/more-cars-frontend:0.1.0",
-    "docker:push-image:github": "docker push ghcr.io/more-cars/frontend:0.1.0",
+    "docker:push-image:dockerhub": "docker push docker.io/dennisgerike/more-cars-frontend:0.2.0",
+    "docker:push-image:github": "docker push ghcr.io/more-cars/frontend:0.2.0",
     "minikube:install": "deployment/minikube-install.sh",
     "minikube:start": "deployment/minikube-cluster-start.sh",
     "minikube:open-tunnel": "deployment/minikube-tunnel-start.sh",
@@ -61,5 +61,5 @@
     "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:3001 k6 run tests/performance/get-car-model.ts"
   },
   "type": "module",
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
