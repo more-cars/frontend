@@ -6,6 +6,6 @@ COPY .. .
 
 RUN npm ci --omit=dev
 
-RUN npm run css:build:prod
+RUN npm run css:build
 
 ENTRYPOINT ["npm", "start"]
