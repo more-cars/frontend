@@ -58,7 +58,7 @@
     "tests:a11y:report": "npx playwright show-report tests/a11y/reports",
     "tests:behavior:gui": "npx playwright test --ui & nodemon -w ./specification/behavior -w ./tests/behavior/steps -e feature,ts --exec \"npx bddgen\"",
     "tests:behavior:cli": "npx bddgen && npx playwright test",
-    "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=tests/reporsts/performance/report.html k6 run -e FRONTEND_URL=http://localhost:3001 tests/performance/get-all-brands.ts"
+    "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:3001 k6 run tests/performance/get-car-model.ts"
   },
   "type": "module",
   "version": "0.1.0"
