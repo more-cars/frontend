@@ -55,7 +55,7 @@
     "tests:lint": "npx eslint src",
     "tests:a11y:gui": "npx playwright test --config tests/a11y --ui",
     "tests:a11y:cli": "npx playwright test --config tests/a11y",
-    "tests:a11y:report": "npx playwright show-report tests/a11y/reports",
+    "tests:a11y:report": "npx playwright show-report test-reports/a11y/reports",
     "tests:behavior:gui": "npx playwright test --ui & nodemon -w ./specification/behavior -w ./tests/behavior/steps -e feature,ts --exec \"npx bddgen\"",
     "tests:behavior:cli": "npx bddgen && npx playwright test",
     "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:3001 k6 run tests/performance/get-car-model.ts"
