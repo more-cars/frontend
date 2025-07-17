@@ -1,8 +1,8 @@
 if brand
-    section(class="" aria-label="brand")
+    section(aria-label="brand")
         h2(class="text-2xl mb-4 text-center") Brand
 
-        div(class="grid grid-flow-col grid-cols-4 gap-4")
+        div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`brand-${brand.id}`)
             div(class="col-span-1 p-4 border-2 bg-orange-50")
                 div(class="aspect-16/9") IMG
             div(class="col-span-3")
