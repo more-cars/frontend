@@ -3,6 +3,7 @@
     "target": "ESNext",
     "module": "NodeNext",
     "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noEmit": true,
+    "esModuleInterop": true
   }
 }
