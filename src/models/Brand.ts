@@ -23,7 +23,8 @@ export class Brand {
             return []
         }
 
-        return brands
+        // TODO remove the limiter when pagination is implemented
+        return brands.slice(0, 1000)
     }
 
     static async findConnectedCarModels(brandId: number): Promise<Array<CarModelNode>> {

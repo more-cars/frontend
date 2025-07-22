@@ -13,7 +13,8 @@ export class CarModel {
             return []
         }
 
-        return carModels
+        // TODO remove the limiter when pagination is implemented
+        return carModels.slice(0, 1000)
     }
 
     static async findById(id: number): Promise<false | CarModelNode> {
@@ -28,7 +29,7 @@ export class CarModel {
 
     static async findConnectedBrand(carModelId: number): Promise<BrandNode> {
         const brandRelation = await getConnectedBrand(carModelId)
-        
+
         return await getBrandById(brandRelation.brand_id)
     }
 }

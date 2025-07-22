@@ -9,6 +9,7 @@ export class Image {
             return []
         }
 
-        return images
+        // TODO remove the limiter when pagination is implemented
+        return images.slice(0, 1000)
     }
 }
