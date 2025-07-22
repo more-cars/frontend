@@ -3,7 +3,7 @@ import {expect} from "@playwright/test"
 
 const {Then} = createBdd()
 
-Then('the page should contain a CAR MODEL list',
+Then('the page should contain a CAR MODEL section',
     async function ({page}) {
         await expect(
             page.getByRole('region')

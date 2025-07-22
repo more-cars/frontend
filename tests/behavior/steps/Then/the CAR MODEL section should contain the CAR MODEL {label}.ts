@@ -3,7 +3,7 @@ import {expect} from "@playwright/test"
 
 const {Then} = createBdd()
 
-Then('the CAR MODEL list should contain the CAR MODEL {string}',
+Then('the CAR MODEL section should contain the CAR MODEL {string}',
     async function ({page}, carModelLabel: string) {
         const carModelId = this.carModel
 

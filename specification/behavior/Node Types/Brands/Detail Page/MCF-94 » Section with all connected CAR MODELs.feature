@@ -14,5 +14,5 @@ Feature: Brand - Detail Page - Connected Car Models
     And there exists a "CAR MODEL" "Twingo"
     And CAR MODEL "Twingo" is connected to BRAND "Renault"
     When the user visits the detail page of the "BRAND" "Renault"
-    Then the page should contain a CAR MODEL list
-    And the CAR MODEL list should contain the CAR MODEL "Twingo"
+    Then the page should contain a CAR MODEL section
+    And the CAR MODEL section should contain the CAR MODEL "Twingo"
