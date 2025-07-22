@@ -9,6 +9,6 @@ Feature: Car Model - Detail Page - Basic
 
   @TEST_MCF-100 @implemented
   Scenario: An error message is displayed when the requested CAR MODEL does not exist
-    Given there exists no CAR MODEL "Zonda"
+    Given there exists no "CAR MODEL" "Zonda"
     When the user visits the detail page of the "CAR MODEL" "Zonda"
     Then a message should be displayed that this CAR MODEL does not exist
