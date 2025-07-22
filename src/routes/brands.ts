@@ -4,7 +4,7 @@ import {displayNode} from "../controllers/brands/displayNode.ts"
 
 const router = express.Router()
 
-router.get('/brands/:id', displayNode)
 router.get('/brands', displayAllNodes)
+router.get('/brands/:id', displayNode)
 
 export default router

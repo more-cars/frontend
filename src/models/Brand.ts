@@ -6,16 +6,6 @@ import {getConnectedCarModels} from "../data/brands/getConnectedCarModels.ts"
 import {getCarModelById} from "../data/car-models/getCarModelById.ts"
 
 export class Brand {
-    static async findById(id: number): Promise<false | BrandNode> {
-        const brand = await getBrandById(id)
-
-        if (!brand) {
-            return false
-        }
-
-        return brand
-    }
-
     static async findAll(): Promise<Array<BrandNode>> {
         const brands = await getAllBrands()
 
@@ -25,6 +15,16 @@ export class Brand {
 
         // TODO remove the limiter when pagination is implemented
         return brands.slice(0, 1000)
+    }
+
+    static async findById(id: number): Promise<false | BrandNode> {
+        const brand = await getBrandById(id)
+
+        if (!brand) {
+            return false
+        }
+
+        return brand
     }
 
     static async findConnectedCarModels(brandId: number): Promise<Array<CarModelNode>> {
