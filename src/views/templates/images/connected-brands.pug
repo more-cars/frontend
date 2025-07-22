@@ -1,0 +1,23 @@
+if brands.length > 0
+    section(aria-label="brands" class="max-w-150 m-auto")
+        h2(class="text-2xl mb-4 text-center") Brands
+            span  (#{brands.length})
+
+        ul(
+            class=""
+            aria-label="List of all Brands that are attached to the Image"
+            data-testid="brand-list"
+        )
+            each item in brands
+                li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+                    div(class="grid grid-flow-col grid-cols-4 gap-4")
+                        div(class="col-span-1 p-4 border-2 bg-orange-50")
+                            div(class="aspect-16/9") IMG
+                        div(class="col-span-3")
+                            a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.id}`)
+                                span(aria-label="name") #{item.name}
+                            ul
+                                li(aria-label="full name" class="inline-block text-gray-700") #{item.full_name}
+                                li(aria-label="founded" class="mt-4") Founded: #{item.founded}
+                                li(aria-label="defunct" class="mb-4") Defunct: #{item.defunct}
+

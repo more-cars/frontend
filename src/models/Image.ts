@@ -1,6 +1,11 @@
 import {getAllImages} from "../data/images/getAllImages.ts"
-import type {ImageNode} from "../types/images/ImageNode.mts"
 import {getImageById} from "../data/images/getImageById.ts"
+import {getConnectedNodes} from "../data/images/getConnectedNodes.ts"
+import {getBrandById} from "../data/brands/getBrandById.ts"
+import {getCarModelById} from "../data/car-models/getCarModelById.ts"
+import type {BrandNode} from "../types/brands/BrandNode.mts"
+import type {CarModelNode} from "../types/car-models/CarModelNode.mts"
+import type {ImageNode} from "../types/images/ImageNode.mts"
 
 export class Image {
     static async findAll(): Promise<Array<ImageNode>> {
@@ -22,5 +27,33 @@ export class Image {
         }
 
         return image
+    }
+
+    static async findConnectedBrands(imageId: number): Promise<Array<BrandNode>> {
+        const brands = []
+        const allRelations = await getConnectedNodes(imageId)
+
+        for (const relation of allRelations) {
+            const brand = await getBrandById(relation.partner_node_id)
+            if (brand) {
+                brands.push(brand)
+            }
+        }
+
+        return brands
+    }
+
+    static async findConnectedCarModels(imageId: number): Promise<Array<CarModelNode>> {
+        const carModels = []
+        const allRelations = await getConnectedNodes(imageId)
+
+        for (const relation of allRelations) {
+            const carModel = await getCarModelById(relation.partner_node_id)
+            if (carModel) {
+                carModels.push(carModel)
+            }
+        }
+
+        return carModels
     }
 }
