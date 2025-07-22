@@ -35,7 +35,7 @@
   "scripts": {
     "start": "node src/server.ts",
     "local:app:start": "node --watch --env-file=.env src/server.ts & npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
-    "css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css",
+    "css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --minify",
     "docker:build-image": "docker build -t mc-frontend -f deployment/Dockerfile .",
     "docker:tag-image:dev": "docker image tag mc-frontend localhost/mc-frontend:dev",
     "docker:tag-image:dockerhub": "docker image tag mc-frontend docker.io/dennisgerike/more-cars-frontend:0.2.0",
