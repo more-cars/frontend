@@ -11,7 +11,7 @@ export class Image {
         }
 
         // TODO remove the limiter when pagination is implemented
-        return images.slice(0, 1000)
+        return images.slice(0, 100)
     }
 
     static async findById(id: number): Promise<false | ImageNode> {

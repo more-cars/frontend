@@ -14,7 +14,7 @@ export class Brand {
         }
 
         // TODO remove the limiter when pagination is implemented
-        return brands.slice(0, 1000)
+        return brands.slice(0, 100)
     }
 
     static async findById(id: number): Promise<false | BrandNode> {

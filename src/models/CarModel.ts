@@ -14,7 +14,7 @@ export class CarModel {
         }
 
         // TODO remove the limiter when pagination is implemented
-        return carModels.slice(0, 1000)
+        return carModels.slice(0, 100)
     }
 
     static async findById(id: number): Promise<false | CarModelNode> {
