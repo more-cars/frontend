@@ -10,9 +10,9 @@ Feature: Brand - Detail Page - Connected Car Models
 
   @TEST_MCF-94 @implemented
   Scenario: Section with all connected CAR MODELs
-    Given there exists a BRAND "Renault"
-    And there exists a CAR MODEL "Twingo"
+    Given there exists a "BRAND" "Renault"
+    And there exists a "CAR MODEL" "Twingo"
     And CAR MODEL "Twingo" is connected to BRAND "Renault"
-    When the user visits the detail page of the BRAND "Renault"
+    When the user visits the detail page of the "BRAND" "Renault"
     Then the page should contain a CAR MODEL list
     And the CAR MODEL list should contain the CAR MODEL "Twingo"

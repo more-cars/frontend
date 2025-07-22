@@ -9,6 +9,6 @@ Feature: Brand - Detail Page - Basic
 
   @TEST_MCF-85 @implemented
   Scenario: The page headline contains the BRAND name
-    Given there exists a BRAND "Audi"
-    When the user visits the detail page of the BRAND "Audi"
+    Given there exists a "BRAND" "Audi"
+    When the user visits the detail page of the "BRAND" "Audi"
     Then the page headline should contain the term "Audi"

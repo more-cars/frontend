@@ -10,7 +10,7 @@ Feature: Brand - Detail Page - Connected Car Models
 
   @TEST_MCF-95 @implemented
   Scenario: No CAR MODEL section when none are connected
-    Given there exists a BRAND "Renault"
+    Given there exists a "BRAND" "Renault"
     And no CAR MODELs are connected to BRAND "Renault"
-    When the user visits the detail page of the BRAND "Renault"
+    When the user visits the detail page of the "BRAND" "Renault"
     Then the page should contain no CAR MODEL list

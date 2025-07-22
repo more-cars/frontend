@@ -9,6 +9,6 @@ Feature: Brand - Detail Page - Basic
 
   @TEST_MCF-86 @implemented
   Scenario: The page title contains the BRAND name
-    Given there exists a BRAND "Audi"
-    When the user visits the detail page of the BRAND "Audi"
+    Given there exists a "BRAND" "Audi"
+    When the user visits the detail page of the "BRAND" "Audi"
     Then the page title should contain the term "Audi"

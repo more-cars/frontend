@@ -9,8 +9,8 @@ Feature: Brand - Detail Page - Basic
 
   @TEST_MCF-87 @implemented
   Scenario: The page contains a fact sheet with all BRAND properties
-    Given there exists a BRAND "Audi"
-    When the user visits the detail page of the BRAND "Audi"
+    Given there exists a "BRAND" "Audi"
+    When the user visits the detail page of the "BRAND" "Audi"
     Then the page should contain a fact sheet
     And the fact sheet should display entries for each of the following properties
       | _property_ |

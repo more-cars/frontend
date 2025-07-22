@@ -10,7 +10,7 @@ Feature: Car Model - Detail Page - Connected Brand
 
   @TEST_MCF-103 @implemented
   Scenario: No BRAND section when none is connected
-    Given there exists a CAR MODEL "Twingo"
+    Given there exists a "CAR MODEL" "Twingo"
     And no BRAND is connected to CAR MODEL "Twingo"
-    When the user visits the detail page of the CAR MODEL "Twingo"
+    When the user visits the detail page of the "CAR MODEL" "Twingo"
     Then the page should contain no BRAND section

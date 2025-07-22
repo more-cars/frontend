@@ -9,8 +9,8 @@ Feature: Car Model - Detail Page - Basic
 
   @TEST_MCF-99 @implemented
   Scenario: The page contains a fact sheet with all CAR MODEL properties
-    Given there exists a CAR MODEL "Zonda"
-    When the user visits the detail page of the CAR MODEL "Zonda"
+    Given there exists a "CAR MODEL" "Zonda"
+    When the user visits the detail page of the "CAR MODEL" "Zonda"
     Then the page should contain a fact sheet
     And the fact sheet should display entries for each of the following properties
       | _property_       |

@@ -9,6 +9,6 @@ Feature: Car Model - Detail Page - Basic
 
   @TEST_MCF-97 @implemented
   Scenario: The page headline contains the CAR MODEL name
-    Given there exists a CAR MODEL "Zonda"
-    When the user visits the detail page of the CAR MODEL "Zonda"
+    Given there exists a "CAR MODEL" "Zonda"
+    When the user visits the detail page of the "CAR MODEL" "Zonda"
     Then the page headline should contain the term "Zonda"

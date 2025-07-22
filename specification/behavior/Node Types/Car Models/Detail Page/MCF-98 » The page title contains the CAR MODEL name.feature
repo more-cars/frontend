@@ -9,6 +9,6 @@ Feature: Car Model - Detail Page - Basic
 
   @TEST_MCF-98 @implemented
   Scenario: The page title contains the CAR MODEL name
-    Given there exists a CAR MODEL "Zonda"
-    When the user visits the detail page of the CAR MODEL "Zonda"
+    Given there exists a "CAR MODEL" "Zonda"
+    When the user visits the detail page of the "CAR MODEL" "Zonda"
     Then the page title should contain the term "Zonda"
