@@ -9,7 +9,7 @@ if brands.length > 0
             data-testid="brand-list"
         )
             each item in brands
-                li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+                li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
                         div(class="col-span-1 p-4 border-2 bg-orange-50")
                             div(class="aspect-16/9") IMG

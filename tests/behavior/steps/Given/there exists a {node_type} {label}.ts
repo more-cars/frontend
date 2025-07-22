@@ -12,7 +12,7 @@ Given('there exists a(n) {string} {string}',
                 this.carModel = 443
                 break
             case 'image':
-                this.image = 12806
+                this.image = 2213
                 break
         }
     })
