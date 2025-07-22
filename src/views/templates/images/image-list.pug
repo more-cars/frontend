@@ -12,14 +12,16 @@ else
         data-testid="image-list"
     )
         each item in nodeCollection
-            li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
-                div(class="grid grid-flow-col grid-cols-4 gap-4")
-                    div(class="col-span-1 p-4 border-2 bg-orange-50")
-                        div(class="aspect-16/9") IMG
-                    div(class="col-span-3")
+            li(aria-label="brand" class="mb-4 bg-stone-100 rounded-2xl inset-shadow-sm border-2 border-gray-300")
+                div(class="grid grid-flow-col grid-cols-3 gap-4 h-full")
+                    if item.image_url_s
+                        img(src=`${item.image_url_s}` class="col-span-1 h-full object-cover rounded-l-2xl")
+                    else
+                        div(class="col-span-1 h-full object-cover rounded-l-2xl content-center text-center")
+                    div(class="col-span-2")
                         a(class="inline-block font-bold text-xl mt-3 underline" href=`/images/${item.id}`)
                             span(aria-label="name") #{item.name}
                         ul
                             li(aria-label="founded" class="mt-4") Creator: #{item.creator}
                             li(aria-label="founded" class="") Image Provider: #{item.image_provider}
-                            li(aria-label="founded" class="") License: #{item.license}
+                            li(aria-label="founded" class="mb-4") License: #{item.license}
