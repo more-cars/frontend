@@ -4,8 +4,11 @@ import {Image} from "../../models/Image.ts"
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const images = await Image.findAll()
 
-    res.render('templates/images/images-page', {
+    return res.render('templates/images/images-page', {
         pageTitle: 'All Images',
         nodeCollection: images
+    }, (error, html) => {
+        res.statusCode = 200
+        res.send(html)
     })
 }

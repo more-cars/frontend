@@ -11,6 +11,9 @@ export async function displayNode(req: express.Request, res: express.Response) {
         res.statusCode = 404
         return res.render('templates/images/image-not-found-page', {
             pageTitle: `Image not found`
+        }, (error, html) => {
+            res.statusCode = 404
+            res.send(html)
         })
     }
 
@@ -19,5 +22,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         image,
         brands: connectedBrands,
         carModels: connectedCarModels,
+    }, (error, html) => {
+        res.statusCode = 200
+        res.send(html)
     })
 }

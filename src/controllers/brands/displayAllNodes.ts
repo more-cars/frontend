@@ -4,8 +4,11 @@ import {Brand} from "../../models/Brand.ts"
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const brands = await Brand.findAll()
 
-    res.render('templates/brands/brands-page', {
+    return res.render('templates/brands/brands-page', {
         pageTitle: 'All Brands',
         nodeCollection: brands
+    }, (error, html) => {
+        res.statusCode = 200
+        res.send(html)
     })
 }
