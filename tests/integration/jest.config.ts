@@ -16,4 +16,18 @@ module.exports = {
         }],
     ],
     forceExit: true,
+    collectCoverage: false,
+    coverageProvider: "v8",
+    coverageDirectory: '<rootDir>/test-reports/integration/code-coverage',
+    collectCoverageFrom: [
+        '<rootDir>/src/**/*.ts',
+        '!<rootDir>/src/server.ts',
+        '!<rootDir>/src/**/types/**',
+    ],
+    coverageThreshold: {
+        global: {
+            statements: 48,
+            branches: 83,
+        }
+    }
 }

@@ -60,6 +60,7 @@
     "gke:undeploy:prod": "deployment/gke-app-undeploy.sh prod",
     "tests:lint": "npx eslint src",
     "tests:integration": "npx jest --projects tests/integration",
+    "tests:integration:coverage": "npx jest --projects tests/integration --coverage",
     "tests:a11y:gui": "npx playwright test --config tests/a11y --ui",
     "tests:a11y:cli": "npx playwright test --config tests/a11y",
     "tests:a11y:report": "npx playwright show-report test-reports/a11y/reports",
