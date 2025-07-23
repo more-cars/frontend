@@ -2,8 +2,8 @@ on:
   workflow_call:
 
 jobs:
-  lint-typescript-code:
-    name: Lint TypeScript Code
+  run-integration-tests:
+    name: Run Integration Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,5 +14,5 @@ jobs:
           node-version: 24
       - name: Install Node.js dependencies
         run: npm ci
-      - name: Lint TypeScript code
-        run: npm run tests:lint
+      - name: Run Integration Tests
+        run: npm run tests:integration
