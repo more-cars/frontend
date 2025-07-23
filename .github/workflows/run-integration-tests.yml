@@ -16,3 +16,12 @@ jobs:
         run: npm ci
       - name: Run Integration Tests
         run: npm run tests:integration
+      - name: Publish Integration Test Report
+        uses: dorny/test-reporter@v2
+        if: ${{ !cancelled() }}
+        with:
+          name: Integration Tests
+          path: test-reports/integration/report.xml
+          reporter: jest-junit
+          badge-title: 'Integration Tests'
+          list-tests: 'none'
