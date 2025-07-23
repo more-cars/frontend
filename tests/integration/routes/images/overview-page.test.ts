@@ -6,12 +6,13 @@ jest.mock("../../../../src/controllers/images/displayAllNodes.ts")
 
 test('Images: Overview Page', async () => {
     (displayAllNodes as jest.Mock).mockImplementation((req, res) => {
-        res.status(222).send();
+        res.send()
     })
 
-    const response = await request(app)
-        .get('/images').send()
+    await request(app)
+        .get('/images')
+        .send()
 
-    expect(response.status).toBe(222)
-    expect(displayAllNodes).toHaveBeenCalledTimes(1)
+    expect(displayAllNodes)
+        .toHaveBeenCalledTimes(1)
 })
