@@ -1,5 +1,5 @@
 import axios from "axios"
-import type {BrandHasImageRelation} from "../../types/car-models/BrandHasImageRelation.mts"
+import type {BrandHasImageRelation} from "../../types/brands/BrandHasImageRelation.mts"
 
 export async function getConnectedImages(brandId: number): Promise<Array<BrandHasImageRelation>> {
     try {

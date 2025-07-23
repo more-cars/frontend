@@ -1,5 +1,5 @@
 import axios from "axios"
-import type {BrandHasCarModelRelation} from "../../types/car-models/BrandHasCarModelRelation.mts"
+import type {BrandHasCarModelRelation} from "../../types/brands/BrandHasCarModelRelation.mts"
 
 export async function getConnectedCarModels(brandId: number): Promise<Array<BrandHasCarModelRelation>> {
     try {
