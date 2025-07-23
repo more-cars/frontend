@@ -8,7 +8,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const connectedCarModels = await Image.findConnectedCarModels(imageId)
 
     if (!image) {
-        res.statusCode = 404
         return res.render('templates/images/image-not-found-page', {
             pageTitle: `Image not found`
         }, (error, html) => {
