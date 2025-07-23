@@ -1,9 +1,12 @@
 import type {CarModelNode} from "../types/car-models/CarModelNode.mts"
 import type {BrandNode} from "../types/brands/BrandNode.mts"
+import type {ImageNode} from "../types/images/ImageNode.mts"
 import {getCarModelById} from "../data/car-models/getCarModelById.ts"
 import {getAllCarModels} from "../data/car-models/getAllCarModels.ts"
 import {getConnectedBrand} from "../data/car-models/getConnectedBrand.ts"
 import {getBrandById} from "../data/brands/getBrandById.ts"
+import {getConnectedImages} from "../data/car-models/getConnectedImages.ts"
+import {getImageById} from "../data/images/getImageById.ts"
 
 export class CarModel {
     static async findAll(): Promise<Array<CarModelNode>> {
@@ -31,5 +34,16 @@ export class CarModel {
         const brandRelation = await getConnectedBrand(carModelId)
 
         return await getBrandById(brandRelation.brand_id)
+    }
+
+    static async findConnectedImages(carModelId: number): Promise<Array<ImageNode>> {
+        const imageRelations = await getConnectedImages(carModelId)
+        const images = []
+
+        for (const imageRelation of imageRelations) {
+            images.push(await getImageById(imageRelation.image_id))
+        }
+
+        return images
     }
 }
