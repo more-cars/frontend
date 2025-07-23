@@ -12,6 +12,7 @@ block main
             include fact-sheet
         div
             include connected-car-models
+            include connected-images
 
 block footer
     p Footer area...
@@ -19,3 +20,5 @@ block footer
 block debug
     div(class="absolute bottom-0 right-0 p-4 border-2 border-purple-200 text-purple-600")
         p Brand ##{brand.id} loaded
+        p #{carModels.length} connected Car Model(s) loaded
+        p #{images.length} connected Image(s) loaded

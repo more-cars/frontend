@@ -5,6 +5,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brandId = parseInt(req.params.id)
     const brand = await Brand.findById(brandId)
     const connectedCarModels = await Brand.findConnectedCarModels(brandId)
+    const connectedImages = await Brand.findConnectedImages(brandId)
 
     if (!brand) {
         res.statusCode = 404
@@ -17,5 +18,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${brand.name} - Brand`,
         brand,
         carModels: connectedCarModels,
+        images: connectedImages,
     })
 }
