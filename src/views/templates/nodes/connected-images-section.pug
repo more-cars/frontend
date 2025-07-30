@@ -1,0 +1,12 @@
+mixin connected-images-section(nodeType)
+    section(aria-label="images")
+        h2(class="text-2xl mb-4 text-center") Images
+            span  (#{images.length})
+
+        ul(
+            class=""
+            aria-label=`List of all Images that are attached to the ${nodeType}`
+            data-testid="image-list"
+        )
+            each item in images
+                include ../images/image-list-item
