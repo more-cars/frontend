@@ -30,8 +30,12 @@ export class CarModel {
         return carModel
     }
 
-    static async findConnectedBrand(carModelId: number): Promise<BrandNode> {
+    static async findConnectedBrand(carModelId: number): Promise<false | BrandNode> {
         const brandRelation = await getConnectedBrand(carModelId)
+
+        if (!brandRelation) {
+            return false
+        }
 
         return await getBrandById(brandRelation.brand_id)
     }
