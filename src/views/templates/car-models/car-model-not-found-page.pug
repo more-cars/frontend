@@ -1,12 +1,8 @@
 extends ../../layouts/base/layout
 
 block main
-    div(
-        class="max-w-160 m-auto p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700"
-        data-testid="car-model-not-found"
-    )
-        p(class="font-bold") Car Model not found
-        p The requested car model was not found. Either it doesn't exist or this is a temporary issue. Please try again later.
+    include ../nodes/node-not-found-warning
+    +node-not-found-warning("car model")
 
 block footer
     p Footer area...

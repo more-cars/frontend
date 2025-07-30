@@ -1,0 +1,7 @@
+mixin node-not-found-warning(nodeType)
+    div(
+        class="max-w-160 m-auto p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700"
+        data-testid=`${nodeType.toString().replace(' ', '-')}-not-found`
+    )
+        p(class="font-bold") #{nodeType.toUpperCase()} not found!
+        p The requested #{nodeType} was not found. Either it doesn't exist or this is a temporary issue. Please try again later.
