@@ -18,7 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/images/image-page', {
         pageTitle: `${image.name} - Image`,
-        image,
+        node: image,
         brands: connectedBrands,
         carModels: connectedCarModels,
     }, (error, html) => {

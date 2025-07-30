@@ -18,7 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/car-models/car-model-page', {
         pageTitle: `${carModel.name} - Car Model`,
-        carModel,
+        node: carModel,
         brand: connectedBrand,
         images: connectedImages,
     }, (error, html) => {

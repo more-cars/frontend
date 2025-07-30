@@ -6,10 +6,10 @@ block main
         class=`text-center
         mb-8
         text-3xl
-        font-bold`) #{carModel.name}
+        font-bold`) #{node.name}
     div(class="grid grid-cols-2 gap-4 items-start")
         div
-            include fact-sheet
+            include ../nodes/fact-sheet
         div
             include connected-brand
             include connected-images
@@ -19,7 +19,7 @@ block footer
 
 block debug
     div(class="absolute bottom-0 right-0 p-4 border-2 border-purple-200 text-purple-600")
-        p Car Model ##{carModel.id} loaded
+        p Car Model ##{node.id} loaded
         if brand
             p 1 connected Brand loaded
         p #{images.length} connected Image(s) loaded
