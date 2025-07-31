@@ -25,7 +25,8 @@
     "playwright-bdd": "8.3.1",
     "supertest": "7.1.4",
     "ts-jest": "29.4.0",
-    "typescript-eslint": "8.38.0"
+    "typescript-eslint": "8.38.0",
+    "vitest": "3.2.4"
   },
   "engines": {
     "node": ">=23.6.0"
@@ -59,7 +60,7 @@
     "gke:deploy:prod": "deployment/gke-app-deploy.sh prod",
     "gke:undeploy:prod": "deployment/gke-app-undeploy.sh prod",
     "tests:lint": "npx eslint src",
-    "tests:integration": "npx jest --projects tests/integration",
+    "tests:integration": "npx vitest run -c tests/integration/vite.config.ts",
     "tests:integration:coverage": "npx jest --projects tests/integration --coverage",
     "tests:a11y:gui": "npx playwright test --config tests/a11y --ui",
     "tests:a11y:cli": "npx playwright test --config tests/a11y",

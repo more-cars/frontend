@@ -1,11 +1,12 @@
 import request from 'supertest'
 import {app} from "../../../../../src/app.ts"
 import {Image} from "../../../../../src/models/Image.ts"
+import {expect, test, vi} from "vitest"
 
 test('Images - Detail Page - Node not found', async () => {
-    Image.findById = jest.fn().mockReturnValue(false)
-    Image.findConnectedBrands = jest.fn().mockReturnValue([])
-    Image.findConnectedCarModels = jest.fn().mockReturnValue([])
+    Image.findById = vi.fn().mockReturnValue(false)
+    Image.findConnectedBrands = vi.fn().mockReturnValue([])
+    Image.findConnectedCarModels = vi.fn().mockReturnValue([])
 
     const response = await request(app)
         .get('/images/-42')

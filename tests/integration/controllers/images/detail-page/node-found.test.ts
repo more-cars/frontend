@@ -1,9 +1,10 @@
 import request from 'supertest'
 import {app} from "../../../../../src/app.ts"
 import {Image} from "../../../../../src/models/Image.ts"
+import {expect, test, vi} from "vitest"
 
 test('Images - Detail Page - Node found', async () => {
-    Image.findById = jest.fn().mockReturnValue({
+    Image.findById = vi.fn().mockReturnValue({
         id: 1234,
         image_provider: "dummy",
         external_id: "dummy",
@@ -23,8 +24,8 @@ test('Images - Detail Page - Node found', async () => {
         created_at: "dummy",
         updated_at: "dummy",
     })
-    Image.findConnectedBrands = jest.fn().mockReturnValue([])
-    Image.findConnectedCarModels = jest.fn().mockReturnValue([])
+    Image.findConnectedBrands = vi.fn().mockReturnValue([])
+    Image.findConnectedCarModels = vi.fn().mockReturnValue([])
 
     const response = await request(app)
         .get('/images/12345')

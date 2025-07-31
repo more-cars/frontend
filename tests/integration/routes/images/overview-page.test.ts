@@ -1,17 +1,13 @@
 import request from 'supertest'
 import {app} from "../../../../src/app.ts"
 import {displayAllNodes} from "../../../../src/controllers/images/displayAllNodes.ts"
+import {expect, test, vi} from "vitest"
 
-jest.mock("../../../../src/controllers/images/displayAllNodes.ts")
+vi.mock("../../../../src/controllers/images/displayAllNodes.ts", {spy: true})
 
 test('Images: Overview Page', async () => {
-    (displayAllNodes as jest.Mock).mockImplementation((req, res) => {
-        res.send()
-    })
-
     await request(app)
         .get('/images')
-        .send()
 
     expect(displayAllNodes)
         .toHaveBeenCalledTimes(1)
