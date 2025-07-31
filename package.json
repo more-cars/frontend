@@ -32,7 +32,7 @@
   "name": "@more-cars/frontend",
   "repository": "https://github.com/more-cars/frontend",
   "scripts": {
-    "start": "node src/server.ts",
+    "start": "NODE_ENV=production node src/server.ts",
     "local:app:start": "node --watch --env-file=.env src/server.ts & npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
     "css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --minify",
     "docker:build-image": "docker build -t mc-frontend -f deployment/Dockerfile .",
