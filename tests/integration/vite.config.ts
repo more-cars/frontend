@@ -14,6 +14,11 @@ export default defineConfig(({mode}) => ({
         env: loadEnv(mode, rootDir, ''),
         reporters: [
             'default',
+            ['junit', {
+                outputFile: 'test-reports/integration/report.xml',
+                suiteName: 'Integration Tests',
+                classnameTemplate: ''
+            }],
         ],
         coverage: {
             provider: 'v8',
