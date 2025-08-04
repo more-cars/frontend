@@ -12,7 +12,7 @@ query {
             issueId
             scenarioType
             gherkin
-            jira(fields: ["key", "status", "issuelinks", "summary", "labels"])
+            jira(fields: ["key", "issuelinks", "summary", "labels"])
         }
     }
 }

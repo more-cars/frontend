@@ -1,5 +1,7 @@
 import {expect, test} from "vitest"
 import {fetchRawScenariosFromXray} from "../../../specification/lib/fetchRawScenariosFromXray.ts"
+import {validateJson} from "../../_toolbox/validateJson.ts"
+import {FetchScenariosResponseSchema} from "../../_toolbox/schemas/FetchScenariosResponseSchema.ts"
 
 test('Xray - Fetching scenarios', async () => {
     const rawScenarios = await fetchRawScenariosFromXray()
@@ -7,9 +9,7 @@ test('Xray - Fetching scenarios', async () => {
     expect(rawScenarios.getTests.results.length)
         .toBeGreaterThan(0)
 
-    expect(rawScenarios.getTests.results[0])
-        .toHaveProperty('gherkin')
+    expect(validateJson(rawScenarios, FetchScenariosResponseSchema))
+        .toBeTruthy()
 
-    expect(rawScenarios.getTests.results[0])
-        .toHaveProperty('jira')
 }, 15000)
