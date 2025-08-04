@@ -1,13 +1,6 @@
 import type {CarModelNode} from "../../types/car-models/CarModelNode.mts"
-import axios from "axios"
-import {getApiBaseUrl} from "../getApiBaseUrl.ts"
+import {requestDataFromApi} from "../requestDataFromApi.ts"
 
-export async function getCarModelById(id: number): Promise<CarModelNode> {
-    try {
-        const response = await axios
-            .get(`${getApiBaseUrl()}/car-models/${id}`)
-        return response.data
-    } catch (error) {
-        console.error(`Error: ${error.code}`)
-    }
+export async function getCarModelById(id: number): Promise<false | CarModelNode> {
+    return await requestDataFromApi(`/car-models/${id}`)
 }

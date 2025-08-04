@@ -21,13 +21,7 @@ export class CarModel {
     }
 
     static async findById(id: number): Promise<false | CarModelNode> {
-        const carModel = await getCarModelById(id)
-
-        if (!carModel) {
-            return false
-        }
-
-        return carModel
+        return await getCarModelById(id)
     }
 
     static async findConnectedBrand(carModelId: number): Promise<false | BrandNode> {
@@ -42,8 +36,11 @@ export class CarModel {
 
     static async findConnectedImages(carModelId: number): Promise<Array<ImageNode>> {
         const imageRelations = await getConnectedImages(carModelId)
-        const images = []
+        if (!imageRelations) {
+            return []
+        }
 
+        const images = []
         for (const imageRelation of imageRelations) {
             images.push(await getImageById(imageRelation.image_id))
         }

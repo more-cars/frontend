@@ -21,19 +21,16 @@ export class Brand {
     }
 
     static async findById(id: number): Promise<false | BrandNode> {
-        const brand = await getBrandById(id)
-
-        if (!brand) {
-            return false
-        }
-
-        return brand
+        return await getBrandById(id)
     }
 
     static async findConnectedCarModels(brandId: number): Promise<Array<CarModelNode>> {
         const carModelRelations = await getConnectedCarModels(brandId)
-        const carModels = []
+        if (!carModelRelations) {
+            return []
+        }
 
+        const carModels = []
         for (const carModelRelation of carModelRelations) {
             carModels.push(await getCarModelById(carModelRelation.car_model_id))
         }
@@ -43,8 +40,11 @@ export class Brand {
 
     static async findConnectedImages(brandId: number): Promise<Array<ImageNode>> {
         const imageRelations = await getConnectedImages(brandId)
-        const images = []
+        if (!imageRelations) {
+            return []
+        }
 
+        const images = []
         for (const imageRelation of imageRelations) {
             images.push(await getImageById(imageRelation.image_id))
         }
