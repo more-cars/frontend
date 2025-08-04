@@ -1,0 +1,18 @@
+query {
+    getTests(
+        projectId: "10117"
+        testType: {
+            kind: "gherkin"
+        }
+        limit: 100
+        start: 0)
+    {
+        total
+        results {
+            issueId
+            scenarioType
+            gherkin
+            jira(fields: ["key", "status", "issuelinks", "summary", "labels"])
+        }
+    }
+}
