@@ -1,0 +1,70 @@
+{
+  "getTests": {
+    "total": 1,
+    "results": [
+      {
+        "issueId": "19249",
+        "scenarioType": "scenario",
+        "gherkin": "Given there exists a \"CAR MODEL\" \"Camaro\"\nAnd there exists an \"IMAGE\" \"front\"\nAnd the IMAGE \"front\" is connected to CAR MODEL \"Camaro\"\nWhen the user visits the detail page of the \"CAR MODEL\" \"Camaro\"\nAnd the user follows the link to the IMAGE \"front\"\nThen the user should have been redirected to the detail page of the IMAGE \"front\"",
+        "jira": {
+          "key": "MCF-124",
+          "summary": "Navigating to a linked IMAGE",
+          "issuelinks": [
+            {
+              "id": "14818",
+              "self": "https://dennis-gerike.atlassian.net/rest/api/2/issueLink/14818",
+              "type": {
+                "id": "10400",
+                "name": "Test",
+                "inward": "is tested by",
+                "outward": "tests",
+                "self": "https://dennis-gerike.atlassian.net/rest/api/2/issueLinkType/10400"
+              },
+              "outwardIssue": {
+                "id": "19248",
+                "key": "MCF-123",
+                "self": "https://dennis-gerike.atlassian.net/rest/api/2/issue/19248",
+                "fields": {
+                  "summary": "Each IMAGE links to the respective detail page",
+                  "status": {
+                    "self": "https://dennis-gerike.atlassian.net/rest/api/2/status/10001",
+                    "description": "",
+                    "iconUrl": "https://dennis-gerike.atlassian.net/",
+                    "name": "Done",
+                    "id": "10001",
+                    "statusCategory": {
+                      "self": "https://dennis-gerike.atlassian.net/rest/api/2/statuscategory/3",
+                      "id": 3,
+                      "key": "done",
+                      "colorName": "green",
+                      "name": "Done"
+                    }
+                  },
+                  "priority": {
+                    "self": "https://dennis-gerike.atlassian.net/rest/api/2/priority/3",
+                    "iconUrl": "https://dennis-gerike.atlassian.net/images/icons/priorities/medium_new.svg",
+                    "name": "Medium",
+                    "id": "3"
+                  },
+                  "issuetype": {
+                    "self": "https://dennis-gerike.atlassian.net/rest/api/2/issuetype/10166",
+                    "id": "10166",
+                    "description": "A rule which specifies one aspect of the user story.",
+                    "iconUrl": "https://dennis-gerike.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                    "name": "Acceptance Criteria",
+                    "subtask": true,
+                    "avatarId": 10318,
+                    "hierarchyLevel": -1
+                  }
+                }
+              }
+            }
+          ],
+          "labels": [
+            "implemented"
+          ]
+        }
+      }
+    ]
+  }
+}

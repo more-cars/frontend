@@ -8,6 +8,7 @@ node_modules
 .features-gen
 public
 test-reports
+_temp*
 
 # config files
 .env

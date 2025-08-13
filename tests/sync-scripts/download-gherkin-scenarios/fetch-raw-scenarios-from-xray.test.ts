@@ -3,7 +3,7 @@ import {fetchRawScenariosFromXray} from "../../../specification/lib/fetchRawScen
 import {validateJson} from "../../_toolbox/validateJson.ts"
 import {FetchScenariosResponseSchema} from "../../_toolbox/schemas/FetchScenariosResponseSchema.ts"
 
-test('Xray - Fetching scenarios', async () => {
+test('Fetching all scenarios from Xray', async () => {
     const rawScenarios = await fetchRawScenariosFromXray()
 
     expect(rawScenarios.getTests.results.length)
