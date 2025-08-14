@@ -59,6 +59,7 @@
     "minikube:delete-dev-image": "minikube image rm localhost/mc-frontend:dev -p morecars",
     "gke:deploy:prod": "deployment/gke-app-deploy.sh prod",
     "gke:undeploy:prod": "deployment/gke-app-undeploy.sh prod",
+    "specification:behavior:download": "node --env-file=.env specification/downloadGherkinScenarios.ts",
     "tests:lint": "npx eslint src",
     "tests:integration": "npx vitest run -c tests/integration/vite.config.ts",
     "tests:integration:coverage": "npx vitest run -c tests/integration/vite.config.ts --coverage",
