@@ -10,7 +10,6 @@ export const FetchScenariosResponseSchema = {
                     items: {
                         type: "object",
                         properties: {
-                            issueId: {type: "string"},
                             scenarioType: {type: "string"},
                             gherkin: {type: "string"},
                             jira: {
@@ -31,7 +30,6 @@ export const FetchScenariosResponseSchema = {
                             },
                         },
                         required: [
-                            "issueId",
                             "scenarioType",
                             "gherkin",
                             "jira",

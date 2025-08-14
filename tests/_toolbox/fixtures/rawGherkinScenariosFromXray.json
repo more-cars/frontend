@@ -1,9 +1,18 @@
 {
   "getTests": {
-    "total": 38,
+    "total": 39,
     "results": [
       {
-        "issueId": "19249",
+        "scenarioType": "scenario_outline",
+        "gherkin": "Given test <test>\n\nExamples:\n  |test|\n  | a  |\n  | b  |",
+        "jira": {
+          "key": "MCF-125",
+          "summary": "test",
+          "issuelinks": [],
+          "labels": []
+        }
+      },
+      {
         "scenarioType": "scenario",
         "gherkin": "Given there exists a \"CAR MODEL\" \"Camaro\"\nAnd there exists an \"IMAGE\" \"front\"\nAnd the IMAGE \"front\" is connected to CAR MODEL \"Camaro\"\nWhen the user visits the detail page of the \"CAR MODEL\" \"Camaro\"\nAnd the user follows the link to the IMAGE \"front\"\nThen the user should have been redirected to the detail page of the IMAGE \"front\"",
         "jira": {
@@ -66,7 +75,6 @@
         }
       },
       {
-        "issueId": "19246",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a \"BRAND\" \"Jaguar\"\nAnd there exists an \"IMAGE\" \"front-left\"\nAnd IMAGE \"front-left\" is connected to BRAND \"Jaguar\"\nWhen the user visits the detail page of the \"BRAND\" \"Jaguar\"\nAnd the user follows the link to the IMAGE \"front-left\"\nThen the user should have been redirected to the detail page of the IMAGE \"front-left\"",
         "jira": {
@@ -127,7 +135,6 @@
         }
       },
       {
-        "issueId": "19243",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an \"IMAGE\" \"front bumper\"\nAnd there exists a \"CAR MODEL\" \"Seicento\"\nAnd CAR MODEL \"Seicento\" is connected to IMAGE \"front bumper\"\nWhen the user visits the detail page of the \"IMAGE\" \"front bumper\"\nThen the page should contain a CAR MODEL section\nAnd the CAR MODEL section should contain the CAR MODEL \"Seicento\"",
         "jira": {
@@ -188,7 +195,6 @@
         }
       },
       {
-        "issueId": "19242",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nAnd there exists a BRAND \"BMW\"\nAnd BRAND \"BMW\" is connected to IMAGE \"BMW logo\"\nWhen the user visits the detail page of the IMAGE \"BMW logo\"\nAnd the user follows the link to the BRAND \"BMW\"\nThen the user should be redirected to the detail page of the BRAND \"BMW\"",
         "jira": {
@@ -249,7 +255,6 @@
         }
       },
       {
-        "issueId": "19241",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nAnd no BRANDs are connected to the IMAGE \"BMW logo\"\nWhen the user visits the detail page of the IMAGE \"BMW logo\"\nThen there should be no section with a BRAND list",
         "jira": {
@@ -310,7 +315,6 @@
         }
       },
       {
-        "issueId": "19240",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nAnd there exists a BRAND \"BMW\"\nAnd BRAND \"BMW\" is connected to IMAGE \"BMW logo\"\nWhen the user visits the detail page of the IMAGE \"BMW logo\"\nThen there should be a section containing a BRAND list\nAnd the BRAND list should contain the BRAND \"BMW\"",
         "jira": {
@@ -371,7 +375,6 @@
         }
       },
       {
-        "issueId": "19233",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nWhen the user visits the detail page of the \"BMW logo\"\nThen the page should contain a section with the rendered image",
         "jira": {
@@ -432,7 +435,6 @@
         }
       },
       {
-        "issueId": "19232",
         "scenarioType": "scenario",
         "gherkin": "Given there exists no IMAGE \"BMW logo\"\nWhen the user visits the detail page of the IMAGE \"BMW logo\"\nThen a message should be displayed that this IMAGE does not exist",
         "jira": {
@@ -493,7 +495,6 @@
         }
       },
       {
-        "issueId": "19231",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nWhen the user visits the detail page of the IMAGE \"BMW logo\"\nThen the page should contain a fact sheet\nAnd the fact sheet should display entries for each of the following properties\n  | _property_         |\n  | external_id        | \n  | image_provider     |\n  | name               |\n  | description        |\n  | creator            |\n  | license            |\n  | tags               |\n  | source             |\n  | image_url_original |\n  | image_url_xxl      |\n  | image_url_xl       |\n  | image_url_l        |\n  | image_url_m        |\n  | image_url_s        |\n  | image_url_xs       |",
         "jira": {
@@ -554,7 +555,6 @@
         }
       },
       {
-        "issueId": "19230",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nWhen the user visits the detail page of the \"BMW logo\"\nThen the page title should contain the term \"BMW logo\"",
         "jira": {
@@ -615,7 +615,6 @@
         }
       },
       {
-        "issueId": "19229",
         "scenarioType": "scenario",
         "gherkin": "Given there exists an IMAGE \"BMW logo\"\nWhen the user visits the detail page of the IMAGE \"BMW logo\"\nThen the page headline should contain the term \"BMW logo\"",
         "jira": {
@@ -676,7 +675,6 @@
         }
       },
       {
-        "issueId": "19228",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Camaro\"\nAnd no IMAGEs are connected to CAR MODEL \"Camaro\"\nWhen the user visits the detail page of the CAR MODEL \"Camaro\"\nThen there should be no IMAGE gallery",
         "jira": {
@@ -737,7 +735,6 @@
         }
       },
       {
-        "issueId": "19227",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Camaro\"\nAnd there exists an IMAGE \"front\"\nAnd IMAGE \"front\" is connected to CAR MODEL \"Camaro\"\nWhen the user visits the detail page of the CAR MODEL \"Camaro\"\nThen there should be an image gallery\nAnd the image gallery should contain the IMAGE \"front\"",
         "jira": {
@@ -798,7 +795,6 @@
         }
       },
       {
-        "issueId": "19173",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Twingo\"\nAnd there exists a BRAND \"Renault\"\nAnd BRAND \"Renault\" is connected to CAR MODEL \"Twingo\"\nWhen the user visits the detail page of the CAR MODEL \"Twingo\"\nAnd the user follows the link to the BRAND \"Renault\"\nThen the user should be redirected to the detail page of the BRAND \"Renault\"",
         "jira": {
@@ -861,7 +857,6 @@
         }
       },
       {
-        "issueId": "19172",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Twingo\"\nAnd no BRANDs is connected to CAR MODEL \"Twingo\"\nWhen the user visits the detail page of the CAR MODEL \"Twingo\"\nThen there should be no BRAND section",
         "jira": {
@@ -924,7 +919,6 @@
         }
       },
       {
-        "issueId": "19171",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Twingo\"\nAnd there exists a BRAND \"Renault\"\nAnd BRAND \"Renault\" is connected to CAR MODEL \"Twingo\"\nWhen the user visits the detail page of the CAR MODEL \"Twingo\"\nThen there should be a BRAND section\nAnd the BRAND section should contain the BRAND \"Renault\"",
         "jira": {
@@ -987,7 +981,6 @@
         }
       },
       {
-        "issueId": "19168",
         "scenarioType": "scenario",
         "gherkin": "Given there exists no CAR MODEL \"Zonda\"\nWhen the user visits the detail page of the CAR MODEL \"Zonda\"\nThen a message should be displayed that this CAR MODEL does not exist",
         "jira": {
@@ -1048,7 +1041,6 @@
         }
       },
       {
-        "issueId": "19167",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Zonda\"\nWhen the user visits the detail page of the CAR MODEL \"Zonda\"\nThen the page should contain a fact sheet\nAnd the fact sheet should display entries for each of the following properties\n  | _property_       |\n  | name             |\n  | generation       |\n  | internal_code    |\n  | built_from       |\n  | built_to         |\n  | total_production |",
         "jira": {
@@ -1109,7 +1101,6 @@
         }
       },
       {
-        "issueId": "19166",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Zonda\"\nWhen the user visits the detail page of the CAR MODEL \"Zonda\"\nThen the page title should contain the term \"Zonda\"",
         "jira": {
@@ -1170,7 +1161,6 @@
         }
       },
       {
-        "issueId": "19165",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a CAR MODEL \"Zonda\"\nWhen the user visits the detail page of the CAR MODEL \"Zonda\"\nThen the page headline should contain the term \"Zonda\"",
         "jira": {
@@ -1231,7 +1221,6 @@
         }
       },
       {
-        "issueId": "19164",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Renault\"\nAnd there exists a CAR MODEL \"Twingo\"\nAnd CAR MODEL \"Twingo\" is connected to BRAND \"Renault\"\nWhen the user visits the detail page of the BRAND \"Renault\"\nAnd the user follows the link to the CAR MODEL \"Twingo\"\nThen the user should be redirected to the detail page of the CAR MODEL \"Twingo\"",
         "jira": {
@@ -1294,7 +1283,6 @@
         }
       },
       {
-        "issueId": "19163",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Renault\"\nAnd no CAR MODELs are connected to BRAND \"Renault\"\nWhen the user visits the detail page of the BRAND \"Renault\"\nThen there should be no section with a CAR MODEL list",
         "jira": {
@@ -1357,7 +1345,6 @@
         }
       },
       {
-        "issueId": "19162",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Renault\"\nAnd there exists a CAR MODEL \"Twingo\"\nAnd CAR MODEL \"Twingo\" is connected to BRAND \"Renault\"\nWhen the user visits the detail page of the BRAND \"Renault\"\nThen there should be a section containing a CAR MODEL list\nAnd the CAR MODEL list should contain the CAR MODEL \"Twingo\"",
         "jira": {
@@ -1420,7 +1407,6 @@
         }
       },
       {
-        "issueId": "19161",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Renault\"\nAnd no IMAGEs are connected to BRAND \"Renault\"\nWhen the user visits the detail page of the BRAND \"Renault\"\nThen there should be no IMAGE gallery",
         "jira": {
@@ -1481,7 +1467,6 @@
         }
       },
       {
-        "issueId": "19160",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Renault\"\nAnd there exists an IMAGE \"logo\"\nAnd IMAGE \"logo\" is connected to BRAND \"Renault\"\nWhen the user visits the detail page of the BRAND \"Renault\"\nThen there should be an image gallery\nAnd the image gallery should contain the IMAGE \"logo\"",
         "jira": {
@@ -1542,7 +1527,6 @@
         }
       },
       {
-        "issueId": "19124",
         "scenarioType": "scenario",
         "gherkin": "Given there exists no BRAND \"Audi\"\nWhen the user visits the detail page of the BRAND \"Audi\"\nThen a message should be displayed that this BRAND does not exist",
         "jira": {
@@ -1603,7 +1587,6 @@
         }
       },
       {
-        "issueId": "19123",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Audi\"\nWhen the user visits the detail page of the BRAND \"Audi\"\nThen the page should contain a fact sheet\nAnd the fact sheet should display entries for each of the following properties\n  | _property_ |\n  | name       |\n  | full_name  |\n  | founded    |\n  | defunct    |\n  | wmi        |\n  | hsn        |",
         "jira": {
@@ -1664,7 +1647,6 @@
         }
       },
       {
-        "issueId": "19122",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Audi\"\nWhen the user visits the detail page of the BRAND \"Audi\"\nThen the page title should contain the term \"Audi\"",
         "jira": {
@@ -1725,7 +1707,6 @@
         }
       },
       {
-        "issueId": "19121",
         "scenarioType": "scenario",
         "gherkin": "Given there exists a BRAND \"Audi\"\nWhen the user visits the detail page of the BRAND \"Audi\"\nThen the page headline should contain the term \"Audi\"",
         "jira": {
@@ -1786,7 +1767,6 @@
         }
       },
       {
-        "issueId": "18968",
         "scenarioType": "scenario",
         "gherkin": "Given there exist 0 \"IMAGE\"s\nWhen the user visits the \"IMAGE\" overview page\nThen the IMAGE list should not be displayed\nAnd a message should be shown that there are no IMAGEs to display",
         "jira": {
@@ -1847,7 +1827,6 @@
         }
       },
       {
-        "issueId": "18967",
         "scenarioType": "scenario",
         "gherkin": "Given there exist 10 \"IMAGE\"s\nWhen the user visits the \"IMAGE\" overview page\nThen there should be a section containing a IMAGE list\nAnd the IMAGE list should contain 10 items\nAnd each item in the IMAGE list should contain the primary IMAGE information\nAnd each item in the IMAGE list should link to its IMAGE detail page",
         "jira": {
@@ -1908,7 +1887,6 @@
         }
       },
       {
-        "issueId": "18966",
         "scenarioType": "scenario",
         "gherkin": "When the user visits the \"IMAGE\" overview page\nThen the page headline should contain the the term \"IMAGE\"",
         "jira": {
@@ -1969,7 +1947,6 @@
         }
       },
       {
-        "issueId": "18965",
         "scenarioType": "scenario",
         "gherkin": "Given there exist 0 \"CAR MODEL\"s\nWhen the user visits the \"CAR MODEL\" overview page\nThen the CAR MODEL list should not be displayed\nAnd a message should be shown that there are no CAR MODELs to display",
         "jira": {
@@ -2030,7 +2007,6 @@
         }
       },
       {
-        "issueId": "18964",
         "scenarioType": "scenario",
         "gherkin": "Given there exist 10 \"CAR MODEL\"s\nWhen the user visits the \"CAR MODEL\" overview page\nThen there should be a section containing a CAR MODEL list\nAnd the CAR MODEL list should contain 10 items\nAnd each item in the CAR MODEL list should contain the primary CAR MODEL information\nAnd each item in the CAR MODEL list should link to its CAR MODEL detail page",
         "jira": {
@@ -2091,7 +2067,6 @@
         }
       },
       {
-        "issueId": "18963",
         "scenarioType": "scenario",
         "gherkin": "When the user visits the \"CAR MODEL\" overview page\nThen the page headline should contain the the term \"CAR MODEL\"",
         "jira": {
@@ -2152,7 +2127,6 @@
         }
       },
       {
-        "issueId": "18962",
         "scenarioType": "scenario",
         "gherkin": "Given there exist 0 BRANDs\nWhen the user visits the \"BRAND\" overview page\nThen the BRAND list should not be displayed\nAnd a message should be displayed that there are no BRANDs",
         "jira": {
@@ -2213,7 +2187,6 @@
         }
       },
       {
-        "issueId": "18961",
         "scenarioType": "scenario",
         "gherkin": "Given there exist 10 BRANDs\nWhen the user visits the \"BRAND\" overview page\nThen the BRAND list should be displayed\nAnd the BRAND list should contain 10 items\nAnd each item in the BRAND list should contain the primary BRAND information\nAnd each item in the BRAND list should link to the respective detail page",
         "jira": {
@@ -2274,7 +2247,6 @@
         }
       },
       {
-        "issueId": "18960",
         "scenarioType": "scenario",
         "gherkin": "When the user visits the \"BRAND\" overview page\nThen the page headline should contain the term \"BRAND\"",
         "jira": {

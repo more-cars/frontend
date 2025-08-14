@@ -9,7 +9,6 @@ query {
     {
         total
         results {
-            issueId
             scenarioType
             gherkin
             jira(fields: ["key", "issuelinks", "summary", "labels"])
