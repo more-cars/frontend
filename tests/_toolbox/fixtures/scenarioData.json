@@ -1,0 +1,16 @@
+{
+  "id": "MCF-124",
+  "title": "Navigating to a linked IMAGE",
+  "type": "scenario",
+  "gherkinSteps": [
+    "Given there exists a \"CAR MODEL\" \"Camaro\"",
+    "And there exists an \"IMAGE\" \"front\"",
+    "And the IMAGE \"front\" is connected to CAR MODEL \"Camaro\"",
+    "When the user visits the detail page of the \"CAR MODEL\" \"Camaro\"",
+    "And the user follows the link to the IMAGE \"front\"",
+    "Then the user should have been redirected to the detail page of the IMAGE \"front\""
+  ],
+  "tags": [
+    "implemented"
+  ]
+}

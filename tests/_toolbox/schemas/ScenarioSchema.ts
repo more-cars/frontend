@@ -4,7 +4,12 @@ export const ScenarioSchema = {
         id: {type: "string"},
         title: {type: "string"},
         type: {type: "string"},
-        gherkin: {type: "string"},
+        gherkinSteps: {
+            type: "array",
+            items: {
+                type: "string",
+            },
+        },
         tags: {
             type: "array",
             items: {
@@ -16,7 +21,7 @@ export const ScenarioSchema = {
         "id",
         "title",
         "type",
-        "gherkin",
+        "gherkinSteps",
         "tags",
     ],
     additionalProperties: false,

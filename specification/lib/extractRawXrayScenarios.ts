@@ -8,7 +8,7 @@ export function extractRawXrayScenarios(scenarios: Array<RawScenario>): Array<Sc
             id: scenario.jira.key,
             title: scenario.jira.summary,
             type: scenario.scenarioType,
-            gherkin: scenario.gherkin,
+            gherkinSteps: scenario.gherkin.split('\n'),
             tags: scenario.jira.labels,
         })
     })
