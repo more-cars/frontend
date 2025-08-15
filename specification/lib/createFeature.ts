@@ -18,8 +18,5 @@ export function createFeature(scenarioData: ScenarioData) {
     const document: Document = new Document('doc')
     document.feature = feature
 
-    let formattedFeature = format(document)
-    formattedFeature += "\n"
-
-    return formattedFeature
+    return format(document)
 }
