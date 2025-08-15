@@ -1,8 +1,9 @@
 import axios from "axios"
 import {getJiraApiBaseUrl} from "./getJiraApiBaseUrl.ts"
 import {obtainJiraApiToken} from "./obtainJiraApiToken.ts"
+import type {RawEpic} from "./Types/RawEpic.ts"
 
-export async function fetchEpicsFromJira() {
+export async function fetchEpicsFromJira(): Promise<false | Array<RawEpic>> {
     try {
         const response = await axios
             .post(getJiraApiBaseUrl() + 'search/jql', {
