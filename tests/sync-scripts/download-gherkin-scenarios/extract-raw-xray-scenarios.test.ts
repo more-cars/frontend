@@ -16,7 +16,7 @@ test('Extracting all scenarios from the Xray response', async () => {
     const extractedScenarios = extractRawXrayScenarios(rawScenarios)
 
     expect(extractedScenarios.length)
-        .toBeGreaterThan(0)
+        .toEqual(xrayResponse.getTests.results.length)
 
     extractedScenarios.forEach((scenario) => {
         expect(validateJson(scenario, ScenarioSchema))
