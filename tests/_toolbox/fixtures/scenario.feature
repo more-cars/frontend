@@ -1,5 +1,8 @@
 Feature: Dummy
 
+  @RULE_MCF-123
+  Rule: Each IMAGE links to the respective detail page
+
   @TEST_MCF-124 @implemented
   Scenario: Navigating to a linked IMAGE
     Given there exists a "CAR MODEL" "Camaro"

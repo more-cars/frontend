@@ -1,17 +1,7 @@
 {
   "getTests": {
-    "total": 39,
+    "total": 38,
     "results": [
-      {
-        "scenarioType": "scenario_outline",
-        "gherkin": "Given test <test>\n\nExamples:\n  |test|\n  | a  |\n  | b  |",
-        "jira": {
-          "key": "MCF-125",
-          "summary": "test",
-          "issuelinks": [],
-          "labels": []
-        }
-      },
       {
         "scenarioType": "scenario",
         "gherkin": "Given there exists a \"CAR MODEL\" \"Camaro\"\nAnd there exists an \"IMAGE\" \"front\"\nAnd the IMAGE \"front\" is connected to CAR MODEL \"Camaro\"\nWhen the user visits the detail page of the \"CAR MODEL\" \"Camaro\"\nAnd the user follows the link to the IMAGE \"front\"\nThen the user should have been redirected to the detail page of the IMAGE \"front\"",

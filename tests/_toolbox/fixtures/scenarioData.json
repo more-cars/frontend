@@ -1,6 +1,8 @@
 {
   "id": "MCF-124",
   "title": "Navigating to a linked IMAGE",
+  "rule_id": "MCF-123",
+  "rule_title": "Each IMAGE links to the respective detail page",
   "type": "scenario",
   "gherkinSteps": [
     "Given there exists a \"CAR MODEL\" \"Camaro\"",

@@ -3,6 +3,8 @@ export const ScenarioSchema = {
     properties: {
         id: {type: "string"},
         title: {type: "string"},
+        rule_id: {type: "string"},
+        rule_title: {type: "string"},
         type: {type: "string"},
         gherkinSteps: {
             type: "array",
