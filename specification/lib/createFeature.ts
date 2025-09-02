@@ -1,9 +1,15 @@
-import {Document, Feature, Scenario, Step, Tag} from "gherkin-ast"
+import {Document, Feature, Scenario, ScenarioOutline, Step, Tag} from "gherkin-ast"
 import {format} from "gherkin-formatter"
 import type {Scenario as ScenarioData} from "./Types/Scenario.ts"
 
 export function createFeature(scenarioData: ScenarioData) {
-    const scenario = new Scenario('Scenario', scenarioData.title, '')
+    let scenario: Scenario | ScenarioOutline
+    if (scenarioData.type === 'scenario_outline') {
+        scenario = new ScenarioOutline('Scenario Outline', scenarioData.title, '')
+    } else {
+        scenario = new Scenario('Scenario', scenarioData.title, '')
+    }
+
     scenarioData.gherkinSteps.forEach(step => {
         scenario.steps.push(new Step(step, ''))
     })
