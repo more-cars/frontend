@@ -29,7 +29,7 @@ export class CarModel {
             return false
         }
 
-        return brandRelation.data.relationship_partner
+        return brandRelation.data.relationship_partner as BrandNode
     }
 
     static async findConnectedImages(carModelId: number): Promise<Array<ImageNode>> {
@@ -40,7 +40,7 @@ export class CarModel {
 
         const images = []
         for (const imageRelation of imageRelations) {
-            images.push(imageRelation.data.relationship_partner)
+            images.push(imageRelation.data.relationship_partner as ImageNode)
         }
 
         return images

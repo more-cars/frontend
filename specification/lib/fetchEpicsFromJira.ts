@@ -21,9 +21,8 @@ export async function fetchEpicsFromJira(): Promise<false | Array<RawEpic>> {
                 }
             })
         return response.data.issues
-    } catch (error) {
-        console.log(error)
-        console.error(`Error: ${error.code} - ${error}`)
+    } catch (e) {
+        console.error(`Error: ${e}`)
     }
 
     return false

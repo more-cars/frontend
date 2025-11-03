@@ -30,7 +30,7 @@ export class Image {
         const brands = []
         for (const relation of allRelations) {
             if (relation.data.relationship_partner.node_type === 'brand') {
-                brands.push(relation.data.relationship_partner)
+                brands.push(relation.data.relationship_partner as BrandNode)
             }
         }
 
@@ -46,7 +46,7 @@ export class Image {
         const carModels = []
         for (const relation of allRelations) {
             if (relation.data.relationship_partner.node_type === 'car model') {
-                carModels.push(relation.data.relationship_partner)
+                carModels.push(relation.data.relationship_partner as CarModelNode)
             }
         }
 

@@ -21,4 +21,4 @@ async function downloadSpecificationFromJira() {
     })
 }
 
-await downloadSpecificationFromJira()
+downloadSpecificationFromJira().then(() => true)

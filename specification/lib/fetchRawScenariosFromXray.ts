@@ -14,9 +14,8 @@ export async function fetchRawScenariosFromXray() {
                 }
             })
         return response.data.data
-    } catch (error) {
-        console.log(error)
-        console.error(`Error: ${error.code} - ${error}`)
+    } catch (e) {
+        console.error(`Error: ${e}`)
     }
 
     return false

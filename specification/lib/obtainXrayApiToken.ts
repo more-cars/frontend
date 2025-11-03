@@ -9,8 +9,8 @@ export async function obtainXrayApiToken(): Promise<false | string> {
                 client_secret: process.env.XRAY_API_CLIENT_SECRET,
             })
         return response.data
-    } catch (error) {
-        console.error(`Error: ${error.code} - ${error}`)
+    } catch (e) {
+        console.error(`Error: ${e}`)
     }
 
     return false
