@@ -5,7 +5,7 @@ export default defineConfig({
     testDir: defineBddConfig({
         features: ['specification/**/*.feature'],
         steps: ['tests/behavior/**/*.ts'],
-        outputDir: 'tests/behavior/.features-gen'
+        outputDir: 'tests/behavior/.features-gen',
     }),
     outputDir: 'test-reports/behavior/artifacts',
     fullyParallel: false,
@@ -19,4 +19,5 @@ export default defineConfig({
         trace: 'on-first-retry',
         ...devices['Desktop Chrome']
     },
+    timeout: 10000,
 })
