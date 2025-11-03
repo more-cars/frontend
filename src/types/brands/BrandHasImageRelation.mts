@@ -1,8 +1,12 @@
 export type BrandHasImageRelation = {
-    brand_id: number
-    image_id: number
-    relationship_id: number
-    relationship_name: string
-    created_at: string
-    updated_at: string
+    data: {
+        relationship_id: number
+        relationship_name: string
+        relationship_partner: {
+            node_type: string
+            data: object
+        }
+        created_at: string
+        updated_at: string
+    }
 }

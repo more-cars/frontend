@@ -1,8 +1,6 @@
 import {getAllImages} from "../data/images/getAllImages.ts"
 import {getImageById} from "../data/images/getImageById.ts"
 import {getConnectedNodes} from "../data/images/getConnectedNodes.ts"
-import {getBrandById} from "../data/brands/getBrandById.ts"
-import {getCarModelById} from "../data/car-models/getCarModelById.ts"
 import type {BrandNode} from "../types/brands/BrandNode.mts"
 import type {CarModelNode} from "../types/car-models/CarModelNode.mts"
 import type {ImageNode} from "../types/images/ImageNode.mts"
@@ -31,9 +29,8 @@ export class Image {
 
         const brands = []
         for (const relation of allRelations) {
-            const brand = await getBrandById(relation.partner_node_id)
-            if (brand) {
-                brands.push(brand)
+            if (relation.data.relationship_partner.node_type === 'brand') {
+                brands.push(relation.data.relationship_partner)
             }
         }
 
@@ -48,9 +45,8 @@ export class Image {
 
         const carModels = []
         for (const relation of allRelations) {
-            const carModel = await getCarModelById(relation.partner_node_id)
-            if (carModel) {
-                carModels.push(carModel)
+            if (relation.data.relationship_partner.node_type === 'car model') {
+                carModels.push(relation.data.relationship_partner)
             }
         }
 

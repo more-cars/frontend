@@ -4,8 +4,6 @@ import {CarModel} from "../../models/CarModel.ts"
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelId = parseInt(req.params.id)
     const carModel = await CarModel.findById(carModelId)
-    const connectedBrand = await CarModel.findConnectedBrand(carModelId)
-    const connectedImages = await CarModel.findConnectedImages(carModelId)
 
     if (!carModel) {
         return res.render('templates/car-models/car-model-not-found-page', {
@@ -16,8 +14,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const connectedBrand = await CarModel.findConnectedBrand(carModelId)
+    const connectedImages = await CarModel.findConnectedImages(carModelId)
+
     res.render('templates/car-models/car-model-page', {
-        pageTitle: `${carModel.name} - Car Model`,
+        pageTitle: `${carModel.data.name} - Car Model`,
         node: carModel,
         brand: connectedBrand,
         images: connectedImages,

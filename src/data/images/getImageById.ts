@@ -2,5 +2,5 @@ import type {ImageNode} from "../../types/images/ImageNode.mts"
 import {requestDataFromApi} from "../requestDataFromApi.ts"
 
 export async function getImageById(id: number): Promise<false | ImageNode> {
-    return await requestDataFromApi(`/images/${id}`)
+    return requestDataFromApi(`/images/${id}`)
 }

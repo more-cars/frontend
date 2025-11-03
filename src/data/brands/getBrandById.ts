@@ -2,5 +2,5 @@ import type {BrandNode} from "../../types/brands/BrandNode.mts"
 import {requestDataFromApi} from "../requestDataFromApi.ts"
 
 export async function getBrandById(id: number): Promise<false | BrandNode> {
-    return await requestDataFromApi(`/brands/${id}`)
+    return requestDataFromApi(`/brands/${id}`)
 }

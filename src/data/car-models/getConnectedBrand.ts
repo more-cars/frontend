@@ -2,5 +2,5 @@ import type {CarModelBelongsToBrandRelation} from "../../types/car-models/CarMod
 import {requestDataFromApi} from "../requestDataFromApi.ts"
 
 export async function getConnectedBrand(carModelId: number): Promise<false | CarModelBelongsToBrandRelation> {
-    return await requestDataFromApi(`/car-models/${carModelId}/belongs-to-brand`)
+    return requestDataFromApi(`/car-models/${carModelId}/belongs-to-brand`)
 }
