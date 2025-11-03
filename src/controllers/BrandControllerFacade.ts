@@ -2,7 +2,7 @@ import express from "express"
 import {displayNode} from "./brands/displayNode"
 import {displayAllNodes} from "./brands/displayAllNodes"
 
-export class BrandFacade {
+export class BrandControllerFacade {
     static async showNode(req: express.Request, res: express.Response) {
         await displayNode(req, res)
     }

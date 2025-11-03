@@ -1,9 +1,9 @@
 import express from "express"
-import {BrandFacade} from "../controllers/BrandFacade"
+import {BrandControllerFacade} from "../controllers/BrandControllerFacade"
 
 const router = express.Router()
 
-router.get('/brands', BrandFacade.showAllNodes)
-router.get('/brands/:id', BrandFacade.showNode)
+router.get('/brands', BrandControllerFacade.showAllNodes)
+router.get('/brands/:id', BrandControllerFacade.showNode)
 
 export default router

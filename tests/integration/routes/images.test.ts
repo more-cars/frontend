@@ -1,16 +1,16 @@
 import {describe, expect, test, vi} from "vitest"
 import request from "supertest"
 import {app} from "../../../src/app"
-import {ImageFacade} from "../../../src/controllers/ImageFacade"
+import {ImageControllerFacade} from "../../../src/controllers/ImageControllerFacade"
 
-vi.mock("../../../src/controllers/ImageFacade", {spy: true})
+vi.mock("../../../src/controllers/ImageControllerFacade", {spy: true})
 
 describe('Images', () => {
     test('Show Node Overview Page', async () => {
         await request(app)
             .get('/images')
 
-        expect(ImageFacade.showAllNodes)
+        expect(ImageControllerFacade.showAllNodes)
             .toHaveBeenCalledTimes(1)
     })
 
@@ -18,7 +18,7 @@ describe('Images', () => {
         await request(app)
             .get('/images/999')
 
-        expect(ImageFacade.showNode)
+        expect(ImageControllerFacade.showNode)
             .toHaveBeenCalledTimes(1)
     })
 })
