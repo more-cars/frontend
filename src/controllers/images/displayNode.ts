@@ -1,9 +1,9 @@
 import express from "express"
-import {Image} from "../../models/Image"
+import {ImageModelFacade} from "../../models/ImageModelFacade"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const imageId = parseInt(req.params.id)
-    const image = await Image.findById(imageId)
+    const image = await ImageModelFacade.getNodeById(imageId)
 
     if (!image) {
         return res.render('templates/images/image-not-found-page', {
@@ -14,8 +14,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    const connectedBrands = await Image.findConnectedBrands(imageId)
-    const connectedCarModels = await Image.findConnectedCarModels(imageId)
+    const connectedBrands = await ImageModelFacade.getConnectedBrands(imageId)
+    const connectedCarModels = await ImageModelFacade.getConnectedCarModels(imageId)
 
     res.render('templates/images/image-page', {
         pageTitle: `${image.data.name} - Image`,

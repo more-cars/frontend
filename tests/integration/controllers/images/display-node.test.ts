@@ -1,12 +1,17 @@
-import {describe, expect, test, vi} from "vitest"
+import {afterEach, describe, expect, test, vi} from "vitest"
 import request from "supertest"
-import {app} from "../../../../src/app"
-import {Image} from "../../../../src/models/Image"
+
+afterEach(() => {
+    vi.resetModules()
+})
 
 describe('Requesting a IMAGE detail page', () => {
     test('when the IMAGE does not exist', async () => {
-        Image.findById = vi.fn().mockReturnValue(false)
+        vi.doMock("../../../../src/models/images/findNodeById", () => ({
+            findNodeById: () => false,
+        }))
 
+        const {app} = await import("../../../../src/app")
         const response = await request(app)
             .get('/images/1')
 
@@ -16,10 +21,17 @@ describe('Requesting a IMAGE detail page', () => {
 
 
     test('when the IMAGE exists', async () => {
-        Image.findById = vi.fn().mockReturnValue({data: {id: 1, name: "dummy 1"}})
-        Image.findConnectedBrands = vi.fn().mockReturnValue([])
-        Image.findConnectedCarModels = vi.fn().mockReturnValue([])
+        vi.doMock("../../../../src/models/images/findNodeById", () => ({
+            findNodeById: () => ({data: {id: 1, name: "dummy 1"}}),
+        }))
+        vi.doMock("../../../../src/models/images/findConnectedBrands", () => ({
+            findConnectedBrands: () => [],
+        }))
+        vi.doMock("../../../../src/models/images/findConnectedCarModels", () => ({
+            findConnectedCarModels: () => [],
+        }))
 
+        const {app} = await import("../../../../src/app")
         const response = await request(app)
             .get('/images/1')
 

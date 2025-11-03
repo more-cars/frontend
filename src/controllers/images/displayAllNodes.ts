@@ -1,8 +1,8 @@
 import express from "express"
-import {Image} from "../../models/Image"
+import {ImageModelFacade} from "../../models/ImageModelFacade"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const images = await Image.findAll()
+    const images = await ImageModelFacade.getAllNodes()
 
     return res.render('templates/images/images-page', {
         pageTitle: 'All Images',

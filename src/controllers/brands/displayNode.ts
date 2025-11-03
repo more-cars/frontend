@@ -1,9 +1,9 @@
 import express from "express"
-import {Brand} from "../../models/Brand"
+import {BrandModelFacade} from "../../models/BrandModelFacade"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const brandId = parseInt(req.params.id)
-    const brand = await Brand.findById(brandId)
+    const brand = await BrandModelFacade.getNodeById(brandId)
 
     if (!brand) {
         return res.render('templates/brands/brand-not-found-page', {
@@ -14,8 +14,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    const connectedCarModels = await Brand.findConnectedCarModels(brandId)
-    const connectedImages = await Brand.findConnectedImages(brandId)
+    const connectedCarModels = await BrandModelFacade.getConnectedCarModels(brandId)
+    const connectedImages = await BrandModelFacade.getConnectedImages(brandId)
 
     return res.render('templates/brands/brand-page', {
         pageTitle: `${brand.data.name} - Brand`,
