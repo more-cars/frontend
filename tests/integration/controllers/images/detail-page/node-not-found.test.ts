@@ -1,6 +1,6 @@
 import request from 'supertest'
-import {app} from "../../../../../src/app.ts"
-import {Image} from "../../../../../src/models/Image.ts"
+import {app} from "../../../../../src/app"
+import {Image} from "../../../../../src/models/Image"
 import {expect, test, vi} from "vitest"
 
 test('Images - Detail Page - Node not found', async () => {

@@ -1,5 +1,5 @@
 import express from "express"
-import {CarModel} from "../../models/CarModel.ts"
+import {CarModel} from "../../models/CarModel"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const carModels = await CarModel.findAll()

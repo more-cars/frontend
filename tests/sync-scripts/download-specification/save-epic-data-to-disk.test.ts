@@ -1,7 +1,7 @@
 import fs from "fs"
 import {expect, test} from "vitest"
-import {saveEpicData} from "../../../specification/lib/saveEpicData.ts"
-import type {Epic} from "../../../specification/lib/Types/Epic.ts"
+import {saveEpicData} from "../../../specification/lib/saveEpicData"
+import type {Epic} from "../../../specification/lib/Types/Epic"
 
 test('Save epic file at default path', async () => {
     const epic: Epic = JSON.parse(

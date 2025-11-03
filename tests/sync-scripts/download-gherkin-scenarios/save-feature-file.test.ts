@@ -1,6 +1,6 @@
 import fs from "fs"
 import {expect, test} from "vitest"
-import {saveFeatureFile} from "../../../specification/lib/saveFeatureFile.ts"
+import {saveFeatureFile} from "../../../specification/lib/saveFeatureFile"
 
 test('Save feature specification as feature file at default path', async () => {
     const feature = fs.readFileSync(__dirname + '/../../_toolbox/fixtures/scenario.feature', {

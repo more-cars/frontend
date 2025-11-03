@@ -1,9 +1,9 @@
 import fs from "fs"
 import {expect, test} from "vitest"
-import {validateJson} from "../../_toolbox/validateJson.ts"
-import {RawEpic} from "../../../specification/lib/Types/RawEpic.ts"
-import {EpicSchema} from "../../_toolbox/schemas/EpicSchema.ts"
-import {extractRawEpics} from "../../../specification/lib/extractRawEpics.ts"
+import {validateJson} from "../../_toolbox/validateJson"
+import {RawEpic} from "../../../specification/lib/Types/RawEpic"
+import {EpicSchema} from "../../_toolbox/schemas/EpicSchema"
+import {extractRawEpics} from "../../../specification/lib/extractRawEpics"
 
 test('Extracting all epics from the Jira response', async () => {
     const rawEpics: Array<RawEpic> = JSON.parse(

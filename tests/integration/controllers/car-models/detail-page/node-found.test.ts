@@ -1,6 +1,6 @@
 import request from 'supertest'
-import {app} from "../../../../../src/app.ts"
-import {CarModel} from "../../../../../src/models/CarModel.ts"
+import {app} from "../../../../../src/app"
+import {CarModel} from "../../../../../src/models/CarModel"
 import {expect, test, vi} from "vitest"
 
 test('Car Models - Detail Page - Node found', async () => {

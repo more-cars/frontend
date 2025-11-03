@@ -1,8 +1,8 @@
-import {fetchEpicsFromJira} from "./lib/fetchEpicsFromJira.ts"
-import {saveEpicData} from "./lib/saveEpicData.ts"
-import {extractRawEpics} from "./lib/extractRawEpics.ts"
-import {saveEpicMarkdownFile} from "./lib/saveEpicMarkdownFile.ts"
-import {createMarkdownForEpic} from "./lib/createMarkdownForEpic.ts"
+import {fetchEpicsFromJira} from "./lib/fetchEpicsFromJira"
+import {saveEpicData} from "./lib/saveEpicData"
+import {extractRawEpics} from "./lib/extractRawEpics"
+import {saveEpicMarkdownFile} from "./lib/saveEpicMarkdownFile"
+import {createMarkdownForEpic} from "./lib/createMarkdownForEpic"
 
 async function downloadSpecificationFromJira() {
     const rawEpics = await fetchEpicsFromJira()

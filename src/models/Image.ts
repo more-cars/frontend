@@ -1,9 +1,9 @@
-import {getAllImages} from "../data/images/getAllImages.ts"
-import {getImageById} from "../data/images/getImageById.ts"
-import {getConnectedNodes} from "../data/images/getConnectedNodes.ts"
-import type {BrandNode} from "../types/brands/BrandNode.mts"
-import type {CarModelNode} from "../types/car-models/CarModelNode.mts"
-import type {ImageNode} from "../types/images/ImageNode.mts"
+import {getAllImages} from "../data/images/getAllImages"
+import {getImageById} from "../data/images/getImageById"
+import {getConnectedNodes} from "../data/images/getConnectedNodes"
+import type {BrandNode} from "../types/brands/BrandNode"
+import type {CarModelNode} from "../types/car-models/CarModelNode"
+import type {ImageNode} from "../types/images/ImageNode"
 
 export class Image {
     static async findAll(): Promise<Array<ImageNode>> {

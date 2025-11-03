@@ -1,6 +1,6 @@
 import request from 'supertest'
-import {app} from "../../../../../src/app.ts"
-import {Brand} from "../../../../../src/models/Brand.ts"
+import {app} from "../../../../../src/app"
+import {Brand} from "../../../../../src/models/Brand"
 import {expect, test, vi} from "vitest"
 
 test('Brands - Detail Page - Node not found', async () => {

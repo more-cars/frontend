@@ -1,9 +1,9 @@
 import type {Express} from "express"
 import express from "express"
 import brands from './routes/brands.ts'
-import carModels from "./routes/car-models.ts"
-import images from "./routes/images.ts"
-import {basicAuthentication} from "./basicAuthentication.ts"
+import carModels from "./routes/car-models"
+import images from "./routes/images"
+import {basicAuthentication} from "./basicAuthentication"
 
 const app: Express = express()
 app.set('view engine', 'pug')

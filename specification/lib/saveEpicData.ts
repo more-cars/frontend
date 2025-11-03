@@ -1,5 +1,5 @@
 import fs from "fs"
-import type {Epic} from "./Types/Epic.ts"
+import type {Epic} from "./Types/Epic"
 
 export function saveEpicData(epicData: Epic, filename: string, foldername: string, basepath: string = __dirname + '/../epics') {
     if (!fs.existsSync(basepath + '/' + foldername)) {

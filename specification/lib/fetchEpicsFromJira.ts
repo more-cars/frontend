@@ -1,7 +1,7 @@
 import axios from "axios"
-import {getJiraApiBaseUrl} from "./getJiraApiBaseUrl.ts"
-import {obtainJiraApiToken} from "./obtainJiraApiToken.ts"
-import type {RawEpic} from "./Types/RawEpic.ts"
+import {getJiraApiBaseUrl} from "./getJiraApiBaseUrl"
+import {obtainJiraApiToken} from "./obtainJiraApiToken"
+import type {RawEpic} from "./Types/RawEpic"
 
 export async function fetchEpicsFromJira(): Promise<false | Array<RawEpic>> {
     try {

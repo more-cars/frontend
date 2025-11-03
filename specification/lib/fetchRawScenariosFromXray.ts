@@ -1,7 +1,7 @@
 import axios from "axios"
-import {getXrayGraphqlUrl} from "./getXrayGraphqlUrl.ts"
-import {obtainXrayApiToken} from "./obtainXrayApiToken.ts"
-import {loadGraphqlQuery} from "./loadGraphqlQuery.ts"
+import {getXrayGraphqlUrl} from "./getXrayGraphqlUrl"
+import {obtainXrayApiToken} from "./obtainXrayApiToken"
+import {loadGraphqlQuery} from "./loadGraphqlQuery"
 
 export async function fetchRawScenariosFromXray() {
     try {

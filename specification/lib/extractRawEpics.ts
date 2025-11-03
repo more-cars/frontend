@@ -1,5 +1,5 @@
-import type {RawEpic} from "./Types/RawEpic.ts"
-import type {Epic} from "./Types/Epic.ts"
+import type {RawEpic} from "./Types/RawEpic"
+import type {Epic} from "./Types/Epic"
 
 export function extractRawEpics(epics: Array<RawEpic>): Array<Epic> {
     const extractedEpics: Array<Epic> = []

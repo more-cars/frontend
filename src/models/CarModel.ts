@@ -1,10 +1,10 @@
-import type {CarModelNode} from "../types/car-models/CarModelNode.mts"
-import type {BrandNode} from "../types/brands/BrandNode.mts"
-import type {ImageNode} from "../types/images/ImageNode.mts"
-import {getCarModelById} from "../data/car-models/getCarModelById.ts"
-import {getAllCarModels} from "../data/car-models/getAllCarModels.ts"
-import {getConnectedBrand} from "../data/car-models/getConnectedBrand.ts"
-import {getConnectedImages} from "../data/car-models/getConnectedImages.ts"
+import type {CarModelNode} from "../types/car-models/CarModelNode"
+import type {BrandNode} from "../types/brands/BrandNode"
+import type {ImageNode} from "../types/images/ImageNode"
+import {getCarModelById} from "../data/car-models/getCarModelById"
+import {getAllCarModels} from "../data/car-models/getAllCarModels"
+import {getConnectedBrand} from "../data/car-models/getConnectedBrand"
+import {getConnectedImages} from "../data/car-models/getConnectedImages"
 
 export class CarModel {
     static async findAll(): Promise<Array<CarModelNode>> {

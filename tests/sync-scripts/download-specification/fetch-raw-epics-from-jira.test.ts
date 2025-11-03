@@ -1,7 +1,7 @@
 import {assert, expect, test} from "vitest"
-import {fetchEpicsFromJira} from "../../../specification/lib/fetchEpicsFromJira.ts"
-import {validateJson} from "../../_toolbox/validateJson.ts"
-import {FetchEpicsResponseSchema} from "../../_toolbox/schemas/FetchEpicsResponseSchema.ts"
+import {fetchEpicsFromJira} from "../../../specification/lib/fetchEpicsFromJira"
+import {validateJson} from "../../_toolbox/validateJson"
+import {FetchEpicsResponseSchema} from "../../_toolbox/schemas/FetchEpicsResponseSchema"
 
 test('Fetching all epics from Jira', async () => {
     const rawEpics = await fetchEpicsFromJira()

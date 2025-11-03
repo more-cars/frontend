@@ -1,6 +1,6 @@
 import fs from "fs"
 import {expect, test} from "vitest"
-import {saveEpicMarkdownFile} from "../../../specification/lib/saveEpicMarkdownFile.ts"
+import {saveEpicMarkdownFile} from "../../../specification/lib/saveEpicMarkdownFile"
 
 test('Save epic markdown file at default path', async () => {
     const epicMarkdown =

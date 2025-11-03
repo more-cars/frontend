@@ -1,5 +1,5 @@
 import express from "express"
-import {Image} from "../../models/Image.ts"
+import {Image} from "../../models/Image"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const imageId = parseInt(req.params.id)

@@ -1,6 +1,6 @@
 import {Document, Feature, Rule, Scenario, ScenarioOutline, Step, Tag} from "gherkin-ast"
 import {format} from "gherkin-formatter"
-import type {Scenario as ScenarioData} from "./Types/Scenario.ts"
+import type {Scenario as ScenarioData} from "./Types/Scenario"
 
 export function createFeature(scenarioData: ScenarioData) {
     const feature = new Feature('Feature', 'Dummy', '')

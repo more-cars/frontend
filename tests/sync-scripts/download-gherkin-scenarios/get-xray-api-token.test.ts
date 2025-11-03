@@ -1,5 +1,5 @@
 import {describe, expect, test, vi} from "vitest"
-import {obtainXrayApiToken} from "../../../specification/lib/obtainXrayApiToken.ts"
+import {obtainXrayApiToken} from "../../../specification/lib/obtainXrayApiToken"
 
 describe('Fetching Xray API token', () => {
     test('with invalid credentials', async () => {

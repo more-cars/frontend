@@ -1,7 +1,7 @@
 import fs from "fs"
 import {expect, test} from "vitest"
-import {createFeature} from "../../../specification/lib/createFeature.ts"
-import type {Scenario} from "../../../specification/lib/Types/Scenario.ts"
+import {createFeature} from "../../../specification/lib/createFeature"
+import type {Scenario} from "../../../specification/lib/Types/Scenario"
 
 test('Create feature from scenario data', async () => {
     const scenarioData: Scenario = JSON.parse(

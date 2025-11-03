@@ -1,6 +1,6 @@
 import {createBdd} from "playwright-bdd"
 import {expect, test} from "@playwright/test"
-import {selectRandomEntries} from "../../../_toolbox/selectRandomEntries.ts"
+import {selectRandomEntries} from "../../../_toolbox/selectRandomEntries"
 
 const {Then} = createBdd()
 

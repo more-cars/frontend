@@ -1,6 +1,6 @@
 import fs from "fs"
 import {expect, test} from "vitest"
-import {cacheRawEpics} from "../../../specification/lib/cacheRawEpics.ts"
+import {cacheRawEpics} from "../../../specification/lib/cacheRawEpics"
 
 test('Caching fetched epics at default path with default filename', async () => {
     const fetchedEpics = JSON.parse(

@@ -1,5 +1,5 @@
 import {expect, test, vi} from "vitest"
-import {obtainJiraApiToken} from "../../../specification/lib/obtainJiraApiToken.ts"
+import {obtainJiraApiToken} from "../../../specification/lib/obtainJiraApiToken"
 
 test('Jira - Fetching API token with missing username', () => {
     vi.stubEnv('JIRA_API_USERNAME', undefined)

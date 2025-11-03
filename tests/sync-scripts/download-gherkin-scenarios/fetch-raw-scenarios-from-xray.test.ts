@@ -1,7 +1,7 @@
 import {expect, test} from "vitest"
-import {fetchRawScenariosFromXray} from "../../../specification/lib/fetchRawScenariosFromXray.ts"
-import {validateJson} from "../../_toolbox/validateJson.ts"
-import {FetchScenariosResponseSchema} from "../../_toolbox/schemas/FetchScenariosResponseSchema.ts"
+import {fetchRawScenariosFromXray} from "../../../specification/lib/fetchRawScenariosFromXray"
+import {validateJson} from "../../_toolbox/validateJson"
+import {FetchScenariosResponseSchema} from "../../_toolbox/schemas/FetchScenariosResponseSchema"
 
 test('Fetching all scenarios from Xray', async () => {
     const rawScenarios = await fetchRawScenariosFromXray()

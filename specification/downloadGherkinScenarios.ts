@@ -1,7 +1,7 @@
-import {fetchRawScenariosFromXray} from "./lib/fetchRawScenariosFromXray.ts"
-import {extractRawXrayScenarios} from "./lib/extractRawXrayScenarios.ts"
-import {createFeature} from "./lib/createFeature.ts"
-import {saveFeatureFile} from "./lib/saveFeatureFile.ts"
+import {fetchRawScenariosFromXray} from "./lib/fetchRawScenariosFromXray"
+import {extractRawXrayScenarios} from "./lib/extractRawXrayScenarios"
+import {createFeature} from "./lib/createFeature"
+import {saveFeatureFile} from "./lib/saveFeatureFile"
 
 async function downloadGherkinScenarios() {
     const rawScenarios = await fetchRawScenariosFromXray()

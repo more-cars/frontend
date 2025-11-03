@@ -1,5 +1,5 @@
 import axios from "axios"
-import {getApiBaseUrl} from "./getApiBaseUrl.ts"
+import {getApiBaseUrl} from "./getApiBaseUrl"
 
 export async function requestDataFromApi(path: string) {
     try {

@@ -1,5 +1,5 @@
-import type {RawScenario} from "./Types/RawScenario.ts"
-import type {Scenario} from "./Types/Scenario.ts"
+import type {RawScenario} from "./Types/RawScenario"
+import type {Scenario} from "./Types/Scenario"
 
 export function extractRawXrayScenarios(scenarios: Array<RawScenario>): Array<Scenario> {
     const extractedScenarios: Array<Scenario> = []

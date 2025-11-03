@@ -1,6 +1,6 @@
 import express from "express"
-import {displayAllNodes} from "../controllers/images/displayAllNodes.ts"
-import {displayNode} from "../controllers/images/displayNode.ts"
+import {displayAllNodes} from "../controllers/images/displayAllNodes"
+import {displayNode} from "../controllers/images/displayNode"
 
 const router = express.Router()
 

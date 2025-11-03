@@ -1,4 +1,4 @@
-import type {Epic} from "./Types/Epic.ts"
+import type {Epic} from "./Types/Epic"
 
 export function createMarkdownForEpic(epic: Epic) {
     let md = "# " + epic.title + "\n" + "\n"

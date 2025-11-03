@@ -1,5 +1,5 @@
 import axios from "axios"
-import {getXrayApiBaseUrl} from "./getXrayApiBaseUrl.ts"
+import {getXrayApiBaseUrl} from "./getXrayApiBaseUrl"
 
 export async function obtainXrayApiToken(): Promise<false | string> {
     try {

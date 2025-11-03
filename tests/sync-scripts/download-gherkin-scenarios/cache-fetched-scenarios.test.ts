@@ -1,6 +1,6 @@
 import fs from "fs"
 import {describe, expect, test} from "vitest"
-import {cacheRawScenarios} from "../../../specification/lib/cacheRawScenarios.ts"
+import {cacheRawScenarios} from "../../../specification/lib/cacheRawScenarios"
 
 describe('Caching fetched scenarios', () => {
     test('at default path with default filename', async () => {
