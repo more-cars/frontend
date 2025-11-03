@@ -5,8 +5,6 @@ import {expect, test, vi} from "vitest"
 
 test('Car Models - Detail Page - Node not found', async () => {
     CarModel.findById = vi.fn().mockReturnValue(false)
-    CarModel.findConnectedBrand = vi.fn().mockReturnValue(false)
-    CarModel.findConnectedImages = vi.fn().mockReturnValue([])
 
     const response = await request(app)
         .get('/car-models/-42')

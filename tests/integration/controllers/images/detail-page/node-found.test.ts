@@ -5,24 +5,26 @@ import {expect, test, vi} from "vitest"
 
 test('Images - Detail Page - Node found', async () => {
     Image.findById = vi.fn().mockReturnValue({
-        id: 1234,
-        image_provider: "dummy",
-        external_id: "dummy",
-        name: "dummy",
-        description: "dummy",
-        creator: "dummy",
-        license: "dummy",
-        tags: "dummy",
-        source: "dummy",
-        image_url_original: "dummy",
-        image_url_xxl: "dummy",
-        image_url_xl: "dummy",
-        image_url_l: "dummy",
-        image_url_m: "dummy",
-        image_url_s: "dummy",
-        image_url_xs: "dummy",
-        created_at: "dummy",
-        updated_at: "dummy",
+        data: {
+            id: 1234,
+            image_provider: "dummy",
+            external_id: "dummy",
+            name: "dummy",
+            description: "dummy",
+            creator: "dummy",
+            license: "dummy",
+            tags: "dummy",
+            source: "dummy",
+            image_url_original: "dummy",
+            image_url_xxl: "dummy",
+            image_url_xl: "dummy",
+            image_url_l: "dummy",
+            image_url_m: "dummy",
+            image_url_s: "dummy",
+            image_url_xs: "dummy",
+            created_at: "dummy",
+            updated_at: "dummy",
+        }
     })
     Image.findConnectedBrands = vi.fn().mockReturnValue([])
     Image.findConnectedCarModels = vi.fn().mockReturnValue([])
