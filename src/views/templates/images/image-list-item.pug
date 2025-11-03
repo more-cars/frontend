@@ -1,4 +1,4 @@
-li(aria-label="image" class="mb-4 bg-stone-100 rounded-2xl inset-shadow-sm border-2 border-gray-300")
+li(aria-label="image" class="mb-4 bg-stone-100 rounded-2xl inset-shadow-sm border-2 border-gray-300" data-testid=`image-${item.data.id}`)
     div(class="grid grid-flow-col grid-cols-3 gap-4 h-full")
         if item.data.image_url_s
             img(src=`${item.data.image_url_s}` class="col-span-1 h-full object-cover rounded-l-2xl")
