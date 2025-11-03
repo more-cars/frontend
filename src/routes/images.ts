@@ -1,10 +1,9 @@
 import express from "express"
-import {displayAllNodes} from "../controllers/images/displayAllNodes"
-import {displayNode} from "../controllers/images/displayNode"
+import {ImageFacade} from "../controllers/ImageFacade"
 
 const router = express.Router()
 
-router.get('/images', displayAllNodes)
-router.get('/images/:id', displayNode)
+router.get('/images', ImageFacade.showAllNodes)
+router.get('/images/:id', ImageFacade.showNode)
 
 export default router
