@@ -14,4 +14,4 @@ async function downloadGherkinScenarios() {
     })
 }
 
-downloadGherkinScenarios().then(r => true)
+downloadGherkinScenarios().then(() => true)
