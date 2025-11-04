@@ -1,5 +1,5 @@
-import {getImageById} from "../../data/images/getImageById"
+import {ImageDataFacade} from "../../data/ImageDataFacade"
 
 export async function findNodeById(id: number) {
-    return getImageById(id)
+    return ImageDataFacade.getNodeById(id)
 }

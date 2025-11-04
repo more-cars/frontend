@@ -1,7 +1,7 @@
-import {getAllBrands} from "../../data/brands/getAllBrands"
+import {BrandDataFacade} from "../../data/BrandDataFacade"
 
 export async function findAllNodes() {
-    const nodes = await getAllBrands()
+    const nodes = await BrandDataFacade.getNodeCollection()
 
     if (!nodes) {
         return []

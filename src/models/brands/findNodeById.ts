@@ -1,5 +1,5 @@
-import {getBrandById} from "../../data/brands/getBrandById"
+import {BrandDataFacade} from "../../data/BrandDataFacade"
 
 export async function findNodeById(id: number) {
-    return getBrandById(id)
+    return BrandDataFacade.getNodeById(id)
 }

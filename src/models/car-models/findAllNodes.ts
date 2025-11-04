@@ -1,7 +1,7 @@
-import {getAllCarModels} from "../../data/car-models/getAllCarModels"
+import {CarModelDataFacade} from "../../data/CarModelDataFacade"
 
 export async function findAllNodes() {
-    const nodes = await getAllCarModels()
+    const nodes = await CarModelDataFacade.getNodeCollection()
 
     if (!nodes) {
         return []

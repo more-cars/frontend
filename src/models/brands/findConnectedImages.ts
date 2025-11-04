@@ -1,8 +1,8 @@
-import {getConnectedImages} from "../../data/brands/getConnectedImages"
+import {BrandDataFacade} from "../../data/BrandDataFacade"
 import type {ImageNode} from "../../types/images/ImageNode"
 
 export async function findConnectedImages(brandId: number) {
-    const imageRelations = await getConnectedImages(brandId)
+    const imageRelations = await BrandDataFacade.getConnectedImageNodes(brandId)
     if (!imageRelations) {
         return []
     }

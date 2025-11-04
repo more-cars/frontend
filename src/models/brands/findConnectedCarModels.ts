@@ -1,8 +1,8 @@
-import {getConnectedCarModels} from "../../data/brands/getConnectedCarModels"
+import {BrandDataFacade} from "../../data/BrandDataFacade"
 import type {CarModelNode} from "../../types/car-models/CarModelNode"
 
 export async function findConnectedCarModels(brandId: number) {
-    const carModelRelations = await getConnectedCarModels(brandId)
+    const carModelRelations = await BrandDataFacade.getConnectedCarModelNodes(brandId)
     if (!carModelRelations) {
         return []
     }

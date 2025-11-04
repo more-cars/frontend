@@ -1,8 +1,8 @@
-import {getConnectedNodes} from "../../data/images/getConnectedNodes"
+import {ImageDataFacade} from "../../data/ImageDataFacade"
 import type {CarModelNode} from "../../types/car-models/CarModelNode"
 
 export async function findConnectedCarModels(imageId: number) {
-    const allRelations = await getConnectedNodes(imageId)
+    const allRelations = await ImageDataFacade.getConnectedNodes(imageId)
     if (!allRelations) {
         return []
     }

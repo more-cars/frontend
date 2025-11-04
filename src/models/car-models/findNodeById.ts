@@ -1,5 +1,5 @@
-import {getCarModelById} from "../../data/car-models/getCarModelById"
+import {CarModelDataFacade} from "../../data/CarModelDataFacade"
 
 export async function findNodeById(id: number) {
-    return getCarModelById(id)
+    return CarModelDataFacade.getNodeById(id)
 }

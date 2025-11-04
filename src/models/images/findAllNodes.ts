@@ -1,7 +1,7 @@
-import {getAllImages} from "../../data/images/getAllImages"
+import {ImageDataFacade} from "../../data/ImageDataFacade"
 
 export async function findAllNodes() {
-    const images = await getAllImages()
+    const images = await ImageDataFacade.getNodeCollection()
 
     if (!images) {
         return []
