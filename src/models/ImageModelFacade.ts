@@ -13,10 +13,10 @@ export class ImageModelFacade {
     }
 
     static async getConnectedBrands(id: number) {
-        await findConnectedBrands(id)
+        return await findConnectedBrands(id)
     }
 
     static async getConnectedCarModels(id: number) {
-        await findConnectedCarModels(id)
+        return await findConnectedCarModels(id)
     }
 }
