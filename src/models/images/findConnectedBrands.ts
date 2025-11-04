@@ -1,18 +1,16 @@
 import {ImageDataFacade} from "../../data/ImageDataFacade"
-import type {BrandNode} from "../../types/brands/BrandNode"
+import type {BrandNode} from "../../data/brands/types/BrandNode"
+import {DataNodeType} from "../../data/types/DataNodeType"
 
-export async function findConnectedBrands(imageId: number) {
-    const allRelations = await ImageDataFacade.getConnectedNodes(imageId)
-    if (!allRelations) {
-        return []
-    }
+export async function findConnectedBrands(id: number) {
+    const relations = await ImageDataFacade.getConnectedNodes(id)
+    const nodes: BrandNode[] = []
 
-    const brands = []
-    for (const relation of allRelations) {
-        if (relation.data.relationship_partner.node_type === 'brand') {
-            brands.push(relation.data.relationship_partner as BrandNode)
+    for (const relation of relations) {
+        if (relation.partner_node_type === DataNodeType.BRAND) {
+            nodes.push(relation.partner_node)
         }
     }
 
-    return brands
+    return nodes
 }

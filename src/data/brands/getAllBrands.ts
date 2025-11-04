@@ -1,6 +1,14 @@
-import type {BrandNode} from "../../types/brands/BrandNode"
 import {requestDataFromApi} from "../requestDataFromApi"
+import type {ApiBrandNode} from "./types/ApiBrandNode"
+import type {BrandNode} from "./types/BrandNode"
 
-export async function getAllBrands(): Promise<false | Array<BrandNode>> {
-    return (await requestDataFromApi('/brands')).data
+export async function getAllBrands() {
+    const apiData = (await requestDataFromApi('/brands')).data as ApiBrandNode[]
+    const data: BrandNode[] = []
+
+    apiData.forEach(apiItem => {
+        data.push(apiItem.data)
+    })
+
+    return data
 }

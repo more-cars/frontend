@@ -1,12 +1,8 @@
 import {CarModelDataFacade} from "../../data/CarModelDataFacade"
-import type {BrandNode} from "../../types/brands/BrandNode"
+import type {BrandNode} from "../brands/types/BrandNode"
 
-export async function findConnectedBrand(carModelId: number) {
-    const brandRelation = await CarModelDataFacade.getConnectedBrandNode(carModelId)
+export async function findConnectedBrand(id: number) {
+    const relation = await CarModelDataFacade.getConnectedBrandNode(id)
 
-    if (!brandRelation) {
-        return false
-    }
-
-    return brandRelation.data.relationship_partner as BrandNode
+    return relation.partner_node as BrandNode
 }

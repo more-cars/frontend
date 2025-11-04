@@ -2,7 +2,7 @@ section(class="max-w-150 m-auto" aria-label="fact sheet")
     h2(class="text-2xl mb-4 text-center") Fact Sheet
 
     dl(class="divide-y divide-gray-200 max-w-lg")
-        each value, property in node.data
+        each value, property in node
             div(class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0")
                 dt(class="p-2 m-2 mr-0 text-sm/6 text-right font-bold") #{property}
                 dd(aria-label=`${property}` class="p-2 m-2 ml-0 text-sm/6 sm:col-span-2 bg-stone-100 inset-shadow-sm overflow-x-auto") #{value}

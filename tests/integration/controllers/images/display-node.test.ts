@@ -22,7 +22,7 @@ describe('Requesting a IMAGE detail page', () => {
 
     test('when the IMAGE exists', async () => {
         vi.doMock("../../../../src/models/images/findNodeById", () => ({
-            findNodeById: () => ({data: {id: 1, name: "dummy 1"}}),
+            findNodeById: () => ({id: 1, name: "dummy 1"}),
         }))
         vi.doMock("../../../../src/models/images/findConnectedBrands", () => ({
             findConnectedBrands: () => [],

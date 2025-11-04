@@ -1,6 +1,9 @@
-import type {CarModelNode} from "../../types/car-models/CarModelNode"
 import {requestDataFromApi} from "../requestDataFromApi"
+import type {ApiCarModelNode} from "./types/ApiCarModelNode"
+import type {CarModelNode} from "./types/CarModelNode"
 
-export async function getCarModelById(id: number): Promise<false | CarModelNode> {
-    return requestDataFromApi(`/car-models/${id}`)
+export async function getCarModelById(id: number) {
+    const apiData = (await requestDataFromApi(`/car-models/${id}`)) as ApiCarModelNode
+
+    return apiData.data as CarModelNode
 }

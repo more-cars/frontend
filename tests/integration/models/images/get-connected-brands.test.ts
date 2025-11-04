@@ -1,10 +1,14 @@
 import {describe, expect, test, vi} from "vitest"
 import {ImageDataFacade} from "../../../../src/data/ImageDataFacade"
 import {findConnectedBrands} from "../../../../src/models/images/findConnectedBrands"
+import type {ImageBelongsToNodeRelationship} from "../../../../src/data/images/types/ImageBelongsToNodeRelationship"
+import type {BrandNode} from "../../../../src/data/brands/types/BrandNode"
+import type {CarModelNode} from "../../../../src/data/car-models/types/CarModelNode"
+import {DataNodeType} from "../../../../src/data/types/DataNodeType"
 
 describe('Collect connected BRANDS for the IMAGE detail page', () => {
     test('when no BRANDS are connected', async () => {
-        vi.spyOn(ImageDataFacade, 'getConnectedNodes').mockResolvedValue(false)
+        vi.spyOn(ImageDataFacade, 'getConnectedNodes').mockResolvedValue([])
 
         expect(await findConnectedBrands(1))
             .toHaveLength(0)
@@ -13,23 +17,17 @@ describe('Collect connected BRANDS for the IMAGE detail page', () => {
     test('when there are BRANDS connected', async () => {
         vi.spyOn(ImageDataFacade, 'getConnectedNodes').mockResolvedValue([
             {
-                data: {
-                    relationship_id: 2,
-                    relationship_name: "dummy 1",
-                    relationship_partner: {
-                        node_type: 'car model',
-                    },
-                },
-            },
+                id: 2,
+                name: "dummy 1",
+                partner_node: {} as BrandNode,
+                partner_node_type: DataNodeType.BRAND,
+            } as unknown as ImageBelongsToNodeRelationship,
             {
-                data: {
-                    relationship_id: 3,
-                    relationship_name: "dummy 2",
-                    relationship_partner: {
-                        node_type: 'brand'
-                    },
-                },
-            },
+                id: 2,
+                name: "dummy 1",
+                partner_node: {} as CarModelNode,
+                partner_node_type: DataNodeType.CAR_MODEL,
+            } as unknown as ImageBelongsToNodeRelationship,
         ])
 
         expect(await findConnectedBrands(1))

@@ -1,11 +1,6 @@
 import {BrandDataFacade} from "../../data/BrandDataFacade"
+import type {BrandNode} from "./types/BrandNode"
 
 export async function findAllNodes() {
-    const nodes = await BrandDataFacade.getNodeCollection()
-
-    if (!nodes) {
-        return []
-    }
-
-    return nodes
+    return (await BrandDataFacade.getNodeCollection()) as BrandNode[]
 }

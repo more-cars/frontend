@@ -1,18 +1,16 @@
 import {ImageDataFacade} from "../../data/ImageDataFacade"
-import type {CarModelNode} from "../../types/car-models/CarModelNode"
+import type {CarModelNode} from "../car-models/types/CarModelNode"
+import {DataNodeType} from "../../data/types/DataNodeType"
 
-export async function findConnectedCarModels(imageId: number) {
-    const allRelations = await ImageDataFacade.getConnectedNodes(imageId)
-    if (!allRelations) {
-        return []
-    }
+export async function findConnectedCarModels(id: number) {
+    const relations = await ImageDataFacade.getConnectedNodes(id)
+    const nodes: CarModelNode[] = []
 
-    const carModels = []
-    for (const relation of allRelations) {
-        if (relation.data.relationship_partner.node_type === 'car model') {
-            carModels.push(relation.data.relationship_partner as CarModelNode)
+    for (const relation of relations) {
+        if (relation.partner_node_type === DataNodeType.CAR_MODEL) {
+            nodes.push(relation.partner_node)
         }
     }
 
-    return carModels
+    return nodes
 }

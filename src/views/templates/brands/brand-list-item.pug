@@ -3,9 +3,9 @@ li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
         div(class="col-span-1 p-4 border-2 bg-orange-50")
             div(class="aspect-16/9") IMG
         div(class="col-span-3")
-            a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.data.id}`)
-                span(aria-label="name") #{item.data.name}
+            a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.id}`)
+                span(aria-label="name") #{item.name}
             ul
-                li(aria-label="full name" class="inline-block text-gray-700") #{item.data.full_name}
-                li(aria-label="founded" class="mt-4") Founded: #{item.data.founded}
-                li(aria-label="defunct" class="mb-4") Defunct: #{item.data.defunct}
+                li(aria-label="full name" class="inline-block text-gray-700") #{item.full_name}
+                li(aria-label="founded" class="mt-4") Founded: #{item.founded}
+                li(aria-label="defunct" class="mb-4") Defunct: #{item.defunct}

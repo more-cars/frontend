@@ -22,7 +22,7 @@ describe('Requesting a CAR MODEL detail page', () => {
 
     test('when the CAR MODEL exists', async () => {
         vi.doMock("../../../../src/models/car-models/findNodeById", () => ({
-            findNodeById: () => ({data: {id: 1, name: "dummy 1"}}),
+            findNodeById: () => ({id: 1, name: "dummy 1"}),
         }))
         vi.doMock("../../../../src/models/car-models/findConnectedBrand", () => ({
             findConnectedBrand: () => false,

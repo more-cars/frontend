@@ -1,4 +1,4 @@
-export type ImageNode = {
+export type ApiImageNode = {
     data: {
         id: number
 

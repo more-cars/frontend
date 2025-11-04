@@ -1,4 +1,4 @@
-export type BrandNode = {
+export type ApiBrandNode = {
     data: {
         id: number
         name: string

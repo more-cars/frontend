@@ -9,16 +9,16 @@ if carModels.length > 0
             data-testid="car-model-list"
         )
             each item in carModels
-                li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.data.id}`)
+                li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
                         div(class="col-span-1 p-4 border-2 bg-orange-50")
                             div(class="aspect-16/9") IMG
                         div(class="col-span-3")
-                            a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${item.data.id}`)
-                                span(aria-label="name") #{item.data.name}
-                            if item.data.internal_code
-                                span(aria-label="internal code")  (#{item.data.internal_code})
+                            a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${item.id}`)
+                                span(aria-label="name") #{item.name}
+                            if item.internal_code
+                                span(aria-label="internal code")  (#{item.internal_code})
                             ul
-                                li(aria-label="built from" class="mt-4") Built from: #{item.data.built_from}
-                                li(aria-label="built to" class="mb-4") Built to: #{item.data.built_to}
+                                li(aria-label="built from" class="mt-4") Built from: #{item.built_from}
+                                li(aria-label="built to" class="mb-4") Built to: #{item.built_to}
 

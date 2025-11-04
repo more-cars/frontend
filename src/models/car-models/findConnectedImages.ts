@@ -1,16 +1,13 @@
 import {CarModelDataFacade} from "../../data/CarModelDataFacade"
-import type {ImageNode} from "../../types/images/ImageNode"
+import type {ImageNode} from "../images/types/ImageNode"
 
-export async function findConnectedImages(carModelId: number) {
-    const imageRelations = await CarModelDataFacade.getConnectedImageNodes(carModelId)
-    if (!imageRelations) {
-        return []
+export async function findConnectedImages(id: number) {
+    const relations = await CarModelDataFacade.getConnectedImageNodes(id)
+    const nodes: ImageNode[] = []
+
+    for (const relation of relations) {
+        nodes.push(relation.partner_node)
     }
 
-    const images = []
-    for (const imageRelation of imageRelations) {
-        images.push(imageRelation.data.relationship_partner as ImageNode)
-    }
-
-    return images
+    return nodes
 }

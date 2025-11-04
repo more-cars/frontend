@@ -1,4 +1,4 @@
-export type CarModelNode = {
+export type ApiCarModelNode = {
     data: {
         id: number
         name: string
