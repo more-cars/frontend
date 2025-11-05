@@ -1,11 +1,9 @@
+.dockerignore
+.env*
 .git*
 .idea
 deployment
+eslint.config.mjs
 node_modules
 specification
 test-reports
-tests
-.dockerignore
-.env*
-eslint.config.mjs
-playwright.config.ts
