@@ -3,7 +3,7 @@ import {cucumberReporter, defineBddConfig} from "playwright-bdd"
 
 export default defineConfig({
     testDir: defineBddConfig({
-        features: ['specification/**/*.feature'],
+        features: ['frontend-specification/spec/**/*.feature'],
         steps: ['tests/behavior/**/*.ts'],
         outputDir: 'tests/behavior/.features-gen',
     }),
