@@ -2,26 +2,31 @@ on:
   workflow_call:
 
 jobs:
-  run-integration-tests:
-    name: Run Integration Tests
+  run-developer-tests:
+    name: Run Developer Tests
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
       - name: Install Node.js dependencies
         run: npm ci
-      - name: Run Integration Tests
-        run: npm run tests:integration
-      - name: Publish Integration Test Report
+
+      - name: Run Developer Tests
+        run: npm run tests:developer
+
+      - name: Publish Test Report
         uses: dorny/test-reporter@v2
         if: ${{ !cancelled() }}
         with:
-          name: Integration Tests
-          path: test-reports/integration/report.xml
+          name: Developer Tests
+          path: test-reports/developer/report.xml
           reporter: jest-junit
-          badge-title: 'Integration Tests'
+          badge-title: 'Developer Tests'
           list-tests: 'none'

@@ -2,17 +2,21 @@ on:
   workflow_call:
 
 jobs:
-  lint-typescript-code:
+  run-code-linter:
     name: Lint TypeScript Code
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
       - name: Install Node.js dependencies
         run: npm ci
+
       - name: Lint TypeScript code
         run: npm run tests:lint

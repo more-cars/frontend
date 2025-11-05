@@ -1,0 +1,13 @@
+name: Deploy Release Candidate
+
+on:
+  workflow_call:
+
+jobs:
+  deploy-release-candidate:
+    uses: ./.github/workflows/deploy-app.yml
+    with:
+      environment: testing
+      package-name: frontend-rc
+      version: ${{ github.sha }}
+    secrets: inherit

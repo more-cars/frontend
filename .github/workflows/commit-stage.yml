@@ -1,0 +1,11 @@
+name: Commit Stage
+
+on:
+  workflow_call:
+
+jobs:
+  lint-typescript-code:
+    uses: ./.github/workflows/run-code-linter.yml
+
+  developer-tests:
+    uses: ./.github/workflows/run-developer-tests.yml

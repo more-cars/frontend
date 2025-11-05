@@ -1,0 +1,10 @@
+name: Build Release Candidate
+
+on:
+  workflow_call:
+
+jobs:
+  build-release-candidate:
+    uses: ./.github/workflows/build-docker-image.yml
+    with:
+      package-name: frontend-rc

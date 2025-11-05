@@ -1,22 +1,37 @@
+name: Build Docker Image
+
 on:
   workflow_call:
+    inputs:
+      reference:
+        type: string
+        default: ${{ github.ref }}
+      package-name:
+        type: string
+        default: frontend
+      version:
+        type: string
+        default: ${{ github.sha }}
 
 jobs:
-  build-image:
-    name: "Build docker image"
+  build-docker-image:
+    name: Build Docker Image
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: refs/tags/v${{ inputs.version }}
+          ref: ${{ inputs.reference }}
 
       - name: Build
         run: docker build -t mc-frontend -f deployment/Dockerfile .
 
-      - name: Tag image
-        run: docker tag mc-frontend ghcr.io/${{ github.repository }}:${{ inputs.version }}
+      - name: Tag image (concrete version)
+        run: docker tag mc-frontend ghcr.io/more-cars/${{ inputs.package-name }}:${{ inputs.version }}
+
+      - name: Tag image (latest)
+        run: docker tag mc-frontend ghcr.io/more-cars/${{ inputs.package-name }}:latest
 
       - name: Log in to ghcr.io
         uses: docker/login-action@v3
@@ -25,5 +40,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push image
-        run: docker push ghcr.io/${{ github.repository }}:${{ inputs.version }}
+      - name: Push image to GHCR (concrete version)
+        run: docker push ghcr.io/more-cars/${{ inputs.package-name }}:${{ inputs.version }}
+
+      - name: Push image to GHCR (latest)
+        run: docker push ghcr.io/more-cars/${{ inputs.package-name }}:latest

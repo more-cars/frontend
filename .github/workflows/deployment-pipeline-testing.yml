@@ -1,0 +1,19 @@
+name: Deployment Pipeline (Testing Environment)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  commit-stage:
+    uses: ./.github/workflows/commit-stage.yml
+
+  build-release-candidate:
+    uses: ./.github/workflows/build-release-candidate.yml
+    needs: commit-stage
+
+  deploy-release-candidate:
+    uses: ./.github/workflows/deploy-release-candidate.yml
+    needs: build-release-candidate
+    secrets: inherit
