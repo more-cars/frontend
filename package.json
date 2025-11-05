@@ -16,7 +16,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",
     "@cucumber/cucumber": "12.1.0",
-    "@eslint/js": "9.32.0",
+    "@eslint/js": "9.39.1",
     "@playwright/test": "1.54.1",
     "@types/k6": "1.1.1",
     "@types/supertest": "6.0.3",
@@ -25,7 +25,7 @@
     "nodemon": "3.1.10",
     "playwright-bdd": "8.3.1",
     "supertest": "7.1.4",
-    "typescript-eslint": "8.38.0",
+    "typescript-eslint": "8.46.3",
     "vitest": "3.2.4"
   },
   "engines": {
