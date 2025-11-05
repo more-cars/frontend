@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -17,10 +16,17 @@ spec:
     spec:
       containers:
         - name: more-cars-frontend
-          image: localhost/mc-frontend:dev
-          imagePullPolicy: Never
+          #image: docker.io/dennisgerike/more-cars-frontend:latest
+          image: ghcr.io/more-cars/frontend:latest
           env:
             - name: API_HOST
               value: $(API_SERVICE_SERVICE_HOST)
             - name: API_PORT
               value: $(API_SERVICE_SERVICE_PORT)
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "210Mi"
+            limits:
+              cpu: "300m"
+              memory: "400Mi"
