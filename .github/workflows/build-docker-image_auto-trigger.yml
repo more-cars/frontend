@@ -1,0 +1,20 @@
+name: Build docker image (triggered by new tag)
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-docker-image:
+    uses: ./.github/workflows/build-docker-image.yml
+    with:
+      reference: refs/tags/${{ github.ref_name }}
+      version: ${{ github.ref_name }}
+
+  copy-image-to-docker-hub:
+    uses: ./.github/workflows/copy-docker-image-from-ghcr-to-docker-hub.yml
+    with:
+      version: ${{ github.ref_name }}
+    needs: build-docker-image
+    secrets: inherit
