@@ -5,18 +5,18 @@ const rootDir = __dirname + '/../../'
 
 export default defineConfig(({mode}) => ({
     test: {
-        name: 'integration',
+        name: 'developer',
         root: rootDir,
         include: [
-            'tests/integration/**/*.test.ts',
+            'tests/developer/**/*.test.ts',
         ],
         // giving vitest access to all environment variables, so the tests can for example find the API
         env: loadEnv(mode, rootDir, ''),
         reporters: [
             'default',
             ['junit', {
-                outputFile: 'test-reports/integration/report.xml',
-                suiteName: 'Integration Tests',
+                outputFile: 'test-reports/developer/report.xml',
+                suiteName: 'Developer Tests',
                 classnameTemplate: ''
             }],
         ],
@@ -31,7 +31,7 @@ export default defineConfig(({mode}) => ({
                 'text',
                 'html',
             ],
-            reportsDirectory: 'test-reports/integration/coverage',
+            reportsDirectory: 'test-reports/developer/coverage',
             reportOnFailure: true,
             thresholds: {
                 statements: 91,
