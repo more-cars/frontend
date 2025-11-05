@@ -1,7 +1,7 @@
-import {findAllNodes} from "./car-models/findAllNodes"
-import {findNodeById} from "./car-models/findNodeById"
-import {findConnectedBrand} from "./car-models/findConnectedBrand"
-import {findConnectedImages} from "./car-models/findConnectedImages"
+import {findAllNodes} from "./node-types/car-models/findAllNodes"
+import {findNodeById} from "./node-types/car-models/findNodeById"
+import {findConnectedBrand} from "./node-types/car-models/findConnectedBrand"
+import {findConnectedImages} from "./node-types/car-models/findConnectedImages"
 
 export class CarModelModelFacade {
     static async getAllNodes() {

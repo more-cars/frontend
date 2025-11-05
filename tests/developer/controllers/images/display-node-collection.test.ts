@@ -7,7 +7,7 @@ afterEach(() => {
 
 describe('Requesting the IMAGE overview page', () => {
     test('when there exist no IMAGES', async () => {
-        vi.doMock("../../../../src/models/images/findAllNodes", () => ({
+        vi.doMock("../../../../src/models/node-types/images/findAllNodes", () => ({
             findAllNodes: () => [],
         }))
 
@@ -21,7 +21,7 @@ describe('Requesting the IMAGE overview page', () => {
 
 
     test('when there exist multiple IMAGES', async () => {
-        vi.doMock("../../../../src/models/images/findAllNodes", () => ({
+        vi.doMock("../../../../src/models/node-types/images/findAllNodes", () => ({
             findAllNodes: () => [
                 {id: 1, name: "dummy 1"},
                 {id: 2, name: "dummy 2"},

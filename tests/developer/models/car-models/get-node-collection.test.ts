@@ -1,7 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
 import {CarModelDataFacade} from "../../../../src/data/CarModelDataFacade"
-import {findAllNodes} from "../../../../src/models/car-models/findAllNodes"
-import type {CarModelNode} from "../../../../src/data/car-models/types/CarModelNode"
+import {findAllNodes} from "../../../../src/models/node-types/car-models/findAllNodes"
+import type {CarModelNode} from "../../../../src/data/node-types/car-models/types/CarModelNode"
 
 describe('Collect node collection for the CAR MODEL overview page', () => {
     test('when there exist no CAR MODELS', async () => {

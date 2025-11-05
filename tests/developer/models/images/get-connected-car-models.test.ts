@@ -1,10 +1,12 @@
 import {describe, expect, test, vi} from "vitest"
 import {ImageDataFacade} from "../../../../src/data/ImageDataFacade"
-import {findConnectedCarModels} from "../../../../src/models/images/findConnectedCarModels"
-import type {BrandNode} from "../../../../src/data/brands/types/BrandNode"
+import {findConnectedCarModels} from "../../../../src/models/node-types/images/findConnectedCarModels"
+import type {BrandNode} from "../../../../src/data/node-types/brands/types/BrandNode"
 import {DataNodeType} from "../../../../src/data/types/DataNodeType"
-import type {ImageBelongsToNodeRelationship} from "../../../../src/data/images/types/ImageBelongsToNodeRelationship"
-import type {CarModelNode} from "../../../../src/data/car-models/types/CarModelNode"
+import type {
+    ImageBelongsToNodeRelationship
+} from "../../../../src/data/node-types/images/types/ImageBelongsToNodeRelationship"
+import type {CarModelNode} from "../../../../src/data/node-types/car-models/types/CarModelNode"
 
 describe('Collect connected CAR MODELS for the IMAGE detail page', () => {
     test('when no CAR MODELS are connected', async () => {

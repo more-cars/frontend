@@ -7,7 +7,7 @@ afterEach(() => {
 
 describe('Requesting a CAR MODEL detail page', () => {
     test('when the CAR MODEL does not exist', async () => {
-        vi.doMock("../../../../src/models/car-models/findNodeById", () => ({
+        vi.doMock("../../../../src/models/node-types/car-models/findNodeById", () => ({
             findNodeById: () => false,
         }))
 
@@ -21,13 +21,13 @@ describe('Requesting a CAR MODEL detail page', () => {
 
 
     test('when the CAR MODEL exists', async () => {
-        vi.doMock("../../../../src/models/car-models/findNodeById", () => ({
+        vi.doMock("../../../../src/models/node-types/car-models/findNodeById", () => ({
             findNodeById: () => ({id: 1, name: "dummy 1"}),
         }))
-        vi.doMock("../../../../src/models/car-models/findConnectedBrand", () => ({
+        vi.doMock("../../../../src/models/node-types/car-models/findConnectedBrand", () => ({
             findConnectedBrand: () => false,
         }))
-        vi.doMock("../../../../src/models/car-models/findConnectedImages", () => ({
+        vi.doMock("../../../../src/models/node-types/car-models/findConnectedImages", () => ({
             findConnectedImages: () => [],
         }))
 

@@ -1,7 +1,7 @@
-import {getAllCarModels} from "./car-models/getAllCarModels"
-import {getCarModelById} from "./car-models/getCarModelById"
-import {getConnectedBrand} from "./car-models/getConnectedBrand"
-import {getConnectedImages} from "./car-models/getConnectedImages"
+import {getAllCarModels} from "./node-types/car-models/getAllCarModels"
+import {getCarModelById} from "./node-types/car-models/getCarModelById"
+import {getConnectedBrand} from "./node-types/car-models/getConnectedBrand"
+import {getConnectedImages} from "./node-types/car-models/getConnectedImages"
 
 export class CarModelDataFacade {
     static async getNodeCollection() {

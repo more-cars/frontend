@@ -1,7 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
-import {findNodeById} from "../../../../src/models/images/findNodeById"
+import {findNodeById} from "../../../../src/models/node-types/images/findNodeById"
 import {ImageDataFacade} from "../../../../src/data/ImageDataFacade"
-import type {ImageNode} from "../../../../src/data/images/types/ImageNode"
+import type {ImageNode} from "../../../../src/data/node-types/images/types/ImageNode"
 
 describe('Collect node for the IMAGE detail page', () => {
     test('when the IMAGE does not exist', async () => {

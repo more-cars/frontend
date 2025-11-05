@@ -1,7 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
 import {BrandDataFacade} from "../../../../src/data/BrandDataFacade"
-import {findAllNodes} from "../../../../src/models/brands/findAllNodes"
-import type {BrandNode} from "../../../../src/data/brands/types/BrandNode"
+import {findAllNodes} from "../../../../src/models/node-types/brands/findAllNodes"
+import type {BrandNode} from "../../../../src/data/node-types/brands/types/BrandNode"
 
 describe('Collect node collection for the BRAND overview page', () => {
     test('when there exist no BRANDS', async () => {

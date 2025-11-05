@@ -1,7 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
 import {BrandDataFacade} from "../../../../src/data/BrandDataFacade"
-import {findConnectedImages} from "../../../../src/models/brands/findConnectedImages"
-import type {BrandHasImageRelationship} from "../../../../src/data/brands/types/BrandHasImageRelationship"
+import {findConnectedImages} from "../../../../src/models/node-types/brands/findConnectedImages"
+import type {BrandHasImageRelationship} from "../../../../src/data/node-types/brands/types/BrandHasImageRelationship"
 
 describe('Collect connected IMAGES for the BRAND detail page', () => {
     test('when no IMAGES are connected', async () => {

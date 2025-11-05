@@ -1,12 +1,12 @@
 import {describe, expect, test, vi} from "vitest"
 import request from "supertest"
 import {app} from "../../../src/app"
-import {displayAllNodes} from "../../../src/controllers/images/displayAllNodes"
-import {displayNode} from "../../../src/controllers/images/displayNode"
+import {displayAllNodes} from "../../../src/controllers/node-types/images/displayAllNodes"
+import {displayNode} from "../../../src/controllers/node-types/images/displayNode"
 
 describe('Images', () => {
     test('Show Node Overview Page', async () => {
-        vi.mock("../../../src/controllers/images/displayAllNodes", () => ({
+        vi.mock("../../../src/controllers/node-types/images/displayAllNodes", () => ({
             displayAllNodes: vi.fn((req, res) => res.status(200).end())
         }))
 
@@ -18,7 +18,7 @@ describe('Images', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../src/controllers/images/displayNode", () => ({
+        vi.mock("../../../src/controllers/node-types/images/displayNode", () => ({
             displayNode: vi.fn((req, res) => res.status(200).end())
         }))
 

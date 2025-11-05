@@ -7,7 +7,7 @@ afterEach(() => {
 
 describe('Requesting the CAR MODEL overview page', () => {
     test('when there exist no CAR MODELS', async () => {
-        vi.doMock("../../../../src/models/car-models/findAllNodes", () => ({
+        vi.doMock("../../../../src/models/node-types/car-models/findAllNodes", () => ({
             findAllNodes: () => [],
         }))
 

@@ -1,6 +1,6 @@
 import express from "express"
-import {displayNode} from "./car-models/displayNode"
-import {displayAllNodes} from "./car-models/displayAllNodes"
+import {displayNode} from "./node-types/car-models/displayNode"
+import {displayAllNodes} from "./node-types/car-models/displayAllNodes"
 
 export class CarModelControllerFacade {
     static async showNode(req: express.Request, res: express.Response) {

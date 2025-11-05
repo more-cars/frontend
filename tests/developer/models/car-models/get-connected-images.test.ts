@@ -1,7 +1,9 @@
 import {describe, expect, test, vi} from "vitest"
 import {CarModelDataFacade} from "../../../../src/data/CarModelDataFacade"
-import {findConnectedImages} from "../../../../src/models/car-models/findConnectedImages"
-import type {CarModelHasImageRelationship} from "../../../../src/data/car-models/types/CarModelHasImageRelationship"
+import {findConnectedImages} from "../../../../src/models/node-types/car-models/findConnectedImages"
+import type {
+    CarModelHasImageRelationship
+} from "../../../../src/data/node-types/car-models/types/CarModelHasImageRelationship"
 
 describe('Collect connected IMAGES for the CAR MODEL detail page', () => {
     test('when no IMAGES are connected', async () => {

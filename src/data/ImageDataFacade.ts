@@ -1,6 +1,6 @@
-import {getAllImages} from "./images/getAllImages"
-import {getImageById} from "./images/getImageById"
-import {getConnectedNodes} from "./images/getConnectedNodes"
+import {getAllImages} from "./node-types/images/getAllImages"
+import {getImageById} from "./node-types/images/getImageById"
+import {getConnectedNodes} from "./node-types/images/getConnectedNodes"
 
 export class ImageDataFacade {
     static async getNodeCollection() {

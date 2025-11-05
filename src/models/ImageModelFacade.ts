@@ -1,7 +1,7 @@
-import {findAllNodes} from "./images/findAllNodes"
-import {findNodeById} from "./images/findNodeById"
-import {findConnectedBrands} from "./images/findConnectedBrands"
-import {findConnectedCarModels} from "./images/findConnectedCarModels"
+import {findAllNodes} from "./node-types/images/findAllNodes"
+import {findNodeById} from "./node-types/images/findNodeById"
+import {findConnectedBrands} from "./node-types/images/findConnectedBrands"
+import {findConnectedCarModels} from "./node-types/images/findConnectedCarModels"
 
 export class ImageModelFacade {
     static async getAllNodes() {

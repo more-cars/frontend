@@ -1,9 +1,11 @@
 import {describe, expect, test, vi} from "vitest"
 import {ImageDataFacade} from "../../../../src/data/ImageDataFacade"
-import {findConnectedBrands} from "../../../../src/models/images/findConnectedBrands"
-import type {ImageBelongsToNodeRelationship} from "../../../../src/data/images/types/ImageBelongsToNodeRelationship"
-import type {BrandNode} from "../../../../src/data/brands/types/BrandNode"
-import type {CarModelNode} from "../../../../src/data/car-models/types/CarModelNode"
+import {findConnectedBrands} from "../../../../src/models/node-types/images/findConnectedBrands"
+import type {
+    ImageBelongsToNodeRelationship
+} from "../../../../src/data/node-types/images/types/ImageBelongsToNodeRelationship"
+import type {BrandNode} from "../../../../src/data/node-types/brands/types/BrandNode"
+import type {CarModelNode} from "../../../../src/data/node-types/car-models/types/CarModelNode"
 import {DataNodeType} from "../../../../src/data/types/DataNodeType"
 
 describe('Collect connected BRANDS for the IMAGE detail page', () => {

@@ -1,7 +1,9 @@
 import {describe, expect, test, vi} from "vitest"
 import {BrandDataFacade} from "../../../../src/data/BrandDataFacade"
-import {findConnectedCarModels} from "../../../../src/models/brands/findConnectedCarModels"
-import type {BrandHasCarModelRelationship} from "../../../../src/data/brands/types/BrandHasCarModelRelationship"
+import {findConnectedCarModels} from "../../../../src/models/node-types/brands/findConnectedCarModels"
+import type {
+    BrandHasCarModelRelationship
+} from "../../../../src/data/node-types/brands/types/BrandHasCarModelRelationship"
 
 describe('Collect connected CAR MODELS for the BRAND detail page', () => {
     test('when no CAR MODELS are connected', async () => {

@@ -7,7 +7,7 @@ afterEach(() => {
 
 describe('Requesting a BRAND detail page', () => {
     test('when the BRAND does not exist', async () => {
-        vi.doMock("../../../../src/models/brands/findNodeById", () => ({
+        vi.doMock("../../../../src/models/node-types/brands/findNodeById", () => ({
             findNodeById: () => false,
         }))
 
@@ -21,13 +21,13 @@ describe('Requesting a BRAND detail page', () => {
 
 
     test('when the BRAND exists', async () => {
-        vi.doMock("../../../../src/models/brands/findNodeById", () => ({
+        vi.doMock("../../../../src/models/node-types/brands/findNodeById", () => ({
             findNodeById: () => ({id: 1, name: "dummy 1"}),
         }))
-        vi.doMock("../../../../src/models/brands/findConnectedCarModels", () => ({
+        vi.doMock("../../../../src/models/node-types/brands/findConnectedCarModels", () => ({
             findConnectedCarModels: () => [],
         }))
-        vi.doMock("../../../../src/models/brands/findConnectedImages", () => ({
+        vi.doMock("../../../../src/models/node-types/brands/findConnectedImages", () => ({
             findConnectedImages: () => [],
         }))
 

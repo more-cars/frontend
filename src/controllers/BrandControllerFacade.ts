@@ -1,6 +1,6 @@
 import express from "express"
-import {displayNode} from "./brands/displayNode"
-import {displayAllNodes} from "./brands/displayAllNodes"
+import {displayNode} from "./node-types/brands/displayNode"
+import {displayAllNodes} from "./node-types/brands/displayAllNodes"
 
 export class BrandControllerFacade {
     static async showNode(req: express.Request, res: express.Response) {
