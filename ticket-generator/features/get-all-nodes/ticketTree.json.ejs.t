@@ -13,8 +13,8 @@ to: ticket-generator/_temp/ticketTree.json
                 "When there exist more than 100 <%= h.changeCase.upper(h.inflection.pluralize(nodeType)) %> then only the first 100 are displayed.",
                 "The <%= h.changeCase.upper(h.inflection.pluralize(nodeType)) %> are sorted `ascending` by their `name`.",
                 "Each node is presented with its primary information.",
-                "Each node contains a thumbnail image."
-                "Each node links to the respective <%= h.changeCase.upper(nodeType) %> detail page."
+                "Each node contains a thumbnail image.",
+                "Each node links to the respective <%= h.changeCase.upper(nodeType) %> detail page.",
                 "An error message is shown when there exist no <%= h.changeCase.upper(nodeType) %> nodes (edge case, mainly relevant for testing purposes). → Status Code `200`"
             ],
             "apiPath": "/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>",
@@ -82,7 +82,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then the \\"' + h.changeCase.upper(nodeType) + '\\" node list should be sorted by "name" in "ascending" order')
+                                gherkin.push('Then the \\"' + h.changeCase.upper(nodeType) + '\\" node list should be sorted by \\"name\\" in \\"ascending\\" order')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -103,7 +103,6 @@ to: ticket-generator/_temp/ticketTree.json
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
                     ]
-                }
                 }, {
                     "title": "Each <%= h.changeCase.upper(nodeType) %> list item contains a thumbnail image",
                     "description": "",
