@@ -23,6 +23,30 @@ spec:
               value: $(API_SERVICE_SERVICE_HOST)
             - name: API_PORT
               value: $(API_SERVICE_SERVICE_PORT)
+            - name: BASIC_AUTH_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  optional: true
+                  name: basic-auth
+                  key: username
+            - name: BASIC_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  optional: true
+                  name: basic-auth
+                  key: password
+            - name: API_BASIC_AUTH_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  optional: true
+                  name: basic-auth
+                  key: username
+            - name: API_BASIC_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  optional: true
+                  name: basic-auth
+                  key: password
           resources:
             requests:
               cpu: "50m"
