@@ -8,5 +8,7 @@ li(aria-label="car-model" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
             if item.internal_code
                 span(aria-label="internal code")  (#{item.internal_code})
             ul
-                li(aria-label="built from" class="mt-4") Built from: #{item.built_from}
-                li(aria-label="built to" class="mb-4") Built to: #{item.built_to}
+                each prop in primaryProperties
+                    li(class="text-xs inline-block  px-1 py-0.5")
+                        b #{prop}:
+                        span  #{item[prop]}
