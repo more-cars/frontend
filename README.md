@@ -12,7 +12,7 @@
     * specify the port of the More Cars API, e.g. `API_PORT=3000`
 * run `npm install` to install all required dependencies and tools
 * run `npm run local:app:start` to start the app locally
-    * it should be available at http://localhost:3001
+    * it should be available at http://localhost:4000
 
 ## Minikube (Local Dev Cluster)
 
@@ -57,6 +57,29 @@
   registry
 * run `npm run docker:tag-image:github` to tag the image as a production image to be stored in the GitHub registry
 
+## SSL Certificate
+
+At the moment, an SSL certificate is not mandatory to run the application -
+be it locally, in minikube or in the production system.
+Should there be a certificate then the app will start an HTTP and an HTTPS server in parallel.
+When there is no certificate then only the HTTP server is started.
+
+In a local environment the application expects the certificate files in the folder `certificates`,
+named `tls.crt` and `tls.key`.
+
+In Minikube and GKE the certificate is expected as a "Kubernetes Secret" with the name `certificate-frontend`.
+It can be created on the command line via:
+
+```
+kubectl delete secret certificate-frontend \
+  --ignore-not-found \
+  --namespace=testing && \
+kubectl create secret tls certificate-frontend \
+  --cert=certificates/tls.crt \
+  --key=certificates/tls.key \
+  --namespace=testing
+```
+
 ## Tests
 
 ### Behavior Tests
@@ -98,7 +121,7 @@ For more control over the parameters use the following snippet to run the tests:
 K6_WEB_DASHBOARD=true \
 K6_WEB_DASHBOARD_OPEN=true \
 K6_WEB_DASHBOARD_EXPORT=./test-reports/performance/html-report.html \
-FRONTEND_URL=http://localhost:3001 \
+FRONTEND_URL=http://localhost:4000 \
 k6 run ./tests/performance/get-all-brands.ts
 ```
 

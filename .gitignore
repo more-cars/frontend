@@ -12,3 +12,4 @@ _temp*
 
 # config files
 .env
+certificates

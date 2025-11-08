@@ -15,7 +15,7 @@ export default defineConfig({
         cucumberReporter('html', {outputFile: 'test-reports/behavior/cucumber/index.html'}),
     ],
     use: {
-        baseURL: 'http://localhost:3001',
+        baseURL: 'http://localhost:4000',
         trace: 'on-first-retry',
         ...devices['Desktop Chrome']
     },
