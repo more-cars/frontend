@@ -21,4 +21,18 @@ describe('Collect node collection for the CAR MODEL overview page', () => {
         expect(await findAllNodes())
             .toHaveLength(3)
     })
+
+    test('when there exist more than 100 CAR MODELS', async () => {
+        const dummyNodes = []
+
+        for (let i = 0; i < 110; i++) {
+            dummyNodes.push({id: i, name: "dummy " + i} as CarModelNode)
+        }
+
+        vi.spyOn(CarModelDataFacade, 'getNodeCollection')
+            .mockResolvedValue(dummyNodes)
+
+        expect(await findAllNodes())
+            .toHaveLength(100)
+    })
 })

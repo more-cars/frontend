@@ -1,6 +1,9 @@
 import {CarModelDataFacade} from "../../../data/CarModelDataFacade"
-import type {CarModelNode} from "./types/CarModelNode"
+
+const nodeLimit = 100
 
 export async function findAllNodes() {
-    return (await CarModelDataFacade.getNodeCollection()) as CarModelNode[]
+    const nodes = await CarModelDataFacade.getNodeCollection()
+
+    return nodes.slice(0, nodeLimit)
 }
