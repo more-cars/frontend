@@ -15,7 +15,7 @@ describe('Basic authentication is activated', () => {
 
     test('Request without credentials', async () => {
         const response = await request(app)
-            .get('/brands')
+            .get('/does-not-matter-if-it-exists')
 
         expect(response.statusCode)
             .toEqual(401)
@@ -28,7 +28,7 @@ describe('Basic authentication is activated', () => {
         const token = Buffer.from(`${username}:${password}`).toString('base64')
 
         const response = await request(app)
-            .get('/brands')
+            .get('/does-not-matter-if-it-exists')
             .set('Authorization', 'Basic ' + token)
 
         expect(response.statusCode)
@@ -42,10 +42,10 @@ describe('Basic authentication is activated', () => {
         const token = Buffer.from(`${username}:${password}`).toString('base64')
 
         const response = await request(app)
-            .get('/brands')
+            .get('/does-not-matter-if-it-exists')
             .set('Authorization', 'Basic ' + token)
 
         expect(response.statusCode)
-            .toEqual(200)
+            .not.toEqual(401)
     })
 })

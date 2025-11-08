@@ -15,10 +15,10 @@ describe('Basic authentication is deactivated', () => {
 
     test('Request without credentials', async () => {
         const response = await request(app)
-            .get('/brands')
+            .get('/does-not-matter-if-it-exists')
 
         expect(response.statusCode)
-            .toEqual(200)
+            .not.toEqual(401)
     })
 
     test('Request with unnecessary credentials', async () => {
@@ -28,10 +28,10 @@ describe('Basic authentication is deactivated', () => {
         const token = Buffer.from(`${username}:${password}`).toString('base64')
 
         const response = await request(app)
-            .get('/brands')
+            .get('/does-not-matter-if-it-exists')
             .set('Authorization', 'Basic ' + token)
 
         expect(response.statusCode)
-            .toEqual(200)
+            .not.toEqual(401)
     })
 })
