@@ -1,7 +1,6 @@
-li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${item.id}`)
     div(class="grid grid-flow-col grid-cols-4 gap-4")
-        div(class="col-span-1 p-4 border-2 bg-orange-50")
-            div(class="aspect-16/9") IMG
+        include ../nodes/thumbnail
         div(class="col-span-3")
             a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.id}`)
                 span(aria-label="name") #{item.name}

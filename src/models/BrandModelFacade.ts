@@ -2,6 +2,7 @@ import {findAllNodes} from "./node-types/brands/findAllNodes"
 import {findNodeById} from "./node-types/brands/findNodeById"
 import {findConnectedCarModels} from "./node-types/brands/findConnectedCarModels"
 import {findConnectedImages} from "./node-types/brands/findConnectedImages"
+import {findConnectedMainImage} from "./node-types/brands/findConnectedMainImage"
 
 export class BrandModelFacade {
     static async getAllNodes() {
@@ -18,5 +19,9 @@ export class BrandModelFacade {
 
     static async getConnectedImages(id: number) {
         return await findConnectedImages(id)
+    }
+
+    static async getConnectedMainImage(id: number) {
+        return await findConnectedMainImage(id)
     }
 }
