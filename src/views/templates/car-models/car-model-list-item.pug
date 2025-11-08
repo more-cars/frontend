@@ -7,8 +7,5 @@ li(aria-label="car-model" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
                 span(aria-label="name") #{item.name}
             if item.internal_code
                 span(aria-label="internal code")  (#{item.internal_code})
-            ul
-                each prop in primaryProperties
-                    li(class="text-xs inline-block  px-1 py-0.5")
-                        b #{prop}:
-                        span  #{item[prop]}
+            include ../nodes/primary-properties-group
+            +primary-properties-group('car_models')

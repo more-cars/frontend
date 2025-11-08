@@ -8,7 +8,6 @@ if brand
             div(class="col-span-3")
                 a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${brand.id}`)
                     span(aria-label="name") #{brand.name}
-                ul
-                    li(aria-label="full name" class="inline-block text-gray-700") #{brand.full_name}
-                    li(aria-label="founded" class="mt-4") Founded: #{brand.founded}
-                    li(aria-label="defunct" class="mb-4") Defunct: #{brand.defunct}
+                - const item = brand
+                include ../nodes/primary-properties-group
+                +primary-properties-group('brands')

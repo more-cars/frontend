@@ -1,0 +1,6 @@
+mixin primary-properties-group(nodeType)
+    ul
+        each prop in primaryProperties[nodeType]
+            li(class="text-xs inline-block  px-1 py-0.5")
+                b #{prop}:
+                span  #{item[prop]}

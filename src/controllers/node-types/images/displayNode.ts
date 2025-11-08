@@ -1,5 +1,6 @@
 import express from "express"
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
+import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const imageId = parseInt(req.params.id)
@@ -22,6 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: image,
         brands: connectedBrands,
         carModels: connectedCarModels,
+        primaryProperties: getPrimaryProperties(),
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)
