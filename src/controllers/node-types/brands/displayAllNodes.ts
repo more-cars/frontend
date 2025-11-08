@@ -6,7 +6,12 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     return res.render('templates/brands/brands-page', {
         pageTitle: 'All Brands',
-        nodeCollection: brands
+        nodeCollection: brands,
+        primaryProperties: [
+            'full_name',
+            'founded',
+            'defunct',
+        ],
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)
