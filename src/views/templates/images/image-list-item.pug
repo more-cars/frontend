@@ -1,9 +1,6 @@
-li(aria-label="image" class="mb-4 bg-stone-100 rounded-2xl inset-shadow-sm border-2 border-gray-300" data-testid=`image-${item.id}`)
-    div(class="grid grid-flow-col grid-cols-3 gap-4 h-full")
-        if item.image_url_s
-            img(src=`${item.image_url_s}` class="col-span-1 h-full object-cover rounded-l-2xl")
-        else
-            div(class="col-span-1 h-full object-cover rounded-l-2xl content-center text-center")
+li(aria-label="image" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`image-${item.id}`)
+    div(class="grid grid-flow-col grid-cols-4 gap-4")
+        include ../nodes/thumbnail
         div(class="col-span-2")
             a(class="inline-block font-bold text-xl mt-3 underline" href=`/images/${item.id}`)
                 span(aria-label="name") #{item.name}

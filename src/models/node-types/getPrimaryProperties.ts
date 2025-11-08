@@ -13,7 +13,6 @@ export function getPrimaryProperties() {
         ],
         images: [
             'image_provider',
-            'name',
             'creator',
             'license',
         ],
