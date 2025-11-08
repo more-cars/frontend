@@ -6,7 +6,13 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     return res.render('templates/images/images-page', {
         pageTitle: 'All Images',
-        nodeCollection: images
+        nodeCollection: images,
+        primaryProperties: [
+            'image_provider',
+            'name',
+            'creator',
+            'license',
+        ],
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

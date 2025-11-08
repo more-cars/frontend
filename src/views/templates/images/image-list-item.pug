@@ -8,6 +8,7 @@ li(aria-label="image" class="mb-4 bg-stone-100 rounded-2xl inset-shadow-sm borde
             a(class="inline-block font-bold text-xl mt-3 underline" href=`/images/${item.id}`)
                 span(aria-label="name") #{item.name}
             ul
-                li(aria-label="creator" class="mt-4") Creator: #{item.creator}
-                li(aria-label="image provider" class="") Image Provider: #{item.image_provider}
-                li(aria-label="license" class="mb-4") License: #{item.license}
+                each prop in primaryProperties
+                    li(class="text-xs inline-block  px-1 py-0.5")
+                        b #{prop}:
+                        span  #{item[prop]}
