@@ -1,6 +1,9 @@
 import {ImageDataFacade} from "../../../data/ImageDataFacade"
-import type {ImageNode} from "./types/ImageNode"
+
+const nodeLimit = 100
 
 export async function findAllNodes() {
-    return (await ImageDataFacade.getNodeCollection()) as ImageNode[]
+    const nodes = await ImageDataFacade.getNodeCollection()
+
+    return nodes.slice(0, nodeLimit)
 }

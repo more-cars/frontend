@@ -21,4 +21,18 @@ describe('Collect node collection for the IMAGE overview page', () => {
         expect(await findAllNodes())
             .toHaveLength(3)
     })
+
+    test('when there exist more than 100 IMAGES', async () => {
+        const dummyNodes = []
+
+        for (let i = 0; i < 110; i++) {
+            dummyNodes.push({id: i, name: "dummy " + i} as ImageNode)
+        }
+
+        vi.spyOn(ImageDataFacade, 'getNodeCollection')
+            .mockResolvedValue(dummyNodes)
+
+        expect(await findAllNodes())
+            .toHaveLength(100)
+    })
 })
