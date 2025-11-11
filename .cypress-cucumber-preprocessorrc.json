@@ -1,0 +1,5 @@
+{
+  "stepDefinitions": [
+    "tests/behavior/step_implementation/**/*.ts"
+  ]
+}
