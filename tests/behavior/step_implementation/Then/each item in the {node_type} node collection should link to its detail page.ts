@@ -5,7 +5,7 @@ Then('each item in the {string} node collection should link to its detail page',
     cy.get('[data-testid="brands-list"]')
         .should('be.visible')
 
-    cy.get('[data-testid="brands-list"] li')
+    cy.get('[data-testid="brands-list"] > li')
         .find('a')
         .should('be.visible')
 })
