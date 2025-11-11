@@ -1,6 +1,6 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
 
-Then('a list of {string} nodes should be displayed', (nodeType: string) => {
+Then('the page should display a {string} node collection', (nodeType: string) => {
     cy.get('[data-testid="brands-list"]')
         .should('be.visible')
 
