@@ -1,9 +1,10 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
+import {getNormalizedNodeType} from "../../lib/getNormalizedNodeType"
 
 Then('the page should display a {string} node collection', (nodeType: string) => {
-    cy.get('[data-testid="brands-list"]')
+    cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-list"]`)
         .should('be.visible')
 
-    cy.get('[data-testid="brands-list"] > li')
+    cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-list"] > li`)
         .should('have.length.at.least', 1)
 })
