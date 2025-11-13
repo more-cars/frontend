@@ -33,7 +33,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then a list of \\"' + h.changeCase.upper(nodeType) + '\\" nodes should be displayed')
+                                gherkin.push('Then the page should display a \\"' + h.changeCase.upper(nodeType) + '\\" node collection')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -49,8 +49,8 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist no \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then no \\"' + h.changeCase.upper(nodeType) + '\\" node list should be displayed')
-                                gherkin.push('And the page should inform the user that there are no \\"' + h.changeCase.upper(nodeType) + '\\" nodes that could be displayed')
+                                gherkin.push('Then the page should display no \\"' + h.changeCase.upper(nodeType) + '\\" node collection')
+                                gherkin.push('And a message should inform the user that there are no \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -66,7 +66,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist more than 100 \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then a list of 100 \\"' + h.changeCase.upper(nodeType) + '\\" nodes should be displayed')
+                                gherkin.push('Then the page should display a \\"' + h.changeCase.upper(nodeType) + '\\" node collection with 100 nodes')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -82,7 +82,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then the \\"' + h.changeCase.upper(nodeType) + '\\" node list should be sorted by \\"name\\" in \\"ascending\\" order')
+                                gherkin.push('Then the items in the \\"' + h.changeCase.upper(nodeType) + '\\" node collection should be sorted by \\"name\\" in \\"ascending\\" order')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -98,7 +98,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then each node in the \\"' + h.changeCase.upper(nodeType) + '\\" list should contain its primary information')
+                                gherkin.push('Then each item in the \\"' + h.changeCase.upper(nodeType) + '\\" node collection should contain primary information')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -114,7 +114,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then each node in the \\"' + h.changeCase.upper(nodeType) + '\\" list should contain a thumbnail image')
+                                gherkin.push('Then each item in the \\"' + h.changeCase.upper(nodeType) + '\\" node collection should contain a thumbnail image')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
@@ -130,7 +130,7 @@ to: ticket-generator/_temp/ticketTree.json
                                 gherkin = []
                                 gherkin.push('Given there exist \\"' + h.changeCase.upper(nodeType) + '\\" nodes')
                                 gherkin.push('When the user visits the \\"' + h.changeCase.upper(nodeType) + '\\" overview page')
-                                gherkin.push('Then each node in the \\"' + h.changeCase.upper(nodeType) + '\\" list should link to its detail page')
+                                gherkin.push('Then each item in the \\"' + h.changeCase.upper(nodeType) + '\\" node collection should link to its detail page')
                             %>
                             "gherkin": "<%- gherkin.join('\\n') %>"
                         }
