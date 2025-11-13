@@ -1,7 +1,7 @@
 if nodeCollection.length === 0
     div(
         class="max-w-160 m-auto p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700"
-        data-testid="brands-list-empty"
+        data-testid="brand-list-empty"
     )
         p(class="font-bold") No Brands
         p No brands were found. Either there are none or this is a temporary issue. Please try again later.
@@ -9,7 +9,7 @@ else
     ul(
         class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto"
         aria-label="List of all Brands"
-        data-testid="brands-list"
+        data-testid="brand-list"
     )
         each item in nodeCollection
             include brand-list-item
