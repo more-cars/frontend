@@ -1,5 +1,5 @@
 mixin primary-properties-group(nodeType)
-    ul
+    ul(aria-label="Primary Information")
         each prop in primaryProperties[nodeType]
             li(class="text-xs inline-block  px-1 py-0.5")
                 b #{prop}:
