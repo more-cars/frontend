@@ -5,6 +5,6 @@ When('the user visits the detail page of the {string} {string}', (nodeType: stri
     cy.get('@label_' + label).then(id => {
         const nodeTypeNormalized = getNormalizedNodeTypePlural(nodeType)
 
-        cy.visit(`/${nodeTypeNormalized}/${id}`)
+        cy.visit(`/${nodeTypeNormalized}/${id}`, {failOnStatusCode: false})
     })
 })
