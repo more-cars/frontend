@@ -134,10 +134,10 @@ Whenever one of them is updated the app will automatically restart to reflect th
 The script also activates a CSS watcher.
 It will regenerate the CSS files when styling changes are made in the templates.
 
-Both start scripts make the application available at `localhost:4000` or `127.0.0.1:4000`.
+Both start scripts make the application available at `localhost:4000` and `127.0.0.1:4000`.
 For better readability and easier handling within the different tools the app should be given a proper domain name.
 This can be achieved by manually adding the necessary information to the `/etc/hosts/` file
-or by running `npm run local:hosts:add` (requires sudo privileges).
+or by running `npm run local:hostnames:add` (requires sudo privileges).
 This will make the app available under the domain name `frontend.more-cars.internal`.
 
 ## Deployment To Production Environment
