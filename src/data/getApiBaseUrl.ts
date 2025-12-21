@@ -10,7 +10,7 @@ export function getApiBaseUrl() {
     }
 
     let protocol = 'https'
-    if (['80', '8080'].includes(port)) {
+    if (['80', '8080', '3000'].includes(port)) {
         protocol = 'http'
     }
 
