@@ -43,7 +43,7 @@
   "repository": "https://github.com/more-cars/frontend",
   "scripts": {
     "start": "NODE_ENV=production node -r ts-node/register src/server.ts",
-    "local:app:start": "node --watch --env-file=.env -r ts-node/register src/server.ts & npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
+    "local:app:start": "node --watch --env-file=.env -r ts-node/register src/server.ts && npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --watch",
     "local:hosts:add": "sudo \"$(which node)\" -r ts-node/register add-to-hosts.ts",
     "css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --minify",
     "app:deploy": "./deployment/deploy-app.sh",
