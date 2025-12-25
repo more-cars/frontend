@@ -7,7 +7,11 @@ resources:
   - frontend-deployment.yaml
 
 patches:
-  - path: patch.json
+  - path: deployment.patch.json
     target:
       kind: Deployment
       name: frontend-deployment
+  - path: ingress.patch.json
+    target:
+      kind: Ingress
+      name: frontend-ingress
