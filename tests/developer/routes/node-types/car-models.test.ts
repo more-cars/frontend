@@ -6,7 +6,7 @@ import {displayNode} from "../../../../src/controllers/node-types/car-models/dis
 
 describe('Car Models', () => {
     test('Show Node Overview Page', async () => {
-        vi.mock("../../../src/controllers/node-types/car-models/displayAllNodes", () => ({
+        vi.mock("../../../../src/controllers/node-types/car-models/displayAllNodes", () => ({
             displayAllNodes: vi.fn((req, res) => res.status(200).end())
         }))
 
@@ -18,7 +18,7 @@ describe('Car Models', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../src/controllers/node-types/car-models/displayNode", () => ({
+        vi.mock("../../../../src/controllers/node-types/car-models/displayNode", () => ({
             displayNode: vi.fn((req, res) => res.status(200).end())
         }))
 

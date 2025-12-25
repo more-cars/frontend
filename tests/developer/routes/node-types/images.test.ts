@@ -6,7 +6,7 @@ import {displayNode} from "../../../../src/controllers/node-types/images/display
 
 describe('Images', () => {
     test('Show Node Overview Page', async () => {
-        vi.mock("../../../src/controllers/node-types/images/displayAllNodes", () => ({
+        vi.mock("../../../../src/controllers/node-types/images/displayAllNodes", () => ({
             displayAllNodes: vi.fn((req, res) => res.status(200).end())
         }))
 
@@ -18,7 +18,7 @@ describe('Images', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../src/controllers/node-types/images/displayNode", () => ({
+        vi.mock("../../../../src/controllers/node-types/images/displayNode", () => ({
             displayNode: vi.fn((req, res) => res.status(200).end())
         }))
 
