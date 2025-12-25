@@ -7,7 +7,7 @@ spec:
   tls:
     - hosts:
         - testing.frontend.more-cars.internal
-      secretName: certificate-api
+      secretName: certificate-frontend
   rules:
     - host: testing.frontend.more-cars.internal
       http:
