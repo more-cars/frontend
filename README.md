@@ -2,49 +2,56 @@
 
 ## Quickstart
 
-* install Node.js and npm
-    * see [Minikube](#minikube-local-dev-cluster) section for a Kubernetes-based environment
-* clone the repository: https://github.com/more-cars/frontend.git
-* make sure the More Cars API is running somewhere (locally, Minikube or remote)
+* Install Node.js and npm
+    * for a local Kubernetes setup check out the [Minikube](#minikube-local-dev-cluster) section
+* Clone the repository: https://github.com/more-cars/frontend.git
+* Make sure the More Cars API is running somewhere (locally, Minikube or remote)
     * see https://github.com/more-cars/rest-api.git
-* copy the `.env.template` file and save it as `.env`
-    * specify the location of the More Cars API, e.g. `API_HOST=localhost`
-    * specify the port of the More Cars API, e.g. `API_PORT=3000`
-* run `npm install` to install all required dependencies and tools
-* run `npm run local:app:start` to start the app locally
-    * it should be available at http://localhost:4000
+    * for this quickstart it is assumed to run at http://localhost:3000
+* Run `npm install` to install all required dependencies and tools
+* Run `npm run local:app:start` to start the app locally
+    * it should be available at http://localhost:4000 (http) and https://localhost:4443 (https)
+    * an `.env` should have been created automatically in the project's root folder
+        * it should contain the location of the More Cars API -> default: `API_HOST=localhost`
+        * it should contain the port of the More Cars API -> default: `API_PORT=3000`
+        * change those values when you want to use a different API (e.g. from the Minikube cluster)
+* If you want to use "pretty" hostnames instead of `localhost`:
+    * run `npm run local:hostnames:add`
+    * now, the app should be available at http://frontend.more-cars.internal:4000/ (http)
+      and https://frontend.more-cars.internal:4443/ (https)
 
 ## Minikube (Local Dev Cluster)
 
 ### Start cluster
 
-* run `npm run minikube:install` to install the latest version of minikube
+* Run `npm run minikube:install` to install the latest version of Minikube
     * requires sudo privileges
-    * can be run multiple times
-        * if a newer version is available it will be installed
-* run `npm run minikube:start` to start a local minikube cluster
-    * this should open the kubernetes dashboard in the browser (wait ~30-60 seconds)
-* run `npm run minikube:stop` to stop the minikube cluster
-    * can also be achieved by aborting the `minikube:start` terminal (`ctrl` + `c` or `command` + `c`)
-* run `npm run minikube:delete` to destroy the minikube cluster
-    * changes to the memory or cpu settings require a "delete" (a restart is not sufficient)
-    * a new cluster can be created with `npm run minikube:start`
-        * the IP addresses of all services will change (starting and stopping preserves the IP addresses)
+    * can be run multiple times -> if a newer version is available it will be installed
+* Run `npm run minikube:start` to start a local Minikube cluster
+    * this should open the Kubernetes dashboard in the browser (might take a few minutes)
+    * memory and CPU settings can be adjusted in the file `deployment/minikube-cluster-start.sh`
+* Run `npm run minikube:stop` to stop the Minikube cluster
+    * aborting the `minikube:start` terminal (`ctrl` + `c` or `command` + `c`) will NOT stop the cluster
+* Run `npm run minikube:delete` to destroy the Minikube cluster
+    * changes to the memory or CPU settings require a hard delete (a restart is not sufficient)
+    * a new cluster can be created by running `npm run minikube:start` again
 
 ### Start application
 
-* make sure the minikube cluster is running (see [Minikube](#minikube-local-dev-cluster) section)
-* run `npm run docker:build-image` to crate a docker image of the application
-    * the image will be built based on the code that is currently on the disk (not what is checked in)
-* run `npm run docker:tag-image:dev` to mark this image as a (temporary) dev version
-* run `npm run minikube:import-dev-image` to push the image into the minikube cluster
-* run `npm run minikube:deploy:dev` to deploy and start the application
-* go to the "services" section in the kubernetes dashboard
-    * search for `frontend-service`
-    * the column `external endpoints` contains the URL to access the app
-    * follow that link to make sure the app is running properly
-* run `npm run minikube:undeploy:dev` to remove the whole application from the cluster
-    * run `npm run minikube:deploy:dev` to start the application from scratch again
+* Make sure the Minikube cluster is running (see [Minikube](#start-cluster) section)
+* Run `npm run app:deploy`
+    * a wizard will start
+        * select `minikube`, `dev`, `frontend` and `latest`
+    * this will deploy the app in Minikube
+    * it will start all needed services
+    * it will create the necessary host entries in the local `/etc/hosts` file
+        * needs to be confirmed via password
+            * abort if you want to do it manually or you when you use a different hosts file
+    * the app should now be available under `https://dev.frontend.more-cars.internal`
+        * accept the browser's security risk warning (all local environments use a dummy SSL certificate)
+* Run `npm run app:undeploy` to completely remove the app from the Minikube cluster
+    * a wizard will ask for the concrete cluster and environment that should be deleted
+    * run `npm run app:deploy` to create a fresh version of the app again
 
 ## Docker Images
 
