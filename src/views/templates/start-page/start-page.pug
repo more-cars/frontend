@@ -1,0 +1,18 @@
+extends ../../layouts/base/layout
+
+block main
+    h1(
+        class=`text-center
+        mb-8
+        text-3xl
+        font-bold`) More Cars
+    ul
+        li
+            a(href="/brands") -> Brands
+        li
+            a(href="/car-models") -> Car Models
+        li
+            a(href="/images") -> Images
+
+block footer
+    p Footer area...
