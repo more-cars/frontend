@@ -54,8 +54,6 @@
     "minikube:start": "deployment/minikube-cluster-start.sh",
     "minikube:stop": "deployment/minikube-cluster-stop.sh",
     "minikube:delete": "deployment/minikube-cluster-delete.sh",
-    "minikube:import-dev-image": "minikube image load localhost/mc-frontend:dev -p morecars",
-    "minikube:delete-dev-image": "minikube image rm localhost/mc-frontend:dev -p morecars",
     "generate-tickets": "node --env-file=.env -r ts-node/register ticket-generator/create-tickets.ts",
     "tests:lint": "npx eslint src",
     "tests:developer": "npx vitest run -c tests/developer/vite.config.ts",
