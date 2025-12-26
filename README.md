@@ -136,55 +136,86 @@ FRONTEND_URL=http://localhost:4000 \
 k6 run ./tests/performance/get-all-brands.ts
 ```
 
-## Development mode
+## Deployments & Releases
 
-Running the app with `npm start` will start it with a production-like configuration.
-When developing and debugging the app it is recommended to use the command `npm run local:app:start` instead.
+### Local Dev Environment
+
+Running the app via `npm start` will start it with a production-like configuration.
+For development and debugging purposes the command `npm run local:app:start` should be used instead.
 This will activate a file watcher which listens to all modules that are used by the app.
 Whenever one of them is updated the app will automatically restart to reflect those changes.
 The script also activates a CSS watcher.
-It will regenerate the CSS files when styling changes are made in the templates.
+It will regenerate the CSS files when styling changes were made in the templates.
 
-Both start scripts make the application available at `localhost:4000` and `127.0.0.1:4000`.
-For better readability and easier handling within the different tools the app should be given a proper domain name.
+Both start scripts make the app available at http://localhost:4000 and https://localhost:4443.
+For better readability and easier handling it is recommended to give it a proper domain name.
 This can be achieved by manually adding the necessary information to the `/etc/hosts/` file
 or by running `npm run local:hostnames:add` (requires sudo privileges).
-This will make the app available under the domain name `frontend.more-cars.internal`.
+This will make the app available at the URLs http://frontend.more-cars.internal:4000/
+and https://frontend.more-cars.internal:4443/.
 
-## Deployment To Production Environment
+### Minikube Cluster
 
-### Deploying From Local Machine
+The database in the local dev environment exists only in memory.
+As soon as the docker container is stopped the database will be gone, too.
+In such situations the Minikube cluster might be the better option (or a combination of Minikube and local env).
+In Minikube the databases are automatically persisted.
+It also allows us to run multiple environments in parallel or in different versions.
+It is also useful for testing scenarios or situations that might occur in the real production environment,
+but cannot be reproduced in the local environment, like the ingress controller or load balancing.
 
-Deploying the application to a "real" kubernetes cluster is very similar
-to the deployment with Minikube (see [minikube section](#minikube-local-dev-cluster)).
-The Kubernetes configs are indeed exactly the same, see folder `deployment/prod`.
-They are used for both clusters identically.
-The only difference lies in getting access to the cluster.
+Running the command `npm run app:deploy` will start a wizard that asks us where and what we want to deploy.
+Using `minikube`, `testing`, `frontend-rc`, `latest` will deploy
+the newest release candidate that exists for the frontend app.
+It will be made available at https://testing.frontend.more-cars.internal.
+It contains the same pods and services - in the same version -
+as if they were deployed in the "real" Kubernetes cluster in GKE.
+The script can be executed multiple times.
+The previous data, like SSL certificates, database data and individual settings will NOT be overridden.
 
-#### Production-like Environment In Minikube
+### GKE Cluster
 
-With `npm run minikube:deploy:prod` the application is deployed to the local Minikube cluster.
-This is the same command that was used in the [minikube section](#minikube-local-dev-cluster),
-only this time it creates a `prod` environment instead of a `dev` environment.
-The main difference being the source of the docker image (local vs remote repository).
+All deployments to the Google Cloud should be done via the CI/CD pipelines in GitHub.
+The before-mentioned deployment script should be reserved for emergencies and special cases, only.
+It circumvents the GitHub pipelines completely and deploys directly into GKE.
 
-The start script (`npm run minikube:start`) will automatically create a cluster if it doesn't exist yet.
+In the background GKE uses the same Kubernetes configuration files as the Minikube cluster
+(see files in folder `deployment/app` and `deployment/overlays`).
+The only difference are the hostnames and the login procedure into the cluster.
 
-#### Real Production Environment In Google Cloud
+When the deployment is executed for the first time, all pods, config maps, services and so on will be created.
+The next deployment requests will only update those components that have changed.
+When nothing changed, then nothing is to update and the existing deployment will not be touched.
 
-The command `npm run gke:deploy:prod` will log in to the Google Cloud,
-select the correct cluster and then roll out all the Kubernetes configuration files.
+Neither the cluster not the node pool will be created automatically.
+When they don't exist then the deployment will fail.
+They need to be created manually.
 
-When this is the first time, all pods and services will be created.
-When the deployment already exists it will be updated.
-When there is nothing to update (because no changes) then nothing will happen to the existing deployment.
+#### Testing Environment
 
-The cluster will **not** be created on the fly.
-If it doesn't exist then the deployment will fail.
-It needs to be created manually.
-There exists no script, yet.
+Each commit to the main branch will automatically trigger the pipeline.
+Different test suites will be run and a docker container containing the app is created.
+When all tests are green and nothing broke on the way,
+then the new version will automatically be deployed to the testing environment.
+This new version will be stored as a release candidate (RC) in the _GitHub Container Registry_.
+All RCs can be found here: https://github.com/more-cars/frontend/pkgs/container/frontend-rc.
 
-The login step will open a browser window and requires a manual login to the Google Cloud.
+To deploy a specific version the _GitHub Actions_ interface can be used:
+https://github.com/more-cars/frontend/actions/workflows/deploy-app_manual-trigger.yml.
+When the specified version exists it is directly deployed.
+Automated tests are skipped here,
+because the code must already have run successfully through the CI/CD pipeline before.
 
-For the script to work the tools `gcloud` and `kubectl` need to be installed.
-See https://cloud.google.com/sdk/docs/install and https://kubernetes.io/docs/tasks/tools/.
+#### Production Environment
+
+Semantic versioning is used to identify different releases.
+Git tags are used to mark those releases in the repository.
+They are also the signal for the GitHub Actions to run the CI/CD pipeline whenever a new tag is created.  
+Opposite to the testing environment is the app NOT automatically deployed.
+That is (by design) a manual step.
+But it uses the same tool as the testing environment:
+https://github.com/more-cars/frontend/actions/workflows/deploy-app_manual-trigger.yml.
+
+The resulting docker images are stored
+in the _GitHub Container Registry_ (https://github.com/more-cars/frontend/pkgs/container/frontend)
+and for redundancy reasons in _Docker Hub_ (https://hub.docker.com/r/dennisgerike/more-cars-frontend).
