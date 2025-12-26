@@ -55,9 +55,6 @@ spec:
             requests:
               cpu: "50m"
               memory: "210Mi"
-            limits:
-              cpu: "300m"
-              memory: "400Mi"
       volumes:
         - name: cert-volume
           secret:
