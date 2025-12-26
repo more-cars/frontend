@@ -58,7 +58,6 @@
     "docker:push-image:github": "docker push ghcr.io/more-cars/frontend:0.3.0",
     "minikube:install": "deployment/minikube-install.sh",
     "minikube:start": "deployment/minikube-cluster-start.sh",
-    "minikube:open-tunnel": "deployment/minikube-tunnel-start.sh",
     "minikube:stop": "deployment/minikube-cluster-stop.sh",
     "minikube:delete": "deployment/minikube-cluster-delete.sh",
     "minikube:import-dev-image": "minikube image load localhost/mc-frontend:dev -p morecars",

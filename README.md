@@ -39,8 +39,6 @@
 * run `npm run docker:tag-image:dev` to mark this image as a (temporary) dev version
 * run `npm run minikube:import-dev-image` to push the image into the minikube cluster
 * run `npm run minikube:deploy:dev` to deploy and start the application
-* run `npm run minikube:open-tunnel` to allow the services to be accessible from outside the cluster
-    * requires sudo privileges
 * go to the "services" section in the kubernetes dashboard
     * search for `frontend-service`
     * the column `external endpoints` contains the URL to access the app
