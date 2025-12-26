@@ -55,12 +55,8 @@
 
 ## Docker Images
 
-* run `npm run docker:build-image` to create a docker image of the application
-    * it can be used for local deployments or as "real" release candidates for production
-* run `npm run docker:tag-image:dev` to tag the image as a local development image
-* run `npm run docker:tag-image:dockerhub` to tag the image as a production image to be stored in the docker hub
-  registry
-* run `npm run docker:tag-image:github` to tag the image as a production image to be stored in the GitHub registry
+All docker images are managed automatically in the pipeline (see files in folder `.github/workflows`).
+There should be no need to create, tag or push them locally.
 
 ## SSL Certificate
 
