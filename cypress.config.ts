@@ -22,5 +22,6 @@ export default defineConfig({
         specPattern: "frontend-specification/spec/**/*.feature",
         supportFile: false,
         baseUrl: 'https://frontend.more-cars.internal:4443',
+        screenshotsFolder: 'test-reports/behavior/screenshots/',
     },
 })
