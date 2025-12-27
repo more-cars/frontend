@@ -24,4 +24,7 @@ export default defineConfig({
         baseUrl: 'https://frontend.more-cars.internal:4443',
         screenshotsFolder: 'test-reports/behavior/screenshots/',
     },
+    env: {
+        tags: "@implemented"
+    }
 })
