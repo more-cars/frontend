@@ -1,5 +1,7 @@
 {
   "stepDefinitions": [
     "tests/behavior/step_implementation/**/*.ts"
-  ]
+  ],
+  "filterSpecs": true,
+  "omitFiltered": true
 }
