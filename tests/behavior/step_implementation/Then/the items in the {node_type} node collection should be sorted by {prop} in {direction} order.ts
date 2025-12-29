@@ -1,7 +1,7 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
 import {getNormalizedNodeType} from "../../lib/getNormalizedNodeType"
 
-Then('the items in the {string} node collection should be sorted by {string} in {string} order', (nodeType: string, property: string, sortDirection: string) => {
+Then('the items in the {string} list should be sorted by {string} in {string} order', (nodeType: string, property: string, sortDirection: string) => {
     cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-list"]`)
         .should('be.visible')
 

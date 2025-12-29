@@ -1,7 +1,7 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
 import {getNormalizedNodeType} from "../../lib/getNormalizedNodeType"
 
-Then('each item in the {string} node collection should contain primary information', (nodeType: string) => {
+Then('all items in the {string} list should contain primary information', (nodeType: string) => {
     cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-list"]`)
         .should('be.visible')
 
