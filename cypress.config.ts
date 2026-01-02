@@ -21,7 +21,7 @@ export default defineConfig({
         setupNodeEvents,
         specPattern: "frontend-specification/spec/**/*.feature",
         supportFile: false,
-        baseUrl: 'https://frontend.more-cars.internal:4443',
+        baseUrl: 'http://localhost:4000',
         screenshotsFolder: 'test-reports/behavior/screenshots/',
     },
     env: {

@@ -30,6 +30,7 @@
     "inflection": "3.0.2",
     "inquirer": "12.10.0",
     "nodemon": "3.1.10",
+    "openapi-backend": "5.15.0",
     "playwright-bdd": "8.4.1",
     "supertest": "7.1.4",
     "typescript-eslint": "8.46.3",
@@ -44,6 +45,7 @@
   "scripts": {
     "start": "NODE_ENV=production node -r ts-node/register src/server.ts",
     "local:app:start": "./deployment/local-app-start.sh",
+    "local:mockserver:start": "./tests/behavior/local-mock-server-start.sh",
     "local:hostnames:add": "./deployment/add-local-hostnames.sh",
     "css:build": "npx @tailwindcss/cli -i src/views/stylesheets/main.css -o ./public/stylesheets/main.css --minify",
     "app:deploy": "./deployment/deploy-app.sh",
@@ -60,7 +62,7 @@
     "tests:a11y:cli": "npx playwright test --config tests/a11y",
     "tests:a11y:report": "npx playwright show-report test-reports/a11y/reports",
     "tests:behavior:cy-gui": "npx cypress open",
-    "tests:behavior:cy-cli": "npx cypress run",
+    "tests:behavior:cy-cli": "tests/behavior/run-behavior-tests.sh",
     "tests:behavior:gui": "npx playwright test --ui & nodemon -w ./specification/behavior -w ./tests/behavior/steps -e feature,ts --exec \"npx bddgen\"",
     "tests:behavior:cli": "npx bddgen && npx playwright test",
     "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:4000 k6 run tests/performance/get-car-model.ts"

@@ -9,9 +9,9 @@ export function getApiBaseUrl() {
         throw new Error('Missing hostname')
     }
 
-    let protocol = 'https'
-    if (['80', '8080', '3000'].includes(port)) {
-        protocol = 'http'
+    let protocol = 'http'
+    if (['443'].includes(port)) {
+        protocol = 'https'
     }
 
     return `${protocol}://${process.env.API_HOST}:${process.env.API_PORT}`
