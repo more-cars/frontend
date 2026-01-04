@@ -29,21 +29,27 @@ export function getResponseMock(context: Context, req: any) {
 
     if (isNodeRelationshipOperation(operationId)) {
         const nodeId = Number(req.url.split('/')[2])
+        const mockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
 
-        let relationshipCount = nodeRelationships.get(nodeId)
-        if (relationshipCount === undefined) {
-            relationshipCount = 3
-        }
+        if (Array.isArray(mockItem.data)) {
+            const mockItems = []
 
-        const mockItems = []
+            let relationshipCount = nodeRelationships.get(nodeId)
+            if (relationshipCount === undefined) {
+                relationshipCount = 3
+            }
 
-        for (let i = 0; i < relationshipCount; i++) {
-            const mockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
-            mockItems.push(mockItem.mock.data[0])
-        }
+            for (let i = 0; i < relationshipCount; i++) {
+                mockItems.push(mockItem.data[0])
+            }
 
-        return {
-            data: mockItems
+            return {
+                data: mockItems
+            }
+        } else {
+            return {
+                data: mockItem.data
+            }
         }
     }
 
