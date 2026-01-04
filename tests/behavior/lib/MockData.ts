@@ -14,4 +14,9 @@ export abstract class MockData {
         const url = `${getMockServerBaseUrl()}/node-type/${getNormalizedNodeTypePlural(nodeType)}/${count}`
         cy.request('POST', url)
     }
+
+    static removeNode(nodeId: number) {
+        const url = `${getMockServerBaseUrl()}/node-state/${nodeId}/false`
+        cy.request('POST', url)
+    }
 }
