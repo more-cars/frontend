@@ -15,8 +15,18 @@ export abstract class MockData {
         cy.request('POST', url)
     }
 
+    static addNode(nodeId: number) {
+        const url = `${getMockServerBaseUrl()}/node-state/${nodeId}/true`
+        cy.request('POST', url)
+    }
+
     static removeNode(nodeId: number) {
         const url = `${getMockServerBaseUrl()}/node-state/${nodeId}/false`
+        cy.request('POST', url)
+    }
+
+    static removeNodeRelationships(nodeId: number) {
+        const url = `${getMockServerBaseUrl()}/node-relationships/${nodeId}/0`
         cy.request('POST', url)
     }
 }

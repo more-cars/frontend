@@ -1,5 +1,5 @@
 import {dasherize, underscore} from "inflection"
-import {mockState, nodeState} from "./mockState"
+import {mockState, nodeRelationships, nodeState} from "./mockState"
 import {Context} from "openapi-backend"
 
 export function getResponseMock(context: Context, req: any) {
@@ -27,6 +27,26 @@ export function getResponseMock(context: Context, req: any) {
         }
     }
 
+    if (isNodeRelationshipOperation(operationId)) {
+        const nodeId = Number(req.url.split('/')[2])
+
+        let relationshipCount = nodeRelationships.get(nodeId)
+        if (relationshipCount === undefined) {
+            relationshipCount = 3
+        }
+
+        const mockItems = []
+
+        for (let i = 0; i < relationshipCount; i++) {
+            const mockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
+            mockItems.push(mockItem.mock.data[0])
+        }
+
+        return {
+            data: mockItems
+        }
+    }
+
     return context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
 }
 
@@ -36,6 +56,10 @@ function isNodeTypeOperation(operationId: string) {
 
 function isNodeOperation(operationId: string) {
     return operationId.endsWith('ById')
+}
+
+function isNodeRelationshipOperation(operationId: string) {
+    return operationId.endsWith('Rel')
 }
 
 function getNodeCountForNodeType(operationId: string) {
