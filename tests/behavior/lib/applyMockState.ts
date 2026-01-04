@@ -1,4 +1,5 @@
 import {mockState} from "./mockState"
+import {dasherize, underscore} from "inflection"
 
 export function applyMockState(baseMock: any, operationId: string) {
     if (isNodeTypeOperation(operationId)) {
@@ -22,7 +23,7 @@ function isNodeTypeOperation(operationId: string) {
 }
 
 function getNodeCountForNodeType(operationId: string) {
-    const nodeType = operationId.toLowerCase().replace('get', '')
+    const nodeType = dasherize(underscore(operationId.replace('get', '')))
     const defaultNodeCount = 5
     const nodeCount = mockState.get(nodeType)
 
