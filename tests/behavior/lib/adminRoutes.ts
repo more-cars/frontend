@@ -15,4 +15,10 @@ router.post("/__admin/node-type/:nodeType/:count", (req, res) => {
     res.json([...mockState])
 })
 
+router.post("/__admin/reset", (req, res) => {
+    mockState.clear()
+
+    res.json([...mockState])
+})
+
 export default router

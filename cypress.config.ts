@@ -20,7 +20,7 @@ export default defineConfig({
     e2e: {
         setupNodeEvents,
         specPattern: "frontend-specification/spec/**/*.feature",
-        supportFile: false,
+        supportFile: 'tests/behavior/e2e.support.ts',
         baseUrl: 'http://localhost:4000',
         screenshotsFolder: 'test-reports/behavior/screenshots/',
     },
