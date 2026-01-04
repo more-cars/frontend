@@ -47,8 +47,14 @@ export function getResponseMock(context: Context, req: any) {
                 data: mockItems
             }
         } else {
-            return {
-                data: mockItem.data
+            let relationshipCount = nodeRelationships.get(nodeId)
+
+            if (relationshipCount === undefined || relationshipCount > 0) {
+                return {
+                    data: mockItem.data
+                }
+            } else {
+                return
             }
         }
     }
