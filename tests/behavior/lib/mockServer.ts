@@ -1,18 +1,20 @@
 import express from "express"
 import {OpenAPIBackend} from "openapi-backend"
 import adminRoutes from "./adminRoutes.ts"
-import {applyMockState} from "./applyMockState"
+import {getResponseMock} from "./getResponseMock"
 
 const api = new OpenAPIBackend({
     definition: __dirname + "/../api-specification/more-cars.openapi.json",
     handlers: {
-        notImplemented: (c, req, res) => {
-            const status = 200
-            const operationId = c.operation.operationId || 'UNKNOWN'
-            const baseMock = c.api.mockResponseForOperation(operationId, {code: Number(status)}).mock
-            const finalMock = applyMockState(baseMock, operationId)
+        notImplemented: (context, req, res) => {
+            const mock = getResponseMock(context, req)
 
-            res.status(status).json(finalMock)
+            if (mock === null) {
+                res.status(404)
+                    .json(context.api.mockResponseForOperation(context.operation.operationId as string, {code: 404}).mock)
+            }
+
+            res.status(200).json(mock)
         },
     },
 })

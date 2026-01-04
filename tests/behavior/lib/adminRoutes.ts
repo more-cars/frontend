@@ -1,10 +1,10 @@
 import express from "express"
-import {mockState} from "./mockState"
+import {mockState, nodeState} from "./mockState"
 
 const router = express.Router()
 
 router.get("/__admin/state", (req, res) => {
-    res.json([...mockState])
+    res.json([...mockState, ...nodeState])
 })
 
 router.post("/__admin/node-type/:nodeType/:count", (req, res) => {
@@ -12,13 +12,22 @@ router.post("/__admin/node-type/:nodeType/:count", (req, res) => {
 
     mockState.set(nodeType, Number(count))
 
-    res.json([...mockState])
+    res.json([...mockState, ...nodeState])
+})
+
+router.post("/__admin/node-state/:id/:state", (req, res) => {
+    const {id, state} = req.params
+
+    nodeState.set(Number(id), (state === 'true'))
+
+    res.json([...mockState, ...nodeState])
 })
 
 router.post("/__admin/reset", (req, res) => {
     mockState.clear()
+    nodeState.clear()
 
-    res.json([...mockState])
+    res.json([...mockState, ...nodeState])
 })
 
 export default router
