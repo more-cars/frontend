@@ -7,7 +7,7 @@ router.get("/__admin/state", (req, res) => {
     res.json([...mockState])
 })
 
-router.get("/__admin/node-type/:nodeType/:count", (req, res) => {
+router.post("/__admin/node-type/:nodeType/:count", (req, res) => {
     const {nodeType, count} = req.params
 
     mockState.set(nodeType, Number(count))
