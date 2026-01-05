@@ -17,12 +17,14 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const connectedCarModels = await BrandModelFacade.getConnectedCarModels(brandId)
     const connectedImages = await BrandModelFacade.getConnectedImages(brandId)
+    const connectedMainImage = await BrandModelFacade.getConnectedMainImage(brandId)
 
     return res.render('templates/brands/brand-page', {
         pageTitle: `${brand.name} - Brand`,
         node: brand,
         carModels: connectedCarModels,
         images: connectedImages,
+        mainImage: connectedMainImage,
         primaryProperties: getPrimaryProperties(),
     }, (error, html) => {
         res.statusCode = 200
