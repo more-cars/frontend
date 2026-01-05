@@ -1,7 +1,6 @@
 import express from "express"
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
-import {BrandModelFacade} from "../../../models/BrandModelFacade"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelId = parseInt(req.params.id)
@@ -18,7 +17,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const connectedBrand = await CarModelModelFacade.getConnectedBrand(carModelId)
     const connectedImages = await CarModelModelFacade.getConnectedImages(carModelId)
-    const connectedMainImage = await BrandModelFacade.getConnectedMainImage(carModelId)
+    const connectedMainImage = await CarModelModelFacade.getConnectedMainImage(carModelId)
 
     res.render('templates/car-models/car-model-page', {
         pageTitle: `${carModel.name} - Car Model`,
