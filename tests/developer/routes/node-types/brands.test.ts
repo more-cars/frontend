@@ -1,8 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
-import request from "supertest"
-import {app} from "../../../../src/app"
 import {displayAllNodes} from "../../../../src/controllers/node-types/brands/displayAllNodes"
 import {displayNode} from "../../../../src/controllers/node-types/brands/displayNode"
+import {supertestGet} from "../../supertestGet"
 
 describe('Brands', () => {
     test('Show Node Overview Page', async () => {
@@ -10,8 +9,7 @@ describe('Brands', () => {
             displayAllNodes: vi.fn((req, res) => res.status(200).end())
         }))
 
-        await request(app)
-            .get('/brands')
+        await supertestGet('/brands')
 
         expect(displayAllNodes)
             .toHaveBeenCalledTimes(1)
@@ -22,8 +20,7 @@ describe('Brands', () => {
             displayNode: vi.fn((req, res) => res.status(200).end())
         }))
 
-        await request(app)
-            .get('/brands/999')
+        await supertestGet('/brands/999')
 
         expect(displayNode)
             .toHaveBeenCalledTimes(1)

@@ -1,5 +1,5 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
-import request from "supertest"
+import {supertestGet} from "../../supertestGet"
 
 afterEach(() => {
     vi.resetModules()
@@ -11,9 +11,7 @@ describe('Requesting the BRAND overview page', () => {
             findAllNodes: () => [],
         }))
 
-        const {app} = await import("../../../../src/app")
-        const response = await request(app)
-            .get('/brands')
+        const response = await supertestGet('/brands')
 
         expect(response.statusCode)
             .toBe(200)
@@ -29,9 +27,7 @@ describe('Requesting the BRAND overview page', () => {
             ],
         }))
 
-        const {app} = await import("../../../../src/app")
-        const response = await request(app)
-            .get('/brands')
+        const response = await supertestGet('/brands')
 
         expect(response.statusCode)
             .toBe(200)
