@@ -14,13 +14,11 @@
   },
   "description": "Frontend for the open car database 'More Cars'",
   "devDependencies": {
-    "@axe-core/playwright": "4.11.0",
     "@badeball/cypress-cucumber-preprocessor": "23.2.1",
     "@bahmutov/cypress-esbuild-preprocessor": "2.2.7",
     "@cucumber/cucumber": "12.2.0",
     "@eslint/js": "9.39.1",
     "@inquirer/prompts": "7.9.0",
-    "@playwright/test": "1.56.1",
     "@types/k6": "1.3.1",
     "@types/supertest": "6.0.3",
     "@vitest/coverage-v8": "3.2.4",
@@ -31,7 +29,6 @@
     "inquirer": "12.10.0",
     "nodemon": "3.1.10",
     "openapi-backend": "5.15.0",
-    "playwright-bdd": "8.4.1",
     "supertest": "7.1.4",
     "typescript-eslint": "8.46.3",
     "vitest": "3.2.4"
@@ -58,13 +55,8 @@
     "tests:lint": "npx eslint src",
     "tests:developer": "npx vitest run -c tests/developer/vite.config.ts",
     "tests:developer:coverage": "npx vitest run -c tests/developer/vite.config.ts --coverage",
-    "tests:a11y:gui": "npx playwright test --config tests/a11y --ui",
-    "tests:a11y:cli": "npx playwright test --config tests/a11y",
-    "tests:a11y:report": "npx playwright show-report test-reports/a11y/reports",
-    "tests:behavior:cy-gui": "npx cypress open",
-    "tests:behavior:cy-cli": "tests/behavior/run-behavior-tests.sh",
-    "tests:behavior:gui": "npx playwright test --ui & nodemon -w ./specification/behavior -w ./tests/behavior/steps -e feature,ts --exec \"npx bddgen\"",
-    "tests:behavior:cli": "npx bddgen && npx playwright test",
+    "tests:behavior:gui": "npx cypress open",
+    "tests:behavior:cli": "tests/behavior/run-behavior-tests.sh",
     "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:4000 k6 run tests/performance/get-car-model.ts"
   },
   "version": "0.3.0"

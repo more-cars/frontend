@@ -97,16 +97,15 @@ kubectl create secret tls certificate-frontend \
 
 The application's expected behavior is documented via `Gherkin` scenarios.
 They can be found in the directory `specification/behavior`.
-Those scenarios are automated in form of `Cucumber` tests.
-Their implementation can be found in the directory `tests/behavior/steps`.
+Those scenarios are automated in form of `Cypress` tests.
+Their implementation can be found in the directory `tests/behavior/step_implementation`.
 
-With `npm run tests:behavior:cli` the whole suite of Cucumber tests can be executed.
+With `npm run tests:behavior:cli` the whole suite of Cypress tests can be executed.
 They produce test reports that can be found in the directory `test-reports/behavior`.
 
-### Accessibility Tests
-
-The accessibility tests can be found in the folder `tests/a11y`.
-The command `npm run tests:a11y:cli` executes them.
+The command `npm run tests:behavior:gui` opens an interactive version of Cypress.
+Here, each test can started individually.
+The test results can be followed in real-time in the embedded browser.
 
 ### Load Tests
 
