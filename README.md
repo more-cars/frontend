@@ -91,6 +91,44 @@ kubectl create secret tls certificate-frontend \
   --namespace=<NAMESPACE>
 ```
 
+## Basic Authentication
+
+Each environment can be protected via `Basic Auth`.
+This feature is disabled by default.
+It is automatically activated when the application finds a set of credentials.
+For each environment only one set of credentials can be created.
+They are the same for all users.
+The credentials are expected as environment variables `BASIC_AUTH_USERNAME` and `BASIC_AUTH_PASSWORD`.
+One option of providing them is manually via the command line.
+In this case, Cypress needs to be started in the same terminal.
+
+```
+export BASIC_AUTH_USERNAME=<USERNAME>
+export BASIC_AUTH_PASSWORD=<PASSWORD>
+```
+
+Alternatively, they can be added to the `.env` file in the project's root directory.
+Cypress can be started from anywhere.
+The `.env` file will automatically be injected.
+
+```
+BASIC_AUTH_USERNAME=<USERNAME>
+BASIC_AUTH_PASSWORD=<PASSWORD>
+```
+
+In Minikube and GKE the credentials are expected as `Kubernetes secrets`.
+They can be created resp. replaced with the following command.
+
+```
+kubectl delete secret basic-auth \
+--ignore-not-found \
+--namespace=<NAMESPACE> && \
+kubectl create secret generic basic-auth \
+--from-literal=username='<USERNAME>' \
+--from-literal=password='<PASSWORD>' \
+--namespace=<NAMESPACE>
+```
+
 ## Tests
 
 ### Behavior Tests
