@@ -1,17 +1,14 @@
-import {loadEnv} from 'vite'
 import {defineConfig} from 'vitest/config'
 
 const rootDir = __dirname + '/../../'
 
-export default defineConfig(({mode}) => ({
+export default defineConfig(_ => ({
     test: {
         name: 'developer',
         root: rootDir,
         include: [
             'tests/developer/**/*.test.ts',
         ],
-        // giving vitest access to all environment variables, so the tests can for example find the API
-        env: loadEnv(mode, rootDir, ''),
         reporters: [
             'default',
             ['junit', {
