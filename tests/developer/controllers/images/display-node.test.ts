@@ -22,6 +22,9 @@ describe('Requesting a IMAGE detail page', () => {
         vi.doMock("../../../../src/models/node-types/images/findNodeById", () => ({
             findNodeById: () => ({id: 1, name: "dummy 1"}),
         }))
+
+        // The following mocks are not needed,
+        // but they avoid flooding the log with error messages (when the app tries to fetch all relationships).
         vi.doMock("../../../../src/models/node-types/images/findConnectedBrands", () => ({
             findConnectedBrands: () => [],
         }))

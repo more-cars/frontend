@@ -22,11 +22,23 @@ describe('Requesting a CAR MODEL detail page', () => {
         vi.doMock("../../../../src/models/node-types/car-models/findNodeById", () => ({
             findNodeById: () => ({id: 1, name: "dummy 1"}),
         }))
+
+        // The following mocks are not needed,
+        // but they avoid flooding the log with error messages (when the app tries to fetch all relationships).
         vi.doMock("../../../../src/models/node-types/car-models/findConnectedBrand", () => ({
             findConnectedBrand: () => false,
         }))
+        vi.doMock("../../../../src/models/node-types/car-models/findConnectedPredecessor", () => ({
+            findConnectedPredecessor: () => false,
+        }))
+        vi.doMock("../../../../src/models/node-types/car-models/findConnectedSuccessor", () => ({
+            findConnectedSuccessor: () => false,
+        }))
         vi.doMock("../../../../src/models/node-types/car-models/findConnectedImages", () => ({
             findConnectedImages: () => [],
+        }))
+        vi.doMock("../../../../src/models/node-types/car-models/findConnectedMainImage", () => ({
+            findConnectedMainImage: () => false,
         }))
 
         const response = await supertestGet('/car-models/1')
