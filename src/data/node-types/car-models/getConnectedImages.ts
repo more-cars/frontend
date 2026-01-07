@@ -10,6 +10,10 @@ export async function getConnectedImages(id: number) {
     const data: CarModelHasImageRelationship[] = []
     const sourceNode = await getCarModelById(id)
 
+    if (!sourceNode) {
+        return []
+    }
+
     apiData.forEach(apiItem => {
         data.push({
             id,

@@ -7,12 +7,11 @@ import type {CarModelHasMainImageRelationship} from "./types/CarModelHasMainImag
 
 export async function getMainImageRelationship(id: number) {
     const apiData = (await requestDataFromApi(`/car-models/${id}/has-prime-image`)) as ApiCarModelHasPrimeImageRelationship
+    const sourceNode = await getCarModelById(id)
 
-    if (!apiData) {
+    if (!apiData || !sourceNode) {
         return null
     }
-
-    const sourceNode = await getCarModelById(id)
 
     const relationship: CarModelHasMainImageRelationship = {
         id,

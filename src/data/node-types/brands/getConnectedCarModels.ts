@@ -10,6 +10,10 @@ export async function getConnectedCarModels(id: number) {
     const data: BrandHasCarModelRelationship[] = []
     const sourceNode = await getBrandById(id)
 
+    if (!sourceNode) {
+        return []
+    }
+
     apiData.forEach(apiItem => {
         data.push({
             id,

@@ -10,6 +10,10 @@ export async function getConnectedNodes(id: number) {
     const data: ImageBelongsToNodeRelationship[] = []
     const sourceNode = await getImageById(id)
 
+    if (!sourceNode) {
+        return []
+    }
+
     const nodeTypeMapping = new Map<string, DataNodeType>([
         ['brand', DataNodeType.BRAND],
         ['car model', DataNodeType.CAR_MODEL],

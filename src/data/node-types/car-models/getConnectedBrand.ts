@@ -9,7 +9,7 @@ export async function getConnectedBrand(id: number) {
     const apiData = (await requestDataFromApi(`/car-models/${id}/belongs-to-brand`)) as ApiCarModelBelongsToBrandRelationship
     const sourceNode = await getCarModelById(id)
 
-    if (!apiData) {
+    if (!apiData || !sourceNode) {
         return null
     }
 

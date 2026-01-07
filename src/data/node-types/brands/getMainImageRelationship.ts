@@ -1,18 +1,17 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import {getBrandById} from "./getBrandById"
-import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import type {ApiBrandHasPrimeImageRelationship} from "./types/ApiBrandHasPrimeImageRelationship"
 import type {BrandHasMainImageRelationship} from "./types/BrandHasMainImageRelationship"
+import {DataRelationshipType} from "../../types/DataRelationshipType"
+import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getMainImageRelationship(id: number) {
     const apiData = (await requestDataFromApi(`/brands/${id}/has-prime-image`)) as ApiBrandHasPrimeImageRelationship
+    const sourceNode = await getBrandById(id)
 
-    if (!apiData) {
+    if (!apiData || !sourceNode) {
         return null
     }
-
-    const sourceNode = await getBrandById(id)
 
     const relationship: BrandHasMainImageRelationship = {
         id,

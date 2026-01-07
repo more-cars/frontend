@@ -9,7 +9,7 @@ export async function getConnectedSuccessorCarModel(id: number) {
     const apiData = (await requestDataFromApi(`/car-models/${id}/has-successor`)) as ApiCarModelHasSuccessorRelationship
     const sourceNode = await getCarModelById(id)
 
-    if (!apiData) {
+    if (!apiData || !sourceNode) {
         return null
     }
 
