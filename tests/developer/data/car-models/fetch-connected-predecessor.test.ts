@@ -5,8 +5,7 @@ afterEach(() => {
 })
 
 describe('Fetching connected predecessor CAR MODEL from data source', () => {
-    // TODO error handling needs to be implemented before this test can work
-    test.skip('when there in no predecessor CAR MODEL connected', async () => {
+    test('when there in no predecessor CAR MODEL connected', async () => {
         vi.doMock("../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({data: null}))
         }))

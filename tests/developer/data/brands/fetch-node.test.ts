@@ -5,8 +5,7 @@ afterEach(() => {
 })
 
 describe('Fetching BRAND node from data source', () => {
-    // TODO error handling needs to be implemented before this test can work
-    test.skip('when there is no BRAND', async () => {
+    test('when there is no BRAND', async () => {
         const responseData = null
         vi.doMock("../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
