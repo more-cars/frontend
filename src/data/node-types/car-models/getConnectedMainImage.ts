@@ -5,7 +5,7 @@ import type {ApiCarModelHasPrimeImageRelationship} from "./types/ApiCarModelHasP
 import {getCarModelById} from "./getCarModelById"
 import type {CarModelHasMainImageRelationship} from "./types/CarModelHasMainImageRelationship"
 
-export async function getMainImageRelationship(id: number) {
+export async function getConnectedMainImage(id: number) {
     const apiData = (await requestDataFromApi(`/car-models/${id}/has-prime-image`)) as ApiCarModelHasPrimeImageRelationship
     const sourceNode = await getCarModelById(id)
 

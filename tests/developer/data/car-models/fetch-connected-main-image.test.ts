@@ -10,8 +10,8 @@ describe('Fetching connected main IMAGE from data source', () => {
             requestDataFromApi: vi.fn(() => ({data: null}))
         }))
 
-        const {getMainImageRelationship} = await import("../../../../src/data/node-types/car-models/getMainImageRelationship")
-        expect(await getMainImageRelationship(1))
+        const {getConnectedMainImage} = await import("../../../../src/data/node-types/car-models/getConnectedMainImage")
+        expect(await getConnectedMainImage(1))
             .toEqual(null)
     })
 
@@ -22,8 +22,8 @@ describe('Fetching connected main IMAGE from data source', () => {
             }))
         }))
 
-        const {getMainImageRelationship} = await import("../../../../src/data/node-types/car-models/getMainImageRelationship")
-        expect(await getMainImageRelationship(1))
+        const {getConnectedMainImage} = await import("../../../../src/data/node-types/car-models/getConnectedMainImage")
+        expect(await getConnectedMainImage(1))
             .toHaveProperty('partner_node.id', 2)
     })
 })

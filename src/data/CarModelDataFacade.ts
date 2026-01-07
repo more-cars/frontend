@@ -4,7 +4,7 @@ import {getConnectedBrand} from "./node-types/car-models/getConnectedBrand"
 import {getConnectedPredecessorCarModel} from "./node-types/car-models/getConnectedPredecessorCarModel"
 import {getConnectedSuccessorCarModel} from "./node-types/car-models/getConnectedSuccessorCarModel"
 import {getConnectedImages} from "./node-types/car-models/getConnectedImages"
-import {getMainImageRelationship} from "./node-types/car-models/getMainImageRelationship"
+import {getConnectedMainImage} from "./node-types/car-models/getConnectedMainImage"
 
 export class CarModelDataFacade {
     static async getNodeCollection() {
@@ -31,7 +31,7 @@ export class CarModelDataFacade {
         return getConnectedImages(id)
     }
 
-    static async fetchMainImageRelationship(id: number) {
-        return getMainImageRelationship(id)
+    static async getConnectedMainImageNode(id: number) {
+        return getConnectedMainImage(id)
     }
 }

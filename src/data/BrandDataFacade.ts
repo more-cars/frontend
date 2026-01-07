@@ -2,7 +2,7 @@ import {getAllBrands} from "./node-types/brands/getAllBrands"
 import {getBrandById} from "./node-types/brands/getBrandById"
 import {getConnectedCarModels} from "./node-types/brands/getConnectedCarModels"
 import {getConnectedImages} from "./node-types/brands/getConnectedImages"
-import {getMainImageRelationship} from "./node-types/brands/getMainImageRelationship"
+import {getConnectedMainImage} from "./node-types/brands/getConnectedMainImage"
 
 export class BrandDataFacade {
     static async getNodeCollection() {
@@ -21,7 +21,7 @@ export class BrandDataFacade {
         return getConnectedImages(id)
     }
 
-    static async fetchMainImageRelationship(id: number) {
-        return getMainImageRelationship(id)
+    static async getConnectedMainImageNode(id: number) {
+        return getConnectedMainImage(id)
     }
 }
