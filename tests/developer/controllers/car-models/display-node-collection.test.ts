@@ -19,7 +19,7 @@ describe('Requesting the CAR MODEL overview page', () => {
 
 
     test('when there exist multiple CAR MODELS', async () => {
-        vi.doMock("../../../../src/car-models/brands/findAllNodes", () => ({
+        vi.doMock("../../../../src/models/node-types/car-models/findAllNodes", () => ({
             findAllNodes: () => [
                 {id: 1, name: "dummy 1"},
                 {id: 2, name: "dummy 2"},
