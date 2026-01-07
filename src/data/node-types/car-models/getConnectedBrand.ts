@@ -10,8 +10,9 @@ export async function getConnectedBrand(id: number) {
     const sourceNode = await getCarModelById(id)
 
     if (!apiData) {
-        return
+        return null
     }
+
     const data: CarModelBelongsToBrandRelationship = {
         id,
         name: DataRelationshipType.CAR_MODEL_BELONGS_TO_BRAND,

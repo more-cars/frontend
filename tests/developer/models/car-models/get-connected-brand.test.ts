@@ -6,7 +6,7 @@ import type {
 } from "../../../../src/data/node-types/car-models/types/CarModelBelongsToBrandRelationship"
 
 describe('Collect connected BRAND for the CAR MODEL detail page', () => {
-    test.skip('when no BRAND is connected', async () => {
+    test('when no BRAND is connected', async () => {
         vi.spyOn(CarModelDataFacade, 'getConnectedBrandNode').mockResolvedValue(null)
 
         expect(await findConnectedBrand(1))

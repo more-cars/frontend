@@ -6,7 +6,7 @@ import {
 } from "../../../../src/data/node-types/car-models/types/CarModelHasSuccessorRelationship"
 
 describe('Collect connected successor for the CAR MODEL detail page', () => {
-    test.skip('when no successor CAR MODEL is connected', async () => {
+    test('when no successor CAR MODEL is connected', async () => {
         vi.spyOn(CarModelDataFacade, 'getConnectedSuccessorCarModelNode').mockResolvedValue(null)
 
         expect(await findConnectedSuccessor(1))
