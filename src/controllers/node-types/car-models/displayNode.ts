@@ -16,6 +16,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const connectedBrand = await CarModelModelFacade.getConnectedBrand(carModelId)
+    const connectedSuccessor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
     const connectedImages = await CarModelModelFacade.getConnectedImages(carModelId)
     const connectedMainImage = await CarModelModelFacade.getConnectedMainImage(carModelId)
 
@@ -23,6 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${carModel.name} - Car Model`,
         node: carModel,
         brand: connectedBrand,
+        successor: connectedSuccessor,
         images: connectedImages,
         mainImage: connectedMainImage,
         primaryProperties: getPrimaryProperties(),

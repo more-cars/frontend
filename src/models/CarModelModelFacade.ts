@@ -1,6 +1,7 @@
 import {findAllNodes} from "./node-types/car-models/findAllNodes"
 import {findNodeById} from "./node-types/car-models/findNodeById"
 import {findConnectedBrand} from "./node-types/car-models/findConnectedBrand"
+import {findConnectedSuccessor} from "./node-types/car-models/findConnectedSuccessor"
 import {findConnectedImages} from "./node-types/car-models/findConnectedImages"
 import {findConnectedMainImage} from "./node-types/car-models/findConnectedMainImage"
 
@@ -15,6 +16,10 @@ export class CarModelModelFacade {
 
     static async getConnectedBrand(id: number) {
         return await findConnectedBrand(id)
+    }
+
+    static async getConnectedSuccessor(id: number) {
+        return await findConnectedSuccessor(id)
     }
 
     static async getConnectedImages(id: number) {
