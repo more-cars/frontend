@@ -138,11 +138,19 @@ They can be found in the directory `specification/behavior`.
 Those scenarios are automated in form of `Cypress` tests.
 Their implementation can be found in the directory `tests/behavior/step_implementation`.
 
-With `npm run tests:behavior:cli` the whole suite of Cypress tests can be executed.
-They produce test reports that can be found in the directory `test-reports/behavior`.
+With `npm run tests:behavior:cli` the whole Cypress test suite can be executed.
+This will automatically start an API mock server in the background,
+which allows the frontend to get (realistic) data,
+without the need to start a real API server.
+The mock data is automatically created,
+based on the official More Cars API specification,
+which can be found in the folder `tests/behavior/api-specification`.
+The tests target the currently running frontend app.
+If there is none running it will automatically be started.
+The test reports will be written to the folder `test-reports/behavior`.
 
 The command `npm run tests:behavior:gui` opens an interactive version of Cypress.
-Here, each test can started individually.
+Here, each test can be started individually.
 The test results can be followed in real-time in the embedded browser.
 
 ### Load Tests
