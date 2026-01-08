@@ -131,6 +131,17 @@ kubectl create secret generic basic-auth \
 
 ## Tests
 
+### Developer Tests
+
+There is no separation between **unit tests** and **integration tests**.
+They live together in the same folder (`tests/developer`) and they are always executed together.
+The command to start the test suite is `npm run tests:developer`.
+There are no external dependencies.
+When an integration test needs to test an HTTP request
+it can automatically launch a copy of the app via `supertest` and mock the routes as needed.
+With `npm run tests:developer:coverage` the test run will produce a code coverage report in the end.
+The results can be found in the folder `test-reports/developer`.
+
 ### Behavior Tests
 
 The application's expected behavior is documented via `Gherkin` scenarios.
