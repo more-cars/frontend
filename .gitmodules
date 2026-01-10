@@ -1,3 +1,6 @@
 [submodule "frontend-specification"]
 	path = frontend-specification
 	url = https://github.com/more-cars/frontend-specification.git
+[submodule "frontend-ticket-generator"]
+	path = frontend-ticket-generator
+	url = https://github.com/more-cars/frontend-ticket-generator
