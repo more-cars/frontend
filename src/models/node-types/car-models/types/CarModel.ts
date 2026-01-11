@@ -1,4 +1,4 @@
-export type CarModelNode = {
+export type CarModel = {
     id: number
     name: string
     generation?: number

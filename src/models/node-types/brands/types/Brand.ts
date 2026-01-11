@@ -1,4 +1,4 @@
-export type BrandNode = {
+export type Brand = {
     id: number
     name: string
     full_name?: string

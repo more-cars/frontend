@@ -1,9 +1,9 @@
 import {BrandDataFacade} from "../../../data/BrandDataFacade"
-import type {ImageNode} from "../images/types/ImageNode"
+import type {Image} from "../images/types/Image"
 
 export async function findConnectedImages(id: number) {
     const relations = await BrandDataFacade.getConnectedImageNodes(id)
-    const nodes: ImageNode[] = []
+    const nodes: Image[] = []
 
     for (const relation of relations) {
         nodes.push(relation.partner_node)

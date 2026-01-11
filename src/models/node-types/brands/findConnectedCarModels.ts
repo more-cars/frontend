@@ -1,9 +1,9 @@
 import {BrandDataFacade} from "../../../data/BrandDataFacade"
-import type {CarModelNode} from "../car-models/types/CarModelNode"
+import type {CarModel} from "../car-models/types/CarModel"
 
 export async function findConnectedCarModels(id: number) {
     const relations = await BrandDataFacade.getConnectedCarModelNodes(id)
-    const nodes: CarModelNode[] = []
+    const nodes: CarModel[] = []
 
     for (const relation of relations) {
         nodes.push(relation.partner_node)

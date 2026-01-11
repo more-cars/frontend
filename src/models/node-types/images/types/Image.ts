@@ -1,4 +1,4 @@
-export type ImageNode = {
+export type Image = {
     id: number
 
     image_provider: string
