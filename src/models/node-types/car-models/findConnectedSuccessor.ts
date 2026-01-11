@@ -1,8 +1,12 @@
 import {CarModelDataFacade} from "../../../data/CarModelDataFacade"
-import {CarModel} from "./types/CarModel"
+import {convertCarModelNode} from "./convertCarModelNode"
 
 export async function findConnectedSuccessor(id: number) {
     const relation = await CarModelDataFacade.getConnectedSuccessorCarModelNode(id)
 
-    return relation?.partner_node as CarModel || null
+    if (!relation) {
+        return null
+    }
+
+    return convertCarModelNode(relation.partner_node)
 }

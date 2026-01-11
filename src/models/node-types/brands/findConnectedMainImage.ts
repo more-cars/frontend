@@ -1,11 +1,12 @@
 import {BrandDataFacade} from "../../../data/BrandDataFacade"
+import {convertImageNode} from "../images/convertImageNode"
 
 export async function findConnectedMainImage(id: number) {
-    const relationship = await BrandDataFacade.getConnectedMainImageNode(id)
+    const relation = await BrandDataFacade.getConnectedMainImageNode(id)
 
-    if (relationship) {
-        return relationship.partner_node
+    if (!relation) {
+        return null
     }
 
-    return null
+    return convertImageNode(relation.partner_node)
 }

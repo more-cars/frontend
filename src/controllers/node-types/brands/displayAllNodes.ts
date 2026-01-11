@@ -1,7 +1,7 @@
 import express from "express"
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
-import {BrandNode} from "../../../data/node-types/brands/types/BrandNode"
+import {Brand} from "../../../models/node-types/brands/types/Brand"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const brands = await BrandModelFacade.getAllNodes()
@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     })
 }
 
-async function getThumbnails(brands: BrandNode[]) {
+async function getThumbnails(brands: Brand[]) {
     const thumbnails = []
 
     for (const brand of brands) {

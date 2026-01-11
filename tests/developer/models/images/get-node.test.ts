@@ -15,7 +15,9 @@ describe('Collect node for the IMAGE detail page', () => {
         const node = {id: 1, name: "dummy 1"} as ImageNode
         vi.spyOn(ImageDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        expect(await findNodeById(1))
-            .toEqual(node)
+        const image = await findNodeById(1)
+
+        expect(image?.id).toEqual(node.id)
+        expect(image?.name).toEqual(node.name)
     })
 })

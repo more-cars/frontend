@@ -1,6 +1,12 @@
 import {ImageDataFacade} from "../../../data/ImageDataFacade"
-import type {Image} from "./types/Image"
+import {convertImageNode} from "./convertImageNode"
 
 export async function findNodeById(id: number) {
-    return (await ImageDataFacade.getNodeById(id)) as Image
+    const node = await ImageDataFacade.getNodeById(id)
+
+    if (!node) {
+        return null
+    }
+
+    return convertImageNode(node)
 }

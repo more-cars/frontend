@@ -1,7 +1,7 @@
 import express from "express"
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
-import {ImageNode} from "../../../data/node-types/images/types/ImageNode"
+import {Image} from "../../../models/node-types/images/types/Image"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const images = await ImageModelFacade.getAllNodes()
@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     })
 }
 
-async function getThumbnails(images: ImageNode[]) {
+async function getThumbnails(images: Image[]) {
     const thumbnails = []
 
     for (const image of images) {

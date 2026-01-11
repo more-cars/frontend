@@ -1,11 +1,12 @@
 import {CarModelDataFacade} from "../../../data/CarModelDataFacade"
+import {convertImageNode} from "../images/convertImageNode"
 
 export async function findConnectedMainImage(id: number) {
-    const relationship = await CarModelDataFacade.getConnectedMainImageNode(id)
+    const relation = await CarModelDataFacade.getConnectedMainImageNode(id)
 
-    if (relationship) {
-        return relationship.partner_node
+    if (!relation) {
+        return null
     }
 
-    return null
+    return convertImageNode(relation.partner_node)
 }

@@ -1,7 +1,7 @@
 import express from "express"
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
-import {CarModelNode} from "../../../data/node-types/car-models/types/CarModelNode"
+import {CarModel} from "../../../models/node-types/car-models/types/CarModel"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const carModels = await CarModelModelFacade.getAllNodes()
@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     })
 }
 
-async function getThumbnails(carModels: CarModelNode[]) {
+async function getThumbnails(carModels: CarModel[]) {
     const thumbnails = []
 
     for (const carModel of carModels) {

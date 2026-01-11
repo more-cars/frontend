@@ -15,7 +15,9 @@ describe('Collect node for the BRAND detail page', () => {
         const node = {id: 1, name: "dummy 1"} as BrandNode
         vi.spyOn(BrandDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        expect(await findNodeById(1))
-            .toEqual(node)
+        const brand = await findNodeById(1)
+
+        expect(brand?.id).toEqual(node.id)
+        expect(brand?.name).toEqual(node.name)
     })
 })

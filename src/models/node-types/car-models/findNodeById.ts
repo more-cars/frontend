@@ -1,6 +1,12 @@
 import {CarModelDataFacade} from "../../../data/CarModelDataFacade"
-import type {CarModel} from "./types/CarModel"
+import {convertCarModelNode} from "./convertCarModelNode"
 
 export async function findNodeById(id: number) {
-    return (await CarModelDataFacade.getNodeById(id)) as CarModel
+    const node = await CarModelDataFacade.getNodeById(id)
+
+    if (!node) {
+        return null
+    }
+
+    return convertCarModelNode(node)
 }
