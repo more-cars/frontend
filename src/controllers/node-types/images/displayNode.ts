@@ -18,7 +18,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/images/image-page', {
         pageTitle: `${image.name} - Image`,
-        node: image,
+        node: {
+            data: image,
+            primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),
+            main_image: image,
+        },
         relationships: {
             brands: {
                 items: await ImageModelFacade.getConnectedBrands(imageId),
@@ -29,7 +33,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
             },
         },
-        primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

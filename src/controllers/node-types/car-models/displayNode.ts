@@ -16,11 +16,13 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    const connectedMainImage = await CarModelModelFacade.getConnectedMainImage(carModelId)
-
     res.render('templates/car-models/car-model-page', {
         pageTitle: `${carModel.name} - Car Model`,
-        node: carModel,
+        node: {
+            data: carModel,
+            primaryProperties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+            main_image: await CarModelModelFacade.getConnectedMainImage(carModelId),
+        },
         relationships: {
             brand: {
                 item: await CarModelModelFacade.getConnectedBrand(carModelId),
@@ -39,8 +41,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
             },
         },
-        mainImage: connectedMainImage,
-        primaryProperties: getPrimaryProperties(DataNodeType.CAR_MODEL),
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

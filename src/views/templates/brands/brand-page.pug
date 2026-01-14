@@ -1,16 +1,19 @@
 extends ../../layouts/base/layout
 
 block main
+    - brand = node.data
     h1(
         aria-label="brand name"
         class=`text-center
         mb-8
         text-3xl
-        font-bold`) #{node.name}
+        font-bold`) #{brand.name}
     div(class="grid grid-cols-2 gap-4 items-start")
         div
+            - item = brand
             include ../nodes/fact-sheet
         div
+            - mainImage = node.main_image
             include ../nodes/connected-main-image
 
             - carModels = relationships.car_models.items
