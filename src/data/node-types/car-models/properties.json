@@ -1,0 +1,44 @@
+[
+  {
+    "name": "name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Corvette"
+  },
+  {
+    "name": "built_from",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1976"
+  },
+  {
+    "name": "built_to",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1987"
+  },
+  {
+    "name": "generation",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "3"
+  },
+  {
+    "name": "internal_code",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "C3"
+  },
+  {
+    "name": "total_production",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1234567"
+  }
+]

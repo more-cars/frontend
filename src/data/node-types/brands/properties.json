@@ -1,0 +1,44 @@
+[
+  {
+    "name": "name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "BMW"
+  },
+  {
+    "name": "full_name",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Bayerische Motoren Werke"
+  },
+  {
+    "name": "founded",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1916"
+  },
+  {
+    "name": "defunct",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": ""
+  },
+  {
+    "name": "wmi",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "WBA"
+  },
+  {
+    "name": "hsn",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "0005"
+  }
+]

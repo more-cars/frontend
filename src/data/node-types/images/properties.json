@@ -1,0 +1,107 @@
+[
+  {
+    "name": "image_provider",
+    "is_primary": false,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "flickr"
+  },
+  {
+    "name": "external_id",
+    "is_primary": false,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "54671993116"
+  },
+  {
+    "name": "name",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Chevrolet Corvette ZR-1 (C4)"
+  },
+  {
+    "name": "description",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  },
+  {
+    "name": "creator",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "More Cars"
+  },
+  {
+    "name": "license",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "CC-BY 4.0"
+  },
+  {
+    "name": "tags",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Chevrolet, Corvette, C4"
+  },
+  {
+    "name": "source",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "https://www.flickr.com/photos/more-cars/54671993116/"
+  },
+  {
+    "name": "image_url_original",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "https://www.flickr.com/photos/more-cars/54671993116/sizes/o/"
+  },
+  {
+    "name": "image_url_xxl",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "https://www.flickr.com/photos/more-cars/54671993116/sizes/4k/"
+  },
+  {
+    "name": "image_url_xl",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  },
+  {
+    "name": "image_url_l",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  },
+  {
+    "name": "image_url_m",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  },
+  {
+    "name": "image_url_s",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  },
+  {
+    "name": "image_url_xs",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  }
+]
