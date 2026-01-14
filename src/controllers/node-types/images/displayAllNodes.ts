@@ -1,6 +1,7 @@
 import express from "express"
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Image} from "../../../models/node-types/images/types/Image"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
@@ -9,7 +10,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     return res.render('templates/images/images-page', {
         pageTitle: 'All Images',
         nodeCollection: images,
-        primaryProperties: getPrimaryProperties(),
+        primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),
         thumbnails: await getThumbnails(images),
     }, (error, html) => {
         res.statusCode = 200

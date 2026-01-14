@@ -1,20 +1,9 @@
-export function getPrimaryProperties() {
-    return {
-        brands: [
-            'full_name',
-            'founded',
-            'defunct',
-        ],
-        car_models: [
-            'built_from',
-            'built_to',
-            'generation',
-            'total_production',
-        ],
-        images: [
-            'image_provider',
-            'creator',
-            'license',
-        ],
-    }
+import {dasherize, pluralize} from "inflection"
+import {DataNodeType} from "../../data/types/DataNodeType"
+
+export function getPrimaryProperties(nodeType: DataNodeType) {
+    const properties: Array<Object> = require(`../../data/node-types/${dasherize(pluralize(nodeType.toLowerCase()))}/properties.json`)
+    const primaryProperties = properties.filter((prop: any) => prop.is_primary)
+
+    return primaryProperties.map((prop: any) => prop.name)
 }

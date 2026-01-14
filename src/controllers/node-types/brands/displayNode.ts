@@ -1,6 +1,7 @@
 import express from "express"
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const brandId = parseInt(req.params.id)
@@ -25,7 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         carModels: connectedCarModels,
         images: connectedImages,
         mainImage: connectedMainImage,
-        primaryProperties: getPrimaryProperties(),
+        primaryProperties: getPrimaryProperties(DataNodeType.BRAND),
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

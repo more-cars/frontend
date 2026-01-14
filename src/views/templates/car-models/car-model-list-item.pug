@@ -6,5 +6,4 @@ li(aria-label="car-model" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" d
                 span(aria-label="name") #{item.name}
             if item.internal_code
                 span(aria-label="internal code")  (#{item.internal_code})
-            include ../nodes/primary-properties-group
-            +primary-properties-group('car_models')
+            include ../nodes/primary-properties
