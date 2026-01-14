@@ -25,6 +25,17 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/car-models/car-model-page', {
         pageTitle: `${carModel.name} - Car Model`,
         node: carModel,
+        relationships: {
+            brand: {
+                primary_properties: getPrimaryProperties(DataNodeType.BRAND),
+            },
+            predecessor: {
+                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+            },
+            successor: {
+                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+            },
+        },
         brand: connectedBrand,
         predecessor: connectedPredecessor,
         successor: connectedSuccessor,

@@ -7,6 +7,6 @@ if successor
             div(class="col-span-3")
                 a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${successor.id}`)
                     span(aria-label="name") #{successor.name}
-                - const item = successor
-                include ../nodes/primary-properties-group
-                +primary-properties-group('car_models')
+                - item = successor
+                - primaryProperties = relationships.successor.primary_properties
+                include ../nodes/primary-properties

@@ -22,6 +22,14 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/images/image-page', {
         pageTitle: `${image.name} - Image`,
         node: image,
+        relationships: {
+            brands: {
+                primary_properties: getPrimaryProperties(DataNodeType.BRAND),
+            },
+            car_models: {
+                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+            },
+        },
         brands: connectedBrands,
         carModels: connectedCarModels,
         primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),

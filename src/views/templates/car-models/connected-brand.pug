@@ -7,6 +7,6 @@ if brand
             div(class="col-span-3")
                 a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${brand.id}`)
                     span(aria-label="name") #{brand.name}
-                - const item = brand
-                include ../nodes/primary-properties-group
-                +primary-properties-group('brands')
+                - item = brand
+                - primaryProperties = relationships.brand.primary_properties
+                include ../nodes/primary-properties

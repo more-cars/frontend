@@ -23,6 +23,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
     return res.render('templates/brands/brand-page', {
         pageTitle: `${brand.name} - Brand`,
         node: brand,
+        relationships: {
+            car_models: {
+                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+            },
+        },
         carModels: connectedCarModels,
         images: connectedImages,
         mainImage: connectedMainImage,
