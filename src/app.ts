@@ -1,6 +1,7 @@
 import type {Express} from "express"
 import express from "express"
 import startPage from "./routes/startPage.ts"
+import companies from "./routes/companies"
 import brands from './routes/brands.ts'
 import carModels from "./routes/car-models"
 import images from "./routes/images"
@@ -13,6 +14,7 @@ app.set('views', './src/views')
 app.use(basicAuthentication)
 app.use(express.static('public'))
 app.use('/', startPage)
+app.use('/', companies)
 app.use('/', brands)
 app.use('/', carModels)
 app.use('/', images)
