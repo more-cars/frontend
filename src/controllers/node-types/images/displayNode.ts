@@ -16,22 +16,19 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    const connectedBrands = await ImageModelFacade.getConnectedBrands(imageId)
-    const connectedCarModels = await ImageModelFacade.getConnectedCarModels(imageId)
-
     res.render('templates/images/image-page', {
         pageTitle: `${image.name} - Image`,
         node: image,
         relationships: {
             brands: {
+                items: await ImageModelFacade.getConnectedBrands(imageId),
                 primary_properties: getPrimaryProperties(DataNodeType.BRAND),
             },
             car_models: {
+                items: await ImageModelFacade.getConnectedCarModels(imageId),
                 primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
             },
         },
-        brands: connectedBrands,
-        carModels: connectedCarModels,
         primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),
     }, (error, html) => {
         res.statusCode = 200

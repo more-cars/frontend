@@ -16,10 +16,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    const connectedBrand = await CarModelModelFacade.getConnectedBrand(carModelId)
-    const connectedPredecessor = await CarModelModelFacade.getConnectedPredecessor(carModelId)
-    const connectedSuccessor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
-    const connectedImages = await CarModelModelFacade.getConnectedImages(carModelId)
     const connectedMainImage = await CarModelModelFacade.getConnectedMainImage(carModelId)
 
     res.render('templates/car-models/car-model-page', {
@@ -27,19 +23,22 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: carModel,
         relationships: {
             brand: {
+                item: await CarModelModelFacade.getConnectedBrand(carModelId),
                 primary_properties: getPrimaryProperties(DataNodeType.BRAND),
             },
             predecessor: {
+                item: await CarModelModelFacade.getConnectedPredecessor(carModelId),
                 primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
             },
             successor: {
+                item: await CarModelModelFacade.getConnectedSuccessor(carModelId),
+                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+            },
+            images: {
+                items: CarModelModelFacade.getConnectedImages(carModelId),
                 primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
             },
         },
-        brand: connectedBrand,
-        predecessor: connectedPredecessor,
-        successor: connectedSuccessor,
-        images: connectedImages,
         mainImage: connectedMainImage,
         primaryProperties: getPrimaryProperties(DataNodeType.CAR_MODEL),
     }, (error, html) => {

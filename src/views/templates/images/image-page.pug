@@ -12,7 +12,11 @@ block main
             include ../nodes/fact-sheet
         div
             include image
+
+            - brands = relationships.brands.items
             include connected-brands
+
+            - carModels = relationships.car_models.items
             include connected-car-models
 
 block footer

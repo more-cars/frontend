@@ -12,9 +12,17 @@ block main
             include ../nodes/fact-sheet
         div
             include ../nodes/connected-main-image
+
+            - brand = relationships.brand.item
             include connected-brand
+
+            - predecessor = relationships.predecessor.item
             include connected-predecessor
+
+            - successor = relationships.successor.item
             include connected-successor
+
+            - images = relationships.images.items
             include connected-images
 
 block footer
