@@ -1,0 +1,37 @@
+[
+  {
+    "name": "name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "BMW AG"
+  },
+  {
+    "name": "founded",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1916"
+  },
+  {
+    "name": "defunct",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": ""
+  },
+  {
+    "name": "headquarters_location",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Munich"
+  },
+  {
+    "name": "legal_headquarters_location",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Munich"
+  }
+]
