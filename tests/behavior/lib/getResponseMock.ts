@@ -2,7 +2,7 @@ import {dasherize, underscore} from "inflection"
 import {mockState, nodeRelationships, nodeState} from "./mockState"
 import {Context} from "openapi-backend"
 
-export function getResponseMock(context: Context, req: any) {
+export function getResponseMock(context: Context, req: { url: string }) {
     const operationId = context.operation.operationId || 'UNKNOWN'
 
     if (isNodeTypeOperation(operationId)) {
@@ -47,7 +47,7 @@ export function getResponseMock(context: Context, req: any) {
                 data: mockItems
             }
         } else {
-            let relationshipCount = nodeRelationships.get(nodeId)
+            const relationshipCount = nodeRelationships.get(nodeId)
 
             if (relationshipCount === undefined || relationshipCount > 0) {
                 return {
