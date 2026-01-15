@@ -13,8 +13,8 @@ describe('Collect connected IMAGES for the BRAND detail page', () => {
 
     test('when there are IMAGES connected', async () => {
         vi.spyOn(BrandDataFacade, 'getConnectedImageNodes').mockResolvedValue([
-            {id: 2, name: "dummy 2"} as unknown as BrandHasImageRelationship,
-            {id: 3, name: "dummy 3"} as unknown as BrandHasImageRelationship,
+            {id: 2, name: "dummy 2", partner_node: {}} as unknown as BrandHasImageRelationship,
+            {id: 3, name: "dummy 3", partner_node: {}} as unknown as BrandHasImageRelationship,
         ])
 
         expect(await findConnectedImages(1))

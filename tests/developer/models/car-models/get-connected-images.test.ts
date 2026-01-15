@@ -15,8 +15,8 @@ describe('Collect connected IMAGES for the CAR MODEL detail page', () => {
 
     test('when there are IMAGES connected', async () => {
         vi.spyOn(CarModelDataFacade, 'getConnectedImageNodes').mockResolvedValue([
-            {id: 2, name: "dummy 2"} as unknown as CarModelHasImageRelationship,
-            {id: 3, name: "dummy 3"} as unknown as CarModelHasImageRelationship,
+            {id: 2, name: "dummy 2", partner_node: {}} as unknown as CarModelHasImageRelationship,
+            {id: 3, name: "dummy 3", partner_node: {}} as unknown as CarModelHasImageRelationship,
         ])
 
         expect(await findConnectedImages(1))

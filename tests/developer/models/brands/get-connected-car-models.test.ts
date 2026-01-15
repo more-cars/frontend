@@ -15,8 +15,8 @@ describe('Collect connected CAR MODELS for the BRAND detail page', () => {
 
     test('when there are CAR MODELS connected', async () => {
         vi.spyOn(BrandDataFacade, 'getConnectedCarModelNodes').mockResolvedValue([
-            {id: 2, name: "dummy 2"} as unknown as BrandHasCarModelRelationship,
-            {id: 3, name: "dummy 3"} as unknown as BrandHasCarModelRelationship,
+            {id: 2, name: "dummy 2", partner_node: {}} as unknown as BrandHasCarModelRelationship,
+            {id: 3, name: "dummy 3", partner_node: {}} as unknown as BrandHasCarModelRelationship,
         ])
 
         expect(await findConnectedCarModels(1))
