@@ -30,7 +30,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             },
             images: {
                 items: await BrandModelFacade.getConnectedImages(brandId),
-                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+                primary_properties: getPrimaryProperties(DataNodeType.IMAGE),
             },
         },
     }, (error, html) => {
