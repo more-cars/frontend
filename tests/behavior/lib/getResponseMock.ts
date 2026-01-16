@@ -2,14 +2,16 @@ import {dasherize, underscore} from "inflection"
 import {mockState, nodeRelationships, nodeState} from "./mockState"
 import {Context} from "openapi-backend"
 
-export function getResponseMock(context: Context, req: { url: string }) {
+export function getResponseMock(context: Context, req: { url: string, query: { page: number } }) {
     const operationId = context.operation.operationId || 'UNKNOWN'
 
     if (isNodeTypeOperation(operationId)) {
         const mockItems = []
         const nodeCount = getNodeCountForNodeType(operationId)
+        const {page} = req.query || 1
+        const visibleNodes = Math.min(nodeCount - ((page - 1) * 100), 100)
 
-        for (let i = 0; i < nodeCount; i++) {
+        for (let i = 0; i < visibleNodes; i++) {
             const mockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
             mockItems.push(mockItem.mock.data[0])
         }
