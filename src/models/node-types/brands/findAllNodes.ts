@@ -4,7 +4,7 @@ import {convertBrandNode} from "./convertBrandNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params: { page: number }) {
+export async function findAllNodes(params?: { page: number }) {
     const nodes = await BrandDataFacade.getNodeCollection(params)
 
     const brands: Brand[] = []
