@@ -16,6 +16,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         thumbnails: await getThumbnails(images),
         pagination: {
             page,
+            total: 18095,
         },
     }, (error, html) => {
         res.statusCode = 200

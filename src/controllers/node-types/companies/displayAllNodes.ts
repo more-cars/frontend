@@ -14,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         primaryProperties: getPrimaryProperties(DataNodeType.COMPANY),
         pagination: {
             page,
+            total: 114,
         },
     }, (error, html) => {
         res.statusCode = 200
