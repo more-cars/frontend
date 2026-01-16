@@ -37,7 +37,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
             },
             images: {
-                items: CarModelModelFacade.getConnectedImages(carModelId),
+                items: await CarModelModelFacade.getConnectedImages(carModelId),
                 primary_properties: getPrimaryProperties(DataNodeType.IMAGE),
             },
         },
