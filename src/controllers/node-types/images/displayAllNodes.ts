@@ -5,13 +5,17 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Image} from "../../../models/node-types/images/types/Image"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const images = await ImageModelFacade.getAllNodes()
+    const page = parseInt(req.query.page as string) || 1
+    const images = await ImageModelFacade.getAllNodes({page})
 
     return res.render('templates/images/images-page', {
         pageTitle: 'All Images',
         nodeCollection: images,
         primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),
         thumbnails: await getThumbnails(images),
+        pagination: {
+            page,
+        },
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

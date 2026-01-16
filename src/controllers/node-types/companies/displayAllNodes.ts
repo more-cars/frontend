@@ -4,12 +4,16 @@ import {getPrimaryProperties} from "../../../models/node-types/getPrimaryPropert
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const companies = await CompanyModelFacade.getAllNodes()
+    const page = parseInt(req.query.page as string) || 1
+    const companies = await CompanyModelFacade.getAllNodes({page})
 
     return res.render('templates/companies/companies-page', {
         pageTitle: 'All Companies',
         nodeCollection: companies,
         primaryProperties: getPrimaryProperties(DataNodeType.COMPANY),
+        pagination: {
+            page,
+        },
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

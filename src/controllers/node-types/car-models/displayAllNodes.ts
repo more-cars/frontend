@@ -5,13 +5,17 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {CarModel} from "../../../models/node-types/car-models/types/CarModel"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const carModels = await CarModelModelFacade.getAllNodes()
+    const page = parseInt(req.query.page as string) || 1
+    const carModels = await CarModelModelFacade.getAllNodes({page})
 
     return res.render('templates/car-models/car-models-page', {
         pageTitle: 'All Car Models',
         nodeCollection: carModels,
         primaryProperties: getPrimaryProperties(DataNodeType.CAR_MODEL),
         thumbnails: await getThumbnails(carModels),
+        pagination: {
+            page,
+        },
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

@@ -14,3 +14,5 @@ else
         each item in nodeCollection
             include car-model-list-item
 
+    include ../nodes/pagination
+    +pagination('car-models', pagination.page)

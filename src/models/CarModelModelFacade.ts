@@ -7,8 +7,8 @@ import {findConnectedImages} from "./node-types/car-models/findConnectedImages"
 import {findConnectedMainImage} from "./node-types/car-models/findConnectedMainImage"
 
 export class CarModelModelFacade {
-    static async getAllNodes() {
-        return findAllNodes()
+    static async getAllNodes(params: { page: number }) {
+        return findAllNodes(params)
     }
 
     static async getNodeById(id: number) {

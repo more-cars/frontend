@@ -4,8 +4,8 @@ import {findConnectedBrands} from "./node-types/images/findConnectedBrands"
 import {findConnectedCarModels} from "./node-types/images/findConnectedCarModels"
 
 export class ImageModelFacade {
-    static async getAllNodes() {
-        return findAllNodes()
+    static async getAllNodes(params: { page: number }) {
+        return findAllNodes(params)
     }
 
     static async getNodeById(id: number) {

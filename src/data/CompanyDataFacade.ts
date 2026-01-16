@@ -1,7 +1,7 @@
 import {getAllCompanies} from "./node-types/companies/getAllCompanies"
 
 export class CompanyDataFacade {
-    static async getNodeCollection() {
-        return getAllCompanies()
+    static async getNodeCollection(params: { page: number }) {
+        return getAllCompanies(params)
     }
 }

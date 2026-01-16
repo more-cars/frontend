@@ -3,8 +3,8 @@ import {getImageById} from "./node-types/images/getImageById"
 import {getConnectedNodes} from "./node-types/images/getConnectedNodes"
 
 export class ImageDataFacade {
-    static async getNodeCollection() {
-        return getAllImages()
+    static async getNodeCollection(params: { page: number }) {
+        return getAllImages(params)
     }
 
     static async getNodeById(id: number) {

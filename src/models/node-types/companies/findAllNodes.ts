@@ -4,8 +4,8 @@ import {convertCompanyNode} from "./convertCompanyNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes() {
-    const nodes = await CompanyDataFacade.getNodeCollection()
+export async function findAllNodes(params: { page: number }) {
+    const nodes = await CompanyDataFacade.getNodeCollection(params)
 
     const companies: Company[] = []
 

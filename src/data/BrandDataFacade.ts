@@ -5,8 +5,8 @@ import {getConnectedImages} from "./node-types/brands/getConnectedImages"
 import {getConnectedMainImage} from "./node-types/brands/getConnectedMainImage"
 
 export class BrandDataFacade {
-    static async getNodeCollection() {
-        return getAllBrands()
+    static async getNodeCollection(params: { page: number }) {
+        return getAllBrands(params)
     }
 
     static async getNodeById(id: number) {

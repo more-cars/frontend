@@ -14,3 +14,5 @@ else
         each item in nodeCollection
             include brand-list-item
 
+    include ../nodes/pagination
+    +pagination('brands', pagination.page)

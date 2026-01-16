@@ -7,8 +7,8 @@ import {getConnectedImages} from "./node-types/car-models/getConnectedImages"
 import {getConnectedMainImage} from "./node-types/car-models/getConnectedMainImage"
 
 export class CarModelDataFacade {
-    static async getNodeCollection() {
-        return getAllCarModels()
+    static async getNodeCollection(params: { page: number }) {
+        return getAllCarModels(params)
     }
 
     static async getNodeById(id: number) {

@@ -5,13 +5,17 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Brand} from "../../../models/node-types/brands/types/Brand"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const brands = await BrandModelFacade.getAllNodes()
+    const page = parseInt(req.query.page as string) || 1
+    const brands = await BrandModelFacade.getAllNodes({page})
 
     return res.render('templates/brands/brands-page', {
         pageTitle: 'All Brands',
         nodeCollection: brands,
         primaryProperties: getPrimaryProperties(DataNodeType.BRAND),
         thumbnails: await getThumbnails(brands),
+        pagination: {
+            page,
+        },
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

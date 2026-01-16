@@ -4,8 +4,8 @@ import {convertCarModelNode} from "./convertCarModelNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes() {
-    const nodes = await CarModelDataFacade.getNodeCollection()
+export async function findAllNodes(params: { page: number }) {
+    const nodes = await CarModelDataFacade.getNodeCollection(params)
 
     const carModels: CarModel[] = []
 
