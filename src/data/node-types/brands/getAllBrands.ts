@@ -1,9 +1,12 @@
+import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
+import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiBrandNode} from "./types/ApiBrandNode"
 import type {BrandNode} from "./types/BrandNode"
 
 export async function getAllBrands(params?: { page: number }) {
-    const apiData = (await requestDataFromApi(`/brands?sort_by_property=name&page=${params?.page || 1}`)).data as ApiBrandNode[]
+    const url = getApiRequestUrl(DataNodeType.BRAND, params)
+    const apiData = (await requestDataFromApi(url)).data as ApiBrandNode[]
     const data: BrandNode[] = []
 
     apiData.forEach(apiItem => {
