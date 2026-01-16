@@ -13,7 +13,7 @@ mixin pagination(nodeType, currentPage, totalAmount)
                 aria-label="this page"
                 class="block p-2 border-2 border-zinc-800 bg-zinc-100 hover:bg-zinc-400"
                 href=`/${nodeType}${currentPage > 1 ? '?page=' + (currentPage) : ''}`
-            ) page 2
+            ) page #{currentPage}
             a(
                 aria-label="next page"
                 class="block p-2 border-2 border-zinc-800 rounded-r-lg bg-zinc-100 hover:bg-zinc-400"
