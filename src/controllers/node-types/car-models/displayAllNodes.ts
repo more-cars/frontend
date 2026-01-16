@@ -1,11 +1,12 @@
 import express from "express"
+import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {CarModel} from "../../../models/node-types/car-models/types/CarModel"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = parseInt(req.query.page as string) || 1
+    const page = determinePaginationPageNumber(req)
     const carModels = await CarModelModelFacade.getAllNodes({page})
 
     return res.render('templates/car-models/car-models-page', {

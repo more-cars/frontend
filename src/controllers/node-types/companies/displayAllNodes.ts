@@ -1,10 +1,11 @@
 import express from "express"
+import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = parseInt(req.query.page as string) || 1
+    const page = determinePaginationPageNumber(req)
     const companies = await CompanyModelFacade.getAllNodes({page})
 
     return res.render('templates/companies/companies-page', {
