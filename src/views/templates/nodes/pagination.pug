@@ -4,12 +4,12 @@ mixin pagination(nodeType, currentPage)
         aria-label="pagination"
     )
         a(
-            class="block p-2 border-2 border-zinc-800 rounded-l-lg bg-zinc-100 hover:bg-zinc-400"
-            href=`/${nodeType}?page=${currentPage - 1}`
+            class="block p-2 border-2 border-zinc-800 rounded-l-lg bg-zinc-100 hover:bg-zinc-400 disabled"
+            href=`/${nodeType}${currentPage > 2 ? '?page=' + (currentPage - 1) : ''}`
         ) previous page
         a(
             class="block p-2 border-2 border-zinc-800 bg-zinc-100 hover:bg-zinc-400"
-            href=`/${nodeType}?page=${currentPage}`
+            href=`/${nodeType}${currentPage > 1 ? '?page=' + (currentPage) : ''}`
         ) page 2
         a(
             class="block p-2 border-2 border-zinc-800 rounded-r-lg bg-zinc-100 hover:bg-zinc-400"
