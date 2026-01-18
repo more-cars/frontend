@@ -12,8 +12,11 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         const visibleNodes = Math.min(nodeCount - ((page - 1) * 100), 100)
 
         for (let i = 0; i < visibleNodes; i++) {
-            const mockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
-            mockItems.push(mockItem.mock.data[0])
+            const rawMockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
+            const randomId = Math.ceil(Math.random() * 10000000)
+            const mockItem = rawMockItem.mock.data[0]
+            mockItem.data.id = randomId
+            mockItems.push(mockItem)
         }
 
         return {
