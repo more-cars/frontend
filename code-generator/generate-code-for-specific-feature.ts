@@ -11,6 +11,7 @@ async function generateCodeForSpecificFeature() {
     const featureParameters = await promptFeatureParameters(feature)
     const nodeTypeProperties = getNodeTypeProperties(featureParameters['nodeType'])
     const cliParameters = convertToCliParameters(featureParameters)
+
     const hygenCommand = `HYGEN_OVERWRITE=1 HYGEN_TMPLS='${__dirname}' hygen features ${feature} ${cliParameters} --props='${JSON.stringify(nodeTypeProperties)}'`
     console.log(hygenCommand)
     await spawnShellCommand(hygenCommand)
