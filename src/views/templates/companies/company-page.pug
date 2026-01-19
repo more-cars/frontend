@@ -1,0 +1,17 @@
+extends ../../layouts/base/layout
+
+block main
+    - company = node.data
+    h1(
+        aria-label="company name"
+        class=`text-center
+        mb-8
+        text-3xl
+        font-bold`) #{company.name}
+    div(class="grid grid-cols-2 gap-4 items-start")
+        div
+            - item = company
+            include ../nodes/fact-sheet
+
+block footer
+    p Footer area...
