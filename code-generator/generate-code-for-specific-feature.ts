@@ -20,6 +20,7 @@ async function generateCodeForSpecificFeature() {
 async function promptFeature() {
     const choices = []
     choices.push({value: 'node-overview-page'})
+    choices.push({value: 'node-detail-page'})
 
     return select({
         message: 'Generating code for which feature?',
