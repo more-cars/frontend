@@ -21,6 +21,7 @@ async function promptFeature() {
     const choices = []
     choices.push({value: 'node-overview-page'})
     choices.push({value: 'node-detail-page'})
+    choices.push({value: 'node-detail-page-lead-image'})
 
     return select({
         message: 'Generating code for which feature?',
