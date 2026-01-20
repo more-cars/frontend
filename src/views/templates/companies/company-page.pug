@@ -10,6 +10,9 @@ block main
         font-bold`) #{company.name}
     div(class="grid grid-cols-2 gap-4 items-start")
         div
+            - mainImage = node.main_image
+            include ../nodes/connected-main-image
+
             - item = company
             include ../nodes/fact-sheet
 
