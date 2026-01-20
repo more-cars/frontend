@@ -3,4 +3,4 @@
 	url = https://github.com/more-cars/frontend-specification.git
 [submodule "frontend-ticket-generator"]
 	path = frontend-ticket-generator
-	url = https://github.com/more-cars/frontend-ticket-generator
+	url = https://github.com/more-cars/frontend-ticket-generator.git
