@@ -10,12 +10,12 @@ block main
         font-bold`) #{brand.name}
     div(class="grid grid-cols-2 gap-4 items-start")
         div
-            - item = brand
-            include ../nodes/fact-sheet
-        div
             - mainImage = node.main_image
             include ../nodes/connected-main-image
 
+            - item = brand
+            include ../nodes/fact-sheet
+        div
             - carModels = relationships.car_models.items
             include connected-car-models
 

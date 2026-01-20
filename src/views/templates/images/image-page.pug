@@ -10,12 +10,12 @@ block main
         font-bold`) #{image.name}
     div(class="grid grid-cols-2 gap-4 items-start")
         div
-            - item = image
-            include ../nodes/fact-sheet
-        div
             - mainImage = node.main_image
             include ../nodes/connected-main-image
 
+            - item = image
+            include ../nodes/fact-sheet
+        div
             - brands = relationships.brands.items
             include connected-brands
 
