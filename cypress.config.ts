@@ -27,6 +27,7 @@ export default defineConfig({
         supportFile: 'tests/behavior/e2e.support.ts',
         baseUrl: 'http://localhost:4000',
         screenshotsFolder: 'test-reports/behavior/screenshots/',
+        defaultCommandTimeout: 1000,
     },
     env: {
         tags: "@implemented"
