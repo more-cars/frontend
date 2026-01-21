@@ -20,6 +20,7 @@ async function generateCodeForSpecificFeature() {
 async function promptFeature() {
     const choices = []
     choices.push({value: 'node-overview-page'})
+    choices.push({value: 'node-overview-page-preview-images'})
     choices.push({value: 'node-detail-page'})
     choices.push({value: 'node-detail-page-lead-image'})
 
