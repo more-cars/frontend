@@ -3,6 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
 import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {Company} from "../../../models/node-types/companies/types/Company"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -11,6 +12,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     return res.render('templates/companies/companies-page', {
         pageTitle: 'All Companies',
         nodeCollection: companies,
+        thumbnails: await getThumbnails(companies),
         primaryProperties: getPrimaryProperties(DataNodeType.COMPANY),
         pagination: {
             page,
@@ -20,4 +22,15 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         res.statusCode = 200
         res.send(html)
     })
+}
+
+async function getThumbnails(companies: Company[]) {
+    const thumbnails = []
+
+    for (const company of companies) {
+        const thumbnail = await CompanyModelFacade.getConnectedMainImage(company.id)
+        thumbnails[company.id] = thumbnail || null
+    }
+
+    return thumbnails
 }
