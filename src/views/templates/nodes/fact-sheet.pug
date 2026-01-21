@@ -4,6 +4,6 @@ section(data-testid="fact-sheet")
     table(class="w-full rounded-xl border-separate border-spacing-2 border border-zinc-50 bg-zinc-200")
         tbody
             each value, property in item
-                tr(test-dataid=`${property}`)
+                tr(data-testid=`${property}`)
                     td(class="text-zinc-700 rounded-md border border-zinc-300 bg-zinc-400 p-2 font-bold text-center") #{property}
                     td(class="text-zinc-700 rounded-md border border-zinc-300 bg-zinc-300 p-2") #{value}
