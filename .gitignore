@@ -6,7 +6,7 @@ node_modules
 
 # generated files
 .features-gen
-public
+public/stylesheets
 test-reports
 _temp*
 
