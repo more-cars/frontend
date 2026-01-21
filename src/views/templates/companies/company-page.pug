@@ -2,14 +2,11 @@ extends ../../layouts/base/layout
 
 block main
     - company = node.data
-    h1(
-        aria-label="company name"
-        class=`text-center
-        mb-8
-        text-3xl
-        font-bold`) #{company.name}
-    div(class="grid grid-cols-2 gap-4 items-start")
+    div(class="grid grid-cols-2 gap-8 items-start")
         div
+            h1(class=`text-left mb-1 text-3xl font-bold`) #{company.name}
+            div(class="mb-4 text-sm") #{company.founded}-#{company.defunct}
+
             - mainImage = node.main_image
             include ../nodes/connected-main-image
 
