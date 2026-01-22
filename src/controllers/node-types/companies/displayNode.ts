@@ -1,6 +1,6 @@
 import express from "express"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
-import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayNode(req: express.Request, res: express.Response) {
@@ -20,7 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${company.name} - Company`,
         node: {
             data: company,
-            primaryProperties: getPrimaryProperties(DataNodeType.COMPANY),
+            primary_properties: getNodeProperties(DataNodeType.COMPANY),
             main_image: await CompanyModelFacade.getConnectedMainImage(companyId),
         },
     }, (error, html) => {

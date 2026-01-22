@@ -1,6 +1,6 @@
 import express from "express"
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
-import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayNode(req: express.Request, res: express.Response) {
@@ -20,17 +20,17 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${brand.name} - Brand`,
         node: {
             data: brand,
-            primaryProperties: getPrimaryProperties(DataNodeType.BRAND),
+            primary_properties: getNodeProperties(DataNodeType.BRAND),
             main_image: await BrandModelFacade.getConnectedMainImage(brandId),
         },
         relationships: {
             car_models: {
                 items: await BrandModelFacade.getConnectedCarModels(brandId),
-                primary_properties: getPrimaryProperties(DataNodeType.CAR_MODEL),
+                primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
             },
             images: {
                 items: await BrandModelFacade.getConnectedImages(brandId),
-                primary_properties: getPrimaryProperties(DataNodeType.IMAGE),
+                primary_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     }, (error, html) => {

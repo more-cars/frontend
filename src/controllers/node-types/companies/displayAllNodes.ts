@@ -1,7 +1,7 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
-import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Company} from "../../../models/node-types/companies/types/Company"
 
@@ -13,7 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         pageTitle: 'All Companies',
         nodeCollection: companies,
         thumbnails: await getThumbnails(companies),
-        primaryProperties: getPrimaryProperties(DataNodeType.COMPANY),
+        primary_properties: getNodeProperties(DataNodeType.COMPANY),
         pagination: {
             page,
             total: 114,

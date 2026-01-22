@@ -1,7 +1,7 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
-import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Brand} from "../../../models/node-types/brands/types/Brand"
 
@@ -12,7 +12,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     return res.render('templates/brands/brands-page', {
         pageTitle: 'All Brands',
         nodeCollection: brands,
-        primaryProperties: getPrimaryProperties(DataNodeType.BRAND),
+        primary_properties: getNodeProperties(DataNodeType.BRAND),
         thumbnails: await getThumbnails(brands),
         pagination: {
             page,

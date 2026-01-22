@@ -1,7 +1,7 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
-import {getPrimaryProperties} from "../../../models/node-types/getPrimaryProperties"
+import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Image} from "../../../models/node-types/images/types/Image"
 
@@ -12,7 +12,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     return res.render('templates/images/images-page', {
         pageTitle: 'All Images',
         nodeCollection: images,
-        primaryProperties: getPrimaryProperties(DataNodeType.IMAGE),
+        primary_properties: getNodeProperties(DataNodeType.IMAGE),
         thumbnails: await getThumbnails(images),
         pagination: {
             page,
