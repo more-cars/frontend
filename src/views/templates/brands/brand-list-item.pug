@@ -4,4 +4,5 @@ li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-
         div(class="col-span-3")
             a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.id}`)
                 span(aria-label="name") #{item.name}
+            - primaryProperties = primary_properties
             include ../nodes/primary-properties

@@ -1,5 +1,6 @@
 ul(aria-label="Primary Information")
     each prop in primaryProperties
-        li(class="text-xs inline-block  px-1 py-0.5")
-            b #{prop}:
-            span  #{item[prop]}
+        if prop.is_primary && prop.name !== "name"
+            li(class="text-xs inline-block px-1 py-0.5")
+                b #{prop.label}:
+                span  #{item[prop.name]}
