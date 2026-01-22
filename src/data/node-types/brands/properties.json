@@ -1,6 +1,7 @@
 [
   {
     "name": "name",
+    "label": "Name",
     "is_primary": true,
     "mandatory": true,
     "datatype": "string",
@@ -8,6 +9,7 @@
   },
   {
     "name": "full_name",
+    "label": "Full Name",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -15,6 +17,7 @@
   },
   {
     "name": "founded",
+    "label": "Founded",
     "is_primary": true,
     "mandatory": false,
     "datatype": "number",
@@ -22,6 +25,7 @@
   },
   {
     "name": "defunct",
+    "label": "Defunct",
     "is_primary": true,
     "mandatory": false,
     "datatype": "number",
@@ -29,6 +33,7 @@
   },
   {
     "name": "wmi",
+    "label": "WMI",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -36,6 +41,7 @@
   },
   {
     "name": "hsn",
+    "label": "HSN",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",

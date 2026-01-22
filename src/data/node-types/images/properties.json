@@ -1,6 +1,7 @@
 [
   {
     "name": "image_provider",
+    "label": "Image Provider",
     "is_primary": false,
     "mandatory": true,
     "datatype": "string",
@@ -8,6 +9,7 @@
   },
   {
     "name": "external_id",
+    "label": "External ID",
     "is_primary": false,
     "mandatory": true,
     "datatype": "string",
@@ -15,6 +17,7 @@
   },
   {
     "name": "name",
+    "label": "Name",
     "is_primary": true,
     "mandatory": false,
     "datatype": "string",
@@ -22,6 +25,7 @@
   },
   {
     "name": "description",
+    "label": "Description",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -29,6 +33,7 @@
   },
   {
     "name": "creator",
+    "label": "Creator",
     "is_primary": true,
     "mandatory": false,
     "datatype": "string",
@@ -36,6 +41,7 @@
   },
   {
     "name": "license",
+    "label": "License",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -43,6 +49,7 @@
   },
   {
     "name": "tags",
+    "label": "Tags",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -50,6 +57,7 @@
   },
   {
     "name": "source",
+    "label": "Source",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -57,6 +65,7 @@
   },
   {
     "name": "image_url_original",
+    "label": "Image URL (original)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "number",
@@ -64,6 +73,7 @@
   },
   {
     "name": "image_url_xxl",
+    "label": "Image URL (Size XXL)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -71,6 +81,7 @@
   },
   {
     "name": "image_url_xl",
+    "label": "Image URL (Size XL)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -78,6 +89,7 @@
   },
   {
     "name": "image_url_l",
+    "label": "Image URL (Size L)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -85,6 +97,7 @@
   },
   {
     "name": "image_url_m",
+    "label": "Image URL (Size M)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -92,6 +105,7 @@
   },
   {
     "name": "image_url_s",
+    "label": "Image URL (Size S)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
@@ -99,6 +113,7 @@
   },
   {
     "name": "image_url_xs",
+    "label": "Image URL (Size XS)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",

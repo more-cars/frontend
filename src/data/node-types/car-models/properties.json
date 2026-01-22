@@ -1,6 +1,7 @@
 [
   {
     "name": "name",
+    "label": "Name",
     "is_primary": true,
     "mandatory": true,
     "datatype": "string",
@@ -8,6 +9,7 @@
   },
   {
     "name": "built_from",
+    "label": "Built from",
     "is_primary": true,
     "mandatory": false,
     "datatype": "number",
@@ -15,6 +17,7 @@
   },
   {
     "name": "built_to",
+    "label": "Built to",
     "is_primary": true,
     "mandatory": false,
     "datatype": "number",
@@ -22,6 +25,7 @@
   },
   {
     "name": "generation",
+    "label": "Generation",
     "is_primary": false,
     "mandatory": false,
     "datatype": "number",
@@ -29,6 +33,7 @@
   },
   {
     "name": "internal_code",
+    "label": "Internal Code",
     "is_primary": true,
     "mandatory": false,
     "datatype": "string",
@@ -36,6 +41,7 @@
   },
   {
     "name": "total_production",
+    "label": "Total Production",
     "is_primary": false,
     "mandatory": false,
     "datatype": "number",
