@@ -1,6 +1,7 @@
 if successor
-    section(aria-label="car-model-successor")
-        h2(class="text-2xl mb-4 text-center") Successor
+    section(data-testid="successor-section")
+        h2(class="text-2xl mb-2") Successor
+        p(class="mb-4") The #[b #{carModel.name}] was succeeded by the following car model:
 
         div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.id}`)
             div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`car-model-successor-${successor.id}`)
