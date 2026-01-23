@@ -1,6 +1,6 @@
 ul(data-testid="prime-data")
     each prop in primaryProperties
-        if prop.is_primary && prop.name !== "name"
+        if prop.is_primary && prop.name !== "name" && item[prop.name]
             li(class="text-sm inline-block px-2 mr-2 mb-2 border-l-4 border-lime-400")
                 b #{prop.label}:
                 span  #{item[prop.name]}
