@@ -26,7 +26,7 @@
   {
     "name": "headquarters_location",
     "label": "Headquarters",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": false,
     "datatype": "string",
     "example": "Munich"

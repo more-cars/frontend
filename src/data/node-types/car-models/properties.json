@@ -26,7 +26,7 @@
   {
     "name": "generation",
     "label": "Generation",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": false,
     "datatype": "number",
     "example": "3"

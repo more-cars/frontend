@@ -10,7 +10,7 @@
   {
     "name": "full_name",
     "label": "Full Name",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": false,
     "datatype": "string",
     "example": "Bayerische Motoren Werke"

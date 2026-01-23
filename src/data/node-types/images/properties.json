@@ -2,7 +2,7 @@
   {
     "name": "image_provider",
     "label": "Image Provider",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": true,
     "datatype": "string",
     "example": "flickr"
@@ -42,7 +42,7 @@
   {
     "name": "license",
     "label": "License",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": false,
     "datatype": "string",
     "example": "CC-BY 4.0"
