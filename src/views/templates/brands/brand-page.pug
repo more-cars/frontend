@@ -3,7 +3,7 @@ extends ../../layouts/base/layout
 block main
     - brand = node.data
     div(class="grid grid-cols-2 gap-8 items-start")
-        div
+        div(data-testid="main-area-primary")
             h1(class=`text-left mb-1 text-3xl font-bold`) #{brand.name}
             div(class="mb-4 text-sm") #{brand.founded}-#{brand.defunct}
 
@@ -12,7 +12,7 @@ block main
 
             - item = brand
             include ../nodes/fact-sheet
-        div
+        div(data-testid="main-area-secondary")
             - carModels = relationships.car_models.items
             include connected-car-models
 
