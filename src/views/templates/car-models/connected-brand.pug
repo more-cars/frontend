@@ -8,7 +8,7 @@ if brand
                 - thumbnail = relationships.brand.thumbnails.get(brand.id)
                 include ../nodes/thumbnail
                 div(class="col-span-3")
-                    a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${brand.id}`)
+                    a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/brands/${brand.id}`)
                         span(aria-label="name") #{brand.name}
                     - item = brand
                     - primaryProperties = relationships.brand.primary_properties

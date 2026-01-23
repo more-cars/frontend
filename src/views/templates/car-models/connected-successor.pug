@@ -8,7 +8,7 @@ if successor
                 - thumbnail = relationships.successor.thumbnails.get(successor.id)
                 include ../nodes/thumbnail
                 div(class="col-span-3")
-                    a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${successor.id}`)
+                    a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/car-models/${successor.id}`)
                         span(aria-label="name") #{successor.name}
                     - item = successor
                     - primaryProperties = relationships.successor.primary_properties
