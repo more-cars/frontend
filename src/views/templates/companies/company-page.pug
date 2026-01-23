@@ -13,6 +13,8 @@ block main
             - item = company
             include ../nodes/fact-sheet
         div(data-testid="main-area-secondary")
+            - brands = relationships.brands.items
+            include connected-brands
 
 block footer
     p Footer area...
