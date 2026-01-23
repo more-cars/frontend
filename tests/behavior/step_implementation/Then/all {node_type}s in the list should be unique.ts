@@ -2,10 +2,10 @@ import {Then} from "@badeball/cypress-cucumber-preprocessor"
 import {getNormalizedNodeType} from "../../lib/getNormalizedNodeType"
 
 Then('all {string}s in the list should be unique', (nodeType: string) => {
-    cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-list"]`)
+    cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-section"]`)
         .should('be.visible')
 
-    cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-list"] > li`).then(items => {
+    cy.get(`[data-testid="${getNormalizedNodeType(nodeType)}-section"] > ul > li`).then(items => {
         const ids = [...items].map(item => item.getAttribute('data-testid')) as string[]
         const deduplicatedIds = removeDuplicates(ids)
         cy.wrap(ids)
