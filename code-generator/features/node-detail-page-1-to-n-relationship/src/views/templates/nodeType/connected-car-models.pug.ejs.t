@@ -2,15 +2,10 @@
 to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>.pug
 ---
 if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
-    section
-        h2(class="text-2xl mb-4 text-center") <%= h.changeCase.title(h.inflection.pluralize(partnerNodeType)) %>
-            span  (#{<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length})
-
-        ul(
-            class="m-auto"
-            aria-label="List of all <%= h.changeCase.title(h.inflection.pluralize(partnerNodeType)) %> that are attached to the <%= h.changeCase.title(nodeType) %>"
-            data-testid="<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>-list"
-        )
+    section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section")
+        h2(class="text-2xl mb-2") <%= h.changeCase.title(h.inflection.pluralize(partnerNodeType)) %>
+        p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{item.name}] has the following #{<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length} <%= h.changeCase.lower(h.inflection.pluralize(partnerNodeType)) %>:
+        ul
             each item in <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`<%= h.changeCase.kebab(partnerNodeType) %>-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
