@@ -6,7 +6,7 @@ if carModels.length > 0
             each item in carModels
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
-                        - thumbnails = relationships.car_models.thumbnails
+                        - thumbnail = relationships.car_models.thumbnails[item.id]
                         include ../nodes/thumbnail
                         div(class="col-span-3")
                             a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${item.id}`)
