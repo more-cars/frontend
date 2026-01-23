@@ -1,13 +1,8 @@
 if brands.length > 0
-    section(aria-label="brands" class="max-w-150 m-auto")
-        h2(class="text-2xl mb-4 text-center") Brands
-            span  (#{brands.length})
-
-        ul(
-            class=""
-            aria-label="List of all Brands that are attached to the Image"
-            data-testid="brand-list"
-        )
+    section(data-testid="brand-section")
+        h2(class="text-2xl mb-2") Brands
+        p(class="mb-4") This image is connected to the following #{brands.length} brands:
+        ul
             each item in brands
                 li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
