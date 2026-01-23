@@ -1,10 +1,12 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
 import {getNormalizedNodeType} from "../../lib/getNormalizedNodeType"
 
-Then('the page should contain a {string} section', (nodeType: string) => {
+// TODO how to determine whether the correct page is linked?
+Then('each item in the {string} list should link to its detail page', (nodeType: string) => {
     cy.get(`section[data-testid="${getNormalizedNodeType(nodeType)}-section"]`)
         .should('be.visible')
 
-    cy.get(`section[data-testid="${getNormalizedNodeType(nodeType)}-section"] h2`)
+    cy.get(`section[data-testid="${getNormalizedNodeType(nodeType)}-section"] li`)
+        .find('a')
         .should('be.visible')
 })
