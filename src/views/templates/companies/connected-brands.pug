@@ -1,13 +1,8 @@
 if brands.length > 0
-    section
-        h2(class="text-2xl mb-4 text-center") Brands
-            span  (#{brands.length})
-
-        ul(
-            class="m-auto"
-            aria-label="List of all Brands that are attached to the Company"
-            data-testid="brands-list"
-        )
+    section(data-testid="brand-section")
+        h2(class="text-2xl mb-2") Brands
+        p(class="mb-4") The company #[b BMW AG] owns the following #{brands.length} brands:
+        ul
             each item in brands
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
