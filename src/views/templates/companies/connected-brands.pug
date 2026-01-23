@@ -6,7 +6,7 @@ if brands.length > 0
             each item in brands
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
-                        - thumbnail = relationships.brands.thumbnails[item.id]
+                        - thumbnail = relationships.brands.thumbnails.get(item.id)
                         include ../nodes/thumbnail
                         div(class="col-span-3")
                             a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.id}`)

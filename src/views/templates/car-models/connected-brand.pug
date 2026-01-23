@@ -5,7 +5,7 @@ if brand
 
         div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.id}`)
             div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`brand-${brand.id}`)
-                - thumbnail = relationships.brand.thumbnails[item.id]
+                - thumbnail = relationships.brand.thumbnails.get(brand.id)
                 include ../nodes/thumbnail
                 div(class="col-span-3")
                     a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${brand.id}`)
