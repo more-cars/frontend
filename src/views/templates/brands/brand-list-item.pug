@@ -3,7 +3,7 @@ li(aria-label="brand" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-
         - thumbnail = thumbnails.get(item.id)
         include ../nodes/thumbnail
         div(class="col-span-3")
-            a(class="inline-block font-bold text-xl mt-3 underline" href=`/brands/${item.id}`)
+            a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/brands/${item.id}`)
                 span(aria-label="name") #{item.name}
             - primaryProperties = primary_properties
             include ../nodes/primary-properties

@@ -3,7 +3,7 @@ li(aria-label="car-model" class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" d
         - thumbnail = thumbnails.get(item.id)
         include ../nodes/thumbnail
         div(class="col-span-3")
-            a(class="inline-block font-bold text-xl mt-3 underline" href=`/car-models/${item.id}`)
+            a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/car-models/${item.id}`)
                 span(aria-label="name") #{item.name}
             if item.internal_code
                 span(aria-label="internal code")  (#{item.internal_code})
