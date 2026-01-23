@@ -7,7 +7,7 @@ if nodeCollection.length === 0
         p No brands were found. Either there are none or this is a temporary issue. Please try again later.
 else
     section(data-testid="brand-section")
-        ul(class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto")
+        ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
             each item in nodeCollection
                 include brand-list-item
 
