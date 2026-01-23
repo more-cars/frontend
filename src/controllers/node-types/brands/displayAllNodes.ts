@@ -3,7 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {Brand} from "../../../models/node-types/brands/types/Brand"
+import {getBrandThumbnails} from "./getBrandThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,7 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         pageTitle: 'All Brands',
         nodeCollection: brands,
         primary_properties: getNodeProperties(DataNodeType.BRAND),
-        thumbnails: await getThumbnails(brands),
+        thumbnails: await getBrandThumbnails(brands),
         pagination: {
             page,
             total: 293,
@@ -22,15 +22,4 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         res.statusCode = 200
         res.send(html)
     })
-}
-
-async function getThumbnails(brands: Brand[]) {
-    const thumbnails = []
-
-    for (const brand of brands) {
-        const thumbnail = await BrandModelFacade.getConnectedMainImage(brand.id)
-        thumbnails[brand.id] = thumbnail || null
-    }
-
-    return thumbnails
 }

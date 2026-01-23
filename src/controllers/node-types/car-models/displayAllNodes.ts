@@ -3,7 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {CarModel} from "../../../models/node-types/car-models/types/CarModel"
+import {getCarModelThumbnails} from "./getCarModelThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,7 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         pageTitle: 'All Car Models',
         nodeCollection: carModels,
         primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
-        thumbnails: await getThumbnails(carModels),
+        thumbnails: await getCarModelThumbnails(carModels),
         pagination: {
             page,
             total: 2648,
@@ -22,15 +22,4 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         res.statusCode = 200
         res.send(html)
     })
-}
-
-async function getThumbnails(carModels: CarModel[]) {
-    const thumbnails = []
-
-    for (const carModel of carModels) {
-        const thumbnail = await CarModelModelFacade.getConnectedMainImage(carModel.id)
-        thumbnails[carModel.id] = thumbnail || null
-    }
-
-    return thumbnails
 }
