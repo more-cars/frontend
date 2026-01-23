@@ -6,13 +6,10 @@ if nodeCollection.length === 0
         p(class="font-bold") No Car Models
         p No car models were found. Either there are none or this is a temporary issue. Please try again later.
 else
-    ul(
-        class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto"
-        aria-label="List of all Car Models"
-        data-testid="car-model-list"
-    )
-        each item in nodeCollection
-            include car-model-list-item
+    section(data-testid="car-model-section")
+        ul(class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto")
+            each item in nodeCollection
+                include car-model-list-item
 
     include ../nodes/pagination
     +pagination('car-models', pagination.page, pagination.total)

@@ -6,14 +6,11 @@ if nodeCollection.length === 0
         p(class="font-bold") No Images
         p No images were found. Either there are none or this is a temporary issue. Please try again later.
 else
-    ul(
-        class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto"
-        aria-label="List of all Images"
-        data-testid="image-list"
-    )
-        each item in nodeCollection
-            - primaryProperties = primary_properties
-            include image-list-item
+    section(data-testid="image-section")
+        ul(class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto")
+            each item in nodeCollection
+                - primaryProperties = primary_properties
+                include image-list-item
 
     include ../nodes/pagination
     +pagination('images', pagination.page, pagination.total)

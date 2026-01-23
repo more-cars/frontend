@@ -6,13 +6,10 @@ if nodeCollection.length === 0
         p(class="font-bold") No Brands
         p No brands were found. Either there are none or this is a temporary issue. Please try again later.
 else
-    ul(
-        class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto"
-        aria-label="List of all Brands"
-        data-testid="brand-list"
-    )
-        each item in nodeCollection
-            include brand-list-item
+    section(data-testid="brand-section")
+        ul(class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto")
+            each item in nodeCollection
+                include brand-list-item
 
     include ../nodes/pagination
     +pagination('brands', pagination.page, pagination.total)
