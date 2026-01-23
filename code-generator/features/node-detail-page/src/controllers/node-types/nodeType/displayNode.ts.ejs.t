@@ -25,6 +25,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: <%= h.changeCase.camel(nodeType) %>,
             primaryProperties: getPrimaryProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         },
+        relationships: {
+        },
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)

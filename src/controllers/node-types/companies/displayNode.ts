@@ -23,6 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             primary_properties: getNodeProperties(DataNodeType.COMPANY),
             main_image: await CompanyModelFacade.getConnectedMainImage(companyId),
         },
+        relationships: {},
     }, (error, html) => {
         res.statusCode = 200
         res.send(html)
