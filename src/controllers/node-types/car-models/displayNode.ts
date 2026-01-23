@@ -2,6 +2,8 @@ import express from "express"
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getBrandThumbnails} from "../brands/getBrandThumbnails"
+import {getCarModelThumbnails} from "./getCarModelThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelId = parseInt(req.params.id)
@@ -16,6 +18,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const brand = await CarModelModelFacade.getConnectedBrand(carModelId)
+    const predecessor = await CarModelModelFacade.getConnectedPredecessor(carModelId)
+    const successor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
+
     res.render('templates/car-models/car-model-page', {
         pageTitle: `${carModel.name} - Car Model`,
         node: {
@@ -25,16 +31,19 @@ export async function displayNode(req: express.Request, res: express.Response) {
         },
         relationships: {
             brand: {
-                item: await CarModelModelFacade.getConnectedBrand(carModelId),
+                item: brand,
                 primary_properties: getNodeProperties(DataNodeType.BRAND),
+                thumbnails: await getBrandThumbnails(brand ? [brand] : []),
             },
             predecessor: {
-                item: await CarModelModelFacade.getConnectedPredecessor(carModelId),
+                item: predecessor,
                 primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                thumbnails: await getCarModelThumbnails(predecessor ? [predecessor] : []),
             },
             successor: {
-                item: await CarModelModelFacade.getConnectedSuccessor(carModelId),
+                item: successor,
                 primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                thumbnails: await getCarModelThumbnails(successor ? [successor] : []),
             },
             images: {
                 items: await CarModelModelFacade.getConnectedImages(carModelId),

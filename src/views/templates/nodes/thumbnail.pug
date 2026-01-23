@@ -1,5 +1,4 @@
 if thumbnails && thumbnails[item.id] && thumbnails[item.id]['image_url_s']
     img(src=`${thumbnails[item.id]['image_url_s']}` class="col-span-1 h-full object-cover rounded-l-2xl")
 else
-    div(class="col-span-1 p-4 border-2 bg-orange-50")
-        div(class="aspect-16/9") IMG
+    img(src='/g/no-image.webp' class="col-span-1 h-full object-cover rounded-l-2xl")

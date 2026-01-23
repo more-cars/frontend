@@ -2,6 +2,7 @@ import express from "express"
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const brandId = parseInt(req.params.id)
@@ -16,6 +17,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const carModels = await BrandModelFacade.getConnectedCarModels(brandId)
+
     return res.render('templates/brands/brand-page', {
         pageTitle: `${brand.name} - Brand`,
         node: {
@@ -25,8 +28,9 @@ export async function displayNode(req: express.Request, res: express.Response) {
         },
         relationships: {
             car_models: {
-                items: await BrandModelFacade.getConnectedCarModels(brandId),
+                items: carModels,
                 primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                thumbnails: await getCarModelThumbnails(carModels),
             },
             images: {
                 items: await BrandModelFacade.getConnectedImages(brandId),

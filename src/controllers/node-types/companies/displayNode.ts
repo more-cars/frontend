@@ -2,6 +2,7 @@ import express from "express"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getBrandThumbnails} from "../brands/getBrandThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const companyId = parseInt(req.params.id)
@@ -16,6 +17,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const brands = await CompanyModelFacade.getConnectedBrands(companyId)
+
     return res.render('templates/companies/company-page', {
         pageTitle: `${company.name} - Company`,
         node: {
@@ -25,8 +28,9 @@ export async function displayNode(req: express.Request, res: express.Response) {
         },
         relationships: {
             brands: {
-                items: await CompanyModelFacade.getConnectedBrands(companyId),
+                items: brands,
                 primary_properties: getNodeProperties(DataNodeType.BRAND),
+                thumbnails: await getBrandThumbnails(brands),
             },
         },
     }, (error, html) => {
