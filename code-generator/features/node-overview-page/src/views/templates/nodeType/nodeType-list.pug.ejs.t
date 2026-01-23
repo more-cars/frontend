@@ -9,10 +9,7 @@ if nodeCollection.length === 0
         p(class="font-bold") No <%= h.changeCase.lower(h.inflection.pluralize(nodeType)) %>
         p No <%= h.changeCase.lower(h.inflection.pluralize(nodeType)) %> were found. Either there are none or this is a temporary issue. Please try again later.
 else
-    ul(
-        class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto"
-        aria-label="List of all <%= h.changeCase.lower(h.inflection.pluralize(nodeType)) %>"
-        data-testid="<%= h.changeCase.kebab(nodeType) %>-list"
-    )
+    section(data-testid="<%= h.changeCase.kebab(nodeType) %>-section")
+        ul(class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto")
         each item in nodeCollection
             include <%= h.changeCase.kebab(nodeType) %>-list-item
