@@ -1,8 +1,8 @@
 import {When} from "@badeball/cypress-cucumber-preprocessor"
-import {pluralize} from "inflection"
+import {dasherize} from "inflection"
 
 When('the user follows one of the links in the {string} list', (nodeType: string) => {
-    cy.get("section[aria-label='" + pluralize(nodeType.toLowerCase()) + "'] ul li a")
+    cy.get("section[data-testid='" + dasherize(nodeType.toLowerCase()) + "-section'] > ul > li a")
         .first()
         .click()
 })
