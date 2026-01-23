@@ -2,7 +2,7 @@
 to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>.pug
 ---
 if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
-    section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section")
+    section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
         h2(class="text-2xl mb-2") <%= h.changeCase.title(h.inflection.pluralize(partnerNodeType)) %>
         p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{item.name}] has the following #{<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length} <%= h.changeCase.lower(h.inflection.pluralize(partnerNodeType)) %>:
         ul
