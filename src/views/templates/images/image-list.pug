@@ -12,6 +12,7 @@ else
         data-testid="image-list"
     )
         each item in nodeCollection
+            - primaryProperties = primary_properties
             include image-list-item
 
     include ../nodes/pagination
