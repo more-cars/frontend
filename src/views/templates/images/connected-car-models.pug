@@ -1,13 +1,8 @@
 if carModels.length > 0
-    section(aria-label="car models" class="max-w-150 m-auto")
-        h2(class="text-2xl mb-4 text-center") Car Models
-            span  (#{carModels.length})
-
-        ul(
-            class=""
-            aria-label="List of all Car Models that are attached to the Image"
-            data-testid="car-model-list"
-        )
+    section(data-testid="car-model-section")
+        h2(class="text-2xl mb-2") Car Models
+        p(class="mb-4") This image is connected to the following #{carModels.length} car models:
+        ul
             each item in carModels
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
