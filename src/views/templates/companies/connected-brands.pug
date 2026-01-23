@@ -1,7 +1,7 @@
 if brands.length > 0
     section(data-testid="brand-section")
         h2(class="text-2xl mb-2") Brands
-        p(class="mb-4") The company #[b BMW AG] owns the following #{brands.length} brands:
+        p(class="mb-4") The company #[b #{item.name}] owns the following #{brands.length} brands:
         ul
             each item in brands
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${item.id}`)
