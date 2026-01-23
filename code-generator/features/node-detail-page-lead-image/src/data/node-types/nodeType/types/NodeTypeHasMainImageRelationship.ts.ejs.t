@@ -8,9 +8,9 @@ import type {ImageNode} from "../../images/types/ImageNode"
 
 export type <%= h.changeCase.pascal(nodeType) %>HasMainImageRelationship = {
     id: number
-    name: DataRelationshipType.<%= h.changeCase.upper(nodeType) %>_HAS_MAIN_IMAGE
+    name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE
     source_node: <%= h.changeCase.pascal(nodeType) %>Node
-    source_node_type: DataNodeType.<%= h.changeCase.upper(nodeType) %>
+    source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>
     partner_node: ImageNode
     partner_node_type: DataNodeType.IMAGE
     created_at: string
