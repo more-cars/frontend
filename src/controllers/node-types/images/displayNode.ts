@@ -20,17 +20,17 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${image.name} - Image`,
         node: {
             data: image,
-            primary_properties: getNodeProperties(DataNodeType.IMAGE),
+            node_properties: getNodeProperties(DataNodeType.IMAGE),
             main_image: image,
         },
         relationships: {
             brands: {
                 items: await ImageModelFacade.getConnectedBrands(imageId),
-                primary_properties: getNodeProperties(DataNodeType.BRAND),
+                node_properties: getNodeProperties(DataNodeType.BRAND),
             },
             car_models: {
                 items: await ImageModelFacade.getConnectedCarModels(imageId),
-                primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
             },
         },
     }, (error, html) => {

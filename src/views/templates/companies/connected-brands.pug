@@ -13,5 +13,5 @@ if brands.length > 0
                                 span(aria-label="name") #{item.name}
                             if item.internal_code
                                 span(aria-label="internal code")  (#{item.internal_code})
-                            - primaryProperties = relationships.brands.primary_properties
+                            - nodeProperties = relationships.brands.node_properties
                             include ../nodes/primary-properties

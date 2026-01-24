@@ -3,7 +3,7 @@ section(data-testid="fact-sheet")
     table(class="w-full rounded-lg border-separate border-spacing-1.5 bg-zinc-200")
         tbody
             each propertyValue, propertyName in item
-                - const nodeProperty = node.primary_properties.find(prop => prop.name === propertyName)
+                - const nodeProperty = node.node_properties.find(prop => prop.name === propertyName)
                 - const propertyLabel = nodeProperty ? nodeProperty.label : propertyName
                 tr(data-testid=`${propertyName}`)
                     td(class="p-2 font-bold text-right text-zinc-600") #{propertyLabel}

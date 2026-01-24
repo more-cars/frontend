@@ -15,5 +15,5 @@ if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
                                 span(aria-label="name") #{item.name}
                             if item.internal_code
                                 span(aria-label="internal code")  (#{item.internal_code})
-                            - primaryProperties = relationships.<%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>.primary_properties
+                            - nodeProperties = relationships.<%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>.node_properties
                             include ../nodes/primary-properties

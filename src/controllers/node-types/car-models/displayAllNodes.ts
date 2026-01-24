@@ -12,7 +12,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     return res.render('templates/car-models/car-models-page', {
         pageTitle: 'All Car Models',
         nodeCollection: carModels,
-        primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+        node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
         thumbnails: await getCarModelThumbnails(carModels),
         pagination: {
             page,

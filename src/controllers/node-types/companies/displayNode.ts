@@ -23,13 +23,13 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${company.name} - Company`,
         node: {
             data: company,
-            primary_properties: getNodeProperties(DataNodeType.COMPANY),
+            node_properties: getNodeProperties(DataNodeType.COMPANY),
             main_image: await CompanyModelFacade.getConnectedMainImage(companyId),
         },
         relationships: {
             brands: {
                 items: brands,
-                primary_properties: getNodeProperties(DataNodeType.BRAND),
+                node_properties: getNodeProperties(DataNodeType.BRAND),
                 thumbnails: await getBrandThumbnails(brands),
             },
         },

@@ -13,7 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         pageTitle: 'All Companies',
         nodeCollection: companies,
         thumbnails: await getCompanyThumbnails(companies),
-        primary_properties: getNodeProperties(DataNodeType.COMPANY),
+        node_properties: getNodeProperties(DataNodeType.COMPANY),
         pagination: {
             page,
             total: 114,

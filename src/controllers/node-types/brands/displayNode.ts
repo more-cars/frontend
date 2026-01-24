@@ -23,18 +23,18 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${brand.name} - Brand`,
         node: {
             data: brand,
-            primary_properties: getNodeProperties(DataNodeType.BRAND),
+            node_properties: getNodeProperties(DataNodeType.BRAND),
             main_image: await BrandModelFacade.getConnectedMainImage(brandId),
         },
         relationships: {
             car_models: {
                 items: carModels,
-                primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(carModels),
             },
             images: {
                 items: await BrandModelFacade.getConnectedImages(brandId),
-                primary_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     }, (error, html) => {

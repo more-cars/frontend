@@ -12,7 +12,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     return res.render('templates/images/images-page', {
         pageTitle: 'All Images',
         nodeCollection: images,
-        primary_properties: getNodeProperties(DataNodeType.IMAGE),
+        node_properties: getNodeProperties(DataNodeType.IMAGE),
         thumbnails: await getThumbnails(images),
         pagination: {
             page,

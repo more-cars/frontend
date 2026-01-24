@@ -13,5 +13,5 @@ if carModels.length > 0
                                 span(aria-label="name") #{item.name}
                             if item.internal_code
                                 span(aria-label="internal code")  (#{item.internal_code})
-                            - primaryProperties = relationships.car_models.primary_properties
+                            - nodeProperties = relationships.car_models.node_properties
                             include ../nodes/primary-properties

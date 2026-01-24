@@ -9,7 +9,7 @@ else
     section(data-testid="image-section")
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
             each item in nodeCollection
-                - primaryProperties = primary_properties
+                - nodeProperties = node_properties
                 include image-list-item
 
     include ../nodes/pagination

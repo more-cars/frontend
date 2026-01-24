@@ -26,28 +26,28 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${carModel.name} - Car Model`,
         node: {
             data: carModel,
-            primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+            node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
             main_image: await CarModelModelFacade.getConnectedMainImage(carModelId),
         },
         relationships: {
             brand: {
                 item: brand,
-                primary_properties: getNodeProperties(DataNodeType.BRAND),
+                node_properties: getNodeProperties(DataNodeType.BRAND),
                 thumbnails: await getBrandThumbnails(brand ? [brand] : []),
             },
             predecessor: {
                 item: predecessor,
-                primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(predecessor ? [predecessor] : []),
             },
             successor: {
                 item: successor,
-                primary_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(successor ? [successor] : []),
             },
             images: {
                 items: await CarModelModelFacade.getConnectedImages(carModelId),
-                primary_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     }, (error, html) => {
