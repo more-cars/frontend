@@ -1,5 +1,6 @@
 import type {Express} from "express"
 import express from "express"
+import {DateTime} from "luxon"
 import startPage from "./routes/startPage.ts"
 import companies from "./routes/companies"
 import brands from './routes/brands.ts'
@@ -18,5 +19,10 @@ app.use('/', companies)
 app.use('/', brands)
 app.use('/', carModels)
 app.use('/', images)
+
+app.locals.formatDate = (isoDate: string) =>
+    DateTime.fromISO(isoDate, {zone: "utc"})
+        .toLocal()
+        .toLocaleString(DateTime.DATETIME_MED)
 
 export {app}
