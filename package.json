@@ -58,7 +58,7 @@
     "tests:developer:coverage": "npx vitest run -c tests/developer/vite.config.ts --coverage",
     "tests:behavior:gui": "npx cypress open",
     "tests:behavior:cli": "tests/behavior/run-behavior-tests.sh",
-    "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:4000 k6 run tests/performance/get-car-model.ts",
+    "tests:performance": "K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_OPEN=true K6_WEB_DASHBOARD_EXPORT=test-reports/performance/report.html FRONTEND_URL=http://localhost:4000 k6 run tests/performance/node-types/car-models/get-car-model.ts",
     "stats:lines-of-code:src": "sloc src/",
     "stats:lines-of-code:test": "sloc tests/"
   },
