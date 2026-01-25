@@ -6,13 +6,13 @@ import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getConnectedNodes(id: number) {
-    const apiData = (await requestDataFromApi(`/images/${id}/belongs-to-node`)).data as ApiImageBelongsToNodeRelationship[]
-    const data: ImageBelongsToNodeRelationship[] = []
     const sourceNode = await getImageById(id)
-
     if (!sourceNode) {
         return []
     }
+
+    const apiData = (await requestDataFromApi(`/images/${id}/belongs-to-node`)).data as ApiImageBelongsToNodeRelationship[]
+    const data: ImageBelongsToNodeRelationship[] = []
 
     const nodeTypeMapping = new Map<string, DataNodeType>([
         ['brand', DataNodeType.BRAND],

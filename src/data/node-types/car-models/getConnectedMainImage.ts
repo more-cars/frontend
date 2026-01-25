@@ -6,10 +6,13 @@ import {getCarModelById} from "./getCarModelById"
 import type {CarModelHasMainImageRelationship} from "./types/CarModelHasMainImageRelationship"
 
 export async function getConnectedMainImage(id: number) {
-    const apiData = (await requestDataFromApi(`/car-models/${id}/has-prime-image`)) as ApiCarModelHasPrimeImageRelationship
     const sourceNode = await getCarModelById(id)
+    if (!sourceNode) {
+        return null
+    }
 
-    if (!apiData || !sourceNode) {
+    const apiData = (await requestDataFromApi(`/car-models/${id}/has-prime-image`)) as ApiCarModelHasPrimeImageRelationship
+    if (!apiData || !apiData.data) {
         return null
     }
 

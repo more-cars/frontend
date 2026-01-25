@@ -30,4 +30,14 @@ describe('Fetching connected NODES from data source', () => {
         expect(await getConnectedNodes(1))
             .toHaveLength(3)
     })
+
+    test('when the IMAGE does not exist', async () => {
+        vi.doMock("../../../../../src/data/node-types/images/getImageById", () => ({
+            getImageById: vi.fn(() => null)
+        }))
+
+        const {getConnectedNodes} = await import("../../../../../src/data/node-types/images/getConnectedNodes")
+        expect(await getConnectedNodes(1))
+            .toHaveLength(0)
+    })
 })

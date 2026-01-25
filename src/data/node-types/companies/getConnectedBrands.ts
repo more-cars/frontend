@@ -6,13 +6,13 @@ import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getConnectedBrands(id: number) {
-    const apiData = (await requestDataFromApi(`/companies/${id}/has-brand`)).data as ApiCompanyHasBrandRelationship[]
-    const data: CompanyHasBrandRelationship[] = []
     const sourceNode = await getCompanyById(id)
-
     if (!sourceNode) {
         return []
     }
+
+    const apiData = (await requestDataFromApi(`/companies/${id}/has-brand`)).data as ApiCompanyHasBrandRelationship[]
+    const data: CompanyHasBrandRelationship[] = []
 
     apiData.forEach(apiItem => {
         data.push({

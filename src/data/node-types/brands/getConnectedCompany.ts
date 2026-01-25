@@ -6,10 +6,13 @@ import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getConnectedCompany(id: number) {
-    const apiData = (await requestDataFromApi(`/brands/${id}/belongs-to-company`)) as ApiBrandBelongsToCompanyRelationship
     const sourceNode = await getBrandById(id)
+    if (!sourceNode) {
+        return null
+    }
 
-    if (!apiData || !sourceNode) {
+    const apiData = (await requestDataFromApi(`/brands/${id}/belongs-to-company`)) as ApiBrandBelongsToCompanyRelationship
+    if (!apiData || !apiData.data) {
         return null
     }
 

@@ -30,4 +30,14 @@ describe('Fetching connected BRANDS from data source', () => {
         expect(await getConnectedBrands(1))
             .toHaveLength(3)
     })
+
+    test('when the COMPANY does not exist', async () => {
+        vi.doMock("../../../../../src/data/node-types/companies/getCompanyById", () => ({
+            getCompanyById: vi.fn(() => null)
+        }))
+
+        const {getConnectedBrands} = await import("../../../../../src/data/node-types/companies/getConnectedBrands")
+        expect(await getConnectedBrands(1))
+            .toHaveLength(0)
+    })
 })

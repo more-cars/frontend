@@ -6,6 +6,14 @@ afterEach(() => {
 
 describe('Fetching connected main IMAGE from data source', () => {
     test('when there in no main IMAGE connected', async () => {
+        // mocking the node
+        vi.doMock("../../../../../src/data/node-types/companies/getCompanyById", () => ({
+            getCompanyById: vi.fn(() => ({
+                name: 'test'
+            }))
+        }))
+
+        // mocking the relationship
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({data: null}))
         }))
@@ -25,5 +33,15 @@ describe('Fetching connected main IMAGE from data source', () => {
         const {getConnectedMainImage} = await import("../../../../../src/data/node-types/companies/getConnectedMainImage")
         expect(await getConnectedMainImage(1))
             .toHaveProperty('partner_node.id', 2)
+    })
+
+    test('when the COMPANY does not exist', async () => {
+        vi.doMock("../../../../../src/data/node-types/companies/getCompanyById", () => ({
+            getCompanyById: vi.fn(() => null)
+        }))
+
+        const {getConnectedMainImage} = await import("../../../../../src/data/node-types/companies/getConnectedMainImage")
+        expect(await getConnectedMainImage(1))
+            .toEqual(null)
     })
 })

@@ -6,10 +6,13 @@ import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getConnectedSuccessorCarModel(id: number) {
-    const apiData = (await requestDataFromApi(`/car-models/${id}/has-successor`)) as ApiCarModelHasSuccessorRelationship
     const sourceNode = await getCarModelById(id)
+    if (!sourceNode) {
+        return null
+    }
 
-    if (!apiData || !sourceNode) {
+    const apiData = (await requestDataFromApi(`/car-models/${id}/has-successor`)) as ApiCarModelHasSuccessorRelationship
+    if (!apiData || !apiData.data) {
         return null
     }
 

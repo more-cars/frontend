@@ -6,10 +6,13 @@ import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getConnectedMainImage(id: number) {
-    const apiData = (await requestDataFromApi(`/companies/${id}/has-prime-image`)) as ApiCompanyHasPrimeImageRelationship
     const sourceNode = await getCompanyById(id)
+    if (!sourceNode) {
+        return null
+    }
 
-    if (!apiData || !sourceNode) {
+    const apiData = (await requestDataFromApi(`/companies/${id}/has-prime-image`)) as ApiCompanyHasPrimeImageRelationship
+    if (!apiData || !apiData.data) {
         return null
     }
 

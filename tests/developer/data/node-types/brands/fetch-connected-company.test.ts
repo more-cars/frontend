@@ -6,6 +6,14 @@ afterEach(() => {
 
 describe('Fetching connected COMPANY from data source', () => {
     test('when there is no COMPANY connected', async () => {
+        // mocking the node
+        vi.doMock("../../../../../src/data/node-types/brands/getBrandById", () => ({
+            getBrandById: vi.fn(() => ({
+                name: 'test'
+            }))
+        }))
+
+        // mocking the relationship
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({data: null}))
         }))
@@ -25,5 +33,15 @@ describe('Fetching connected COMPANY from data source', () => {
         const {getConnectedCompany} = await import("../../../../../src/data/node-types/brands/getConnectedCompany")
         expect(await getConnectedCompany(1))
             .toHaveProperty('partner_node.id', 2)
+    })
+
+    test('when the BRAND does not exist', async () => {
+        vi.doMock("../../../../../src/data/node-types/brands/getBrandById", () => ({
+            getBrandById: vi.fn(() => null)
+        }))
+
+        const {getConnectedCompany} = await import("../../../../../src/data/node-types/brands/getConnectedCompany")
+        expect(await getConnectedCompany(1))
+            .toEqual(null)
     })
 })

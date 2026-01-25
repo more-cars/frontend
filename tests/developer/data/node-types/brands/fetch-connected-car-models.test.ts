@@ -30,4 +30,14 @@ describe('Fetching connected CAR MODELS from data source', () => {
         expect(await getConnectedCarModels(1))
             .toHaveLength(3)
     })
+
+    test('when the BRAND does not exist', async () => {
+        vi.doMock("../../../../../src/data/node-types/brands/getBrandById", () => ({
+            getBrandById: vi.fn(() => null)
+        }))
+
+        const {getConnectedCarModels} = await import("../../../../../src/data/node-types/brands/getConnectedCarModels")
+        expect(await getConnectedCarModels(1))
+            .toHaveLength(0)
+    })
 })
