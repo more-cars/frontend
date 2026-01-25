@@ -1,0 +1,15 @@
+if company
+    section(data-testid="company-section" class="mb-8")
+        h2(class="text-2xl mb-2") Company
+        p(class="mb-4") The brand #[b #{brand.name}] is owned by the following company:
+
+        div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+            div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`company-${company.id}`)
+                - thumbnail = relationships.company.thumbnails.get(company.id)
+                include ../nodes/thumbnail
+                div(class="col-span-3")
+                    a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/companies/${company.id}`)
+                        span(aria-label="name") #{company.name}
+                    - item = company
+                    - nodeProperties = relationships.company.node_properties
+                    include ../nodes/primary-properties

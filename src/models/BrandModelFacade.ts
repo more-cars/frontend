@@ -1,5 +1,6 @@
 import {findAllNodes} from "./node-types/brands/findAllNodes"
 import {findNodeById} from "./node-types/brands/findNodeById"
+import {findConnectedCompany} from "./node-types/brands/findConnectedCompany"
 import {findConnectedCarModels} from "./node-types/brands/findConnectedCarModels"
 import {findConnectedImages} from "./node-types/brands/findConnectedImages"
 import {findConnectedMainImage} from "./node-types/brands/findConnectedMainImage"
@@ -11,6 +12,10 @@ export class BrandModelFacade {
 
     static async getNodeById(id: number) {
         return findNodeById(id)
+    }
+
+    static async getConnectedCompany(id: number) {
+        return await findConnectedCompany(id)
     }
 
     static async getConnectedCarModels(id: number) {

@@ -3,6 +3,7 @@ export enum DataRelationshipType {
     CAR_MODEL_BELONGS_TO_BRAND = 'belongs to brand',
     CAR_MODEL_IS_SUCCESSOR_OF = 'is successor of',
     CAR_MODEL_HAS_SUCCESSOR = 'has successor',
+    BRAND_BELONGS_TO_COMPANY = 'belongs to company',
     BRAND_HAS_IMAGE = 'has image',
     BRAND_HAS_MAIN_IMAGE = 'has main image',
     CAR_MODEL_HAS_IMAGE = 'has image',

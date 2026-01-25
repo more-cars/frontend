@@ -13,6 +13,9 @@ block main
             - item = brand
             include ../nodes/fact-sheet
         div(data-testid="main-area-secondary")
+            - company = relationships.company.item
+            include connected-company
+
             - carModels = relationships.car_models.items
             include connected-car-models
 
