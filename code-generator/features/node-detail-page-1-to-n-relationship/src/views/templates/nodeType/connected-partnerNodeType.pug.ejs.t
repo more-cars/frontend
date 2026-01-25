@@ -7,7 +7,7 @@ if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
         p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(partnerNodeType) %>.name}] has the following #{<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length} <%= h.changeCase.lower(h.inflection.pluralize(partnerNodeType)) %>:
         ul
             each <%= h.changeCase.camel(partnerNodeType) %> in <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>
-                li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`<%= h.changeCase.kebab(partnerNodeType) %>-${<%= h.changeCase.camel(partnerNodeType) %>.id}`)
+                li(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md" data-testid=`<%= h.changeCase.kebab(partnerNodeType) %>-${<%= h.changeCase.camel(partnerNodeType) %>.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
                         - thumbnail = relationships.<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.thumbnails.get(<%= h.changeCase.camel(partnerNodeType) %>.id)
                         include ../nodes/thumbnail

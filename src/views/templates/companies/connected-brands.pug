@@ -4,7 +4,7 @@ if brands.length > 0
         p(class="mb-4") The company #[b #{company.name}] is the owner of the following #{brands.length} brands:
         ul
             each brand in brands
-                li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`brand-${brand.id}`)
+                li(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md" data-testid=`brand-${brand.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
                         - thumbnail = relationships.brands.thumbnails.get(brand.id)
                         include ../nodes/thumbnail

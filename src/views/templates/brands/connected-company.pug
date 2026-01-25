@@ -3,7 +3,7 @@ if company
         h2(class="text-2xl mb-2") Company
         p(class="mb-4") The brand #[b #{brand.name}] is owned by the following company:
 
-        div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+        div(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md")
             div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`company-${company.id}`)
                 - thumbnail = relationships.company.thumbnails.get(company.id)
                 include ../nodes/thumbnail

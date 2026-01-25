@@ -3,7 +3,7 @@ if brand
         h2(class="text-2xl mb-2") Brand
         p(class="mb-4") The #[b #{carModel.name}] is a car model that was created by the following brand:
 
-        div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+        div(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md")
             div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`brand-${brand.id}`)
                 - thumbnail = relationships.brand.thumbnails.get(brand.id)
                 include ../nodes/thumbnail

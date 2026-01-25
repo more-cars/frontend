@@ -4,7 +4,7 @@ if carModels.length > 0
         p(class="mb-4") This image is connected to the following #{carModels.length} car models:
         ul
             each carModel in carModels
-                li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${carModel.id}`)
+                li(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md" data-testid=`car-model-${carModel.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
                         include ../nodes/thumbnail
                         div(class="col-span-3")

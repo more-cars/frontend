@@ -6,7 +6,7 @@ if <%= h.changeCase.camel(partnerNodeType) %>
         h2(class="text-2xl mb-2") <%= h.changeCase.title(partnerNodeType) %>
         p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(partnerNodeType) %>.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
 
-        div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
+        div(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md")
             div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`<%= h.changeCase.kebab(partnerNodeType) %>-${<%= h.changeCase.camel(partnerNodeType) %>.id}`)
                 - thumbnail = relationships.<%= h.changeCase.snake(partnerNodeType) %>.thumbnails.get(<%= h.changeCase.camel(partnerNodeType) %>.id)
                 include ../nodes/thumbnail
