@@ -4,7 +4,7 @@ to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType))
 if <%= h.changeCase.camel(partnerNodeType) %>
     section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
         h2(class="text-2xl mb-2") <%= h.changeCase.title(partnerNodeType) %>
-        p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{item.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
+        p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(partnerNodeType) %>.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
 
         div(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm")
             div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`<%= h.changeCase.kebab(partnerNodeType) %>-${<%= h.changeCase.camel(partnerNodeType) %>.id}`)
