@@ -24,6 +24,7 @@ async function promptFeature() {
     choices.push({value: 'node-detail-page'})
     choices.push({value: 'node-detail-page-lead-image'})
     choices.push({value: 'node-detail-page-1-to-n-relationship'})
+    choices.push({value: 'node-detail-page-1-to-1-relationship'})
 
     return select({
         message: 'Generating code for which feature?',
