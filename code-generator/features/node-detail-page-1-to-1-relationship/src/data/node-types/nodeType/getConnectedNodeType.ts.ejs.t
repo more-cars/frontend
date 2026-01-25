@@ -9,10 +9,13 @@ import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 
 export async function getConnected<%= h.changeCase.pascal(partnerNodeType) %>(id: number) {
-    const apiData = (await requestDataFromApi(`/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/${id}/<%= h.changeCase.kebab(relationshipName) %>`)) as Api<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship
     const sourceNode = await get<%= h.changeCase.pascal(nodeType) %>ById(id)
+    if (!sourceNode) {
+        return null
+    }
 
-    if (!apiData || !sourceNode) {
+    const apiData = (await requestDataFromApi(`/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/${id}/<%= h.changeCase.kebab(relationshipName) %>`)) as Api<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship
+    if (!apiData || !apiData.data) {
         return null
     }
 

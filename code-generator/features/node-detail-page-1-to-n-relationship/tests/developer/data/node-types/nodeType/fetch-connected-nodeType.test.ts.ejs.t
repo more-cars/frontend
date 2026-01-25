@@ -33,4 +33,14 @@ describe('Fetching connected <%= h.changeCase.upper(h.inflection.pluralize(partn
         expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(1))
             .toHaveLength(3)
     })
+
+    test('when the <%= h.changeCase.upper(nodeType) %> does not exist', async () => {
+        vi.doMock("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get<%= h.changeCase.pascal(nodeType) %>ById", () => ({
+            get<%= h.changeCase.pascal(nodeType) %>ById: vi.fn(() => null)
+        }))
+
+        const {getConnected<%= h.changeCase.pascal(partnerNodeType) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.pascal(partnerNodeType) %>")
+        expect(await <%= h.changeCase.pascal(partnerNodeType) %>(1))
+            .toHaveLength(0)
+    })
 })
