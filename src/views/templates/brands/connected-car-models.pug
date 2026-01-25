@@ -1,7 +1,7 @@
 if carModels.length > 0
     section(data-testid="car-model-section" class="mb-8")
         h2(class="text-2xl mb-2") Car Models
-        p(class="mb-4") The brand #[b #{item.name}] has the following #{carModels.length} car models:
+        p(class="mb-4") The following #{carModels.length} car models wear the #[b #{brand.name}] badge:
         ul
             each item in carModels
                 li(class="mb-4 bg-stone-100 rounded-md inset-shadow-sm" data-testid=`car-model-${item.id}`)

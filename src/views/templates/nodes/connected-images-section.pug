@@ -1,6 +1,9 @@
 section(data-testid="image-section" class="mb-8")
     h2(class="text-2xl mb-2") Image Gallery
-    p(class="mb-4") There are #{images.length} images available for the #[b #{item.name}]:
+    if images.length > 1
+        p(class="mb-4") There are #{images.length} images available for #[b #{node.data.name}]:
+    else
+        p(class="mb-4") There is #{images.length} image available for #[b #{node.data.name}]:
     ul
         each item in images
             include ../images/image-list-item
