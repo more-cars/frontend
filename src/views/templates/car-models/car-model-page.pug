@@ -5,7 +5,7 @@ block main
     div(class="grid grid-cols-2 gap-8 items-start")
         div(data-testid="main-area-primary")
             h1(class=`text-left mb-1 text-3xl font-bold`) #{carModel.name}
-            div(class="mb-4 text-sm") #{relationships.brand.item.name} | #{carModel.built_from}-#{carModel.built_to} | #{carModel.generation}th generation (#{carModel.internal_code})
+            div(class="mb-4 text-sm") #{carModel.built_from}-#{carModel.built_to} | #{carModel.generation}th generation (#{carModel.internal_code})
 
             - mainImage = node.main_image
             include ../nodes/connected-main-image
