@@ -9,5 +9,6 @@ export enum DataRelationshipType {
     CAR_MODEL_HAS_MAIN_IMAGE = 'has main image',
     COMPANY_HAS_MAIN_IMAGE = 'has main image',
     COMPANY_HAS_BRAND = 'has brand',
+    COMPANY_HAS_IMAGE = 'has image',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }

@@ -32,6 +32,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 node_properties: getNodeProperties(DataNodeType.BRAND),
                 thumbnails: await getBrandThumbnails(brands),
             },
+            images: {
+                items: await CompanyModelFacade.getConnectedImages(companyId),
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
         },
     }, (error, html) => {
         res.statusCode = 200

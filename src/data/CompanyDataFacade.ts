@@ -2,6 +2,7 @@ import {getAllCompanies} from "./node-types/companies/getAllCompanies"
 import {getCompanyById} from "./node-types/companies/getCompanyById"
 import {getConnectedMainImage} from "./node-types/companies/getConnectedMainImage"
 import {getConnectedBrands} from "./node-types/companies/getConnectedBrands"
+import {getConnectedImages} from "./node-types/companies/getConnectedImages"
 
 export class CompanyDataFacade {
     static async getNodeCollection(params?: { page: number }) {
@@ -18,5 +19,9 @@ export class CompanyDataFacade {
 
     static async getConnectedBrandNodes(id: number) {
         return getConnectedBrands(id)
+    }
+
+    static async getConnectedImageNodes(id: number) {
+        return getConnectedImages(id)
     }
 }

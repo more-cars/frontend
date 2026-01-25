@@ -16,5 +16,9 @@ block main
             - brands = relationships.brands.items
             include connected-brands
 
+            - images = relationships.images.items
+            - nodeProperties = relationships.images.node_properties
+            include ../nodes/connected-images-section
+
 block footer
     p Footer area...
