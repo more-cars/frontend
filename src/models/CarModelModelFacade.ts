@@ -6,32 +6,32 @@ import {findConnectedSuccessor} from "./node-types/car-models/findConnectedSucce
 import {findConnectedImages} from "./node-types/car-models/findConnectedImages"
 import {findConnectedMainImage} from "./node-types/car-models/findConnectedMainImage"
 
-export class CarModelModelFacade {
-    static async getAllNodes(params: { page: number }) {
+export const CarModelModelFacade = {
+    async getAllNodes(params: { page: number }) {
         return findAllNodes(params)
-    }
+    },
 
-    static async getNodeById(id: number) {
+    async getNodeById(id: number) {
         return findNodeById(id)
-    }
+    },
 
-    static async getConnectedBrand(id: number) {
+    async getConnectedBrand(id: number) {
         return await findConnectedBrand(id)
-    }
+    },
 
-    static async getConnectedPredecessor(id: number) {
+    async getConnectedPredecessor(id: number) {
         return await findConnectedPredecessor(id)
-    }
+    },
 
-    static async getConnectedSuccessor(id: number) {
+    async getConnectedSuccessor(id: number) {
         return await findConnectedSuccessor(id)
-    }
+    },
 
-    static async getConnectedImages(id: number) {
+    async getConnectedImages(id: number) {
         return await findConnectedImages(id)
-    }
+    },
 
-    static async getConnectedMainImage(id: number) {
+    async getConnectedMainImage(id: number) {
         return await findConnectedMainImage(id)
-    }
+    },
 }

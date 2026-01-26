@@ -6,32 +6,32 @@ import {getConnectedSuccessorCarModel} from "./node-types/car-models/getConnecte
 import {getConnectedImages} from "./node-types/car-models/getConnectedImages"
 import {getConnectedMainImage} from "./node-types/car-models/getConnectedMainImage"
 
-export class CarModelDataFacade {
-    static async getNodeCollection(params?: { page: number }) {
+export const CarModelDataFacade = {
+    async getNodeCollection(params?: { page: number }) {
         return getAllCarModels(params)
-    }
+    },
 
-    static async getNodeById(id: number) {
+    async getNodeById(id: number) {
         return getCarModelById(id)
-    }
+    },
 
-    static async getConnectedBrandNode(id: number) {
+    async getConnectedBrandNode(id: number) {
         return getConnectedBrand(id)
-    }
+    },
 
-    static async getConnectedPredecessorCarModelNode(id: number) {
+    async getConnectedPredecessorCarModelNode(id: number) {
         return getConnectedPredecessorCarModel(id)
-    }
+    },
 
-    static async getConnectedSuccessorCarModelNode(id: number) {
+    async getConnectedSuccessorCarModelNode(id: number) {
         return getConnectedSuccessorCarModel(id)
-    }
+    },
 
-    static async getConnectedImageNodes(id: number) {
+    async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
-    }
+    },
 
-    static async getConnectedMainImageNode(id: number) {
+    async getConnectedMainImageNode(id: number) {
         return getConnectedMainImage(id)
-    }
+    },
 }

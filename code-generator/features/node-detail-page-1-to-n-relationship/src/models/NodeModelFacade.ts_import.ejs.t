@@ -1,7 +1,7 @@
 ---
 inject: true
 to: src/models/<%= h.changeCase.pascal(nodeType) %>ModelFacade.ts
-before: \nexport class
+before: \nexport const
 skip_if: import {findConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>}
 ---
 import {findConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} from "./node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/findConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>"
