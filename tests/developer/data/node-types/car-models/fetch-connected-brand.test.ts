@@ -5,7 +5,7 @@ afterEach(() => {
 })
 
 describe('Fetching connected BRAND from data source', () => {
-    test('when there in no BRAND connected', async () => {
+    test('when there is no BRAND connected', async () => {
         // mocking the node
         vi.doMock("../../../../../src/data/node-types/car-models/getCarModelById", () => ({
             getCarModelById: vi.fn(() => ({

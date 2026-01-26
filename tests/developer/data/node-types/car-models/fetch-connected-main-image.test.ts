@@ -5,7 +5,7 @@ afterEach(() => {
 })
 
 describe('Fetching connected main IMAGE from data source', () => {
-    test('when there in no main IMAGE connected', async () => {
+    test('when there is no main IMAGE connected', async () => {
         // mocking the node
         vi.doMock("../../../../../src/data/node-types/car-models/getCarModelById", () => ({
             getCarModelById: vi.fn(() => ({

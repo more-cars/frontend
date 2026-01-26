@@ -5,7 +5,7 @@ afterEach(() => {
 })
 
 describe('Fetching connected successor CAR MODEL from data source', () => {
-    test('when there in no successor CAR MODEL connected', async () => {
+    test('when there is no successor CAR MODEL connected', async () => {
         // mocking the node
         vi.doMock("../../../../../src/data/node-types/car-models/getCarModelById", () => ({
             getCarModelById: vi.fn(() => ({

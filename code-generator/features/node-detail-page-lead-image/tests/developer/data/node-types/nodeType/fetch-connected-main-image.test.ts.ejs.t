@@ -8,7 +8,7 @@ afterEach(() => {
 })
 
 describe('Fetching connected main IMAGE from data source', () => {
-    test('when there in no main IMAGE connected', async () => {
+    test('when there is no main IMAGE connected', async () => {
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({data: null}))
         }))
