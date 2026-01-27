@@ -1,10 +1,10 @@
 ---
 inject: true
 to: src/models/<%= h.changeCase.pascal(nodeType) %>ModelFacade.ts
-before: \}\n\}
-skip_if: getConnectedMainImage
+before: \},\n\}
+skip_if: async getConnectedMainImage
 ---
-    }
+    },
 
-    static async getConnectedMainImage(id: number) {
+    async getConnectedMainImage(id: number) {
         return await findConnectedMainImage(id)
