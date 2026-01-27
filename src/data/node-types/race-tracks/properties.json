@@ -1,0 +1,50 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Lausitzring"
+  },
+  {
+    "name": "opened",
+    "label": "Opened",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2000"
+  },
+  {
+    "name": "closed",
+    "label": "Closed",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": ""
+  },
+  {
+    "name": "type",
+    "label": "Track Type",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "permanent race track"
+  },
+  {
+    "name": "location",
+    "label": "Location",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Klettwitz"
+  },
+  {
+    "name": "geo_position",
+    "label": "Geo Position",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "51°32’0”N 13°55’10”E"
+  }
+]
