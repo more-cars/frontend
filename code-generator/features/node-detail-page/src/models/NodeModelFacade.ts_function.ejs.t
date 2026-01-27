@@ -1,10 +1,10 @@
 ---
 inject: true
 to: src/models/<%= h.changeCase.pascal(nodeType) %>ModelFacade.ts
-before: \}\n\}
-skip_if: getNodeById
+before: \},\n\}
+skip_if: async getNodeById
 ---
-    }
+    },
 
-    static async getNodeById(id: number) {
+    async getNodeById(id: number) {
         return findNodeById(id)

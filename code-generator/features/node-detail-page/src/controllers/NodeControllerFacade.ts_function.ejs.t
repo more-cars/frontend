@@ -1,10 +1,10 @@
 ---
 inject: true
 to: src/controllers/<%= h.changeCase.pascal(nodeType) %>ControllerFacade.ts
-before: \}\n\}
-skip_if: await displayNode
+before: \},\n\}
+skip_if: async showNode
 ---
-    }
+    },
 
-    static async showNode(req: express.Request, res: express.Response) {
+    async showNode(req: express.Request, res: express.Response) {
         await displayNode(req, res)

@@ -5,16 +5,15 @@ extends ../../layouts/base/layout
 
 block main
     - <%= h.changeCase.camel(nodeType) %> = node.data
-    h1(
-        aria-label="<%= h.changeCase.lower(nodeType) %> name"
-        class=`text-center
-        mb-8
-        text-3xl
-        font-bold`) #{<%= h.changeCase.camel(nodeType) %>.name}
-    div(class="grid grid-cols-2 gap-4 items-start")
-        div
+    div(class="grid grid-cols-2 gap-8 items-start")
+        div(data-testid="main-area-primary")
+            h1(class=`text-left mb-1 text-3xl font-bold`) #{<%= h.changeCase.camel(nodeType) %>.name}
+            div(class="mb-4 text-sm") ...
+
             - item = <%= h.changeCase.camel(nodeType) %>
             include ../nodes/fact-sheet
+
+        div(data-testid="main-area-secondary")
 
 block footer
     p Footer area...

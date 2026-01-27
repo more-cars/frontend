@@ -23,7 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         pageTitle: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
         node: {
             data: <%= h.changeCase.camel(nodeType) %>,
-            nodeProperties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
+            node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         },
         relationships: {
         },

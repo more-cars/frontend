@@ -1,10 +1,10 @@
 ---
 inject: true
 to: src/data/<%= h.changeCase.pascal(nodeType) %>DataFacade.ts
-before: \}\n\}
-skip_if: getNodeById
+before: \},\n\}
+skip_if: async getNodeById
 ---
-    }
+    },
 
-    static async getNodeById(id: number) {
+    async getNodeById(id: number) {
         return get<%= h.changeCase.pascal(nodeType) %>ById(id)
