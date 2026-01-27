@@ -30,4 +30,10 @@ main {
     text-shadow: -1px -1px 1px darkslategrey,
     1px 1px 1px #0074D9,
     2px 2px 1px black;
+
+    &:hover {
+        text-shadow: -1px -1px 1px darkslategrey,
+        1px 1px 1px orange,
+        2px 2px 1px black;
+    }
 }
