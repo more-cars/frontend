@@ -24,6 +24,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await RaceTrackModelFacade.getConnectedMainImage(raceTrackId),
         },
         relationships: {
+            images: {
+                items: await RaceTrackModelFacade.getConnectedImages(raceTrackId),
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
         },
     }, (error, html) => {
         res.statusCode = 200
