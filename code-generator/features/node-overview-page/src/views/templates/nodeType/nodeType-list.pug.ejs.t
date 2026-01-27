@@ -10,6 +10,9 @@ if nodeCollection.length === 0
         p No <%= h.changeCase.lower(h.inflection.pluralize(nodeType)) %> were found. Either there are none or this is a temporary issue. Please try again later.
 else
     section(data-testid="<%= h.changeCase.kebab(nodeType) %>-section")
-        ul(class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-w-400 m-auto")
-        each item in nodeCollection
-            include <%= h.changeCase.kebab(nodeType) %>-list-item
+        ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
+            each item in nodeCollection
+                include <%= h.changeCase.kebab(nodeType) %>-list-item
+
+    include ../nodes/pagination
+    +pagination('<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>', pagination.page, pagination.total)

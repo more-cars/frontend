@@ -7,8 +7,8 @@ import {convert<%= h.changeCase.pascal(nodeType) %>Node} from "./convert<%= h.ch
 
 const nodeLimit = 100
 
-export async function findAllNodes() {
-    const nodes = await <%= h.changeCase.pascal(nodeType) %>DataFacade.getNodeCollection()
+export async function findAllNodes(params?: { page: number }) {
+    const nodes = await <%= h.changeCase.pascal(nodeType) %>DataFacade.getNodeCollection(params)
 
     const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>: <%= h.changeCase.pascal(nodeType) %>[] = []
 
