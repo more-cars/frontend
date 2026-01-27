@@ -39,8 +39,8 @@ describe('Fetching connected <%= h.changeCase.upper(h.inflection.pluralize(partn
             get<%= h.changeCase.pascal(nodeType) %>ById: vi.fn(() => null)
         }))
 
-        const {getConnected<%= h.changeCase.pascal(partnerNodeType) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.pascal(partnerNodeType) %>")
-        expect(await <%= h.changeCase.pascal(partnerNodeType) %>(1))
+        const {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>")
+        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(1))
             .toHaveLength(0)
     })
 })

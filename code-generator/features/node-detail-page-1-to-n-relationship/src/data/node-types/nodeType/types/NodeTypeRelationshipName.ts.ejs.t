@@ -10,7 +10,7 @@ export type <%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relation
     id: number
     name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>
     source_node: <%= h.changeCase.pascal(nodeType) %>Node
-    source_node_type: DataNodeType.<%= h.changeCase.upper(nodeType) %>
+    source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>
     partner_node: <%= h.changeCase.pascal(partnerNodeType) %>Node
     partner_node_type: DataNodeType.<%= h.changeCase.constant(partnerNodeType) %>
     created_at: string
