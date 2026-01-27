@@ -7,6 +7,9 @@ block main
             h1(class=`text-left mb-1 text-3xl font-bold`) #{raceTrack.name}
             div(class="mb-4 text-sm") #{raceTrack.location}
 
+            - mainImage = node.main_image
+            include ../nodes/connected-main-image
+
             - item = raceTrack
             include ../nodes/fact-sheet
 

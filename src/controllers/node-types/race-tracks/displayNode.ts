@@ -21,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             data: raceTrack,
             node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
+            main_image: await RaceTrackModelFacade.getConnectedMainImage(raceTrackId),
         },
         relationships: {
         },

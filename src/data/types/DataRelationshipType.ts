@@ -11,5 +11,6 @@ export enum DataRelationshipType {
     CAR_MODEL_HAS_SUCCESSOR = 'has successor',
     CAR_MODEL_HAS_IMAGE = 'has image',
     CAR_MODEL_HAS_MAIN_IMAGE = 'has main image',
+    RACE_TRACK_HAS_MAIN_IMAGE = 'has main image',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }
