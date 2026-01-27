@@ -4,5 +4,6 @@ import {RaceTrackControllerFacade} from "../controllers/RaceTrackControllerFacad
 const router = express.Router()
 
 router.get('/race-tracks', RaceTrackControllerFacade.showAllNodes)
+router.get('/race-tracks/:id', RaceTrackControllerFacade.showNode)
 
 export default router
