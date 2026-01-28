@@ -10,7 +10,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const images = await ImageModelFacade.getAllNodes({page})
 
     res.render('templates/node-types/images/images-page', {
-        pageTitle: 'All Images',
+        page_title: 'All Images',
         node_collection: images,
         node_properties: getNodeProperties(DataNodeType.IMAGE),
         thumbnails: await getThumbnails(images),

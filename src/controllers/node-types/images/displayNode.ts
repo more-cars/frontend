@@ -9,7 +9,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     if (!image) {
         return res.render('templates/node-types/images/image-not-found-page', {
-            pageTitle: `Image not found`
+            page_title: `Image not found`
         }, (error, html) => {
             res.statusCode = 404
             res.send(html)
@@ -17,7 +17,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     res.render('templates/node-types/images/image-page', {
-        pageTitle: `${image.name} - Image`,
+        page_title: `${image.name} - Image`,
         node: {
             data: image,
             node_properties: getNodeProperties(DataNodeType.IMAGE),

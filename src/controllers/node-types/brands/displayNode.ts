@@ -11,7 +11,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     if (!brand) {
         return res.render('templates/node-types/brands/brand-not-found-page', {
-            pageTitle: `Brand not found`
+            page_title: `Brand not found`
         }, (error, html) => {
             res.statusCode = 404
             res.send(html)
@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModels = await BrandModelFacade.getConnectedCarModels(brandId)
 
     res.render('templates/node-types/brands/brand-page', {
-        pageTitle: `${brand.name} - Brand`,
+        page_title: `${brand.name} - Brand`,
         node: {
             data: brand,
             node_properties: getNodeProperties(DataNodeType.BRAND),

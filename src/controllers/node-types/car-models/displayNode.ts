@@ -11,7 +11,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     if (!carModel) {
         return res.render('templates/node-types/car-models/car-model-not-found-page', {
-            pageTitle: `Car Model not found`
+            page_title: `Car Model not found`
         }, (error, html) => {
             res.statusCode = 404
             res.send(html)
@@ -23,7 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const successor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
 
     res.render('templates/node-types/car-models/car-model-page', {
-        pageTitle: `${carModel.name} - Car Model`,
+        page_title: `${carModel.name} - Car Model`,
         node: {
             data: carModel,
             node_properties: getNodeProperties(DataNodeType.CAR_MODEL),

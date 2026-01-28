@@ -9,7 +9,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     if (!raceTrack) {
         return res.render('templates/node-types/race-tracks/race-track-not-found-page', {
-            pageTitle: `Race Track not found`
+            page_title: `Race Track not found`
         }, (error, html) => {
             res.statusCode = 404
             res.send(html)
@@ -17,7 +17,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     res.render('templates/node-types/race-tracks/race-track-page', {
-        pageTitle: `${raceTrack.name} - Race Track`,
+        page_title: `${raceTrack.name} - Race Track`,
         node: {
             data: raceTrack,
             node_properties: getNodeProperties(DataNodeType.RACE_TRACK),

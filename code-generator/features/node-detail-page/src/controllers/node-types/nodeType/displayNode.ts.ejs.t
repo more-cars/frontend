@@ -12,7 +12,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     if (!<%= h.changeCase.camel(nodeType) %>) {
         return res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page', {
-            pageTitle: `<%= h.changeCase.title(nodeType) %> not found`
+            page_title: `<%= h.changeCase.title(nodeType) %> not found`
         }, (error, html) => {
             res.statusCode = 404
             res.send(html)
@@ -20,7 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page', {
-        pageTitle: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
+        page_title: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
         node: {
             data: <%= h.changeCase.camel(nodeType) %>,
             node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),

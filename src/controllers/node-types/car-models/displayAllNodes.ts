@@ -10,7 +10,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const carModels = await CarModelModelFacade.getAllNodes({page})
 
     res.render('templates/node-types/car-models/car-models-page', {
-        pageTitle: 'All Car Models',
+        page_title: 'All Car Models',
         node_collection: carModels,
         node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
         thumbnails: await getCarModelThumbnails(carModels),

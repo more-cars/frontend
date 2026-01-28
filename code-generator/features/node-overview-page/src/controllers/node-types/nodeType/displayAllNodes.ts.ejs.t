@@ -12,7 +12,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getAllNodes({page})
 
     res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>-page', {
-        pageTitle: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
+        page_title: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
         nodeCollection: <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>,
         node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         pagination: {

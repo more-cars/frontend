@@ -10,7 +10,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const companies = await CompanyModelFacade.getAllNodes({page})
 
     res.render('templates/node-types/companies/companies-page', {
-        pageTitle: 'All Companies',
+        page_title: 'All Companies',
         node_collection: companies,
         thumbnails: await getCompanyThumbnails(companies),
         node_properties: getNodeProperties(DataNodeType.COMPANY),

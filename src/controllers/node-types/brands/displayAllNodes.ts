@@ -10,7 +10,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const brands = await BrandModelFacade.getAllNodes({page})
 
     res.render('templates/node-types/brands/brands-page', {
-        pageTitle: 'All Brands',
+        page_title: 'All Brands',
         node_collection: brands,
         node_properties: getNodeProperties(DataNodeType.BRAND),
         thumbnails: await getBrandThumbnails(brands),
