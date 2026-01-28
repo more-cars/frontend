@@ -23,7 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const successor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
     const images = await CarModelModelFacade.getConnectedImages(carModelId)
 
-    res.render('templates/node-types/car-models/car-model-page', {
+    res.render('templates/node-types/car-models/car-model-detail-page', {
         page_title: `${carModel.name} - Car Model`,
         node: {
             data: carModel,

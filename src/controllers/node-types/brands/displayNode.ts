@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModels = await BrandModelFacade.getConnectedCarModels(brandId)
     const images = await BrandModelFacade.getConnectedImages(brandId)
 
-    res.render('templates/node-types/brands/brand-page', {
+    res.render('templates/node-types/brands/brand-detail-page', {
         page_title: `${brand.name} - Brand`,
         node: {
             data: brand,

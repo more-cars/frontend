@@ -19,7 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page', {
+    res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-detail-page', {
         page_title: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
         node: {
             data: <%= h.changeCase.camel(nodeType) %>,

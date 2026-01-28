@@ -20,7 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brands = await CompanyModelFacade.getConnectedBrands(companyId)
     const images = await CompanyModelFacade.getConnectedImages(companyId)
 
-    res.render('templates/node-types/companies/company-page', {
+    res.render('templates/node-types/companies/company-detail-page', {
         page_title: `${company.name} - Company`,
         node: {
             data: company,
