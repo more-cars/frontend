@@ -11,6 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     res.render('templates/node-types/images/images-page', {
         page_title: 'All Images',
+        main_headline: 'All Images',
         node_collection: images,
         node_properties: getNodeProperties(DataNodeType.IMAGE),
         thumbnails: await getThumbnails(images),

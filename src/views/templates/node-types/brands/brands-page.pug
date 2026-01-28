@@ -1,12 +1,6 @@
-extends ../../../layouts/base/layout
+extends ../../node-types/overview-page
 
-block main
-    h1(class=`
-        text-center
-        mb-8
-        text-3xl
-        font-bold
-        underline`) All Brands
+block node-list
     include brand-list
 
 block footer
