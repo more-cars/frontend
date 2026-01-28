@@ -9,7 +9,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const page = determinePaginationPageNumber(req)
     const images = await ImageModelFacade.getAllNodes({page})
 
-    return res.render('templates/images/images-page', {
+    return res.render('templates/node-types/images/images-page', {
         pageTitle: 'All Images',
         nodeCollection: images,
         node_properties: getNodeProperties(DataNodeType.IMAGE),

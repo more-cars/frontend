@@ -9,7 +9,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const company = await CompanyModelFacade.getNodeById(companyId)
 
     if (!company) {
-        return res.render('templates/companies/company-not-found-page', {
+        return res.render('templates/node-types/companies/company-not-found-page', {
             pageTitle: `Company not found`
         }, (error, html) => {
             res.statusCode = 404
@@ -19,7 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const brands = await CompanyModelFacade.getConnectedBrands(companyId)
 
-    return res.render('templates/companies/company-page', {
+    return res.render('templates/node-types/companies/company-page', {
         pageTitle: `${company.name} - Company`,
         node: {
             data: company,

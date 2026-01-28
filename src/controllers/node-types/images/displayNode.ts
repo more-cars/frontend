@@ -8,7 +8,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const image = await ImageModelFacade.getNodeById(imageId)
 
     if (!image) {
-        return res.render('templates/images/image-not-found-page', {
+        return res.render('templates/node-types/images/image-not-found-page', {
             pageTitle: `Image not found`
         }, (error, html) => {
             res.statusCode = 404
@@ -16,7 +16,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    res.render('templates/images/image-page', {
+    res.render('templates/node-types/images/image-page', {
         pageTitle: `${image.name} - Image`,
         node: {
             data: image,

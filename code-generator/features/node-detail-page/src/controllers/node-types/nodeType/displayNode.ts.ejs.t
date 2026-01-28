@@ -11,7 +11,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const <%= h.changeCase.camel(nodeType) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeById(<%= h.changeCase.camel(nodeType) %>Id)
 
     if (!<%= h.changeCase.camel(nodeType) %>) {
-        return res.render('templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page', {
+        return res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page', {
             pageTitle: `<%= h.changeCase.title(nodeType) %> not found`
         }, (error, html) => {
             res.statusCode = 404
@@ -19,7 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    return res.render('templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page', {
+    return res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page', {
         pageTitle: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
         node: {
             data: <%= h.changeCase.camel(nodeType) %>,

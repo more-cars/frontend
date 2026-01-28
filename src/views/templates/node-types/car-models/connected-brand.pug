@@ -1,0 +1,15 @@
+if brand
+    section(data-testid="brand-section" class="mb-8")
+        h2(class="text-2xl mb-2") Brand
+        p(class="mb-4") The #[b #{carModel.name}] is a car model that was created by the following brand:
+
+        div(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md")
+            div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`brand-${brand.id}`)
+                - thumbnail = relationships.brand.thumbnails.get(brand.id)
+                include ../../nodes/thumbnail
+                div(class="col-span-3")
+                    a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/brands/${brand.id}`)
+                        span(aria-label="name") #{brand.name}
+                    - item = brand
+                    - nodeProperties = relationships.brand.node_properties
+                    include ../../nodes/primary-properties

@@ -1,0 +1,15 @@
+if successor
+    section(data-testid="successor-section" class="mb-8")
+        h2(class="text-2xl mb-2") Successor
+        p(class="mb-4") The #[b #{carModel.name}] was succeeded by the following car model:
+
+        div(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md")
+            div(class="grid grid-flow-col grid-cols-4 gap-4" data-testid=`car-model-successor-${successor.id}`)
+                - thumbnail = relationships.successor.thumbnails.get(successor.id)
+                include ../../nodes/thumbnail
+                div(class="col-span-3")
+                    a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/car-models/${successor.id}`)
+                        span(aria-label="name") #{successor.name}
+                    - item = successor
+                    - nodeProperties = relationships.successor.node_properties
+                    include ../../nodes/primary-properties

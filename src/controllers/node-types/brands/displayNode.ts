@@ -10,7 +10,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brand = await BrandModelFacade.getNodeById(brandId)
 
     if (!brand) {
-        return res.render('templates/brands/brand-not-found-page', {
+        return res.render('templates/node-types/brands/brand-not-found-page', {
             pageTitle: `Brand not found`
         }, (error, html) => {
             res.statusCode = 404
@@ -21,7 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const company = await BrandModelFacade.getConnectedCompany(brandId)
     const carModels = await BrandModelFacade.getConnectedCarModels(brandId)
 
-    return res.render('templates/brands/brand-page', {
+    return res.render('templates/node-types/brands/brand-page', {
         pageTitle: `${brand.name} - Brand`,
         node: {
             data: brand,

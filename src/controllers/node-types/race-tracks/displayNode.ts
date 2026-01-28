@@ -8,7 +8,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const raceTrack = await RaceTrackModelFacade.getNodeById(raceTrackId)
 
     if (!raceTrack) {
-        return res.render('templates/race-tracks/race-track-not-found-page', {
+        return res.render('templates/node-types/race-tracks/race-track-not-found-page', {
             pageTitle: `Race Track not found`
         }, (error, html) => {
             res.statusCode = 404
@@ -16,7 +16,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    return res.render('templates/race-tracks/race-track-page', {
+    return res.render('templates/node-types/race-tracks/race-track-page', {
         pageTitle: `${raceTrack.name} - Race Track`,
         node: {
             data: raceTrack,

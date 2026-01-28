@@ -9,7 +9,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const page = determinePaginationPageNumber(req)
     const companies = await CompanyModelFacade.getAllNodes({page})
 
-    return res.render('templates/companies/companies-page', {
+    return res.render('templates/node-types/companies/companies-page', {
         pageTitle: 'All Companies',
         nodeCollection: companies,
         thumbnails: await getCompanyThumbnails(companies),

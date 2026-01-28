@@ -9,7 +9,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const page = determinePaginationPageNumber(req)
     const raceTracks = await RaceTrackModelFacade.getAllNodes({page})
 
-    return res.render('templates/race-tracks/race-tracks-page', {
+    return res.render('templates/node-types/race-tracks/race-tracks-page', {
         pageTitle: 'All Race Tracks',
         nodeCollection: raceTracks,
         thumbnails: await getRaceTrackThumbnails(raceTracks),
