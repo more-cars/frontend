@@ -1,23 +1,14 @@
-extends ../../../layouts/base/layout
+extends ../../node-types/detail-page
 
-block main
+block sub_headline
     - image = node.data
-    div(class="grid grid-cols-2 gap-8 items-start")
-        div(data-testid="main-area-primary")
-            h1(class=`text-left mb-1 text-3xl font-bold`) #{image.name}
-            div(class="mb-4 text-sm") #{image.license} | #{image.creator} | via #{image.image_provider}
+    div(class="mb-4 text-sm") #{image.license} | #{image.creator} | via #{image.image_provider}
 
-            - mainImage = node.main_image
-            include ../../nodes/connected-main-image
+block relationships
+    - image = node.data
 
-            - item = image
-            include ../../nodes/fact-sheet
-        div(data-testid="main-area-secondary")
-            - brands = relationships.brands.items
-            include connected-brands
+    - brands = relationships.brands.items
+    include connected-brands
 
-            - carModels = relationships.car_models.items
-            include connected-car-models
-
-block footer
-    p Footer area...
+    - carModels = relationships.car_models.items
+    include connected-car-models
