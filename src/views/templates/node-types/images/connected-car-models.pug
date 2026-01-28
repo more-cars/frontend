@@ -6,6 +6,7 @@ if carModels.length > 0
             each carModel in carModels
                 li(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md" data-testid=`car-model-${carModel.id}`)
                     div(class="grid grid-flow-col grid-cols-4 gap-4")
+                        - thumbnail = relationships.carModels.thumbnails.get(carModel.id)
                         include ../../nodes/thumbnail
                         div(class="col-span-3")
                             a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/car-models/${carModel.id}`)
