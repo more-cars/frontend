@@ -50,8 +50,5 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
-    }, (error, html) => {
-        res.statusCode = 200
-        res.send(html)
     })
 }

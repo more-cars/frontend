@@ -19,7 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const brands = await CompanyModelFacade.getConnectedBrands(companyId)
 
-    return res.render('templates/node-types/companies/company-page', {
+    res.render('templates/node-types/companies/company-page', {
         pageTitle: `${company.name} - Company`,
         node: {
             data: company,
@@ -37,8 +37,5 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
-    }, (error, html) => {
-        res.statusCode = 200
-        res.send(html)
     })
 }

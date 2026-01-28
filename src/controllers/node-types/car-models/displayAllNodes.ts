@@ -9,7 +9,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const page = determinePaginationPageNumber(req)
     const carModels = await CarModelModelFacade.getAllNodes({page})
 
-    return res.render('templates/node-types/car-models/car-models-page', {
+    res.render('templates/node-types/car-models/car-models-page', {
         pageTitle: 'All Car Models',
         nodeCollection: carModels,
         node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
@@ -18,8 +18,5 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
             page,
             total: 2648,
         },
-    }, (error, html) => {
-        res.statusCode = 200
-        res.send(html)
     })
 }

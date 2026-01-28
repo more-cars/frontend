@@ -21,7 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const company = await BrandModelFacade.getConnectedCompany(brandId)
     const carModels = await BrandModelFacade.getConnectedCarModels(brandId)
 
-    return res.render('templates/node-types/brands/brand-page', {
+    res.render('templates/node-types/brands/brand-page', {
         pageTitle: `${brand.name} - Brand`,
         node: {
             data: brand,
@@ -44,8 +44,5 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
-    }, (error, html) => {
-        res.statusCode = 200
-        res.send(html)
     })
 }

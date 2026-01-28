@@ -19,7 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    return res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page', {
+    res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page', {
         pageTitle: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
         node: {
             data: <%= h.changeCase.camel(nodeType) %>,
@@ -27,8 +27,5 @@ export async function displayNode(req: express.Request, res: express.Response) {
         },
         relationships: {
         },
-    }, (error, html) => {
-        res.statusCode = 200
-        res.send(html)
     })
 }

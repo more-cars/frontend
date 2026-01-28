@@ -16,7 +16,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    return res.render('templates/node-types/race-tracks/race-track-page', {
+    res.render('templates/node-types/race-tracks/race-track-page', {
         pageTitle: `${raceTrack.name} - Race Track`,
         node: {
             data: raceTrack,
@@ -29,8 +29,5 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
-    }, (error, html) => {
-        res.statusCode = 200
-        res.send(html)
     })
 }
