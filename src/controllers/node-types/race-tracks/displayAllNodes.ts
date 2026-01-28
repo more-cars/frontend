@@ -11,7 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     res.render('templates/node-types/race-tracks/race-tracks-page', {
         pageTitle: 'All Race Tracks',
-        nodeCollection: raceTracks,
+        node_collection: raceTracks,
         thumbnails: await getRaceTrackThumbnails(raceTracks),
         node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
         pagination: {

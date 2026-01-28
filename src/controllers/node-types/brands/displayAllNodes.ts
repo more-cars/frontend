@@ -11,7 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     res.render('templates/node-types/brands/brands-page', {
         pageTitle: 'All Brands',
-        nodeCollection: brands,
+        node_collection: brands,
         node_properties: getNodeProperties(DataNodeType.BRAND),
         thumbnails: await getBrandThumbnails(brands),
         pagination: {

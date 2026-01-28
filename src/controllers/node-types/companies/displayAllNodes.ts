@@ -11,7 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     res.render('templates/node-types/companies/companies-page', {
         pageTitle: 'All Companies',
-        nodeCollection: companies,
+        node_collection: companies,
         thumbnails: await getCompanyThumbnails(companies),
         node_properties: getNodeProperties(DataNodeType.COMPANY),
         pagination: {
