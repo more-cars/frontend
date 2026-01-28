@@ -11,7 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const page = determinePaginationPageNumber(req)
     const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getAllNodes({page})
 
-    res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>-page', {
+    res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-overview-page', {
         page_title: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
         page_headline: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
         nodeCollection: <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>,

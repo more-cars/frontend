@@ -9,7 +9,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     const page = determinePaginationPageNumber(req)
     const brands = await BrandModelFacade.getAllNodes({page})
 
-    res.render('templates/node-types/brands/brands-page', {
+    res.render('templates/node-types/brands/brand-overview-page', {
         page_title: 'All Brands',
         main_headline: 'All Brands',
         node_collection: brands,
