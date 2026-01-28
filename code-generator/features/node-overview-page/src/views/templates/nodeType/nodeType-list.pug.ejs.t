@@ -16,7 +16,7 @@ else
                 - nodeUrlPath = '<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/' + nodeItem.id
                 - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
-                include ../list-node-item
+                include ../../shared/list-node-item
 
-    include ../nodes/pagination
+    include ../../shared/pagination
     +pagination('<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>', pagination.page, pagination.total)

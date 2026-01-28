@@ -5,4 +5,4 @@ before: "item = <%= h.changeCase.camel(nodeType) %>"
 skip_if: mainImage
 ---
             - mainImage = node.main_image
-            include ../nodes/connected-main-image
+            include ../shared/connected-main-image

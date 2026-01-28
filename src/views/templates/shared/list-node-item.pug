@@ -1,8 +1,8 @@
 li(class="mb-4 bg-zinc-100 border-1 border-zinc-200 rounded-md" data-testid=`${nodeType}-${nodeItem.id}`)
     div(class="grid grid-flow-col grid-cols-4 gap-4")
-        include ../nodes/thumbnail
+        include thumbnail
         div(class="col-span-3")
             a(class="inline-block font-bold text-lg my-2 underline hover:no-underline" href=`/${nodeUrlPath}`)
                 span(aria-label="name") #{nodeItem.name}
             - item = nodeItem
-            include ../nodes/primary-properties
+            include primary-properties

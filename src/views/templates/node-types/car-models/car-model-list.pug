@@ -13,7 +13,7 @@ else
                 - nodeUrlPath = 'car-models/' + nodeItem.id
                 - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
-                include ../list-node-item
+                include ../../shared/list-node-item
 
-    include ../../nodes/pagination
+    include ../../shared/pagination
     +pagination('car-models', pagination.page, pagination.total)

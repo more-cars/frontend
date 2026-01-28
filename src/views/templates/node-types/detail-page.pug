@@ -8,8 +8,8 @@ block main
         div(data-testid="main-area-primary")
             h1(class=`text-left mb-1 text-3xl font-bold`) #{item.name}
             block sub_headline
-            include ../nodes/connected-main-image
-            include ../nodes/fact-sheet
+            include ../shared/connected-main-image
+            include ../shared/fact-sheet
 
         div(data-testid="main-area-secondary")
             block relationships

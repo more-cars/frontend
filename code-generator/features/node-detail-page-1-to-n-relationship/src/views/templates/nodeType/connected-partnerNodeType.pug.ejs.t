@@ -12,4 +12,4 @@ if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
                 - nodeUrlPath = '<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>/' + nodeItem.id
                 - thumbnail = relationships.<%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>.thumbnails.get(nodeItem.id)
                 - nodeProperties = relationships.<%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>.node_properties
-                include ../list-node-item
+                include ../../shared/list-node-item
