@@ -11,8 +11,12 @@ if node_collection.length === 0
 else
     section(data-testid="<%= h.changeCase.kebab(nodeType) %>-section")
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
-            each item in node_collection
-                include <%= h.changeCase.kebab(nodeType) %>-list-item
+            each nodeItem in node_collection
+                - nodeType = '<%= h.changeCase.kebab(nodeType) %>'
+                - nodeUrlPath = '<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
+                - nodeProperties = node_properties
+                include ../list-node-item
 
     include ../nodes/pagination
     +pagination('<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>', pagination.page, pagination.total)

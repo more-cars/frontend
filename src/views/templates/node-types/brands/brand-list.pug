@@ -8,8 +8,12 @@ if node_collection.length === 0
 else
     section(data-testid="brand-section")
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
-            each item in node_collection
-                include brand-list-item
+            each nodeItem in node_collection
+                - nodeType = 'brand'
+                - nodeUrlPath = 'brands/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
+                - nodeProperties = node_properties
+                include ../list-node-item
 
     include ../../nodes/pagination
     +pagination('brands', pagination.page, pagination.total)

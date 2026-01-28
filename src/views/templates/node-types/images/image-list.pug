@@ -8,9 +8,12 @@ if node_collection.length === 0
 else
     section(data-testid="image-section")
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
-            each item in node_collection
+            each nodeItem in node_collection
+                - nodeType = 'image'
+                - nodeUrlPath = 'images/' + nodeItem.id
+                - thumbnail = nodeItem
                 - nodeProperties = node_properties
-                include image-list-item
+                include ../list-node-item
 
     include ../../nodes/pagination
     +pagination('images', pagination.page, pagination.total)

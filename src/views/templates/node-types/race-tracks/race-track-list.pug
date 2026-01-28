@@ -8,8 +8,12 @@ if node_collection.length === 0
 else
     section(data-testid="race-track-section")
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
-            each item in node_collection
-                include race-track-list-item
+            each nodeItem in node_collection
+                - nodeType = 'race-track'
+                - nodeUrlPath = 'race-tracks/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
+                - nodeProperties = node_properties
+                include ../list-node-item
 
     include ../../nodes/pagination
     +pagination('race-tracks', pagination.page, pagination.total)
