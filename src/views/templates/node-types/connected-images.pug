@@ -5,5 +5,9 @@ section(data-testid="image-section" class="mb-8")
     else
         p(class="mb-4") There is #{images.length} image available for #[b #{node.data.name}]:
     ul
-        each item in images
-            include ../node-types/images/image-list-item
+        each nodeItem in images
+            - nodeType = 'image'
+            - nodeUrlPath = 'images/' + nodeItem.id
+            - thumbnail = nodeItem
+            - nodeProperties = relationships.images.node_properties
+            include list-node-item
