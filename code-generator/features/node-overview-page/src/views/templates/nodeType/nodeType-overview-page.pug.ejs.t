@@ -5,6 +5,3 @@ extends ../../node-types/overview-page
 
 block node-list
     include <%= h.changeCase.kebab(nodeType) %>-list
-
-block footer
-    p Footer area...
