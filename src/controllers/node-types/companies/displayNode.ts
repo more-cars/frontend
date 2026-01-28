@@ -18,6 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const brands = await CompanyModelFacade.getConnectedBrands(companyId)
+    const images = await CompanyModelFacade.getConnectedImages(companyId)
 
     res.render('templates/node-types/companies/company-page', {
         page_title: `${company.name} - Company`,
@@ -33,7 +34,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 thumbnails: await getBrandThumbnails(brands),
             },
             images: {
-                items: await CompanyModelFacade.getConnectedImages(companyId),
+                items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },

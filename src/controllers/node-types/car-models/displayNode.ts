@@ -21,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brand = await CarModelModelFacade.getConnectedBrand(carModelId)
     const predecessor = await CarModelModelFacade.getConnectedPredecessor(carModelId)
     const successor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
+    const images = await CarModelModelFacade.getConnectedImages(carModelId)
 
     res.render('templates/node-types/car-models/car-model-page', {
         page_title: `${carModel.name} - Car Model`,
@@ -46,7 +47,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 thumbnails: await getCarModelThumbnails(successor ? [successor] : []),
             },
             images: {
-                items: await CarModelModelFacade.getConnectedImages(carModelId),
+                items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
