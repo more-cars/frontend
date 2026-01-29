@@ -11,6 +11,7 @@ else
             each nodeItem in node_collection
                 - nodeType = 'racing-series'
                 - nodeUrlPath = 'racing-series/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
                 include ../../shared/list-node-item
 
