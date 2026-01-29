@@ -24,6 +24,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await TrackLayoutModelFacade.getConnectedMainImage(trackLayoutId),
         },
         relationships: {
+            images: {
+                items: await TrackLayoutModelFacade.getConnectedImages(trackLayoutId),
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
         },
     })
 }

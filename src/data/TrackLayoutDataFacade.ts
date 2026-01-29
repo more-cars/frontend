@@ -1,6 +1,7 @@
 import {getAllTrackLayouts} from "./node-types/track-layouts/getAllTrackLayouts"
 import {getTrackLayoutById} from "./node-types/track-layouts/getTrackLayoutById"
 import {getConnectedMainImage} from "./node-types/track-layouts/getConnectedMainImage"
+import {getConnectedImages} from "./node-types/track-layouts/getConnectedImages"
 
 export const TrackLayoutDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -13,5 +14,9 @@ export const TrackLayoutDataFacade = {
 
     async getConnectedMainImageNode(id: number) {
         return getConnectedMainImage(id)
+    },
+
+    async getConnectedImageNodes(id: number) {
+        return getConnectedImages(id)
     },
 }
