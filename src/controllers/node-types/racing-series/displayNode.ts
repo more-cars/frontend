@@ -16,6 +16,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const images = await RacingSeriesModelFacade.getConnectedImages(racingSeriesId)
+
     res.render('templates/node-types/racing-series/racing-series-detail-page', {
         page_title: `${racingSeries.name} - Racing Series`,
         node: {
@@ -24,6 +26,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await RacingSeriesModelFacade.getConnectedMainImage(racingSeriesId),
         },
         relationships: {
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
         },
     })
 }

@@ -1,6 +1,7 @@
 import {findAllNodes} from "./node-types/racing-series/findAllNodes"
 import {findNodeById} from "./node-types/racing-series/findNodeById"
 import {findConnectedMainImage} from "./node-types/racing-series/findConnectedMainImage"
+import {findConnectedImages} from "./node-types/racing-series/findConnectedImages"
 
 export const RacingSeriesModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -23,5 +24,11 @@ export const RacingSeriesModelFacade = {
 
     async getConnectedMainImage(id: number) {
         return findConnectedMainImage(id)
+    },
+
+    async getConnectedImages(id: number) {
+        const nodes = await findConnectedImages(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },
 }

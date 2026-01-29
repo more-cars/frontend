@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - racingSeries = node.data
+
+    - images = relationships.images.items
+    include ../../shared/connected-images
