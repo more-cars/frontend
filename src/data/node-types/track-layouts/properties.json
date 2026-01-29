@@ -1,0 +1,74 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "GP Circuit"
+  },
+  {
+    "name": "year_from",
+    "label": "From Year",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1967"
+  },
+  {
+    "name": "year_to",
+    "label": "To Year",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1999"
+  },
+  {
+    "name": "length",
+    "label": "Length",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "5.397"
+  },
+  {
+    "name": "length_unit",
+    "label": "Length (unit)",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "km"
+  },
+  {
+    "name": "direction",
+    "label": "Direction",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "clockwise"
+  },
+  {
+    "name": "elevation_change",
+    "label": "Elevation Change",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "73"
+  },
+  {
+    "name": "elevation_change_unit",
+    "label": "Elevation Change (unit)",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "m"
+  },
+  {
+    "name": "surface",
+    "label": "Surface",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "asphalt"
+  }
+]
