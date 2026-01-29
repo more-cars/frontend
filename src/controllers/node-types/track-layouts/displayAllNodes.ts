@@ -3,6 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {TrackLayoutModelFacade} from "../../../models/TrackLayoutModelFacade"
+import {getTrackLayoutThumbnails} from "./getTrackLayoutThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -12,6 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All Track Layouts',
         page_headline: 'All Track Layouts',
         node_collection: trackLayouts,
+        thumbnails: await getTrackLayoutThumbnails(trackLayouts),
         node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
         pagination: {
             page,
