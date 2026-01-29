@@ -29,7 +29,9 @@ export const BrandModelFacade = {
     },
 
     async getConnectedCarModels(id: number) {
-        return await findConnectedCarModels(id)
+        const nodes = await findConnectedCarModels(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },
 
     async getConnectedImages(id: number) {

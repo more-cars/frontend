@@ -28,7 +28,9 @@ export const CompanyModelFacade = {
     },
 
     async getConnectedBrands(id: number) {
-        return await findConnectedBrands(id)
+        const nodes = await findConnectedBrands(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },
 
     async getConnectedImages(id: number) {

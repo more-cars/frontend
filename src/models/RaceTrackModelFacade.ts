@@ -32,6 +32,8 @@ export const RaceTrackModelFacade = {
     },
 
     async getConnectedTrackLayouts(id: number) {
-        return await findConnectedTrackLayouts(id)
+        const nodes = await findConnectedTrackLayouts(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },
 }
