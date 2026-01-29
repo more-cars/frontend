@@ -4,5 +4,6 @@ import {RacingSeriesControllerFacade} from "../controllers/RacingSeriesControlle
 const router = express.Router()
 
 router.get('/racing-series', RacingSeriesControllerFacade.showAllNodes)
+router.get('/racing-series/:id', RacingSeriesControllerFacade.showNode)
 
 export default router

@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - racingSeries = node.data
+    div(class="mb-4 text-sm") #{racingSeries.short_name} | #{racingSeries.founded} - #{racingSeries.defunct}
+
+block relationships
+    - racingSeries = node.data

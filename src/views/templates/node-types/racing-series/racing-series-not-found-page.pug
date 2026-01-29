@@ -1,0 +1,8 @@
+extends ../../layouts/base/layout
+
+block main
+    include ../../shared/node-not-found-warning
+    +node-not-found-warning("racing series")
+
+block footer
+    p Footer area...
