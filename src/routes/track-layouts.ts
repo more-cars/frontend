@@ -4,5 +4,6 @@ import {TrackLayoutControllerFacade} from "../controllers/TrackLayoutControllerF
 const router = express.Router()
 
 router.get('/track-layouts', TrackLayoutControllerFacade.showAllNodes)
+router.get('/track-layouts/:id', TrackLayoutControllerFacade.showNode)
 
 export default router
