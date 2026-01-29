@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         thumbnails: await getThumbnails(images),
         pagination: {
             page,
-            total: 18095,
+            total: await ImageModelFacade.getTotalNodeCount(),
         },
     })
 }

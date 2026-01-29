@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
         pagination: {
             page,
-            total: 101,
+            total: await RaceTrackModelFacade.getTotalNodeCount(),
         },
     })
 }

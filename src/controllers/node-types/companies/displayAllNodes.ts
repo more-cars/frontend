@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_properties: getNodeProperties(DataNodeType.COMPANY),
         pagination: {
             page,
-            total: 114,
+            total: await CompanyModelFacade.getTotalNodeCount(),
         },
     })
 }

@@ -18,7 +18,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         pagination: {
             page,
-            total: 101,
+            total: await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getTotalNodeCount(),
         },
     })
 }
