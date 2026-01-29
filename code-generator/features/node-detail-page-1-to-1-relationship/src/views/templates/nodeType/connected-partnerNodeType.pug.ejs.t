@@ -1,10 +1,10 @@
 ---
-to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(partnerNodeType) %>.pug
+to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(partnerNodeType) %>.pug
 ---
 if <%= h.changeCase.camel(partnerNodeType) %>
     section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
         h2(class="text-2xl mb-2") <%= h.changeCase.title(partnerNodeType) %>
-        p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(partnerNodeType) %>.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
+        p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(nodeType) %>.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
 
         ul
             - nodeItem = <%= h.changeCase.camel(partnerNodeType) %>
