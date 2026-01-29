@@ -1,0 +1,12 @@
+if trackLayouts.length > 0
+    section(data-testid="track-layout-section" class="mb-8")
+        h2(class="text-2xl mb-2") Track Layouts
+        p(class="mb-4") The race track #[b #{raceTrack.name}] has (or had) the following #{trackLayouts.length} track layouts:
+
+        ul
+            each nodeItem in trackLayouts
+                - nodeType = 'track-layout'
+                - nodeUrlPath = 'track-layouts/' + nodeItem.id
+                - thumbnail = relationships.track_layouts.thumbnails.get(nodeItem.id)
+                - nodeProperties = relationships.track_layouts.node_properties
+                include ../../shared/list-node-item
