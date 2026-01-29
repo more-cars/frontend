@@ -1,0 +1,50 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Deutsche Tourenwagen-Masters"
+  },
+  {
+    "name": "short_name",
+    "label": "Short Name",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DTM"
+  },
+  {
+    "name": "founded",
+    "label": "Founded",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2000"
+  },
+  {
+    "name": "defunct",
+    "label": "Defunct",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": ""
+  },
+  {
+    "name": "organized_by",
+    "label": "Organized By",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "ITR"
+  },
+  {
+    "name": "vehicle_type",
+    "label": "Vehicle Type",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "touring cars"
+  }
+]
