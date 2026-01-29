@@ -1,6 +1,6 @@
 ---
 inject: true
-to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-page.pug
+to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-detail-page.pug
 after: "block relationships\n"
 skip_if: <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>
 ---

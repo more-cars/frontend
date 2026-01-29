@@ -1,5 +1,5 @@
 ---
-to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>.pug
+to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>.pug
 ---
 if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
     section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
