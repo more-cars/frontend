@@ -1,5 +1,5 @@
 ---
-to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-list.pug
+to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-list.pug
 ---
 if node_collection.length === 0
     div(
@@ -14,7 +14,6 @@ else
             each nodeItem in node_collection
                 - nodeType = '<%= h.changeCase.kebab(nodeType) %>'
                 - nodeUrlPath = '<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/' + nodeItem.id
-                - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
                 include ../../shared/list-node-item
 
