@@ -5,7 +5,7 @@ after: "relationships:"
 skip_if: "<%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>:"
 ---
             <%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>: {
-                items: await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(<%= h.changeCase.camel(nodeType) %>Id),
+                items: <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>,
                 node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(partnerNodeType) %>),
                 thumbnails: await get<%= h.changeCase.pascal(partnerNodeType) %>Thumbnails(<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>),
             },

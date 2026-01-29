@@ -7,4 +7,4 @@ skip_if: async getConnectedMainImage
     },
 
     async getConnectedMainImage(id: number) {
-        return await findConnectedMainImage(id)
+        return findConnectedMainImage(id)
