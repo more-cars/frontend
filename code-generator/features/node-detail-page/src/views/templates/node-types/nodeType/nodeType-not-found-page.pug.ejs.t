@@ -1,5 +1,5 @@
 ---
-to: src/views/templates/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page.pug
+to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page.pug
 ---
 extends ../../layouts/base/layout
 
