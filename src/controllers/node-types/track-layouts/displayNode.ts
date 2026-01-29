@@ -2,6 +2,7 @@ import express from "express"
 import {TrackLayoutModelFacade} from "../../../models/TrackLayoutModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayoutId = parseInt(req.params.id)
@@ -16,6 +17,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const raceTrack = await TrackLayoutModelFacade.getConnectedRaceTrack(trackLayoutId)
+
     res.render('templates/node-types/track-layouts/track-layout-detail-page', {
         page_title: `${trackLayout.name} - Track Layout`,
         node: {
@@ -24,6 +27,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await TrackLayoutModelFacade.getConnectedMainImage(trackLayoutId),
         },
         relationships: {
+            race_track: {
+                item: raceTrack,
+                node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
+                thumbnails: await getRaceTrackThumbnails(raceTrack ? [raceTrack] : []),
+            },
             images: {
                 items: await TrackLayoutModelFacade.getConnectedImages(trackLayoutId),
                 node_properties: getNodeProperties(DataNodeType.IMAGE),

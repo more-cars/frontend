@@ -1,0 +1,12 @@
+if raceTrack
+    section(data-testid="race-track-section" class="mb-8")
+        h2(class="text-2xl mb-2") Race Track
+        p(class="mb-4") The #[b #{trackLayout.name}] is one of the layouts of the following race track:
+
+        ul
+            - nodeItem = raceTrack
+            - nodeType = 'race-track'
+            - nodeUrlPath = 'race-tracks/' + nodeItem.id
+            - thumbnail = relationships.race_track.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.race_track.node_properties
+            include ../../shared/list-node-item
