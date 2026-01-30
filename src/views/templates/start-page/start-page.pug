@@ -1,26 +1,9 @@
 extends ../../layouts/base/layout
 
 block main
-    h1(
-        class=`text-center
-        mb-8
-        text-3xl
-        font-bold`) More Cars
-    ul
-        li
-            a(href="/companies") -> Companies
-        li
-            a(href="/brands") -> Brands
-        li
-            a(href="/car-models") -> Car Models
-        li
-            a(href="/race-tracks") -> Race Tracks
-        li
-            a(href="/track-layouts") -> Track Layouts
-        li
-            a(href="/racing-series") -> Racing Series
-        li
-            a(href="/images") -> Images
+    ul(class="grid grid-cols-2 gap-x-8 gap-y-4 items-start")
+        each nodeType in node_types
+            include node-type-item
 
 block footer
     p Footer area...
