@@ -1,7 +1,7 @@
 extends ../../layouts/base/layout
 
 block main
-    ul(class="grid grid-cols-2 gap-x-8 gap-y-4 items-start")
+    ul(class="grid grid-cols-2 gap-x-8 gap-y-4 items-start" data-testid="node-types")
         each nodeType in node_types
             include node-type-item
 
