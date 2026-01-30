@@ -2,8 +2,8 @@
   "stepDefinitions": [
     "tests/behavior/step_implementation/**/*.ts"
   ],
-  "filterSpecs": true,
-  "omitFiltered": true,
+  "filterSpecs": false,
+  "omitFiltered": false,
   "json": {
     "enabled": true,
     "output": "test-reports/behavior/report.json"
