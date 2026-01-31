@@ -8,10 +8,10 @@ createDeploymentPatchFile()
         fs.writeFileSync(path + filename, JSON.stringify(data, null, 2))
     })
 
-createIngressPatchFile()
+createHttpRoutePatchFile()
     .then((data) => {
         const path = __dirname + '/../app/'
-        const filename = 'ingress.patch.json'
+        const filename = 'http-route.patch.json'
         fs.writeFileSync(path + filename, JSON.stringify(data, null, 2))
     })
 
@@ -28,19 +28,14 @@ async function createDeploymentPatchFile() {
     ]
 }
 
-async function createIngressPatchFile() {
+async function createHttpRoutePatchFile() {
     const targetEnvironment = process.env.TARGET_ENVIRONMENT || 'prod'
     const targetCluster = process.env.TARGET_CLUSTER || 'gke'
 
     return [
         {
             "op": "replace",
-            "path": "/spec/rules/0/host",
-            "value": getHostname(targetCluster, targetEnvironment, 'frontend'),
-        },
-        {
-            "op": "replace",
-            "path": "/spec/tls/0/hosts/0",
+            "path": "/spec/hostnames/0",
             "value": getHostname(targetCluster, targetEnvironment, 'frontend'),
         },
     ]
