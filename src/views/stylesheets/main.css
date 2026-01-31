@@ -37,17 +37,17 @@
 }
 
 @theme {
-    --font-sans: "Andada Pro", sans-serif;
-    --font-heading: "Cuprum", sans-serif;
+    --font-serif: "Andada Pro", serif;
+    --font-sans: "Cuprum", sans-serif;
 }
 
 @layer base {
     body, .logo {
-        @apply font-sans;
+        @apply font-serif;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        @apply font-heading;
+        @apply font-sans;
     }
 }
 
