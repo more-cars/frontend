@@ -1,5 +1,5 @@
 ---
-to: tests/developer/models/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get-node-collection.test.ts
+to: tests/developer/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get-node-collection.test.ts
 ---
 import {describe, expect, test, vi} from "vitest"
 import {<%= h.changeCase.pascal(nodeType) %>DataFacade} from "../../../../src/data/<%= h.changeCase.pascal(nodeType) %>DataFacade"

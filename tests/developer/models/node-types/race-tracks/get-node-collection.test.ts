@@ -1,7 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
-import {RaceTrackDataFacade} from "../../../../src/data/RaceTrackDataFacade"
-import {findAllNodes} from "../../../../src/models/node-types/race-tracks/findAllNodes"
-import type {RaceTrackNode} from "../../../../src/data/node-types/race-tracks/types/RaceTrackNode"
+import {RaceTrackDataFacade} from "../../../../../src/data/RaceTrackDataFacade"
+import {findAllNodes} from "../../../../../src/models/node-types/race-tracks/findAllNodes"
+import type {RaceTrackNode} from "../../../../../src/data/node-types/race-tracks/types/RaceTrackNode"
 
 describe('Collect node collection for the RACE TRACK overview page', () => {
     test('when there exist no RACE TRACKS', async () => {

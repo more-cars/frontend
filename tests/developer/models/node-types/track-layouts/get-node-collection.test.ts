@@ -1,7 +1,7 @@
 import {describe, expect, test, vi} from "vitest"
-import {TrackLayoutDataFacade} from "../../../../src/data/TrackLayoutDataFacade"
-import {findAllNodes} from "../../../../src/models/node-types/track-layouts/findAllNodes"
-import type {TrackLayoutNode} from "../../../../src/data/node-types/track-layouts/types/TrackLayoutNode"
+import {TrackLayoutDataFacade} from "../../../../../src/data/TrackLayoutDataFacade"
+import {findAllNodes} from "../../../../../src/models/node-types/track-layouts/findAllNodes"
+import type {TrackLayoutNode} from "../../../../../src/data/node-types/track-layouts/types/TrackLayoutNode"
 
 describe('Collect node collection for the TRACK LAYOUT overview page', () => {
     test('when there exist no TRACK LAYOUTS', async () => {
