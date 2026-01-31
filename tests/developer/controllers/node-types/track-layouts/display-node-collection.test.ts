@@ -1,13 +1,13 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
-import {supertestGet} from "../../supertestGet"
+import {supertestGet} from "../../../supertestGet"
 
 afterEach(() => {
     vi.resetModules()
 })
 
-describe('Requesting the Track Layout overview page', () => {
+describe('Requesting the TRACK LAYOUT overview page', () => {
     test('when there exist no TRACK LAYOUTS', async () => {
-        vi.doMock("../../../../src/models/node-types/track-layouts/findAllNodes", () => ({
+        vi.doMock("../../../../../src/models/node-types/track-layouts/findAllNodes", () => ({
             findAllNodes: () => [],
         }))
 
@@ -18,8 +18,8 @@ describe('Requesting the Track Layout overview page', () => {
     })
 
 
-    test('when there exist multiple Track Layouts', async () => {
-        vi.doMock("../../../../src/models/node-types/track-layouts/findAllNodes", () => ({
+    test('when there exist multiple TRACK LAYOUTS', async () => {
+        vi.doMock("../../../../../src/models/node-types/track-layouts/findAllNodes", () => ({
             findAllNodes: () => [
                 {id: 1, name: "dummy 1"},
                 {id: 2, name: "dummy 2"},

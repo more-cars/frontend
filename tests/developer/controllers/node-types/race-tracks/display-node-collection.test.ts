@@ -1,13 +1,13 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
-import {supertestGet} from "../../supertestGet"
+import {supertestGet} from "../../../supertestGet"
 
 afterEach(() => {
     vi.resetModules()
 })
 
-describe('Requesting the Race Track overview page', () => {
+describe('Requesting the RACE TRACK overview page', () => {
     test('when there exist no RACE TRACKS', async () => {
-        vi.doMock("../../../../src/models/node-types/race-tracks/findAllNodes", () => ({
+        vi.doMock("../../../../../src/models/node-types/race-tracks/findAllNodes", () => ({
             findAllNodes: () => [],
         }))
 
@@ -18,8 +18,8 @@ describe('Requesting the Race Track overview page', () => {
     })
 
 
-    test('when there exist multiple Race Tracks', async () => {
-        vi.doMock("../../../../src/models/node-types/race-tracks/findAllNodes", () => ({
+    test('when there exist multiple RACE TRACKS', async () => {
+        vi.doMock("../../../../../src/models/node-types/race-tracks/findAllNodes", () => ({
             findAllNodes: () => [
                 {id: 1, name: "dummy 1"},
                 {id: 2, name: "dummy 2"},
