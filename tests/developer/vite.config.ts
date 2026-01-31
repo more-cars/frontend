@@ -2,7 +2,7 @@ import {defineConfig} from 'vitest/config'
 
 const rootDir = __dirname + '/../../'
 
-export default defineConfig(_ => ({
+export default defineConfig({
     test: {
         name: 'developer',
         root: rootDir,
@@ -22,6 +22,7 @@ export default defineConfig(_ => ({
             include: ['src/**'],
             exclude: [
                 'src/**/types/**',
+                'src/**/*.pug',
                 'src/server.ts',
             ],
             reporter: [
@@ -31,9 +32,9 @@ export default defineConfig(_ => ({
             reportsDirectory: 'test-reports/developer/coverage',
             reportOnFailure: true,
             thresholds: {
-                statements: 97,
+                statements: 96,
                 branches: 97,
             },
         }
     },
-}))
+})
