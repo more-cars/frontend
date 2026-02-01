@@ -218,7 +218,7 @@ In such situations the Minikube cluster might be the better option (or a combina
 In Minikube the databases are automatically persisted.
 It also allows us to run multiple environments in parallel or in different versions.
 It is also useful for testing scenarios or situations that might occur in the real production environment,
-but cannot be reproduced in the local environment, like the ingress controller or load balancing.
+but cannot be reproduced in the local environment, like the Kubernetes gateway or load balancing.
 
 Running the command `npm run app:deploy` will start a wizard that asks us where and what we want to deploy.
 Using `minikube`, `testing`, `frontend-rc`, `latest` will deploy
