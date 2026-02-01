@@ -2,6 +2,6 @@
   {
     "op": "replace",
     "path": "/spec/hostnames/0",
-    "value": "prod.frontend.more-cars.internal"
+    "value": "frontend.prod.more-cars.internal"
   }
 ]

@@ -8,7 +8,7 @@ spec:
       sectionName: more-cars
 
   hostnames:
-    - default.frontend.more-cars.internal
+    - frontend.default.more-cars.internal
 
   rules:
     - matches:

@@ -47,7 +47,7 @@
     * it will create the necessary host entries in the local `/etc/hosts` file
         * needs to be confirmed via password
             * abort if you want to do it manually or you when you use a different hosts file
-    * the app should now be available under `https://dev.frontend.more-cars.internal`
+    * the app should now be available under `https://frontend.dev.more-cars.internal`
         * accept the browser's security risk warning (all local environments use a dummy SSL certificate)
 * Run `npm run app:undeploy` to completely remove the app from the Minikube cluster
     * a wizard will ask for the concrete cluster and environment that should be deleted
@@ -223,7 +223,7 @@ but cannot be reproduced in the local environment, like the Kubernetes gateway o
 Running the command `npm run app:deploy` will start a wizard that asks us where and what we want to deploy.
 Using `minikube`, `testing`, `frontend-rc`, `latest` will deploy
 the newest release candidate that exists for the frontend app.
-It will be made available at https://testing.frontend.more-cars.internal.
+It will be made available at https://frontend.testing.more-cars.internal.
 It contains the same pods and services - in the same version -
 as if they were deployed in the "real" Kubernetes cluster in GKE.
 The script can be executed multiple times.
