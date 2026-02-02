@@ -28,9 +28,14 @@ app.use('/', racingSeries)
 app.use('/', racingEvents)
 app.use('/', images)
 
-app.locals.formatDate = (isoDate: string) =>
+app.locals.formatDateTime = (isoDate: string) =>
     DateTime.fromISO(isoDate, {zone: "utc"})
         .toLocal()
         .toLocaleString(DateTime.DATETIME_MED)
+
+app.locals.formatDate = (isoDate: string) =>
+    DateTime.fromISO(isoDate, {zone: "utc"})
+        .toLocal()
+        .toLocaleString(DateTime.DATE_MED)
 
 export {app}

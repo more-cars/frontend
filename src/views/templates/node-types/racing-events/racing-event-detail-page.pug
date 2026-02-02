@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - racingEvent = node.data
-    div(class="mb-4 text-sm") ...
+    div(class="mb-4 text-sm") #{formatDate(racingEvent.date_from)} - #{formatDate(racingEvent.date_to)}
 
 block relationships
     - racingEvent = node.data
