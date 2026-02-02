@@ -1,0 +1,12 @@
+if predecessor
+    section(data-testid="racing-event-section" class="mb-8")
+        h2(class="text-2xl mb-2") Predecessor
+        p(class="mb-4") The #[b #{racingEvent.name}] took place after this racing event:
+
+        ul
+            - nodeItem = predecessor
+            - nodeType = 'racing-event'
+            - nodeUrlPath = 'racing-events/' + nodeItem.id
+            - thumbnail = relationships.predecessor.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.predecessor.node_properties
+            include ../../shared/list-node-item

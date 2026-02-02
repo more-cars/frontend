@@ -19,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const racingSeries = await RacingEventModelFacade.getConnectedRacingSeries(racingEventId)
+    const predecessor = await RacingEventModelFacade.getConnectedPredecessor(racingEventId)
     const successor = await RacingEventModelFacade.getConnectedSuccessor(racingEventId)
 
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
@@ -33,6 +34,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: racingSeries,
                 node_properties: getNodeProperties(DataNodeType.RACING_SERIES),
                 thumbnails: await getRacingSeriesThumbnails(racingSeries ? [racingSeries] : []),
+            },
+            predecessor: {
+                item: predecessor,
+                node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
+                thumbnails: await getRacingEventThumbnails(predecessor ? [predecessor] : []),
             },
             successor: {
                 item: successor,
