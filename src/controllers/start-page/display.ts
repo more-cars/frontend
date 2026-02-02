@@ -7,6 +7,7 @@ import {CarModelModelFacade} from "../../models/CarModelModelFacade"
 import {RaceTrackModelFacade} from "../../models/RaceTrackModelFacade"
 import {TrackLayoutModelFacade} from "../../models/TrackLayoutModelFacade"
 import {RacingSeriesModelFacade} from "../../models/RacingSeriesModelFacade"
+import {RacingEventModelFacade} from "../../models/RacingEventModelFacade"
 import {ImageModelFacade} from "../../models/ImageModelFacade"
 
 export async function display(req: express.Request, res: express.Response) {
@@ -17,6 +18,7 @@ export async function display(req: express.Request, res: express.Response) {
         getNodeTypeInformation(DataNodeType.RACE_TRACK, '⭖', await RaceTrackModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.TRACK_LAYOUT, '⮓', await TrackLayoutModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.RACING_SERIES, '🏎', await RacingSeriesModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACING_EVENT, '🏞', await RacingEventModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.IMAGE, '🖼️', await ImageModelFacade.getTotalNodeCount()),
     ]
 
