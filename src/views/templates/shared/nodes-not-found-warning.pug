@@ -1,0 +1,7 @@
+mixin nodes-not-found-warning(nodeType)
+    div(
+        class="max-w-160 m-auto p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700"
+        data-testid=`${nodeType.toString().replace(' ', '-')}-list-empty`
+    )
+        p(class="font-bold") No #{nodeType.toUpperCase()} found!
+        p No #{nodeType.toUpperCase()} found in the database. Either there are none or this is a temporary issue. Please try again later.

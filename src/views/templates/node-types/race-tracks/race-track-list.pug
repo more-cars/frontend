@@ -1,10 +1,6 @@
 if node_collection.length === 0
-    div(
-        class="max-w-160 m-auto p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700"
-        data-testid="race-track-list-empty"
-    )
-        p(class="font-bold") No race tracks
-        p No race tracks were found. Either there are none or this is a temporary issue. Please try again later.
+    include ../../shared/nodes-not-found-warning
+    +nodes-not-found-warning("race track")
 else
     section(data-testid="race-track-section")
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
