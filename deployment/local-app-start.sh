@@ -18,16 +18,6 @@ if ! [ -f .env ]; then
   echo
 fi
 
-if ! [ -f certificates/tls.crt ]; then
-  echo "⚠️ No SSL certificate found"
-  echo "🪛 Creating a certificate"
-  mkdir -p "$SCRIPT_PATH"/../certificates
-  cp "$SCRIPT_PATH"/dummy-certs/tls.crt "$SCRIPT_PATH"/../certificates/tls.crt
-  cp "$SCRIPT_PATH"/dummy-certs/tls.key "$SCRIPT_PATH"/../certificates/tls.key
-  echo "✔️ SSL certificate created"
-  echo
-fi
-
 echo 🟢 Starting application...
 
 node --watch --env-file=.env -r ts-node/register src/server.ts &

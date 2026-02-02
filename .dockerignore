@@ -2,7 +2,6 @@
 .env*
 .git*
 .idea
-certificates
 deployment
 eslint.config.mjs
 node_modules

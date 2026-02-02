@@ -2,12 +2,16 @@ import {describe, expect, test} from 'vitest'
 import {getApiBaseUrl} from "../../../src/data/getApiBaseUrl"
 
 describe('Determining the base URL of the API', () => {
-    test('When API runs on HTTPS', async () => {
+    test('When API runs on HTTP', async () => {
         process.env.API_HOST = 'test123.internal'
 
-        process.env.API_PORT = '443'
+        process.env.API_PORT = '80'
         expect(getApiBaseUrl())
-            .toEqual('https://test123.internal:443')
+            .toEqual('http://test123.internal:80')
+
+        process.env.API_PORT = '8080'
+        expect(getApiBaseUrl())
+            .toEqual('http://test123.internal:8080')
     })
 
     test('When port is missing', async () => {

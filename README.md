@@ -10,15 +10,14 @@
     * for this quickstart it is assumed to run at http://localhost:3000
 * Run `npm install` to install all required dependencies and tools
 * Run `npm run local:app:start` to start the app locally
-    * it should be available at http://localhost:4000 (http) and https://localhost:4443 (https)
+    * it should be available at http://localhost:4000
     * an `.env` should have been created automatically in the project's root folder
         * it should contain the location of the More Cars API -> default: `API_HOST=localhost`
         * it should contain the port of the More Cars API -> default: `API_PORT=3000`
         * change those values when you want to use a different API (e.g. from the Minikube cluster)
 * If you want to use "pretty" hostnames instead of `localhost`:
     * run `npm run local:hostnames:add`
-    * now, the app should be available at http://frontend.more-cars.internal:4000/ (http)
-      and https://frontend.more-cars.internal:4443/ (https)
+    * now, the app should be available at http://frontend.more-cars.internal:4000/
 
 ## Minikube (Local Dev Cluster)
 
@@ -39,6 +38,9 @@
 ### Start application
 
 * Make sure the Minikube cluster is running (see [Minikube](#start-cluster) section)
+* Make sure the infrastructure was deployed (https://github.com/more-cars/infra)
+    * This provides a gateway for all More Cars apps and tools
+    * The app will not work without the gateway
 * Run `npm run app:deploy`
     * a wizard will start
         * select `minikube`, `dev`, `frontend` and `latest`
@@ -48,7 +50,7 @@
         * needs to be confirmed via password
             * abort if you want to do it manually or you when you use a different hosts file
     * the app should now be available under `https://frontend.dev.more-cars.internal`
-        * accept the browser's security risk warning (all local environments use a dummy SSL certificate)
+        * accept the browser's security risk warning (the gateways in the local cluster use dummy certificates)
 * Run `npm run app:undeploy` to completely remove the app from the Minikube cluster
     * a wizard will ask for the concrete cluster and environment that should be deleted
     * run `npm run app:deploy` to create a fresh version of the app again
@@ -57,39 +59,6 @@
 
 All docker images are managed automatically in the pipeline (see files in folder `.github/workflows`).
 There should be no need to create, tag or push them locally.
-
-## SSL Certificate
-
-At the moment, an SSL certificate is not mandatory to run the application -
-be it locally, in Minikube or in the production system.
-Should there be a certificate then the app will start an HTTP and an HTTPS server in parallel.
-When there is no certificate then only the HTTP server is started.
-
-In a local environment the application expects the certificate files in the folder `certificates`,
-named `tls.crt` and `tls.key`.
-
-In Minikube a dummy certificate is automatically added when deploying the app for the first time.
-There should be no need to replace it, because it is not possible to create a valid one for local environments anyway.
-
-For GKE the certificate needs to be added manually:
-
-```
-./deployment/lib/store-certificate-as-k8s-secret.sh api <NAMESPACE> <CERTIFICATE_PATH>
-```
-
-This will create a "Kubernetes Secret" with the name `certificate-frontend` in the given namespace (e.g. `testing`).
-
-To replace or renew the certificate the following commands can be used:
-
-```
-kubectl delete secret certificate-frontend \
-  --ignore-not-found \
-  --namespace=<NAMESPACE> && \
-kubectl create secret tls certificate-frontend \
-  --cert=<CERTIFICATE_PATH>/tls.crt \
-  --key=<CERTIFICATE_PATH>/tls.key \
-  --namespace=<NAMESPACE>
-```
 
 ## Basic Authentication
 
@@ -227,7 +196,7 @@ It will be made available at https://frontend.testing.more-cars.internal.
 It contains the same pods and services - in the same version -
 as if they were deployed in the "real" Kubernetes cluster in GKE.
 The script can be executed multiple times.
-The previous data, like SSL certificates, database data and individual settings will NOT be overridden.
+The previous data database credentials and individual settings will NOT be overridden.
 
 ### GKE Cluster
 
