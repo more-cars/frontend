@@ -2,7 +2,7 @@
 to: tests/developer/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/display-node-collection.test.ts
 ---
 import {afterEach, describe, expect, test, vi} from "vitest"
-import {supertestGet} from "../../supertestGet"
+import {supertestGet} from "../../../supertestGet"
 
 afterEach(() => {
     vi.resetModules()
@@ -10,7 +10,7 @@ afterEach(() => {
 
 describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () => {
     test('when there exist no <%= h.changeCase.upper(h.inflection.pluralize(nodeType)) %>', async () => {
-        vi.doMock("../../../../src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/findAllNodes", () => ({
+        vi.doMock("../../../../../src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/findAllNodes", () => ({
             findAllNodes: () => [],
         }))
 
@@ -22,7 +22,7 @@ describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () 
 
 
     test('when there exist multiple <%= h.changeCase.upper(h.inflection.pluralize(nodeType)) %>', async () => {
-        vi.doMock("../../../../src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/findAllNodes", () => ({
+        vi.doMock("../../../../../src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/findAllNodes", () => ({
             findAllNodes: () => [
                 {id: 1, name: "dummy 1"},
                 {id: 2, name: "dummy 2"},
