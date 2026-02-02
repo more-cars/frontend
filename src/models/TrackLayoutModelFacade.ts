@@ -3,6 +3,7 @@ import {findNodeById} from "./node-types/track-layouts/findNodeById"
 import {findConnectedMainImage} from "./node-types/track-layouts/findConnectedMainImage"
 import {findConnectedImages} from "./node-types/track-layouts/findConnectedImages"
 import {findConnectedRaceTrack} from "./node-types/track-layouts/findConnectedRaceTrack"
+import {findConnectedRacingEvents} from "./node-types/track-layouts/findConnectedRacingEvents"
 
 export const TrackLayoutModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -33,5 +34,11 @@ export const TrackLayoutModelFacade = {
 
     async getConnectedRaceTrack(id: number) {
         return findConnectedRaceTrack(id)
+    },
+
+    async getConnectedRacingEvents(id: number) {
+        const nodes = await findConnectedRacingEvents(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },
 }

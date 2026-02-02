@@ -1,0 +1,12 @@
+if racingEvents.length > 0
+    section(data-testid="racing-event-section" class="mb-8")
+        h2(class="text-2xl mb-2") Racing Events
+        p(class="mb-4") The track layout #[b #{trackLayout.name}] was used in the following racing events:
+
+        ul
+            each nodeItem in racingEvents
+                - nodeType = 'racing-event'
+                - nodeUrlPath = 'racing-events/' + nodeItem.id
+                - thumbnail = relationships.racing_events.thumbnails.get(nodeItem.id)
+                - nodeProperties = relationships.racing_events.node_properties
+                include ../../shared/list-node-item

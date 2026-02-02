@@ -17,6 +17,7 @@ export enum DataRelationshipType {
     RACE_TRACK_HAS_IMAGE = 'has image',
     TRACK_LAYOUT_HAS_MAIN_IMAGE = 'has main image',
     TRACK_LAYOUT_BELONGS_TO_RACE_TRACK = 'belongs to race track',
+    TRACK_LAYOUT_WAS_USED_BY_RACING_EVENT = 'was used by racing event',
     TRACK_LAYOUT_HAS_IMAGE = 'has image',
     RACING_SERIES_HAS_MAIN_IMAGE = 'has main image',
     RACING_SERIES_HAS_IMAGE = 'has image',
