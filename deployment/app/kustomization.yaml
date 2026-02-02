@@ -14,4 +14,8 @@ patches:
   - path: http-route.patch.json
     target:
       kind: HTTPRoute
-      name: frontend
+      name: frontend-http
+  - path: https-route.patch.json
+    target:
+      kind: HTTPRoute
+      name: frontend-https

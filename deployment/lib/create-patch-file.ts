@@ -15,6 +15,13 @@ createHttpRoutePatchFile()
         fs.writeFileSync(path + filename, JSON.stringify(data, null, 2))
     })
 
+createHttpsRoutePatchFile()
+    .then((data) => {
+        const path = __dirname + '/../app/'
+        const filename = 'https-route.patch.json'
+        fs.writeFileSync(path + filename, JSON.stringify(data, null, 2))
+    })
+
 async function createDeploymentPatchFile() {
     const packageName = process.env.PACKAGE_NAME
     const packageVersion = process.env.PACKAGE_VERSION
@@ -29,6 +36,19 @@ async function createDeploymentPatchFile() {
 }
 
 async function createHttpRoutePatchFile() {
+    const targetEnvironment = process.env.TARGET_ENVIRONMENT || 'prod'
+    const targetCluster = process.env.TARGET_CLUSTER || 'gke'
+
+    return [
+        {
+            "op": "replace",
+            "path": "/spec/hostnames/0",
+            "value": getHostname(targetCluster, targetEnvironment, 'frontend'),
+        },
+    ]
+}
+
+async function createHttpsRoutePatchFile() {
     const targetEnvironment = process.env.TARGET_ENVIRONMENT || 'prod'
     const targetCluster = process.env.TARGET_CLUSTER || 'gke'
 
