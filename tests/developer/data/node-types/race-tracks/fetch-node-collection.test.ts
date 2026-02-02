@@ -16,7 +16,7 @@ describe('Fetching RACE TRACK collection from data source', () => {
     })
 
     test('when there are multiple RACE TRACKS', async () => {
-        vi.doMock("../../../../src/data/requestDataFromApi", () => ({
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
         }))
 
