@@ -7,4 +7,4 @@ skip_if: async getConnected<%= h.changeCase.pascal(partnerNodeType) %>
     },
 
     async getConnected<%= h.changeCase.pascal(partnerNodeType) %>(id: number) {
-        return await findConnected<%= h.changeCase.pascal(partnerNodeType) %>(id)
+        return findConnected<%= h.changeCase.pascal(partnerNodeType) %>(id)

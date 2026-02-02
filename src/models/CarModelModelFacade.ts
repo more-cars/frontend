@@ -26,22 +26,22 @@ export const CarModelModelFacade = {
     },
 
     async getConnectedBrand(id: number) {
-        return await findConnectedBrand(id)
+        return findConnectedBrand(id)
     },
 
     async getConnectedPredecessor(id: number) {
-        return await findConnectedPredecessor(id)
+        return findConnectedPredecessor(id)
     },
 
     async getConnectedSuccessor(id: number) {
-        return await findConnectedSuccessor(id)
+        return findConnectedSuccessor(id)
     },
 
     async getConnectedImages(id: number) {
-        return await findConnectedImages(id)
+        return findConnectedImages(id)
     },
 
     async getConnectedMainImage(id: number) {
-        return await findConnectedMainImage(id)
+        return findConnectedMainImage(id)
     },
 }

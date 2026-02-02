@@ -25,7 +25,7 @@ export const BrandModelFacade = {
     },
 
     async getConnectedCompany(id: number) {
-        return await findConnectedCompany(id)
+        return findConnectedCompany(id)
     },
 
     async getConnectedCarModels(id: number) {
@@ -35,10 +35,10 @@ export const BrandModelFacade = {
     },
 
     async getConnectedImages(id: number) {
-        return await findConnectedImages(id)
+        return findConnectedImages(id)
     },
 
     async getConnectedMainImage(id: number) {
-        return await findConnectedMainImage(id)
+        return findConnectedMainImage(id)
     },
 }

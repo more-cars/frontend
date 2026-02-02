@@ -24,14 +24,14 @@ export const TrackLayoutModelFacade = {
     },
 
     async getConnectedMainImage(id: number) {
-        return await findConnectedMainImage(id)
+        return findConnectedMainImage(id)
     },
 
     async getConnectedImages(id: number) {
-        return await findConnectedImages(id)
+        return findConnectedImages(id)
     },
 
     async getConnectedRaceTrack(id: number) {
-        return await findConnectedRaceTrack(id)
+        return findConnectedRaceTrack(id)
     },
 }
