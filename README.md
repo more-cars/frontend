@@ -1,6 +1,16 @@
 # More Cars - Frontend
 
-## Quickstart
+## Quickstart (local dev environment)
+
+This quickstart manual shows the fastest way to get the app running, with the least amount of tools.
+For an alternative Kubernetes setup check out the [Minikube](#minikube-local-kubernetes-cluster) section.
+
+### Requirements
+
+* Node.js (version >= 24) & npm
+* Any OS should work (but tested only on Linux)
+
+### Installation
 
 * Install Node.js and npm
     * for a local Kubernetes setup check out the [Minikube](#minikube-local-dev-cluster) section
@@ -19,7 +29,14 @@
     * run `npm run local:hostnames:add`
     * now, the app should be available at http://frontend.more-cars.internal:4000/
 
-## Minikube (Local Dev Cluster)
+## Minikube (local Kubernetes cluster)
+
+Minikube is a quick and simple option to create a local Kubernetes cluster.
+See documentation for more information: https://minikube.sigs.k8s.io/docs/.
+The Minikube cluster uses exactly the same Kubernetes configuration files as the "real" Kubernetes cluster in GKE
+(see `deployment/app` and `deployment/overlays` folder).
+This allows to test situations that might happen in the production environment,
+but cannot be recreated in a local dev environment.
 
 ### Start cluster
 
