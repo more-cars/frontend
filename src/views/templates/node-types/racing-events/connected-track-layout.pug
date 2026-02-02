@@ -1,0 +1,12 @@
+if trackLayout
+    section(data-testid="track-layout-section" class="mb-8")
+        h2(class="text-2xl mb-2") Track Layout
+        p(class="mb-4") The racing event #[b #{racingEvent.name}] was performed on the following track layout:
+
+        ul
+            - nodeItem = trackLayout
+            - nodeType = 'track-layout'
+            - nodeUrlPath = 'track-layouts/' + nodeItem.id
+            - thumbnail = relationships.track_layout.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.track_layout.node_properties
+            include ../../shared/list-node-item

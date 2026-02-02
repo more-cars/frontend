@@ -5,6 +5,7 @@ import {getConnectedRacingSeries} from "./node-types/racing-events/getConnectedR
 import {getConnectedPredecessor} from "./node-types/racing-events/getConnectedPredecessor"
 import {getConnectedSuccessor} from "./node-types/racing-events/getConnectedSuccessor"
 import {getConnectedRaceTrack} from "./node-types/racing-events/getConnectedRaceTrack"
+import {getConnectedTrackLayout} from "./node-types/racing-events/getConnectedTrackLayout"
 
 export const RacingEventDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -33,5 +34,9 @@ export const RacingEventDataFacade = {
 
     async getConnectedRaceTrackNode(id: number) {
         return getConnectedRaceTrack(id)
+    },
+
+    async getConnectedTrackLayoutNode(id: number) {
+        return getConnectedTrackLayout(id)
     },
 }
