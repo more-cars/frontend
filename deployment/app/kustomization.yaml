@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - frontend-http-route.yaml
+  - frontend-https-route.yaml
   - frontend-service.yaml
   - frontend-deployment.yaml
 
