@@ -3,6 +3,7 @@ import {getRaceTrackById} from "./node-types/race-tracks/getRaceTrackById"
 import {getConnectedMainImage} from "./node-types/race-tracks/getConnectedMainImage"
 import {getConnectedImages} from "./node-types/race-tracks/getConnectedImages"
 import {getConnectedTrackLayouts} from "./node-types/race-tracks/getConnectedTrackLayouts"
+import {getConnectedRacingEvents} from "./node-types/race-tracks/getConnectedRacingEvents"
 
 export const RaceTrackDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const RaceTrackDataFacade = {
 
     async getConnectedTrackLayoutNodes(id: number) {
         return getConnectedTrackLayouts(id)
+    },
+
+    async getConnectedRacingEventNodes(id: number) {
+        return getConnectedRacingEvents(id)
     },
 }
