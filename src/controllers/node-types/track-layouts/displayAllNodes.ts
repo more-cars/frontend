@@ -11,7 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     res.render('templates/node-types/track-layouts/track-layout-overview-page', {
         page_title: 'All Track Layouts',
-        page_headline: 'All Track Layouts',
+        main_headline: 'All Track Layouts',
         node_collection: trackLayouts,
         thumbnails: await getTrackLayoutThumbnails(trackLayouts),
         node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),

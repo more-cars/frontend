@@ -11,7 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 
     res.render('templates/node-types/racing-series/racing-series-overview-page', {
         page_title: 'All Racing Series',
-        page_headline: 'All Racing Series',
+        main_headline: 'All Racing Series',
         node_collection: racingSeries,
         thumbnails: await getRacingSeriesThumbnails(racingSeries),
         node_properties: getNodeProperties(DataNodeType.RACING_SERIES),
