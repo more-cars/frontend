@@ -2,6 +2,7 @@ import express from "express"
 import {RacingEventModelFacade} from "../../../models/RacingEventModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getRacingSeriesThumbnails} from "../racing-series/getRacingSeriesThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingEventId = parseInt(req.params.id)
@@ -16,6 +17,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const racingSeries = await RacingEventModelFacade.getConnectedRacingSeries(racingEventId)
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
         page_title: `${racingEvent.name} - Racing Event`,
         node: {
@@ -24,6 +26,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await RacingEventModelFacade.getConnectedMainImage(racingEventId),
         },
         relationships: {
+            racing_series: {
+                item: racingSeries,
+                node_properties: getNodeProperties(DataNodeType.RACING_SERIES),
+                thumbnails: await getRacingSeriesThumbnails(racingSeries ? [racingSeries] : []),
+            },
         },
     })
 }

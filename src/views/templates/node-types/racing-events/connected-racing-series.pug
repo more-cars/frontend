@@ -1,0 +1,12 @@
+if racingSeries
+    section(data-testid="racing-series-section" class="mb-8")
+        h2(class="text-2xl mb-2") Racing Series
+        p(class="mb-4") The racing event #[b #{racingEvent.name}] was part of the following racing series:
+
+        ul
+            - nodeItem = racingSeries
+            - nodeType = 'racing-series'
+            - nodeUrlPath = 'racing-series/' + nodeItem.id
+            - thumbnail = relationships.racing_series.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.racing_series.node_properties
+            include ../../shared/list-node-item
