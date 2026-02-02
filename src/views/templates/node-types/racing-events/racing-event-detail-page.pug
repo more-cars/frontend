@@ -6,5 +6,9 @@ block sub_headline
 
 block relationships
     - racingEvent = node.data
+
     - racingSeries = relationships.racing_series.item
     include connected-racing-series
+
+    - successor = relationships.successor.item
+    include connected-successor

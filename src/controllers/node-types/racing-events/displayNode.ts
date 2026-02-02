@@ -3,6 +3,7 @@ import {RacingEventModelFacade} from "../../../models/RacingEventModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingSeriesThumbnails} from "../racing-series/getRacingSeriesThumbnails"
+import {getRacingEventThumbnails} from "./getRacingEventThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingEventId = parseInt(req.params.id)
@@ -18,6 +19,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const racingSeries = await RacingEventModelFacade.getConnectedRacingSeries(racingEventId)
+    const successor = await RacingEventModelFacade.getConnectedSuccessor(racingEventId)
+
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
         page_title: `${racingEvent.name} - Racing Event`,
         node: {
@@ -30,6 +33,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: racingSeries,
                 node_properties: getNodeProperties(DataNodeType.RACING_SERIES),
                 thumbnails: await getRacingSeriesThumbnails(racingSeries ? [racingSeries] : []),
+            },
+            successor: {
+                item: successor,
+                node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
+                thumbnails: await getRacingEventThumbnails(successor ? [successor] : []),
             },
         },
     })
