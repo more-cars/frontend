@@ -4,6 +4,7 @@ import {findConnectedMainImage} from "./node-types/racing-events/findConnectedMa
 import {findConnectedRacingSeries} from "./node-types/racing-events/findConnectedRacingSeries"
 import {findConnectedPredecessor} from "./node-types/racing-events/findConnectedPredecessor"
 import {findConnectedSuccessor} from "./node-types/racing-events/findConnectedSuccessor"
+import {findConnectedRaceTrack} from "./node-types/racing-events/findConnectedRaceTrack"
 
 export const RacingEventModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -38,5 +39,9 @@ export const RacingEventModelFacade = {
 
     async getConnectedSuccessor(id: number) {
         return findConnectedSuccessor(id)
+    },
+
+    async getConnectedRaceTrack(id: number) {
+        return findConnectedRaceTrack(id)
     },
 }
