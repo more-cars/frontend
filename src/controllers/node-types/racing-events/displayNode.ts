@@ -25,6 +25,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const successor = await RacingEventModelFacade.getConnectedSuccessor(racingEventId)
     const raceTrack = await RacingEventModelFacade.getConnectedRaceTrack(racingEventId)
     const trackLayout = await RacingEventModelFacade.getConnectedTrackLayout(racingEventId)
+    const images = await RacingEventModelFacade.getConnectedImages(racingEventId)
 
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
         page_title: `${racingEvent.name} - Racing Event`,
@@ -34,16 +35,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await RacingEventModelFacade.getConnectedMainImage(racingEventId),
         },
         relationships: {
-            track_layout: {
-                item: trackLayout,
-                node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
-                thumbnails: await getTrackLayoutThumbnails(trackLayout ? [trackLayout] : []),
-            },
-            race_track: {
-                item: raceTrack,
-                node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
-                thumbnails: await getRaceTrackThumbnails(raceTrack ? [raceTrack] : []),
-            },
             racing_series: {
                 item: racingSeries,
                 node_properties: getNodeProperties(DataNodeType.RACING_SERIES),
@@ -58,6 +49,20 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: successor,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
                 thumbnails: await getRacingEventThumbnails(successor ? [successor] : []),
+            },
+            race_track: {
+                item: raceTrack,
+                node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
+                thumbnails: await getRaceTrackThumbnails(raceTrack ? [raceTrack] : []),
+            },
+            track_layout: {
+                item: trackLayout,
+                node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
+                thumbnails: await getTrackLayoutThumbnails(trackLayout ? [trackLayout] : []),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
