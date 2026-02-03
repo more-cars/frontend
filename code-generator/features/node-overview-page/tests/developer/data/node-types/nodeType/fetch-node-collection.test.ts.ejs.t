@@ -13,7 +13,7 @@ describe('Fetching <%= h.changeCase.upper(nodeType) %> collection from data sour
             requestDataFromApi: vi.fn(() => ({data: []}))
         }))
 
-        const {getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>} = await import("../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>")
+        const {getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>")
         expect(await getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>())
             .toHaveLength(0)
     })
