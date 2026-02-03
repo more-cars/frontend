@@ -1,0 +1,12 @@
+if racingEvent
+    section(data-testid="racing-event-section" class="mb-8")
+        h2(class="text-2xl mb-2") Racing Event
+        p(class="mb-4") The racing session #[b #{racingSession.name}] belongs to the following racing event:
+
+        ul
+            - nodeItem = racingEvent
+            - nodeType = 'racing-event'
+            - nodeUrlPath = 'racing-events/' + nodeItem.id
+            - thumbnail = relationships.racing_event.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.racing_event.node_properties
+            include ../../shared/list-node-item
