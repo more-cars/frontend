@@ -7,6 +7,7 @@ import {findConnectedSuccessor} from "./node-types/racing-events/findConnectedSu
 import {findConnectedRaceTrack} from "./node-types/racing-events/findConnectedRaceTrack"
 import {findConnectedTrackLayout} from "./node-types/racing-events/findConnectedTrackLayout"
 import {findConnectedImages} from "./node-types/racing-events/findConnectedImages"
+import {findConnectedRacingSessions} from "./node-types/racing-events/findConnectedRacingSessions"
 
 export const RacingEventModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -53,6 +54,12 @@ export const RacingEventModelFacade = {
 
     async getConnectedImages(id: number) {
         const nodes = await findConnectedImages(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+    },
+
+    async getConnectedRacingSessions(id: number) {
+        const nodes = await findConnectedRacingSessions(id)
 
         return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },

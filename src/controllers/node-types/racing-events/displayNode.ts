@@ -6,6 +6,7 @@ import {getRacingSeriesThumbnails} from "../racing-series/getRacingSeriesThumbna
 import {getRacingEventThumbnails} from "./getRacingEventThumbnails"
 import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
+import {getRacingSessionThumbnails} from "../racing-sessions/getRacingSessionThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingEventId = parseInt(req.params.id)
@@ -25,6 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const successor = await RacingEventModelFacade.getConnectedSuccessor(racingEventId)
     const raceTrack = await RacingEventModelFacade.getConnectedRaceTrack(racingEventId)
     const trackLayout = await RacingEventModelFacade.getConnectedTrackLayout(racingEventId)
+    const racingSessions = await RacingEventModelFacade.getConnectedRacingSessions(racingEventId)
     const images = await RacingEventModelFacade.getConnectedImages(racingEventId)
 
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
@@ -59,6 +61,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: trackLayout,
                 node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
                 thumbnails: await getTrackLayoutThumbnails(trackLayout ? [trackLayout] : []),
+            },
+            racing_sessions: {
+                items: racingSessions,
+                node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
+                thumbnails: await getRacingSessionThumbnails(racingSessions),
             },
             images: {
                 items: images,
