@@ -21,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             data: racingSession,
             node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
+            main_image: await RacingSessionModelFacade.getConnectedMainImage(racingSessionId),
         },
         relationships: {
         },
