@@ -2,6 +2,7 @@ import {getAllRacingSessions} from "./node-types/racing-sessions/getAllRacingSes
 import {getRacingSessionById} from "./node-types/racing-sessions/getRacingSessionById"
 import {getConnectedMainImage} from "./node-types/racing-sessions/getConnectedMainImage"
 import {getConnectedRacingEvent} from "./node-types/racing-sessions/getConnectedRacingEvent"
+import {getConnectedImages} from "./node-types/racing-sessions/getConnectedImages"
 
 export const RacingSessionDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -18,5 +19,9 @@ export const RacingSessionDataFacade = {
 
     async getConnectedRacingEventNode(id: number) {
         return getConnectedRacingEvent(id)
+    },
+
+    async getConnectedImageNodes(id: number) {
+        return getConnectedImages(id)
     },
 }

@@ -18,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const racingEvent = await RacingSessionModelFacade.getConnectedRacingEvent(racingSessionId)
+    const images = await RacingSessionModelFacade.getConnectedImages(racingSessionId)
+
     res.render('templates/node-types/racing-sessions/racing-session-detail-page', {
         page_title: `${racingSession.name} - Racing Session`,
         node: {
@@ -30,6 +32,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: racingEvent,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
                 thumbnails: await getRacingEventThumbnails(racingEvent ? [racingEvent] : []),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
