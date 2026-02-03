@@ -4,5 +4,6 @@ import {RacingSessionControllerFacade} from "../controllers/RacingSessionControl
 const router = express.Router()
 
 router.get('/racing-sessions', RacingSessionControllerFacade.showAllNodes)
+router.get('/racing-sessions/:id', RacingSessionControllerFacade.showNode)
 
 export default router

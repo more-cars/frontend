@@ -1,4 +1,5 @@
 import {findAllNodes} from "./node-types/racing-sessions/findAllNodes"
+import {findNodeById} from "./node-types/racing-sessions/findNodeById"
 
 export const RacingSessionModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -13,5 +14,9 @@ export const RacingSessionModelFacade = {
         const page2nodes = await findAllNodes({page: 2})
 
         return page2nodes.length > 0 ? 101 : 100
+    },
+
+    async getNodeById(id: number) {
+        return findNodeById(id)
     },
 }

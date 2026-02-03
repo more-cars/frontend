@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - racingSession = node.data
+    div(class="mb-4 text-sm") #{formatDate(racingSession.start_date)} | #{racingSession.duration} #{racingSession.duration_unit}
+
+block relationships
+    - racingSession = node.data
