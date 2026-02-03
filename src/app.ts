@@ -9,6 +9,7 @@ import raceTracks from "./routes/race-tracks"
 import trackLayouts from "./routes/track-layouts"
 import racingSeries from "./routes/racing-series"
 import racingEvents from "./routes/racing-events"
+import racingSessions from "./routes/racing-sessions"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 
@@ -26,6 +27,7 @@ app.use('/', raceTracks)
 app.use('/', trackLayouts)
 app.use('/', racingSeries)
 app.use('/', racingEvents)
+app.use('/', racingSessions)
 app.use('/', images)
 
 app.locals.formatDateTime = (isoDate: string) =>
