@@ -3,6 +3,7 @@ import {findNodeById} from "./node-types/racing-sessions/findNodeById"
 import {findConnectedMainImage} from "./node-types/racing-sessions/findConnectedMainImage"
 import {findConnectedRacingEvent} from "./node-types/racing-sessions/findConnectedRacingEvent"
 import {findConnectedImages} from "./node-types/racing-sessions/findConnectedImages"
+import {findConnectedSessionResults} from "./node-types/racing-sessions/findConnectedSessionResults"
 
 export const RacingSessionModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -35,5 +36,11 @@ export const RacingSessionModelFacade = {
         const nodes = await findConnectedImages(id)
 
         return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+    },
+
+    async getConnectedSessionResults(id: number) {
+        const nodes = await findConnectedSessionResults(id)
+
+        return [...nodes].sort((a, b) => a.driver_name.localeCompare(b.driver_name))
     },
 }

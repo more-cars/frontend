@@ -3,6 +3,7 @@ import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
+import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingSessionId = parseInt(req.params.id)
@@ -18,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const racingEvent = await RacingSessionModelFacade.getConnectedRacingEvent(racingSessionId)
+    const sessionResults = await RacingSessionModelFacade.getConnectedSessionResults(racingSessionId)
     const images = await RacingSessionModelFacade.getConnectedImages(racingSessionId)
 
     res.render('templates/node-types/racing-sessions/racing-session-detail-page', {
@@ -32,6 +34,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: racingEvent,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
                 thumbnails: await getRacingEventThumbnails(racingEvent ? [racingEvent] : []),
+            },
+            session_results: {
+                items: sessionResults,
+                node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
+                thumbnails: await getSessionResultThumbnails(sessionResults),
             },
             images: {
                 items: images,

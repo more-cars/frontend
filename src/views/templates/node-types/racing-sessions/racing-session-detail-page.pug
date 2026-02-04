@@ -10,5 +10,8 @@ block relationships
     - racingEvent = relationships.racing_event.item
     include connected-racing-event
 
+    - sessionResults = relationships.session_results.items
+    include connected-session-results
+
     - images = relationships.images.items
     include ../../shared/connected-images
