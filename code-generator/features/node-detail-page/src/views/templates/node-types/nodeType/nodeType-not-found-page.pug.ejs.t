@@ -1,7 +1,7 @@
 ---
 to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page.pug
 ---
-extends ../../layouts/base/layout
+extends ../../../layouts/base/layout
 
 block main
     include ../../shared/node-not-found-warning
