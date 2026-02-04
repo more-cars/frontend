@@ -3,6 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade"
+import {getSessionResultThumbnails} from "./getSessionResultThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -12,6 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All Session Results',
         main_headline: 'All Session Results',
         node_collection: sessionResults,
+        thumbnails: await getSessionResultThumbnails(sessionResults),
         node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
         pagination: {
             page,
