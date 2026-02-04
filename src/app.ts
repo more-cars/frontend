@@ -1,6 +1,5 @@
 import type {Express} from "express"
 import express from "express"
-import {DateTime} from "luxon"
 import startPage from "./routes/startPage.ts"
 import companies from "./routes/companies"
 import brands from './routes/brands.ts'
@@ -13,6 +12,8 @@ import racingSessions from "./routes/racing-sessions"
 import sessionResults from "./routes/session-results"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
+import {convertDate} from "./views/lib/convertDate.ts"
+import {convertDateTime} from "./views/lib/convertDateTime.ts"
 
 const app: Express = express()
 app.set('view engine', 'pug')
@@ -32,14 +33,7 @@ app.use('/', racingSessions)
 app.use('/', sessionResults)
 app.use('/', images)
 
-app.locals.formatDateTime = (isoDate: string) =>
-    DateTime.fromISO(isoDate, {zone: "utc"})
-        .toLocal()
-        .toLocaleString(DateTime.DATETIME_MED)
-
-app.locals.formatDate = (isoDate: string) =>
-    DateTime.fromISO(isoDate, {zone: "utc"})
-        .toLocal()
-        .toLocaleString(DateTime.DATE_MED)
+app.locals.formatDate = convertDate
+app.locals.formatDateTime = convertDateTime
 
 export {app}
