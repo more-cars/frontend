@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - carModel = node.data
-    div(class="mb-4 text-sm") #{carModel.built_from}-#{carModel.built_to} | #{carModel.generation}th generation (#{carModel.internal_code})
+    div(class="mb-4 text-sm") #{carModel.built_from}-#{carModel.built_to} | #{ordinalize(carModel.generation)} generation (#{carModel.internal_code})
 
 block relationships
     - carModel = node.data
