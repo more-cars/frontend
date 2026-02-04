@@ -22,6 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             data: sessionResult,
             node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
+            main_image: await SessionResultModelFacade.getConnectedMainImage(sessionResultId),
         },
         relationships: {},
     })
