@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - sessionResult = node.data
+    div(class="mb-4 text-sm") #{sessionResult.position}th place | #{sessionResult.team_name}
+
+block relationships
+    - sessionResult = node.data

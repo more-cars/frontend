@@ -4,5 +4,6 @@ import {SessionResultControllerFacade} from "../controllers/SessionResultControl
 const router = express.Router()
 
 router.get('/session-results', SessionResultControllerFacade.showAllNodes)
+router.get('/session-results/:id', SessionResultControllerFacade.showNode)
 
 export default router
