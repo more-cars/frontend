@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - sessionResult = node.data
+
+    - racingSession = relationships.racing_session.item
+    include connected-racing-session

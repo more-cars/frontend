@@ -1,0 +1,12 @@
+if racingSession
+    section(data-testid="racing-session-section" class="mb-8")
+        h2(class="text-2xl mb-2") Racing Session
+        p(class="mb-4") The #[b #{sessionResult.driver_name}]' session result belongs to the following racing session:
+
+        ul
+            - nodeItem = racingSession
+            - nodeType = 'racing-session'
+            - nodeUrlPath = 'racing-sessions/' + nodeItem.id
+            - thumbnail = relationships.racing_session.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.racing_session.node_properties
+            include ../../shared/list-node-item

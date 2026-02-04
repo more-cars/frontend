@@ -2,6 +2,7 @@ import express from "express"
 import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getRacingSessionThumbnails} from "../racing-sessions/getRacingSessionThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const sessionResultId = parseInt(req.params.id)
@@ -16,6 +17,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const racingSession = await SessionResultModelFacade.getConnectedRacingSession(sessionResultId)
+
     res.render('templates/node-types/session-results/session-result-detail-page', {
         page_title: `${sessionResult.driver_name} - Session Result`,
         main_headline: `${sessionResult.driver_name}`,
@@ -24,6 +27,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
             main_image: await SessionResultModelFacade.getConnectedMainImage(sessionResultId),
         },
-        relationships: {},
+        relationships: {
+            racing_session: {
+                item: racingSession,
+                node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
+                thumbnails: await getRacingSessionThumbnails(racingSession ? [racingSession] : []),
+            },
+        },
     })
 }
