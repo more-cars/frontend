@@ -1,0 +1,66 @@
+[
+  {
+    "name": "position",
+    "label": "Position",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "number",
+    "example": "1"
+  },
+  {
+    "name": "race_number",
+    "label": "Race Number",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "44"
+  },
+  {
+    "name": "driver_name",
+    "label": "Driver",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Lewis Hamilton"
+  },
+  {
+    "name": "team_name",
+    "label": "Team",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Mercedes"
+  },
+  {
+    "name": "race_time",
+    "label": "Time",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "PT1H23M45.678S"
+  },
+  {
+    "name": "laps",
+    "label": "Laps",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "51"
+  },
+  {
+    "name": "status",
+    "label": "Status",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "finished"
+  },
+  {
+    "name": "points",
+    "label": "Points",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "25"
+  }
+]

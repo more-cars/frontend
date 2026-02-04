@@ -7,5 +7,6 @@ export enum DataNodeType {
     RACING_SERIES = 'racing series',
     RACING_EVENT = 'racing event',
     RACING_SESSION = 'racing session',
+    SESSION_RESULT = 'session result',
     IMAGE = 'image',
 }
