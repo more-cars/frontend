@@ -6,7 +6,7 @@ block main
 
     div(class="grid grid-cols-2 gap-8 items-start")
         div(data-testid="main-area-primary")
-            h1(class=`text-left mb-1 text-3xl font-bold`) #{item.name}
+            h1(class=`text-left mb-1 text-3xl font-bold`) #{main_headline || item.name}
             block sub_headline
             include ../shared/connected-main-image
             include ../shared/fact-sheet
