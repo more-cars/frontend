@@ -5,8 +5,7 @@ SCRIPT_PATH=$(dirname "$SCRIPT")
 
 create_env_file () {
 cat <<EOF >.env
-API_HOST=api.more-cars.internal
-API_PORT=3000
+API_URL=http://localhost:3000
 EOF
 }
 

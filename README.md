@@ -22,9 +22,8 @@ For an alternative Kubernetes setup check out the [Minikube](#minikube-local-kub
 * Run `npm run local:app:start` to start the app locally
     * it should be available at http://localhost:4000
     * an `.env` should have been created automatically in the project's root folder
-        * it should contain the location of the More Cars API -> default: `API_HOST=localhost`
-        * it should contain the port of the More Cars API -> default: `API_PORT=3000`
-        * change those values when you want to use a different API (e.g. from the Minikube cluster)
+        * it should contain the location of the More Cars API → default: `API_URL=http://localhost:3000`
+        * can be changed to a different API (e.g. to one in the Minikube cluster)
 * If you want to use "pretty" hostnames instead of `localhost`:
     * run `npm run local:hostnames:add`
     * now, the app should be available at http://frontend.more-cars.internal:4000/

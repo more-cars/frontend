@@ -19,10 +19,8 @@ spec:
           #image: docker.io/dennisgerike/more-cars-frontend:latest
           image: ghcr.io/more-cars/frontend:latest
           env:
-            - name: API_HOST
-              value: $(API_SERVICE_SERVICE_HOST)
-            - name: API_PORT
-              value: $(API_SERVICE_SERVICE_PORT)
+            - name: API_URL
+              value: http:$(API_SERVICE_SERVICE_HOST):$(API_SERVICE_SERVICE_PORT)
             - name: BASIC_AUTH_USERNAME
               valueFrom:
                 secretKeyRef:
