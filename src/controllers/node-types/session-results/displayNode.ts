@@ -18,6 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const racingSession = await SessionResultModelFacade.getConnectedRacingSession(sessionResultId)
+    const images = await SessionResultModelFacade.getConnectedImages(sessionResultId)
 
     res.render('templates/node-types/session-results/session-result-detail-page', {
         page_title: `${sessionResult.driver_name} - Session Result`,
@@ -32,6 +33,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: racingSession,
                 node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
                 thumbnails: await getRacingSessionThumbnails(racingSession ? [racingSession] : []),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
