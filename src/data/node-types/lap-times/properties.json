@@ -1,0 +1,26 @@
+[
+  {
+    "name": "time",
+    "label": "Time",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "PT1M33.294S"
+  },
+  {
+    "name": "driver_name",
+    "label": "Driver",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Klaus Ludwig"
+  },
+  {
+    "name": "date",
+    "label": "Date",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "1996-08-03"
+  }
+]

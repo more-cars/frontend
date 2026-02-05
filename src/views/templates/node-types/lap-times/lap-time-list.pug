@@ -1,0 +1,15 @@
+if node_collection.length === 0
+    include ../../shared/nodes-not-found-warning
+    +nodes-not-found-warning("lap time")
+else
+    section(data-testid="lap-time-section")
+        ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
+            each nodeItem in node_collection
+                - nodeType = 'lap-time'
+                - nodeUrlPath = 'lap-times/' + nodeItem.id
+                - nodeProperties = node_properties
+                - itemHeadline = nodeItem.driver_name
+                include ../../shared/list-node-item
+
+    include ../../shared/pagination
+    +pagination('lap-times', pagination.page, pagination.total)

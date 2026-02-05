@@ -10,6 +10,7 @@ import racingSeries from "./routes/racing-series"
 import racingEvents from "./routes/racing-events"
 import racingSessions from "./routes/racing-sessions"
 import sessionResults from "./routes/session-results"
+import lapTimes from "./routes/lap-times"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -32,6 +33,7 @@ app.use('/', racingSeries)
 app.use('/', racingEvents)
 app.use('/', racingSessions)
 app.use('/', sessionResults)
+app.use('/', lapTimes)
 app.use('/', images)
 
 app.locals.formatDate = convertDate
