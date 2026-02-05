@@ -22,6 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             data: lapTime,
             node_properties: getNodeProperties(DataNodeType.LAP_TIME),
+            main_image: await LapTimeModelFacade.getConnectedMainImage(lapTimeId),
         },
         relationships: {},
     })
