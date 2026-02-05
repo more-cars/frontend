@@ -20,6 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const trackLayout = await LapTimeModelFacade.getConnectedTrackLayout(lapTimeId)
     const sessionResult = await LapTimeModelFacade.getConnectedSessionResult(lapTimeId)
+    const images = await LapTimeModelFacade.getConnectedImages(lapTimeId)
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
         page_title: `${lapTime.driver_name} - Lap Time`,
@@ -39,6 +40,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: sessionResult,
                 node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
                 thumbnails: await getSessionResultThumbnails(sessionResult ? [sessionResult] : []),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })

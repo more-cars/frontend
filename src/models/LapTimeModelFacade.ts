@@ -3,6 +3,7 @@ import {findNodeById} from "./node-types/lap-times/findNodeById"
 import {findConnectedMainImage} from "./node-types/lap-times/findConnectedMainImage"
 import {findConnectedTrackLayout} from "./node-types/lap-times/findConnectedTrackLayout"
 import {findConnectedSessionResult} from "./node-types/lap-times/findConnectedSessionResult"
+import {findConnectedImages} from "./node-types/lap-times/findConnectedImages"
 
 export const LapTimeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -33,5 +34,11 @@ export const LapTimeModelFacade = {
 
     async getConnectedSessionResult(id: number) {
         return findConnectedSessionResult(id)
+    },
+
+    async getConnectedImages(id: number) {
+        const nodes = await findConnectedImages(id)
+
+        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
     },
 }
