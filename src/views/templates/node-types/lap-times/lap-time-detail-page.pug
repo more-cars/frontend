@@ -7,5 +7,8 @@ block sub_headline
 block relationships
     - lapTime = node.data
 
+    - trackLayout = relationships.track_layout.item
+    include connected-track-layout
+
     - sessionResult = relationships.session_result.item
     include connected-session-result

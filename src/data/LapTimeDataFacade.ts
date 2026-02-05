@@ -1,6 +1,7 @@
 import {getAllLapTimes} from "./node-types/lap-times/getAllLapTimes"
 import {getLapTimeById} from "./node-types/lap-times/getLapTimeById"
 import {getConnectedMainImage} from "./node-types/lap-times/getConnectedMainImage"
+import {getConnectedTrackLayout} from "./node-types/lap-times/getConnectedTrackLayout"
 import {getConnectedSessionResult} from "./node-types/lap-times/getConnectedSessionResult"
 
 export const LapTimeDataFacade = {
@@ -14,6 +15,10 @@ export const LapTimeDataFacade = {
 
     async getConnectedMainImageNode(id: number) {
         return getConnectedMainImage(id)
+    },
+
+    async getConnectedTrackLayoutNode(id: number) {
+        return getConnectedTrackLayout(id)
     },
 
     async getConnectedSessionResultNode(id: number) {

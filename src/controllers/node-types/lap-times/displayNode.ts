@@ -2,6 +2,7 @@ import express from "express"
 import {LapTimeModelFacade} from "../../../models/LapTimeModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
 import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
@@ -17,6 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const trackLayout = await LapTimeModelFacade.getConnectedTrackLayout(lapTimeId)
     const sessionResult = await LapTimeModelFacade.getConnectedSessionResult(lapTimeId)
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
@@ -28,6 +30,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await LapTimeModelFacade.getConnectedMainImage(lapTimeId),
         },
         relationships: {
+            track_layout: {
+                item: trackLayout,
+                node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
+                thumbnails: await getTrackLayoutThumbnails(trackLayout ? [trackLayout] : []),
+            },
             session_result: {
                 item: sessionResult,
                 node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
