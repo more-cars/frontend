@@ -7,6 +7,7 @@ else
             each nodeItem in node_collection
                 - nodeType = 'lap-time'
                 - nodeUrlPath = 'lap-times/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
                 - itemHeadline = nodeItem.driver_name
                 include ../../shared/list-node-item
