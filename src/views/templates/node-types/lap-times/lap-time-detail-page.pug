@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - lapTime = node.data
+    div(class="mb-4 text-sm") #{formatTime(lapTime.time)}
+
+block relationships
+    - lapTime = node.data

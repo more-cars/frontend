@@ -15,6 +15,7 @@ import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
 import {convertDateTime} from "./views/lib/convertDateTime.ts"
+import {formatTime} from "./views/lib/formatTime.ts"
 import {ordinalizeNumber} from "./views/lib/ordinalize.ts"
 
 const app: Express = express()
@@ -38,6 +39,7 @@ app.use('/', images)
 
 app.locals.formatDate = convertDate
 app.locals.formatDateTime = convertDateTime
+app.locals.formatTime = formatTime
 app.locals.ordinalize = ordinalizeNumber
 
 export {app}
