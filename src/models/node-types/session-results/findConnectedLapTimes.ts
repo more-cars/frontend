@@ -10,5 +10,5 @@ export async function findConnectedLapTimes(id: number) {
         lapTimes.push(convertLapTimeNode(relation.partner_node))
     }
 
-    return lapTimes
+    return [...lapTimes].sort((a, b) => a.time.localeCompare(b.time))
 }

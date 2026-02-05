@@ -33,14 +33,10 @@ export const SessionResultModelFacade = {
     },
 
     async getConnectedImages(id: number) {
-        const nodes = await findConnectedImages(id)
-
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return findConnectedImages(id)
     },
 
     async getConnectedLapTimes(id: number) {
-        const nodes = await findConnectedLapTimes(id)
-
-        return [...nodes].sort((a, b) => a.time.localeCompare(b.time))
+        return findConnectedLapTimes(id)
     },
 }

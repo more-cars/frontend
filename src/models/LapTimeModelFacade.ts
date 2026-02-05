@@ -37,8 +37,6 @@ export const LapTimeModelFacade = {
     },
 
     async getConnectedImages(id: number) {
-        const nodes = await findConnectedImages(id)
-
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return findConnectedImages(id)
     },
 }

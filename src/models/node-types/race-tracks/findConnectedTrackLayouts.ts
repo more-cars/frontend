@@ -10,5 +10,5 @@ export async function findConnectedTrackLayouts(id: number) {
         trackLayouts.push(convertTrackLayoutNode(relation.partner_node))
     }
 
-    return trackLayouts
+    return [...trackLayouts].sort((a, b) => (a.name + a.year_from).localeCompare(b.name + b.year_from))
 }

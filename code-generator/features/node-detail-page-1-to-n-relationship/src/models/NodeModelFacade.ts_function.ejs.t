@@ -7,6 +7,4 @@ skip_if: async getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partne
     },
 
     async getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(id: number) {
-        const nodes = await findConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(id)
-
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return findConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(id)

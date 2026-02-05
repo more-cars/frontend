@@ -13,5 +13,5 @@ export async function findConnected<%= h.changeCase.pascal(h.inflection.pluraliz
         <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.push(convert<%= h.changeCase.pascal(partnerNodeType) %>Node(relation.partner_node))
     }
 
-    return <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>
+    return [...<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>].sort((a, b) => a.name.localeCompare(b.name))
 }

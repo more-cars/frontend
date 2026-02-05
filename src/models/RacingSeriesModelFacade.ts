@@ -28,14 +28,10 @@ export const RacingSeriesModelFacade = {
     },
 
     async getConnectedImages(id: number) {
-        const nodes = await findConnectedImages(id)
-
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return findConnectedImages(id)
     },
 
     async getConnectedRacingEvents(id: number) {
-        const nodes = await findConnectedRacingEvents(id)
-
-        return [...nodes].sort((a, b) => (b.date_from as string).localeCompare(a.date_from as string))
+        return findConnectedRacingEvents(id)
     },
 }

@@ -10,5 +10,5 @@ export async function findConnectedSessionResults(id: number) {
         sessionResults.push(convertSessionResultNode(relation.partner_node))
     }
 
-    return sessionResults
+    return [...sessionResults].sort((a, b) => a.position - b.position)
 }

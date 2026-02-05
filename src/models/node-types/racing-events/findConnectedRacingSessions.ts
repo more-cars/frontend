@@ -10,5 +10,5 @@ export async function findConnectedRacingSessions(id: number) {
         racingSessions.push(convertRacingSessionNode(relation.partner_node))
     }
 
-    return racingSessions
+    return [...racingSessions].sort((a, b) => (a.start_date as string + a.start_time as string).localeCompare(b.start_date as string + b.start_time as string))
 }

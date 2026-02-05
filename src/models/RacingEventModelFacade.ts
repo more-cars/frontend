@@ -53,14 +53,10 @@ export const RacingEventModelFacade = {
     },
 
     async getConnectedImages(id: number) {
-        const nodes = await findConnectedImages(id)
-
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return findConnectedImages(id)
     },
 
     async getConnectedRacingSessions(id: number) {
-        const nodes = await findConnectedRacingSessions(id)
-
-        return [...nodes].sort((a, b) => (a.start_date as string + a.start_time as string).localeCompare(b.start_date as string + b.start_time as string))
+        return findConnectedRacingSessions(id)
     },
 }
