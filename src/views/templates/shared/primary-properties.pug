@@ -1,6 +1,9 @@
 ul(data-testid="prime-data")
     each prop in nodeProperties
-        if prop.is_primary && prop.name !== "name" && item[prop.name]
+        if prop.is_primary && prop.name !== "name" && item[prop.name] && !prop.name.endsWith('_unit')
             li(class="text-sm inline-block px-2 mr-2 mb-2 border-l-4 border-lime-400")
                 b #{prop.label}:
-                span  #{item[prop.name]}
+                if item[prop.name + '_unit']
+                    span  #{item[prop.name]} #{item[prop.name + '_unit']}
+                else
+                    span  #{item[prop.name]}
