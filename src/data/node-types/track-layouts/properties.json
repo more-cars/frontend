@@ -58,7 +58,7 @@
   {
     "name": "elevation_change_unit",
     "label": "Elevation Change (unit)",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": false,
     "datatype": "string",
     "example": "m"
