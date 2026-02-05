@@ -1,6 +1,7 @@
 import {findAllNodes} from "./node-types/lap-times/findAllNodes"
 import {findNodeById} from "./node-types/lap-times/findNodeById"
 import {findConnectedMainImage} from "./node-types/lap-times/findConnectedMainImage"
+import {findConnectedSessionResult} from "./node-types/lap-times/findConnectedSessionResult"
 
 export const LapTimeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -23,5 +24,9 @@ export const LapTimeModelFacade = {
 
     async getConnectedMainImage(id: number) {
         return findConnectedMainImage(id)
+    },
+
+    async getConnectedSessionResult(id: number) {
+        return findConnectedSessionResult(id)
     },
 }

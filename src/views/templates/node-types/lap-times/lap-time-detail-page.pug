@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - lapTime = node.data
+
+    - sessionResult = relationships.session_result.item
+    include connected-session-result
