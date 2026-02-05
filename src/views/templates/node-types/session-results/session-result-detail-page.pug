@@ -10,5 +10,8 @@ block relationships
     - racingSession = relationships.racing_session.item
     include connected-racing-session
 
+    - lapTimes = relationships.lap_times.items
+    include connected-lap-times
+
     - images = relationships.images.items
     include ../../shared/connected-images

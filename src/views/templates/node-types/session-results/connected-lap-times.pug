@@ -1,0 +1,13 @@
+if lapTimes.length > 0
+    section(data-testid="lap-time-section" class="mb-8")
+        h2(class="text-2xl mb-2") Lap Times
+        p(class="mb-4") The session result #[b #{sessionResult.name}] has the following #{lapTimes.length} lap times:
+
+        ul
+            each nodeItem in lapTimes
+                - nodeType = 'lap-time'
+                - nodeUrlPath = 'lap-times/' + nodeItem.id
+                - thumbnail = relationships.lap_times.thumbnails.get(nodeItem.id)
+                - nodeProperties = relationships.lap_times.node_properties
+                - itemHeadline = nodeItem.driver_name
+                include ../../shared/list-node-item

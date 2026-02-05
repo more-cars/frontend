@@ -3,6 +3,7 @@ import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingSessionThumbnails} from "../racing-sessions/getRacingSessionThumbnails"
+import {getLapTimeThumbnails} from "../lap-times/getLapTimeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const sessionResultId = parseInt(req.params.id)
@@ -19,6 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const racingSession = await SessionResultModelFacade.getConnectedRacingSession(sessionResultId)
     const images = await SessionResultModelFacade.getConnectedImages(sessionResultId)
+    const lapTimes = await SessionResultModelFacade.getConnectedLapTimes(sessionResultId)
 
     res.render('templates/node-types/session-results/session-result-detail-page', {
         page_title: `${sessionResult.driver_name} - Session Result`,
@@ -33,6 +35,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: racingSession,
                 node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
                 thumbnails: await getRacingSessionThumbnails(racingSession ? [racingSession] : []),
+            },
+            lap_times: {
+                items: lapTimes,
+                node_properties: getNodeProperties(DataNodeType.LAP_TIME),
+                thumbnails: await getLapTimeThumbnails(lapTimes),
             },
             images: {
                 items: images,

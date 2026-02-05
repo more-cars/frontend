@@ -3,6 +3,7 @@ import {getSessionResultById} from "./node-types/session-results/getSessionResul
 import {getConnectedMainImage} from "./node-types/session-results/getConnectedMainImage"
 import {getConnectedRacingSession} from "./node-types/session-results/getConnectedRacingSession"
 import {getConnectedImages} from "./node-types/session-results/getConnectedImages"
+import {getConnectedLapTimes} from "./node-types/session-results/getConnectedLapTimes"
 
 export const SessionResultDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const SessionResultDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedLapTimeNodes(id: number) {
+        return getConnectedLapTimes(id)
     },
 }
