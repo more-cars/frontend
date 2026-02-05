@@ -61,6 +61,6 @@ export const RacingEventModelFacade = {
     async getConnectedRacingSessions(id: number) {
         const nodes = await findConnectedRacingSessions(id)
 
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return [...nodes].sort((a, b) => (a.start_date as string + a.start_time as string).localeCompare(b.start_date as string + b.start_time as string))
     },
 }

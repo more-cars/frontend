@@ -41,6 +41,6 @@ export const SessionResultModelFacade = {
     async getConnectedLapTimes(id: number) {
         const nodes = await findConnectedLapTimes(id)
 
-        return [...nodes].sort((a, b) => a.driver_name.localeCompare(b.driver_name))
+        return [...nodes].sort((a, b) => a.time.localeCompare(b.time))
     },
 }

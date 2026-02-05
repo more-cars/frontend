@@ -41,6 +41,6 @@ export const RacingSessionModelFacade = {
     async getConnectedSessionResults(id: number) {
         const nodes = await findConnectedSessionResults(id)
 
-        return [...nodes].sort((a, b) => a.driver_name.localeCompare(b.driver_name))
+        return [...nodes].sort((a, b) => a.position - b.position)
     },
 }

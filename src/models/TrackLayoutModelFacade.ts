@@ -39,6 +39,6 @@ export const TrackLayoutModelFacade = {
     async getConnectedRacingEvents(id: number) {
         const nodes = await findConnectedRacingEvents(id)
 
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return [...nodes].sort((a, b) => (b.date_from as string).localeCompare(a.date_to as string))
     },
 }

@@ -35,7 +35,7 @@ export const RaceTrackModelFacade = {
     async getConnectedTrackLayouts(id: number) {
         const nodes = await findConnectedTrackLayouts(id)
 
-        return [...nodes].sort((a, b) => a.name.localeCompare(b.name))
+        return [...nodes].sort((a, b) => (a.name + a.year_from).localeCompare(b.name + b.year_from))
     },
 
     async getConnectedRacingEvents(id: number) {
