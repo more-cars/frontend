@@ -1,7 +1,7 @@
-ul(data-testid="prime-data")
+ul(data-testid="prime-data" class="mb-2")
     each prop in nodeProperties
         if prop.is_primary && prop.name !== "name" && item[prop.name] && !prop.name.endsWith('_unit') && prop.name !== 'engine_configuration'
-            li(class="text-sm inline-block px-2 mr-2 mb-2 border-l-4 border-lime-400")
+            li(class="text-xs inline-block pl-1 pr-2 border-l-3 border-lime-400")
                 if prop.name === 'cylinders'
                     b Engine:
                     span  #{item['engine_configuration']}#{item['cylinders']}

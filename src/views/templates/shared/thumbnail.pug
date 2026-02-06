@@ -1,6 +1,6 @@
 if thumbnail && thumbnail['image_url_s']
-    img(src=`${thumbnail['image_url_s']}` class="col-span-1 h-full object-cover rounded-l-lg")
+    img(src=`${thumbnail['image_url_s']}` class="col-span-3 h-full object-scale-down rounded-l-lg bg-zinc-800")
 else
-    img(src='/g/no-image.webp' class="col-span-1 h-full object-cover rounded-l-lg")
+    img(src='/g/no-image.webp' class="col-span-3 h-full object-scale-down rounded-l-lg")
 
 - thumbnail = undefined
