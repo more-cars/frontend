@@ -15,8 +15,16 @@ describe('Collect connected LAP TIMES for the SESSION RESULT detail page', () =>
 
     test('when there are LAP TIMES connected', async () => {
         vi.spyOn(SessionResultDataFacade, 'getConnectedLapTimeNodes').mockResolvedValue([
-            {id: 2, driver_name: "dummy 2", partner_node: {}} as unknown as SessionResultHasLapTimeRelationship,
-            {id: 3, driver_name: "dummy 3", partner_node: {}} as unknown as SessionResultHasLapTimeRelationship,
+            {
+                id: 2,
+                driver_name: "dummy 2",
+                partner_node: {time: "dummy"}
+            } as unknown as SessionResultHasLapTimeRelationship,
+            {
+                id: 3,
+                driver_name: "dummy 3",
+                partner_node: {time: "dummy"}
+            } as unknown as SessionResultHasLapTimeRelationship,
         ])
 
         expect(await findConnectedLapTimes(1))

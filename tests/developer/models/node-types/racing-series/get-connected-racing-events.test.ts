@@ -1,7 +1,9 @@
 import {describe, expect, test, vi} from "vitest"
 import {RacingSeriesDataFacade} from "../../../../../src/data/RacingSeriesDataFacade"
 import {findConnectedRacingEvents} from "../../../../../src/models/node-types/racing-series/findConnectedRacingEvents"
-import {RacingSeriesHasRacingEventRelationship} from "../../../../../src/data/node-types/racing-series/types/RacingSeriesHasRacingEventRelationship"
+import {
+    RacingSeriesHasRacingEventRelationship
+} from "../../../../../src/data/node-types/racing-series/types/RacingSeriesHasRacingEventRelationship"
 
 describe('Collect connected RACING EVENTS for the RACING SERIES detail page', () => {
     test('when no RACING EVENTS are connected', async () => {

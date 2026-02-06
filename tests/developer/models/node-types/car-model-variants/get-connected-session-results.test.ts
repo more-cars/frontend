@@ -19,13 +19,13 @@ describe('Collect connected SESSION RESULTS for the CAR MODEL VARIANT detail pag
         vi.spyOn(CarModelVariantDataFacade, 'getConnectedSessionResultNodes').mockResolvedValue([
             {
                 id: 2,
-                driver_name: "dummy 2",
-                partner_node: {}
+                name: "dummy 2",
+                partner_node: {driver_name: "dummy"}
             } as unknown as CarModelVariantAchievedSessionResultRelationship,
             {
                 id: 3,
-                driver_name: "dummy 3",
-                partner_node: {}
+                name: "dummy 3",
+                partner_node: {driver_name: "dummy"}
             } as unknown as CarModelVariantAchievedSessionResultRelationship,
         ])
 

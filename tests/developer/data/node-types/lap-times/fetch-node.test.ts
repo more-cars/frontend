@@ -17,7 +17,7 @@ describe('Fetching LAP TIME node from data source', () => {
     })
 
     test('when there is a LAP TIME', async () => {
-        const responseData = {data: {id: 1, name: "dummy 1"}}
+        const responseData = {data: {id: 1, driver_name: "dummy 1"}}
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
         }))
