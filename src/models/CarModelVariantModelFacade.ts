@@ -2,6 +2,7 @@ import {findAllNodes} from "./node-types/car-model-variants/findAllNodes"
 import {findNodeById} from "./node-types/car-model-variants/findNodeById"
 import {findConnectedMainImage} from "./node-types/car-model-variants/findConnectedMainImage"
 import {findConnectedCarModel} from "./node-types/car-model-variants/findConnectedCarModel"
+import {findConnectedLapTimes} from "./node-types/car-model-variants/findConnectedLapTimes"
 
 export const CarModelVariantModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -28,5 +29,9 @@ export const CarModelVariantModelFacade = {
 
     async getConnectedCarModel(id: number) {
         return findConnectedCarModel(id)
+    },
+
+    async getConnectedLapTimes(id: number) {
+        return findConnectedLapTimes(id)
     },
 }

@@ -3,6 +3,7 @@ import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFa
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
+import {getLapTimeThumbnails} from "../lap-times/getLapTimeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
@@ -18,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const carModel = await CarModelVariantModelFacade.getConnectedCarModel(carModelVariantId)
+    const lapTimes = await CarModelVariantModelFacade.getConnectedLapTimes(carModelVariantId)
 
     res.render('templates/node-types/car-model-variants/car-model-variant-detail-page', {
         page_title: `${carModelVariant.name} - Car Model Variant`,
@@ -31,6 +33,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: carModel,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(carModel ? [carModel] : []),
+            },
+            lap_times: {
+                items: lapTimes,
+                node_properties: getNodeProperties(DataNodeType.LAP_TIME),
+                thumbnails: await getLapTimeThumbnails(lapTimes),
             },
         },
     })
