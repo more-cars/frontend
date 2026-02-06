@@ -2,6 +2,7 @@ import express from "express"
 import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
@@ -16,6 +17,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const carModel = await CarModelVariantModelFacade.getConnectedCarModel(carModelVariantId)
+
     res.render('templates/node-types/car-model-variants/car-model-variant-detail-page', {
         page_title: `${carModelVariant.name} - Car Model Variant`,
         node: {
@@ -24,6 +27,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await CarModelVariantModelFacade.getConnectedMainImage(carModelVariantId),
         },
         relationships: {
+            car_model: {
+                item: carModel,
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                thumbnails: await getCarModelThumbnails(carModel ? [carModel] : []),
+            },
         },
     })
 }

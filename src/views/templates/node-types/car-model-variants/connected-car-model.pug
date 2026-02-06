@@ -1,0 +1,12 @@
+if carModel
+    section(data-testid="car-model-section" class="mb-8")
+        h2(class="text-2xl mb-2") Car Model
+        p(class="mb-4") The #[b #{carModelVariant.name}] is a variant of the following car model:
+
+        ul
+            - nodeItem = carModel
+            - nodeType = 'car-model'
+            - nodeUrlPath = 'car-models/' + nodeItem.id
+            - thumbnail = relationships.car_model.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.car_model.node_properties
+            include ../../shared/list-node-item
