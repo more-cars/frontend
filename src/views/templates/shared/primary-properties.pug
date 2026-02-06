@@ -1,9 +1,13 @@
 ul(data-testid="prime-data")
     each prop in nodeProperties
-        if prop.is_primary && prop.name !== "name" && item[prop.name] && !prop.name.endsWith('_unit')
+        if prop.is_primary && prop.name !== "name" && item[prop.name] && !prop.name.endsWith('_unit') && prop.name !== 'engine_configuration'
             li(class="text-sm inline-block px-2 mr-2 mb-2 border-l-4 border-lime-400")
-                b #{prop.label}:
-                if item[prop.name + '_unit']
-                    span  #{item[prop.name]} #{item[prop.name + '_unit']}
+                if prop.name === 'cylinders'
+                    b Engine:
+                    span  #{item['engine_configuration']}#{item['cylinders']}
                 else
-                    span  #{item[prop.name]}
+                    b #{prop.label}:
+                    if item[prop.name + '_unit']
+                        span  #{item[prop.name]} #{item[prop.name + '_unit']}
+                    else
+                        span  #{item[prop.name]}

@@ -1,0 +1,14 @@
+if node_collection.length === 0
+    include ../../shared/nodes-not-found-warning
+    +nodes-not-found-warning("car model variant")
+else
+    section(data-testid="car-model-variant-section")
+        ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
+            each nodeItem in node_collection
+                - nodeType = 'car-model-variant'
+                - nodeUrlPath = 'car-model-variants/' + nodeItem.id
+                - nodeProperties = node_properties
+                include ../../shared/list-node-item
+
+    include ../../shared/pagination
+    +pagination('car-model-variants', pagination.page, pagination.total)
