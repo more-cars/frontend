@@ -21,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             data: carModelVariant,
             node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+            main_image: await CarModelVariantModelFacade.getConnectedMainImage(carModelVariantId),
         },
         relationships: {
         },
