@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - carModelVariant = node.data
+    div(class="mb-4 text-sm") #{carModelVariant.built_from} - #{carModelVariant.built_to} | #{carModelVariant.internal_code} | #{carModelVariant.transmission}
+
+block relationships
+    - carModelVariant = node.data

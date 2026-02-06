@@ -4,5 +4,6 @@ import {CarModelVariantControllerFacade} from "../controllers/CarModelVariantCon
 const router = express.Router()
 
 router.get('/car-model-variants', CarModelVariantControllerFacade.showAllNodes)
+router.get('/car-model-variants/:id', CarModelVariantControllerFacade.showNode)
 
 export default router

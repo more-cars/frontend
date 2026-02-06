@@ -1,4 +1,5 @@
 import {findAllNodes} from "./node-types/car-model-variants/findAllNodes"
+import {findNodeById} from "./node-types/car-model-variants/findNodeById"
 
 export const CarModelVariantModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -13,5 +14,9 @@ export const CarModelVariantModelFacade = {
         const page2nodes = await findAllNodes({page: 2})
 
         return page2nodes.length > 0 ? 101 : 100
+    },
+
+    async getNodeById(id: number) {
+        return findNodeById(id)
     },
 }
