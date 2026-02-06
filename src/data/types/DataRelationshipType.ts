@@ -14,6 +14,7 @@ export enum DataRelationshipType {
     CAR_MODEL_VARIANT_HAS_MAIN_IMAGE = 'has main image',
     CAR_MODEL_VARIANT_IS_VARIANT_OF = 'is variant of',
     CAR_MODEL_VARIANT_ACHIEVED_LAP_TIME = 'achieved lap time',
+    CAR_MODEL_VARIANT_ACHIEVED_SESSION_RESULT = 'achieved session result',
     RACE_TRACK_HAS_MAIN_IMAGE = 'has main image',
     RACE_TRACK_HAS_LAYOUT = 'has layout',
     RACE_TRACK_HOSTED_RACING_EVENT = 'hosted racing event',

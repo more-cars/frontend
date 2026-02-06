@@ -3,6 +3,7 @@ import {getCarModelVariantById} from "./node-types/car-model-variants/getCarMode
 import {getConnectedMainImage} from "./node-types/car-model-variants/getConnectedMainImage"
 import {getConnectedCarModel} from "./node-types/car-model-variants/getConnectedCarModel"
 import {getConnectedLapTimes} from "./node-types/car-model-variants/getConnectedLapTimes"
+import {getConnectedSessionResults} from "./node-types/car-model-variants/getConnectedSessionResults"
 
 export const CarModelVariantDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const CarModelVariantDataFacade = {
 
     async getConnectedLapTimeNodes(id: number) {
         return getConnectedLapTimes(id)
+    },
+
+    async getConnectedSessionResultNodes(id: number) {
+        return getConnectedSessionResults(id)
     },
 }
