@@ -4,6 +4,7 @@ import {findConnectedMainImage} from "./node-types/lap-times/findConnectedMainIm
 import {findConnectedTrackLayout} from "./node-types/lap-times/findConnectedTrackLayout"
 import {findConnectedSessionResult} from "./node-types/lap-times/findConnectedSessionResult"
 import {findConnectedImages} from "./node-types/lap-times/findConnectedImages"
+import {findConnectedCarModelVariant} from "./node-types/lap-times/findConnectedCarModelVariant"
 
 export const LapTimeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -38,5 +39,9 @@ export const LapTimeModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedCarModelVariant(id: number) {
+        return findConnectedCarModelVariant(id)
     },
 }

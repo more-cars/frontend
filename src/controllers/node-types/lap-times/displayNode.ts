@@ -4,6 +4,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
 import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
+import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const lapTimeId = parseInt(req.params.id)
@@ -21,6 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayout = await LapTimeModelFacade.getConnectedTrackLayout(lapTimeId)
     const sessionResult = await LapTimeModelFacade.getConnectedSessionResult(lapTimeId)
     const images = await LapTimeModelFacade.getConnectedImages(lapTimeId)
+    const carModelVariant = await LapTimeModelFacade.getConnectedCarModelVariant(lapTimeId)
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
         page_title: `${lapTime.driver_name} - Lap Time`,
@@ -31,6 +33,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await LapTimeModelFacade.getConnectedMainImage(lapTimeId),
         },
         relationships: {
+            car_model_variant: {
+                item: carModelVariant,
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                thumbnails: await getCarModelVariantThumbnails(carModelVariant ? [carModelVariant] : []),
+            },
             track_layout: {
                 item: trackLayout,
                 node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),

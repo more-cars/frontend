@@ -4,6 +4,7 @@ import {getConnectedMainImage} from "./node-types/lap-times/getConnectedMainImag
 import {getConnectedTrackLayout} from "./node-types/lap-times/getConnectedTrackLayout"
 import {getConnectedSessionResult} from "./node-types/lap-times/getConnectedSessionResult"
 import {getConnectedImages} from "./node-types/lap-times/getConnectedImages"
+import {getConnectedCarModelVariant} from "./node-types/lap-times/getConnectedCarModelVariant"
 
 export const LapTimeDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -28,5 +29,9 @@ export const LapTimeDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedCarModelVariantNode(id: number) {
+        return getConnectedCarModelVariant(id)
     },
 }

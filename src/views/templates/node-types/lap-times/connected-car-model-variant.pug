@@ -1,0 +1,12 @@
+if carModelVariant
+    section(data-testid="car-model-variant-section" class="mb-8")
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Car Model Variant
+        p(class="mb-4") The lap time was achieved with the following car model variant:
+
+        ul
+            - nodeItem = carModelVariant
+            - nodeType = 'car-model-variant'
+            - nodeUrlPath = 'car-model-variants/' + nodeItem.id
+            - thumbnail = relationships.car_model_variant.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.car_model_variant.node_properties
+            include ../../shared/list-node-item

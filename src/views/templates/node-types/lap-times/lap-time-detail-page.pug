@@ -7,6 +7,9 @@ block sub_headline
 block relationships
     - lapTime = node.data
 
+    - carModelVariant = relationships.car_model_variant.item
+    include connected-car-model-variant
+
     - trackLayout = relationships.track_layout.item
     include connected-track-layout
 
