@@ -22,6 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModel = await CarModelVariantModelFacade.getConnectedCarModel(carModelVariantId)
     const lapTimes = await CarModelVariantModelFacade.getConnectedLapTimes(carModelVariantId)
     const sessionResults = await CarModelVariantModelFacade.getConnectedSessionResults(carModelVariantId)
+    const images = await CarModelVariantModelFacade.getConnectedImages(carModelVariantId)
 
     res.render('templates/node-types/car-model-variants/car-model-variant-detail-page', {
         page_title: `${carModelVariant.name} - Car Model Variant`,
@@ -45,6 +46,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: sessionResults,
                 node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
                 thumbnails: await getSessionResultThumbnails(sessionResults),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
