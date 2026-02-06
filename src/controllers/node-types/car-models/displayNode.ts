@@ -4,6 +4,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getBrandThumbnails} from "../brands/getBrandThumbnails"
 import {getCarModelThumbnails} from "./getCarModelThumbnails"
+import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelId = parseInt(req.params.id)
@@ -21,6 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const brand = await CarModelModelFacade.getConnectedBrand(carModelId)
     const predecessor = await CarModelModelFacade.getConnectedPredecessor(carModelId)
     const successor = await CarModelModelFacade.getConnectedSuccessor(carModelId)
+    const carModelVariants = await CarModelModelFacade.getConnectedCarModelVariants(carModelId)
     const images = await CarModelModelFacade.getConnectedImages(carModelId)
 
     res.render('templates/node-types/car-models/car-model-detail-page', {
@@ -45,6 +47,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: successor,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(successor ? [successor] : []),
+            },
+            car_model_variants: {
+                items: carModelVariants,
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                thumbnails: await getCarModelVariantThumbnails(carModelVariants),
             },
             images: {
                 items: images,

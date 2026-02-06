@@ -1,0 +1,12 @@
+if carModelVariants.length > 0
+    section(data-testid="car-model-variant-section" class="mb-8")
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Car Model Variants
+        p(class="mb-4") The car model #[b #{carModel.name}] has the following #{carModelVariants.length} car model variants:
+
+        ul
+            each nodeItem in carModelVariants
+                - nodeType = 'car-model-variant'
+                - nodeUrlPath = 'car-model-variants/' + nodeItem.id
+                - thumbnail = relationships.car_model_variants.thumbnails.get(nodeItem.id)
+                - nodeProperties = relationships.car_model_variants.node_properties
+                include ../../shared/list-node-item

@@ -5,6 +5,7 @@ import {getConnectedPredecessorCarModel} from "./node-types/car-models/getConnec
 import {getConnectedSuccessorCarModel} from "./node-types/car-models/getConnectedSuccessorCarModel"
 import {getConnectedImages} from "./node-types/car-models/getConnectedImages"
 import {getConnectedMainImage} from "./node-types/car-models/getConnectedMainImage"
+import {getConnectedCarModelVariants} from "./node-types/car-models/getConnectedCarModelVariants"
 
 export const CarModelDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -33,5 +34,9 @@ export const CarModelDataFacade = {
 
     async getConnectedMainImageNode(id: number) {
         return getConnectedMainImage(id)
+    },
+
+    async getConnectedCarModelVariantNodes(id: number) {
+        return getConnectedCarModelVariants(id)
     },
 }

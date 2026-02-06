@@ -5,6 +5,7 @@ import {findConnectedPredecessor} from "./node-types/car-models/findConnectedPre
 import {findConnectedSuccessor} from "./node-types/car-models/findConnectedSuccessor"
 import {findConnectedImages} from "./node-types/car-models/findConnectedImages"
 import {findConnectedMainImage} from "./node-types/car-models/findConnectedMainImage"
+import {findConnectedCarModelVariants} from "./node-types/car-models/findConnectedCarModelVariants"
 
 export const CarModelModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -43,5 +44,9 @@ export const CarModelModelFacade = {
 
     async getConnectedMainImage(id: number) {
         return findConnectedMainImage(id)
+    },
+
+    async getConnectedCarModelVariants(id: number) {
+        return findConnectedCarModelVariants(id)
     },
 }

@@ -16,5 +16,8 @@ block relationships
     - successor = relationships.successor.item
     include connected-successor
 
+    - carModelVariants = relationships.car_model_variants.items
+    include connected-car-model-variants
+
     - images = relationships.images.items
     include ../../shared/connected-images
