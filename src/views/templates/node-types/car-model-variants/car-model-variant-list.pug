@@ -7,6 +7,7 @@ else
             each nodeItem in node_collection
                 - nodeType = 'car-model-variant'
                 - nodeUrlPath = 'car-model-variants/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
                 include ../../shared/list-node-item
 
