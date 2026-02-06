@@ -3,7 +3,7 @@ to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize
 ---
 if <%= h.changeCase.camel(partnerNodeType) %>
     section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
-        h2(class="text-2xl mb-2") <%= h.changeCase.title(partnerNodeType) %>
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") <%= h.changeCase.title(partnerNodeType) %>
         p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(nodeType) %>.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
 
         ul

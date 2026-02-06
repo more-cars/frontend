@@ -3,7 +3,7 @@ to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize
 ---
 if <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length > 0
     section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
-        h2(class="text-2xl mb-2") <%= h.changeCase.title(h.inflection.pluralize(partnerNodeType)) %>
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") <%= h.changeCase.title(h.inflection.pluralize(partnerNodeType)) %>
         p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(nodeType) %>.name}] has the following #{<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>.length} <%= h.changeCase.lower(h.inflection.pluralize(partnerNodeType)) %>:
 
         ul
