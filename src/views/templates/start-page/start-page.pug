@@ -1,6 +1,19 @@
 extends ../../layouts/base/layout
 
 block main
+    p(class="m-4 mb-8 mx-12 p-4 border-l-4 border-l-lime-500")
+        | More Cars is an open car database.
+        | It provides car-related information from many different perspectives.
+        | The collected data ranges from the technical data of the cars and its variants itself,
+        | to the car magazines that have tested them,
+        | to their successes in motorsport
+        | and the racing games that have them included.
+        | The sections below allow you to directly jump into the respective topic.
+        | Not sure, where to start your journey?
+        | Why not begin with a classic supercar from the 90s, the
+        |
+        a(class="underline hover:no-underline" href="/car-models/10000387") Lamborghini Diablo.
+
     ul(class="grid grid-cols-2 gap-x-8 gap-y-4 items-start" data-testid="node-types")
         each nodeType in node_types
             include node-type-item
