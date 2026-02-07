@@ -6,7 +6,7 @@ if predecessor
         ul
             - nodeItem = predecessor
             - nodeType = 'car-model'
-            - nodeUrlPath = 'car-models-/' + nodeItem.id
+            - nodeUrlPath = 'car-models/' + nodeItem.id
             - thumbnail = relationships.predecessor.thumbnails.get(nodeItem.id)
             - nodeProperties = relationships.predecessor.node_properties
             include ../../shared/list-node-item

@@ -6,7 +6,7 @@ if successor
         ul
             - nodeItem = successor
             - nodeType = 'car-model'
-            - nodeUrlPath = 'car-models-/' + nodeItem.id
+            - nodeUrlPath = 'car-models/' + nodeItem.id
             - thumbnail = relationships.successor.thumbnails.get(nodeItem.id)
             - nodeProperties = relationships.successor.node_properties
             include ../../shared/list-node-item
