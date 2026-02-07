@@ -24,4 +24,14 @@ describe('Fetching RACE TRACK collection from data source', () => {
         expect(await getAllRaceTracks())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllRaceTracks} = await import("../../../../../src/data/node-types/race-tracks/getAllRaceTracks")
+        expect(await getAllRaceTracks())
+            .toHaveLength(0)
+    })
 })

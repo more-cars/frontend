@@ -6,7 +6,7 @@ import type {RacingSeriesNode} from "./types/RacingSeriesNode"
 
 export async function getAllRacingSeries(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.RACING_SERIES, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiRacingSeriesNode[]
+    const apiData: ApiRacingSeriesNode[] = (await requestDataFromApi(url))?.data || []
     const data: RacingSeriesNode[] = []
 
     apiData.forEach(apiItem => {

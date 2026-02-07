@@ -6,7 +6,7 @@ import type {RacingEventNode} from "./types/RacingEventNode"
 
 export async function getAllRacingEvents(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.RACING_EVENT, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiRacingEventNode[]
+    const apiData: ApiRacingEventNode[] = (await requestDataFromApi(url))?.data || []
     const data: RacingEventNode[] = []
 
     apiData.forEach(apiItem => {

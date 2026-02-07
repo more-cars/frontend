@@ -24,4 +24,14 @@ describe('Fetching SESSION RESULT collection from data source', () => {
         expect(await getAllSessionResults())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllSessionResults} = await import("../../../../../src/data/node-types/session-results/getAllSessionResults")
+        expect(await getAllSessionResults())
+            .toHaveLength(0)
+    })
 })

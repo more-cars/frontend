@@ -24,4 +24,14 @@ describe('Fetching COMPANY collection from data source', () => {
         expect(await getAllCompanies())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllCompanies} = await import("../../../../../src/data/node-types/companies/getAllCompanies")
+        expect(await getAllCompanies())
+            .toHaveLength(0)
+    })
 })

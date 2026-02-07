@@ -9,7 +9,7 @@ import type {<%= h.changeCase.pascal(nodeType) %>Node} from "./types/<%= h.chang
 
 export async function getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.<%= h.changeCase.constant(nodeType) %>, params)
-    const apiData = (await requestDataFromApi(url)).data as Api<%= h.changeCase.pascal(nodeType) %>Node[]
+    const apiData: Api<%= h.changeCase.pascal(nodeType) %>Node[] = (await requestDataFromApi(url)).data || []
     const data: <%= h.changeCase.pascal(nodeType) %>Node[] = []
 
     apiData.forEach(apiItem => {

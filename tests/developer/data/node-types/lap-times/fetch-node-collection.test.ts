@@ -24,4 +24,14 @@ describe('Fetching LAP TIME collection from data source', () => {
         expect(await getAllLapTimes())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllLapTimes} = await import("../../../../../src/data/node-types/lap-times/getAllLapTimes")
+        expect(await getAllLapTimes())
+            .toHaveLength(0)
+    })
 })

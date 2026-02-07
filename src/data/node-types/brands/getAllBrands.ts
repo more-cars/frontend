@@ -6,7 +6,7 @@ import type {BrandNode} from "./types/BrandNode"
 
 export async function getAllBrands(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.BRAND, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiBrandNode[]
+    const apiData: ApiBrandNode[] = (await requestDataFromApi(url))?.data || []
     const data: BrandNode[] = []
 
     apiData.forEach(apiItem => {

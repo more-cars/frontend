@@ -7,7 +7,7 @@ import type {SessionResultNode} from "./types/SessionResultNode"
 export async function getAllSessionResults(params?: { page: number }) {
     const urlParams = {page: params?.page, sortByProperty: 'position'}
     const url = getApiRequestUrl(DataNodeType.SESSION_RESULT, urlParams)
-    const apiData = (await requestDataFromApi(url)).data as ApiSessionResultNode[]
+    const apiData: ApiSessionResultNode[] = (await requestDataFromApi(url))?.data || []
     const data: SessionResultNode[] = []
 
     apiData.forEach(apiItem => {

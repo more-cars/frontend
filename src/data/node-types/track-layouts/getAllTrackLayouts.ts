@@ -6,7 +6,7 @@ import type {TrackLayoutNode} from "./types/TrackLayoutNode"
 
 export async function getAllTrackLayouts(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.TRACK_LAYOUT, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiTrackLayoutNode[]
+    const apiData: ApiTrackLayoutNode[] = (await requestDataFromApi(url))?.data || []
     const data: TrackLayoutNode[] = []
 
     apiData.forEach(apiItem => {

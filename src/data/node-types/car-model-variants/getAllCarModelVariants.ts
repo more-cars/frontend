@@ -6,7 +6,7 @@ import type {CarModelVariantNode} from "./types/CarModelVariantNode"
 
 export async function getAllCarModelVariants(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.CAR_MODEL_VARIANT, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiCarModelVariantNode[]
+    const apiData: ApiCarModelVariantNode[] = (await requestDataFromApi(url))?.data || []
     const data: CarModelVariantNode[] = []
 
     apiData.forEach(apiItem => {

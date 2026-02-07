@@ -6,7 +6,7 @@ import type {ImageNode} from "./types/ImageNode"
 
 export async function getAllImages(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.IMAGE, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiImageNode[]
+    const apiData: ApiImageNode[] = (await requestDataFromApi(url))?.data || []
     const data: ImageNode[] = []
 
     apiData.forEach(apiItem => {

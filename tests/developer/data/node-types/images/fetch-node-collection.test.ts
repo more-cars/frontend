@@ -24,4 +24,14 @@ describe('Fetching IMAGE collection from data source', () => {
         expect(await getAllImages())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllImages} = await import("../../../../../src/data/node-types/images/getAllImages")
+        expect(await getAllImages())
+            .toHaveLength(0)
+    })
 })

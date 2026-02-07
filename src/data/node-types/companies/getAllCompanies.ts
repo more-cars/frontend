@@ -6,7 +6,7 @@ import type {CompanyNode} from "./types/CompanyNode"
 
 export async function getAllCompanies(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.COMPANY, params)
-    const apiData = (await requestDataFromApi(url)).data as ApiCompanyNode[]
+    const apiData: ApiCompanyNode[] = (await requestDataFromApi(url))?.data || []
     const data: CompanyNode[] = []
 
     apiData.forEach(apiItem => {

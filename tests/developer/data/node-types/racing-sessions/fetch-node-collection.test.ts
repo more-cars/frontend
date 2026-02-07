@@ -24,4 +24,14 @@ describe('Fetching RACING SESSION collection from data source', () => {
         expect(await getAllRacingSessions())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllRacingSessions} = await import("../../../../../src/data/node-types/racing-sessions/getAllRacingSessions")
+        expect(await getAllRacingSessions())
+            .toHaveLength(0)
+    })
 })

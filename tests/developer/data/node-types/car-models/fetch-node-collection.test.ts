@@ -24,4 +24,14 @@ describe('Fetching CAR MODEL collection from data source', () => {
         expect(await getAllCarModels())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllCarModels} = await import("../../../../../src/data/node-types/car-models/getAllCarModels")
+        expect(await getAllCarModels())
+            .toHaveLength(0)
+    })
 })

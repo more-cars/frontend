@@ -24,4 +24,14 @@ describe('Fetching BRAND collection from data source', () => {
         expect(await getAllBrands())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAllBrands} = await import("../../../../../src/data/node-types/brands/getAllBrands")
+        expect(await getAllBrands())
+            .toHaveLength(0)
+    })
 })

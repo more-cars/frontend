@@ -27,4 +27,14 @@ describe('Fetching <%= h.changeCase.upper(nodeType) %> collection from data sour
         expect(await getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>())
             .toHaveLength(3)
     })
+
+    test('when the API does not respond', async () => {
+        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
+            requestDataFromApi: vi.fn(() => undefined)
+        }))
+
+        const {getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>")
+        expect(await getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>())
+            .toHaveLength(0)
+    })
 })
