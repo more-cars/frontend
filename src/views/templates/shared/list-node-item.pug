@@ -2,7 +2,7 @@ li(class="mb-4 bg-zinc-100 border border-zinc-200 rounded-md" data-testid=`${nod
     div(class="grid grid-flow-col grid-cols-8 gap-4")
         include thumbnail
         div(class="col-span-5")
-            a(class="inline-block font-bold text-md mt-2 mb-1 underline hover:no-underline" href=`/${nodeUrlPath}`)
+            a(class="inline-block font-sans text-lg mt-2 mb-1 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${nodeUrlPath}`)
                 span(aria-label="name") #{itemHeadline || nodeItem.name}
             - item = nodeItem
             include primary-properties
