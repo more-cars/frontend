@@ -7,6 +7,6 @@ Then('each node type section should contain a title', () => {
         cy.wrap(nodeTypeSection)
             .find('a span')
             .invoke('text')
-            .should('equal', titleize(pluralize(nodeType.replace('-', ' '))))
+            .should('equal', titleize(pluralize(nodeType.replaceAll('-', ' '))))
     })
 })
