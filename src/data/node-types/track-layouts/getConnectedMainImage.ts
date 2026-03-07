@@ -8,8 +8,15 @@ import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelation
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {
-    const apiData = (await requestDataFromApi(`/track-layouts/${id}/has-prime-image`)) as ApiTrackLayoutHasPrimeImageRelationship
     const sourceNode = await getTrackLayoutById(id)
+    if (!sourceNode) {
+        return null
+    }
+
+    const apiData = (await requestDataFromApi(`/track-layouts/${id}/has-prime-image`)) as ApiTrackLayoutHasPrimeImageRelationship
+    if (!apiData || !apiData.data) {
+        return null
+    }
 
     if (!apiData || !sourceNode) {
         return null

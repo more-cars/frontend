@@ -11,8 +11,15 @@ import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelation
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {
-    const apiData = (await requestDataFromApi(`/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/${id}/has-prime-image`)) as Api<%= h.changeCase.pascal(nodeType) %>HasPrimeImageRelationship
     const sourceNode = await get<%= h.changeCase.pascal(nodeType) %>ById(id)
+    if (!sourceNode) {
+        return null
+    }
+
+    const apiData = (await requestDataFromApi(`/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/${id}/has-prime-image`)) as Api<%= h.changeCase.pascal(nodeType) %>HasPrimeImageRelationship
+    if (!apiData || !apiData.data) {
+        return null
+    }
 
     if (!apiData || !sourceNode) {
         return null

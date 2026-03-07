@@ -8,8 +8,15 @@ import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelation
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {
-    const apiData = (await requestDataFromApi(`/session-results/${id}/has-prime-image`)) as ApiSessionResultHasPrimeImageRelationship
     const sourceNode = await getSessionResultById(id)
+    if (!sourceNode) {
+        return null
+    }
+
+    const apiData = (await requestDataFromApi(`/session-results/${id}/has-prime-image`)) as ApiSessionResultHasPrimeImageRelationship
+    if (!apiData || !apiData.data) {
+        return null
+    }
 
     if (!apiData || !sourceNode) {
         return null
