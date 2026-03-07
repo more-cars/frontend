@@ -17,7 +17,13 @@ describe('Fetching CAR MODEL node from data source', () => {
     })
 
     test('when there is a CAR MODEL', async () => {
-        const responseData = {data: {id: 1, name: "dummy 1"}}
+        const responseData = {
+            type: "car-models",
+            id: 1,
+            attributes: {
+                name: "dummy 1"
+            }
+        }
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
         }))

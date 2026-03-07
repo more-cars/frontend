@@ -17,7 +17,13 @@ describe('Fetching TRACK LAYOUT node from data source', () => {
     })
 
     test('when there is a TRACK LAYOUT', async () => {
-        const responseData = {data: {id: 1, name: "dummy 1"}}
+        const responseData = {
+            type: "track-layouts",
+            id: 1,
+            attributes: {
+                name: "dummy 1"
+            }
+        }
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
         }))

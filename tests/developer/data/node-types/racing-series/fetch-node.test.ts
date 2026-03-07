@@ -17,7 +17,13 @@ describe('Fetching RACING SERIES node from data source', () => {
     })
 
     test('when there is a RACING SERIES', async () => {
-        const responseData = {data: {id: 1, name: "dummy 1"}}
+        const responseData = {
+            type: "racing-series",
+            id: 1,
+            attributes: {
+                name: "dummy 1"
+            }
+        }
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
         }))

@@ -6,6 +6,14 @@ afterEach(() => {
 
 describe('Fetching connected main IMAGE from data source', () => {
     test('when there is no main IMAGE connected', async () => {
+        // mocking the node
+        vi.doMock("../../../../../src/data/node-types/car-model-variants/getCarModelVariantById", () => ({
+            getCarModelVariantById: vi.fn(() => ({
+                name: 'test'
+            }))
+        }))
+
+        // mocking the relationship
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({data: null}))
         }))

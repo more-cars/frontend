@@ -12,7 +12,7 @@ describe('Collect connected SESSION RESULT for the LAP TIME detail page', () => 
     })
 
     test('when there is a SESSION RESULT connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as LapTimeBelongsToSessionResultRelationship
+        const data = {partner_node: {id: 1, position: 1, driver_name: "dummy"}} as LapTimeBelongsToSessionResultRelationship
         vi.spyOn(LapTimeDataFacade, 'getConnectedSessionResultNode').mockResolvedValue(data)
 
         expect(await findConnectedSessionResult(1))
