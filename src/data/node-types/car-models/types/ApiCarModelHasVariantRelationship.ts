@@ -4,9 +4,9 @@ export type ApiCarModelHasVariantRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'has-variant'
-        relationship_partner: {
+        partner_node: {
             node_type: 'car model variant'
-            data: ApiCarModelVariantNode['data']
+            data: ApiCarModelVariantNode['attributes']
         }
         created_at: string
         updated_at: string

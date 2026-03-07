@@ -7,6 +7,8 @@ import type {Api<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(rela
 import type {<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship} from "./types/<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import type {<%= h.changeCase.pascal(partnerNodeType) %>Node} from "../<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>/types/<%= h.changeCase.pascal(partnerNodeType) %>Node"
 
 export async function getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(id: number) {
     const sourceNode = await get<%= h.changeCase.pascal(nodeType) %>ById(id)
@@ -23,7 +25,7 @@ export async function getConnected<%= h.changeCase.pascal(h.inflection.pluralize
             name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>,
             source_node: sourceNode,
             source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,
-            partner_node: apiItem.data.relationship_partner.data,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as <%= h.changeCase.pascal(partnerNodeType) %>Node,
             partner_node_type: DataNodeType.<%= h.changeCase.constant(partnerNodeType) %>,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

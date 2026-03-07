@@ -1,5 +1,6 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiBrandNode} from "./types/ApiBrandNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {BrandNode} from "./types/BrandNode"
 
 export async function getBrandById(id: number) {
@@ -9,5 +10,5 @@ export async function getBrandById(id: number) {
         return null
     }
 
-    return apiData.data as BrandNode
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as BrandNode
 }

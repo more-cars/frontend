@@ -1,6 +1,7 @@
 export type ApiRacingEventNode = {
-    data: {
-        id: number
+    type: 'racing-events'
+    id: number
+    attributes: {
         name: string
         round?: number
         date_from?: string

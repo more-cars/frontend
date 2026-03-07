@@ -1,8 +1,9 @@
 import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
 import {DataNodeType} from "../../types/DataNodeType"
-import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiBrandNode} from "./types/ApiBrandNode"
+import {requestDataFromApi} from "../../requestDataFromApi"
 import type {BrandNode} from "./types/BrandNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllBrands(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.BRAND, params)
@@ -10,7 +11,7 @@ export async function getAllBrands(params?: { page: number }) {
     const data: BrandNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as BrandNode)
     })
 
     return data

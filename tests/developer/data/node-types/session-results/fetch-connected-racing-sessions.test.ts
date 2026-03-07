@@ -26,7 +26,7 @@ describe('Fetching connected RACING SESSION from data source', () => {
     test('when there is a RACING SESSION connected', async () => {
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({
-                data: {relationship_partner: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
+                data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
             }))
         }))
 

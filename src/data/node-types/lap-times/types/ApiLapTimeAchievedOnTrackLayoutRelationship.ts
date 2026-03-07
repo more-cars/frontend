@@ -4,9 +4,9 @@ export type ApiLapTimeAchievedOnTrackLayoutRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'achieved-on-track-layout'
-        relationship_partner: {
+        partner_node: {
             node_type: 'track layout'
-            data: ApiTrackLayoutNode['data']
+            data: ApiTrackLayoutNode['attributes']
         }
         created_at: string
         updated_at: string

@@ -4,9 +4,9 @@ export type ApiBrandHasPrimeImageRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'has-prime-image'
-        relationship_partner: {
-            node_type: 'image'
-            data: ApiImageNode['data']
+        partner_node: {
+            node_type: 'images'
+            data: ApiImageNode['attributes']
         }
         created_at: string
         updated_at: string

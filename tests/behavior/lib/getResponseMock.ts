@@ -8,14 +8,14 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
     if (isNodeTypeOperation(operationId)) {
         const mockItems = []
         const nodeCount = getNodeCountForNodeType(operationId)
-        const {page} = req.query || 1
+        const page = req.query.page || 1
         const visibleNodes = Math.min(nodeCount - ((page - 1) * 100), 100)
 
         for (let i = 0; i < visibleNodes; i++) {
             const rawMockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
             const randomId = Math.ceil(Math.random() * 10000000)
             const mockItem = rawMockItem.mock.data[0]
-            mockItem.data.id = randomId
+            mockItem.id = randomId
             mockItems.push(mockItem)
         }
 

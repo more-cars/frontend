@@ -4,6 +4,8 @@ import type {BrandHasCarModelRelationship} from "./types/BrandHasCarModelRelatio
 import {getBrandById} from "./getBrandById"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
+import type {CarModelNode} from "../car-models/types/CarModelNode"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 
 export async function getConnectedCarModels(id: number) {
     const sourceNode = await getBrandById(id)
@@ -20,7 +22,7 @@ export async function getConnectedCarModels(id: number) {
             name: DataRelationshipType.BRAND_HAS_CAR_MODEL,
             source_node: sourceNode,
             source_node_type: DataNodeType.BRAND,
-            partner_node: apiItem.data.relationship_partner.data,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as CarModelNode,
             partner_node_type: DataNodeType.CAR_MODEL,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

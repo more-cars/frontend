@@ -1,6 +1,7 @@
 export type ApiLapTimeNode = {
-    data: {
-        id: number
+    type: 'lap-times'
+    id: number
+    attributes: {
         time: string
         driver_name: string
         date?: string

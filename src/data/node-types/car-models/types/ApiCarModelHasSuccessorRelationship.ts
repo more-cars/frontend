@@ -4,9 +4,9 @@ export type ApiCarModelHasSuccessorRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'has-successor'
-        relationship_partner: {
+        partner_node: {
             node_type: 'car-model'
-            data: ApiCarModelNode['data']
+            data: ApiCarModelNode['attributes']
         }
         created_at: string
         updated_at: string

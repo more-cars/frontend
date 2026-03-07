@@ -1,6 +1,7 @@
 export type ApiTrackLayoutNode = {
-    data: {
-        id: number
+    type: 'track-layouts'
+    id: number
+    attributes: {
         name: string
         year_from?: number
         year_to?: number

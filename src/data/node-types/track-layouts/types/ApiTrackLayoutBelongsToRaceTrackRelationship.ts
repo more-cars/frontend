@@ -4,9 +4,9 @@ export type ApiTrackLayoutBelongsToRaceTrackRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'belongs-to-race-track'
-        relationship_partner: {
+        partner_node: {
             node_type: 'race track'
-            data: ApiRaceTrackNode['data']
+            data: ApiRaceTrackNode['attributes']
         }
         created_at: string
         updated_at: string

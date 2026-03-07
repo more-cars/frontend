@@ -1,6 +1,7 @@
 export type ApiCarModelVariantNode = {
-    data: {
-        id: number
+    type: 'car-model-variants'
+    id: number
+    attributes: {
         name: string
         internal_code?: string
         built_from?: number

@@ -4,9 +4,9 @@ export type ApiSessionResultHasLapTimeRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'has-lap-time'
-        relationship_partner: {
+        partner_node: {
             node_type: 'lap time'
-            data: ApiLapTimeNode['data']
+            data: ApiLapTimeNode['attributes']
         }
         created_at: string
         updated_at: string

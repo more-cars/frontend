@@ -1,6 +1,7 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiRacingEventNode} from "./types/ApiRacingEventNode"
 import type {RacingEventNode} from "./types/RacingEventNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getRacingEventById(id: number) {
     const apiData = (await requestDataFromApi(`/racing-events/${id}`)) as ApiRacingEventNode
@@ -9,5 +10,5 @@ export async function getRacingEventById(id: number) {
         return null
     }
 
-    return apiData.data as RacingEventNode
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as RacingEventNode
 }

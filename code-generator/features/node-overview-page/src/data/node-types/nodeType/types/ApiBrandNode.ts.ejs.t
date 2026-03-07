@@ -3,8 +3,9 @@ to: src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType))
 ---
 <% const properties = JSON.parse(props) -%>
 export type Api<%= h.changeCase.pascal(nodeType) %>Node = {
-    data: {
-        id: number
+    type: string
+    id: number
+    attributes: {
 <% properties.forEach(prop => { -%>
         <%= prop.name %><% if(!prop.mandatory) { %>?<% } %>: <%= prop.datatype %>
 <% }) -%>

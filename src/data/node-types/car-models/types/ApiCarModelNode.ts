@@ -1,6 +1,7 @@
 export type ApiCarModelNode = {
-    data: {
-        id: number
+    type: 'car-models'
+    id: number
+    attributes: {
         name: string
         generation?: number
         internal_code?: string

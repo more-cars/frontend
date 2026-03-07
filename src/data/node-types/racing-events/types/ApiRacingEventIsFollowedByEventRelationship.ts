@@ -4,9 +4,9 @@ export type ApiRacingEventIsFollowedByEventRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'is-followed-by-event'
-        relationship_partner: {
+        partner_node: {
             node_type: 'racing event'
-            data: ApiRacingEventNode['data']
+            data: ApiRacingEventNode['attributes']
         }
         created_at: string
         updated_at: string

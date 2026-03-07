@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiRaceTrackNode} from "./types/ApiRaceTrackNode"
 import type {RaceTrackNode} from "./types/RaceTrackNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllRaceTracks(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.RACE_TRACK, params)
@@ -10,7 +11,7 @@ export async function getAllRaceTracks(params?: { page: number }) {
     const data: RaceTrackNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RaceTrackNode)
     })
 
     return data

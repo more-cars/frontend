@@ -4,9 +4,9 @@ export type ApiRacingSessionBelongsToRacingEventRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'belongs-to-racing-event'
-        relationship_partner: {
+        partner_node: {
             node_type: 'racing event'
-            data: ApiRacingEventNode['data']
+            data: ApiRacingEventNode['attributes']
         }
         created_at: string
         updated_at: string

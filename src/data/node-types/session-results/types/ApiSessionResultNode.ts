@@ -1,6 +1,7 @@
 export type ApiSessionResultNode = {
-    data: {
-        id: number
+    type: 'session-results'
+    id: number
+    attributes: {
         position: number
         race_number?: string
         driver_name: string

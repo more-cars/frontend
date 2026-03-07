@@ -1,5 +1,6 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiLapTimeNode} from "./types/ApiLapTimeNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {LapTimeNode} from "./types/LapTimeNode"
 
 export async function getLapTimeById(id: number) {
@@ -9,5 +10,5 @@ export async function getLapTimeById(id: number) {
         return null
     }
 
-    return apiData.data as LapTimeNode
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as LapTimeNode
 }

@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiCarModelNode} from "./types/ApiCarModelNode"
 import type {CarModelNode} from "./types/CarModelNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllCarModels(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.CAR_MODEL, params)
@@ -10,7 +11,7 @@ export async function getAllCarModels(params?: { page: number }) {
     const data: CarModelNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as CarModelNode)
     })
 
     return data

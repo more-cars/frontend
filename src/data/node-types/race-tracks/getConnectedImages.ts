@@ -4,6 +4,8 @@ import type {ApiRaceTrackHasImageRelationship} from "./types/ApiRaceTrackHasImag
 import type {RaceTrackHasImageRelationship} from "./types/RaceTrackHasImageRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedImages(id: number) {
     const sourceNode = await getRaceTrackById(id)
@@ -20,7 +22,7 @@ export async function getConnectedImages(id: number) {
             name: DataRelationshipType.RACE_TRACK_HAS_IMAGE,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACE_TRACK,
-            partner_node: apiItem.data.relationship_partner.data,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as ImageNode,
             partner_node_type: DataNodeType.IMAGE,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

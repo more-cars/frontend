@@ -1,7 +1,7 @@
 export type ApiImageNode = {
-    data: {
-        id: number
-
+    type: 'images'
+    id: number
+    attributes: {
         image_provider: string
         external_id: string
 

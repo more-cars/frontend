@@ -4,9 +4,9 @@ export type ApiCarModelVariantAchievedSessionResultRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'achieved-session-result'
-        relationship_partner: {
+        partner_node: {
             node_type: 'session result'
-            data: ApiSessionResultNode['data']
+            data: ApiSessionResultNode['attributes']
         }
         created_at: string
         updated_at: string

@@ -4,6 +4,8 @@ import {getSessionResultById} from "./getSessionResultById"
 import type {SessionResultAchievedWithCarModelVariantRelationship} from "./types/SessionResultAchievedWithCarModelVariantRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import type {CarModelVariantNode} from "../car-model-variants/types/CarModelVariantNode"
 
 export async function getConnectedCarModelVariant(id: number) {
     const sourceNode = await getSessionResultById(id)
@@ -21,7 +23,7 @@ export async function getConnectedCarModelVariant(id: number) {
         name: DataRelationshipType.SESSION_RESULT_ACHIEVED_WITH_CAR_MODEL_VARIANT,
         source_node: sourceNode,
         source_node_type: DataNodeType.SESSION_RESULT,
-        partner_node: apiData.data.relationship_partner.data,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as CarModelVariantNode,
         partner_node_type: DataNodeType.CAR_MODEL_VARIANT,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

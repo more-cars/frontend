@@ -1,6 +1,7 @@
 export type ApiRaceTrackNode = {
-    data: {
-        id: number
+    type: 'race-tracks'
+    id: number
+    attributes: {
         name: string
         opened?: number
         closed?: number

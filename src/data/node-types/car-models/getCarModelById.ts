@@ -1,5 +1,6 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiCarModelNode} from "./types/ApiCarModelNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {CarModelNode} from "./types/CarModelNode"
 
 export async function getCarModelById(id: number) {
@@ -9,5 +10,5 @@ export async function getCarModelById(id: number) {
         return null
     }
 
-    return apiData.data as CarModelNode
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as CarModelNode
 }

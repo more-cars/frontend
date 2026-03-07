@@ -1,6 +1,7 @@
 export type ApiCompanyNode = {
-    data: {
-        id: number
+    type: 'companies'
+    id: number
+    attributes: {
         name: string
         founded?: number
         defunct?: number

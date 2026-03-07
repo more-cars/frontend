@@ -1,6 +1,7 @@
 export type ApiRacingSessionNode = {
-    data: {
-        id: number
+    type: 'racing-sessions'
+    id: number
+    attributes: {
         name: string
         start_date?: string
         start_time?: string

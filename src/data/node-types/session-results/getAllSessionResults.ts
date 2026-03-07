@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiSessionResultNode} from "./types/ApiSessionResultNode"
 import type {SessionResultNode} from "./types/SessionResultNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllSessionResults(params?: { page: number }) {
     const urlParams = {page: params?.page, sortByProperty: 'position'}
@@ -11,7 +12,7 @@ export async function getAllSessionResults(params?: { page: number }) {
     const data: SessionResultNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as SessionResultNode)
     })
 
     return data

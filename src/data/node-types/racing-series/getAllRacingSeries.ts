@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiRacingSeriesNode} from "./types/ApiRacingSeriesNode"
 import type {RacingSeriesNode} from "./types/RacingSeriesNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllRacingSeries(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.RACING_SERIES, params)
@@ -10,7 +11,7 @@ export async function getAllRacingSeries(params?: { page: number }) {
     const data: RacingSeriesNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RacingSeriesNode)
     })
 
     return data

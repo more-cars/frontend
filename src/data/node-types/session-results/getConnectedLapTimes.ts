@@ -4,6 +4,8 @@ import type {ApiSessionResultHasLapTimeRelationship} from "./types/ApiSessionRes
 import type {SessionResultHasLapTimeRelationship} from "./types/SessionResultHasLapTimeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import type {LapTimeNode} from "../lap-times/types/LapTimeNode"
 
 export async function getConnectedLapTimes(id: number) {
     const sourceNode = await getSessionResultById(id)
@@ -20,7 +22,7 @@ export async function getConnectedLapTimes(id: number) {
             name: DataRelationshipType.SESSION_RESULT_HAS_LAP_TIME,
             source_node: sourceNode,
             source_node_type: DataNodeType.SESSION_RESULT,
-            partner_node: apiItem.data.relationship_partner.data,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as LapTimeNode,
             partner_node_type: DataNodeType.LAP_TIME,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

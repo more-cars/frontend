@@ -1,6 +1,7 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiRacingSessionNode} from "./types/ApiRacingSessionNode"
 import type {RacingSessionNode} from "./types/RacingSessionNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getRacingSessionById(id: number) {
     const apiData = (await requestDataFromApi(`/racing-sessions/${id}`)) as ApiRacingSessionNode
@@ -9,5 +10,5 @@ export async function getRacingSessionById(id: number) {
         return null
     }
 
-    return apiData.data as RacingSessionNode
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as RacingSessionNode
 }

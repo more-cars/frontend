@@ -1,6 +1,7 @@
 export type ApiBrandNode = {
-    data: {
-        id: number
+    type: 'brands'
+    id: number
+    attributes: {
         name: string
         full_name?: string
         founded?: number

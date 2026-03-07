@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiTrackLayoutNode} from "./types/ApiTrackLayoutNode"
 import type {TrackLayoutNode} from "./types/TrackLayoutNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllTrackLayouts(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.TRACK_LAYOUT, params)
@@ -10,7 +11,7 @@ export async function getAllTrackLayouts(params?: { page: number }) {
     const data: TrackLayoutNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as TrackLayoutNode)
     })
 
     return data

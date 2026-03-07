@@ -4,9 +4,9 @@ export type ApiCompanyHasBrandRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'has-brand'
-        relationship_partner: {
+        partner_node: {
             node_type: 'brand'
-            data: ApiBrandNode['data']
+            data: ApiBrandNode['attributes']
         }
         created_at: string
         updated_at: string

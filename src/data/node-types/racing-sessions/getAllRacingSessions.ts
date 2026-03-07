@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiRacingSessionNode} from "./types/ApiRacingSessionNode"
 import type {RacingSessionNode} from "./types/RacingSessionNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllRacingSessions(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.RACING_SESSION, params)
@@ -10,7 +11,7 @@ export async function getAllRacingSessions(params?: { page: number }) {
     const data: RacingSessionNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RacingSessionNode)
     })
 
     return data

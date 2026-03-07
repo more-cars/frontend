@@ -4,9 +4,9 @@ export type ApiBrandBelongsToCompanyRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'belongs-to-company'
-        relationship_partner: {
-            node_type: 'company'
-            data: ApiCompanyNode['data']
+        partner_node: {
+            node_type: 'companies'
+            data: ApiCompanyNode['attributes']
         }
         created_at: string
         updated_at: string

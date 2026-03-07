@@ -7,9 +7,9 @@ export type Api<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relat
     data: {
         relationship_id: number
         relationship_name: '<%= h.changeCase.kebab(relationshipName) %>'
-        relationship_partner: {
+        partner_node: {
             node_type: '<%= h.changeCase.lower(partnerNodeType) %>'
-            data: Api<%= h.changeCase.pascal(partnerNodeType) %>Node['data']
+            data: Api<%= h.changeCase.pascal(partnerNodeType) %>Node['attributes']
         }
         created_at: string
         updated_at: string

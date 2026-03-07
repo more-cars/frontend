@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiRacingEventNode} from "./types/ApiRacingEventNode"
 import type {RacingEventNode} from "./types/RacingEventNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllRacingEvents(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.RACING_EVENT, params)
@@ -10,7 +11,7 @@ export async function getAllRacingEvents(params?: { page: number }) {
     const data: RacingEventNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RacingEventNode)
     })
 
     return data

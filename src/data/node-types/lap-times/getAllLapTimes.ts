@@ -3,6 +3,7 @@ import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiLapTimeNode} from "./types/ApiLapTimeNode"
 import type {LapTimeNode} from "./types/LapTimeNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllLapTimes(params?: { page: number }) {
     const urlParams = {page: params?.page, sortByProperty: 'driver_name'}
@@ -11,7 +12,7 @@ export async function getAllLapTimes(params?: { page: number }) {
     const data: LapTimeNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(apiItem.data)
+        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as LapTimeNode)
     })
 
     return data

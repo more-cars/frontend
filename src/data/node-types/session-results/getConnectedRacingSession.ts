@@ -1,13 +1,11 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
-import type {
-    ApiSessionResultBelongsToRacingSessionRelationship
-} from "./types/ApiSessionResultBelongsToRacingSessionRelationship"
+import type {ApiSessionResultBelongsToRacingSessionRelationship} from "./types/ApiSessionResultBelongsToRacingSessionRelationship"
 import {getSessionResultById} from "./getSessionResultById"
-import type {
-    SessionResultBelongsToRacingSessionRelationship
-} from "./types/SessionResultBelongsToRacingSessionRelationship"
+import type {SessionResultBelongsToRacingSessionRelationship} from "./types/SessionResultBelongsToRacingSessionRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import type {RacingSessionNode} from "../racing-sessions/types/RacingSessionNode"
 
 export async function getConnectedRacingSession(id: number) {
     const sourceNode = await getSessionResultById(id)
@@ -25,7 +23,7 @@ export async function getConnectedRacingSession(id: number) {
         name: DataRelationshipType.SESSION_RESULT_BELONGS_TO_RACING_SESSION,
         source_node: sourceNode,
         source_node_type: DataNodeType.SESSION_RESULT,
-        partner_node: apiData.data.relationship_partner.data,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as RacingSessionNode,
         partner_node_type: DataNodeType.RACING_SESSION,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

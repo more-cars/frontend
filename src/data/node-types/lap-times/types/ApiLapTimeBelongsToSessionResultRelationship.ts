@@ -4,9 +4,9 @@ export type ApiLapTimeBelongsToSessionResultRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'belongs-to-session-result'
-        relationship_partner: {
+        partner_node: {
             node_type: 'session result'
-            data: ApiSessionResultNode['data']
+            data: ApiSessionResultNode['attributes']
         }
         created_at: string
         updated_at: string

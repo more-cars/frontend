@@ -1,5 +1,6 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiCompanyNode} from "./types/ApiCompanyNode"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {CompanyNode} from "./types/CompanyNode"
 
 export async function getCompanyById(id: number) {
@@ -9,5 +10,5 @@ export async function getCompanyById(id: number) {
         return null
     }
 
-    return apiData.data as CompanyNode
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as CompanyNode
 }

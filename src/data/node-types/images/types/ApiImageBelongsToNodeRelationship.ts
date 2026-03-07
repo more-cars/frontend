@@ -5,9 +5,9 @@ export type ApiImageBelongsToNodeRelationship = {
     data: {
         relationship_id: number
         relationship_name: 'belongs-to-node'
-        relationship_partner: {
+        partner_node: {
             node_type: 'brand' | 'car model'
-            data: ApiBrandNode['data'] | ApiCarModelNode['data']
+            data: ApiBrandNode['attributes'] | ApiCarModelNode['attributes']
         }
         created_at: string
         updated_at: string

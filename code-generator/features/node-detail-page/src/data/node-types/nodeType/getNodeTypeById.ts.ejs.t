@@ -3,6 +3,7 @@ to: src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType))
 ---
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {Api<%= h.changeCase.pascal(nodeType) %>Node} from "./types/Api<%= h.changeCase.pascal(nodeType) %>Node"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {<%= h.changeCase.pascal(nodeType) %>Node} from "./types/<%= h.changeCase.pascal(nodeType) %>Node"
 
 export async function get<%= h.changeCase.pascal(nodeType) %>ById(id: number) {
@@ -12,5 +13,5 @@ export async function get<%= h.changeCase.pascal(nodeType) %>ById(id: number) {
         return null
     }
 
-    return apiData.data as <%= h.changeCase.pascal(nodeType) %>Node
+    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as <%= h.changeCase.pascal(nodeType) %>Node
 }

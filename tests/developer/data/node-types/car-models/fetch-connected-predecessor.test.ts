@@ -26,7 +26,7 @@ describe('Fetching connected predecessor CAR MODEL from data source', () => {
     test('when there is a predecessor CAR MODEL connected', async () => {
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({
-                data: {relationship_partner: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
+                data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
             }))
         }))
 
