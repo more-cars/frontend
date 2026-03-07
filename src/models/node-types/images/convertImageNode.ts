@@ -23,5 +23,15 @@ export function convertImageNode(dataNode: ImageNode) {
         updated_at: dataNode.updated_at,
     }
 
+    // TODO temporary fix -> wikimedia does not support arbitrary image resolutions anymore
+    if (image.image_provider === 'wikimedia') {
+        if (image.image_url_s) {
+            image.image_url_s = image.image_url_s.replace('/320px-', '/330px-')
+        }
+        if (image.image_url_m) {
+            image.image_url_m = image.image_url_m.replace('/640px-', '/960px-')
+        }
+    }
+
     return image
 }
