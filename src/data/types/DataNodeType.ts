@@ -13,5 +13,6 @@ export enum DataNodeType {
     RACING_GAME = 'racing game',
     GAMING_PLATFORM = 'gaming platform',
     MAGAZINE = 'magazine',
+    MAGAZINE_ISSUE = 'magazine issue',
     IMAGE = 'image',
 }

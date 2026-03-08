@@ -15,6 +15,7 @@ import lapTimes from "./routes/lap-times"
 import racingGames from "./routes/racing-games"
 import gamingPlatforms from "./routes/gaming-platforms"
 import magazines from "./routes/magazines"
+import magazineIssues from "./routes/magazine-issues"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -44,6 +45,7 @@ app.use('/', lapTimes)
 app.use('/', racingGames)
 app.use('/', gamingPlatforms)
 app.use('/', magazines)
+app.use('/', magazineIssues)
 app.use('/', images)
 
 app.locals.formatDate = convertDate

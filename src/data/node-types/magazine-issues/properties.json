@@ -1,0 +1,66 @@
+[
+  {
+    "name": "title",
+    "label": "Title",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Sieger-Typen"
+  },
+  {
+    "name": "consecutive_number",
+    "label": "Consecutive Number",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": ""
+  },
+  {
+    "name": "issue_number",
+    "label": "Issue",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "11"
+  },
+  {
+    "name": "issue_year",
+    "label": "Year",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2025"
+  },
+  {
+    "name": "release_date",
+    "label": "Release Date",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "2025-10-01"
+  },
+  {
+    "name": "single_copy_price",
+    "label": "Price",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "5.4"
+  },
+  {
+    "name": "single_copy_price_unit",
+    "label": "Currency",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "€"
+  },
+  {
+    "name": "pages",
+    "label": "Pages",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "148"
+  }
+]
