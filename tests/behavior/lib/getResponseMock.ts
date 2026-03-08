@@ -20,7 +20,10 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         }
 
         return {
-            data: mockItems
+            data: mockItems,
+            meta: {
+                total: nodeCount,
+            },
         }
     }
 
