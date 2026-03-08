@@ -21,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const magazine = await MagazineIssueModelFacade.getConnectedMagazine(magazineIssueId)
     const predecessor = await MagazineIssueModelFacade.getConnectedPredecessor(magazineIssueId)
+    const successor = await MagazineIssueModelFacade.getConnectedSuccessor(magazineIssueId)
 
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
         page_title: `${magazineIssue.title} - Magazine Issue`,
@@ -41,6 +42,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: predecessor,
                 node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
                 thumbnails: await getMagazineIssueThumbnails(predecessor ? [predecessor] : []),
+            },
+            successor: {
+                item: successor,
+                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                thumbnails: await getMagazineIssueThumbnails(successor ? [successor] : []),
             },
         },
     })

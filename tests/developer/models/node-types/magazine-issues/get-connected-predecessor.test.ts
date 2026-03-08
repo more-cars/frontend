@@ -3,15 +3,15 @@ import {MagazineIssueDataFacade} from "../../../../../src/data/MagazineIssueData
 import {findConnectedPredecessor} from "../../../../../src/models/node-types/magazine-issues/findConnectedPredecessor"
 import {MagazineIssueFollowsIssueRelationship} from "../../../../../src/data/node-types/magazine-issues/types/MagazineIssueFollowsIssueRelationship"
 
-describe('Collect connected MAGAZINE ISSUE for the MAGAZINE ISSUE detail page', () => {
-    test('when no MAGAZINE ISSUE is connected', async () => {
+describe('Collect connected PREDECESSOR for the MAGAZINE ISSUE detail page', () => {
+    test('when no PREDECESSOR is connected', async () => {
         vi.spyOn(MagazineIssueDataFacade, 'getConnectedPredecessorNode').mockResolvedValue(null)
 
         expect(await findConnectedPredecessor(1))
             .toEqual(null)
     })
 
-    test('when there is a MAGAZINE ISSUE connected', async () => {
+    test('when there is a PREDECESSOR connected', async () => {
         const data = {partner_node: {id: 1, title: "dummy"}} as MagazineIssueFollowsIssueRelationship
         vi.spyOn(MagazineIssueDataFacade, 'getConnectedPredecessorNode').mockResolvedValue(data)
 

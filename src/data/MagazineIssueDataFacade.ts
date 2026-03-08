@@ -3,6 +3,7 @@ import {getMagazineIssueById} from "./node-types/magazine-issues/getMagazineIssu
 import {getConnectedMainImage} from "./node-types/magazine-issues/getConnectedMainImage"
 import {getConnectedMagazine} from "./node-types/magazine-issues/getConnectedMagazine"
 import {getConnectedPredecessor} from "./node-types/magazine-issues/getConnectedPredecessor"
+import {getConnectedSuccessor} from "./node-types/magazine-issues/getConnectedSuccessor"
 
 export const MagazineIssueDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const MagazineIssueDataFacade = {
 
     async getConnectedPredecessorNode(id: number) {
         return getConnectedPredecessor(id)
+    },
+
+    async getConnectedSuccessorNode(id: number) {
+        return getConnectedSuccessor(id)
     },
 }

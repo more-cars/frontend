@@ -5,6 +5,7 @@ import {findNodeById} from "./node-types/magazine-issues/findNodeById"
 import {findConnectedMainImage} from "./node-types/magazine-issues/findConnectedMainImage"
 import {findConnectedMagazine} from "./node-types/magazine-issues/findConnectedMagazine"
 import {findConnectedPredecessor} from "./node-types/magazine-issues/findConnectedPredecessor"
+import {findConnectedSuccessor} from "./node-types/magazine-issues/findConnectedSuccessor"
 
 export const MagazineIssueModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -29,5 +30,9 @@ export const MagazineIssueModelFacade = {
 
     async getConnectedPredecessor(id: number) {
         return findConnectedPredecessor(id)
+    },
+
+    async getConnectedSuccessor(id: number) {
+        return findConnectedSuccessor(id)
     },
 }

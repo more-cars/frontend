@@ -66,5 +66,6 @@ export enum DataRelationshipType {
     MAGAZINE_ISSUE_HAS_MAIN_IMAGE = 'has main image',
     MAGAZINE_ISSUE_BELONGS_TO_MAGAZINE = 'belongs to magazine',
     MAGAZINE_ISSUE_FOLLOWS_ISSUE = 'follows issue',
+    MAGAZINE_ISSUE_FOLLOWED_BY_ISSUE = 'followed by issue',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }
