@@ -6,6 +6,7 @@ import {findConnectedMainImage} from "./node-types/car-model-variants/findConnec
 import {findConnectedCarModel} from "./node-types/car-model-variants/findConnectedCarModel"
 import {findConnectedLapTimes} from "./node-types/car-model-variants/findConnectedLapTimes"
 import {findConnectedSessionResults} from "./node-types/car-model-variants/findConnectedSessionResults"
+import {findConnectedRacingGames} from "./node-types/car-model-variants/findConnectedRacingGames"
 import {findConnectedImages} from "./node-types/car-model-variants/findConnectedImages"
 
 export const CarModelVariantModelFacade = {
@@ -35,6 +36,10 @@ export const CarModelVariantModelFacade = {
 
     async getConnectedSessionResults(id: number) {
         return findConnectedSessionResults(id)
+    },
+
+    async getConnectedRacingGames(id: number) {
+        return findConnectedRacingGames(id)
     },
 
     async getConnectedImages(id: number) {

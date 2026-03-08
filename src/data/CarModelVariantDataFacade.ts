@@ -4,6 +4,7 @@ import {getConnectedMainImage} from "./node-types/car-model-variants/getConnecte
 import {getConnectedCarModel} from "./node-types/car-model-variants/getConnectedCarModel"
 import {getConnectedLapTimes} from "./node-types/car-model-variants/getConnectedLapTimes"
 import {getConnectedSessionResults} from "./node-types/car-model-variants/getConnectedSessionResults"
+import {getConnectedRacingGames} from "./node-types/car-model-variants/getConnectedRacingGames"
 import {getConnectedImages} from "./node-types/car-model-variants/getConnectedImages"
 
 export const CarModelVariantDataFacade = {
@@ -29,6 +30,10 @@ export const CarModelVariantDataFacade = {
 
     async getConnectedSessionResultNodes(id: number) {
         return getConnectedSessionResults(id)
+    },
+
+    async getConnectedRacingGameNodes(id: number) {
+        return getConnectedRacingGames(id)
     },
 
     async getConnectedImageNodes(id: number) {
