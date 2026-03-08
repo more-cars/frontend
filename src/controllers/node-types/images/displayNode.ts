@@ -1,5 +1,6 @@
 import express from "express"
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getBrandThumbnails} from "../brands/getBrandThumbnails"
@@ -24,6 +25,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/images/image-detail-page', {
         page_title: `${image.name} - Image`,
         node: {
+            type: ControllerNodeType.IMAGE,
             data: image,
             node_properties: getNodeProperties(DataNodeType.IMAGE),
             main_image: image,

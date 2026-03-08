@@ -1,5 +1,6 @@
 import express from "express"
 import {RacingGameModelFacade} from "../../../models/RacingGameModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
@@ -27,6 +28,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/racing-games/racing-game-detail-page', {
         page_title: `${racingGame.name} - Racing Game`,
         node: {
+            type: ControllerNodeType.RACING_GAME,
             data: racingGame,
             node_properties: getNodeProperties(DataNodeType.RACING_GAME),
             main_image: await RacingGameModelFacade.getConnectedMainImage(racingGameId),

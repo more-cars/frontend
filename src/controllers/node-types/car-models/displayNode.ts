@@ -1,5 +1,6 @@
 import express from "express"
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getBrandThumbnails} from "../brands/getBrandThumbnails"
@@ -28,6 +29,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/car-models/car-model-detail-page', {
         page_title: `${carModel.name} - Car Model`,
         node: {
+            type: ControllerNodeType.CAR_MODEL,
             data: carModel,
             node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
             main_image: await CarModelModelFacade.getConnectedMainImage(carModelId),

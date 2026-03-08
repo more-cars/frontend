@@ -1,5 +1,6 @@
 import express from "express"
 import {RacingEventModelFacade} from "../../../models/RacingEventModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingSeriesThumbnails} from "../racing-series/getRacingSeriesThumbnails"
@@ -32,6 +33,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
         page_title: `${racingEvent.name} - Racing Event`,
         node: {
+            type: ControllerNodeType.RACING_EVENT,
             data: racingEvent,
             node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
             main_image: await RacingEventModelFacade.getConnectedMainImage(racingEventId),

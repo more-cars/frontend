@@ -1,5 +1,6 @@
 import express from "express"
 import {GamingPlatformModelFacade} from "../../../models/GamingPlatformModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
@@ -23,6 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/gaming-platforms/gaming-platform-detail-page', {
         page_title: `${gamingPlatform.name} - Gaming Platform`,
         node: {
+            type: ControllerNodeType.GAMING_PLATFORM,
             data: gamingPlatform,
             node_properties: getNodeProperties(DataNodeType.GAMING_PLATFORM),
             main_image: await GamingPlatformModelFacade.getConnectedMainImage(gamingPlatformId),

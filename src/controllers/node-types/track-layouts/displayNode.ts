@@ -1,5 +1,6 @@
 import express from "express"
 import {TrackLayoutModelFacade} from "../../../models/TrackLayoutModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
@@ -24,6 +25,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/track-layouts/track-layout-detail-page', {
         page_title: `${trackLayout.name} - Track Layout`,
         node: {
+            type: ControllerNodeType.TRACK_LAYOUT,
             data: trackLayout,
             node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
             main_image: await TrackLayoutModelFacade.getConnectedMainImage(trackLayoutId),

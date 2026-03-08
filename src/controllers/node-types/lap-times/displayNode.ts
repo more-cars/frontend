@@ -1,5 +1,6 @@
 import express from "express"
 import {LapTimeModelFacade} from "../../../models/LapTimeModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
@@ -28,6 +29,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         page_title: `${lapTime.driver_name} - Lap Time`,
         main_headline: `${lapTime.driver_name}`,
         node: {
+            type: ControllerNodeType.LAP_TIME,
             data: lapTime,
             node_properties: getNodeProperties(DataNodeType.LAP_TIME),
             main_image: await LapTimeModelFacade.getConnectedMainImage(lapTimeId),

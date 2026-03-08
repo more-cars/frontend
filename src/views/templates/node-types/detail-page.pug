@@ -6,7 +6,9 @@ block main
 
     div(class="grid grid-cols-2 gap-10 items-start")
         div(data-testid="main-area-primary")
-            h1(class=`text-left mb-1 text-3xl font-bold`) #{main_headline || item.name}
+            h1(class=`text-left mb-1 text-3xl font-bold`)
+                span(class="mr-3 select-none") #{icon(node.type)}
+                span #{main_headline || item.name}
             block sub_headline
             include ../shared/connected-main-image
             include ../shared/fact-sheet

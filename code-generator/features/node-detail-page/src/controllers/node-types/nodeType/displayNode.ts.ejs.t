@@ -3,6 +3,7 @@ to: src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nod
 ---
 import express from "express"
 import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
+import {ControllerNodeType} from "../../types/DataNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
@@ -22,6 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-detail-page', {
         page_title: `${<%= h.changeCase.camel(nodeType) %>.name} - <%= h.changeCase.title(nodeType) %>`,
         node: {
+            type: ControllerNodeType.<%= h.changeCase.constant(nodeType) %>,
             data: <%= h.changeCase.camel(nodeType) %>,
             node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         },
