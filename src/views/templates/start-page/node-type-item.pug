@@ -1,5 +1,5 @@
 li(class="p-4 bg-zinc-100 border border-zinc-200 rounded-md" data-testid=`${nodeType.name}`)
-    span(class="ml-2 mb-2 float-right text-5xl") #{icon(nodeType.name)}
+    span(class="ml-2 mb-2 float-right text-5xl select-none") #{icon(nodeType.name)}
     a(class="inline-block font-sans text-xl mb-2 underline decoration-zinc-300 hover:decoration-zinc-800" href=`${nodeType.overview_page_path}`)
         span #{nodeType.label}
     p There are #[i #{nodeType.count}] #{nodeType.label} in the More Cars database.
