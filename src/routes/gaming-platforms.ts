@@ -4,5 +4,6 @@ import {GamingPlatformControllerFacade} from "../controllers/GamingPlatformContr
 const router = express.Router()
 
 router.get('/gaming-platforms', GamingPlatformControllerFacade.showAllNodes)
+router.get('/gaming-platforms/:id', GamingPlatformControllerFacade.showNode)
 
 export default router
