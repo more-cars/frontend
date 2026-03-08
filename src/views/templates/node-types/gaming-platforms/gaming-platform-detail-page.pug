@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - gamingPlatform = node.data
-    div(class="mb-4 text-sm") #{gamingPlatform.release_year} | #{gamingPlatform.manufacturer}
+    | #{gamingPlatform.release_year} | #{gamingPlatform.manufacturer}
 
 block relationships
     - gamingPlatform = node.data

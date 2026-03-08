@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - racingGame = node.data
-    div(class="mb-4 text-sm") #{racingGame.release_year} | #{racingGame.developer}
+    | #{racingGame.release_year} | #{racingGame.developer}
 
 block relationships
     - racingGame = node.data

@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - raceTrack = node.data
-    div(class="mb-4 text-sm") #{raceTrack.location}
+    | #{raceTrack.location}
 
 block relationships
     - raceTrack = node.data

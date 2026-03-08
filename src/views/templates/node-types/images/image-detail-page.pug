@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - image = node.data
-    div(class="mb-4 text-sm") #{image.license} | #{image.creator} | via #{image.image_provider}
+    | #{image.license} | #{image.creator} | via #{image.image_provider}
 
 block relationships
     - image = node.data

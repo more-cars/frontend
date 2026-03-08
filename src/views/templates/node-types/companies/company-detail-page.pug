@@ -2,7 +2,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - company = node.data
-    div(class="mb-4 text-sm") #{company.founded}-#{company.defunct}
+    | #{company.founded}-#{company.defunct}
 
 block relationships
     - company = node.data
