@@ -4,5 +4,6 @@ import {RacingGameControllerFacade} from "../controllers/RacingGameControllerFac
 const router = express.Router()
 
 router.get('/racing-games', RacingGameControllerFacade.showAllNodes)
+router.get('/racing-games/:id', RacingGameControllerFacade.showNode)
 
 export default router
