@@ -1,4 +1,4 @@
-import {ControllerNodeType} from "../../controllers/types/DataNodeType"
+import {ControllerNodeType} from "../../controllers/types/ControllerNodeType"
 
 export function getNodeTypeIcon(nodeType: ControllerNodeType) {
     const map = new Map<ControllerNodeType, string>([
@@ -15,6 +15,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.LAP_TIME, '⏱️'],
         [ControllerNodeType.RACING_GAME, '🎮'],
         [ControllerNodeType.GAMING_PLATFORM, '🖥️'],
+        [ControllerNodeType.MAGAZINE, '📰'],
         [ControllerNodeType.IMAGE, '🖼️'],
     ])
 

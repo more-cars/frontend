@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - magazine = node.data
+    | #{magazine.founded}-#{magazine.defunct} | #{magazine.publisher}
+
+block relationships
+    - magazine = node.data
