@@ -16,6 +16,7 @@ export enum DataRelationshipType {
     CAR_MODEL_VARIANT_IS_VARIANT_OF = 'is variant of',
     CAR_MODEL_VARIANT_ACHIEVED_LAP_TIME = 'achieved lap time',
     CAR_MODEL_VARIANT_ACHIEVED_SESSION_RESULT = 'achieved session result',
+    CAR_MODEL_VARIANT_IS_FEATURED_IN_RACING_GAME = 'is featured in racing game',
     CAR_MODEL_VARIANT_HAS_IMAGE = 'has image',
     RACE_TRACK_HAS_MAIN_IMAGE = 'has main image',
     RACE_TRACK_HAS_LAYOUT = 'has layout',
@@ -59,6 +60,6 @@ export enum DataRelationshipType {
     GAMING_PLATFORM_HAS_MAIN_IMAGE = 'has main image',
     GAMING_PLATFORM_FEATURES_RACING_GAME = 'features racing game',
     GAMING_PLATFORM_HAS_IMAGE = 'has image',
-    CAR_MODEL_VARIANT_IS_FEATURED_IN_RACING_GAME = 'is featured in racing game',
+    MAGAZINE_HAS_MAIN_IMAGE = 'has main image',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }

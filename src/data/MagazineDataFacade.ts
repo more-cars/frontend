@@ -1,5 +1,6 @@
 import {getAllMagazines} from "./node-types/magazines/getAllMagazines"
 import {getMagazineById} from "./node-types/magazines/getMagazineById"
+import {getConnectedMainImage} from "./node-types/magazines/getConnectedMainImage"
 
 export const MagazineDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -8,5 +9,9 @@ export const MagazineDataFacade = {
 
     async getNodeById(id: number) {
         return getMagazineById(id)
+    },
+
+    async getConnectedMainImageNode(id: number) {
+        return getConnectedMainImage(id)
     },
 }
