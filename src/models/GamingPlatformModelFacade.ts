@@ -1,5 +1,6 @@
 import {findAllNodes} from "./node-types/gaming-platforms/findAllNodes"
 import {findNodeById} from "./node-types/gaming-platforms/findNodeById"
+import {findConnectedMainImage} from "./node-types/gaming-platforms/findConnectedMainImage"
 
 export const GamingPlatformModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -18,5 +19,9 @@ export const GamingPlatformModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    async getConnectedMainImage(id: number) {
+        return findConnectedMainImage(id)
     },
 }
