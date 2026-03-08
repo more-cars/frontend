@@ -55,5 +55,6 @@ export enum DataRelationshipType {
     RACING_GAME_FEATURES_TRACK_LAYOUT = 'features track layout',
     GAMING_PLATFORM_HAS_MAIN_IMAGE = 'has main image',
     GAMING_PLATFORM_FEATURES_RACING_GAME = 'features racing game',
+    GAMING_PLATFORM_HAS_IMAGE = 'has image',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }

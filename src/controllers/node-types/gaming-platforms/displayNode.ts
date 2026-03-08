@@ -18,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const racingGames = await GamingPlatformModelFacade.getConnectedRacingGames(gamingPlatformId)
+    const images = await GamingPlatformModelFacade.getConnectedImages(gamingPlatformId)
+
     res.render('templates/node-types/gaming-platforms/gaming-platform-detail-page', {
         page_title: `${gamingPlatform.name} - Gaming Platform`,
         node: {
@@ -30,6 +32,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: racingGames,
                 node_properties: getNodeProperties(DataNodeType.RACING_GAME),
                 thumbnails: await getRacingGameThumbnails(racingGames),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
