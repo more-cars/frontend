@@ -24,6 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.MAGAZINE_ISSUE,
             data: magazineIssue,
             node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+            main_image: await MagazineIssueModelFacade.getConnectedMainImage(magazineIssueId),
         },
         relationships: {},
     })
