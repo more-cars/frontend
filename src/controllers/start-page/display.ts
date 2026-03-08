@@ -13,6 +13,7 @@ import {RacingSessionModelFacade} from "../../models/RacingSessionModelFacade"
 import {SessionResultModelFacade} from "../../models/SessionResultModelFacade"
 import {LapTimeModelFacade} from "../../models/LapTimeModelFacade"
 import {RacingGameModelFacade} from "../../models/RacingGameModelFacade"
+import {GamingPlatformModelFacade} from "../../models/GamingPlatformModelFacade"
 import {ImageModelFacade} from "../../models/ImageModelFacade"
 
 export async function display(req: express.Request, res: express.Response) {
@@ -28,7 +29,8 @@ export async function display(req: express.Request, res: express.Response) {
         getNodeTypeInformation(DataNodeType.RACING_SESSION, '🚦', await RacingSessionModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.SESSION_RESULT, '🏁', await SessionResultModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.LAP_TIME, '⏱️', await LapTimeModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.RACING_GAME, '🕹️', await RacingGameModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACING_GAME, '🎮', await RacingGameModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.GAMING_PLATFORM, '🖥️', await GamingPlatformModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.IMAGE, '🖼️', await ImageModelFacade.getTotalNodeCount()),
     ]
 

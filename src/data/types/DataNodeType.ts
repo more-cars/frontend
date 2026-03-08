@@ -11,5 +11,6 @@ export enum DataNodeType {
     SESSION_RESULT = 'session result',
     LAP_TIME = 'lap time',
     RACING_GAME = 'racing game',
+    GAMING_PLATFORM = 'gaming platform',
     IMAGE = 'image',
 }
