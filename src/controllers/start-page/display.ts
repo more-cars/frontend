@@ -18,20 +18,20 @@ import {ImageModelFacade} from "../../models/ImageModelFacade"
 
 export async function display(req: express.Request, res: express.Response) {
     const nodeTypes = [
-        getNodeTypeInformation(DataNodeType.COMPANY, '🏭', await CompanyModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.BRAND, '🛡️', await BrandModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.CAR_MODEL, '🚘', await CarModelModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.CAR_MODEL_VARIANT, '🚙', await CarModelVariantModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.RACE_TRACK, '⭖', await RaceTrackModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.TRACK_LAYOUT, '⮓', await TrackLayoutModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.RACING_SERIES, '🏎', await RacingSeriesModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.RACING_EVENT, '🏞', await RacingEventModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.RACING_SESSION, '🚦', await RacingSessionModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.SESSION_RESULT, '🏁', await SessionResultModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.LAP_TIME, '⏱️', await LapTimeModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.RACING_GAME, '🎮', await RacingGameModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.GAMING_PLATFORM, '🖥️', await GamingPlatformModelFacade.getTotalNodeCount()),
-        getNodeTypeInformation(DataNodeType.IMAGE, '🖼️', await ImageModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.COMPANY, await CompanyModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.BRAND, await BrandModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.CAR_MODEL, await CarModelModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.CAR_MODEL_VARIANT, await CarModelVariantModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACE_TRACK, await RaceTrackModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.TRACK_LAYOUT, await TrackLayoutModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACING_SERIES, await RacingSeriesModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACING_EVENT, await RacingEventModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACING_SESSION, await RacingSessionModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.SESSION_RESULT, await SessionResultModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.LAP_TIME, await LapTimeModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.RACING_GAME, await RacingGameModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.GAMING_PLATFORM, await GamingPlatformModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.IMAGE, await ImageModelFacade.getTotalNodeCount()),
     ]
 
     res.render('templates/start-page/start-page', {

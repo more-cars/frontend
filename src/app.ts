@@ -20,6 +20,7 @@ import {convertDate} from "./views/lib/convertDate.ts"
 import {convertDateTime} from "./views/lib/convertDateTime.ts"
 import {formatTime} from "./views/lib/formatTime.ts"
 import {ordinalizeNumber} from "./views/lib/ordinalize.ts"
+import {getNodeTypeIcon} from "./views/lib/getNodeTypeIcon"
 
 const app: Express = express()
 app.set('view engine', 'pug')
@@ -47,5 +48,6 @@ app.locals.formatDate = convertDate
 app.locals.formatDateTime = convertDateTime
 app.locals.formatTime = formatTime
 app.locals.ordinalize = ordinalizeNumber
+app.locals.icon = getNodeTypeIcon
 
 export {app}
