@@ -3,6 +3,7 @@ import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getMagazineThumbnails} from "../magazines/getMagazineThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineIssueId = parseInt(req.params.id)
@@ -17,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const magazine = await MagazineIssueModelFacade.getConnectedMagazine(magazineIssueId)
+
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
         page_title: `${magazineIssue.title} - Magazine Issue`,
         main_headline: `${magazineIssue.title}`,
@@ -26,6 +29,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
             main_image: await MagazineIssueModelFacade.getConnectedMainImage(magazineIssueId),
         },
-        relationships: {},
+        relationships: {
+            magazine: {
+                item: magazine,
+                node_properties: getNodeProperties(DataNodeType.MAGAZINE),
+                thumbnails: await getMagazineThumbnails(magazine ? [magazine] : []),
+            },
+        },
     })
 }

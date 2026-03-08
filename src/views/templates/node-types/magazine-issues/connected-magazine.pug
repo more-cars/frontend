@@ -1,0 +1,12 @@
+if magazine
+    section(data-testid="magazine-section" class="mb-8")
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Magazine
+        p(class="mb-4") The issue #[b #{magazineIssue.title}] belongs to the following magazine:
+
+        ul
+            - nodeItem = magazine
+            - nodeType = 'magazine'
+            - nodeUrlPath = 'magazines/' + nodeItem.id
+            - thumbnail = relationships.magazine.thumbnails.get(nodeItem.id)
+            - nodeProperties = relationships.magazine.node_properties
+            include ../../shared/list-node-item
