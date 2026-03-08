@@ -1,19 +1,21 @@
-export function getNodeTypeIcon(nodeType: string) {
-    const map = new Map<string, string>([
-        ['company', '🏭'],
-        ['brand', '🛡️'],
-        ['car-model', '🚘'],
-        ['car-model-variant', '🚙'],
-        ['race-track', '🛣️'],
-        ['track-layout', '⭖'],
-        ['racing-series', '🏎'],
-        ['racing-event', '🏞'],
-        ['racing-session', '🚦'],
-        ['session-result', '🏁'],
-        ['lap-time', '⏱️'],
-        ['racing-game', '🎮'],
-        ['gaming-platform', '🖥️'],
-        ['image', '🖼️'],
+import {ControllerNodeType} from "../../controllers/types/DataNodeType"
+
+export function getNodeTypeIcon(nodeType: ControllerNodeType) {
+    const map = new Map<ControllerNodeType, string>([
+        [ControllerNodeType.COMPANY, '🏭'],
+        [ControllerNodeType.BRAND, '🛡️'],
+        [ControllerNodeType.CAR_MODEL, '🚘'],
+        [ControllerNodeType.CAR_MODEL_VARIANT, '🚙'],
+        [ControllerNodeType.RACE_TRACK, '🛣️'],
+        [ControllerNodeType.TRACK_LAYOUT, '⭖'],
+        [ControllerNodeType.RACING_SERIES, '🏎'],
+        [ControllerNodeType.RACING_EVENT, '🏞'],
+        [ControllerNodeType.RACING_SESSION, '🚦'],
+        [ControllerNodeType.SESSION_RESULT, '🏁'],
+        [ControllerNodeType.LAP_TIME, '⏱️'],
+        [ControllerNodeType.RACING_GAME, '🎮'],
+        [ControllerNodeType.GAMING_PLATFORM, '🖥️'],
+        [ControllerNodeType.IMAGE, '🖼️'],
     ])
 
     return map.get(nodeType)
