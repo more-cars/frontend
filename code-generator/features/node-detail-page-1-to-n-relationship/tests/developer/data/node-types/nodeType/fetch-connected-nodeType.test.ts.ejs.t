@@ -22,7 +22,7 @@ describe('Fetching connected <%= h.changeCase.upper(h.inflection.pluralize(partn
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({
                 data: [
-                    {data: {partner_node: {data: {id: 1}, created_at: 'dummy', updated_at: 'dummy'}},
+                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
                     {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
                     {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
                 ]
