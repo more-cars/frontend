@@ -7,6 +7,7 @@ import {getMagazineThumbnails} from "../magazines/getMagazineThumbnails"
 import {getMagazineIssueThumbnails} from "./getMagazineIssueThumbnails"
 import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
+import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineIssueId = parseInt(req.params.id)
@@ -26,6 +27,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const successor = await MagazineIssueModelFacade.getConnectedSuccessor(magazineIssueId)
     const carModels = await MagazineIssueModelFacade.getConnectedCarModels(magazineIssueId)
     const carModelVariants = await MagazineIssueModelFacade.getConnectedCarModelVariants(magazineIssueId)
+    const racingEvents = await MagazineIssueModelFacade.getConnectedRacingEvents(magazineIssueId)
 
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
         page_title: `${magazineIssue.title} - Magazine Issue`,
@@ -61,6 +63,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: carModelVariants,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getCarModelVariantThumbnails(carModelVariants),
+            },
+            racing_events: {
+                items: racingEvents,
+                node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
+                thumbnails: await getRacingEventThumbnails(racingEvents),
             },
         },
     })
