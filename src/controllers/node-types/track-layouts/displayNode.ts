@@ -1,6 +1,6 @@
 import express from "express"
 import {TrackLayoutModelFacade} from "../../../models/TrackLayoutModelFacade"
-import {ControllerNodeType} from "../../types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"

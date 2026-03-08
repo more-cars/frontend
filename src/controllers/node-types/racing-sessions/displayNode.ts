@@ -1,6 +1,6 @@
 import express from "express"
 import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade"
-import {ControllerNodeType} from "../../types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"

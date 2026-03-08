@@ -1,6 +1,6 @@
 import express from "express"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
-import {ControllerNodeType} from "../../types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getBrandThumbnails} from "../brands/getBrandThumbnails"

@@ -1,6 +1,6 @@
 ---
 inject: true
-to: src/data/types/ControllerNodeType.ts
+to: src/controllers/types/ControllerNodeType.ts
 before: IMAGE
 skip_if: <%= h.changeCase.constant(nodeType) %>
 ---
