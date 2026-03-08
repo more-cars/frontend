@@ -1,5 +1,6 @@
 import {findAllNodes} from "./node-types/racing-games/findAllNodes"
 import {findNodeById} from "./node-types/racing-games/findNodeById"
+import {findConnectedMainImage} from "./node-types/racing-games/findConnectedMainImage"
 
 export const RacingGameModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -18,5 +19,9 @@ export const RacingGameModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    async getConnectedMainImage(id: number) {
+        return findConnectedMainImage(id)
     },
 }

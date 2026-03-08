@@ -1,5 +1,6 @@
 import {getAllRacingGames} from "./node-types/racing-games/getAllRacingGames"
 import {getRacingGameById} from "./node-types/racing-games/getRacingGameById"
+import {getConnectedMainImage} from "./node-types/racing-games/getConnectedMainImage"
 
 export const RacingGameDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -8,5 +9,9 @@ export const RacingGameDataFacade = {
 
     async getNodeById(id: number) {
         return getRacingGameById(id)
+    },
+
+    async getConnectedMainImageNode(id: number) {
+        return getConnectedMainImage(id)
     },
 }
