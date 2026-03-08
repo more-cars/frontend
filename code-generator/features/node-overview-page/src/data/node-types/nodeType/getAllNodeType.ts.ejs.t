@@ -10,7 +10,7 @@ import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>(params?: { page: number }) {
     const url = getApiRequestUrl(DataNodeType.<%= h.changeCase.constant(nodeType) %>, params)
-    const apiData: Api<%= h.changeCase.pascal(nodeType) %>Node[] = (await requestDataFromApi(url)).data || []
+    const apiData: Api<%= h.changeCase.pascal(nodeType) %>Node[] = (await requestDataFromApi(url))?.data || []
     const data: <%= h.changeCase.pascal(nodeType) %>Node[] = []
 
     apiData.forEach(apiItem => {
