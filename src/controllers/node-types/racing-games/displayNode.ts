@@ -4,6 +4,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
+import {getGamingPlatformThumbnails} from "../gaming-platforms/getGamingPlatformThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingGameId = parseInt(req.params.id)
@@ -20,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const carModelVariants = await RacingGameModelFacade.getConnectedCarModelVariants(racingGameId)
     const trackLayouts = await RacingGameModelFacade.getConnectedTrackLayouts(racingGameId)
+    const gamingPlatforms = await RacingGameModelFacade.getConnectedGamingPlatforms(racingGameId)
 
     res.render('templates/node-types/racing-games/racing-game-detail-page', {
         page_title: `${racingGame.name} - Racing Game`,
@@ -38,6 +40,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: trackLayouts,
                 node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
                 thumbnails: await getTrackLayoutThumbnails(trackLayouts),
+            },
+            gaming_platforms: {
+                items: gamingPlatforms,
+                node_properties: getNodeProperties(DataNodeType.GAMING_PLATFORM),
+                thumbnails: await getGamingPlatformThumbnails(gamingPlatforms),
             },
         },
     })

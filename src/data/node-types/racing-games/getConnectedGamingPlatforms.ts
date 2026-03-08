@@ -1,0 +1,33 @@
+import {requestDataFromApi} from "../../requestDataFromApi"
+import {getRacingGameById} from "./getRacingGameById"
+import type {ApiRacingGameReleasedOnGamingPlatformRelationship} from "./types/ApiRacingGameReleasedOnGamingPlatformRelationship"
+import type {RacingGameReleasedOnGamingPlatformRelationship} from "./types/RacingGameReleasedOnGamingPlatformRelationship"
+import {DataRelationshipType} from "../../types/DataRelationshipType"
+import {DataNodeType} from "../../types/DataNodeType"
+import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import type {GamingPlatformNode} from "../gaming-platforms/types/GamingPlatformNode"
+
+export async function getConnectedGamingPlatforms(id: number) {
+    const sourceNode = await getRacingGameById(id)
+    if (!sourceNode) {
+        return []
+    }
+
+    const apiData = (await requestDataFromApi(`/racing-games/${id}/released-on-gaming-platform`)).data as ApiRacingGameReleasedOnGamingPlatformRelationship[]
+    const data: RacingGameReleasedOnGamingPlatformRelationship[] = []
+
+    apiData.forEach(apiItem => {
+        data.push({
+            id,
+            name: DataRelationshipType.RACING_GAME_RELEASED_ON_GAMING_PLATFORM,
+            source_node: sourceNode,
+            source_node_type: DataNodeType.RACING_GAME,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as GamingPlatformNode,
+            partner_node_type: DataNodeType.GAMING_PLATFORM,
+            created_at: apiItem.data.created_at,
+            updated_at: apiItem.data.updated_at,
+        })
+    })
+
+    return data
+}
