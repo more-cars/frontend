@@ -7,6 +7,7 @@ import {getConnectedSuccessor} from "./node-types/magazine-issues/getConnectedSu
 import {getConnectedCarModels} from "./node-types/magazine-issues/getConnectedCarModels"
 import {getConnectedCarModelVariants} from "./node-types/magazine-issues/getConnectedCarModelVariants"
 import {getConnectedRacingEvents} from "./node-types/magazine-issues/getConnectedRacingEvents"
+import {getConnectedImages} from "./node-types/magazine-issues/getConnectedImages"
 
 export const MagazineIssueDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -43,5 +44,9 @@ export const MagazineIssueDataFacade = {
 
     async getConnectedRacingEventNodes(id: number) {
         return getConnectedRacingEvents(id)
+    },
+
+    async getConnectedImageNodes(id: number) {
+        return getConnectedImages(id)
     },
 }

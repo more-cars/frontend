@@ -28,6 +28,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModels = await MagazineIssueModelFacade.getConnectedCarModels(magazineIssueId)
     const carModelVariants = await MagazineIssueModelFacade.getConnectedCarModelVariants(magazineIssueId)
     const racingEvents = await MagazineIssueModelFacade.getConnectedRacingEvents(magazineIssueId)
+    const images = await MagazineIssueModelFacade.getConnectedImages(magazineIssueId)
 
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
         page_title: `${magazineIssue.title} - Magazine Issue`,
@@ -68,6 +69,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: racingEvents,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
                 thumbnails: await getRacingEventThumbnails(racingEvents),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
