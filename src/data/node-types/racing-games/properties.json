@@ -1,0 +1,34 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Forza Motorsport 7"
+  },
+  {
+    "name": "release_year",
+    "label": "Release Year",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2017"
+  },
+  {
+    "name": "developer",
+    "label": "Developer",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Turn 10 Studios"
+  },
+  {
+    "name": "publisher",
+    "label": "Publisher",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Microsoft Studios"
+  }
+]
