@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - magazine = node.data
+
+    - magazineIssues = relationships.magazine_issues.items
+    include connected-magazine-issues

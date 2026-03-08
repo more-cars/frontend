@@ -3,6 +3,7 @@ import {MagazineModelFacade} from "../../../models/MagazineModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineId = parseInt(req.params.id)
@@ -17,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const magazineIssues = await MagazineModelFacade.getConnectedMagazineIssues(magazineId)
+
     res.render('templates/node-types/magazines/magazine-detail-page', {
         page_title: `${magazine.name} - Magazine`,
         node: {
@@ -25,6 +28,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             node_properties: getNodeProperties(DataNodeType.MAGAZINE),
             main_image: await MagazineModelFacade.getConnectedMainImage(magazineId),
         },
-        relationships: {},
+        relationships: {
+            magazine_issues: {
+                items: magazineIssues,
+                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                thumbnails: await getMagazineIssueThumbnails(magazineIssues),
+            },
+        },
     })
 }
