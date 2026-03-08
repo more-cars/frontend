@@ -3,9 +3,10 @@ import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/track-layouts/findNodeById"
 import {findConnectedMainImage} from "./node-types/track-layouts/findConnectedMainImage"
-import {findConnectedImages} from "./node-types/track-layouts/findConnectedImages"
 import {findConnectedRaceTrack} from "./node-types/track-layouts/findConnectedRaceTrack"
 import {findConnectedRacingEvents} from "./node-types/track-layouts/findConnectedRacingEvents"
+import {findConnectedRacingGames} from "./node-types/track-layouts/findConnectedRacingGames"
+import {findConnectedImages} from "./node-types/track-layouts/findConnectedImages"
 
 export const TrackLayoutModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -24,15 +25,19 @@ export const TrackLayoutModelFacade = {
         return findConnectedMainImage(id)
     },
 
-    async getConnectedImages(id: number) {
-        return findConnectedImages(id)
-    },
-
     async getConnectedRaceTrack(id: number) {
         return findConnectedRaceTrack(id)
     },
 
     async getConnectedRacingEvents(id: number) {
         return findConnectedRacingEvents(id)
+    },
+
+    async getConnectedRacingGames(id: number) {
+        return findConnectedRacingGames(id)
+    },
+
+    async getConnectedImages(id: number) {
+        return findConnectedImages(id)
     },
 }
