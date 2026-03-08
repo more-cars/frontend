@@ -1,0 +1,30 @@
+import express from "express"
+import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
+import {DataNodeType} from "../../../data/types/DataNodeType"
+
+export async function displayNode(req: express.Request, res: express.Response) {
+    const magazineIssueId = parseInt(req.params.id)
+    const magazineIssue = await MagazineIssueModelFacade.getNodeById(magazineIssueId)
+
+    if (!magazineIssue) {
+        return res.render('templates/node-types/magazine-issues/magazine-issue-not-found-page', {
+            page_title: `Magazine Issue not found`
+        }, (error, html) => {
+            res.statusCode = 404
+            res.send(html)
+        })
+    }
+
+    res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
+        page_title: `${magazineIssue.title} - Magazine Issue`,
+        main_headline: `${magazineIssue.title}`,
+        node: {
+            type: ControllerNodeType.MAGAZINE_ISSUE,
+            data: magazineIssue,
+            node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+        },
+        relationships: {},
+    })
+}
