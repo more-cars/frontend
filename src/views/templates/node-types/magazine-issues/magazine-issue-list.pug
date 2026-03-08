@@ -7,6 +7,7 @@ else
             each nodeItem in node_collection
                 - nodeType = 'magazine-issue'
                 - nodeUrlPath = 'magazine-issues/' + nodeItem.id
+                - thumbnail = thumbnails.get(nodeItem.id)
                 - nodeProperties = node_properties
                 - itemHeadline = nodeItem.title
                 include ../../shared/list-node-item
