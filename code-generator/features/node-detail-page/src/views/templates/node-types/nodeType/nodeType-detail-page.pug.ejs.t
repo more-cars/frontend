@@ -5,7 +5,7 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - <%= h.changeCase.camel(nodeType) %> = node.data
-    | <%= h.changeCase.camel(nodeType) %>.
+    | #{<%= h.changeCase.camel(nodeType) %>.}
 
 block relationships
     - <%= h.changeCase.camel(nodeType) %> = node.data
