@@ -5,6 +5,7 @@ import {getConnectedMagazine} from "./node-types/magazine-issues/getConnectedMag
 import {getConnectedPredecessor} from "./node-types/magazine-issues/getConnectedPredecessor"
 import {getConnectedSuccessor} from "./node-types/magazine-issues/getConnectedSuccessor"
 import {getConnectedCarModels} from "./node-types/magazine-issues/getConnectedCarModels"
+import {getConnectedCarModelVariants} from "./node-types/magazine-issues/getConnectedCarModelVariants"
 
 export const MagazineIssueDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -33,5 +34,9 @@ export const MagazineIssueDataFacade = {
 
     async getConnectedCarModelNodes(id: number) {
         return getConnectedCarModels(id)
+    },
+
+    async getConnectedCarModelVariantNodes(id: number) {
+        return getConnectedCarModelVariants(id)
     },
 }

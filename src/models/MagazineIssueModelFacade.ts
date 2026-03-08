@@ -7,6 +7,7 @@ import {findConnectedMagazine} from "./node-types/magazine-issues/findConnectedM
 import {findConnectedPredecessor} from "./node-types/magazine-issues/findConnectedPredecessor"
 import {findConnectedSuccessor} from "./node-types/magazine-issues/findConnectedSuccessor"
 import {findConnectedCarModels} from "./node-types/magazine-issues/findConnectedCarModels"
+import {findConnectedCarModelVariants} from "./node-types/magazine-issues/findConnectedCarModelVariants"
 
 export const MagazineIssueModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -39,5 +40,9 @@ export const MagazineIssueModelFacade = {
 
     async getConnectedCarModels(id: number) {
         return findConnectedCarModels(id)
+    },
+
+    async getConnectedCarModelVariants(id: number) {
+        return findConnectedCarModelVariants(id)
     },
 }
