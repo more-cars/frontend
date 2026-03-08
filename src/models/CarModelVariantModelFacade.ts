@@ -1,4 +1,6 @@
 import {findAllNodes} from "./node-types/car-model-variants/findAllNodes"
+import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
+import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/car-model-variants/findNodeById"
 import {findConnectedMainImage} from "./node-types/car-model-variants/findConnectedMainImage"
 import {findConnectedCarModel} from "./node-types/car-model-variants/findConnectedCarModel"
@@ -12,13 +14,7 @@ export const CarModelVariantModelFacade = {
     },
 
     async getTotalNodeCount() {
-        // TODO This is a temporary hack until the API can provide this information.
-        //      Right now, only the pagination bar needs this information.
-        //      It only needs to know if there are more than 100 items or not.
-        //      Therefore, returning either 100 or 101.
-        const page2nodes = await findAllNodes({page: 2})
-
-        return page2nodes.length > 0 ? 101 : 100
+        return getTotalNodeCount(DataNodeType.CAR_MODEL_VARIANT)
     },
 
     async getNodeById(id: number) {
