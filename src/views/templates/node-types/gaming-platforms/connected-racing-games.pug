@@ -1,0 +1,12 @@
+if racingGames.length > 0
+    section(data-testid="racing-game-section" class="mb-8")
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Racing Games
+        p(class="mb-4") For the #[b #{gamingPlatform.name}] gaming platform the following #[b #{racingGames.length}] racing games were released.
+
+        ul
+            each nodeItem in racingGames
+                - nodeType = 'racing-game'
+                - nodeUrlPath = 'racing-games/' + nodeItem.id
+                - thumbnail = relationships.racing_games.thumbnails.get(nodeItem.id)
+                - nodeProperties = relationships.racing_games.node_properties
+                include ../../shared/list-node-item

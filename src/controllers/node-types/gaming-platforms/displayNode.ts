@@ -2,6 +2,7 @@ import express from "express"
 import {GamingPlatformModelFacade} from "../../../models/GamingPlatformModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const gamingPlatformId = parseInt(req.params.id)
@@ -16,6 +17,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const racingGames = await GamingPlatformModelFacade.getConnectedRacingGames(gamingPlatformId)
     res.render('templates/node-types/gaming-platforms/gaming-platform-detail-page', {
         page_title: `${gamingPlatform.name} - Gaming Platform`,
         node: {
@@ -24,6 +26,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await GamingPlatformModelFacade.getConnectedMainImage(gamingPlatformId),
         },
         relationships: {
+            racing_games: {
+                items: racingGames,
+                node_properties: getNodeProperties(DataNodeType.RACING_GAME),
+                thumbnails: await getRacingGameThumbnails(racingGames),
+            },
         },
     })
 }

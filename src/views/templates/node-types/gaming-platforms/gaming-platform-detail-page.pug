@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - gamingPlatform = node.data
+
+    - racingGames = relationships.racing_games.items
+    include connected-racing-games
