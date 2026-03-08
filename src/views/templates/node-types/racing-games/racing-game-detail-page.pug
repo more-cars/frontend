@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - racingGame = node.data
+
+    - carModelVariants = relationships.car_model_variants.items
+    include connected-car-model-variants
