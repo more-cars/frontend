@@ -2,6 +2,7 @@ import {getAllRacingGames} from "./node-types/racing-games/getAllRacingGames"
 import {getRacingGameById} from "./node-types/racing-games/getRacingGameById"
 import {getConnectedMainImage} from "./node-types/racing-games/getConnectedMainImage"
 import {getConnectedCarModelVariants} from "./node-types/racing-games/getConnectedCarModelVariants"
+import {getConnectedTrackLayouts} from "./node-types/racing-games/getConnectedTrackLayouts"
 
 export const RacingGameDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -18,5 +19,9 @@ export const RacingGameDataFacade = {
 
     async getConnectedCarModelVariantNodes(id: number) {
         return getConnectedCarModelVariants(id)
+    },
+
+    async getConnectedTrackLayoutNodes(id: number) {
+        return getConnectedTrackLayouts(id)
     },
 }

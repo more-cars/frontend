@@ -52,5 +52,6 @@ export enum DataRelationshipType {
     LAP_TIME_HAS_IMAGE = 'has image',
     RACING_GAME_HAS_MAIN_IMAGE = 'has main image',
     RACING_GAME_FEATURES_CAR_MODEL_VARIANT = 'features car model variant',
+    RACING_GAME_FEATURES_TRACK_LAYOUT = 'features track layout',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }
