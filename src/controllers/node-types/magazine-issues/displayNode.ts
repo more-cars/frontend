@@ -4,6 +4,7 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getMagazineThumbnails} from "../magazines/getMagazineThumbnails"
+import {getMagazineIssueThumbnails} from "./getMagazineIssueThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineIssueId = parseInt(req.params.id)
@@ -19,6 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const magazine = await MagazineIssueModelFacade.getConnectedMagazine(magazineIssueId)
+    const predecessor = await MagazineIssueModelFacade.getConnectedPredecessor(magazineIssueId)
 
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
         page_title: `${magazineIssue.title} - Magazine Issue`,
@@ -34,6 +36,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: magazine,
                 node_properties: getNodeProperties(DataNodeType.MAGAZINE),
                 thumbnails: await getMagazineThumbnails(magazine ? [magazine] : []),
+            },
+            predecessor: {
+                item: predecessor,
+                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                thumbnails: await getMagazineIssueThumbnails(predecessor ? [predecessor] : []),
             },
         },
     })
