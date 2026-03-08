@@ -1,0 +1,98 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Top Gear"
+  },
+  {
+    "name": "founded",
+    "label": "Founded",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "1993"
+  },
+  {
+    "name": "defunct",
+    "label": "Defunct",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": ""
+  },
+  {
+    "name": "focus",
+    "label": "Focus",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "sports cars"
+  },
+  {
+    "name": "publication_frequency",
+    "label": "Publication Frequency",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "monthly"
+  },
+  {
+    "name": "single_copy_price",
+    "label": "Price per Issue",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "5.99"
+  },
+  {
+    "name": "single_copy_price_unit",
+    "label": "Price per Issue (Currency)",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "£"
+  },
+  {
+    "name": "publication_format",
+    "label": "Publication Format",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "print"
+  },
+  {
+    "name": "circulation",
+    "label": "Circulation",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "150884"
+  },
+  {
+    "name": "circulation_year",
+    "label": "Circulation (Year)",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2013"
+  },
+  {
+    "name": "publisher",
+    "label": "Publisher",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Immediate Media Company"
+  },
+  {
+    "name": "issn",
+    "label": "ISSN",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "1350-9624"
+  }
+]
