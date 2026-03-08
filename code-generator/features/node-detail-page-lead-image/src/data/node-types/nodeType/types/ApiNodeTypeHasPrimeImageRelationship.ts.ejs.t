@@ -8,7 +8,7 @@ export type Api<%= h.changeCase.pascal(nodeType) %>HasPrimeImageRelationship = {
         relationship_id: number
         relationship_name: 'has-prime-image'
         partner_node: {
-            node_type: 'image'
+            node_type: 'images'
             data: ApiImageNode['attributes']
         }
         created_at: string
