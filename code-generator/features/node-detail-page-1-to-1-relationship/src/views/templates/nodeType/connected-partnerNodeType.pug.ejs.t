@@ -1,15 +1,11 @@
 ---
 to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/connected-<%= h.changeCase.kebab(partnerNodeType) %>.pug
 ---
-if <%= h.changeCase.camel(partnerNodeType) %>
-    section(data-testid="<%= h.changeCase.kebab(partnerNodeType) %>-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") <%= h.changeCase.title(partnerNodeType) %>
-        p(class="mb-4") The <%= h.changeCase.lower(nodeType) %> #[b #{<%= h.changeCase.camel(nodeType) %>.name}] belongs to the following <%= h.changeCase.lower(partnerNodeType) %>:
-
-        ul
-            - nodeItem = <%= h.changeCase.camel(partnerNodeType) %>
-            - nodeType = '<%= h.changeCase.kebab(partnerNodeType) %>'
-            - nodeUrlPath = '<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>/' + nodeItem.id
-            - thumbnail = relationships.<%= h.changeCase.snake(partnerNodeType) %>.thumbnails.get(nodeItem.id)
-            - nodeProperties = relationships.<%= h.changeCase.snake(partnerNodeType) %>.node_properties
-            include ../../shared/list-node-item
+- sectionHeadline = '<%= h.changeCase.title(partnerNodeType) %>'
+- sectionIntro = `The "${<%= h.changeCase.camel(nodeType) %>.name}" has the following "${<%= h.changeCase.lower(partnerNodeType) %>}" .`
+- nodeType = '<%= h.changeCase.kebab(partnerNodeType) %>'
+- nodeUrlBasePath = '<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>'
+- thumbnails = relationships.<%= h.changeCase.kebab(partnerNodeType) %>.thumbnails
+- nodeProperties = relationships.<%= h.changeCase.kebab(partnerNodeType) %>.node_properties
+- nodeItems = [<%= h.changeCase.camel(partnerNodeType) %>]
+include ../../shared/connected-nodes-section
