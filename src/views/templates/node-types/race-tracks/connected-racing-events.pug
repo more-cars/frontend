@@ -1,12 +1,8 @@
-if racingEvents.length > 0
-    section(data-testid="racing-event-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Racing Events
-        p(class="mb-4") The following racing events where held on the race track #[b #{raceTrack.name}]:
-
-        ul
-            each nodeItem in racingEvents
-                - nodeType = 'racing-event'
-                - nodeUrlPath = 'racing-events/' + nodeItem.id
-                - thumbnail = relationships.racing_events.thumbnails.get(nodeItem.id)
-                - nodeProperties = relationships.racing_events.node_properties
-                include ../../shared/list-node-item
+- sectionHeadline = 'Racing Events'
+- sectionIntro = `The following racing events where held on this race track.`
+- nodeType = 'racing-event'
+- nodeUrlBasePath = 'racing-events'
+- thumbnails = relationships.racing_events.thumbnails
+- nodeProperties = relationships.racing_events.node_properties
+- nodeItems = racingEvents
+include ../../shared/connected-nodes-section
