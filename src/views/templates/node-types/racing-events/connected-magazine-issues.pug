@@ -1,13 +1,9 @@
-if magazineIssues.length > 0
-    section(data-testid="magazine-issue-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Magazine Issues
-        p(class="mb-4") The racing event #[b #{racingEvent.name}] was covered in the following magazine issues.
-
-        ul
-            each nodeItem in magazineIssues
-                - nodeType = 'magazine-issue'
-                - nodeUrlPath = 'magazine-issues/' + nodeItem.id
-                - thumbnail = relationships.magazine_issues.thumbnails.get(nodeItem.id)
-                - nodeProperties = relationships.magazine_issues.node_properties
-                - itemHeadline = nodeItem.title
-                include ../../shared/list-node-item
+- sectionHeadline = 'Magazine Issues'
+- sectionIntro = `The ${racingEvent.name} was covered by the following car magazines.`
+- nodeType = 'magazine-issue'
+- nodeUrlBasePath = 'magazine-issues'
+- thumbnails = relationships.magazine_issues.thumbnails
+- nodeProperties = relationships.magazine_issues.node_properties
+- nodeItems = magazineIssues
+- itemHeadlineProperty = 'title'
+include ../../shared/connected-nodes-section
