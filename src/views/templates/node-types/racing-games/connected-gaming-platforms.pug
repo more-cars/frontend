@@ -1,12 +1,8 @@
-if gamingPlatforms.length > 0
-    section(data-testid="gaming-platform-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Gaming Platforms
-        p(class="mb-4") #[b #{racingGame.name}] was released on the following gaming platforms.
-
-        ul
-            each nodeItem in gamingPlatforms
-                - nodeType = 'gaming-platform'
-                - nodeUrlPath = 'gaming-platforms/' + nodeItem.id
-                - thumbnail = relationships.gaming_platforms.thumbnails.get(nodeItem.id)
-                - nodeProperties = relationships.gaming_platforms.node_properties
-                include ../../shared/list-node-item
+- sectionHeadline = 'Gaming Platforms'
+- sectionIntro = `"${racingGame.name}" was released on the following platforms.`
+- nodeType = 'gaming-platform'
+- nodeUrlBasePath = 'gaming-platforms'
+- thumbnails = relationships.gaming_platforms.thumbnails
+- nodeProperties = relationships.gaming_platforms.node_properties
+- nodeItems = gamingPlatforms
+include ../../shared/connected-nodes-section
