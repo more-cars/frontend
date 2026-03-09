@@ -1,12 +1,8 @@
-if carModelVariants.length > 0
-    section(data-testid="car-model-variant-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Car Model Variants
-        p(class="mb-4") The following #[b #{carModelVariants.length}] cars are presented in this magazine issue.
-
-        ul
-            each nodeItem in carModelVariants
-                - nodeType = 'car-model-variant'
-                - nodeUrlPath = 'car-model-variants/' + nodeItem.id
-                - thumbnail = relationships.car_model_variants.thumbnails.get(nodeItem.id)
-                - nodeProperties = relationships.car_model_variants.node_properties
-                include ../../shared/list-node-item
+- sectionHeadline = 'Car Model Variants'
+- sectionIntro = `The following cars are presented in this issue of the magazine.`
+- nodeType = 'car-model-variant'
+- nodeUrlBasePath = 'car-model-variants'
+- thumbnails = relationships.car_model_variants.thumbnails
+- nodeProperties = relationships.car_model_variants.node_properties
+- nodeItems = carModelVariants
+include ../../shared/connected-nodes-section
