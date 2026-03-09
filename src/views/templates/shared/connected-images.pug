@@ -1,13 +1,7 @@
-section(data-testid="image-section" class="mb-8")
-    h2(class="text-2xl mb-2 border-b-2 border-lime-500") Image Gallery
-    if images.length > 1
-        p(class="mb-4") There are #{images.length} images available for #[b #{node.data.name}]:
-    else
-        p(class="mb-4") There is #{images.length} image available for #[b #{node.data.name}]:
-    ul
-        each nodeItem in images
-            - nodeType = 'image'
-            - nodeUrlPath = 'images/' + nodeItem.id
-            - thumbnail = nodeItem
-            - nodeProperties = relationships.images.node_properties
-            include list-node-item
+- sectionHeadline = 'Image Gallery'
+- sectionIntro = `There are ${images.length} images available for the ${node.data.name}.`
+- nodeType = 'image'
+- nodeUrlBasePath = 'images'
+- nodeProperties = relationships.images.node_properties
+- nodeItems = images
+include connected-nodes-section
