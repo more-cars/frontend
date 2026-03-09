@@ -1,12 +1,8 @@
-if racingSession
-    section(data-testid="racing-session-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Racing Session
-        p(class="mb-4") #[b #{sessionResult.driver_name}] achieved this session result in the following racing session:
-
-        ul
-            - nodeItem = racingSession
-            - nodeType = 'racing-session'
-            - nodeUrlPath = 'racing-sessions/' + nodeItem.id
-            - thumbnail = relationships.racing_session.thumbnails.get(nodeItem.id)
-            - nodeProperties = relationships.racing_session.node_properties
-            include ../../shared/list-node-item
+- sectionHeadline = 'Racing Session'
+- sectionIntro = `${sessionResult.driver_name} achieved this result in the following racing session.`
+- nodeType = 'racing-session'
+- nodeUrlBasePath = 'racing-sessions'
+- thumbnails = relationships.racing_session.thumbnails
+- nodeProperties = relationships.racing_session.node_properties
+- nodeItems = [racingSession]
+include ../../shared/connected-nodes-section
