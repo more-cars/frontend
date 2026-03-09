@@ -1,12 +1,8 @@
-if brand
-    section(data-testid="brand-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Brand
-        p(class="mb-4") The #[b #{carModel.name}] is a car model that was created by the following brand:
-
-        ul
-            - nodeItem = brand
-            - nodeType = 'brand'
-            - nodeUrlPath = 'brands/' + nodeItem.id
-            - thumbnail = relationships.brand.thumbnails.get(nodeItem.id)
-            - nodeProperties = relationships.brand.node_properties
-            include ../../shared/list-node-item
+- sectionHeadline = 'Brand'
+- sectionIntro = `The ${carModel.name} is a car model from the following brand.`
+- nodeType = 'brand'
+- nodeUrlBasePath = 'brands'
+- thumbnails = relationships.brand.thumbnails
+- nodeProperties = relationships.brand.node_properties
+- nodeItems = [brand]
+include ../../shared/connected-nodes-section

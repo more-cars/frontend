@@ -1,12 +1,8 @@
-if predecessor
-    section(data-testid="predecessor-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Predecessor
-        p(class="mb-4") The #[b #{carModel.name}] is the successor of the following car model:
-
-        ul
-            - nodeItem = predecessor
-            - nodeType = 'car-model'
-            - nodeUrlPath = 'car-models/' + nodeItem.id
-            - thumbnail = relationships.predecessor.thumbnails.get(nodeItem.id)
-            - nodeProperties = relationships.predecessor.node_properties
-            include ../../shared/list-node-item
+- sectionHeadline = 'Predecessor'
+- sectionIntro = `The ${carModel.name} is the successor of the following car model.`
+- nodeType = 'car-model'
+- nodeUrlBasePath = 'car-models'
+- thumbnails = relationships.predecessor.thumbnails
+- nodeProperties = relationships.predecessor.node_properties
+- nodeItems = [predecessor]
+include ../../shared/connected-nodes-section
