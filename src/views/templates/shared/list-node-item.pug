@@ -4,7 +4,7 @@ li(class="mb-4 bg-zinc-100 border border-zinc-200 rounded-md" data-testid=`${nod
         div(class="col-span-5")
             a(class="inline-block font-sans text-lg mt-2 mb-1 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${nodeUrlPath}`)
                 span(aria-label="name") #{itemHeadline || nodeItem.name}
-            span(class="float-right pl-3 pb-2 pr-1 m-2 bg-white rounded-bl-full select-none") #{icon(nodeType)}
+            span(class="float-right pl-4 pb-3 pr-2 pt-1 ml-2 mb-2 bg-white rounded-bl-full select-none") #{icon(nodeType)}
             - item = nodeItem
             include primary-properties
 
