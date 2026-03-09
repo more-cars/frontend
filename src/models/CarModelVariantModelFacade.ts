@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/car-model-variants/findNodeById"
 import {findConnectedMainImage} from "./node-types/car-model-variants/findConnectedMainImage"
 import {findConnectedCarModel} from "./node-types/car-model-variants/findConnectedCarModel"
+import {findConnectedMagazineIssues} from "./node-types/car-model-variants/findConnectedMagazineIssues"
 import {findConnectedLapTimes} from "./node-types/car-model-variants/findConnectedLapTimes"
 import {findConnectedSessionResults} from "./node-types/car-model-variants/findConnectedSessionResults"
 import {findConnectedRacingGames} from "./node-types/car-model-variants/findConnectedRacingGames"
@@ -28,6 +29,10 @@ export const CarModelVariantModelFacade = {
 
     async getConnectedCarModel(id: number) {
         return findConnectedCarModel(id)
+    },
+
+    async getConnectedMagazineIssues(id: number) {
+        return findConnectedMagazineIssues(id)
     },
 
     async getConnectedLapTimes(id: number) {

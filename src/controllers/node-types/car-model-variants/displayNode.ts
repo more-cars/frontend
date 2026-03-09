@@ -7,6 +7,7 @@ import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
 import {getLapTimeThumbnails} from "../lap-times/getLapTimeThumbnails"
 import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
 import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
+import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
@@ -22,6 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const carModel = await CarModelVariantModelFacade.getConnectedCarModel(carModelVariantId)
+    const magazineIssues = await CarModelVariantModelFacade.getConnectedMagazineIssues(carModelVariantId)
     const lapTimes = await CarModelVariantModelFacade.getConnectedLapTimes(carModelVariantId)
     const sessionResults = await CarModelVariantModelFacade.getConnectedSessionResults(carModelVariantId)
     const racingGames = await CarModelVariantModelFacade.getConnectedRacingGames(carModelVariantId)
@@ -40,6 +42,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: carModel,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(carModel ? [carModel] : []),
+            },
+            magazine_issues: {
+                items: magazineIssues,
+                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                thumbnails: await getMagazineIssueThumbnails(magazineIssues),
             },
             lap_times: {
                 items: lapTimes,
