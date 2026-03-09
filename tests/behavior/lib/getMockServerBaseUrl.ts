@@ -1,3 +1,3 @@
 export function getMockServerBaseUrl() {
-    return 'http://localhost:3000/__admin'
+    return 'http://localhost:3003/__admin'
 }

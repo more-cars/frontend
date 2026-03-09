@@ -7,6 +7,6 @@ Cypress.Commands.overwrite('visit', (original, url, options = {}) => {
         },
     }
 
-    // @ts-expect-error TS2554
+    // @ts-expect-error TS2554 TS2554
     return original(url, extendedOptions)
 })

@@ -27,6 +27,7 @@ mockApiServer.use(adminRoutes)
 // @ts-expect-error TS2345 TS2345 TS2345
 mockApiServer.use((req, res) => api.handleRequest(req, req, res))
 
-mockApiServer.listen(3000, () =>
-    console.log("Mock server running on http://localhost:3000")
+const port = 3003
+mockApiServer.listen(port, () =>
+    console.log(`Mock server running on http://localhost:${port}`)
 )
