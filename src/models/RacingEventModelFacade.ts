@@ -8,8 +8,9 @@ import {findConnectedPredecessor} from "./node-types/racing-events/findConnected
 import {findConnectedSuccessor} from "./node-types/racing-events/findConnectedSuccessor"
 import {findConnectedRaceTrack} from "./node-types/racing-events/findConnectedRaceTrack"
 import {findConnectedTrackLayout} from "./node-types/racing-events/findConnectedTrackLayout"
-import {findConnectedImages} from "./node-types/racing-events/findConnectedImages"
 import {findConnectedRacingSessions} from "./node-types/racing-events/findConnectedRacingSessions"
+import {findConnectedMagazineIssues} from "./node-types/racing-events/findConnectedMagazineIssues"
+import {findConnectedImages} from "./node-types/racing-events/findConnectedImages"
 
 export const RacingEventModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -48,11 +49,15 @@ export const RacingEventModelFacade = {
         return findConnectedTrackLayout(id)
     },
 
-    async getConnectedImages(id: number) {
-        return findConnectedImages(id)
-    },
-
     async getConnectedRacingSessions(id: number) {
         return findConnectedRacingSessions(id)
+    },
+
+    async getConnectedMagazineIssues(id: number) {
+        return findConnectedMagazineIssues(id)
+    },
+
+    async getConnectedImages(id: number) {
+        return findConnectedImages(id)
     },
 }

@@ -8,6 +8,7 @@ import {getRacingEventThumbnails} from "./getRacingEventThumbnails"
 import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
 import {getRacingSessionThumbnails} from "../racing-sessions/getRacingSessionThumbnails"
+import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingEventId = parseInt(req.params.id)
@@ -28,6 +29,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const raceTrack = await RacingEventModelFacade.getConnectedRaceTrack(racingEventId)
     const trackLayout = await RacingEventModelFacade.getConnectedTrackLayout(racingEventId)
     const racingSessions = await RacingEventModelFacade.getConnectedRacingSessions(racingEventId)
+    const magazineIssues = await RacingEventModelFacade.getConnectedMagazineIssues(racingEventId)
     const images = await RacingEventModelFacade.getConnectedImages(racingEventId)
 
     res.render('templates/node-types/racing-events/racing-event-detail-page', {
@@ -68,6 +70,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: racingSessions,
                 node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
                 thumbnails: await getRacingSessionThumbnails(racingSessions),
+            },
+            magazine_issues: {
+                items: magazineIssues,
+                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                thumbnails: await getMagazineIssueThumbnails(magazineIssues),
             },
             images: {
                 items: images,
