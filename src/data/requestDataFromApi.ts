@@ -3,10 +3,12 @@ import {buildMemoryStorage, setupCache} from 'axios-cache-interceptor'
 import https from 'https'
 import {getApiBaseUrl} from "./getApiBaseUrl"
 
-const axiosInstance = Axios.create()
-const axios = setupCache(axiosInstance, {
-    storage: buildMemoryStorage(false, 1000 * 60 * 5, 100000, 1000 * 60 * 60 * 24)
-})
+const axios =
+    process.env.NODE_ENV === 'test'
+        ? Axios.create()
+        : setupCache(Axios.create(), {
+            storage: buildMemoryStorage(false, 1000 * 60 * 5, 100000, 1000 * 60 * 60 * 24)
+        })
 
 // Normally, the frontend and the REST API run in the same cluster, the same environment, the same network.
 // They don't need to encrypt their communication - they can use plain HTTP.
