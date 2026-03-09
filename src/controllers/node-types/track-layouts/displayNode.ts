@@ -23,6 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const raceTrack = await TrackLayoutModelFacade.getConnectedRaceTrack(trackLayoutId)
     const racingEvents = await TrackLayoutModelFacade.getConnectedRacingEvents(trackLayoutId)
     const racingGames = await TrackLayoutModelFacade.getConnectedRacingGames(trackLayoutId)
+    const images = await TrackLayoutModelFacade.getConnectedImages(trackLayoutId)
 
     res.render('templates/node-types/track-layouts/track-layout-detail-page', {
         page_title: `${trackLayout.name} - Track Layout`,
@@ -49,7 +50,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 thumbnails: await getRacingGameThumbnails(racingGames),
             },
             images: {
-                items: await TrackLayoutModelFacade.getConnectedImages(trackLayoutId),
+                items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
