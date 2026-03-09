@@ -1,12 +1,8 @@
-if racingGames.length > 0
-    section(data-testid="racing-game-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Racing Games
-        p(class="mb-4") The #[b #{trackLayout.name}] is featured in the following racing games.
-
-        ul
-            each nodeItem in racingGames
-                - nodeType = 'racing-game'
-                - nodeUrlPath = 'racing-games/' + nodeItem.id
-                - thumbnail = relationships.racing_games.thumbnails.get(nodeItem.id)
-                - nodeProperties = relationships.racing_games.node_properties
-                include ../../shared/list-node-item
+- sectionHeadline = 'Racing Games'
+- sectionIntro = `The layout "${trackLayout.name}" is featured in the following racing games.`
+- nodeType = 'racing-game'
+- nodeUrlBasePath = 'racing-games'
+- thumbnails = relationships.racing_games.thumbnails
+- nodeProperties = relationships.racing_games.node_properties
+- nodeItems = racingGames
+include ../../shared/connected-nodes-section
