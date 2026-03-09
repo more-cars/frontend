@@ -1,12 +1,8 @@
-if carModels.length > 0
-    section(data-testid="car-model-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Car Models
-        p(class="mb-4") The following #{carModels.length} car models wear the #[b #{brand.name}] badge:
-
-        ul
-            each nodeItem in carModels
-                - nodeType = 'car-model'
-                - nodeUrlPath = 'car-models/' + nodeItem.id
-                - thumbnail = relationships.car_models.thumbnails.get(nodeItem.id)
-                - nodeProperties = relationships.car_models.node_properties
-                include ../../shared/list-node-item
+- sectionHeadline = 'Company'
+- sectionIntro = `The following car models were created under the brand name ${brand.name}.`
+- nodeType = 'car-model'
+- nodeUrlBasePath = 'car-models'
+- thumbnails = relationships.car_models.thumbnails
+- nodeProperties = relationships.car_models.node_properties
+- nodeItems = carModels
+include ../../shared/connected-nodes-section
