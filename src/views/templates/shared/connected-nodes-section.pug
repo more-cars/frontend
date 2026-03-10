@@ -1,5 +1,5 @@
 if nodeItems.length > 0 && nodeItems[0] !== null
-    section(data-testid=`${nodeType}-section` class="mb-8")
+    section(data-testid=`${sectionName || nodeType}-section` class="mb-8")
         hgroup
             h2(class="text-2xl mb-2 border-b-2 border-lime-500") #{sectionHeadline}
                 if nodeItems.length > 1
@@ -12,4 +12,7 @@ if nodeItems.length > 0 && nodeItems[0] !== null
                 - thumbnail = thumbnails ? thumbnails.get(nodeItem.id) : nodeItem
                 - itemHeadline = itemHeadlineProperty ? nodeItem[itemHeadlineProperty] : nodeItem['name']
                 include list-node-item
-            - thumbnails = null
+
+- thumbnails = null
+- sectionName = null
+- itemHeadlineProperty = null
