@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiRacingSessionNode} from "../../racing-sessions/types/ApiRacingSessionNode"
 
 export type ApiSessionResultBelongsToRacingSessionRelationship = {
@@ -5,7 +6,7 @@ export type ApiSessionResultBelongsToRacingSessionRelationship = {
         relationship_id: number
         relationship_name: 'belongs-to-racing-session'
         partner_node: {
-            node_type: 'racing session'
+            node_type: ApiNodeType.RACING_SESSION
             data: ApiRacingSessionNode['attributes']
         }
         created_at: string

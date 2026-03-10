@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiSessionResultNode} from "../../session-results/types/ApiSessionResultNode"
 
 export type ApiCarModelVariantAchievedSessionResultRelationship = {
@@ -5,7 +6,7 @@ export type ApiCarModelVariantAchievedSessionResultRelationship = {
         relationship_id: number
         relationship_name: 'achieved-session-result'
         partner_node: {
-            node_type: 'session result'
+            node_type: ApiNodeType.SESSION_RESULT
             data: ApiSessionResultNode['attributes']
         }
         created_at: string

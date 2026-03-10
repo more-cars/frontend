@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiBrandNode} from "../../brands/types/ApiBrandNode"
 import type {ApiCarModelNode} from "../../car-models/types/ApiCarModelNode"
 
@@ -6,7 +7,7 @@ export type ApiImageBelongsToNodeRelationship = {
         relationship_id: number
         relationship_name: 'belongs-to-node'
         partner_node: {
-            node_type: 'brand' | 'car model'
+            node_type: ApiNodeType.BRAND | ApiNodeType.CAR_MODEL
             data: ApiBrandNode['attributes'] | ApiCarModelNode['attributes']
         }
         created_at: string

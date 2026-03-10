@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiRacingEventNode} from "../../racing-events/types/ApiRacingEventNode"
 
 export type ApiRaceTrackHostedRacingEventRelationship = {
@@ -5,7 +6,7 @@ export type ApiRaceTrackHostedRacingEventRelationship = {
         relationship_id: number
         relationship_name: 'hosted-racing-event'
         partner_node: {
-            node_type: 'racing event'
+            node_type: ApiNodeType.RACING_EVENT
             data: ApiRacingEventNode['attributes']
         }
         created_at: string

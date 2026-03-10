@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiBrandNode} from "../../brands/types/ApiBrandNode"
 
 export type ApiCompanyHasBrandRelationship = {
@@ -5,7 +6,7 @@ export type ApiCompanyHasBrandRelationship = {
         relationship_id: number
         relationship_name: 'has-brand'
         partner_node: {
-            node_type: 'brand'
+            node_type: ApiNodeType.BRAND
             data: ApiBrandNode['attributes']
         }
         created_at: string

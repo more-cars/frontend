@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiCarModelNode} from "../../car-models/types/ApiCarModelNode"
 
 export type ApiCarModelVariantIsVariantOfRelationship = {
@@ -5,7 +6,7 @@ export type ApiCarModelVariantIsVariantOfRelationship = {
         relationship_id: number
         relationship_name: 'is-variant-of'
         partner_node: {
-            node_type: 'car model'
+            node_type: ApiNodeType.CAR_MODEL
             data: ApiCarModelNode['attributes']
         }
         created_at: string

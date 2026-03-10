@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiRacingGameNode} from "../../racing-games/types/ApiRacingGameNode"
 
 export type ApiGamingPlatformFeaturesRacingGameRelationship = {
@@ -5,7 +6,7 @@ export type ApiGamingPlatformFeaturesRacingGameRelationship = {
         relationship_id: number
         relationship_name: 'features-racing-game'
         partner_node: {
-            node_type: 'racing-games'
+            node_type: ApiNodeType.RACING_GAME
             data: ApiRacingGameNode['attributes']
         }
         created_at: string

@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiMagazineIssueNode} from "../../magazine-issues/types/ApiMagazineIssueNode"
 
 export type ApiRacingEventCoveredByMagazineIssueRelationship = {
@@ -5,7 +6,7 @@ export type ApiRacingEventCoveredByMagazineIssueRelationship = {
         relationship_id: number
         relationship_name: 'covered-by-magazine-issue'
         partner_node: {
-            node_type: 'magazine-issues'
+            node_type: ApiNodeType.MAGAZINE_ISSUE
             data: ApiMagazineIssueNode['attributes']
         }
         created_at: string

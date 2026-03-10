@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiLapTimeNode} from "../../lap-times/types/ApiLapTimeNode"
 
 export type ApiSessionResultHasLapTimeRelationship = {
@@ -5,7 +6,7 @@ export type ApiSessionResultHasLapTimeRelationship = {
         relationship_id: number
         relationship_name: 'has-lap-time'
         partner_node: {
-            node_type: 'lap time'
+            node_type: ApiNodeType.LAP_TIME
             data: ApiLapTimeNode['attributes']
         }
         created_at: string

@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiImageNode} from "../../images/types/ApiImageNode"
 
 export type ApiRacingSeriesHasImageRelationship = {
@@ -5,7 +6,7 @@ export type ApiRacingSeriesHasImageRelationship = {
         relationship_id: number
         relationship_name: 'has-image'
         partner_node: {
-            node_type: 'image'
+            node_type: ApiNodeType.IMAGE
             data: ApiImageNode['attributes']
         }
         created_at: string

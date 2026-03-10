@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiSessionResultNode} from "../../session-results/types/ApiSessionResultNode"
 
 export type ApiLapTimeBelongsToSessionResultRelationship = {
@@ -5,7 +6,7 @@ export type ApiLapTimeBelongsToSessionResultRelationship = {
         relationship_id: number
         relationship_name: 'belongs-to-session-result'
         partner_node: {
-            node_type: 'session result'
+            node_type: ApiNodeType.SESSION_RESULT
             data: ApiSessionResultNode['attributes']
         }
         created_at: string

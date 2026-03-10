@@ -1,3 +1,4 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiTrackLayoutNode} from "../../track-layouts/types/ApiTrackLayoutNode"
 
 export type ApiRacingGameFeaturesTrackLayoutRelationship = {
@@ -5,7 +6,7 @@ export type ApiRacingGameFeaturesTrackLayoutRelationship = {
         relationship_id: number
         relationship_name: 'features-track-layout'
         partner_node: {
-            node_type: 'track-layouts'
+            node_type: ApiNodeType.TRACK_LAYOUT
             data: ApiTrackLayoutNode['attributes']
         }
         created_at: string
