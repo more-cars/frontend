@@ -4,7 +4,7 @@ import https from 'https'
 import {getApiBaseUrl} from "./getApiBaseUrl"
 
 const axios =
-    process.env.NODE_ENV === 'test'
+    process.env.API_CACHE_DISABLED
         ? Axios.create()
         : setupCache(Axios.create(), {
             storage: buildMemoryStorage(false, 1000 * 60 * 5, 100000, 1000 * 60 * 60 * 24)

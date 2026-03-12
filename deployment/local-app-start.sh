@@ -19,7 +19,7 @@ fi
 
 echo 🟢 Starting application...
 
-NODE_ENV=test node --watch --env-file=.env -r ts-node/register src/server.ts &
+node --watch --env-file=.env -r ts-node/register src/server.ts &
 
 if ! [ $? -eq 0 ]; then
   echo ⚠️ Error while starting the application
