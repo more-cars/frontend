@@ -23,6 +23,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.RATING,
             data: rating,
             node_properties: getNodeProperties(DataNodeType.RATING),
+            main_image: await RatingModelFacade.getConnectedMainImage(ratingId),
         },
         relationships: {},
     })

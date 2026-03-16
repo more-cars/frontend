@@ -2,6 +2,6 @@
 inject: true
 to: src/data/types/ApiRelationshipType.ts
 before: IMAGE_BELONGS_TO_NODE
-skip_if: <%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>
+skip_if: <%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE
 ---
     <%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE = 'has-main-image',
