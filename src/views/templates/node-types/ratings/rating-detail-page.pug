@@ -2,7 +2,10 @@ extends ../../node-types/detail-page
 
 block sub_headline
     - rating = node.data
-    | #{rating.rating_value}
+    | #{Math.round(rating.rating_value / (rating.scale_maximum - rating.scale_minimum) * 100 * 100) / 100} Percent
 
 block relationships
     - rating = node.data
+
+    - magazineIssue = relationships.magazine_issue.item
+    include connected-magazine-issue

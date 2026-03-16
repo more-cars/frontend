@@ -75,5 +75,6 @@ export enum ApiRelationshipType {
     MAGAZINE_ISSUE_COVERS_RACING_EVENT = 'covers-racing-event',
     MAGAZINE_ISSUE_HAS_IMAGE = 'has-image',
     RATING_HAS_MAIN_IMAGE = 'has-main-image',
+    RATING_BY_MAGAZINE_ISSUE = 'by-magazine-issue',
     IMAGE_BELONGS_TO_NODE = 'belongs-to-node',
 }
