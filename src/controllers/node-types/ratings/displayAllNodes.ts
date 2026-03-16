@@ -3,6 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {RatingModelFacade} from "../../../models/RatingModelFacade"
+import {getRatingThumbnails} from "./getRatingThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -12,6 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All Ratings',
         main_headline: 'All Ratings',
         node_collection: ratings,
+        thumbnails: await getRatingThumbnails(ratings),
         node_properties: getNodeProperties(DataNodeType.RATING),
         pagination: {
             page,
