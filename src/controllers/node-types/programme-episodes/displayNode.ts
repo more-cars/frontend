@@ -3,6 +3,7 @@ import {ProgrammeEpisodeModelFacade} from "../../../models/ProgrammeEpisodeModel
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getProgrammeThumbnails} from "../programmes/getProgrammeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const programmeEpisodeId = parseInt(req.params.id)
@@ -17,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const programme = await ProgrammeEpisodeModelFacade.getConnectedProgramme(programmeEpisodeId)
+
     res.render('templates/node-types/programme-episodes/programme-episode-detail-page', {
         page_title: `${programmeEpisode.title} - Programme Episode`,
         main_headline: `${programmeEpisode.title}`,
@@ -26,6 +29,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
             main_image: await ProgrammeEpisodeModelFacade.getConnectedMainImage(programmeEpisodeId),
         },
-        relationships: {},
+        relationships: {
+            programme: {
+                item: programme,
+                node_properties: getNodeProperties(DataNodeType.PROGRAMME),
+                thumbnails: await getProgrammeThumbnails(programme ? [programme] : []),
+            },
+        },
     })
 }

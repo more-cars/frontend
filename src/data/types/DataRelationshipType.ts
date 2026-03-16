@@ -79,7 +79,8 @@ export enum DataRelationshipType {
     RATING_BY_MAGAZINE_ISSUE = 'by magazine issue',
     RATING_HAS_IMAGE = 'has image',
     PROGRAMME_HAS_MAIN_IMAGE = 'has main image',
-    PROGRAMME_EPISODE_HAS_MAIN_IMAGE = 'has main image',
     PROGRAMME_HAS_EPISODE = 'has episode',
+    PROGRAMME_EPISODE_HAS_MAIN_IMAGE = 'has main image',
+    PROGRAMME_EPISODE_BELONGS_TO_PROGRAMME = 'belongs to programme',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }

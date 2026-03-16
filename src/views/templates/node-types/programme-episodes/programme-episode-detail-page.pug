@@ -6,3 +6,6 @@ block sub_headline
 
 block relationships
     - programmeEpisode = node.data
+
+    - programme = relationships.programme.item
+    include connected-programme
