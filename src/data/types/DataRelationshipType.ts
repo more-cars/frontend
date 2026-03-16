@@ -78,5 +78,6 @@ export enum DataRelationshipType {
     RATING_FOR_CAR_MODEL_VARIANT = 'for car model variant',
     RATING_BY_MAGAZINE_ISSUE = 'by magazine issue',
     RATING_HAS_IMAGE = 'has image',
+    PROGRAMME_HAS_MAIN_IMAGE = 'has main image',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }
