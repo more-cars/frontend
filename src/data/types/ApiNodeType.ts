@@ -14,5 +14,6 @@ export enum ApiNodeType {
     GAMING_PLATFORM = 'gaming-platforms',
     MAGAZINE = 'magazines',
     MAGAZINE_ISSUE = 'magazine-issues',
+    RATING = 'ratings',
     IMAGE = 'images',
 }

@@ -17,6 +17,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.GAMING_PLATFORM, '🖥️'],
         [ControllerNodeType.MAGAZINE, '📰'],
         [ControllerNodeType.MAGAZINE_ISSUE, '🗞️'],
+        [ControllerNodeType.RATING, '💯'],
         [ControllerNodeType.IMAGE, '🖼️'],
     ])
 
