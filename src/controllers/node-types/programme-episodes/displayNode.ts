@@ -6,6 +6,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getProgrammeThumbnails} from "../programmes/getProgrammeThumbnails"
 import {getProgrammeEpisodeThumbnails} from "./getProgrammeEpisodeThumbnails"
 import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
+import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const programmeEpisodeId = parseInt(req.params.id)
@@ -24,6 +25,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const predecessor = await ProgrammeEpisodeModelFacade.getConnectedPredecessor(programmeEpisodeId)
     const successor = await ProgrammeEpisodeModelFacade.getConnectedSuccessor(programmeEpisodeId)
     const carModels = await ProgrammeEpisodeModelFacade.getConnectedCarModels(programmeEpisodeId)
+    const carModelVariants = await ProgrammeEpisodeModelFacade.getConnectedCarModelVariants(programmeEpisodeId)
 
     res.render('templates/node-types/programme-episodes/programme-episode-detail-page', {
         page_title: `${programmeEpisode.title} - Programme Episode`,
@@ -54,6 +56,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: carModels,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
                 thumbnails: await getCarModelThumbnails(carModels),
+            },
+            car_model_variants: {
+                items: carModelVariants,
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                thumbnails: await getCarModelVariantThumbnails(carModelVariants),
             },
         },
     })

@@ -7,6 +7,7 @@ import {findConnectedProgramme} from "./node-types/programme-episodes/findConnec
 import {findConnectedPredecessor} from "./node-types/programme-episodes/findConnectedPredecessor"
 import {findConnectedSuccessor} from "./node-types/programme-episodes/findConnectedSuccessor"
 import {findConnectedCarModels} from "./node-types/programme-episodes/findConnectedCarModels"
+import {findConnectedCarModelVariants} from "./node-types/programme-episodes/findConnectedCarModelVariants"
 
 export const ProgrammeEpisodeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -39,5 +40,9 @@ export const ProgrammeEpisodeModelFacade = {
 
     async getConnectedCarModels(id: number) {
         return findConnectedCarModels(id)
+    },
+
+    async getConnectedCarModelVariants(id: number) {
+        return findConnectedCarModelVariants(id)
     },
 }
