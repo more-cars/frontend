@@ -20,6 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const programme = await ProgrammeEpisodeModelFacade.getConnectedProgramme(programmeEpisodeId)
+    const predecessor = await ProgrammeEpisodeModelFacade.getConnectedPredecessor(programmeEpisodeId)
     const successor = await ProgrammeEpisodeModelFacade.getConnectedSuccessor(programmeEpisodeId)
 
     res.render('templates/node-types/programme-episodes/programme-episode-detail-page', {
@@ -36,6 +37,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: programme,
                 node_properties: getNodeProperties(DataNodeType.PROGRAMME),
                 thumbnails: await getProgrammeThumbnails(programme ? [programme] : []),
+            },
+            predecessor: {
+                item: predecessor,
+                node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
+                thumbnails: await getProgrammeEpisodeThumbnails(predecessor ? [predecessor] : []),
             },
             successor: {
                 item: successor,
