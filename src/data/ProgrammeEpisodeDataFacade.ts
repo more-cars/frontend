@@ -2,6 +2,7 @@ import {getAllProgrammeEpisodes} from "./node-types/programme-episodes/getAllPro
 import {getProgrammeEpisodeById} from "./node-types/programme-episodes/getProgrammeEpisodeById"
 import {getConnectedMainImage} from "./node-types/programme-episodes/getConnectedMainImage"
 import {getConnectedProgramme} from "./node-types/programme-episodes/getConnectedProgramme"
+import {getConnectedSuccessor} from "./node-types/programme-episodes/getConnectedSuccessor"
 
 export const ProgrammeEpisodeDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -18,5 +19,9 @@ export const ProgrammeEpisodeDataFacade = {
 
     async getConnectedProgrammeNode(id: number) {
         return getConnectedProgramme(id)
+    },
+
+    async getConnectedSuccessorNode(id: number) {
+        return getConnectedSuccessor(id)
     },
 }
