@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - rating = node.data
+    | #{rating.rating_value}
+
+block relationships
+    - rating = node.data
