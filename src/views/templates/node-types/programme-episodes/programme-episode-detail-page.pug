@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - programmeEpisode = node.data
+    | #{programmeEpisode.original_air_date} | Season #{programmeEpisode.season_number} | Episode #{programmeEpisode.season_episode_number}
+
+block relationships
+    - programmeEpisode = node.data

@@ -4,5 +4,6 @@ import {ProgrammeEpisodeControllerFacade} from "../controllers/ProgrammeEpisodeC
 const router = express.Router()
 
 router.get('/programme-episodes', ProgrammeEpisodeControllerFacade.showAllNodes)
+router.get('/programme-episodes/:id', ProgrammeEpisodeControllerFacade.showNode)
 
 export default router
