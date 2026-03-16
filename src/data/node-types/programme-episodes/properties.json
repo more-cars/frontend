@@ -1,0 +1,42 @@
+[
+  {
+    "name": "title",
+    "label": "Title",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "The Falls Guys"
+  },
+  {
+    "name": "season_number",
+    "label": "Season",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2"
+  },
+  {
+    "name": "season_episode_number",
+    "label": "Episode",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2"
+  },
+  {
+    "name": "original_air_date",
+    "label": "Air Date",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "2017-12-08"
+  },
+  {
+    "name": "duration",
+    "label": "Duration",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "PT55M"
+  }
+]

@@ -1,0 +1,15 @@
+if node_collection.length === 0
+    include ../../shared/nodes-not-found-warning
+    +nodes-not-found-warning("programme episode")
+else
+    section(data-testid="programme-episode-section")
+        ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
+            each nodeItem in node_collection
+                - nodeType = 'programme-episode'
+                - nodeUrlPath = 'programme-episodes/' + nodeItem.id
+                - nodeProperties = node_properties
+                - itemHeadline = nodeItem.title
+                include ../../shared/list-node-item
+
+    include ../../shared/pagination
+    +pagination('programme-episodes', pagination.page, pagination.total)

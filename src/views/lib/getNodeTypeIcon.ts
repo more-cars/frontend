@@ -19,6 +19,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.MAGAZINE_ISSUE, '🗞️'],
         [ControllerNodeType.RATING, '💯'],
         [ControllerNodeType.PROGRAMME, '📺'],
+        [ControllerNodeType.PROGRAMME_EPISODE, '🎬️'],
         [ControllerNodeType.IMAGE, '🖼️'],
     ])
 

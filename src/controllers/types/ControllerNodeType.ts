@@ -16,5 +16,6 @@ export enum ControllerNodeType {
     MAGAZINE_ISSUE = 'magazine-issue',
     RATING = 'rating',
     PROGRAMME = 'programme',
+    PROGRAMME_EPISODE = 'programme-episode',
     IMAGE = 'image',
 }

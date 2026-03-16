@@ -16,5 +16,6 @@ export enum DataNodeType {
     MAGAZINE_ISSUE = 'magazine issue',
     RATING = 'rating',
     PROGRAMME = 'programme',
+    PROGRAMME_EPISODE = 'programme episode',
     IMAGE = 'image',
 }
