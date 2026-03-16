@@ -19,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const programmeEpisodes = await ProgrammeModelFacade.getConnectedProgrammeEpisodes(programmeId)
+    const images = await ProgrammeModelFacade.getConnectedImages(programmeId)
 
     res.render('templates/node-types/programmes/programme-detail-page', {
         page_title: `${programme.name} - Programme`,
@@ -33,6 +34,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: programmeEpisodes,
                 node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
                 thumbnails: await getProgrammeEpisodeThumbnails(programmeEpisodes),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })

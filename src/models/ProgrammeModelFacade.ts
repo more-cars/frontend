@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/programmes/findNodeById"
 import {findConnectedMainImage} from "./node-types/programmes/findConnectedMainImage"
 import {findConnectedProgrammeEpisodes} from "./node-types/programmes/findConnectedProgrammeEpisodes"
+import {findConnectedImages} from "./node-types/programmes/findConnectedImages"
 
 export const ProgrammeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -24,5 +25,9 @@ export const ProgrammeModelFacade = {
 
     async getConnectedProgrammeEpisodes(id: number) {
         return findConnectedProgrammeEpisodes(id)
+    },
+
+    async getConnectedImages(id: number) {
+        return findConnectedImages(id)
     },
 }
