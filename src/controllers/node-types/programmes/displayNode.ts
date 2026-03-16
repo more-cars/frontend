@@ -3,6 +3,7 @@ import {ProgrammeModelFacade} from "../../../models/ProgrammeModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getProgrammeEpisodeThumbnails} from "../programme-episodes/getProgrammeEpisodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const programmeId = parseInt(req.params.id)
@@ -17,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const programmeEpisodes = await ProgrammeModelFacade.getConnectedProgrammeEpisodes(programmeId)
+
     res.render('templates/node-types/programmes/programme-detail-page', {
         page_title: `${programme.name} - Programme`,
         node: {
@@ -26,6 +29,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await ProgrammeModelFacade.getConnectedMainImage(programmeId),
         },
         relationships: {
+            programme_episodes: {
+                items: programmeEpisodes,
+                node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
+                thumbnails: await getProgrammeEpisodeThumbnails(programmeEpisodes),
+            },
         },
     })
 }

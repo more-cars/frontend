@@ -3,6 +3,7 @@ import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/programmes/findNodeById"
 import {findConnectedMainImage} from "./node-types/programmes/findConnectedMainImage"
+import {findConnectedProgrammeEpisodes} from "./node-types/programmes/findConnectedProgrammeEpisodes"
 
 export const ProgrammeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -19,5 +20,9 @@ export const ProgrammeModelFacade = {
 
     async getConnectedMainImage(id: number) {
         return findConnectedMainImage(id)
+    },
+
+    async getConnectedProgrammeEpisodes(id: number) {
+        return findConnectedProgrammeEpisodes(id)
     },
 }
