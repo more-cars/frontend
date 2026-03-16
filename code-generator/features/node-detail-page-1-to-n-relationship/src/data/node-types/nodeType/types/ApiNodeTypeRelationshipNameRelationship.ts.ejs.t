@@ -8,7 +8,7 @@ import type {Api<%= h.changeCase.pascal(partnerNodeType) %>Node} from "../../<%=
 export type Api<%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship = {
     data: {
         relationship_id: number
-        relationship_name: ApiRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>'
+        relationship_name: ApiRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>
         partner_node: {
             ApiNodeType.<%= h.changeCase.constant(partnerNodeType) %>
             data: Api<%= h.changeCase.pascal(partnerNodeType) %>Node['attributes']
