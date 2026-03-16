@@ -1,0 +1,58 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Top Gear"
+  },
+  {
+    "name": "aired_from_year",
+    "label": "Aired from",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2002"
+  },
+  {
+    "name": "aired_until_year",
+    "label": "Aired until",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "2022"
+  },
+  {
+    "name": "channel",
+    "label": "Channel / Station",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "BBC Two"
+  },
+  {
+    "name": "total_seasons",
+    "label": "Seasons",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "33"
+  },
+  {
+    "name": "total_episodes",
+    "label": "Episodes",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": "240"
+  },
+  {
+    "name": "regular_episode_running_time",
+    "label": "Running Time",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "PT60M"
+  }
+]

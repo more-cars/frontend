@@ -17,6 +17,7 @@ import gamingPlatforms from "./routes/gaming-platforms"
 import magazines from "./routes/magazines"
 import magazineIssues from "./routes/magazine-issues"
 import ratings from "./routes/ratings"
+import programmes from "./routes/programmes"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -48,6 +49,7 @@ app.use('/', gamingPlatforms)
 app.use('/', magazines)
 app.use('/', magazineIssues)
 app.use('/', ratings)
+app.use('/', programmes)
 app.use('/', images)
 
 app.locals.formatDate = convertDate

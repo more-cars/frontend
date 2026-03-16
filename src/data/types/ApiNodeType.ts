@@ -15,5 +15,6 @@ export enum ApiNodeType {
     MAGAZINE = 'magazines',
     MAGAZINE_ISSUE = 'magazine-issues',
     RATING = 'ratings',
+    PROGRAMME = 'programmes',
     IMAGE = 'images',
 }
