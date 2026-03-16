@@ -1,0 +1,8 @@
+extends ../../node-types/detail-page
+
+block sub_headline
+    - programme = node.data
+    | #{programme.aired_from_year} - #{programme.aired_until_year}
+
+block relationships
+    - programme = node.data
