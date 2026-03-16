@@ -3,6 +3,7 @@ import {getRatingById} from "./node-types/ratings/getRatingById"
 import {getConnectedMainImage} from "./node-types/ratings/getConnectedMainImage"
 import {getConnectedCarModelVariant} from "./node-types/ratings/getConnectedCarModelVariant"
 import {getConnectedMagazineIssue} from "./node-types/ratings/getConnectedMagazineIssue"
+import {getConnectedImages} from "./node-types/ratings/getConnectedImages"
 
 export const RatingDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const RatingDataFacade = {
 
     async getConnectedMagazineIssueNode(id: number) {
         return getConnectedMagazineIssue(id)
+    },
+
+    async getConnectedImageNodes(id: number) {
+        return getConnectedImages(id)
     },
 }

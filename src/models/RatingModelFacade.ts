@@ -5,6 +5,7 @@ import {findNodeById} from "./node-types/ratings/findNodeById"
 import {findConnectedMainImage} from "./node-types/ratings/findConnectedMainImage"
 import {findConnectedCarModelVariant} from "./node-types/ratings/findConnectedCarModelVariant"
 import {findConnectedMagazineIssue} from "./node-types/ratings/findConnectedMagazineIssue"
+import {findConnectedImages} from "./node-types/ratings/findConnectedImages"
 
 export const RatingModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -29,5 +30,9 @@ export const RatingModelFacade = {
 
     async getConnectedMagazineIssue(id: number) {
         return findConnectedMagazineIssue(id)
+    },
+
+    async getConnectedImages(id: number) {
+        return findConnectedImages(id)
     },
 }

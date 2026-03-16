@@ -21,6 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const carModelVariant = await RatingModelFacade.getConnectedCarModelVariant(ratingId)
     const magazineIssue = await RatingModelFacade.getConnectedMagazineIssue(ratingId)
+    const images = await RatingModelFacade.getConnectedImages(ratingId)
 
     res.render('templates/node-types/ratings/rating-detail-page', {
         page_title: `${rating.rating_value} - Rating`,
@@ -41,6 +42,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: magazineIssue,
                 node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
                 thumbnails: await getMagazineIssueThumbnails(magazineIssue ? [magazineIssue] : []),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })
