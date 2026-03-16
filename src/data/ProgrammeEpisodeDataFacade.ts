@@ -6,6 +6,7 @@ import {getConnectedPredecessor} from "./node-types/programme-episodes/getConnec
 import {getConnectedSuccessor} from "./node-types/programme-episodes/getConnectedSuccessor"
 import {getConnectedCarModels} from "./node-types/programme-episodes/getConnectedCarModels"
 import {getConnectedCarModelVariants} from "./node-types/programme-episodes/getConnectedCarModelVariants"
+import {getConnectedImages} from "./node-types/programme-episodes/getConnectedImages"
 
 export const ProgrammeEpisodeDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -38,5 +39,9 @@ export const ProgrammeEpisodeDataFacade = {
 
     async getConnectedCarModelVariantNodes(id: number) {
         return getConnectedCarModelVariants(id)
+    },
+
+    async getConnectedImageNodes(id: number) {
+        return getConnectedImages(id)
     },
 }

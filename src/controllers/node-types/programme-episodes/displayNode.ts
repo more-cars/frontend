@@ -26,6 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const successor = await ProgrammeEpisodeModelFacade.getConnectedSuccessor(programmeEpisodeId)
     const carModels = await ProgrammeEpisodeModelFacade.getConnectedCarModels(programmeEpisodeId)
     const carModelVariants = await ProgrammeEpisodeModelFacade.getConnectedCarModelVariants(programmeEpisodeId)
+    const images = await ProgrammeEpisodeModelFacade.getConnectedImages(programmeEpisodeId)
 
     res.render('templates/node-types/programme-episodes/programme-episode-detail-page', {
         page_title: `${programmeEpisode.title} - Programme Episode`,
@@ -61,6 +62,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: carModelVariants,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getCarModelVariantThumbnails(carModelVariants),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })

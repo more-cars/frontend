@@ -86,5 +86,6 @@ export enum DataRelationshipType {
     PROGRAMME_EPISODE_IS_FOLLOWED_BY_EPISODE = 'is followed by episode',
     PROGRAMME_EPISODE_COVERS_CAR_MODEL = 'covers car model',
     PROGRAMME_EPISODE_FEATURES_CAR_MODEL_VARIANT = 'features car model variant',
+    PROGRAMME_EPISODE_HAS_IMAGE = 'has image',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }
