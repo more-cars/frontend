@@ -7,5 +7,8 @@ block sub_headline
 block relationships
     - rating = node.data
 
+    - carModelVariant = relationships.car_model_variant.item
+    include connected-car-model-variant
+
     - magazineIssue = relationships.magazine_issue.item
     include connected-magazine-issue
