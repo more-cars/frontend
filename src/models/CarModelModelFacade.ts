@@ -8,6 +8,7 @@ import {findConnectedSuccessor} from "./node-types/car-models/findConnectedSucce
 import {findConnectedMainImage} from "./node-types/car-models/findConnectedMainImage"
 import {findConnectedCarModelVariants} from "./node-types/car-models/findConnectedCarModelVariants"
 import {findConnectedMagazineIssues} from "./node-types/car-models/findConnectedMagazineIssues"
+import {findConnectedProgrammeEpisodes} from "./node-types/car-models/findConnectedProgrammeEpisodes"
 import {findConnectedImages} from "./node-types/car-models/findConnectedImages"
 
 export const CarModelModelFacade = {
@@ -45,6 +46,10 @@ export const CarModelModelFacade = {
 
     async getConnectedMagazineIssues(id: number) {
         return findConnectedMagazineIssues(id)
+    },
+
+    async getConnectedProgrammeEpisodes(id: number) {
+        return findConnectedProgrammeEpisodes(id)
     },
 
     async getConnectedImages(id: number) {
