@@ -3,6 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {MotorShowModelFacade} from "../../../models/MotorShowModelFacade"
+import {getMotorShowThumbnails} from "./getMotorShowThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -12,6 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All Motor Shows',
         main_headline: 'All Motor Shows',
         node_collection: motorShows,
+        thumbnails: await getMotorShowThumbnails(motorShows),
         node_properties: getNodeProperties(DataNodeType.MOTOR_SHOW),
         pagination: {
             page,
