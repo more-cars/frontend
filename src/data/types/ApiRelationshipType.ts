@@ -72,6 +72,7 @@ export enum ApiRelationshipType {
     MAGAZINE_ISSUE_FOLLOWED_BY_ISSUE = 'followed-by-issue',
     MAGAZINE_ISSUE_COVERS_CAR_MODEL = 'covers-car-model',
     MAGAZINE_ISSUE_PRESENTS_CAR_MODEL_VARIANT = 'presents-car-model-variant',
+    MAGAZINE_ISSUE_REVIEWED_CAR_MODEL_VARIANT_WITH_RATING = 'reviewed-car-model-variant-with-rating',
     MAGAZINE_ISSUE_COVERS_RACING_EVENT = 'covers-racing-event',
     MAGAZINE_ISSUE_HAS_IMAGE = 'has-image',
     RATING_HAS_MAIN_IMAGE = 'has-main-image',

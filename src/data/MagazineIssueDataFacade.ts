@@ -6,6 +6,7 @@ import {getConnectedPredecessor} from "./node-types/magazine-issues/getConnected
 import {getConnectedSuccessor} from "./node-types/magazine-issues/getConnectedSuccessor"
 import {getConnectedCarModels} from "./node-types/magazine-issues/getConnectedCarModels"
 import {getConnectedCarModelVariants} from "./node-types/magazine-issues/getConnectedCarModelVariants"
+import {getConnectedRatings} from "./node-types/magazine-issues/getConnectedRatings"
 import {getConnectedRacingEvents} from "./node-types/magazine-issues/getConnectedRacingEvents"
 import {getConnectedImages} from "./node-types/magazine-issues/getConnectedImages"
 
@@ -40,6 +41,10 @@ export const MagazineIssueDataFacade = {
 
     async getConnectedCarModelVariantNodes(id: number) {
         return getConnectedCarModelVariants(id)
+    },
+
+    async getConnectedRatingNodes(id: number) {
+        return getConnectedRatings(id)
     },
 
     async getConnectedRacingEventNodes(id: number) {
