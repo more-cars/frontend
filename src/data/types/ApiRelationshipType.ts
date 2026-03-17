@@ -17,6 +17,7 @@ export enum ApiRelationshipType {
     CAR_MODEL_VARIANT_HAS_MAIN_IMAGE = 'has-prime-image',
     CAR_MODEL_VARIANT_IS_VARIANT_OF = 'is-variant-of',
     CAR_MODEL_VARIANT_IS_PRESENTED_IN_MAGAZINE_ISSUE = 'is-presented-in-magazine-issue',
+    CAR_MODEL_VARIANT_REVIEWED_BY_MAGAZINE_ISSUE_WITH_RATING = 'reviewed-by-magazine-issue-with-rating',
     CAR_MODEL_VARIANT_ACHIEVED_LAP_TIME = 'achieved-lap-time',
     CAR_MODEL_VARIANT_ACHIEVED_SESSION_RESULT = 'achieved-session-result',
     CAR_MODEL_VARIANT_IS_FEATURED_IN_RACING_GAME = 'is-featured-in-racing-game',
