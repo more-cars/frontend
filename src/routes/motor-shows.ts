@@ -4,5 +4,6 @@ import {MotorShowControllerFacade} from "../controllers/MotorShowControllerFacad
 const router = express.Router()
 
 router.get('/motor-shows', MotorShowControllerFacade.showAllNodes)
+router.get('/motor-shows/:id', MotorShowControllerFacade.showNode)
 
 export default router
