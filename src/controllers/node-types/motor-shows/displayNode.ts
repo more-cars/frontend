@@ -3,6 +3,7 @@ import {MotorShowModelFacade} from "../../../models/MotorShowModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const motorShowId = parseInt(req.params.id)
@@ -17,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const carModelVariants = await MotorShowModelFacade.getConnectedCarModelVariants(motorShowId)
+
     res.render('templates/node-types/motor-shows/motor-show-detail-page', {
         page_title: `${motorShow.name} - Motor Show`,
         node: {
@@ -26,6 +29,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await MotorShowModelFacade.getConnectedMainImage(motorShowId),
         },
         relationships: {
+            car_model_variants: {
+                items: carModelVariants,
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                thumbnails: await getCarModelVariantThumbnails(carModelVariants),
+            },
         },
     })
 }
