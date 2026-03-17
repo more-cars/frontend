@@ -1,0 +1,14 @@
+if node_collection.length === 0
+    include ../../shared/nodes-not-found-warning
+    +nodes-not-found-warning("motor show")
+else
+    section(data-testid="motor-show-section")
+        ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
+            each nodeItem in node_collection
+                - nodeType = 'motor-show'
+                - nodeUrlPath = 'motor-shows/' + nodeItem.id
+                - nodeProperties = node_properties
+                include ../../shared/list-node-item
+
+    include ../../shared/pagination
+    +pagination('motor-shows', pagination.page, pagination.total)

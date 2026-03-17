@@ -19,6 +19,7 @@ import {MagazineIssueModelFacade} from "../../models/MagazineIssueModelFacade"
 import {RatingModelFacade} from "../../models/RatingModelFacade"
 import {ProgrammeModelFacade} from "../../models/ProgrammeModelFacade"
 import {ProgrammeEpisodeModelFacade} from "../../models/ProgrammeEpisodeModelFacade"
+import {MotorShowModelFacade} from "../../models/MotorShowModelFacade"
 import {ImageModelFacade} from "../../models/ImageModelFacade"
 
 export async function display(req: express.Request, res: express.Response) {
@@ -41,6 +42,7 @@ export async function display(req: express.Request, res: express.Response) {
         getNodeTypeInformation(DataNodeType.RATING, await RatingModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.PROGRAMME, await ProgrammeModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.PROGRAMME_EPISODE, await ProgrammeEpisodeModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.MOTOR_SHOW, await MotorShowModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.IMAGE, await ImageModelFacade.getTotalNodeCount()),
     ]
 

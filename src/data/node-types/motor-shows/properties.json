@@ -1,0 +1,50 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "2017 IAA Frankfurt"
+  },
+  {
+    "name": "date_from",
+    "label": "Date From",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "2017-09-14"
+  },
+  {
+    "name": "date_until",
+    "label": "Date Until",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "2017-09-24"
+  },
+  {
+    "name": "location",
+    "label": "Location",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Frankfurt"
+  },
+  {
+    "name": "target_audience",
+    "label": "Target Audience",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "international"
+  },
+  {
+    "name": "focus",
+    "label": "Focus",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "new cars"
+  }
+]

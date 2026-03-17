@@ -19,6 +19,7 @@ import magazineIssues from "./routes/magazine-issues"
 import ratings from "./routes/ratings"
 import programmes from "./routes/programmes"
 import programmeEpisodes from "./routes/programme-episodes"
+import motorShows from "./routes/motor-shows"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -52,6 +53,7 @@ app.use('/', magazineIssues)
 app.use('/', ratings)
 app.use('/', programmes)
 app.use('/', programmeEpisodes)
+app.use('/', motorShows)
 app.use('/', images)
 
 app.locals.formatDate = convertDate
