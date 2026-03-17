@@ -3,7 +3,7 @@
   "info": {
     "title": "More Cars - REST API Specification",
     "description": "OpenAPI specification for the More Cars API",
-    "version": "0.29.0"
+    "version": "0.30.0"
   },
   "servers": [
     {
@@ -2307,6 +2307,142 @@
         }
       }
     },
+    "/car-models/{car-model-id}/covered-by-programme-episode": {
+      "get": {
+        "operationId": "getCarModelCoveredByProgrammeEpisodeRel",
+        "tags": [
+          "Car Models"
+        ],
+        "summary": "Get all ›covered-by-programme-episode‹ relationships for the `Car Model`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-id",
+            "description": "ID of the `Car Model`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›covered-by-programme-episode‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarModelCoveredByProgrammeEpisodeCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Car Model` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/car-models/{car-model-id}/covered-by-programme-episode/{programme-episode-id}": {
+      "post": {
+        "tags": [
+          "Car Models"
+        ],
+        "summary": "Creates a ›covered-by-programme-episode‹ relationship between the `Car Model` and the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-id",
+            "description": "ID of the `Car Model`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›covered-by-programme-episode‹ between `Car Model` and `Programme Episode` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarModelCoveredByProgrammeEpisodeResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›covered-by-programme-episode‹ between `Car Model` and `Programme Episode` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Car Model` and/or `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Car Models"
+        ],
+        "summary": "Deletes the ›covered-by-programme-episode‹ relationship between the `Car Model` and the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-id",
+            "description": "ID of the `Car Model`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›covered-by-programme-episode‹ relationship between `Car Model` and `Programme Episode` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›covered-by-programme-episode‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/car-models/{car-model-id}/has-image": {
       "get": {
         "operationId": "getCarModelHasImageRel",
@@ -3520,6 +3656,142 @@
         }
       }
     },
+    "/car-model-variants/{car-model-variant-id}/featured-in-programme-episode": {
+      "get": {
+        "operationId": "getCarModelVariantFeaturedInProgrammeEpisodeRel",
+        "tags": [
+          "Car Model Variants"
+        ],
+        "summary": "Get all ›featured-in-programme-episode‹ relationships for the `Car Model Variant`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›featured-in-programme-episode‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarModelVariantFeaturedInProgrammeEpisodeCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Car Model Variant` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/featured-in-programme-episode/{programme-episode-id}": {
+      "post": {
+        "tags": [
+          "Car Model Variants"
+        ],
+        "summary": "Creates a ›featured-in-programme-episode‹ relationship between the `Car Model Variant` and the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›featured-in-programme-episode‹ between `Car Model Variant` and `Programme Episode` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarModelVariantFeaturedInProgrammeEpisodeResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›featured-in-programme-episode‹ between `Car Model Variant` and `Programme Episode` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Car Model Variant` and/or `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Car Model Variants"
+        ],
+        "summary": "Deletes the ›featured-in-programme-episode‹ relationship between the `Car Model Variant` and the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›featured-in-programme-episode‹ relationship between `Car Model Variant` and `Programme Episode` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›featured-in-programme-episode‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/car-model-variants/{car-model-variant-id}/is-featured-in-racing-game": {
       "get": {
         "operationId": "getCarModelVariantIsFeaturedInRacingGameRel",
@@ -3645,6 +3917,142 @@
           },
           "404": {
             "description": "Request failed. Either the nodes don't exist or there exists no ›is-featured-in-racing-game‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/presented-at-motor-show": {
+      "get": {
+        "operationId": "getCarModelVariantPresentedAtMotorShowRel",
+        "tags": [
+          "Car Model Variants"
+        ],
+        "summary": "Get all ›presented-at-motor-show‹ relationships for the `Car Model Variant`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›presented-at-motor-show‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarModelVariantPresentedAtMotorShowCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Car Model Variant` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/presented-at-motor-show/{motor-show-id}": {
+      "post": {
+        "tags": [
+          "Car Model Variants"
+        ],
+        "summary": "Creates a ›presented-at-motor-show‹ relationship between the `Car Model Variant` and the `Motor Show`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›presented-at-motor-show‹ between `Car Model Variant` and `Motor Show` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarModelVariantPresentedAtMotorShowResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›presented-at-motor-show‹ between `Car Model Variant` and `Motor Show` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Car Model Variant` and/or `Motor Show` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Car Model Variants"
+        ],
+        "summary": "Deletes the ›presented-at-motor-show‹ relationship between the `Car Model Variant` and the `Motor Show`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›presented-at-motor-show‹ relationship between `Car Model Variant` and `Motor Show` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›presented-at-motor-show‹ relationship between them.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -14610,6 +15018,2263 @@
         }
       }
     },
+    "/programmes": {
+      "get": {
+        "operationId": "getProgrammes",
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Get all `Programmes`",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "in": "query",
+            "name": "sort_by_property",
+            "description": "Returns the `Programme` collection, ordered by the specified property.",
+            "schema": {
+              "$ref": "#/components/schemas/ProgrammeProperties"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/SortDirection"
+          },
+          {
+            "in": "query",
+            "name": "filter_by_property",
+            "description": "Specifies by which node property the `Programme` collection should be filtered.",
+            "schema": {
+              "$ref": "#/components/schemas/ProgrammeProperties"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/FilterValue"
+          },
+          {
+            "$ref": "#/components/parameters/FilterOperator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`Programme` collection successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeCollectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request failed. One or multiple of the provided collection parameters ('page', 'sort_by_property', 'sort_direction', 'filter_by_property', 'filter_value', 'filter_operator') are invalid.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Create `Programme`",
+        "responses": {
+          "201": {
+            "description": "`Programme` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`Programme` could not be created. The provided data was invalid or malformed.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}": {
+      "get": {
+        "operationId": "getProgrammeById",
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Get `Programme` by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`Programme` successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. A `Programme` with the provided ID could not be found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Delete `Programme`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "`Programme` successfully deleted."
+          },
+          "404": {
+            "description": "Deletion request failed. A `Programme` with the provided ID could not be found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}/has-episode": {
+      "get": {
+        "operationId": "getProgrammeHasEpisodeRel",
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Get all ›has-episode‹ relationships for the `Programme`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›has-episode‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeHasEpisodeCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}/has-episode/{programme-episode-id}": {
+      "post": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Creates a ›has-episode‹ relationship between the `Programme` and the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-episode‹ between `Programme` and `Programme Episode` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeHasEpisodeResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-episode‹ between `Programme` and `Programme Episode` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme` and/or `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Deletes the ›has-episode‹ relationship between the `Programme` and the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-episode‹ relationship between `Programme` and `Programme Episode` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-episode‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}/has-image": {
+      "get": {
+        "operationId": "getProgrammeHasImageRel",
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Get all ›has-image‹ relationships for the `Programme`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›has-image‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeHasImageCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}/has-image/{image-id}": {
+      "post": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Creates a ›has-image‹ relationship between the `Programme` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-image‹ between `Programme` and `Image` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeHasImageResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-image‹ between `Programme` and `Image` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme` and/or `Image` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Deletes the ›has-image‹ relationship between the `Programme` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-image‹ relationship between `Programme` and `Image` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-image‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}/has-prime-image": {
+      "get": {
+        "operationId": "getProgrammeHasPrimeImageRel",
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Get the ›has-prime-image‹ relationship for the `Programme`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The ›has-prime-image‹ relationship was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeHasPrimeImageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programmes/{programme-id}/has-prime-image/{image-id}": {
+      "post": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Creates a ›has-prime-image‹ relationship between the `Programme` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-prime-image‹ between `Programme` and `Image` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeHasPrimeImageResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-prime-image‹ between `Programme` and `Image` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme` and/or `Image` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programmes"
+        ],
+        "summary": "Deletes the ›has-prime-image‹ relationship between the `Programme` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-prime-image‹ relationship between `Programme` and `Image` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-prime-image‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes": {
+      "get": {
+        "operationId": "getProgrammeEpisodes",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get all `Programme Episodes`",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "in": "query",
+            "name": "sort_by_property",
+            "description": "Returns the `Programme Episode` collection, ordered by the specified property.",
+            "schema": {
+              "$ref": "#/components/schemas/ProgrammeEpisodeProperties"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/SortDirection"
+          },
+          {
+            "in": "query",
+            "name": "filter_by_property",
+            "description": "Specifies by which node property the `Programme Episode` collection should be filtered.",
+            "schema": {
+              "$ref": "#/components/schemas/ProgrammeEpisodeProperties"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/FilterValue"
+          },
+          {
+            "$ref": "#/components/parameters/FilterOperator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`Programme Episode` collection successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeCollectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request failed. One or multiple of the provided collection parameters ('page', 'sort_by_property', 'sort_direction', 'filter_by_property', 'filter_value', 'filter_operator') are invalid.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Create `Programme Episode`",
+        "responses": {
+          "201": {
+            "description": "`Programme Episode` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`Programme Episode` could not be created. The provided data was invalid or malformed.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}": {
+      "get": {
+        "operationId": "getProgrammeEpisodeById",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get `Programme Episode` by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`Programme Episode` successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. A `Programme Episode` with the provided ID could not be found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Delete `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "`Programme Episode` successfully deleted."
+          },
+          "404": {
+            "description": "Deletion request failed. A `Programme Episode` with the provided ID could not be found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/belongs-to-programme": {
+      "get": {
+        "operationId": "getProgrammeEpisodeBelongsToProgrammeRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get the ›belongs-to-programme‹ relationship for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The ›belongs-to-programme‹ relationship was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeBelongsToProgrammeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/belongs-to-programme/{programme-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›belongs-to-programme‹ relationship between the `Programme Episode` and the `Programme`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›belongs-to-programme‹ between `Programme Episode` and `Programme` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeBelongsToProgrammeResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›belongs-to-programme‹ between `Programme Episode` and `Programme` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Programme` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›belongs-to-programme‹ relationship between the `Programme Episode` and the `Programme`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "programme-id",
+            "description": "ID of the `Programme`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›belongs-to-programme‹ relationship between `Programme Episode` and `Programme` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›belongs-to-programme‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/follows-episode": {
+      "get": {
+        "operationId": "getProgrammeEpisodeFollowsEpisodeRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get the ›follows-episode‹ relationship for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The ›follows-episode‹ relationship was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeFollowsEpisodeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/follows-episode/{partner-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›follows-episode‹ relationship between the `Programme Episode` and the `Partner`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "partner-id",
+            "description": "ID of the `Partner`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›follows-episode‹ between `Programme Episode` and `Partner` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeFollowsEpisodeResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›follows-episode‹ between `Programme Episode` and `Partner` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Partner` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›follows-episode‹ relationship between the `Programme Episode` and the `Partner`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "partner-id",
+            "description": "ID of the `Partner`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›follows-episode‹ relationship between `Programme Episode` and `Partner` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›follows-episode‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/is-followed-by-episode": {
+      "get": {
+        "operationId": "getProgrammeEpisodeIsFollowedByEpisodeRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get the ›is-followed-by-episode‹ relationship for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The ›is-followed-by-episode‹ relationship was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeIsFollowedByEpisodeResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/is-followed-by-episode/{partner-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›is-followed-by-episode‹ relationship between the `Programme Episode` and the `Partner`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "partner-id",
+            "description": "ID of the `Partner`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›is-followed-by-episode‹ between `Programme Episode` and `Partner` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeIsFollowedByEpisodeResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›is-followed-by-episode‹ between `Programme Episode` and `Partner` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Partner` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›is-followed-by-episode‹ relationship between the `Programme Episode` and the `Partner`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "partner-id",
+            "description": "ID of the `Partner`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›is-followed-by-episode‹ relationship between `Programme Episode` and `Partner` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›is-followed-by-episode‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/covers-car-model": {
+      "get": {
+        "operationId": "getProgrammeEpisodeCoversCarModelRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get all ›covers-car-model‹ relationships for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›covers-car-model‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeCoversCarModelCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/covers-car-model/{car-model-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›covers-car-model‹ relationship between the `Programme Episode` and the `Car Model`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "car-model-id",
+            "description": "ID of the `Car Model`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›covers-car-model‹ between `Programme Episode` and `Car Model` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeCoversCarModelResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›covers-car-model‹ between `Programme Episode` and `Car Model` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Car Model` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›covers-car-model‹ relationship between the `Programme Episode` and the `Car Model`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "car-model-id",
+            "description": "ID of the `Car Model`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›covers-car-model‹ relationship between `Programme Episode` and `Car Model` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›covers-car-model‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/features-car-model-variant": {
+      "get": {
+        "operationId": "getProgrammeEpisodeFeaturesCarModelVariantRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get all ›features-car-model-variant‹ relationships for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›features-car-model-variant‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeFeaturesCarModelVariantCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/features-car-model-variant/{car-model-variant-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›features-car-model-variant‹ relationship between the `Programme Episode` and the `Car Model Variant`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›features-car-model-variant‹ between `Programme Episode` and `Car Model Variant` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeFeaturesCarModelVariantResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›features-car-model-variant‹ between `Programme Episode` and `Car Model Variant` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Car Model Variant` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›features-car-model-variant‹ relationship between the `Programme Episode` and the `Car Model Variant`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›features-car-model-variant‹ relationship between `Programme Episode` and `Car Model Variant` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›features-car-model-variant‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/has-image": {
+      "get": {
+        "operationId": "getProgrammeEpisodeHasImageRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get all ›has-image‹ relationships for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›has-image‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeHasImageCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/has-image/{image-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›has-image‹ relationship between the `Programme Episode` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-image‹ between `Programme Episode` and `Image` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeHasImageResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-image‹ between `Programme Episode` and `Image` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Image` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›has-image‹ relationship between the `Programme Episode` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-image‹ relationship between `Programme Episode` and `Image` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-image‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/has-prime-image": {
+      "get": {
+        "operationId": "getProgrammeEpisodeHasPrimeImageRel",
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Get the ›has-prime-image‹ relationship for the `Programme Episode`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The ›has-prime-image‹ relationship was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeHasPrimeImageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Programme Episode` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/has-prime-image/{image-id}": {
+      "post": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Creates a ›has-prime-image‹ relationship between the `Programme Episode` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-prime-image‹ between `Programme Episode` and `Image` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeEpisodeHasPrimeImageResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-prime-image‹ between `Programme Episode` and `Image` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Programme Episode` and/or `Image` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Programme Episodes"
+        ],
+        "summary": "Deletes the ›has-prime-image‹ relationship between the `Programme Episode` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "programme-episode-id",
+            "description": "ID of the `Programme Episode`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-prime-image‹ relationship between `Programme Episode` and `Image` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-prime-image‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows": {
+      "get": {
+        "operationId": "getMotorShows",
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Get all `Motor Shows`",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "in": "query",
+            "name": "sort_by_property",
+            "description": "Returns the `Motor Show` collection, ordered by the specified property.",
+            "schema": {
+              "$ref": "#/components/schemas/MotorShowProperties"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/SortDirection"
+          },
+          {
+            "in": "query",
+            "name": "filter_by_property",
+            "description": "Specifies by which node property the `Motor Show` collection should be filtered.",
+            "schema": {
+              "$ref": "#/components/schemas/MotorShowProperties"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/FilterValue"
+          },
+          {
+            "$ref": "#/components/parameters/FilterOperator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`Motor Show` collection successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowCollectionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request failed. One or multiple of the provided collection parameters ('page', 'sort_by_property', 'sort_direction', 'filter_by_property', 'filter_value', 'filter_operator') are invalid.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Create `Motor Show`",
+        "responses": {
+          "201": {
+            "description": "`Motor Show` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`Motor Show` could not be created. The provided data was invalid or malformed.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}": {
+      "get": {
+        "operationId": "getMotorShowById",
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Get `Motor Show` by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "`Motor Show` successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. A `Motor Show` with the provided ID could not be found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Delete `Motor Show`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "`Motor Show` successfully deleted."
+          },
+          "404": {
+            "description": "Deletion request failed. A `Motor Show` with the provided ID could not be found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}/presents-car-model-variant": {
+      "get": {
+        "operationId": "getMotorShowPresentsCarModelVariantRel",
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Get all ›presents-car-model-variant‹ relationships for the `Motor Show`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›presents-car-model-variant‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowPresentsCarModelVariantCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Motor Show` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}/presents-car-model-variant/{car-model-variant-id}": {
+      "post": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Creates a ›presents-car-model-variant‹ relationship between the `Motor Show` and the `Car Model Variant`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›presents-car-model-variant‹ between `Motor Show` and `Car Model Variant` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowPresentsCarModelVariantResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›presents-car-model-variant‹ between `Motor Show` and `Car Model Variant` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Motor Show` and/or `Car Model Variant` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Deletes the ›presents-car-model-variant‹ relationship between the `Motor Show` and the `Car Model Variant`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "car-model-variant-id",
+            "description": "ID of the `Car Model Variant`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›presents-car-model-variant‹ relationship between `Motor Show` and `Car Model Variant` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›presents-car-model-variant‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}/has-image": {
+      "get": {
+        "operationId": "getMotorShowHasImageRel",
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Get all ›has-image‹ relationships for the `Motor Show`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collection of ›has-image‹ relationships was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowHasImageCollectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Motor Show` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}/has-image/{image-id}": {
+      "post": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Creates a ›has-image‹ relationship between the `Motor Show` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-image‹ between `Motor Show` and `Image` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowHasImageResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-image‹ between `Motor Show` and `Image` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Motor Show` and/or `Image` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Deletes the ›has-image‹ relationship between the `Motor Show` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-image‹ relationship between `Motor Show` and `Image` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-image‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}/has-prime-image": {
+      "get": {
+        "operationId": "getMotorShowHasPrimeImageRel",
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Get the ›has-prime-image‹ relationship for the `Motor Show`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The ›has-prime-image‹ relationship was successfully loaded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowHasPrimeImageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request failed. The `Motor Show` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motor-shows/{motor-show-id}/has-prime-image/{image-id}": {
+      "post": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Creates a ›has-prime-image‹ relationship between the `Motor Show` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Relationship ›has-prime-image‹ between `Motor Show` and `Image` successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MotorShowHasPrimeImageResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "The relationship ›has-prime-image‹ between `Motor Show` and `Image` already exists."
+          },
+          "404": {
+            "description": "Request failed. `Motor Show` and/or `Image` could not be found in the database.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Motor Shows"
+        ],
+        "summary": "Deletes the ›has-prime-image‹ relationship between the `Motor Show` and the `Image`",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "motor-show-id",
+            "description": "ID of the `Motor Show`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "image-id",
+            "description": "ID of the `Image`",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleting ›has-prime-image‹ relationship between `Motor Show` and `Image` was successful."
+          },
+          "404": {
+            "description": "Request failed. Either the nodes don't exist or there exists no ›has-prime-image‹ relationship between them.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/relationships/{relationship-id}": {
       "get": {
         "operationId": "getRelationshipById",
@@ -15366,6 +18031,56 @@
           }
         }
       },
+      "CarModelCoveredByProgrammeEpisode": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "covered-by-programme-episode"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "CarModelCoveredByProgrammeEpisodeResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CarModelCoveredByProgrammeEpisode"
+          }
+        }
+      },
       "CarModelHasImage": {
         "type": "object",
         "required": [],
@@ -15474,6 +18189,17 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/CarModelHasPrimeImage"
+          }
+        }
+      },
+      "CarModelCoveredByProgrammeEpisodeCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarModelCoveredByProgrammeEpisodeResponse"
+            }
           }
         }
       },
@@ -16024,6 +18750,67 @@
           }
         }
       },
+      "CarModelVariantFeaturedInProgrammeEpisode": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "featured-in-programme-episode"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "CarModelVariantFeaturedInProgrammeEpisodeResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CarModelVariantFeaturedInProgrammeEpisode"
+          }
+        }
+      },
+      "CarModelVariantFeaturedInProgrammeEpisodeCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarModelVariantFeaturedInProgrammeEpisodeResponse"
+            }
+          }
+        }
+      },
       "CarModelVariantIsFeaturedInRacingGame": {
         "type": "object",
         "required": [],
@@ -16081,6 +18868,67 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CarModelVariantIsFeaturedInRacingGameResponse"
+            }
+          }
+        }
+      },
+      "CarModelVariantPresentedAtMotorShow": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "presented-at-motor-show"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "motor-shows"
+              },
+              "data": {
+                "$ref": "#/components/schemas/MotorShow"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "CarModelVariantPresentedAtMotorShowResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CarModelVariantPresentedAtMotorShow"
+          }
+        }
+      },
+      "CarModelVariantPresentedAtMotorShowCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarModelVariantPresentedAtMotorShowResponse"
             }
           }
         }
@@ -21456,6 +24304,1042 @@
           "scale_minimum",
           "scale_maximum",
           "scale_direction"
+        ],
+        "default": "name"
+      },
+      "Programme": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this node was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this node was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "name": {
+            "type": "string",
+            "description": "",
+            "example": "Top Gear"
+          },
+          "aired_from_year": {
+            "type": "number",
+            "description": "",
+            "example": "2002"
+          },
+          "aired_until_year": {
+            "type": "number",
+            "description": "",
+            "example": "2022"
+          },
+          "channel": {
+            "type": "string",
+            "description": "",
+            "example": "BBC Two"
+          },
+          "total_seasons": {
+            "type": "number",
+            "description": "",
+            "example": "33"
+          },
+          "total_episodes": {
+            "type": "number",
+            "description": "",
+            "example": "240"
+          },
+          "regular_episode_running_time": {
+            "type": "string",
+            "description": "",
+            "example": "PT60M"
+          }
+        }
+      },
+      "ProgrammeResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "",
+            "example": "programmes"
+          },
+          "id": {
+            "type": "integer",
+            "description": "A unique identifier which is generated by the system.",
+            "example": "1234"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Programme"
+          }
+        }
+      },
+      "ProgrammeCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeResponse"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "ProgrammeHasEpisode": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-episode"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeHasEpisodeResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeHasEpisode"
+          }
+        }
+      },
+      "ProgrammeHasEpisodeCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeHasEpisodeResponse"
+            }
+          }
+        }
+      },
+      "ProgrammeHasImage": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-image"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeHasImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeHasImage"
+          }
+        }
+      },
+      "ProgrammeHasImageCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeHasImageResponse"
+            }
+          }
+        }
+      },
+      "ProgrammeHasPrimeImage": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-prime-image"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeHasPrimeImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeHasPrimeImage"
+          }
+        }
+      },
+      "ProgrammeProperties": {
+        "type": "string",
+        "enum": [
+          "created_at",
+          "updated_at",
+          "name",
+          "aired_from_year",
+          "aired_until_year",
+          "channel",
+          "total_seasons",
+          "total_episodes",
+          "regular_episode_running_time"
+        ],
+        "default": "name"
+      },
+      "ProgrammeEpisode": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this node was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this node was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "title": {
+            "type": "string",
+            "description": "",
+            "example": "The Falls Guys"
+          },
+          "season_number": {
+            "type": "number",
+            "description": "",
+            "example": "2"
+          },
+          "season_episode_number": {
+            "type": "number",
+            "description": "",
+            "example": "2"
+          },
+          "original_air_date": {
+            "type": "string",
+            "description": "",
+            "example": "2017-12-08"
+          },
+          "duration": {
+            "type": "string",
+            "description": "",
+            "example": "PT55M"
+          }
+        }
+      },
+      "ProgrammeEpisodeResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "",
+            "example": "programme-episodes"
+          },
+          "id": {
+            "type": "integer",
+            "description": "A unique identifier which is generated by the system.",
+            "example": "1234"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ProgrammeEpisode"
+          }
+        }
+      },
+      "ProgrammeEpisodeCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeEpisodeResponse"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "ProgrammeEpisodeBelongsToProgramme": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "belongs-to-programme"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "programmes"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Programme"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeBelongsToProgrammeResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeBelongsToProgramme"
+          }
+        }
+      },
+      "ProgrammeEpisodeFollowsEpisode": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "follows-episode"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeFollowsEpisodeResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeFollowsEpisode"
+          }
+        }
+      },
+      "ProgrammeEpisodeIsFollowedByEpisode": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "is-followed-by-episode"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeIsFollowedByEpisodeResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeIsFollowedByEpisode"
+          }
+        }
+      },
+      "ProgrammeEpisodeCoversCarModel": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "covers-car-model"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "data": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeCoversCarModelResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeCoversCarModel"
+          }
+        }
+      },
+      "ProgrammeEpisodeCoversCarModelCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeEpisodeCoversCarModelResponse"
+            }
+          }
+        }
+      },
+      "ProgrammeEpisodeFeaturesCarModelVariant": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "features-car-model-variant"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "data": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeFeaturesCarModelVariantResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeFeaturesCarModelVariant"
+          }
+        }
+      },
+      "ProgrammeEpisodeFeaturesCarModelVariantCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeEpisodeFeaturesCarModelVariantResponse"
+            }
+          }
+        }
+      },
+      "ProgrammeEpisodeHasImage": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-image"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeHasImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeHasImage"
+          }
+        }
+      },
+      "ProgrammeEpisodeHasImageCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgrammeEpisodeHasImageResponse"
+            }
+          }
+        }
+      },
+      "ProgrammeEpisodeHasPrimeImage": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-prime-image"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "ProgrammeEpisodeHasPrimeImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ProgrammeEpisodeHasPrimeImage"
+          }
+        }
+      },
+      "ProgrammeEpisodeProperties": {
+        "type": "string",
+        "enum": [
+          "created_at",
+          "updated_at",
+          "title",
+          "season_number",
+          "season_episode_number",
+          "original_air_date",
+          "duration"
+        ],
+        "default": "name"
+      },
+      "MotorShow": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this node was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this node was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "name": {
+            "type": "string",
+            "description": "",
+            "example": "2017 IAA Frankfurt"
+          },
+          "date_from": {
+            "type": "string",
+            "description": "",
+            "example": "2017-09-14"
+          },
+          "date_until": {
+            "type": "string",
+            "description": "",
+            "example": "2017-09-24"
+          },
+          "location": {
+            "type": "string",
+            "description": "",
+            "example": "Frankfurt"
+          },
+          "target_audience": {
+            "type": "string",
+            "description": "",
+            "example": "international"
+          },
+          "focus": {
+            "type": "string",
+            "description": "",
+            "example": "new cars"
+          }
+        }
+      },
+      "MotorShowResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "",
+            "example": "motor-shows"
+          },
+          "id": {
+            "type": "integer",
+            "description": "A unique identifier which is generated by the system.",
+            "example": "1234"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/MotorShow"
+          }
+        }
+      },
+      "MotorShowCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotorShowResponse"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "MotorShowPresentsCarModelVariant": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "presents-car-model-variant"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "data": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "MotorShowPresentsCarModelVariantResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/MotorShowPresentsCarModelVariant"
+          }
+        }
+      },
+      "MotorShowPresentsCarModelVariantCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotorShowPresentsCarModelVariantResponse"
+            }
+          }
+        }
+      },
+      "MotorShowHasImage": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-image"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "MotorShowHasImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/MotorShowHasImage"
+          }
+        }
+      },
+      "MotorShowHasImageCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotorShowHasImageResponse"
+            }
+          }
+        }
+      },
+      "MotorShowHasPrimeImage": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "relationship_id": {
+            "type": "integer",
+            "readOnly": true,
+            "example": "123456"
+          },
+          "relationship_name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "has-prime-image"
+          },
+          "partner_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was created. Generated by the system. Cannot be changed.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Timestamp for when this relationship was last modified. Generated by the system.",
+            "format": "date-time",
+            "example": "2025-05-14T11:05:07.793Z"
+          }
+        }
+      },
+      "MotorShowHasPrimeImageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/MotorShowHasPrimeImage"
+          }
+        }
+      },
+      "MotorShowProperties": {
+        "type": "string",
+        "enum": [
+          "created_at",
+          "updated_at",
+          "name",
+          "date_from",
+          "date_until",
+          "location",
+          "target_audience",
+          "focus"
         ],
         "default": "name"
       },
