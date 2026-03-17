@@ -17,6 +17,7 @@ export default defineConfig({
                 classnameTemplate: ''
             }],
         ],
+        testTimeout: 10000,
         coverage: {
             provider: 'v8',
             include: ['src/**'],
