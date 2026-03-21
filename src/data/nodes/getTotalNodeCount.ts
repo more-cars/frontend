@@ -10,5 +10,5 @@ export async function getTotalNodeCount(nodeType: DataNodeType) {
         return -1
     }
 
-    return apiData.meta.total as number
+    return apiData.meta.page.total_nodes as number
 }
