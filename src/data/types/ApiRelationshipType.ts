@@ -26,6 +26,7 @@ export enum ApiRelationshipType {
     CAR_MODEL_VARIANT_HAS_IMAGE = 'has-image',
     PRICE_HAS_MAIN_IMAGE = 'has-main-image',
     PRICE_FOR_CAR_MODEL_VARIANT = 'for-car-model-variant',
+    PRICE_HAS_IMAGE = 'has-image',
     RACE_TRACK_HAS_MAIN_IMAGE = 'has-prime-image',
     RACE_TRACK_HAS_LAYOUT = 'has-layout',
     RACE_TRACK_HOSTED_RACING_EVENT = 'hosted-racing-event',
