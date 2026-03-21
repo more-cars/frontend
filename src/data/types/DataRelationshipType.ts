@@ -74,6 +74,7 @@ export enum DataRelationshipType {
     GAMING_PLATFORM_HAS_IMAGE = 'has image',
     MODEL_CAR_HAS_MAIN_IMAGE = 'has main image',
     MODEL_CAR_MADE_BY_MODEL_CAR_BRAND = 'made by model car brand',
+    MODEL_CAR_IS_SCALE_MODEL_OF_CAR_MODEL_VARIANT = 'is scale model of car model variant',
     MODEL_CAR_BRAND_HAS_MAIN_IMAGE = 'has main image',
     MAGAZINE_HAS_MAIN_IMAGE = 'has main image',
     MAGAZINE_HAS_ISSUE = 'has issue',
