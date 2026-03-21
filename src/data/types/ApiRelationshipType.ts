@@ -73,6 +73,7 @@ export enum ApiRelationshipType {
     GAMING_PLATFORM_FEATURES_RACING_GAME = 'features-racing-game',
     GAMING_PLATFORM_HAS_IMAGE = 'has-image',
     MODEL_CAR_HAS_MAIN_IMAGE = 'has-main-image',
+    MODEL_CAR_MADE_BY_MODEL_CAR_BRAND = 'made-by-model-car-brand',
     MODEL_CAR_BRAND_HAS_MAIN_IMAGE = 'has-main-image',
     MAGAZINE_HAS_MAIN_IMAGE = 'has-prime-image',
     MAGAZINE_HAS_ISSUE = 'has-issue',

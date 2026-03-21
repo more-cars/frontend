@@ -1,6 +1,7 @@
 import {getAllModelCars} from "./node-types/model-cars/getAllModelCars"
 import {getModelCarById} from "./node-types/model-cars/getModelCarById"
 import {getConnectedMainImage} from "./node-types/model-cars/getConnectedMainImage"
+import {getConnectedModelCarBrand} from "./node-types/model-cars/getConnectedModelCarBrand"
 
 export const ModelCarDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -13,5 +14,9 @@ export const ModelCarDataFacade = {
 
     async getConnectedMainImageNode(id: number) {
         return getConnectedMainImage(id)
+    },
+
+    async getConnectedModelCarBrandNode(id: number) {
+        return getConnectedModelCarBrand(id)
     },
 }

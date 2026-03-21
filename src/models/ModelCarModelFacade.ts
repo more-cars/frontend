@@ -3,6 +3,7 @@ import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/model-cars/findNodeById"
 import {findConnectedMainImage} from "./node-types/model-cars/findConnectedMainImage"
+import {findConnectedModelCarBrand} from "./node-types/model-cars/findConnectedModelCarBrand"
 
 export const ModelCarModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -19,5 +20,9 @@ export const ModelCarModelFacade = {
 
     async getConnectedMainImage(id: number) {
         return findConnectedMainImage(id)
+    },
+
+    async getConnectedModelCarBrand(id: number) {
+        return findConnectedModelCarBrand(id)
     },
 }
