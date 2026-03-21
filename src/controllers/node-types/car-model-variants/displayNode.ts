@@ -12,6 +12,7 @@ import {getSessionResultThumbnails} from "../session-results/getSessionResultThu
 import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
 import {getMotorShowThumbnails} from "../motor-shows/getMotorShowThumbnails"
 import {getPriceThumbnails} from "../prices/getPriceThumbnails"
+import {getModelCarThumbnails} from "../model-cars/getModelCarThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
@@ -34,6 +35,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const lapTimes = await CarModelVariantModelFacade.getConnectedLapTimes(carModelVariantId)
     const sessionResults = await CarModelVariantModelFacade.getConnectedSessionResults(carModelVariantId)
     const racingGames = await CarModelVariantModelFacade.getConnectedRacingGames(carModelVariantId)
+    const modelCars = await CarModelVariantModelFacade.getConnectedModelCars(carModelVariantId)
     const motorShows = await CarModelVariantModelFacade.getConnectedMotorShows(carModelVariantId)
     const images = await CarModelVariantModelFacade.getConnectedImages(carModelVariantId)
 
@@ -85,6 +87,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: racingGames,
                 node_properties: getNodeProperties(DataNodeType.RACING_GAME),
                 thumbnails: await getRacingGameThumbnails(racingGames),
+            },
+            model_cars: {
+                items: modelCars,
+                node_properties: getNodeProperties(DataNodeType.MODEL_CAR),
+                thumbnails: await getModelCarThumbnails(modelCars),
             },
             motor_shows: {
                 items: motorShows,

@@ -11,6 +11,7 @@ import {findConnectedProgrammeEpisodes} from "./node-types/car-model-variants/fi
 import {findConnectedLapTimes} from "./node-types/car-model-variants/findConnectedLapTimes"
 import {findConnectedSessionResults} from "./node-types/car-model-variants/findConnectedSessionResults"
 import {findConnectedRacingGames} from "./node-types/car-model-variants/findConnectedRacingGames"
+import {findConnectedModelCars} from "./node-types/car-model-variants/findConnectedModelCars"
 import {findConnectedMotorShows} from "./node-types/car-model-variants/findConnectedMotorShows"
 import {findConnectedImages} from "./node-types/car-model-variants/findConnectedImages"
 
@@ -57,6 +58,10 @@ export const CarModelVariantModelFacade = {
 
     async getConnectedSessionResults(id: number) {
         return findConnectedSessionResults(id)
+    },
+
+    async getConnectedModelCars(id: number) {
+        return findConnectedModelCars(id)
     },
 
     async getConnectedRacingGames(id: number) {

@@ -9,6 +9,7 @@ import {getConnectedProgrammeEpisodes} from "./node-types/car-model-variants/get
 import {getConnectedLapTimes} from "./node-types/car-model-variants/getConnectedLapTimes"
 import {getConnectedSessionResults} from "./node-types/car-model-variants/getConnectedSessionResults"
 import {getConnectedRacingGames} from "./node-types/car-model-variants/getConnectedRacingGames"
+import {getConnectedModelCars} from "./node-types/car-model-variants/getConnectedModelCars"
 import {getConnectedMotorShows} from "./node-types/car-model-variants/getConnectedMotorShows"
 import {getConnectedImages} from "./node-types/car-model-variants/getConnectedImages"
 
@@ -55,6 +56,10 @@ export const CarModelVariantDataFacade = {
 
     async getConnectedRacingGameNodes(id: number) {
         return getConnectedRacingGames(id)
+    },
+
+    async getConnectedModelCarNodes(id: number) {
+        return getConnectedModelCars(id)
     },
 
     async getConnectedMotorShowNodes(id: number) {
