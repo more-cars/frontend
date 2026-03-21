@@ -5,6 +5,7 @@ import companies from "./routes/companies"
 import brands from './routes/brands.ts'
 import carModels from "./routes/car-models"
 import carModelVariants from "./routes/car-model-variants"
+import prices from "./routes/prices"
 import raceTracks from "./routes/race-tracks"
 import trackLayouts from "./routes/track-layouts"
 import racingSeries from "./routes/racing-series"
@@ -41,6 +42,7 @@ app.use('/', companies)
 app.use('/', brands)
 app.use('/', carModels)
 app.use('/', carModelVariants)
+app.use('/', prices)
 app.use('/', raceTracks)
 app.use('/', trackLayouts)
 app.use('/', racingSeries)

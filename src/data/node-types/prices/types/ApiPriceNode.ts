@@ -1,0 +1,12 @@
+export type ApiPriceNode = {
+    type: string
+    id: number
+    attributes: {
+        price: number
+        price_year: number
+        currency_code: string
+        country_code: string
+        created_at: string
+        updated_at: string
+    }
+}

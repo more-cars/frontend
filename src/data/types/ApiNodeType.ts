@@ -3,6 +3,7 @@ export enum ApiNodeType {
     BRAND = 'brands',
     CAR_MODEL = 'car-models',
     CAR_MODEL_VARIANT = 'car-model-variants',
+    PRICE = 'prices',
     RACE_TRACK = 'race-tracks',
     TRACK_LAYOUT = 'track-layouts',
     RACING_SERIES = 'racing-series',

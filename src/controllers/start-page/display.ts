@@ -5,6 +5,7 @@ import {CompanyModelFacade} from "../../models/CompanyModelFacade"
 import {BrandModelFacade} from "../../models/BrandModelFacade"
 import {CarModelModelFacade} from "../../models/CarModelModelFacade"
 import {CarModelVariantModelFacade} from "../../models/CarModelVariantModelFacade"
+import {PriceModelFacade} from "../../models/PriceModelFacade"
 import {RaceTrackModelFacade} from "../../models/RaceTrackModelFacade"
 import {TrackLayoutModelFacade} from "../../models/TrackLayoutModelFacade"
 import {RacingSeriesModelFacade} from "../../models/RacingSeriesModelFacade"
@@ -30,6 +31,7 @@ export async function display(req: express.Request, res: express.Response) {
         getNodeTypeInformation(DataNodeType.BRAND, await BrandModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.CAR_MODEL, await CarModelModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.CAR_MODEL_VARIANT, await CarModelVariantModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.PRICE, await PriceModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.RACE_TRACK, await RaceTrackModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.TRACK_LAYOUT, await TrackLayoutModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.RACING_SERIES, await RacingSeriesModelFacade.getTotalNodeCount()),

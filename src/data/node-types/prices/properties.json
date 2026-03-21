@@ -1,0 +1,34 @@
+[
+  {
+    "name": "price",
+    "label": "Price",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "number",
+    "example": "59990"
+  },
+  {
+    "name": "price_year",
+    "label": "Price (Year)",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "number",
+    "example": "2020"
+  },
+  {
+    "name": "currency_code",
+    "label": "Currency",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "EUR"
+  },
+  {
+    "name": "country_code",
+    "label": "Country",
+    "is_primary": true,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "DE"
+  }
+]

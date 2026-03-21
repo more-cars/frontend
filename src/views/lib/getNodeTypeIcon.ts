@@ -6,6 +6,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.BRAND, '🛡️'],
         [ControllerNodeType.CAR_MODEL, '🚗️'],
         [ControllerNodeType.CAR_MODEL_VARIANT, '🚙'],
+        [ControllerNodeType.PRICE, '🪙'],
         [ControllerNodeType.RACE_TRACK, '🛣️'],
         [ControllerNodeType.TRACK_LAYOUT, '⭖'],
         [ControllerNodeType.RACING_SERIES, '🏎️'],
