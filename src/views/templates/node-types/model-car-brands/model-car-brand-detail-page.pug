@@ -6,3 +6,5 @@ block sub_headline
 
 block relationships
     - modelCarBrand = node.data
+    - modelCars = relationships.model_cars.items
+    include connected-model-cars
