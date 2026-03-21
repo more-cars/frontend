@@ -11,8 +11,10 @@ describe('Fetching total node count', () => {
         const responseData = {
             data: [],
             meta: {
-                total: 0
-            }
+                page: {
+                    total_nodes: 0,
+                },
+            },
         }
         vi.doMock("../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
@@ -27,8 +29,10 @@ describe('Fetching total node count', () => {
         const responseData = {
             data: [{}, {}, {}],
             meta: {
-                total: 3
-            }
+                page: {
+                    total_nodes: 3,
+                },
+            },
         }
         vi.doMock("../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
@@ -43,8 +47,10 @@ describe('Fetching total node count', () => {
         const responseData = {
             data: [{}, {}, {}],
             meta: {
-                total: 17
-            }
+                page: {
+                    total_nodes: 17,
+                },
+            },
         }
         vi.doMock("../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => (responseData))
