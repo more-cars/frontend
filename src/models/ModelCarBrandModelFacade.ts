@@ -1,6 +1,7 @@
 import {findAllNodes} from "./node-types/model-car-brands/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
+import {findNodeById} from "./node-types/model-car-brands/findNodeById"
 
 export const ModelCarBrandModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -9,5 +10,9 @@ export const ModelCarBrandModelFacade = {
 
     async getTotalNodeCount() {
         return getTotalNodeCount(DataNodeType.MODEL_CAR_BRAND)
+    },
+
+    async getNodeById(id: number) {
+        return findNodeById(id)
     },
 }
