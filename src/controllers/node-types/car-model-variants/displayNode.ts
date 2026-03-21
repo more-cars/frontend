@@ -11,6 +11,7 @@ import {getLapTimeThumbnails} from "../lap-times/getLapTimeThumbnails"
 import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
 import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
 import {getMotorShowThumbnails} from "../motor-shows/getMotorShowThumbnails"
+import {getPriceThumbnails} from "../prices/getPriceThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
@@ -28,6 +29,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModel = await CarModelVariantModelFacade.getConnectedCarModel(carModelVariantId)
     const magazineIssues = await CarModelVariantModelFacade.getConnectedMagazineIssues(carModelVariantId)
     const ratings = await CarModelVariantModelFacade.getConnectedRatings(carModelVariantId)
+    const prices = await CarModelVariantModelFacade.getConnectedPrices(carModelVariantId)
     const programmeEpisodes = await CarModelVariantModelFacade.getConnectedProgrammeEpisodes(carModelVariantId)
     const lapTimes = await CarModelVariantModelFacade.getConnectedLapTimes(carModelVariantId)
     const sessionResults = await CarModelVariantModelFacade.getConnectedSessionResults(carModelVariantId)
@@ -58,6 +60,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: ratings,
                 node_properties: getNodeProperties(DataNodeType.RATING),
                 thumbnails: await getRatingThumbnails(ratings),
+            },
+            prices: {
+                items: prices,
+                node_properties: getNodeProperties(DataNodeType.PRICE),
+                thumbnails: await getPriceThumbnails(prices),
             },
             programme_episodes: {
                 items: programmeEpisodes,

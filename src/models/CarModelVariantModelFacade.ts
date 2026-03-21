@@ -6,6 +6,7 @@ import {findConnectedMainImage} from "./node-types/car-model-variants/findConnec
 import {findConnectedCarModel} from "./node-types/car-model-variants/findConnectedCarModel"
 import {findConnectedMagazineIssues} from "./node-types/car-model-variants/findConnectedMagazineIssues"
 import {findConnectedRatings} from "./node-types/car-model-variants/findConnectedRatings"
+import {findConnectedPrices} from "./node-types/car-model-variants/findConnectedPrices"
 import {findConnectedProgrammeEpisodes} from "./node-types/car-model-variants/findConnectedProgrammeEpisodes"
 import {findConnectedLapTimes} from "./node-types/car-model-variants/findConnectedLapTimes"
 import {findConnectedSessionResults} from "./node-types/car-model-variants/findConnectedSessionResults"
@@ -40,6 +41,10 @@ export const CarModelVariantModelFacade = {
 
     async getConnectedRatings(id: number) {
         return findConnectedRatings(id)
+    },
+
+    async getConnectedPrices(id: number) {
+        return findConnectedPrices(id)
     },
 
     async getConnectedProgrammeEpisodes(id: number) {
