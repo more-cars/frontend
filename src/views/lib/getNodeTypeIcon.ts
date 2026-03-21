@@ -15,6 +15,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.LAP_TIME, '⏱️'],
         [ControllerNodeType.RACING_GAME, '🎮'],
         [ControllerNodeType.GAMING_PLATFORM, '🖥️'],
+        [ControllerNodeType.MODEL_CAR, '🚘'],
         [ControllerNodeType.MAGAZINE, '📰'],
         [ControllerNodeType.MAGAZINE_ISSUE, '🗞️'],
         [ControllerNodeType.RATING, '💯'],

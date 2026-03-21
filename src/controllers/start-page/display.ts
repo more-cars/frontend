@@ -14,6 +14,7 @@ import {SessionResultModelFacade} from "../../models/SessionResultModelFacade"
 import {LapTimeModelFacade} from "../../models/LapTimeModelFacade"
 import {RacingGameModelFacade} from "../../models/RacingGameModelFacade"
 import {GamingPlatformModelFacade} from "../../models/GamingPlatformModelFacade"
+import {ModelCarModelFacade} from "../../models/ModelCarModelFacade"
 import {MagazineModelFacade} from "../../models/MagazineModelFacade"
 import {MagazineIssueModelFacade} from "../../models/MagazineIssueModelFacade"
 import {RatingModelFacade} from "../../models/RatingModelFacade"
@@ -37,6 +38,7 @@ export async function display(req: express.Request, res: express.Response) {
         getNodeTypeInformation(DataNodeType.LAP_TIME, await LapTimeModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.RACING_GAME, await RacingGameModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.GAMING_PLATFORM, await GamingPlatformModelFacade.getTotalNodeCount()),
+        getNodeTypeInformation(DataNodeType.MODEL_CAR, await ModelCarModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.MAGAZINE, await MagazineModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.MAGAZINE_ISSUE, await MagazineIssueModelFacade.getTotalNodeCount()),
         getNodeTypeInformation(DataNodeType.RATING, await RatingModelFacade.getTotalNodeCount()),

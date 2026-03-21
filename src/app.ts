@@ -20,6 +20,7 @@ import ratings from "./routes/ratings"
 import programmes from "./routes/programmes"
 import programmeEpisodes from "./routes/programme-episodes"
 import motorShows from "./routes/motor-shows"
+import modelCars from "./routes/model-cars"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -48,6 +49,7 @@ app.use('/', sessionResults)
 app.use('/', lapTimes)
 app.use('/', racingGames)
 app.use('/', gamingPlatforms)
+app.use('/', modelCars)
 app.use('/', magazines)
 app.use('/', magazineIssues)
 app.use('/', ratings)
