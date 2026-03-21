@@ -3,6 +3,7 @@ import {PriceModelFacade} from "../../../models/PriceModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const priceId = parseInt(req.params.id)
@@ -17,6 +18,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
+    const carModelVariant = await PriceModelFacade.getConnectedCarModelVariant(priceId)
+
     res.render('templates/node-types/prices/price-detail-page', {
         page_title: `${price.price} - Price`,
         main_headline: `${price.price} ${price.currency_code}`,
@@ -26,6 +29,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             node_properties: getNodeProperties(DataNodeType.PRICE),
             main_image: await PriceModelFacade.getConnectedMainImage(priceId),
         },
-        relationships: {},
+        relationships: {
+            car_model_variant: {
+                item: carModelVariant,
+                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                thumbnails: await getCarModelVariantThumbnails(carModelVariant ? [carModelVariant] : []),
+            },
+        },
     })
 }
