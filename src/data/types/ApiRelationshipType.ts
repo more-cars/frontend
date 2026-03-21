@@ -24,6 +24,7 @@ export enum ApiRelationshipType {
     CAR_MODEL_VARIANT_IS_FEATURED_IN_RACING_GAME = 'is-featured-in-racing-game',
     CAR_MODEL_VARIANT_PRESENTED_AT_MOTOR_SHOW = 'presented-at-motor-show',
     CAR_MODEL_VARIANT_HAS_IMAGE = 'has-image',
+    PRICE_HAS_MAIN_IMAGE = 'has-main-image',
     RACE_TRACK_HAS_MAIN_IMAGE = 'has-prime-image',
     RACE_TRACK_HAS_LAYOUT = 'has-layout',
     RACE_TRACK_HOSTED_RACING_EVENT = 'hosted-racing-event',
