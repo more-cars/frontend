@@ -3,6 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {PriceModelFacade} from "../../../models/PriceModelFacade"
+import {getPriceThumbnails} from "./getPriceThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -12,6 +13,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All Prices',
         main_headline: 'All Prices',
         node_collection: prices,
+        thumbnails: await getPriceThumbnails(prices),
         node_properties: getNodeProperties(DataNodeType.PRICE),
         pagination: {
             page,
