@@ -19,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const modelCars = await ModelCarBrandModelFacade.getConnectedModelCars(modelCarBrandId)
+    const images = await ModelCarBrandModelFacade.getConnectedImages(modelCarBrandId)
 
     res.render('templates/node-types/model-car-brands/model-car-brand-detail-page', {
         page_title: `${modelCarBrand.name} - Model Car Brand`,
@@ -33,6 +34,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: modelCars,
                 node_properties: getNodeProperties(DataNodeType.MODEL_CAR),
                 thumbnails: await getModelCarThumbnails(modelCars),
+            },
+            images: {
+                items: images,
+                node_properties: getNodeProperties(DataNodeType.IMAGE),
             },
         },
     })

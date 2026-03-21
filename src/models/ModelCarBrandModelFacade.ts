@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/model-car-brands/findNodeById"
 import {findConnectedMainImage} from "./node-types/model-car-brands/findConnectedMainImage"
 import {findConnectedModelCars} from "./node-types/model-car-brands/findConnectedModelCars"
+import {findConnectedImages} from "./node-types/model-car-brands/findConnectedImages"
 
 export const ModelCarBrandModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -24,5 +25,9 @@ export const ModelCarBrandModelFacade = {
 
     async getConnectedModelCars(id: number) {
         return findConnectedModelCars(id)
+    },
+
+    async getConnectedImages(id: number) {
+        return findConnectedImages(id)
     },
 }
