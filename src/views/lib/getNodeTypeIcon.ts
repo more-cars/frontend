@@ -4,11 +4,11 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
     const map = new Map<ControllerNodeType, string>([
         [ControllerNodeType.COMPANY, '🏭'],
         [ControllerNodeType.BRAND, '🛡️'],
-        [ControllerNodeType.CAR_MODEL, '🚘'],
+        [ControllerNodeType.CAR_MODEL, '🚗️'],
         [ControllerNodeType.CAR_MODEL_VARIANT, '🚙'],
         [ControllerNodeType.RACE_TRACK, '🛣️'],
         [ControllerNodeType.TRACK_LAYOUT, '⭖'],
-        [ControllerNodeType.RACING_SERIES, '🏎'],
+        [ControllerNodeType.RACING_SERIES, '🏎️'],
         [ControllerNodeType.RACING_EVENT, '🏞'],
         [ControllerNodeType.RACING_SESSION, '🚦'],
         [ControllerNodeType.SESSION_RESULT, '🏁'],
