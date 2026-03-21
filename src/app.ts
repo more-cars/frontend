@@ -14,13 +14,14 @@ import sessionResults from "./routes/session-results"
 import lapTimes from "./routes/lap-times"
 import racingGames from "./routes/racing-games"
 import gamingPlatforms from "./routes/gaming-platforms"
+import modelCars from "./routes/model-cars"
+import modelCarBrands from "./routes/model-car-brands"
 import magazines from "./routes/magazines"
 import magazineIssues from "./routes/magazine-issues"
 import ratings from "./routes/ratings"
 import programmes from "./routes/programmes"
 import programmeEpisodes from "./routes/programme-episodes"
 import motorShows from "./routes/motor-shows"
-import modelCars from "./routes/model-cars"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -50,6 +51,7 @@ app.use('/', lapTimes)
 app.use('/', racingGames)
 app.use('/', gamingPlatforms)
 app.use('/', modelCars)
+app.use('/', modelCarBrands)
 app.use('/', magazines)
 app.use('/', magazineIssues)
 app.use('/', ratings)

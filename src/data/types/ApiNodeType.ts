@@ -13,6 +13,7 @@ export enum ApiNodeType {
     RACING_GAME = 'racing-games',
     GAMING_PLATFORM = 'gaming-platforms',
     MODEL_CAR = 'model-cars',
+    MODEL_CAR_BRAND = 'model-car-brands',
     MAGAZINE = 'magazines',
     MAGAZINE_ISSUE = 'magazine-issues',
     RATING = 'ratings',
