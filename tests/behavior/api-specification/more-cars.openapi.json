@@ -19559,6 +19559,9 @@
               "$ref": "#/components/schemas/BrandResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -19864,6 +19867,9 @@
             "items": {
               "$ref": "#/components/schemas/CarModelResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -20556,6 +20562,9 @@
             "items": {
               "$ref": "#/components/schemas/CarModelVariantResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -21387,6 +21396,9 @@
               "$ref": "#/components/schemas/PriceResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -21713,6 +21725,9 @@
               "$ref": "#/components/schemas/ImageResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -22002,6 +22017,9 @@
               "$ref": "#/components/schemas/CompanyResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -22257,6 +22275,9 @@
             "items": {
               "$ref": "#/components/schemas/RaceTrackResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -22603,6 +22624,9 @@
             "items": {
               "$ref": "#/components/schemas/TrackLayoutResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -23049,6 +23073,9 @@
               "$ref": "#/components/schemas/RacingSeriesResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -23308,6 +23335,9 @@
             "items": {
               "$ref": "#/components/schemas/RacingEventResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -23893,6 +23923,9 @@
               "$ref": "#/components/schemas/RacingSessionResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -24224,6 +24257,9 @@
             "items": {
               "$ref": "#/components/schemas/SessionResultResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -24583,6 +24619,9 @@
               "$ref": "#/components/schemas/LapTimeResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -24928,6 +24967,9 @@
             "items": {
               "$ref": "#/components/schemas/RacingGameResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -25304,6 +25346,9 @@
               "$ref": "#/components/schemas/GamingPlatformResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -25565,6 +25610,9 @@
             "items": {
               "$ref": "#/components/schemas/ModelCarResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -25858,6 +25906,9 @@
             "items": {
               "$ref": "#/components/schemas/ModelCarBrandResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -26156,6 +26207,9 @@
               "$ref": "#/components/schemas/MagazineResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -26441,6 +26495,9 @@
             "items": {
               "$ref": "#/components/schemas/MagazineIssueResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -27040,6 +27097,9 @@
               "$ref": "#/components/schemas/RatingResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -27352,6 +27412,9 @@
               "$ref": "#/components/schemas/ProgrammeResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -27617,6 +27680,9 @@
             "items": {
               "$ref": "#/components/schemas/ProgrammeEpisodeResponse"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
           },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
@@ -28098,6 +28164,9 @@
               "$ref": "#/components/schemas/MotorShowResponse"
             }
           },
+          "links": {
+            "$ref": "#/components/schemas/PaginationLinks"
+          },
           "meta": {
             "$ref": "#/components/schemas/MetaData"
           }
@@ -28342,26 +28411,6 @@
       "MetaData": {
         "type": "object",
         "properties": {
-          "links": {
-            "type": "object",
-            "properties": {
-              "self": {
-                "type": "string"
-              },
-              "first": {
-                "type": "string"
-              },
-              "prev": {
-                "type": "string"
-              },
-              "next": {
-                "type": "string"
-              },
-              "last": {
-                "type": "string"
-              }
-            }
-          },
           "page": {
             "type": "object",
             "properties": {
@@ -28378,6 +28427,26 @@
                 "type": "integer"
               }
             }
+          }
+        }
+      },
+      "PaginationLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string"
+          },
+          "first": {
+            "type": "string"
+          },
+          "prev": {
+            "type": "string"
+          },
+          "next": {
+            "type": "string"
+          },
+          "last": {
+            "type": "string"
           }
         }
       }
