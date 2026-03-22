@@ -1,6 +1,7 @@
 import type {Express} from "express"
 import express from "express"
 import startPage from "./routes/startPage.ts"
+import slugs from "./routes/slugs"
 import companies from "./routes/companies"
 import brands from './routes/brands.ts'
 import carModels from "./routes/car-models"
@@ -25,6 +26,7 @@ import programmeEpisodes from "./routes/programme-episodes"
 import motorShows from "./routes/motor-shows"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
+import {canonicalUrlPath} from "./views/lib/canonicalUrlPath"
 import {convertDate} from "./views/lib/convertDate.ts"
 import {convertDateTime} from "./views/lib/convertDateTime.ts"
 import {formatTime} from "./views/lib/formatTime.ts"
@@ -61,7 +63,9 @@ app.use('/', programmes)
 app.use('/', programmeEpisodes)
 app.use('/', motorShows)
 app.use('/', images)
+app.use('/', slugs)
 
+app.locals.canonical = canonicalUrlPath
 app.locals.formatDate = convertDate
 app.locals.formatDateTime = convertDateTime
 app.locals.formatTime = formatTime

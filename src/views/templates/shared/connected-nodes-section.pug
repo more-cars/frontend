@@ -8,7 +8,6 @@ if nodeItems.length > 0 && nodeItems[0] !== null
 
         ul(class="max-h-150 overflow-y-auto")
             each nodeItem in nodeItems
-                - nodeUrlPath = nodeUrlBasePath + '/' + nodeItem.id
                 - thumbnail = thumbnails ? thumbnails.get(nodeItem.id) : nodeItem
                 - itemHeadline = itemHeadlineProperty ? nodeItem[itemHeadlineProperty] : nodeItem['name']
                 include list-node-item

@@ -12,7 +12,8 @@
     "pug": "3.0.4",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "url-slug": "5.0.0"
   },
   "description": "Frontend for the open car database 'More Cars'",
   "devDependencies": {
