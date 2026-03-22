@@ -6,25 +6,23 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
     const operationId = context.operation.operationId || 'UNKNOWN'
 
     if (isNodeTypeOperation(operationId)) {
-        const mockItems = []
-        const nodeCount = getNodeCountForNodeType(operationId)
+        const nodeCollectionResponseMock = context.api.mockResponseForOperation(operationId, {code: Number(200)})
+
         const page = req.query.page || 1
+        const nodeCount = getNodeCountForNodeType(operationId)
         const visibleNodes = Math.min(nodeCount - ((page - 1) * 100), 100)
 
+        const mockedNodes = []
+        const nodeMock = nodeCollectionResponseMock.mock.data.pop()
         for (let i = 0; i < visibleNodes; i++) {
-            const rawMockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)})
-            const randomId = Math.ceil(Math.random() * 10000000)
-            const mockItem = rawMockItem.mock.data[0]
-            mockItem.id = randomId
-            mockItems.push(mockItem)
+            nodeMock.id = Math.ceil(Math.random() * 10000000)
+            mockedNodes.push(nodeMock)
         }
 
-        return {
-            data: mockItems,
-            meta: {
-                total: nodeCount,
-            },
-        }
+        nodeCollectionResponseMock.mock.data = mockedNodes
+        nodeCollectionResponseMock.mock.meta.page.total_nodes = nodeCount
+
+        return nodeCollectionResponseMock.mock
     }
 
     if (isNodeOperation(operationId)) {
