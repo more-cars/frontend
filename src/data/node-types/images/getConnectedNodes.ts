@@ -1,11 +1,12 @@
+import {getImageById} from "./getImageById"
 import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ApiImageBelongsToNodeRelationship} from "./types/ApiImageBelongsToNodeRelationship"
 import type {ImageBelongsToNodeRelationship} from "./types/ImageBelongsToNodeRelationship"
-import {getImageById} from "./getImageById"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import type {BrandNode} from "../brands/types/BrandNode"
+import type {DataNode} from "../../types/DataNode"
+import {mapApiNodeTypeToDataNodeType} from "../../lib/mapApiNodeTypeToDataNodeType"
 
 export async function getConnectedNodes(id: number) {
     const sourceNode = await getImageById(id)
@@ -16,20 +17,14 @@ export async function getConnectedNodes(id: number) {
     const apiData = (await requestDataFromApi(`/images/${id}/belongs-to-node`)).data as ApiImageBelongsToNodeRelationship[]
     const data: ImageBelongsToNodeRelationship[] = []
 
-    const nodeTypeMapping = new Map<string, DataNodeType>([
-        ['brand', DataNodeType.BRAND],
-        ['car model', DataNodeType.CAR_MODEL],
-        ['image', DataNodeType.IMAGE],
-    ])
-
     apiData.forEach(apiItem => {
         data.push({
             id,
             name: DataRelationshipType.IMAGE_BELONGS_TO_NODE,
             source_node: sourceNode,
             source_node_type: DataNodeType.IMAGE,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as BrandNode, // TODO fix node type
-            partner_node_type: nodeTypeMapping.get(apiItem.data.partner_node.node_type) || DataNodeType.BRAND, // TODO proper fallback handling
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as DataNode,
+            partner_node_type: mapApiNodeTypeToDataNodeType(apiItem.data.partner_node.node_type),
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,
         })
