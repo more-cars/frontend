@@ -19,9 +19,9 @@ describe('Fetching connected NODES from data source', () => {
         vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
             requestDataFromApi: vi.fn(() => ({
                 data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
+                    {data: {partner_node: {node_type: 'brands', data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
+                    {data: {partner_node: {node_type: 'brands', data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
+                    {data: {partner_node: {node_type: 'brands', data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
                 ]
             }))
         }))
