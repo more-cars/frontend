@@ -3,8 +3,7 @@ import {ImageModelFacade} from "../../../models/ImageModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getBrandThumbnails} from "../brands/getBrandThumbnails"
-import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
+import {getNodeThumbnails} from "./getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const imageId = parseInt(req.params.id)
@@ -19,8 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         })
     }
 
-    const brands = await ImageModelFacade.getConnectedBrands(imageId)
-    const carModels = await ImageModelFacade.getConnectedCarModels(imageId)
+    const nodes = await ImageModelFacade.getConnectedNodes(imageId)
 
     res.render('templates/node-types/images/image-detail-page', {
         page_title: `${image.name} - Image`,
@@ -31,15 +29,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: image,
         },
         relationships: {
-            brands: {
-                items: brands,
-                node_properties: getNodeProperties(DataNodeType.BRAND),
-                thumbnails: await getBrandThumbnails(brands),
-            },
-            car_models: {
-                items: carModels,
+            nodes: {
+                items: nodes,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
-                thumbnails: await getCarModelThumbnails(carModels),
+                thumbnails: await getNodeThumbnails(nodes),
             },
         },
     })

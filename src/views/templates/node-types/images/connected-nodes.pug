@@ -1,0 +1,11 @@
+if nodes.length > 0
+    section(data-testid="brand-section" class="mb-8")
+        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Nodes
+        p(class="mb-4") This image is connected to the following nodes:
+
+        ul
+            each nodeItem in nodes
+                - nodeType = 'node'
+                - thumbnail = relationships.nodes.thumbnails.get(nodeItem.id)
+                - nodeProperties = relationships.nodes.node_properties
+                include ../../shared/list-node-item

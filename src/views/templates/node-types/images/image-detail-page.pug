@@ -7,8 +7,5 @@ block sub_headline
 block relationships
     - image = node.data
 
-    - brands = relationships.brands.items
-    include connected-brands
-
-    - carModels = relationships.car_models.items
-    include connected-car-models
+    - nodes = relationships.nodes.items
+    include connected-nodes
