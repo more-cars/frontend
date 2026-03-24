@@ -8,4 +8,7 @@ export type ApiGamingPlatformNode = {
         created_at: string
         updated_at: string
     }
+    links: {
+        self: string
+    }
 }

@@ -11,4 +11,7 @@ export type ApiRaceTrackNode = {
         created_at: string
         updated_at: string
     }
+    links: {
+        self: string
+    }
 }

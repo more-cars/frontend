@@ -10,4 +10,7 @@ export type ApiCompanyNode = {
         created_at: string
         updated_at: string
     }
+    links: {
+        self: string
+    }
 }
