@@ -1,7 +1,6 @@
 import express from "express"
-import {singularize} from "inflection"
 import {NodeModelFacade} from "../../models/NodeModelFacade"
-import {DataNodeType} from "../../data/types/DataNodeType"
+import {mapApiNodeTypeToDataNodeType} from "../lib/mapModelNodeTypeToControllerNodeType"
 import {ControllerNodeType} from "../types/ControllerNodeType"
 import {displayNode as displayCompanyNode} from "../node-types/companies/displayNode"
 import {displayNode as displayBrandNode} from "../node-types/brands/displayNode"
@@ -29,14 +28,13 @@ import {displayNode as displayImageNode} from "../node-types/images/displayNode"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const nodeId = parseInt(req.params.id)
-    const nodeType = await NodeModelFacade.getNodeTypeOfNode(nodeId)
+    const modelNode = await NodeModelFacade.getNodeById(nodeId)
 
-    if (!nodeType) {
+    if (!modelNode) {
         return notFoundError(res)
     }
 
-    const nodeTypeSingular = nodeType === DataNodeType.RACING_SERIES ? 'racing-series' : singularize(nodeType)
-    switch (nodeTypeSingular) {
+    switch (mapApiNodeTypeToDataNodeType(modelNode.type)) {
         case ControllerNodeType.COMPANY:
             return displayCompanyNode(req, res)
         case ControllerNodeType.BRAND:
