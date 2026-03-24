@@ -1,12 +1,17 @@
+import type {DataNodeType} from "../../../types/DataNodeType"
+
 export type ProgrammeNode = {
-    id: number
-    name: string
-    aired_from_year?: number
-    aired_until_year?: number
-    channel?: string
-    total_seasons?: number
-    total_episodes?: number
-    regular_episode_running_time?: string
-    created_at: string
-    updated_at: string
+    type: DataNodeType.PROGRAMME
+    data: {
+        id: number
+        name: string
+        aired_from_year?: number
+        aired_until_year?: number
+        channel?: string
+        total_seasons?: number
+        total_episodes?: number
+        regular_episode_running_time?: string
+        created_at: string
+        updated_at: string
+    }
 }

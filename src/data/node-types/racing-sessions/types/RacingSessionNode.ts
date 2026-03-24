@@ -1,12 +1,17 @@
+import type {DataNodeType} from "../../../types/DataNodeType"
+
 export type RacingSessionNode = {
-    id: number
-    name: string
-    start_date?: string
-    start_time?: string
-    duration?: number
-    duration_unit?: string
-    distance?: number
-    distance_unit?: string
-    created_at: string
-    updated_at: string
+    type: DataNodeType.RACING_SESSION
+    data: {
+        id: number
+        name: string
+        start_date?: string
+        start_time?: string
+        duration?: number
+        duration_unit?: string
+        distance?: number
+        distance_unit?: string
+        created_at: string
+        updated_at: string
+    }
 }
