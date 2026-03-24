@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {ModelCarBrandDataFacade} from "../../../../../src/data/ModelCarBrandDataFacade"
 import {findNodeById} from "../../../../../src/models/node-types/model-car-brands/findNodeById"
 import type {ModelCarBrandNode} from "../../../../../src/data/node-types/model-car-brands/types/ModelCarBrandNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node for the MODEL CAR BRAND detail page', () => {
     test('when the MODEL CAR BRAND does not exist', async () => {
@@ -12,12 +13,12 @@ describe('Collect node for the MODEL CAR BRAND detail page', () => {
     })
 
     test('when the MODEL CAR BRAND exists', async () => {
-        const node = {id: 1, name: "dummy 1"} as ModelCarBrandNode
+        const node = {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 1, name: "dummy 1"}} as ModelCarBrandNode
         vi.spyOn(ModelCarBrandDataFacade, 'getNodeById').mockResolvedValue(node)
 
         const modelCarBrand = await findNodeById(1)
 
-        expect(modelCarBrand?.id).toEqual(node.id)
-        expect(modelCarBrand?.name).toEqual(node.name)
+        expect(modelCarBrand?.fields.id).toEqual(node.data.id)
+        expect(modelCarBrand?.fields.name).toEqual(node.data.name)
     })
 })
