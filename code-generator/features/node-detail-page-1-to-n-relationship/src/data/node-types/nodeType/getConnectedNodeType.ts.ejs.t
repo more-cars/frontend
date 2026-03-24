@@ -25,7 +25,7 @@ export async function getConnected<%= h.changeCase.pascal(h.inflection.pluralize
             name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>,
             source_node: sourceNode,
             source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as <%= h.changeCase.pascal(partnerNodeType) %>Node,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as <%= h.changeCase.pascal(partnerNodeType) %>Node,
             partner_node_type: DataNodeType.<%= h.changeCase.constant(partnerNodeType) %>,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

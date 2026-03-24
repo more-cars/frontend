@@ -14,7 +14,7 @@ export async function getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeT
     const data: <%= h.changeCase.pascal(nodeType) %>Node[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as <%= h.changeCase.pascal(nodeType) %>Node)
+        data.push(convertApiNodeToDataNode(apiItem) as <%= h.changeCase.pascal(nodeType) %>Node)
     })
 
     return data

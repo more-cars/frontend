@@ -13,5 +13,5 @@ export async function get<%= h.changeCase.pascal(nodeType) %>ById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as <%= h.changeCase.pascal(nodeType) %>Node
+    return convertApiNodeToDataNode(apiData) as <%= h.changeCase.pascal(nodeType) %>Node
 }
