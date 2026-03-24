@@ -27,7 +27,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
         page_title: `${lapTime.driver_name} - Lap Time`,
-        main_headline: `${lapTime.driver_name}`,
         node: {
             type: ControllerNodeType.LAP_TIME,
             data: lapTime,

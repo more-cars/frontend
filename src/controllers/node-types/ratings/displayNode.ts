@@ -25,7 +25,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/node-types/ratings/rating-detail-page', {
         page_title: `${rating.rating_value} - Rating`,
-        main_headline: `${rating.rating_value} / ${rating.scale_maximum} Points`,
         node: {
             type: ControllerNodeType.RATING,
             data: rating,

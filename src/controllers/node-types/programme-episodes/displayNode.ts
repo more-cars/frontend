@@ -30,7 +30,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/node-types/programme-episodes/programme-episode-detail-page', {
         page_title: `${programmeEpisode.title} - Programme Episode`,
-        main_headline: `${programmeEpisode.title}`,
         node: {
             type: ControllerNodeType.PROGRAMME_EPISODE,
             data: programmeEpisode,

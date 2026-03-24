@@ -23,7 +23,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/node-types/prices/price-detail-page', {
         page_title: `${price.price} - Price`,
-        main_headline: `${price.price} ${price.currency_code}`,
         node: {
             type: ControllerNodeType.PRICE,
             data: price,

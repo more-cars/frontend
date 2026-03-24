@@ -27,7 +27,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     res.render('templates/node-types/session-results/session-result-detail-page', {
         page_title: `${sessionResult.driver_name} - Session Result`,
-        main_headline: `${sessionResult.driver_name}`,
         node: {
             type: ControllerNodeType.SESSION_RESULT,
             data: sessionResult,
