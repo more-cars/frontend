@@ -6,7 +6,7 @@ export async function getGamingPlatformThumbnails(gamingPlatforms: GamingPlatfor
     const thumbnails = new Map<number, Image | null>
 
     for (const gamingPlatform of gamingPlatforms) {
-        thumbnails.set(gamingPlatform.id, await GamingPlatformModelFacade.getConnectedMainImage(gamingPlatform.id) || null)
+        thumbnails.set(gamingPlatform.fields.id, await GamingPlatformModelFacade.getConnectedMainImage(gamingPlatform.fields.id) || null)
     }
 
     return thumbnails

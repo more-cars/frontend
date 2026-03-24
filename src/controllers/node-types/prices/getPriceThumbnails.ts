@@ -6,7 +6,7 @@ export async function getPriceThumbnails(prices: Price[]) {
     const thumbnails = new Map<number, Image | null>
 
     for (const price of prices) {
-        thumbnails.set(price.id, await PriceModelFacade.getConnectedMainImage(price.id) || null)
+        thumbnails.set(price.fields.id, await PriceModelFacade.getConnectedMainImage(price.fields.id) || null)
     }
 
     return thumbnails

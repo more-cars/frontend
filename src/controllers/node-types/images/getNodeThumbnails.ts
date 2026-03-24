@@ -6,7 +6,7 @@ export async function getNodeThumbnails(nodes: ModelNode[]) {
     const thumbnails = new Map<number, Image | null>
 
     for (const node of nodes) {
-        thumbnails.set(node.id, await CarModelVariantModelFacade.getConnectedMainImage(node.id) || null)
+        thumbnails.set(node.fields.id, await CarModelVariantModelFacade.getConnectedMainImage(node.fields.id) || null)
     }
 
     return thumbnails

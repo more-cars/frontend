@@ -6,7 +6,7 @@ export async function getModelCarBrandThumbnails(modelCarBrands: ModelCarBrand[]
     const thumbnails = new Map<number, Image | null>
 
     for (const modelCarBrand of modelCarBrands) {
-        thumbnails.set(modelCarBrand.id, await ModelCarBrandModelFacade.getConnectedMainImage(modelCarBrand.id) || null)
+        thumbnails.set(modelCarBrand.fields.id, await ModelCarBrandModelFacade.getConnectedMainImage(modelCarBrand.fields.id) || null)
     }
 
     return thumbnails

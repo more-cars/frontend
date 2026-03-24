@@ -6,7 +6,7 @@ export async function getCarModelVariantThumbnails(carModelVariants: CarModelVar
     const thumbnails = new Map<number, Image | null>
 
     for (const carModelVariant of carModelVariants) {
-        thumbnails.set(carModelVariant.id, await CarModelVariantModelFacade.getConnectedMainImage(carModelVariant.id) || null)
+        thumbnails.set(carModelVariant.fields.id, await CarModelVariantModelFacade.getConnectedMainImage(carModelVariant.fields.id) || null)
     }
 
     return thumbnails

@@ -6,7 +6,7 @@ export async function getMagazineIssueThumbnails(magazineIssues: MagazineIssue[]
     const thumbnails = new Map<number, Image | null>
 
     for (const magazineIssue of magazineIssues) {
-        thumbnails.set(magazineIssue.id, await MagazineIssueModelFacade.getConnectedMainImage(magazineIssue.id) || null)
+        thumbnails.set(magazineIssue.fields.id, await MagazineIssueModelFacade.getConnectedMainImage(magazineIssue.fields.id) || null)
     }
 
     return thumbnails

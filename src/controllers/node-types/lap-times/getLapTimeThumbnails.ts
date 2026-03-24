@@ -6,7 +6,7 @@ export async function getLapTimeThumbnails(lapTimes: LapTime[]) {
     const thumbnails = new Map<number, Image | null>
 
     for (const lapTime of lapTimes) {
-        thumbnails.set(lapTime.id, await LapTimeModelFacade.getConnectedMainImage(lapTime.id) || null)
+        thumbnails.set(lapTime.fields.id, await LapTimeModelFacade.getConnectedMainImage(lapTime.fields.id) || null)
     }
 
     return thumbnails

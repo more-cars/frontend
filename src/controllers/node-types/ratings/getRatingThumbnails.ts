@@ -6,7 +6,7 @@ export async function getRatingThumbnails(ratings: Rating[]) {
     const thumbnails = new Map<number, Image | null>
 
     for (const rating of ratings) {
-        thumbnails.set(rating.id, await RatingModelFacade.getConnectedMainImage(rating.id) || null)
+        thumbnails.set(rating.fields.id, await RatingModelFacade.getConnectedMainImage(rating.fields.id) || null)
     }
 
     return thumbnails

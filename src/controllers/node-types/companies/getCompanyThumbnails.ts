@@ -6,7 +6,7 @@ export async function getCompanyThumbnails(companies: Company[]) {
     const thumbnails = new Map<number, Image | null>
 
     for (const company of companies) {
-        thumbnails.set(company.id, await CompanyModelFacade.getConnectedMainImage(company.id) || null)
+        thumbnails.set(company.fields.id, await CompanyModelFacade.getConnectedMainImage(company.fields.id) || null)
     }
 
     return thumbnails

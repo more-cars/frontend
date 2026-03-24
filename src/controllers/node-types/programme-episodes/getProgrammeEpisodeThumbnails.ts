@@ -6,7 +6,7 @@ export async function getProgrammeEpisodeThumbnails(programmeEpisodes: Programme
     const thumbnails = new Map<number, Image | null>
 
     for (const programmeEpisode of programmeEpisodes) {
-        thumbnails.set(programmeEpisode.id, await ProgrammeEpisodeModelFacade.getConnectedMainImage(programmeEpisode.id) || null)
+        thumbnails.set(programmeEpisode.fields.id, await ProgrammeEpisodeModelFacade.getConnectedMainImage(programmeEpisode.fields.id) || null)
     }
 
     return thumbnails

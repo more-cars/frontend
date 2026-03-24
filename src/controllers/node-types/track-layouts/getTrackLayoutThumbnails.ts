@@ -6,7 +6,7 @@ export async function getTrackLayoutThumbnails(trackLayouts: TrackLayout[]) {
     const thumbnails = new Map<number, Image | null>
 
     for (const trackLayout of trackLayouts) {
-        thumbnails.set(trackLayout.id, await TrackLayoutModelFacade.getConnectedMainImage(trackLayout.id) || null)
+        thumbnails.set(trackLayout.fields.id, await TrackLayoutModelFacade.getConnectedMainImage(trackLayout.fields.id) || null)
     }
 
     return thumbnails

@@ -6,7 +6,7 @@ export async function getSessionResultThumbnails(sessionResults: SessionResult[]
     const thumbnails = new Map<number, Image | null>
 
     for (const sessionResult of sessionResults) {
-        thumbnails.set(sessionResult.id, await SessionResultModelFacade.getConnectedMainImage(sessionResult.id) || null)
+        thumbnails.set(sessionResult.fields.id, await SessionResultModelFacade.getConnectedMainImage(sessionResult.fields.id) || null)
     }
 
     return thumbnails
