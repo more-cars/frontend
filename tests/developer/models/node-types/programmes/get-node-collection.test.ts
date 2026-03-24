@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {ProgrammeDataFacade} from "../../../../../src/data/ProgrammeDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/programmes/findAllNodes"
 import type {ProgrammeNode} from "../../../../../src/data/node-types/programmes/types/ProgrammeNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the PROGRAMME overview page', () => {
     test('when there exist no PROGRAMMES', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the PROGRAMME overview page', () => {
 
     test('when there exist multiple PROGRAMMES', async () => {
         vi.spyOn(ProgrammeDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, name: "dummy 1"} as ProgrammeNode,
-            {id: 2, name: "dummy 2"} as ProgrammeNode,
-            {id: 3, name: "dummy 3"} as ProgrammeNode,
+            {type: DataNodeType.PROGRAMME, data: {id: 1, name: "dummy 1"}} as ProgrammeNode,
+            {type: DataNodeType.PROGRAMME, data: {id: 2, name: "dummy 2"}} as ProgrammeNode,
+            {type: DataNodeType.PROGRAMME, data: {id: 3, name: "dummy 3"}} as ProgrammeNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the PROGRAMME overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, name: "dummy " + i} as ProgrammeNode)
+            dummyNodes.push({type: DataNodeType.PROGRAMME, data: {id: i, name: "dummy " + i}} as ProgrammeNode)
         }
 
         vi.spyOn(ProgrammeDataFacade, 'getNodeCollection')

@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {LapTimeDataFacade} from "../../../../../src/data/LapTimeDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/lap-times/findAllNodes"
 import type {LapTimeNode} from "../../../../../src/data/node-types/lap-times/types/LapTimeNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the LAP TIME overview page', () => {
     test('when there exist no LAP TIMES', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the LAP TIME overview page', () => {
 
     test('when there exist multiple LAP TIMES', async () => {
         vi.spyOn(LapTimeDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, driver_name: "dummy 1"} as LapTimeNode,
-            {id: 2, driver_name: "dummy 2"} as LapTimeNode,
-            {id: 3, driver_name: "dummy 3"} as LapTimeNode,
+            {type: DataNodeType.LAP_TIME, data: {id: 1, driver_name: "dummy 1"}} as LapTimeNode,
+            {type: DataNodeType.LAP_TIME, data: {id: 2, driver_name: "dummy 2"}} as LapTimeNode,
+            {type: DataNodeType.LAP_TIME, data: {id: 3, driver_name: "dummy 3"}} as LapTimeNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the LAP TIME overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, driver_name: "dummy " + i} as LapTimeNode)
+            dummyNodes.push({type: DataNodeType.LAP_TIME, data: {id: i, driver_name: "dummy " + i}} as LapTimeNode)
         }
 
         vi.spyOn(LapTimeDataFacade, 'getNodeCollection')

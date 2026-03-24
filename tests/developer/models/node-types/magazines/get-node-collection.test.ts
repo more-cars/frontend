@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {MagazineDataFacade} from "../../../../../src/data/MagazineDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/magazines/findAllNodes"
 import type {MagazineNode} from "../../../../../src/data/node-types/magazines/types/MagazineNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the MAGAZINE overview page', () => {
     test('when there exist no MAGAZINES', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the MAGAZINE overview page', () => {
 
     test('when there exist multiple MAGAZINES', async () => {
         vi.spyOn(MagazineDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, name: "dummy 1"} as MagazineNode,
-            {id: 2, name: "dummy 2"} as MagazineNode,
-            {id: 3, name: "dummy 3"} as MagazineNode,
+            {type: DataNodeType.MAGAZINE, data: {id: 1, name: "dummy 1"}} as MagazineNode,
+            {type: DataNodeType.MAGAZINE, data: {id: 2, name: "dummy 2"}} as MagazineNode,
+            {type: DataNodeType.MAGAZINE, data: {id: 3, name: "dummy 3"}} as MagazineNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the MAGAZINE overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, name: "dummy " + i} as MagazineNode)
+            dummyNodes.push({type: DataNodeType.MAGAZINE, data: {id: i, name: "dummy " + i}} as MagazineNode)
         }
 
         vi.spyOn(MagazineDataFacade, 'getNodeCollection')

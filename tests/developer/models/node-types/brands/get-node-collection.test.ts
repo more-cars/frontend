@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {BrandDataFacade} from "../../../../../src/data/BrandDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/brands/findAllNodes"
 import type {BrandNode} from "../../../../../src/data/node-types/brands/types/BrandNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the BRAND overview page', () => {
     test('when there exist no BRANDS', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the BRAND overview page', () => {
 
     test('when there exist multiple BRANDS', async () => {
         vi.spyOn(BrandDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, name: "dummy 1"} as BrandNode,
-            {id: 2, name: "dummy 2"} as BrandNode,
-            {id: 3, name: "dummy 3"} as BrandNode,
+            {type: DataNodeType.BRAND, data: {id: 1, name: "dummy 1"}} as BrandNode,
+            {type: DataNodeType.BRAND, data: {id: 2, name: "dummy 2"}} as BrandNode,
+            {type: DataNodeType.BRAND, data: {id: 3, name: "dummy 3"}} as BrandNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the BRAND overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, name: "dummy " + i} as BrandNode)
+            dummyNodes.push({type: DataNodeType.BRAND, data: {id: i, name: "dummy " + i}} as BrandNode)
         }
 
         vi.spyOn(BrandDataFacade, 'getNodeCollection')

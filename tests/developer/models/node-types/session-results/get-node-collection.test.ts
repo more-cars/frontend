@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {SessionResultDataFacade} from "../../../../../src/data/SessionResultDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/session-results/findAllNodes"
 import type {SessionResultNode} from "../../../../../src/data/node-types/session-results/types/SessionResultNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the SESSION RESULT overview page', () => {
     test('when there exist no SESSION RESULTS', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the SESSION RESULT overview page', () => {
 
     test('when there exist multiple SESSION RESULTS', async () => {
         vi.spyOn(SessionResultDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, position: 1} as SessionResultNode,
-            {id: 2, position: 2} as SessionResultNode,
-            {id: 3, position: 3} as SessionResultNode,
+            {type: DataNodeType.SESSION_RESULT, data: {id: 1, position: 1}} as SessionResultNode,
+            {type: DataNodeType.SESSION_RESULT, data: {id: 2, position: 2}} as SessionResultNode,
+            {type: DataNodeType.SESSION_RESULT, data: {id: 3, position: 3}} as SessionResultNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the SESSION RESULT overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, position: i} as SessionResultNode)
+            dummyNodes.push({type: DataNodeType.SESSION_RESULT, data: {id: i, position: i}} as SessionResultNode)
         }
 
         vi.spyOn(SessionResultDataFacade, 'getNodeCollection')

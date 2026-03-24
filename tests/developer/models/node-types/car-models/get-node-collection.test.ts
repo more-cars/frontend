@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {CarModelDataFacade} from "../../../../../src/data/CarModelDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/car-models/findAllNodes"
 import type {CarModelNode} from "../../../../../src/data/node-types/car-models/types/CarModelNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the CAR MODEL overview page', () => {
     test('when there exist no CAR MODELS', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the CAR MODEL overview page', () => {
 
     test('when there exist multiple CAR MODELS', async () => {
         vi.spyOn(CarModelDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, name: "dummy 1"} as CarModelNode,
-            {id: 2, name: "dummy 2"} as CarModelNode,
-            {id: 3, name: "dummy 3"} as CarModelNode,
+            {type: DataNodeType.CAR_MODEL, data: {id: 1, name: "dummy 1"}} as CarModelNode,
+            {type: DataNodeType.CAR_MODEL, data: {id: 2, name: "dummy 2"}} as CarModelNode,
+            {type: DataNodeType.CAR_MODEL, data: {id: 3, name: "dummy 3"}} as CarModelNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the CAR MODEL overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, name: "dummy " + i} as CarModelNode)
+            dummyNodes.push({type: DataNodeType.CAR_MODEL, data: {id: i, name: "dummy " + i}} as CarModelNode)
         }
 
         vi.spyOn(CarModelDataFacade, 'getNodeCollection')

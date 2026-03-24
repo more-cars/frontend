@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {RacingSeriesDataFacade} from "../../../../../src/data/RacingSeriesDataFacade"
 import {findAllNodes} from "../../../../../src/models/node-types/racing-series/findAllNodes"
 import type {RacingSeriesNode} from "../../../../../src/data/node-types/racing-series/types/RacingSeriesNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect node collection for the RACING SERIES overview page', () => {
     test('when there exist no RACING SERIES', async () => {
@@ -13,9 +14,9 @@ describe('Collect node collection for the RACING SERIES overview page', () => {
 
     test('when there exist multiple RACING SERIES', async () => {
         vi.spyOn(RacingSeriesDataFacade, 'getNodeCollection').mockResolvedValue([
-            {id: 1, name: "dummy 1"} as RacingSeriesNode,
-            {id: 2, name: "dummy 2"} as RacingSeriesNode,
-            {id: 3, name: "dummy 3"} as RacingSeriesNode,
+            {type: DataNodeType.RACING_SERIES, data: {id: 1, name: "dummy 1"}} as RacingSeriesNode,
+            {type: DataNodeType.RACING_SERIES, data: {id: 2, name: "dummy 2"}} as RacingSeriesNode,
+            {type: DataNodeType.RACING_SERIES, data: {id: 3, name: "dummy 3"}} as RacingSeriesNode,
         ])
 
         expect(await findAllNodes())
@@ -26,7 +27,7 @@ describe('Collect node collection for the RACING SERIES overview page', () => {
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, name: "dummy " + i} as RacingSeriesNode)
+            dummyNodes.push({type: DataNodeType.RACING_SERIES, data: {id: i, name: "dummy " + i}} as RacingSeriesNode)
         }
 
         vi.spyOn(RacingSeriesDataFacade, 'getNodeCollection')
