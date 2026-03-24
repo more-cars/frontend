@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade"
 import {getSessionResultThumbnails} from "./getSessionResultThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/session-results/session-result-overview-page', {
         page_title: 'All Session Results',
         main_headline: 'All Session Results',
+        node_type: ControllerNodeType.SESSION_RESULT,
         node_collection: sessionResults,
         node_titles: getAllNodeTitles(sessionResults, SessionResultModelFacade.getNodeTitle),
         thumbnails: await getSessionResultThumbnails(sessionResults),

@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade"
 import {getRacingSessionThumbnails} from "./getRacingSessionThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/racing-sessions/racing-session-overview-page', {
         page_title: 'All Racing Sessions',
         main_headline: 'All Racing Sessions',
+        node_type: ControllerNodeType.RACING_SESSION,
         node_collection: racingSessions,
         node_titles: getAllNodeTitles(racingSessions, RacingSessionModelFacade.getNodeTitle),
         thumbnails: await getRacingSessionThumbnails(racingSessions),

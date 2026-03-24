@@ -5,6 +5,7 @@ import {getRaceTrackThumbnails} from "./getRaceTrackThumbnails"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/race-tracks/race-track-overview-page', {
         page_title: 'All Race Tracks',
         main_headline: 'All Race Tracks',
+        node_type: ControllerNodeType.RACE_TRACK,
         node_collection: raceTracks,
         node_titles: getAllNodeTitles(raceTracks, RaceTrackModelFacade.getNodeTitle),
         thumbnails: await getRaceTrackThumbnails(raceTracks),

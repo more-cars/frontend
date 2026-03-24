@@ -5,6 +5,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCompanyThumbnails} from "./getCompanyThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/companies/company-overview-page', {
         page_title: 'All Companies',
         main_headline: 'All Companies',
+        node_type: ControllerNodeType.COMPANY,
         node_collection: companies,
         node_titles: getAllNodeTitles(companies, CompanyModelFacade.getNodeTitle),
         thumbnails: await getCompanyThumbnails(companies),

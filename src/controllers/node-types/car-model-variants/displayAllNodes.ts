@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFacade"
 import {getCarModelVariantThumbnails} from "./getCarModelVariantThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/car-model-variants/car-model-variant-overview-page', {
         page_title: 'All Car Model Variants',
         main_headline: 'All Car Model Variants',
+        node_type: ControllerNodeType.CAR_MODEL_VARIANT,
         node_collection: carModelVariants,
         node_titles: getAllNodeTitles(carModelVariants, CarModelVariantModelFacade.getNodeTitle),
         thumbnails: await getCarModelVariantThumbnails(carModelVariants),

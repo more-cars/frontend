@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {getRatingThumbnails} from "./getRatingThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/ratings/rating-overview-page', {
         page_title: 'All Ratings',
         main_headline: 'All Ratings',
+        node_type: ControllerNodeType.RATING,
         node_collection: ratings,
         node_titles: getAllNodeTitles(ratings, RatingModelFacade.getNodeTitle),
         thumbnails: await getRatingThumbnails(ratings),

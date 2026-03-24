@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade"
 import {getMagazineIssueThumbnails} from "./getMagazineIssueThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/magazine-issues/magazine-issue-overview-page', {
         page_title: 'All Magazine Issues',
         main_headline: 'All Magazine Issues',
+        node_type: ControllerNodeType.MAGAZINE_ISSUE,
         node_collection: magazineIssues,
         node_titles: getAllNodeTitles(magazineIssues, MagazineIssueModelFacade.getNodeTitle),
         thumbnails: await getMagazineIssueThumbnails(magazineIssues),

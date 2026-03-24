@@ -1,11 +1,12 @@
-li(class="mb-4 bg-white border border-zinc-200 rounded-xl" data-testid=`${nodeType}-${nodeItem.id}`)
+li(class="mb-4 bg-white border border-zinc-200 rounded-xl" data-testid=`${nodeType}-${nodeData.id}`)
     div(class="grid grid-flow-col grid-cols-8 gap-4")
+        - thumbnail = thumbnail?.fields || null
         include thumbnail
         div(class="col-span-5")
-            a(class="inline-block font-sans text-lg mt-2 mr-4 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(nodeItem.id, nodeItem.name || nodeItem.driver_name || nodeItem.title || nodeItem.rating_value || nodeItem.time || nodeItem.price)}`)
-                span(aria-label="name") #{itemHeadline || nodeItem.name}
+            a(class="inline-block font-sans text-lg mt-2 mr-4 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(nodeData.id, nodeData.name || nodeData.driver_name || nodeData.title || nodeData.rating_value || nodeData.time || nodeData.price)}`)
+                span(aria-label="name") #{itemHeadline || nodeData.name}
             span(class="float-right pr-2 pt-1 select-none") #{icon(nodeType)}
-            - item = nodeItem
+            - item = nodeData
             include primary-properties
 
 //- The headline should only be valid for this concrete item, but it is a global variable.

@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {ProgrammeEpisodeModelFacade} from "../../../models/ProgrammeEpisodeModelFacade"
 import {getProgrammeEpisodeThumbnails} from "./getProgrammeEpisodeThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/programme-episodes/programme-episode-overview-page', {
         page_title: 'All Programme Episodes',
         main_headline: 'All Programme Episodes',
+        node_type: ControllerNodeType.PROGRAMME_EPISODE,
         node_collection: programmeEpisodes,
         node_titles: getAllNodeTitles(programmeEpisodes, ProgrammeEpisodeModelFacade.getNodeTitle),
         thumbnails: await getProgrammeEpisodeThumbnails(programmeEpisodes),

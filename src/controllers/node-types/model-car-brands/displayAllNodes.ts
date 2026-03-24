@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {ModelCarBrandModelFacade} from "../../../models/ModelCarBrandModelFacade"
 import {getModelCarBrandThumbnails} from "./getModelCarBrandThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/model-car-brands/model-car-brand-overview-page', {
         page_title: 'All Model Car Brands',
         main_headline: 'All Model Car Brands',
+        node_type: ControllerNodeType.MODEL_CAR_BRAND,
         node_collection: modelCarBrands,
         node_titles: getAllNodeTitles(modelCarBrands, ModelCarBrandModelFacade.getNodeTitle),
         thumbnails: await getModelCarBrandThumbnails(modelCarBrands),

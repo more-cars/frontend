@@ -5,6 +5,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {MotorShowModelFacade} from "../../../models/MotorShowModelFacade"
 import {getMotorShowThumbnails} from "./getMotorShowThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,6 +14,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     res.render('templates/node-types/motor-shows/motor-show-overview-page', {
         page_title: 'All Motor Shows',
         main_headline: 'All Motor Shows',
+        node_type: ControllerNodeType.MOTOR_SHOW,
         node_collection: motorShows,
         node_titles: getAllNodeTitles(motorShows, MotorShowModelFacade.getNodeTitle),
         thumbnails: await getMotorShowThumbnails(motorShows),
