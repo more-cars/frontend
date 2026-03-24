@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/session-results/findNodeById"
 import type {SessionResult} from "./node-types/session-results/types/SessionResult"
 import {getNodeTitle} from "./node-types/session-results/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/session-results/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/session-results/findConnectedMainImage"
 import {findConnectedRacingSession} from "./node-types/session-results/findConnectedRacingSession"
 import {findConnectedImages} from "./node-types/session-results/findConnectedImages"
@@ -25,6 +26,10 @@ export const SessionResultModelFacade = {
 
     getNodeTitle(node: SessionResult) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: SessionResult) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

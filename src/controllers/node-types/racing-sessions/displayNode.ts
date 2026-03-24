@@ -29,6 +29,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.RACING_SESSION,
             data: racingSession,
             title: RacingSessionModelFacade.getNodeTitle(racingSession),
+            sub_title: RacingSessionModelFacade.getNodeSubTitle(racingSession),
             node_properties: getNodeProperties(DataNodeType.RACING_SESSION),
             main_image: await RacingSessionModelFacade.getConnectedMainImage(racingSessionId),
         },

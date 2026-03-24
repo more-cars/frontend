@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/gaming-platforms/findNodeById"
 import type {GamingPlatform} from "./node-types/gaming-platforms/types/GamingPlatform"
 import {getNodeTitle} from "./node-types/gaming-platforms/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/gaming-platforms/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/gaming-platforms/findConnectedMainImage"
 import {findConnectedRacingGames} from "./node-types/gaming-platforms/findConnectedRacingGames"
 import {findConnectedImages} from "./node-types/gaming-platforms/findConnectedImages"
@@ -23,6 +24,10 @@ export const GamingPlatformModelFacade = {
 
     getNodeTitle(node: GamingPlatform) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: GamingPlatform) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

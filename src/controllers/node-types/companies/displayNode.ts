@@ -27,6 +27,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.COMPANY,
             data: company,
             title: CompanyModelFacade.getNodeTitle(company),
+            sub_title: CompanyModelFacade.getNodeSubTitle(company),
             node_properties: getNodeProperties(DataNodeType.COMPANY),
             main_image: await CompanyModelFacade.getConnectedMainImage(companyId),
         },

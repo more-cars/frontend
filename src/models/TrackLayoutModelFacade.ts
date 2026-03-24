@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/track-layouts/findNodeById"
 import type {TrackLayout} from "./node-types/track-layouts/types/TrackLayout"
 import {getNodeTitle} from "./node-types/track-layouts/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/track-layouts/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/track-layouts/findConnectedMainImage"
 import {findConnectedRaceTrack} from "./node-types/track-layouts/findConnectedRaceTrack"
 import {findConnectedRacingEvents} from "./node-types/track-layouts/findConnectedRacingEvents"
@@ -25,6 +26,10 @@ export const TrackLayoutModelFacade = {
 
     getNodeTitle(node: TrackLayout) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: TrackLayout) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

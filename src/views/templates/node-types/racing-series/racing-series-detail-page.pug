@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - racingSeries = node.data
-    | #{racingSeries.short_name} | #{racingSeries.founded} - #{racingSeries.defunct}
-
 block relationships
     - racingSeries = node.data
 

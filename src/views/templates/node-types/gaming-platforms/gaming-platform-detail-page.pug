@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - gamingPlatform = node.data
-    | #{gamingPlatform.release_year} | #{gamingPlatform.manufacturer}
-
 block relationships
     - gamingPlatform = node.data
 

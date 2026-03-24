@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/magazines/findNodeById"
 import type {Magazine} from "./node-types/magazines/types/Magazine"
 import {getNodeTitle} from "./node-types/magazines/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/magazines/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/magazines/findConnectedMainImage"
 import {findConnectedMagazineIssues} from "./node-types/magazines/findConnectedMagazineIssues"
 import {findConnectedImages} from "./node-types/magazines/findConnectedImages"
@@ -23,6 +24,10 @@ export const MagazineModelFacade = {
 
     getNodeTitle(node: Magazine) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: Magazine) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

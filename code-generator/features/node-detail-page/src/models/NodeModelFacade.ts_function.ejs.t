@@ -8,3 +8,7 @@ skip_if: async getNodeById
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeSubTitle(node: <%= h.changeCase.pascal(nodeType) %>) {
+        return getNodeSubTitle(node)

@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - rating = node.data
-    | #{Math.round(rating.rating_value / (rating.scale_maximum - rating.scale_minimum) * 100 * 100) / 100} Percent
-
 block relationships
     - rating = node.data
 

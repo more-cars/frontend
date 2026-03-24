@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/race-tracks/findNodeById"
 import type {RaceTrack} from "./node-types/race-tracks/types/RaceTrack"
 import {getNodeTitle} from "./node-types/race-tracks/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/race-tracks/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/race-tracks/findConnectedMainImage"
 import {findConnectedImages} from "./node-types/race-tracks/findConnectedImages"
 import {findConnectedTrackLayouts} from "./node-types/race-tracks/findConnectedTrackLayouts"
@@ -24,6 +25,10 @@ export const RaceTrackModelFacade = {
 
     getNodeTitle(node: RaceTrack) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: RaceTrack) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

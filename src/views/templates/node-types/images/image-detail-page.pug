@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - image = node.data
-    | #{image.license} | #{image.creator} | via #{image.image_provider}
-
 block relationships
     - image = node.data
 

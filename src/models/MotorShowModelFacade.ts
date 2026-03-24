@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/motor-shows/findNodeById"
 import type {MotorShow} from "./node-types/motor-shows/types/MotorShow"
 import {getNodeTitle} from "./node-types/motor-shows/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/motor-shows/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/motor-shows/findConnectedMainImage"
 import {findConnectedCarModelVariants} from "./node-types/motor-shows/findConnectedCarModelVariants"
 import {findConnectedImages} from "./node-types/motor-shows/findConnectedImages"
@@ -23,6 +24,10 @@ export const MotorShowModelFacade = {
 
     getNodeTitle(node: MotorShow) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: MotorShow) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/programmes/findNodeById"
 import type {Programme} from "./node-types/programmes/types/Programme"
 import {getNodeTitle} from "./node-types/programmes/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/programmes/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/programmes/findConnectedMainImage"
 import {findConnectedProgrammeEpisodes} from "./node-types/programmes/findConnectedProgrammeEpisodes"
 import {findConnectedImages} from "./node-types/programmes/findConnectedImages"
@@ -23,6 +24,10 @@ export const ProgrammeModelFacade = {
 
     getNodeTitle(node: Programme) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: Programme) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

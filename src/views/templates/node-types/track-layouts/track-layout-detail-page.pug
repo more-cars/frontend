@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - trackLayout = node.data
-    | #{trackLayout.length} #{trackLayout.length_unit} | #{trackLayout.year_from} - #{trackLayout.year_to}
-
 block relationships
     - trackLayout = node.data
 

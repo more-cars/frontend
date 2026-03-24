@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/racing-games/findNodeById"
 import type {RacingGame} from "./node-types/racing-games/types/RacingGame"
 import {getNodeTitle} from "./node-types/racing-games/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/racing-games/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/racing-games/findConnectedMainImage"
 import {findConnectedCarModelVariants} from "./node-types/racing-games/findConnectedCarModelVariants"
 import {findConnectedTrackLayouts} from "./node-types/racing-games/findConnectedTrackLayouts"
@@ -25,6 +26,10 @@ export const RacingGameModelFacade = {
 
     getNodeTitle(node: RacingGame) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: RacingGame) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

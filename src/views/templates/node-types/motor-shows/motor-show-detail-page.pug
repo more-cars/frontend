@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - motorShow = node.data
-    | #{formatDate(motorShow.date_from)} until #{formatDate(motorShow.date_until)}
-
 block relationships
     - motorShow = node.data
 

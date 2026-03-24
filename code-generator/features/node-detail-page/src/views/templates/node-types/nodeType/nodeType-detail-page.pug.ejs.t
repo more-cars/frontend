@@ -3,9 +3,5 @@ to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize
 ---
 extends ../../node-types/detail-page
 
-block sub_headline
-    - <%= h.changeCase.camel(nodeType) %> = node.data
-    | #{<%= h.changeCase.camel(nodeType) %>.}
-
 block relationships
     - <%= h.changeCase.camel(nodeType) %> = node.data

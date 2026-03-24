@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/prices/findNodeById"
 import type {Price} from "./node-types/prices/types/Price"
 import {getNodeTitle} from "./node-types/prices/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/prices/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/prices/findConnectedMainImage"
 import {findConnectedCarModelVariant} from "./node-types/prices/findConnectedCarModelVariant"
 import {findConnectedImages} from "./node-types/prices/findConnectedImages"
@@ -23,6 +24,10 @@ export const PriceModelFacade = {
 
     getNodeTitle(node: Price) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: Price) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

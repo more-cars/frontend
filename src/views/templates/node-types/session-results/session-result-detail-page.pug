@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - sessionResult = node.data
-    | #{ordinalize(sessionResult.position)} place | #{sessionResult.team_name}
-
 block relationships
     - sessionResult = node.data
 

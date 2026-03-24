@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - magazineIssue = node.data
-    | Issue #{magazineIssue.issue_number}/#{magazineIssue.issue_year} | #{magazineIssue.pages} pages
-
 block relationships
     - magazineIssue = node.data
 

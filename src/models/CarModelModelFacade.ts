@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/car-models/findNodeById"
 import type {CarModel} from "./node-types/car-models/types/CarModel"
 import {getNodeTitle} from "./node-types/car-models/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/car-models/getNodeSubTitle"
 import {findConnectedBrand} from "./node-types/car-models/findConnectedBrand"
 import {findConnectedPredecessor} from "./node-types/car-models/findConnectedPredecessor"
 import {findConnectedSuccessor} from "./node-types/car-models/findConnectedSuccessor"
@@ -28,6 +29,10 @@ export const CarModelModelFacade = {
 
     getNodeTitle(node: CarModel) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: CarModel) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

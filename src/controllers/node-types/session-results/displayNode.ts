@@ -31,6 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.SESSION_RESULT,
             data: sessionResult,
             title: SessionResultModelFacade.getNodeTitle(sessionResult),
+            sub_title: SessionResultModelFacade.getNodeSubTitle(sessionResult),
             node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
             main_image: await SessionResultModelFacade.getConnectedMainImage(sessionResultId),
         },

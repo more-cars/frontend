@@ -34,6 +34,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.PROGRAMME_EPISODE,
             data: programmeEpisode,
             title: ProgrammeEpisodeModelFacade.getNodeTitle(programmeEpisode),
+            sub_title: ProgrammeEpisodeModelFacade.getNodeSubTitle(programmeEpisode),
             node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
             main_image: await ProgrammeEpisodeModelFacade.getConnectedMainImage(programmeEpisodeId),
         },

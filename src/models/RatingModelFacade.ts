@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/ratings/findNodeById"
 import type {Rating} from "./node-types/ratings/types/Rating"
 import {getNodeTitle} from "./node-types/ratings/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/ratings/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/ratings/findConnectedMainImage"
 import {findConnectedCarModelVariant} from "./node-types/ratings/findConnectedCarModelVariant"
 import {findConnectedMagazineIssue} from "./node-types/ratings/findConnectedMagazineIssue"
@@ -24,6 +25,10 @@ export const RatingModelFacade = {
 
     getNodeTitle(node: Rating) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: Rating) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

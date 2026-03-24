@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - carModel = node.data
-    | #{carModel.built_from}-#{carModel.built_to} | #{ordinalize(carModel.generation)} generation (#{carModel.internal_code})
-
 block relationships
     - carModel = node.data
 

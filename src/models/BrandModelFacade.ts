@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/brands/findNodeById"
 import type {Brand} from "./node-types/brands/types/Brand"
 import {getNodeTitle} from "./node-types/brands/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/brands/getNodeSubTitle"
 import {findConnectedCompany} from "./node-types/brands/findConnectedCompany"
 import {findConnectedCarModels} from "./node-types/brands/findConnectedCarModels"
 import {findConnectedImages} from "./node-types/brands/findConnectedImages"
@@ -24,6 +25,10 @@ export const BrandModelFacade = {
 
     getNodeTitle(node: Brand) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: Brand) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedCompany(id: number) {

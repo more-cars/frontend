@@ -4,6 +4,7 @@ import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/racing-series/findNodeById"
 import type {RacingSeries} from "./node-types/racing-series/types/RacingSeries"
 import {getNodeTitle} from "./node-types/racing-series/getNodeTitle"
+import {getNodeSubTitle} from "./node-types/racing-series/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/racing-series/findConnectedMainImage"
 import {findConnectedImages} from "./node-types/racing-series/findConnectedImages"
 import {findConnectedRacingEvents} from "./node-types/racing-series/findConnectedRacingEvents"
@@ -23,6 +24,10 @@ export const RacingSeriesModelFacade = {
 
     getNodeTitle(node: RacingSeries) {
         return getNodeTitle(node)
+    },
+
+    getNodeSubTitle(node: RacingSeries) {
+        return getNodeSubTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

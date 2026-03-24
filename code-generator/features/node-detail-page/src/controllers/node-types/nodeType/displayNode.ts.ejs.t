@@ -26,6 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.<%= h.changeCase.constant(nodeType) %>,
             data: <%= h.changeCase.camel(nodeType) %>,
             title: <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeTitle(<%= h.changeCase.camel(nodeType) %>),
+            sub_title: <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeSubTitle(<%= h.changeCase.camel(nodeType) %>),
             node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         },
         relationships: {

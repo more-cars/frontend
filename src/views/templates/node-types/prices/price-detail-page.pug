@@ -1,9 +1,5 @@
 extends ../../node-types/detail-page
 
-block sub_headline
-    - price = node.data
-    | #{price.price_year} | #{price.country_code}
-
 block relationships
     - price = node.data
 

@@ -11,8 +11,7 @@ block main
                     h1(class=`mb-1 text-3xl`)
                         span(class="float-right text-5xl select-none") #{icon(node.type)}
                         span #{node.title || item.name}
-                    p(class="text-sm")
-                        block sub_headline
+                    p(class="text-sm") #{node.sub_title}
                 include ../shared/connected-main-image
 
             include ../shared/fact-sheet

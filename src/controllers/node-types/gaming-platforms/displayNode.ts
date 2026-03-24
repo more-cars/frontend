@@ -27,6 +27,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             type: ControllerNodeType.GAMING_PLATFORM,
             data: gamingPlatform,
             title: GamingPlatformModelFacade.getNodeTitle(gamingPlatform),
+            sub_title: GamingPlatformModelFacade.getNodeSubTitle(gamingPlatform),
             node_properties: getNodeProperties(DataNodeType.GAMING_PLATFORM),
             main_image: await GamingPlatformModelFacade.getConnectedMainImage(gamingPlatformId),
         },
