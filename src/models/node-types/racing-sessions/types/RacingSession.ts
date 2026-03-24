@@ -1,12 +1,17 @@
+import {ModelNodeType} from "../../../types/ModelNodeType"
+
 export type RacingSession = {
-    id: number
-    name: string
-    start_date: string | null
-    start_time: string | null
-    duration: number | null
-    duration_unit: string | null
-    distance: number | null
-    distance_unit: string | null
-    created_at: string
-    updated_at: string
+    type: ModelNodeType.RACING_SESSION
+    fields: {
+        id: number
+        name: string
+        start_date: string | null
+        start_time: string | null
+        duration: number | null
+        duration_unit: string | null
+        distance: number | null
+        distance_unit: string | null
+        created_at: string
+        updated_at: string
+    }
 }

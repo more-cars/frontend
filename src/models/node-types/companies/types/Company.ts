@@ -1,10 +1,15 @@
+import {ModelNodeType} from "../../../types/ModelNodeType"
+
 export type Company = {
-    id: number
-    name: string
-    founded: number | null
-    defunct: number | null
-    headquarters_location: string | null
-    legal_headquarters_location: string | null
-    created_at: string
-    updated_at: string
+    type: ModelNodeType.COMPANY
+    fields: {
+        id: number
+        name: string
+        founded: number | null
+        defunct: number | null
+        headquarters_location: string | null
+        legal_headquarters_location: string | null
+        created_at: string
+        updated_at: string
+    }
 }

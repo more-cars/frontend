@@ -1,13 +1,18 @@
+import {ModelNodeType} from "../../../types/ModelNodeType"
+
 export type MagazineIssue = {
-    id: number
-    title: string
-    consecutive_number: number | null
-    issue_number: number | null
-    issue_year: number | null
-    release_date: string | null
-    single_copy_price: number | null
-    single_copy_price_unit: string | null
-    pages: number | null
-    created_at: string
-    updated_at: string
+    type: ModelNodeType.MAGAZINE_ISSUE
+    fields: {
+        id: number
+        title: string
+        consecutive_number: number | null
+        issue_number: number | null
+        issue_year: number | null
+        release_date: string | null
+        single_copy_price: number | null
+        single_copy_price_unit: string | null
+        pages: number | null
+        created_at: string
+        updated_at: string
+    }
 }

@@ -1,11 +1,16 @@
+import {ModelNodeType} from "../../../types/ModelNodeType"
+
 export type Brand = {
-    id: number
-    name: string
-    full_name: string | null
-    founded: number | null
-    defunct: number | null
-    wmi: string | null
-    hsn: string | null
-    created_at: string
-    updated_at: string
+    type: ModelNodeType.BRAND
+    fields: {
+        id: number
+        name: string
+        full_name: string | null
+        founded: number | null
+        defunct: number | null
+        wmi: string | null
+        hsn: string | null
+        created_at: string
+        updated_at: string
+    }
 }

@@ -1,11 +1,16 @@
+import {ModelNodeType} from "../../../types/ModelNodeType"
+
 export type CarModel = {
-    id: number
-    name: string
-    generation: number | null
-    internal_code: string | null
-    built_from: number | null
-    built_to: number | null
-    total_production: number | null
-    created_at: string
-    updated_at: string
+    type: ModelNodeType.CAR_MODEL
+    fields: {
+        id: number
+        name: string
+        generation: number | null
+        internal_code: string | null
+        built_from: number | null
+        built_to: number | null
+        total_production: number | null
+        created_at: string
+        updated_at: string
+    }
 }
