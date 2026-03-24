@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {ProgrammeEpisodeDataFacade} from "../../../../../src/data/ProgrammeEpisodeDataFacade"
 import {findConnectedProgramme} from "../../../../../src/models/node-types/programme-episodes/findConnectedProgramme"
 import {ProgrammeEpisodeBelongsToProgrammeRelationship} from "../../../../../src/data/node-types/programme-episodes/types/ProgrammeEpisodeBelongsToProgrammeRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected PROGRAMME for the PROGRAMME EPISODE detail page', () => {
     test('when no PROGRAMME is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected PROGRAMME for the PROGRAMME EPISODE detail page', ()
     })
 
     test('when there is a PROGRAMME connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as ProgrammeEpisodeBelongsToProgrammeRelationship
+        const data = {partner_node: {type: DataNodeType.PROGRAMME, data: {id: 1, name: "dummy"}}} as ProgrammeEpisodeBelongsToProgrammeRelationship
         vi.spyOn(ProgrammeEpisodeDataFacade, 'getConnectedProgrammeNode').mockResolvedValue(data)
 
         expect(await findConnectedProgramme(1))

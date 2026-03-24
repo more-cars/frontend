@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {RacingSessionDataFacade} from "../../../../../src/data/RacingSessionDataFacade"
 import {findConnectedMainImage} from "../../../../../src/models/node-types/racing-sessions/findConnectedMainImage"
 import {RacingSessionHasMainImageRelationship} from "../../../../../src/data/node-types/racing-sessions/types/RacingSessionHasMainImageRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected main IMAGE for the RACING SESSION detail page', () => {
     test('when no main IMAGE is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected main IMAGE for the RACING SESSION detail page', () =
     })
 
     test('when there is a main IMAGE connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as RacingSessionHasMainImageRelationship
+        const data = {partner_node: {type: DataNodeType.IMAGE, data: {id: 1, name: "dummy"}}} as RacingSessionHasMainImageRelationship
         vi.spyOn(RacingSessionDataFacade, 'getConnectedMainImageNode').mockResolvedValue(data)
 
         expect(await findConnectedMainImage(1))

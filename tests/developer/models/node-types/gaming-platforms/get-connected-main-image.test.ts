@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {GamingPlatformDataFacade} from "../../../../../src/data/GamingPlatformDataFacade"
 import {findConnectedMainImage} from "../../../../../src/models/node-types/gaming-platforms/findConnectedMainImage"
 import {GamingPlatformHasMainImageRelationship} from "../../../../../src/data/node-types/gaming-platforms/types/GamingPlatformHasMainImageRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected main IMAGE for the GAMING PLATFORM detail page', () => {
     test('when no main IMAGE is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected main IMAGE for the GAMING PLATFORM detail page', () 
     })
 
     test('when there is a main IMAGE connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as GamingPlatformHasMainImageRelationship
+        const data = {partner_node: {type: DataNodeType.IMAGE, data: {id: 1, name: "dummy"}}} as GamingPlatformHasMainImageRelationship
         vi.spyOn(GamingPlatformDataFacade, 'getConnectedMainImageNode').mockResolvedValue(data)
 
         expect(await findConnectedMainImage(1))

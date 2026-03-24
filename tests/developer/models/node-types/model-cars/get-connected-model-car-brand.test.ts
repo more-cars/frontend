@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {ModelCarDataFacade} from "../../../../../src/data/ModelCarDataFacade"
 import {findConnectedModelCarBrand} from "../../../../../src/models/node-types/model-cars/findConnectedModelCarBrand"
 import {ModelCarMadeByModelCarBrandRelationship} from "../../../../../src/data/node-types/model-cars/types/ModelCarMadeByModelCarBrandRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected MODEL CAR BRAND for the MODEL CAR detail page', () => {
     test('when no MODEL CAR BRAND is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected MODEL CAR BRAND for the MODEL CAR detail page', () =
     })
 
     test('when there is a MODEL CAR BRAND connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as ModelCarMadeByModelCarBrandRelationship
+        const data = {partner_node: {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 1, name: "dummy"}}} as ModelCarMadeByModelCarBrandRelationship
         vi.spyOn(ModelCarDataFacade, 'getConnectedModelCarBrandNode').mockResolvedValue(data)
 
         expect(await findConnectedModelCarBrand(1))

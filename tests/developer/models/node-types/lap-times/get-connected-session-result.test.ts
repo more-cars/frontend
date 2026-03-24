@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {LapTimeDataFacade} from "../../../../../src/data/LapTimeDataFacade"
 import {findConnectedSessionResult} from "../../../../../src/models/node-types/lap-times/findConnectedSessionResult"
 import {LapTimeBelongsToSessionResultRelationship} from "../../../../../src/data/node-types/lap-times/types/LapTimeBelongsToSessionResultRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected SESSION RESULT for the LAP TIME detail page', () => {
     test('when no SESSION RESULT is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected SESSION RESULT for the LAP TIME detail page', () => 
     })
 
     test('when there is a SESSION RESULT connected', async () => {
-        const data = {partner_node: {id: 1, position: 1, driver_name: "dummy"}} as LapTimeBelongsToSessionResultRelationship
+        const data = {partner_node: {type: DataNodeType.SESSION_RESULT, data: {id: 1, position: 1, driver_name: "dummy"}}} as LapTimeBelongsToSessionResultRelationship
         vi.spyOn(LapTimeDataFacade, 'getConnectedSessionResultNode').mockResolvedValue(data)
 
         expect(await findConnectedSessionResult(1))

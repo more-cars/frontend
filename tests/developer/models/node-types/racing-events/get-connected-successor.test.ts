@@ -1,9 +1,8 @@
 import {describe, expect, test, vi} from "vitest"
 import {RacingEventDataFacade} from "../../../../../src/data/RacingEventDataFacade"
 import {findConnectedSuccessor} from "../../../../../src/models/node-types/racing-events/findConnectedSuccessor"
-import {
-    RacingEventIsFollowedByEventRelationship
-} from "../../../../../src/data/node-types/racing-events/types/RacingEventIsFollowedByEventRelationship"
+import {RacingEventIsFollowedByEventRelationship} from "../../../../../src/data/node-types/racing-events/types/RacingEventIsFollowedByEventRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected successor for the RACING EVENT detail page', () => {
     test('when no successor is connected', async () => {
@@ -14,7 +13,7 @@ describe('Collect connected successor for the RACING EVENT detail page', () => {
     })
 
     test('when there is a successor connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as RacingEventIsFollowedByEventRelationship
+        const data = {partner_node: {type: DataNodeType.RACING_EVENT, data: {id: 1, name: "dummy"}}} as RacingEventIsFollowedByEventRelationship
         vi.spyOn(RacingEventDataFacade, 'getConnectedSuccessorNode').mockResolvedValue(data)
 
         expect(await findConnectedSuccessor(1))

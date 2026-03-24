@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {RacingSessionDataFacade} from "../../../../../src/data/RacingSessionDataFacade"
 import {findConnectedRacingEvent} from "../../../../../src/models/node-types/racing-sessions/findConnectedRacingEvent"
 import {RacingSessionBelongsToRacingEventRelationship} from "../../../../../src/data/node-types/racing-sessions/types/RacingSessionBelongsToRacingEventRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected RACING EVENT for the RACING SESSION detail page', () => {
     test('when no RACING EVENT is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected RACING EVENT for the RACING SESSION detail page', ()
     })
 
     test('when there is a RACING EVENT connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as RacingSessionBelongsToRacingEventRelationship
+        const data = {partner_node: {type: DataNodeType.RACING_EVENT, data: {id: 1, name: "dummy"}}} as RacingSessionBelongsToRacingEventRelationship
         vi.spyOn(RacingSessionDataFacade, 'getConnectedRacingEventNode').mockResolvedValue(data)
 
         expect(await findConnectedRacingEvent(1))

@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {ProgrammeEpisodeDataFacade} from "../../../../../src/data/ProgrammeEpisodeDataFacade"
 import {findConnectedSuccessor} from "../../../../../src/models/node-types/programme-episodes/findConnectedSuccessor"
 import {ProgrammeEpisodeIsFollowedByEpisodeRelationship} from "../../../../../src/data/node-types/programme-episodes/types/ProgrammeEpisodeIsFollowedByEpisodeRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected SUCCESSOR for the PROGRAMME EPISODE detail page', () => {
     test('when no SUCCESSOR is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected SUCCESSOR for the PROGRAMME EPISODE detail page', ()
     })
 
     test('when there is a SUCCESSOR connected', async () => {
-        const data = {partner_node: {id: 1, title: "dummy"}} as ProgrammeEpisodeIsFollowedByEpisodeRelationship
+        const data = {partner_node: {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 1, title: "dummy"}}} as ProgrammeEpisodeIsFollowedByEpisodeRelationship
         vi.spyOn(ProgrammeEpisodeDataFacade, 'getConnectedSuccessorNode').mockResolvedValue(data)
 
         expect(await findConnectedSuccessor(1))

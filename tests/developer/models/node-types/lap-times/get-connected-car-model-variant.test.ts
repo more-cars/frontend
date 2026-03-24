@@ -2,6 +2,7 @@ import {describe, expect, test, vi} from "vitest"
 import {LapTimeDataFacade} from "../../../../../src/data/LapTimeDataFacade"
 import {findConnectedCarModelVariant} from "../../../../../src/models/node-types/lap-times/findConnectedCarModelVariant"
 import {LapTimeAchievedWithCarModelVariantRelationship} from "../../../../../src/data/node-types/lap-times/types/LapTimeAchievedWithCarModelVariantRelationship"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected CAR MODEL VARIANT for the LAP TIME detail page', () => {
     test('when no CAR MODEL VARIANT is connected', async () => {
@@ -12,7 +13,7 @@ describe('Collect connected CAR MODEL VARIANT for the LAP TIME detail page', () 
     })
 
     test('when there is a CAR MODEL VARIANT connected', async () => {
-        const data = {partner_node: {id: 1, name: "dummy"}} as LapTimeAchievedWithCarModelVariantRelationship
+        const data = {partner_node: {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 1, name: "dummy"}}} as LapTimeAchievedWithCarModelVariantRelationship
         vi.spyOn(LapTimeDataFacade, 'getConnectedCarModelVariantNode').mockResolvedValue(data)
 
         expect(await findConnectedCarModelVariant(1))
