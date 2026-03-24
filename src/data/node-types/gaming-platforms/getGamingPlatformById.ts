@@ -10,5 +10,5 @@ export async function getGamingPlatformById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as GamingPlatformNode
+    return convertApiNodeToDataNode(apiData) as GamingPlatformNode
 }

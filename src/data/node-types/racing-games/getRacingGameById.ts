@@ -10,5 +10,5 @@ export async function getRacingGameById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as RacingGameNode
+    return convertApiNodeToDataNode(apiData) as RacingGameNode
 }

@@ -12,7 +12,7 @@ export async function getAllRatings(params?: { page: number }) {
     const data: RatingNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RatingNode)
+        data.push(convertApiNodeToDataNode(apiItem) as RatingNode)
     })
 
     return data

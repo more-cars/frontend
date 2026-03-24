@@ -11,7 +11,7 @@ export async function getAllTrackLayouts(params?: { page: number }) {
     const data: TrackLayoutNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as TrackLayoutNode)
+        data.push(convertApiNodeToDataNode(apiItem) as TrackLayoutNode)
     })
 
     return data

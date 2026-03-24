@@ -10,5 +10,5 @@ export async function getLapTimeById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as LapTimeNode
+    return convertApiNodeToDataNode(apiData) as LapTimeNode
 }

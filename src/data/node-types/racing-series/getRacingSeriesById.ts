@@ -10,5 +10,5 @@ export async function getRacingSeriesById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as RacingSeriesNode
+    return convertApiNodeToDataNode(apiData) as RacingSeriesNode
 }

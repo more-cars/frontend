@@ -10,5 +10,5 @@ export async function getBrandById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as BrandNode
+    return convertApiNodeToDataNode(apiData) as BrandNode
 }

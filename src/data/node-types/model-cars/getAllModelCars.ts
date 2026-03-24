@@ -11,7 +11,7 @@ export async function getAllModelCars(params?: { page: number }) {
     const data: ModelCarNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as ModelCarNode)
+        data.push(convertApiNodeToDataNode(apiItem) as ModelCarNode)
     })
 
     return data

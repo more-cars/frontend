@@ -10,5 +10,5 @@ export async function getRatingById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as RatingNode
+    return convertApiNodeToDataNode(apiData) as RatingNode
 }

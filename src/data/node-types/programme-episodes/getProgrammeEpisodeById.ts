@@ -10,5 +10,5 @@ export async function getProgrammeEpisodeById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as ProgrammeEpisodeNode
+    return convertApiNodeToDataNode(apiData) as ProgrammeEpisodeNode
 }

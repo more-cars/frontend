@@ -12,7 +12,7 @@ export async function getAllSessionResults(params?: { page: number }) {
     const data: SessionResultNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as SessionResultNode)
+        data.push(convertApiNodeToDataNode(apiItem) as SessionResultNode)
     })
 
     return data

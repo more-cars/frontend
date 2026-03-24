@@ -10,5 +10,5 @@ export async function getRaceTrackById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as RaceTrackNode
+    return convertApiNodeToDataNode(apiData) as RaceTrackNode
 }

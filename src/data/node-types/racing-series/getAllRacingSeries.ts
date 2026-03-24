@@ -11,7 +11,7 @@ export async function getAllRacingSeries(params?: { page: number }) {
     const data: RacingSeriesNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RacingSeriesNode)
+        data.push(convertApiNodeToDataNode(apiItem) as RacingSeriesNode)
     })
 
     return data

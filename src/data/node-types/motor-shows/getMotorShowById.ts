@@ -10,5 +10,5 @@ export async function getMotorShowById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as MotorShowNode
+    return convertApiNodeToDataNode(apiData) as MotorShowNode
 }

@@ -10,5 +10,5 @@ export async function getTrackLayoutById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as TrackLayoutNode
+    return convertApiNodeToDataNode(apiData) as TrackLayoutNode
 }

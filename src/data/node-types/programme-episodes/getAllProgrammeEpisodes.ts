@@ -12,7 +12,7 @@ export async function getAllProgrammeEpisodes(params?: { page: number }) {
     const data: ProgrammeEpisodeNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as ProgrammeEpisodeNode)
+        data.push(convertApiNodeToDataNode(apiItem) as ProgrammeEpisodeNode)
     })
 
     return data

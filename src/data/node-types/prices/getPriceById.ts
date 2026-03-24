@@ -10,5 +10,5 @@ export async function getPriceById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as PriceNode
+    return convertApiNodeToDataNode(apiData) as PriceNode
 }

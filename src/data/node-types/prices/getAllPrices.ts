@@ -12,7 +12,7 @@ export async function getAllPrices(params?: { page: number }) {
     const data: PriceNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as PriceNode)
+        data.push(convertApiNodeToDataNode(apiItem) as PriceNode)
     })
 
     return data

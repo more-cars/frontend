@@ -11,7 +11,7 @@ export async function getAllProgrammes(params?: { page: number }) {
     const data: ProgrammeNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as ProgrammeNode)
+        data.push(convertApiNodeToDataNode(apiItem) as ProgrammeNode)
     })
 
     return data

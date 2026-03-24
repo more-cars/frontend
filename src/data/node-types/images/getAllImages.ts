@@ -11,7 +11,7 @@ export async function getAllImages(params?: { page: number }) {
     const data: ImageNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as ImageNode)
+        data.push(convertApiNodeToDataNode(apiItem) as ImageNode)
     })
 
     return data

@@ -11,7 +11,7 @@ export async function getAllCompanies(params?: { page: number }) {
     const data: CompanyNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as CompanyNode)
+        data.push(convertApiNodeToDataNode(apiItem) as CompanyNode)
     })
 
     return data

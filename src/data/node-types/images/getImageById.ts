@@ -10,5 +10,5 @@ export async function getImageById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as ImageNode
+    return convertApiNodeToDataNode(apiData) as ImageNode
 }

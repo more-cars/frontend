@@ -11,7 +11,7 @@ export async function getAllCarModelVariants(params?: { page: number }) {
     const data: CarModelVariantNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as CarModelVariantNode)
+        data.push(convertApiNodeToDataNode(apiItem) as CarModelVariantNode)
     })
 
     return data

@@ -10,5 +10,5 @@ export async function getCompanyById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as CompanyNode
+    return convertApiNodeToDataNode(apiData) as CompanyNode
 }

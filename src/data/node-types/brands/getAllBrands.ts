@@ -11,7 +11,7 @@ export async function getAllBrands(params?: { page: number }) {
     const data: BrandNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as BrandNode)
+        data.push(convertApiNodeToDataNode(apiItem) as BrandNode)
     })
 
     return data

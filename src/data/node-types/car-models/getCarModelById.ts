@@ -10,5 +10,5 @@ export async function getCarModelById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as CarModelNode
+    return convertApiNodeToDataNode(apiData) as CarModelNode
 }

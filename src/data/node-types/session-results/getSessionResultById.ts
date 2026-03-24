@@ -10,5 +10,5 @@ export async function getSessionResultById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as SessionResultNode
+    return convertApiNodeToDataNode(apiData) as SessionResultNode
 }

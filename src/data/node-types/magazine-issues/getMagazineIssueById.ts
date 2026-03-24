@@ -10,5 +10,5 @@ export async function getMagazineIssueById(id: number) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData.attributes, apiData.id) as MagazineIssueNode
+    return convertApiNodeToDataNode(apiData) as MagazineIssueNode
 }

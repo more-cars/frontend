@@ -12,7 +12,7 @@ export async function getAllLapTimes(params?: { page: number }) {
     const data: LapTimeNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as LapTimeNode)
+        data.push(convertApiNodeToDataNode(apiItem) as LapTimeNode)
     })
 
     return data

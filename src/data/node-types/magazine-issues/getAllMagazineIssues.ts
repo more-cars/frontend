@@ -12,7 +12,7 @@ export async function getAllMagazineIssues(params?: { page: number }) {
     const data: MagazineIssueNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as MagazineIssueNode)
+        data.push(convertApiNodeToDataNode(apiItem) as MagazineIssueNode)
     })
 
     return data

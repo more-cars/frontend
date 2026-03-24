@@ -11,7 +11,7 @@ export async function getAllRaceTracks(params?: { page: number }) {
     const data: RaceTrackNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as RaceTrackNode)
+        data.push(convertApiNodeToDataNode(apiItem) as RaceTrackNode)
     })
 
     return data

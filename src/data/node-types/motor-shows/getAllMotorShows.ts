@@ -11,7 +11,7 @@ export async function getAllMotorShows(params?: { page: number }) {
     const data: MotorShowNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as MotorShowNode)
+        data.push(convertApiNodeToDataNode(apiItem) as MotorShowNode)
     })
 
     return data

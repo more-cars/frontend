@@ -11,7 +11,7 @@ export async function getAllGamingPlatforms(params?: { page: number }) {
     const data: GamingPlatformNode[] = []
 
     apiData.forEach(apiItem => {
-        data.push(convertApiNodeToDataNode(apiItem.attributes, apiItem.id) as GamingPlatformNode)
+        data.push(convertApiNodeToDataNode(apiItem) as GamingPlatformNode)
     })
 
     return data
