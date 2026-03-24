@@ -2,14 +2,18 @@ import {describe, expect, test, vi} from "vitest"
 import {supertestGet} from "../../supertestGet"
 import {getAllExpectedNodeTypes} from "../../../_toolbox/getAllExpectedNodeTypes"
 import {NodeModelFacade} from "../../../../src/models/NodeModelFacade"
-import {convertStringToApiNodeType} from "../../../_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType, convertStringToModelNodeType} from "../../../_toolbox/convertStringToNodeType"
+import type {ModelNode} from "../../../../src/models/types/ModelNode"
 
 describe('Redirecting legacy URLs', () => {
     test.each(
         getAllExpectedNodeTypes()
     )('for node type $0', async (nodeType) => {
-        vi.spyOn(NodeModelFacade, 'getNodeTypeOfNode')
-            .mockImplementation(async () => convertStringToApiNodeType(nodeType))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => ({
+                type: convertStringToModelNodeType(nodeType),
+                fields: {},
+            } as ModelNode))
 
         const response = await supertestGet('/node-title__1234')
 

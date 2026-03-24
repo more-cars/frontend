@@ -1,5 +1,6 @@
 import express, {type NextFunction} from "express"
 import {NodeModelFacade} from "../../models/NodeModelFacade"
+import {pluralize} from "inflection"
 
 const urlPattern = /^([0-9]+)$/
 
@@ -11,9 +12,9 @@ export async function redirectShortUrlToCanonical(req: express.Request, res: exp
     }
 
     const nodeId = extractNodeIdFromShortUrl(url)
-    const nodeType = await NodeModelFacade.getNodeTypeOfNode(nodeId)
+    const modelNode = await NodeModelFacade.getNodeById(nodeId)
 
-    if (!nodeType) {
+    if (!modelNode) {
         return res.render('templates/nodes/node-not-found-page', {
             page_title: `Node not found`
         }, (error, html) => {
@@ -22,7 +23,7 @@ export async function redirectShortUrlToCanonical(req: express.Request, res: exp
         })
     }
 
-    return res.redirect(301, `${nodeType}/${nodeId}`) // TODO return the canonical URL, not the node type URL
+    return res.redirect(301, `${pluralize(modelNode.type.replace('_', ' '))}/${nodeId}`) // TODO return the canonical URL, not the node type URL
 }
 
 function isShortUrl(path: string) {
