@@ -2,6 +2,8 @@ import {findAllNodes} from "./node-types/magazine-issues/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/magazine-issues/findNodeById"
+import type {MagazineIssue} from "./node-types/magazine-issues/types/MagazineIssue"
+import {getNodeTitle} from "./node-types/magazine-issues/getNodeTitle"
 import {findConnectedMainImage} from "./node-types/magazine-issues/findConnectedMainImage"
 import {findConnectedMagazine} from "./node-types/magazine-issues/findConnectedMagazine"
 import {findConnectedPredecessor} from "./node-types/magazine-issues/findConnectedPredecessor"
@@ -23,6 +25,10 @@ export const MagazineIssueModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeTitle(node: MagazineIssue) {
+        return getNodeTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

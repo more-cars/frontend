@@ -25,6 +25,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             type: ControllerNodeType.IMAGE,
             data: image,
+            title: ImageModelFacade.getNodeTitle(image),
             node_properties: getNodeProperties(DataNodeType.IMAGE),
             main_image: image,
         },

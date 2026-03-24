@@ -26,6 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             type: ControllerNodeType.PROGRAMME,
             data: programme,
+            title: ProgrammeModelFacade.getNodeTitle(programme),
             node_properties: getNodeProperties(DataNodeType.PROGRAMME),
             main_image: await ProgrammeModelFacade.getConnectedMainImage(programmeId),
         },

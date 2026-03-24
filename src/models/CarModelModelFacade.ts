@@ -2,6 +2,8 @@ import {findAllNodes} from "./node-types/car-models/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/car-models/findNodeById"
+import type {CarModel} from "./node-types/car-models/types/CarModel"
+import {getNodeTitle} from "./node-types/car-models/getNodeTitle"
 import {findConnectedBrand} from "./node-types/car-models/findConnectedBrand"
 import {findConnectedPredecessor} from "./node-types/car-models/findConnectedPredecessor"
 import {findConnectedSuccessor} from "./node-types/car-models/findConnectedSuccessor"
@@ -22,6 +24,10 @@ export const CarModelModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeTitle(node: CarModel) {
+        return getNodeTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

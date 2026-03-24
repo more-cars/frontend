@@ -10,7 +10,7 @@ block main
                 hgroup(class="p-4 mb-4 border-y-3 border-lime-500 rounded-lg")
                     h1(class=`mb-1 text-3xl`)
                         span(class="float-right text-5xl select-none") #{icon(node.type)}
-                        span #{main_headline || item.name}
+                        span #{node.title || main_headline || item.name}
                     p(class="text-sm")
                         block sub_headline
                 include ../shared/connected-main-image

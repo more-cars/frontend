@@ -30,6 +30,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             type: ControllerNodeType.TRACK_LAYOUT,
             data: trackLayout,
+            title: TrackLayoutModelFacade.getNodeTitle(trackLayout),
             node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
             main_image: await TrackLayoutModelFacade.getConnectedMainImage(trackLayoutId),
         },

@@ -2,6 +2,8 @@ import {findAllNodes} from "./node-types/car-model-variants/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/car-model-variants/findNodeById"
+import type {CarModelVariant} from "./node-types/car-model-variants/types/CarModelVariant"
+import {getNodeTitle} from "./node-types/car-model-variants/getNodeTitle"
 import {findConnectedMainImage} from "./node-types/car-model-variants/findConnectedMainImage"
 import {findConnectedCarModel} from "./node-types/car-model-variants/findConnectedCarModel"
 import {findConnectedMagazineIssues} from "./node-types/car-model-variants/findConnectedMagazineIssues"
@@ -26,6 +28,10 @@ export const CarModelVariantModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeTitle(node: CarModelVariant) {
+        return getNodeTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

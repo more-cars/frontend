@@ -2,6 +2,8 @@ import {findAllNodes} from "./node-types/racing-sessions/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/racing-sessions/findNodeById"
+import type {RacingSession} from "./node-types/racing-sessions/types/RacingSession"
+import {getNodeTitle} from "./node-types/racing-sessions/getNodeTitle"
 import {findConnectedMainImage} from "./node-types/racing-sessions/findConnectedMainImage"
 import {findConnectedRacingEvent} from "./node-types/racing-sessions/findConnectedRacingEvent"
 import {findConnectedImages} from "./node-types/racing-sessions/findConnectedImages"
@@ -18,6 +20,10 @@ export const RacingSessionModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeTitle(node: RacingSession) {
+        return getNodeTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

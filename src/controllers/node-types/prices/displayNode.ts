@@ -27,6 +27,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             type: ControllerNodeType.PRICE,
             data: price,
+            title: PriceModelFacade.getNodeTitle(price),
             node_properties: getNodeProperties(DataNodeType.PRICE),
             main_image: await PriceModelFacade.getConnectedMainImage(priceId),
         },

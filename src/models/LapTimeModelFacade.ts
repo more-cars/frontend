@@ -2,6 +2,8 @@ import {findAllNodes} from "./node-types/lap-times/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/lap-times/findNodeById"
+import type {LapTime} from "./node-types/lap-times/types/LapTime"
+import {getNodeTitle} from "./node-types/lap-times/getNodeTitle"
 import {findConnectedMainImage} from "./node-types/lap-times/findConnectedMainImage"
 import {findConnectedTrackLayout} from "./node-types/lap-times/findConnectedTrackLayout"
 import {findConnectedSessionResult} from "./node-types/lap-times/findConnectedSessionResult"
@@ -19,6 +21,10 @@ export const LapTimeModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeTitle(node: LapTime) {
+        return getNodeTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

@@ -2,6 +2,8 @@ import {findAllNodes} from "./node-types/racing-games/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
 import {findNodeById} from "./node-types/racing-games/findNodeById"
+import type {RacingGame} from "./node-types/racing-games/types/RacingGame"
+import {getNodeTitle} from "./node-types/racing-games/getNodeTitle"
 import {findConnectedMainImage} from "./node-types/racing-games/findConnectedMainImage"
 import {findConnectedCarModelVariants} from "./node-types/racing-games/findConnectedCarModelVariants"
 import {findConnectedTrackLayouts} from "./node-types/racing-games/findConnectedTrackLayouts"
@@ -19,6 +21,10 @@ export const RacingGameModelFacade = {
 
     async getNodeById(id: number) {
         return findNodeById(id)
+    },
+
+    getNodeTitle(node: RacingGame) {
+        return getNodeTitle(node)
     },
 
     async getConnectedMainImage(id: number) {

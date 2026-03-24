@@ -35,6 +35,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         node: {
             type: ControllerNodeType.CAR_MODEL,
             data: carModel,
+            title: CarModelModelFacade.getNodeTitle(carModel),
             node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
             main_image: await CarModelModelFacade.getConnectedMainImage(carModelId),
         },
