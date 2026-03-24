@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiCompanyNode = {
-    type: 'companies'
+    type: ApiNodeType.COMPANY
     id: number
     attributes: {
         name: string

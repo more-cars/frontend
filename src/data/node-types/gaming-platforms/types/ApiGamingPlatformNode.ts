@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiGamingPlatformNode = {
-    type: string
+    type: ApiNodeType.GAMING_PLATFORM
     id: number
     attributes: {
         name: string

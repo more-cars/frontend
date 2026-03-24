@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiRacingEventNode = {
-    type: 'racing-events'
+    type: ApiNodeType.RACING_EVENT
     id: number
     attributes: {
         name: string

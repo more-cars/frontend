@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiMotorShowNode = {
-    type: string
+    type: ApiNodeType.MOTOR_SHOW
     id: number
     attributes: {
         name: string

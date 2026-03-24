@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiLapTimeNode = {
-    type: 'lap-times'
+    type: ApiNodeType.LAP_TIME
     id: number
     attributes: {
         time: string

@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiMagazineIssueNode = {
-    type: string
+    type: ApiNodeType.MAGAZINE_ISSUE
     id: number
     attributes: {
         title: string

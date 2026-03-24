@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiSessionResultNode = {
-    type: 'session-results'
+    type: ApiNodeType.SESSION_RESULT
     id: number
     attributes: {
         position: number

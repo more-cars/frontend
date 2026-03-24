@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiProgrammeNode = {
-    type: string
+    type: ApiNodeType.PROGRAMME
     id: number
     attributes: {
         name: string

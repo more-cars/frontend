@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiTrackLayoutNode = {
-    type: 'track-layouts'
+    type: ApiNodeType.TRACK_LAYOUT
     id: number
     attributes: {
         name: string

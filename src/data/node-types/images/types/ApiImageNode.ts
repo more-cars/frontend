@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiImageNode = {
-    type: 'images'
+    type: ApiNodeType.IMAGE
     id: number
     attributes: {
         image_provider: string

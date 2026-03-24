@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiCarModelVariantNode = {
-    type: 'car-model-variants'
+    type: ApiNodeType.CAR_MODEL_VARIANT
     id: number
     attributes: {
         name: string

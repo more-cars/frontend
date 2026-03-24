@@ -1,5 +1,7 @@
+import type {ApiNodeType} from "../../../types/ApiNodeType"
+
 export type ApiRatingNode = {
-    type: string
+    type: ApiNodeType.RATING
     id: number
     attributes: {
         rating_value: number
