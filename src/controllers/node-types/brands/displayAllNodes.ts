@@ -4,6 +4,7 @@ import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getBrandThumbnails} from "./getBrandThumbnails"
+import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -13,8 +14,9 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All Brands',
         main_headline: 'All Brands',
         node_collection: brands,
-        node_properties: getNodeProperties(DataNodeType.BRAND),
+        node_titles: getAllNodeTitles(brands, BrandModelFacade.getNodeTitle),
         thumbnails: await getBrandThumbnails(brands),
+        node_properties: getNodeProperties(DataNodeType.BRAND),
         pagination: {
             page,
             total: await BrandModelFacade.getTotalNodeCount(),

@@ -9,6 +9,7 @@ else
         ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
             each nodeItem in node_collection
                 - nodeType = '<%= h.changeCase.kebab(nodeType) %>'
+                - itemHeadline = node_titles.get(nodeItem.id)
                 - nodeProperties = node_properties
                 include ../../shared/list-node-item
 

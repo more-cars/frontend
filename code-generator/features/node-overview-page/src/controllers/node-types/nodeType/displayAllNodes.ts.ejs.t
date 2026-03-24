@@ -3,9 +3,10 @@ to: src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nod
 ---
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
+import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
+import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -15,6 +16,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         page_title: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
         main_headline: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
         node_collection: <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>,
+        node_titles: getAllNodeTitles(<%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>, <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeTitle),
         node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
         pagination: {
             page,
