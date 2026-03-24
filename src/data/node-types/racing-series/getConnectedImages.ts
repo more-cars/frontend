@@ -22,7 +22,7 @@ export async function getConnectedImages(id: number) {
             name: DataRelationshipType.RACING_SERIES_HAS_IMAGE,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACING_SERIES,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as ImageNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as ImageNode,
             partner_node_type: DataNodeType.IMAGE,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

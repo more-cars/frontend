@@ -22,7 +22,7 @@ export async function getConnectedMotorShows(id: number) {
             name: DataRelationshipType.CAR_MODEL_VARIANT_PRESENTED_AT_MOTOR_SHOW,
             source_node: sourceNode,
             source_node_type: DataNodeType.CAR_MODEL_VARIANT,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as MotorShowNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as MotorShowNode,
             partner_node_type: DataNodeType.MOTOR_SHOW,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

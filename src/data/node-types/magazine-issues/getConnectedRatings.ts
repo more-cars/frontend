@@ -22,7 +22,7 @@ export async function getConnectedRatings(id: number) {
             name: DataRelationshipType.MAGAZINE_ISSUE_REVIEWED_CAR_MODEL_VARIANT_WITH_RATING,
             source_node: sourceNode,
             source_node_type: DataNodeType.MAGAZINE_ISSUE,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as RatingNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RatingNode,
             partner_node_type: DataNodeType.RATING,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

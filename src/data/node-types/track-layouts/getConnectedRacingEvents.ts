@@ -22,7 +22,7 @@ export async function getConnectedRacingEvents(id: number) {
             name: DataRelationshipType.TRACK_LAYOUT_WAS_USED_BY_RACING_EVENT,
             source_node: sourceNode,
             source_node_type: DataNodeType.TRACK_LAYOUT,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as RacingEventNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RacingEventNode,
             partner_node_type: DataNodeType.RACING_EVENT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

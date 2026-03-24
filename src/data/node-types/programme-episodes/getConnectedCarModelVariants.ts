@@ -22,7 +22,7 @@ export async function getConnectedCarModelVariants(id: number) {
             name: DataRelationshipType.PROGRAMME_EPISODE_FEATURES_CAR_MODEL_VARIANT,
             source_node: sourceNode,
             source_node_type: DataNodeType.PROGRAMME_EPISODE,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as CarModelVariantNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as CarModelVariantNode,
             partner_node_type: DataNodeType.CAR_MODEL_VARIANT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

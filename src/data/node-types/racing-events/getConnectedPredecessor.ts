@@ -23,7 +23,7 @@ export async function getConnectedPredecessor(id: number) {
         name: DataRelationshipType.RACING_EVENT_FOLLOWS_EVENT,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_EVENT,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as RacingEventNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as RacingEventNode,
         partner_node_type: DataNodeType.RACING_EVENT,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

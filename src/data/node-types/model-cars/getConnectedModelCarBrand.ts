@@ -23,7 +23,7 @@ export async function getConnectedModelCarBrand(id: number) {
         name: DataRelationshipType.MODEL_CAR_MADE_BY_MODEL_CAR_BRAND,
         source_node: sourceNode,
         source_node_type: DataNodeType.MODEL_CAR,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as ModelCarBrandNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ModelCarBrandNode,
         partner_node_type: DataNodeType.MODEL_CAR_BRAND,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

@@ -22,7 +22,7 @@ export async function getConnectedSessionResults(id: number) {
             name: DataRelationshipType.CAR_MODEL_VARIANT_ACHIEVED_SESSION_RESULT,
             source_node: sourceNode,
             source_node_type: DataNodeType.CAR_MODEL_VARIANT,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as SessionResultNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as SessionResultNode,
             partner_node_type: DataNodeType.SESSION_RESULT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

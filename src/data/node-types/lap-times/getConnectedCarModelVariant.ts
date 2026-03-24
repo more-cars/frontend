@@ -23,7 +23,7 @@ export async function getConnectedCarModelVariant(id: number) {
         name: DataRelationshipType.LAP_TIME_ACHIEVED_WITH_CAR_MODEL_VARIANT,
         source_node: sourceNode,
         source_node_type: DataNodeType.LAP_TIME,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as CarModelVariantNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as CarModelVariantNode,
         partner_node_type: DataNodeType.CAR_MODEL_VARIANT,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

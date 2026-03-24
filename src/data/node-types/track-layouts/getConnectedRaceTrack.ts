@@ -23,7 +23,7 @@ export async function getConnectedRaceTrack(id: number) {
         name: DataRelationshipType.TRACK_LAYOUT_BELONGS_TO_RACE_TRACK,
         source_node: sourceNode,
         source_node_type: DataNodeType.TRACK_LAYOUT,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as RaceTrackNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as RaceTrackNode,
         partner_node_type: DataNodeType.RACE_TRACK,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

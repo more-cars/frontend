@@ -23,7 +23,7 @@ export async function getConnectedMagazineIssue(id: number) {
         name: DataRelationshipType.RATING_BY_MAGAZINE_ISSUE,
         source_node: sourceNode,
         source_node_type: DataNodeType.RATING,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as MagazineIssueNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as MagazineIssueNode,
         partner_node_type: DataNodeType.MAGAZINE_ISSUE,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

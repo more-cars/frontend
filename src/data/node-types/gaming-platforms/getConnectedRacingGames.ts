@@ -22,7 +22,7 @@ export async function getConnectedRacingGames(id: number) {
             name: DataRelationshipType.GAMING_PLATFORM_FEATURES_RACING_GAME,
             source_node: sourceNode,
             source_node_type: DataNodeType.GAMING_PLATFORM,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as RacingGameNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RacingGameNode,
             partner_node_type: DataNodeType.RACING_GAME,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

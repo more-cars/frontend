@@ -22,7 +22,7 @@ export async function getConnectedGamingPlatforms(id: number) {
             name: DataRelationshipType.RACING_GAME_RELEASED_ON_GAMING_PLATFORM,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACING_GAME,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as GamingPlatformNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as GamingPlatformNode,
             partner_node_type: DataNodeType.GAMING_PLATFORM,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

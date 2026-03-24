@@ -22,7 +22,7 @@ export async function getConnectedRacingGames(id: number) {
             name: DataRelationshipType.TRACK_LAYOUT_IS_FEATURED_IN_RACING_GAME,
             source_node: sourceNode,
             source_node_type: DataNodeType.TRACK_LAYOUT,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as RacingGameNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RacingGameNode,
             partner_node_type: DataNodeType.RACING_GAME,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

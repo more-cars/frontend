@@ -23,7 +23,7 @@ export async function getConnectedTrackLayout(id: number) {
         name: DataRelationshipType.RACING_EVENT_USED_THE_TRACK_LAYOUT,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_EVENT,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as TrackLayoutNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as TrackLayoutNode,
         partner_node_type: DataNodeType.TRACK_LAYOUT,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

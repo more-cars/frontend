@@ -23,7 +23,7 @@ export async function getConnectedProgramme(id: number) {
         name: DataRelationshipType.PROGRAMME_EPISODE_BELONGS_TO_PROGRAMME,
         source_node: sourceNode,
         source_node_type: DataNodeType.PROGRAMME_EPISODE,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as ProgrammeNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ProgrammeNode,
         partner_node_type: DataNodeType.PROGRAMME,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

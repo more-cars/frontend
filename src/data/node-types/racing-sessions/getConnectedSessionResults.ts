@@ -22,7 +22,7 @@ export async function getConnectedSessionResults(id: number) {
             name: DataRelationshipType.RACING_SESSION_HAS_SESSION_RESULT,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACING_SESSION,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as SessionResultNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as SessionResultNode,
             partner_node_type: DataNodeType.SESSION_RESULT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

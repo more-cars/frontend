@@ -22,7 +22,7 @@ export async function getConnectedBrands(id: number) {
             name: DataRelationshipType.COMPANY_HAS_BRAND,
             source_node: sourceNode,
             source_node_type: DataNodeType.COMPANY,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as BrandNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as BrandNode,
             partner_node_type: DataNodeType.BRAND,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

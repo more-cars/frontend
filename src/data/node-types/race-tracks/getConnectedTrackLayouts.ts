@@ -22,7 +22,7 @@ export async function getConnectedTrackLayouts(id: number) {
             name: DataRelationshipType.RACE_TRACK_HAS_LAYOUT,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACE_TRACK,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as TrackLayoutNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as TrackLayoutNode,
             partner_node_type: DataNodeType.TRACK_LAYOUT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

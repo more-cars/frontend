@@ -22,7 +22,7 @@ export async function getConnectedLapTimes(id: number) {
             name: DataRelationshipType.SESSION_RESULT_HAS_LAP_TIME,
             source_node: sourceNode,
             source_node_type: DataNodeType.SESSION_RESULT,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as LapTimeNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as LapTimeNode,
             partner_node_type: DataNodeType.LAP_TIME,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

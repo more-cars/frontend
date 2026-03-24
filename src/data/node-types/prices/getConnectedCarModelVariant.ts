@@ -23,7 +23,7 @@ export async function getConnectedCarModelVariant(id: number) {
         name: DataRelationshipType.PRICE_FOR_CAR_MODEL_VARIANT,
         source_node: sourceNode,
         source_node_type: DataNodeType.PRICE,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as CarModelVariantNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as CarModelVariantNode,
         partner_node_type: DataNodeType.CAR_MODEL_VARIANT,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,

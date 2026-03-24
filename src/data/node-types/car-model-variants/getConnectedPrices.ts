@@ -22,7 +22,7 @@ export async function getConnectedPrices(id: number) {
             name: DataRelationshipType.CAR_MODEL_VARIANT_HAS_PRICE,
             source_node: sourceNode,
             source_node_type: DataNodeType.CAR_MODEL_VARIANT,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node.data) as PriceNode,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as PriceNode,
             partner_node_type: DataNodeType.PRICE,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,

@@ -23,7 +23,7 @@ export async function getConnectedRacingSession(id: number) {
         name: DataRelationshipType.SESSION_RESULT_BELONGS_TO_RACING_SESSION,
         source_node: sourceNode,
         source_node_type: DataNodeType.SESSION_RESULT,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node.data) as RacingSessionNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as RacingSessionNode,
         partner_node_type: DataNodeType.RACING_SESSION,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,
