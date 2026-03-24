@@ -34,7 +34,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
         return notFoundError(res)
     }
 
-    switch (singularize(nodeType)) {
+    const nodeTypeSingular = nodeType === 'racing-series' ? 'racing-series' : singularize(nodeType)
+    switch (nodeTypeSingular) {
         case ControllerNodeType.COMPANY:
             return displayCompanyNode(req, res)
         case ControllerNodeType.BRAND:
