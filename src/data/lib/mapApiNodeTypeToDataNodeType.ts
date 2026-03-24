@@ -2,7 +2,7 @@ import {ApiNodeType} from "../types/ApiNodeType"
 import {DataNodeType} from "../types/DataNodeType"
 import {NodeTypeNotFoundError} from "../types/NodeTypeNotFoundError"
 
-export function mapApiNodeTypeToDataNodeType(apiNodeType: ApiNodeType): DataNodeType {
+export function mapApiNodeTypeToDataNodeType(apiNodeType: ApiNodeType) {
     const mapping = new Map<ApiNodeType, DataNodeType>([
         [ApiNodeType.COMPANY, DataNodeType.COMPANY],
         [ApiNodeType.BRAND, DataNodeType.BRAND],
