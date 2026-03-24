@@ -7,9 +7,10 @@ if nodeItems.length > 0 && nodeItems[0] !== null
             p(class="mb-4")= sectionIntro
 
         ul(class="max-h-150 overflow-y-auto")
-            each nodeItem in nodeItems
-                - thumbnail = thumbnails ? thumbnails.get(nodeItem.id) : nodeItem
-                - itemHeadline = itemHeadlineProperty ? nodeItem[itemHeadlineProperty] : nodeItem['name']
+            each node in nodeItems
+                - nodeData = node.fields
+                - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : nodeData
+                - itemHeadline = itemHeadlineProperty ? nodeData[itemHeadlineProperty] : nodeData['name']
                 include list-node-item
 
 - thumbnails = null

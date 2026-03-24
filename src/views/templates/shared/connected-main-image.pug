@@ -1,2 +1,2 @@
 section(data-testid="lead-image")
-    img(src=`${mainImage && mainImage.image_url_m ? mainImage.image_url_m : '/g/no-image.webp'}` class="rounded-xl border-4 border-white")
+    img(src=`${mainImage && mainImage.fields && mainImage.fields.image_url_m ? mainImage.fields.image_url_m : '/g/no-image.webp'}` class="rounded-xl border-4 border-white")

@@ -5,7 +5,8 @@ if nodes.length > 0
 
         ul
             each nodeItem in nodes
+                - nodeData = nodeItem.fields
                 - nodeType = 'node'
-                - thumbnail = relationships.nodes.thumbnails.get(nodeItem.id)
+                - thumbnail = relationships.nodes.thumbnails.get(nodeData.id)
                 - nodeProperties = relationships.nodes.node_properties
                 include ../../shared/list-node-item
