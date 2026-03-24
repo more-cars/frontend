@@ -1,14 +1,18 @@
 import {LapTimeNode} from "../../../data/node-types/lap-times/types/LapTimeNode"
 import {LapTime} from "./types/LapTime"
+import {ModelNodeType} from "../../types/ModelNodeType"
 
 export function convertLapTimeNode(dataNode: LapTimeNode) {
     const lapTime: LapTime = {
-        id: dataNode.id,
-        time: dataNode.time,
-        driver_name: dataNode.driver_name,
-        date: dataNode.date || null,
-        created_at: dataNode.created_at,
-        updated_at: dataNode.updated_at,
+        type: ModelNodeType.LAP_TIME,
+        fields: {
+            id: dataNode.data.id,
+            time: dataNode.data.time,
+            driver_name: dataNode.data.driver_name,
+            date: dataNode.data.date || null,
+            created_at: dataNode.data.created_at,
+            updated_at: dataNode.data.updated_at,
+        }
     }
 
     return lapTime

@@ -1,16 +1,20 @@
 import {ModelCarNode} from "../../../data/node-types/model-cars/types/ModelCarNode"
 import {ModelCar} from "./types/ModelCar"
+import {ModelNodeType} from "../../types/ModelNodeType"
 
 export function convertModelCarNode(dataNode: ModelCarNode) {
     const modelCar: ModelCar = {
-        id: dataNode.id,
-        name: dataNode.name,
-        product_code: dataNode.product_code || null,
-        release_year: dataNode.release_year || null,
-        scale: dataNode.scale || null,
-        series: dataNode.series || null,
-        created_at: dataNode.created_at,
-        updated_at: dataNode.updated_at,
+        type: ModelNodeType.MODEL_CAR,
+        fields: {
+            id: dataNode.data.id,
+            name: dataNode.data.name,
+            product_code: dataNode.data.product_code || null,
+            release_year: dataNode.data.release_year || null,
+            scale: dataNode.data.scale || null,
+            series: dataNode.data.series || null,
+            created_at: dataNode.data.created_at,
+            updated_at: dataNode.data.updated_at,
+        }
     }
 
     return modelCar

@@ -1,17 +1,21 @@
 import {RacingSeriesNode} from "../../../data/node-types/racing-series/types/RacingSeriesNode"
 import {RacingSeries} from "./types/RacingSeries"
+import {ModelNodeType} from "../../types/ModelNodeType"
 
 export function convertRacingSeriesNode(dataNode: RacingSeriesNode) {
     const racingSeries: RacingSeries = {
-        id: dataNode.id,
-        name: dataNode.name,
-        short_name: dataNode.short_name || null,
-        founded: dataNode.founded || null,
-        defunct: dataNode.defunct || null,
-        organized_by: dataNode.organized_by || null,
-        vehicle_type: dataNode.vehicle_type || null,
-        created_at: dataNode.created_at,
-        updated_at: dataNode.updated_at,
+        type: ModelNodeType.RACING_SERIES,
+        fields: {
+            id: dataNode.data.id,
+            name: dataNode.data.name,
+            short_name: dataNode.data.short_name || null,
+            founded: dataNode.data.founded || null,
+            defunct: dataNode.data.defunct || null,
+            organized_by: dataNode.data.organized_by || null,
+            vehicle_type: dataNode.data.vehicle_type || null,
+            created_at: dataNode.data.created_at,
+            updated_at: dataNode.data.updated_at,
+        }
     }
 
     return racingSeries
