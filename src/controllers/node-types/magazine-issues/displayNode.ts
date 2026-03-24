@@ -33,7 +33,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await MagazineIssueModelFacade.getConnectedImages(magazineIssueId)
 
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
-        page_title: `${magazineIssue.title} - Magazine Issue`,
+        page_title: `${magazineIssue.fields.title} - Magazine Issue`,
         node: {
             type: ControllerNodeType.MAGAZINE_ISSUE,
             data: magazineIssue,

@@ -24,7 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await RatingModelFacade.getConnectedImages(ratingId)
 
     res.render('templates/node-types/ratings/rating-detail-page', {
-        page_title: `${rating.rating_value} - Rating`,
+        page_title: `${rating.fields.rating_value} - Rating`,
         node: {
             type: ControllerNodeType.RATING,
             data: rating,

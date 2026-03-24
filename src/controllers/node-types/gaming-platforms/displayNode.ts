@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await GamingPlatformModelFacade.getConnectedImages(gamingPlatformId)
 
     res.render('templates/node-types/gaming-platforms/gaming-platform-detail-page', {
-        page_title: `${gamingPlatform.name} - Gaming Platform`,
+        page_title: `${gamingPlatform.fields.name} - Gaming Platform`,
         node: {
             type: ControllerNodeType.GAMING_PLATFORM,
             data: gamingPlatform,

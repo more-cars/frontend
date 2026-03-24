@@ -26,7 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariant = await SessionResultModelFacade.getConnectedCarModelVariant(sessionResultId)
 
     res.render('templates/node-types/session-results/session-result-detail-page', {
-        page_title: `${sessionResult.driver_name} - Session Result`,
+        page_title: `${sessionResult.fields.driver_name} - Session Result`,
         node: {
             type: ControllerNodeType.SESSION_RESULT,
             data: sessionResult,

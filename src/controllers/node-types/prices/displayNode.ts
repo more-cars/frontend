@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await PriceModelFacade.getConnectedImages(priceId)
 
     res.render('templates/node-types/prices/price-detail-page', {
-        page_title: `${price.price} - Price`,
+        page_title: `${price.fields.price} - Price`,
         node: {
             type: ControllerNodeType.PRICE,
             data: price,

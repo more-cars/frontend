@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await CompanyModelFacade.getConnectedImages(companyId)
 
     res.render('templates/node-types/companies/company-detail-page', {
-        page_title: `${company.name} - Company`,
+        page_title: `${company.fields.name} - Company`,
         node: {
             type: ControllerNodeType.COMPANY,
             data: company,

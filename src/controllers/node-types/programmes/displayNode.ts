@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await ProgrammeModelFacade.getConnectedImages(programmeId)
 
     res.render('templates/node-types/programmes/programme-detail-page', {
-        page_title: `${programme.name} - Programme`,
+        page_title: `${programme.fields.name} - Programme`,
         node: {
             type: ControllerNodeType.PROGRAMME,
             data: programme,

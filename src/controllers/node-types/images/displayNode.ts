@@ -21,7 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const nodes = await ImageModelFacade.getConnectedNodes(imageId)
 
     res.render('templates/node-types/images/image-detail-page', {
-        page_title: `${image.name} - Image`,
+        page_title: `${image.fields.name} - Image`,
         node: {
             type: ControllerNodeType.IMAGE,
             data: image,

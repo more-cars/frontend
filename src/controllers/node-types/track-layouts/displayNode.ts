@@ -26,7 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await TrackLayoutModelFacade.getConnectedImages(trackLayoutId)
 
     res.render('templates/node-types/track-layouts/track-layout-detail-page', {
-        page_title: `${trackLayout.name} - Track Layout`,
+        page_title: `${trackLayout.fields.name} - Track Layout`,
         node: {
             type: ControllerNodeType.TRACK_LAYOUT,
             data: trackLayout,

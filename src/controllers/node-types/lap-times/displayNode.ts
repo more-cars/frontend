@@ -26,7 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariant = await LapTimeModelFacade.getConnectedCarModelVariant(lapTimeId)
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
-        page_title: `${lapTime.driver_name} - Lap Time`,
+        page_title: `${lapTime.fields.driver_name} - Lap Time`,
         node: {
             type: ControllerNodeType.LAP_TIME,
             data: lapTime,

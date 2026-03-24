@@ -24,7 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await ModelCarModelFacade.getConnectedImages(modelCarId)
 
     res.render('templates/node-types/model-cars/model-car-detail-page', {
-        page_title: `${modelCar.name} - Model Car`,
+        page_title: `${modelCar.fields.name} - Model Car`,
         node: {
             type: ControllerNodeType.MODEL_CAR,
             data: modelCar,

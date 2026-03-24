@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await MotorShowModelFacade.getConnectedImages(motorShowId)
 
     res.render('templates/node-types/motor-shows/motor-show-detail-page', {
-        page_title: `${motorShow.name} - Motor Show`,
+        page_title: `${motorShow.fields.name} - Motor Show`,
         node: {
             type: ControllerNodeType.MOTOR_SHOW,
             data: motorShow,

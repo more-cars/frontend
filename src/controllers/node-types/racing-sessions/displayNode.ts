@@ -24,7 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await RacingSessionModelFacade.getConnectedImages(racingSessionId)
 
     res.render('templates/node-types/racing-sessions/racing-session-detail-page', {
-        page_title: `${racingSession.name} - Racing Session`,
+        page_title: `${racingSession.fields.name} - Racing Session`,
         node: {
             type: ControllerNodeType.RACING_SESSION,
             data: racingSession,

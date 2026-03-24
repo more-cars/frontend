@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const racingEvents = await RacingSeriesModelFacade.getConnectedRacingEvents(racingSeriesId)
 
     res.render('templates/node-types/racing-series/racing-series-detail-page', {
-        page_title: `${racingSeries.name} - Racing Series`,
+        page_title: `${racingSeries.fields.name} - Racing Series`,
         node: {
             type: ControllerNodeType.RACING_SERIES,
             data: racingSeries,

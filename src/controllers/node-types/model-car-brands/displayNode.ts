@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await ModelCarBrandModelFacade.getConnectedImages(modelCarBrandId)
 
     res.render('templates/node-types/model-car-brands/model-car-brand-detail-page', {
-        page_title: `${modelCarBrand.name} - Model Car Brand`,
+        page_title: `${modelCarBrand.fields.name} - Model Car Brand`,
         node: {
             type: ControllerNodeType.MODEL_CAR_BRAND,
             data: modelCarBrand,

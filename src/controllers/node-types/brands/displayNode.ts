@@ -24,7 +24,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await BrandModelFacade.getConnectedImages(brandId)
 
     res.render('templates/node-types/brands/brand-detail-page', {
-        page_title: `${brand.name} - Brand`,
+        page_title: `${brand.fields.name} - Brand`,
         node: {
             type: ControllerNodeType.BRAND,
             data: brand,

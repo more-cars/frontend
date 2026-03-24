@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await MagazineModelFacade.getConnectedImages(magazineId)
 
     res.render('templates/node-types/magazines/magazine-detail-page', {
-        page_title: `${magazine.name} - Magazine`,
+        page_title: `${magazine.fields.name} - Magazine`,
         node: {
             type: ControllerNodeType.MAGAZINE,
             data: magazine,
