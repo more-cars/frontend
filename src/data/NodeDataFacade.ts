@@ -1,7 +1,7 @@
-import {getApiNodeById} from "./nodes/getNodeById"
+import {getNodeById} from "./nodes/getNodeById"
 
 export const NodeDataFacade = {
-    async getApiNodeById(id: number) {
-        return getApiNodeById(id)
+    async getNodeById(id: number) {
+        return getNodeById(id)
     },
 }
