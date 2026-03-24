@@ -28,7 +28,7 @@ async function getThumbnails(images: Image[]) {
     const thumbnails = []
 
     for (const image of images) {
-        thumbnails[image.id] = image
+        thumbnails[image.fields.id] = image
     }
 
     return thumbnails
