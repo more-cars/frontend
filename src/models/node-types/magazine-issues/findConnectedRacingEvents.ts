@@ -10,5 +10,5 @@ export async function findConnectedRacingEvents(id: number) {
         racingEvents.push(convertRacingEventNode(relation.partner_node))
     }
 
-    return [...racingEvents].sort((a, b) => (a.name + "").localeCompare(b.name + ""))
+    return [...racingEvents].sort((a, b) => (a.fields.name + "").localeCompare(b.fields.name + ""))
 }

@@ -7,7 +7,7 @@ export async function findConnectedNodes(id: number) {
     const nodes: ModelNode[] = []
 
     for (const relation of relations) {
-        nodes.push(convertDataNodeToModelNode(relation.partner_node_type, relation.partner_node))
+        nodes.push(convertDataNodeToModelNode(relation.partner_node))
     }
 
     return nodes

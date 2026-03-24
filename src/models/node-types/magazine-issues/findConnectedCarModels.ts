@@ -10,5 +10,5 @@ export async function findConnectedCarModels(id: number) {
         carModels.push(convertCarModelNode(relation.partner_node))
     }
 
-    return [...carModels].sort((a, b) => (a.name + "").localeCompare(b.name + ""))
+    return [...carModels].sort((a, b) => (a.fields.name + "").localeCompare(b.fields.name + ""))
 }

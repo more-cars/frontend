@@ -10,5 +10,5 @@ export async function findConnectedSessionResults(id: number) {
         sessionResults.push(convertSessionResultNode(relation.partner_node))
     }
 
-    return [...sessionResults].sort((a, b) => a.driver_name.localeCompare(b.driver_name))
+    return [...sessionResults].sort((a, b) => a.fields.driver_name.localeCompare(b.fields.driver_name))
 }

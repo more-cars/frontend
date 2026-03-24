@@ -10,5 +10,5 @@ export async function findConnectedProgrammeEpisodes(id: number) {
         programmeEpisodes.push(convertProgrammeEpisodeNode(relation.partner_node))
     }
 
-    return [...programmeEpisodes].sort((a, b) => (a.title + "").localeCompare(b.title + ""))
+    return [...programmeEpisodes].sort((a, b) => (a.fields.title + "").localeCompare(b.fields.title + ""))
 }

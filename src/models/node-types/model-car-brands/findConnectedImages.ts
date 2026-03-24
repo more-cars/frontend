@@ -10,5 +10,5 @@ export async function findConnectedImages(id: number) {
         images.push(convertImageNode(relation.partner_node))
     }
 
-    return [...images].sort((a, b) => (a.name + "").localeCompare(b.name + ""))
+    return [...images].sort((a, b) => (a.fields.name + "").localeCompare(b.fields.name + ""))
 }

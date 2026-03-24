@@ -10,5 +10,5 @@ export async function findConnectedGamingPlatforms(id: number) {
         gamingPlatforms.push(convertGamingPlatformNode(relation.partner_node))
     }
 
-    return [...gamingPlatforms].sort((a, b) => (a.name + "").localeCompare(b.name + ""))
+    return [...gamingPlatforms].sort((a, b) => (a.fields.name + "").localeCompare(b.fields.name + ""))
 }

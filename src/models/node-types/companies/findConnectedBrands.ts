@@ -10,5 +10,5 @@ export async function findConnectedBrands(id: number) {
         brands.push(convertBrandNode(relation.partner_node))
     }
 
-    return [...brands].sort((a, b) => a.name.localeCompare(b.name))
+    return [...brands].sort((a, b) => a.fields.name.localeCompare(b.fields.name))
 }

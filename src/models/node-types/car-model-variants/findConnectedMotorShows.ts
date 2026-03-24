@@ -10,5 +10,5 @@ export async function findConnectedMotorShows(id: number) {
         motorShows.push(convertMotorShowNode(relation.partner_node))
     }
 
-    return [...motorShows].sort((a, b) => (a.name + "").localeCompare(b.name + ""))
+    return [...motorShows].sort((a, b) => (a.fields.name + "").localeCompare(b.fields.name + ""))
 }

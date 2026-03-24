@@ -10,5 +10,5 @@ export async function findConnectedRatings(id: number) {
         ratings.push(convertRatingNode(relation.partner_node))
     }
 
-    return [...ratings].sort((a, b) => a.rating_value - b.rating_value)
+    return [...ratings].sort((a, b) => a.fields.rating_value - b.fields.rating_value)
 }

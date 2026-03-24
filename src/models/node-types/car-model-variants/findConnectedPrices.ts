@@ -10,5 +10,5 @@ export async function findConnectedPrices(id: number) {
         prices.push(convertPriceNode(relation.partner_node))
     }
 
-    return [...prices].sort((a, b) => a.price - b.price)
+    return [...prices].sort((a, b) => a.fields.price - b.fields.price)
 }

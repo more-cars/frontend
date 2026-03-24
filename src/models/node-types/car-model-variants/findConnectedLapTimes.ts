@@ -10,5 +10,5 @@ export async function findConnectedLapTimes(id: number) {
         lapTimes.push(convertLapTimeNode(relation.partner_node))
     }
 
-    return [...lapTimes].sort((a, b) => a.driver_name.localeCompare(b.driver_name))
+    return [...lapTimes].sort((a, b) => a.fields.driver_name.localeCompare(b.fields.driver_name))
 }

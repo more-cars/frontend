@@ -10,5 +10,5 @@ export async function findConnectedMagazineIssues(id: number) {
         magazineIssues.push(convertMagazineIssueNode(relation.partner_node))
     }
 
-    return [...magazineIssues].sort((a, b) => (a.title + "").localeCompare(b.title + ""))
+    return [...magazineIssues].sort((a, b) => (a.fields.title + "").localeCompare(b.fields.title + ""))
 }
