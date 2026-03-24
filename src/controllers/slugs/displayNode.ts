@@ -1,6 +1,7 @@
 import express from "express"
 import {singularize} from "inflection"
 import {NodeModelFacade} from "../../models/NodeModelFacade"
+import {DataNodeType} from "../../data/types/DataNodeType"
 import {ControllerNodeType} from "../types/ControllerNodeType"
 import {displayNode as displayCompanyNode} from "../node-types/companies/displayNode"
 import {displayNode as displayBrandNode} from "../node-types/brands/displayNode"
@@ -34,7 +35,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
         return notFoundError(res)
     }
 
-    const nodeTypeSingular = nodeType === 'racing-series' ? 'racing-series' : singularize(nodeType)
+    const nodeTypeSingular = nodeType === DataNodeType.RACING_SERIES ? 'racing-series' : singularize(nodeType)
     switch (nodeTypeSingular) {
         case ControllerNodeType.COMPANY:
             return displayCompanyNode(req, res)
