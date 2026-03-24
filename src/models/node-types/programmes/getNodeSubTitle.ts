@@ -1,5 +1,5 @@
 import type {Programme} from "./types/Programme"
 
 export function getNodeSubTitle(node: Programme) {
-    return `${node.aired_from_year} - ${node.aired_until_year}`
+    return `${node.fields.aired_from_year} - ${node.fields.aired_until_year}`
 }

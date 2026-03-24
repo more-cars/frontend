@@ -1,5 +1,5 @@
 import type {TrackLayout} from "./types/TrackLayout"
 
 export function getNodeSubTitle(node: TrackLayout) {
-    return `${node.length} ${node.length_unit} | ${node.year_from} - ${node.year_to}`
+    return `${node.fields.length} ${node.fields.length_unit} | ${node.fields.year_from} - ${node.fields.year_to}`
 }

@@ -1,5 +1,5 @@
 import type {RacingSeries} from "./types/RacingSeries"
 
 export function getNodeSubTitle(node: RacingSeries) {
-    return `${node.short_name} | ${node.founded} - ${node.defunct}`
+    return `${node.fields.short_name} | ${node.fields.founded} - ${node.fields.defunct}`
 }
