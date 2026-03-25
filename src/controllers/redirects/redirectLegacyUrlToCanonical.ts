@@ -2,6 +2,7 @@ import express, {type NextFunction} from "express"
 import {NodeModelFacade} from "../../models/NodeModelFacade"
 import {canonicalUrlPath} from "../../views/lib/canonicalUrlPath"
 import {getNodeTitle} from "../../models/getNodeTitle"
+import {convertLegacyId} from "./convertLegacyId"
 
 const urlPattern = /^(.*)__([0-9]+)$/
 
@@ -35,8 +36,7 @@ function extractNodeIdFromLegacyUrl(path: string) {
     const match = path.match(urlPattern)
 
     if (match) {
-        const id = match[2]
-        return parseInt(id)
+        return convertLegacyId(match[2])
     }
 
     return -1

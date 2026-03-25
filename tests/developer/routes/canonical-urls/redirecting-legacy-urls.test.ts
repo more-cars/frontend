@@ -28,6 +28,6 @@ describe('Redirecting legacy URLs', () => {
             .toBeTruthy()
 
         expect(response.headers['location'])
-            .toEqual('node-title-1234')
+            .toEqual('node-title-10001234')
     })
 })
