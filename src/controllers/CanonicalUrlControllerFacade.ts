@@ -1,9 +1,14 @@
 import express, {type NextFunction} from "express"
-import {redirectLegacyUrlToCanonical} from "./redirects/redirectLegacyUrlToCanonical"
-import {redirectShortUrlToCanonical} from "./redirects/redirectShortUrlToCanonical"
-import {redirectNodeTypeUrlToCanonical} from "./redirects/redirectNodeTypeUrlToCanonical"
+import {displayNode} from "./canonical/displayNode"
+import {redirectLegacyUrlToCanonical} from "./canonical/redirectLegacyUrlToCanonical"
+import {redirectShortUrlToCanonical} from "./canonical/redirectShortUrlToCanonical"
+import {redirectNodeTypeUrlToCanonical} from "./canonical/redirectNodeTypeUrlToCanonical"
 
-export const RedirectControllerFacade = {
+export const CanonicalUrlControllerFacade = {
+    async showNode(req: express.Request, res: express.Response, next: express.NextFunction) {
+        await displayNode(req, res, next)
+    },
+
     async redirectLegacyUrl(req: express.Request, res: express.Response, next: NextFunction) {
         await redirectLegacyUrlToCanonical(req, res, next)
     },

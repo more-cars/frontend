@@ -1,5 +1,5 @@
 import {describe, expect, test} from "vitest"
-import {convertLegacyId} from "../../../../src/controllers/redirects/convertLegacyId"
+import {convertLegacyId} from "../../../../src/controllers/canonical/convertLegacyId"
 
 describe('Legacy IDs are correctly converted', () => {
     test.each([

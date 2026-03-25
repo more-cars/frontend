@@ -1,6 +1,6 @@
 ---
 inject: true
-to: src/controllers/slugs/displayNode.ts
+to: src/controllers/canonical/displayNode.ts
 before: import {displayNode as displayImageNode}
 skip_if: import {displayNode as display<%= h.changeCase.pascal(nodeType) %>Node}
 ---

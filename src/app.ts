@@ -1,7 +1,6 @@
 import type {Express} from "express"
 import express from "express"
-import slugs from "./routes/slugs"
-import redirectNonCanonicalUrls from "./routes/redirect-non-canonical-urls"
+import canonicalAndRedirectUrls from "./routes/canonical-and-redirect-urls"
 import startPage from "./routes/startPage.ts"
 import companies from "./routes/companies"
 import brands from './routes/brands.ts'
@@ -41,8 +40,7 @@ app.set('views', './src/views')
 app.use(basicAuthentication)
 app.use(express.static('public'))
 
-app.use('/', slugs)
-app.use('/', redirectNonCanonicalUrls)
+app.use('/', canonicalAndRedirectUrls)
 
 app.use('/', startPage)
 app.use('/', companies)

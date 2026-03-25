@@ -1,6 +1,6 @@
 ---
 inject: true
-to: src/controllers/slugs/displayNode.ts
+to: src/controllers/canonical/displayNode.ts
 before: ControllerNodeType.IMAGE
 skip_if: ControllerNodeType.<%= h.changeCase.constant(nodeType) %>
 ---
