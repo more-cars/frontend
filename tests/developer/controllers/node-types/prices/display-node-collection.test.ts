@@ -1,5 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {supertestGet} from "../../../supertestGet"
+import {PriceControllerFacade} from "../../../../../src/controllers/PriceControllerFacade"
+import {PriceModelFacade} from "../../../../../src/models/PriceModelFacade"
+import {FakePrice} from "../../../../_toolbox/fixtures/node-types/FakePrice"
+import type {Price} from "../../../../../src/models/node-types/prices/types/Price"
 
 afterEach(() => {
     vi.resetModules()
@@ -7,29 +11,37 @@ afterEach(() => {
 
 describe('Requesting the PRICE overview page', () => {
     test('when there exist no PRICES', async () => {
-        vi.doMock("../../../../../src/models/node-types/prices/findAllNodes", () => ({
-            findAllNodes: () => [],
-        }))
+        const spy = vi.spyOn(PriceControllerFacade, 'showAllNodes')
+
+        vi.spyOn(PriceModelFacade, 'getAllNodes')
+            .mockImplementation(async () => [])
 
         const response = await supertestGet('/prices')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 
 
     test('when there exist multiple PRICES', async () => {
-        vi.doMock("../../../../../src/models/node-types/prices/findAllNodes", () => ({
-            findAllNodes: () => [
-                {id: 1, name: "dummy 1"},
-                {id: 2, name: "dummy 2"},
-                {id: 3, name: "dummy 3"},
-            ],
-        }))
+        const spy = vi.spyOn(PriceControllerFacade, 'showAllNodes')
+
+        vi.spyOn(PriceModelFacade, 'getAllNodes')
+            .mockImplementation(async () => [
+                FakePrice.model,
+                FakePrice.model,
+                FakePrice.model,
+            ] satisfies Price[])
 
         const response = await supertestGet('/prices')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

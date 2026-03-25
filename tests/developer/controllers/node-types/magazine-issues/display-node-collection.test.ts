@@ -1,5 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {MagazineIssueControllerFacade} from "../../../../../src/controllers/MagazineIssueControllerFacade"
+import {MagazineIssueModelFacade} from "../../../../../src/models/MagazineIssueModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeMagazineIssue} from "../../../../_toolbox/fixtures/node-types/FakeMagazineIssue"
+import type {MagazineIssue} from "../../../../../src/models/node-types/magazine-issues/types/MagazineIssue"
 
 afterEach(() => {
     vi.resetModules()
@@ -7,29 +11,37 @@ afterEach(() => {
 
 describe('Requesting the MAGAZINE ISSUE overview page', () => {
     test('when there exist no MAGAZINE ISSUES', async () => {
-        vi.doMock("../../../../../src/models/node-types/magazine-issues/findAllNodes", () => ({
-            findAllNodes: () => [],
-        }))
+        const spy = vi.spyOn(MagazineIssueControllerFacade, 'showAllNodes')
+
+        vi.spyOn(MagazineIssueModelFacade, 'getAllNodes')
+            .mockImplementation(async () => [])
 
         const response = await supertestGet('/magazine-issues')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 
 
     test('when there exist multiple MAGAZINE ISSUES', async () => {
-        vi.doMock("../../../../../src/models/node-types/magazine-issues/findAllNodes", () => ({
-            findAllNodes: () => [
-                {id: 1, title: "dummy 1"},
-                {id: 2, title: "dummy 2"},
-                {id: 3, title: "dummy 3"},
-            ],
-        }))
+        const spy = vi.spyOn(MagazineIssueControllerFacade, 'showAllNodes')
+
+        vi.spyOn(MagazineIssueModelFacade, 'getAllNodes')
+            .mockImplementation(async () => [
+                FakeMagazineIssue.model,
+                FakeMagazineIssue.model,
+                FakeMagazineIssue.model,
+            ] satisfies MagazineIssue[])
 
         const response = await supertestGet('/magazine-issues')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

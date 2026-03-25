@@ -1,5 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {ProgrammeControllerFacade} from "../../../../../src/controllers/ProgrammeControllerFacade"
+import {ProgrammeModelFacade} from "../../../../../src/models/ProgrammeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeProgramme} from "../../../../_toolbox/fixtures/node-types/FakeProgramme"
+import type {Programme} from "../../../../../src/models/node-types/programmes/types/Programme"
 
 afterEach(() => {
     vi.resetModules()
@@ -7,29 +11,37 @@ afterEach(() => {
 
 describe('Requesting the PROGRAMME overview page', () => {
     test('when there exist no PROGRAMMES', async () => {
-        vi.doMock("../../../../../src/models/node-types/programmes/findAllNodes", () => ({
-            findAllNodes: () => [],
-        }))
+        const spy = vi.spyOn(ProgrammeControllerFacade, 'showAllNodes')
+
+        vi.spyOn(ProgrammeModelFacade, 'getAllNodes')
+            .mockImplementation(async () => [])
 
         const response = await supertestGet('/programmes')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 
 
     test('when there exist multiple PROGRAMMES', async () => {
-        vi.doMock("../../../../../src/models/node-types/programmes/findAllNodes", () => ({
-            findAllNodes: () => [
-                {id: 1, name: "dummy 1"},
-                {id: 2, name: "dummy 2"},
-                {id: 3, name: "dummy 3"},
-            ],
-        }))
+        const spy = vi.spyOn(ProgrammeControllerFacade, 'showAllNodes')
+
+        vi.spyOn(ProgrammeModelFacade, 'getAllNodes')
+            .mockImplementation(async () => [
+                FakeProgramme.model,
+                FakeProgramme.model,
+                FakeProgramme.model,
+            ] satisfies Programme[])
 
         const response = await supertestGet('/programmes')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })
