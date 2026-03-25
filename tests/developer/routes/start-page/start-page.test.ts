@@ -1,16 +1,14 @@
 import {describe, expect, test, vi} from "vitest"
+import * as node from "../../../../src/controllers/start-page/display"
 import {supertestGet} from "../../supertestGet"
-import {display} from "../../../../src/controllers/start-page/display"
 
 describe('Start Page', () => {
     test('Show Start Page', async () => {
-        vi.mock("../../../../src/controllers/start-page/display", () => ({
-            display: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(node, 'display')
 
         await supertestGet('/')
 
-        expect(display)
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 })
