@@ -1,17 +1,15 @@
 import {describe, expect, test, vi} from "vitest"
+import * as nodeModule from "../../../../src/controllers/node-types/gaming-platforms/displayAllNodes"
 import {supertestGet} from "../../supertestGet"
-import {displayAllNodes} from "../../../../src/controllers/node-types/gaming-platforms/displayAllNodes"
 import {displayNode} from "../../../../src/controllers/node-types/gaming-platforms/displayNode"
 
 describe('Gaming Platforms', () => {
     test('Show Node Overview Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/gaming-platforms/displayAllNodes", () => ({
-            displayAllNodes: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(nodeModule, 'displayAllNodes')
 
         await supertestGet('/gaming-platforms')
 
-        expect(displayAllNodes)
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 

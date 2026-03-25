@@ -2,18 +2,16 @@
 to: tests/developer/routes/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>.test.ts
 ---
 import {describe, expect, test, vi} from "vitest"
+import * as nodeModule from "../../../../src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/displayAllNodes"
 import {supertestGet} from "../../supertestGet"
-import {displayAllNodes} from "../../../../src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/displayAllNodes"
 
 describe('<%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>', () => {
     test('Show Node Overview Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/displayAllNodes", () => ({
-            displayAllNodes: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(nodeModule, 'displayAllNodes')
 
         await supertestGet('/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>')
 
-        expect(displayAllNodes)
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 })
