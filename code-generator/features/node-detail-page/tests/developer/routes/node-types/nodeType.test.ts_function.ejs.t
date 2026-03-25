@@ -7,11 +7,15 @@ skip_if: Show Node Detail Page
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/displayNode", () => ({
-            displayNode: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        await supertestGet('/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/999')
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => ({
+                type: ModelNodeType.<%= h.changeCase.constant(nodeType) %>,
+                fields: {},
+            } as <%= h.changeCase.pascal(nodeType) %>))
 
-        expect(displayNode)
+        await supertestGet('/<%= h.changeCase.kebab(nodeType) %>-node-12345678')
+
+        expect(spy)
             .toHaveBeenCalledTimes(1)

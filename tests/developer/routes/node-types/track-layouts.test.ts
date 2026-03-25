@@ -1,7 +1,10 @@
 import {describe, expect, test, vi} from "vitest"
 import * as nodeModule from "../../../../src/controllers/node-types/track-layouts/displayAllNodes"
 import {supertestGet} from "../../supertestGet"
-import {displayNode} from "../../../../src/controllers/node-types/track-layouts/displayNode"
+import * as node from "../../../../src/controllers/node-types/track-layouts/displayNode"
+import {NodeModelFacade} from "../../../../src/models/NodeModelFacade"
+import {ModelNodeType} from "../../../../src/models/types/ModelNodeType"
+import type {TrackLayout} from "../../../../src/models/node-types/track-layouts/types/TrackLayout"
 
 describe('Track Layouts', () => {
     test('Show Node Overview Page', async () => {
@@ -14,13 +17,17 @@ describe('Track Layouts', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/track-layouts/displayNode", () => ({
-            displayNode: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        await supertestGet('/track-layouts/999')
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => ({
+                type: ModelNodeType.TRACK_LAYOUT,
+                fields: {},
+            } as TrackLayout))
 
-        expect(displayNode)
+        await supertestGet('/track-layout-node-12345678')
+
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 })

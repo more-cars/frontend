@@ -1,7 +1,10 @@
 import {describe, expect, test, vi} from "vitest"
 import * as nodeModule from "../../../../src/controllers/node-types/lap-times/displayAllNodes"
 import {supertestGet} from "../../supertestGet"
-import {displayNode} from "../../../../src/controllers/node-types/lap-times/displayNode"
+import * as node from "../../../../src/controllers/node-types/lap-times/displayNode"
+import {NodeModelFacade} from "../../../../src/models/NodeModelFacade"
+import {ModelNodeType} from "../../../../src/models/types/ModelNodeType"
+import type {LapTime} from "../../../../src/models/node-types/lap-times/types/LapTime"
 
 describe('Lap Times', () => {
     test('Show Node Overview Page', async () => {
@@ -14,13 +17,17 @@ describe('Lap Times', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/lap-times/displayNode", () => ({
-            displayNode: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        await supertestGet('/lap-times/999')
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => ({
+                type: ModelNodeType.LAP_TIME,
+                fields: {},
+            } as LapTime))
 
-        expect(displayNode)
+        await supertestGet('/lap-time-node-12345678')
+
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 })

@@ -1,7 +1,10 @@
 import {describe, expect, test, vi} from "vitest"
 import * as nodeModule from "../../../../src/controllers/node-types/race-tracks/displayAllNodes"
 import {supertestGet} from "../../supertestGet"
-import {displayNode} from "../../../../src/controllers/node-types/race-tracks/displayNode"
+import * as node from "../../../../src/controllers/node-types/race-tracks/displayNode"
+import {NodeModelFacade} from "../../../../src/models/NodeModelFacade"
+import {ModelNodeType} from "../../../../src/models/types/ModelNodeType"
+import type {RaceTrack} from "../../../../src/models/node-types/race-tracks/types/RaceTrack"
 
 describe('Race Tracks', () => {
     test('Show Node Overview Page', async () => {
@@ -14,13 +17,17 @@ describe('Race Tracks', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/race-tracks/displayNode", () => ({
-            displayNode: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        await supertestGet('/race-tracks/999')
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => ({
+                type: ModelNodeType.RACE_TRACK,
+                fields: {},
+            } as RaceTrack))
 
-        expect(displayNode)
+        await supertestGet('/race-track-node-12345678')
+
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 })

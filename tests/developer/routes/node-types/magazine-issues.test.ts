@@ -1,7 +1,10 @@
 import {describe, expect, test, vi} from "vitest"
 import * as nodeModule from "../../../../src/controllers/node-types/magazine-issues/displayAllNodes"
 import {supertestGet} from "../../supertestGet"
-import {displayNode} from "../../../../src/controllers/node-types/magazine-issues/displayNode"
+import * as node from "../../../../src/controllers/node-types/magazine-issues/displayNode"
+import {NodeModelFacade} from "../../../../src/models/NodeModelFacade"
+import {ModelNodeType} from "../../../../src/models/types/ModelNodeType"
+import type {MagazineIssue} from "../../../../src/models/node-types/magazine-issues/types/MagazineIssue"
 
 describe('Magazine Issues', () => {
     test('Show Node Overview Page', async () => {
@@ -14,13 +17,17 @@ describe('Magazine Issues', () => {
     })
 
     test('Show Node Detail Page', async () => {
-        vi.mock("../../../../src/controllers/node-types/magazine-issues/displayNode", () => ({
-            displayNode: vi.fn((req, res) => res.status(200).end())
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        await supertestGet('/magazine-issues/999')
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => ({
+                type: ModelNodeType.MAGAZINE_ISSUE,
+                fields: {},
+            } as MagazineIssue))
 
-        expect(displayNode)
+        await supertestGet('/magazine-issue-node-12345678')
+
+        expect(spy)
             .toHaveBeenCalledTimes(1)
     })
 })
