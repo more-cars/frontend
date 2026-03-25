@@ -26,7 +26,15 @@ import {displayNode as displayProgrammeEpisodeNode} from "../node-types/programm
 import {displayNode as displayMotorShowNode} from "../node-types/motor-shows/displayNode"
 import {displayNode as displayImageNode} from "../node-types/images/displayNode"
 
-export async function displayNode(req: express.Request, res: express.Response) {
+function idIsNumeric(id: string) {
+    return (/^\d+$/.test(id))
+}
+
+export async function displayNode(req: express.Request, res: express.Response, next: express.NextFunction) {
+    if (!idIsNumeric(req.params.id)) {
+        return next()
+    }
+
     const nodeId = parseInt(req.params.id)
     const modelNode = await NodeModelFacade.getNodeById(nodeId)
 
