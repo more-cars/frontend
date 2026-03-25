@@ -1,6 +1,7 @@
 import express, {type NextFunction} from "express"
 import {NodeModelFacade} from "../../models/NodeModelFacade"
-import {pluralize} from "inflection"
+import {canonicalUrlPath} from "../../views/lib/canonicalUrlPath"
+import {getNodeTitle} from "../../models/getNodeTitle"
 
 const urlPattern = /^(.*)__([0-9]+)$/
 
@@ -23,7 +24,7 @@ export async function redirectLegacyUrlToCanonical(req: express.Request, res: ex
         })
     }
 
-    return res.redirect(301, `${pluralize(modelNode.type.replace('_', ' '))}/${nodeId}`) // TODO return the canonical URL, not the node type URL
+    return res.redirect(301, canonicalUrlPath(nodeId, getNodeTitle(modelNode)))
 }
 
 function isLegacyUrl(path: string) {
