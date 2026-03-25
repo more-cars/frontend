@@ -5,5 +5,6 @@ const router = express.Router()
 
 router.get('/:legacyUrl', RedirectControllerFacade.redirectLegacyUrl)
 router.get('/:shortUrl', RedirectControllerFacade.redirectShortUrl)
+router.get('/:nodeType/:id', RedirectControllerFacade.redirectNodeTypeUrl)
 
 export default router

@@ -1,6 +1,6 @@
 import express from "express"
 import {displayAllNodes} from "./node-types/racing-events/displayAllNodes"
-import {RedirectControllerFacade} from "./RedirectControllerFacade"
+import {displayNode} from "./node-types/racing-events/displayNode"
 
 export const RacingEventControllerFacade = {
     async showAllNodes(req: express.Request, res: express.Response) {
@@ -8,6 +8,6 @@ export const RacingEventControllerFacade = {
     },
 
     async showNode(req: express.Request, res: express.Response) {
-        await RedirectControllerFacade.redirectNodeTypeUrl(req, res)
+        await displayNode(req, res)
     },
 }
