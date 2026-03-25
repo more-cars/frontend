@@ -1,4 +1,5 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
 
 afterEach(() => {
@@ -7,14 +8,16 @@ afterEach(() => {
 
 describe('Requesting a TRACK LAYOUT detail page', () => {
     test('when the TRACK LAYOUT does not exist', async () => {
-        vi.doMock("../../../../../src/models/node-types/track-layouts/findNodeById", () => ({
-            findNodeById: () => false,
-        }))
+        const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => null)
 
-        const response = await supertestGet('/track-layouts/1')
+        const response = await supertestGet('/track-layouts-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 
 

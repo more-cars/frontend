@@ -1,4 +1,5 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
 
 afterEach(() => {
@@ -7,14 +8,16 @@ afterEach(() => {
 
 describe('Requesting a PRICE detail page', () => {
     test('when the PRICE does not exist', async () => {
-        vi.doMock("../../../../../src/models/node-types/prices/findNodeById", () => ({
-            findNodeById: () => false,
-        }))
+        const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => null)
 
-        const response = await supertestGet('/prices/1')
+        const response = await supertestGet('/prices-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 
 
