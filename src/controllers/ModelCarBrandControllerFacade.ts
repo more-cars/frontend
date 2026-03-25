@@ -1,6 +1,6 @@
 import express from "express"
 import {displayAllNodes} from "./node-types/model-car-brands/displayAllNodes"
-import {displayNode} from "./node-types/model-car-brands/displayNode"
+import {RedirectControllerFacade} from "./RedirectControllerFacade"
 
 export const ModelCarBrandControllerFacade = {
     async showAllNodes(req: express.Request, res: express.Response) {
@@ -8,6 +8,6 @@ export const ModelCarBrandControllerFacade = {
     },
 
     async showNode(req: express.Request, res: express.Response) {
-        await displayNode(req, res)
+        await RedirectControllerFacade.redirectNodeTypeUrl(req, res)
     },
 }

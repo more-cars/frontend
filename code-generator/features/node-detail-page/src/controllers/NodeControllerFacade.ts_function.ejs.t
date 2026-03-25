@@ -7,4 +7,4 @@ skip_if: async showNode
     },
 
     async showNode(req: express.Request, res: express.Response) {
-        await displayNode(req, res)
+        await RedirectControllerFac ade.redirectNodeTypeUrl(req, res)
