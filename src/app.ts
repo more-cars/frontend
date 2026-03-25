@@ -1,5 +1,6 @@
 import type {Express} from "express"
 import express from "express"
+import slugs from "./routes/slugs"
 import redirectNonCanonicalUrls from "./routes/redirect-non-canonical-urls"
 import startPage from "./routes/startPage.ts"
 import companies from "./routes/companies"
@@ -25,7 +26,6 @@ import programmes from "./routes/programmes"
 import programmeEpisodes from "./routes/programme-episodes"
 import motorShows from "./routes/motor-shows"
 import images from "./routes/images"
-import slugs from "./routes/slugs"
 import {basicAuthentication} from "./basicAuthentication"
 import {canonicalUrlPath} from "./views/lib/canonicalUrlPath"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -40,7 +40,10 @@ app.set('views', './src/views')
 
 app.use(basicAuthentication)
 app.use(express.static('public'))
+
+app.use('/', slugs)
 app.use('/', redirectNonCanonicalUrls)
+
 app.use('/', startPage)
 app.use('/', companies)
 app.use('/', brands)
@@ -65,7 +68,6 @@ app.use('/', programmes)
 app.use('/', programmeEpisodes)
 app.use('/', motorShows)
 app.use('/', images)
-app.use('/', slugs)
 
 app.locals.canonical = canonicalUrlPath
 app.locals.formatDate = convertDate
