@@ -1,6 +1,8 @@
 import {faker} from "@faker-js/faker"
 import {ModelNodeType} from "../../../../src/models/types/ModelNodeType"
 import type {GamingPlatform} from "../../../../src/models/node-types/gaming-platforms/types/GamingPlatform"
+import {DataNodeType} from "../../../../src/data/types/DataNodeType"
+import type {GamingPlatformNode} from "../../../../src/data/node-types/gaming-platforms/types/GamingPlatformNode"
 
 export const FakeGamingPlatform = {
     model: {
@@ -14,4 +16,16 @@ export const FakeGamingPlatform = {
             updated_at: faker.date.past().toISOString(),
         },
     } satisfies GamingPlatform,
+
+    data: {
+        type: DataNodeType.GAMING_PLATFORM,
+        data: {
+            id: faker.number.int({min: 12_000_000, max: 20_000_000}),
+            name: faker.commerce.product(),
+            release_year: faker.number.int({min: 1000, max: 3000}),
+            manufacturer: faker.company.name(),
+            created_at: faker.date.past().toISOString(),
+            updated_at: faker.date.past().toISOString(),
+        },
+    } satisfies GamingPlatformNode,
 }
