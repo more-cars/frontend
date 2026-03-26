@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeLapTime} from "../../../../_toolbox/fixtures/node-types/FakeLapTime"
+import {LapTimeModelFacade} from "../../../../../src/models/LapTimeModelFacade"
+import * as node from "../../../../../src/controllers/node-types/lap-times/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a LAP TIME detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a LAP TIME detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/lap-times-node-12345678')
+        const response = await supertestGet('/lap-time-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,13 +25,19 @@ describe('Requesting a LAP TIME detail page', () => {
 
 
     test('when the LAP TIME exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/lap-times/findNodeById", () => ({
-            findNodeById: () => ({id: 1, driver_name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeLapTime.model))
+        vi.spyOn(LapTimeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeLapTime.model))
 
-        const response = await supertestGet('/lap-times/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/lap-time-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

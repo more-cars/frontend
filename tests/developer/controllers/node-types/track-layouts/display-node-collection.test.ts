@@ -6,7 +6,7 @@ import {FakeTrackLayout} from "../../../../_toolbox/fixtures/node-types/FakeTrac
 import type {TrackLayout} from "../../../../../src/models/node-types/track-layouts/types/TrackLayout"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the TRACK LAYOUT overview page', () => {

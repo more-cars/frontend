@@ -6,7 +6,7 @@ import {FakeModelCar} from "../../../../_toolbox/fixtures/node-types/FakeModelCa
 import type {ModelCar} from "../../../../../src/models/node-types/model-cars/types/ModelCar"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the MODEL CAR overview page', () => {

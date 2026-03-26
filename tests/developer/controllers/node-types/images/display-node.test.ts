@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeImage} from "../../../../_toolbox/fixtures/node-types/FakeImage"
+import {ImageModelFacade} from "../../../../../src/models/ImageModelFacade"
+import * as node from "../../../../../src/controllers/node-types/images/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a IMAGE detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a IMAGE detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/images-node-12345678')
+        const response = await supertestGet('/image-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,22 +25,19 @@ describe('Requesting a IMAGE detail page', () => {
 
 
     test('when the IMAGE exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/images/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeImage.model))
+        vi.spyOn(ImageModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeImage.model))
 
-        // The following mocks are not needed,
-        // but they avoid flooding the log with error messages (when the app tries to fetch all relationships).
-        vi.doMock("../../../../../src/models/node-types/images/findConnectedBrands", () => ({
-            findConnectedBrands: () => [],
-        }))
-        vi.doMock("../../../../../src/models/node-types/images/findConnectedCarModels", () => ({
-            findConnectedCarModels: () => [],
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        const response = await supertestGet('/images/1')
+        const response = await supertestGet('/image-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

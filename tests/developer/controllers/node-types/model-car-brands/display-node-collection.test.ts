@@ -6,7 +6,7 @@ import {FakeModelCarBrand} from "../../../../_toolbox/fixtures/node-types/FakeMo
 import type {ModelCarBrand} from "../../../../../src/models/node-types/model-car-brands/types/ModelCarBrand"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the MODEL CAR BRAND overview page', () => {

@@ -6,7 +6,7 @@ import {FakeProgramme} from "../../../../_toolbox/fixtures/node-types/FakeProgra
 import type {Programme} from "../../../../../src/models/node-types/programmes/types/Programme"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the PROGRAMME overview page', () => {

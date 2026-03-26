@@ -6,7 +6,7 @@ import {FakeRating} from "../../../../_toolbox/fixtures/node-types/FakeRating"
 import type {Rating} from "../../../../../src/models/node-types/ratings/types/Rating"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the RATING overview page', () => {

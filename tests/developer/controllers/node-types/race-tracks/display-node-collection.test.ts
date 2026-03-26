@@ -6,7 +6,7 @@ import {FakeRaceTrack} from "../../../../_toolbox/fixtures/node-types/FakeRaceTr
 import type {RaceTrack} from "../../../../../src/models/node-types/race-tracks/types/RaceTrack"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the RACE TRACK overview page', () => {

@@ -6,7 +6,7 @@ import {FakeRacingSession} from "../../../../_toolbox/fixtures/node-types/FakeRa
 import type {RacingSession} from "../../../../../src/models/node-types/racing-sessions/types/RacingSession"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the RACING SESSION overview page', () => {

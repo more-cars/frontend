@@ -6,7 +6,7 @@ import {FakeRacingGame} from "../../../../_toolbox/fixtures/node-types/FakeRacin
 import type {RacingGame} from "../../../../../src/models/node-types/racing-games/types/RacingGame"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the RACING GAME overview page', () => {

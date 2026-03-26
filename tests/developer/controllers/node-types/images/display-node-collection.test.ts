@@ -6,7 +6,7 @@ import {FakeImage} from "../../../../_toolbox/fixtures/node-types/FakeImage"
 import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the IMAGE overview page', () => {

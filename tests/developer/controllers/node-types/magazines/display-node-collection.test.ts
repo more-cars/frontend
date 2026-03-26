@@ -6,7 +6,7 @@ import {FakeMagazine} from "../../../../_toolbox/fixtures/node-types/FakeMagazin
 import type {Magazine} from "../../../../../src/models/node-types/magazines/types/Magazine"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the MAGAZINE overview page', () => {

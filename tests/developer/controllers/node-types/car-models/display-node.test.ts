@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeCarModel} from "../../../../_toolbox/fixtures/node-types/FakeCarModel"
+import {CarModelModelFacade} from "../../../../../src/models/CarModelModelFacade"
+import * as node from "../../../../../src/controllers/node-types/car-models/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a CAR MODEL detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a CAR MODEL detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/car-models-node-12345678')
+        const response = await supertestGet('/car-model-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,31 +25,19 @@ describe('Requesting a CAR MODEL detail page', () => {
 
 
     test('when the CAR MODEL exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/car-models/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeCarModel.model))
+        vi.spyOn(CarModelModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeCarModel.model))
 
-        // The following mocks are not needed,
-        // but they avoid flooding the log with error messages (when the app tries to fetch all relationships).
-        vi.doMock("../../../../../src/models/node-types/car-models/findConnectedBrand", () => ({
-            findConnectedBrand: () => false,
-        }))
-        vi.doMock("../../../../../src/models/node-types/car-models/findConnectedPredecessor", () => ({
-            findConnectedPredecessor: () => false,
-        }))
-        vi.doMock("../../../../../src/models/node-types/car-models/findConnectedSuccessor", () => ({
-            findConnectedSuccessor: () => false,
-        }))
-        vi.doMock("../../../../../src/models/node-types/car-models/findConnectedImages", () => ({
-            findConnectedImages: () => [],
-        }))
-        vi.doMock("../../../../../src/models/node-types/car-models/findConnectedMainImage", () => ({
-            findConnectedMainImage: () => false,
-        }))
+        const spy = vi.spyOn(node, 'displayNode')
 
-        const response = await supertestGet('/car-models/1')
+        const response = await supertestGet('/car-model-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

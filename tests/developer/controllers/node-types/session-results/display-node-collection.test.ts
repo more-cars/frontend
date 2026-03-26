@@ -6,7 +6,7 @@ import {FakeSessionResult} from "../../../../_toolbox/fixtures/node-types/FakeSe
 import type {SessionResult} from "../../../../../src/models/node-types/session-results/types/SessionResult"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the SESSION RESULT overview page', () => {

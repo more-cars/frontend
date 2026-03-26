@@ -6,7 +6,7 @@ import {FakePrice} from "../../../../_toolbox/fixtures/node-types/FakePrice"
 import type {Price} from "../../../../../src/models/node-types/prices/types/Price"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the PRICE overview page', () => {

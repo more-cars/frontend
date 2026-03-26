@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeMagazine} from "../../../../_toolbox/fixtures/node-types/FakeMagazine"
+import {MagazineModelFacade} from "../../../../../src/models/MagazineModelFacade"
+import * as node from "../../../../../src/controllers/node-types/magazines/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a MAGAZINE detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a MAGAZINE detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/magazines-node-12345678')
+        const response = await supertestGet('/magazine-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,13 +25,19 @@ describe('Requesting a MAGAZINE detail page', () => {
 
 
     test('when the MAGAZINE exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/magazines/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeMagazine.model))
+        vi.spyOn(MagazineModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeMagazine.model))
 
-        const response = await supertestGet('/magazines/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/magazine-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

@@ -6,7 +6,7 @@ import {FakeProgrammeEpisode} from "../../../../_toolbox/fixtures/node-types/Fak
 import type {ProgrammeEpisode} from "../../../../../src/models/node-types/programme-episodes/types/ProgrammeEpisode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the PROGRAMME EPISODE overview page', () => {

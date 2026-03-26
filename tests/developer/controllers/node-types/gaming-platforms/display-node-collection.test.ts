@@ -6,7 +6,7 @@ import {FakeGamingPlatform} from "../../../../_toolbox/fixtures/node-types/FakeG
 import type {GamingPlatform} from "../../../../../src/models/node-types/gaming-platforms/types/GamingPlatform"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the GAMING PLATFORM overview page', () => {

@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeSessionResult} from "../../../../_toolbox/fixtures/node-types/FakeSessionResult"
+import {SessionResultModelFacade} from "../../../../../src/models/SessionResultModelFacade"
+import * as node from "../../../../../src/controllers/node-types/session-results/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a SESSION RESULT detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a SESSION RESULT detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/session-results-node-12345678')
+        const response = await supertestGet('/session-result-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,13 +25,19 @@ describe('Requesting a SESSION RESULT detail page', () => {
 
 
     test('when the SESSION RESULT exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/session-results/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeSessionResult.model))
+        vi.spyOn(SessionResultModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeSessionResult.model))
 
-        const response = await supertestGet('/session-results/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/session-result-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

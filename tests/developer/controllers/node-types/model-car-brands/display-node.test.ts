@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeModelCarBrand} from "../../../../_toolbox/fixtures/node-types/FakeModelCarBrand"
+import {ModelCarBrandModelFacade} from "../../../../../src/models/ModelCarBrandModelFacade"
+import * as node from "../../../../../src/controllers/node-types/model-car-brands/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a MODEL CAR BRAND detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a MODEL CAR BRAND detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/model-car-brands-node-12345678')
+        const response = await supertestGet('/model-car-brand-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,13 +25,19 @@ describe('Requesting a MODEL CAR BRAND detail page', () => {
 
 
     test('when the MODEL CAR BRAND exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/model-car-brands/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeModelCarBrand.model))
+        vi.spyOn(ModelCarBrandModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeModelCarBrand.model))
 
-        const response = await supertestGet('/model-car-brands/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/model-car-brand-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

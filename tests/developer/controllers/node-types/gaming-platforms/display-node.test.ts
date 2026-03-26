@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeGamingPlatform} from "../../../../_toolbox/fixtures/node-types/FakeGamingPlatform"
+import {GamingPlatformModelFacade} from "../../../../../src/models/GamingPlatformModelFacade"
+import * as node from "../../../../../src/controllers/node-types/gaming-platforms/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a GAMING PLATFORM detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a GAMING PLATFORM detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/gaming-platforms-node-12345678')
+        const response = await supertestGet('/gaming-platform-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,13 +25,19 @@ describe('Requesting a GAMING PLATFORM detail page', () => {
 
 
     test('when the GAMING PLATFORM exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/gaming-platforms/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeGamingPlatform.model))
+        vi.spyOn(GamingPlatformModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeGamingPlatform.model))
 
-        const response = await supertestGet('/gaming-platforms/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/gaming-platform-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

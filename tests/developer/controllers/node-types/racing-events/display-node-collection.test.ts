@@ -6,7 +6,7 @@ import {FakeRacingEvent} from "../../../../_toolbox/fixtures/node-types/FakeRaci
 import type {RacingEvent} from "../../../../../src/models/node-types/racing-events/types/RacingEvent"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the RACING EVENT overview page', () => {

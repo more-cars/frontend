@@ -6,7 +6,7 @@ import {FakeLapTime} from "../../../../_toolbox/fixtures/node-types/FakeLapTime"
 import type {LapTime} from "../../../../../src/models/node-types/lap-times/types/LapTime"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the LAP TIME overview page', () => {

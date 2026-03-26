@@ -9,7 +9,7 @@ import {Fake<%= h.changeCase.pascal(nodeType) %>} from "../../../../_toolbox/fix
 import type {<%= h.changeCase.pascal(nodeType) %>} from "../../../../../src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/types/<%= h.changeCase.pascal(nodeType) %>"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () => {

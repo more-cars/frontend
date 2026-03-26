@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeTrackLayout} from "../../../../_toolbox/fixtures/node-types/FakeTrackLayout"
+import {TrackLayoutModelFacade} from "../../../../../src/models/TrackLayoutModelFacade"
+import * as node from "../../../../../src/controllers/node-types/track-layouts/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a TRACK LAYOUT detail page', () => {
@@ -11,7 +14,7 @@ describe('Requesting a TRACK LAYOUT detail page', () => {
         const spy = vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => null)
 
-        const response = await supertestGet('/track-layouts-node-12345678')
+        const response = await supertestGet('/track-layout-node-12345678')
 
         expect(response.statusCode)
             .toBe(404)
@@ -22,13 +25,19 @@ describe('Requesting a TRACK LAYOUT detail page', () => {
 
 
     test('when the TRACK LAYOUT exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/track-layouts/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeTrackLayout.model))
+        vi.spyOn(TrackLayoutModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeTrackLayout.model))
 
-        const response = await supertestGet('/track-layouts/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/track-layout-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

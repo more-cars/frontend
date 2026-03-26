@@ -1,9 +1,12 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
+import {FakeRacingGame} from "../../../../_toolbox/fixtures/node-types/FakeRacingGame"
+import {RacingGameModelFacade} from "../../../../../src/models/RacingGameModelFacade"
+import * as node from "../../../../../src/controllers/node-types/racing-games/displayNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting a RACING GAME detail page', () => {
@@ -22,13 +25,19 @@ describe('Requesting a RACING GAME detail page', () => {
 
 
     test('when the RACING GAME exists', async () => {
-        vi.doMock("../../../../../src/models/node-types/racing-games/findNodeById", () => ({
-            findNodeById: () => ({id: 1, name: "dummy 1"}),
-        }))
+        vi.spyOn(NodeModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeRacingGame.model))
+        vi.spyOn(RacingGameModelFacade, 'getNodeById')
+            .mockImplementation(async () => (FakeRacingGame.model))
 
-        const response = await supertestGet('/racing-games/1')
+        const spy = vi.spyOn(node, 'displayNode')
+
+        const response = await supertestGet('/racing-game-node-12345678')
 
         expect(response.statusCode)
             .toBe(200)
+
+        expect(spy)
+            .toHaveBeenCalledTimes(1)
     })
 })

@@ -6,7 +6,7 @@ import {FakeCompany} from "../../../../_toolbox/fixtures/node-types/FakeCompany"
 import type {Company} from "../../../../../src/models/node-types/companies/types/Company"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the Company overview page', () => {

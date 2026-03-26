@@ -6,7 +6,7 @@ import {FakeBrand} from "../../../../_toolbox/fixtures/node-types/FakeBrand"
 import type {Brand} from "../../../../../src/models/node-types/brands/types/Brand"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the BRAND overview page', () => {

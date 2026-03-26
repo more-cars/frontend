@@ -6,7 +6,7 @@ import {FakeMotorShow} from "../../../../_toolbox/fixtures/node-types/FakeMotorS
 import type {MotorShow} from "../../../../../src/models/node-types/motor-shows/types/MotorShow"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Requesting the MOTOR SHOW overview page', () => {
