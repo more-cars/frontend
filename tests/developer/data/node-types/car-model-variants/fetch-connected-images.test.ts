@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import * as node from "../../../../../src/data/node-types/car-model-variants/getCarModelVariantById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getConnectedImages} from "../../../../../src/data/node-types/car-model-variants/getConnectedImages"
+import {FakeCarModelVariant} from "../../../../_toolbox/fixtures/node-types/FakeCarModelVariant"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,38 +11,46 @@ afterEach(() => {
 
 describe('Fetching connected IMAGES from data source', () => {
     test('when there are no IMAGES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const source = FakeCarModelVariant.data
+        const apiResponse = {data: []}
 
-        const {getConnectedImages} = await import("../../../../../src/data/node-types/car-model-variants/getConnectedImages")
-        expect(await getConnectedImages(1))
+        vi.spyOn(node, 'getCarModelVariantById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedImages(12345678))
             .toHaveLength(0)
     })
 
     test('when there are multiple IMAGES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
-                ]
-            }))
-        }))
+        const source = FakeCarModelVariant.data
+        const target = {node_type: ApiNodeType.IMAGE}
 
-        const {getConnectedImages} = await import("../../../../../src/data/node-types/car-model-variants/getConnectedImages")
-        expect(await getConnectedImages(1))
+        const apiResponse = {
+            data: [
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+            ]
+        }
+
+        vi.spyOn(node, 'getCarModelVariantById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedImages(12345678))
             .toHaveLength(3)
     })
 
     test('when the CAR MODEL VARIANT does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/car-model-variants/getCarModelVariantById", () => ({
-            getCarModelVariantById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getCarModelVariantById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedImages} = await import("../../../../../src/data/node-types/car-model-variants/getConnectedImages")
-        expect(await getConnectedImages(1))
+        expect(await getConnectedImages(12345678))
             .toHaveLength(0)
     })
 })

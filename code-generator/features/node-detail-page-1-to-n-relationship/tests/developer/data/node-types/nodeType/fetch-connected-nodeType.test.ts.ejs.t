@@ -2,45 +2,58 @@
 to: tests/developer/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/fetch-connected-<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>.test.ts
 ---
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {Fake<%= h.changeCase.pascal(nodeType) %>} from "../../../../_toolbox/fixtures/node-types/Fake<%= h.changeCase.pascal(nodeType) %>"
+import * as node from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get<%= h.changeCase.pascal(nodeType) %>ById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching connected <%= h.changeCase.upper(h.inflection.pluralize(partnerNodeType)) %> from data source', () => {
     test('when there are no <%= h.changeCase.upper(h.inflection.pluralize(partnerNodeType)) %> connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const source = Fake<%= h.changeCase.pascal(nodeType) %>.data
+        const apiResponse = {data: []}
 
-        const {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>")
-        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(1))
+        vi.spyOn(node, 'get<%= h.changeCase.pascal(nodeType) %>ById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(12345678))
             .toHaveLength(0)
     })
 
     test('when there are multiple <%= h.changeCase.upper(h.inflection.pluralize(partnerNodeType)) %> connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
-                ]
-            }))
-        }))
+        const source = Fake<%= h.changeCase.pascal(nodeType) %>.data
+        const target = {node_type: ApiNodeType.<%= h.changeCase.constant(partnerNodeType) %>}
 
-        const {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>")
-        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(1))
+        const apiResponse = {
+            data: [
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+            ]
+        }
+
+        vi.spyOn(node, 'get<%= h.changeCase.pascal(nodeType) %>ById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(12345678))
             .toHaveLength(3)
     })
 
     test('when the <%= h.changeCase.upper(nodeType) %> does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get<%= h.changeCase.pascal(nodeType) %>ById", () => ({
-            get<%= h.changeCase.pascal(nodeType) %>ById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'get<%= h.changeCase.pascal(nodeType) %>ById')
+            .mockImplementation(async () => null)
 
-        const {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} = await import("../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>")
-        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(1))
+        expect(await getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>(12345678))
             .toHaveLength(0)
     })
 })
