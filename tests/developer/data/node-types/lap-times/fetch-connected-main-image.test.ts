@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as node from "../../../../../src/data/node-types/lap-times/getLapTimeById"
+import {getConnectedMainImage} from "../../../../../src/data/node-types/lap-times/getConnectedMainImage"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {FakeLapTime} from "../../../../_toolbox/fixtures/node-types/FakeLapTime"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,24 +11,40 @@ afterEach(() => {
 
 describe('Fetching connected main IMAGE from data source', () => {
     test('when there is no main IMAGE connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: null}))
-        }))
+        const source = FakeLapTime.data
+        const apiResponse = {data: null}
 
-        const {getConnectedMainImage} = await import("../../../../../src/data/node-types/lap-times/getConnectedMainImage")
-        expect(await getConnectedMainImage(1))
+        vi.spyOn(node, 'getLapTimeById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedMainImage(12345678))
             .toEqual(null)
     })
 
     test('when there is a main IMAGE connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
-            }))
-        }))
+        const source = FakeLapTime.data
+        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
 
-        const {getConnectedMainImage} = await import("../../../../../src/data/node-types/lap-times/getConnectedMainImage")
-        expect(await getConnectedMainImage(1))
-            .toHaveProperty('partner_node.id', 2)
+        const apiResponse = {data: {partner_node: target}}
+
+        vi.spyOn(node, 'getLapTimeById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedMainImage(12345678))
+            .toHaveProperty('partner_node.data.id', 11111118)
+    })
+
+    test('when the LAP TIME does not exist', async () => {
+        vi.spyOn(node, 'getLapTimeById')
+            .mockImplementation(async () => null)
+
+        expect(await getConnectedMainImage(12345678))
+            .toEqual(null)
     })
 })

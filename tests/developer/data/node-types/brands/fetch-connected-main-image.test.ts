@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {FakeBrand} from "../../../../_toolbox/fixtures/node-types/FakeBrand"
+import * as node from "../../../../../src/data/node-types/brands/getBrandById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getConnectedMainImage} from "../../../../../src/data/node-types/brands/getConnectedMainImage"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,42 +11,40 @@ afterEach(() => {
 
 describe('Fetching connected main IMAGE from data source', () => {
     test('when there is no main IMAGE connected', async () => {
-        // mocking the node
-        vi.doMock("../../../../../src/data/node-types/brands/getBrandById", () => ({
-            getBrandById: vi.fn(() => ({
-                name: 'test'
-            }))
-        }))
+        const source = FakeBrand.data
+        const apiResponse = {data: null}
 
-        // mocking the relationship
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: null}))
-        }))
+        vi.spyOn(node, 'getBrandById')
+            .mockImplementation(async () => (source))
 
-        const {getConnectedMainImage} = await import("../../../../../src/data/node-types/brands/getConnectedMainImage")
-        expect(await getConnectedMainImage(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedMainImage(12345678))
             .toEqual(null)
     })
 
     test('when there is a main IMAGE connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
-            }))
-        }))
+        const source = FakeBrand.data
+        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
 
-        const {getConnectedMainImage} = await import("../../../../../src/data/node-types/brands/getConnectedMainImage")
-        expect(await getConnectedMainImage(1))
-            .toHaveProperty('partner_node.id', 2)
+        const apiResponse = {data: {partner_node: target}}
+
+        vi.spyOn(node, 'getBrandById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedMainImage(12345678))
+            .toHaveProperty('partner_node.data.id', 11111118)
     })
 
     test('when the BRAND does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/brands/getBrandById", () => ({
-            getBrandById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getBrandById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedMainImage} = await import("../../../../../src/data/node-types/brands/getConnectedMainImage")
-        expect(await getConnectedMainImage(1))
+        expect(await getConnectedMainImage(12345678))
             .toEqual(null)
     })
 })
