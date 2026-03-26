@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllRatings} from "../../../../../src/data/node-types/ratings/getAllRatings"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiRatingNode} from "../../../../../src/data/node-types/ratings/types/ApiRatingNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching RATING collection from data source', () => {
     test('when there are no RATINGS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllRatings} = await import("../../../../../src/data/node-types/ratings/getAllRatings")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllRatings())
             .toHaveLength(0)
     })
 
     test('when there are multiple RATINGS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.RATING} as ApiRatingNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllRatings} = await import("../../../../../src/data/node-types/ratings/getAllRatings")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllRatings())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllRatings} = await import("../../../../../src/data/node-types/ratings/getAllRatings")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllRatings())
             .toHaveLength(0)
     })

@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllRacingGames} from "../../../../../src/data/node-types/racing-games/getAllRacingGames"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiRacingGameNode} from "../../../../../src/data/node-types/racing-games/types/ApiRacingGameNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching RACING GAME collection from data source', () => {
     test('when there are no RACING GAMES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllRacingGames} = await import("../../../../../src/data/node-types/racing-games/getAllRacingGames")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllRacingGames())
             .toHaveLength(0)
     })
 
     test('when there are multiple RACING GAMES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.RACING_GAME} as ApiRacingGameNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllRacingGames} = await import("../../../../../src/data/node-types/racing-games/getAllRacingGames")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllRacingGames())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllRacingGames} = await import("../../../../../src/data/node-types/racing-games/getAllRacingGames")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllRacingGames())
             .toHaveLength(0)
     })

@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllModelCars} from "../../../../../src/data/node-types/model-cars/getAllModelCars"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiModelCarNode} from "../../../../../src/data/node-types/model-cars/types/ApiModelCarNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching MODEL CAR collection from data source', () => {
     test('when there are no MODEL CARS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllModelCars} = await import("../../../../../src/data/node-types/model-cars/getAllModelCars")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllModelCars())
             .toHaveLength(0)
     })
 
     test('when there are multiple MODEL CARS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.MODEL_CAR} as ApiModelCarNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllModelCars} = await import("../../../../../src/data/node-types/model-cars/getAllModelCars")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllModelCars())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllModelCars} = await import("../../../../../src/data/node-types/model-cars/getAllModelCars")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllModelCars())
             .toHaveLength(0)
     })

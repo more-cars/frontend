@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllCompanies} from "../../../../../src/data/node-types/companies/getAllCompanies"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiCompanyNode} from "../../../../../src/data/node-types/companies/types/ApiCompanyNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching COMPANY collection from data source', () => {
     test('when there are no COMPANIES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllCompanies} = await import("../../../../../src/data/node-types/companies/getAllCompanies")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllCompanies())
             .toHaveLength(0)
     })
 
     test('when there are multiple COMPANIES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.COMPANY} as ApiCompanyNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllCompanies} = await import("../../../../../src/data/node-types/companies/getAllCompanies")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllCompanies())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllCompanies} = await import("../../../../../src/data/node-types/companies/getAllCompanies")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllCompanies())
             .toHaveLength(0)
     })

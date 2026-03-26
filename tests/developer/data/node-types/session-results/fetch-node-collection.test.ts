@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllSessionResults} from "../../../../../src/data/node-types/session-results/getAllSessionResults"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiSessionResultNode} from "../../../../../src/data/node-types/session-results/types/ApiSessionResultNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching SESSION RESULT collection from data source', () => {
     test('when there are no SESSION RESULTS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllSessionResults} = await import("../../../../../src/data/node-types/session-results/getAllSessionResults")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllSessionResults())
             .toHaveLength(0)
     })
 
     test('when there are multiple SESSION RESULTS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.SESSION_RESULT} as ApiSessionResultNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllSessionResults} = await import("../../../../../src/data/node-types/session-results/getAllSessionResults")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllSessionResults())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllSessionResults} = await import("../../../../../src/data/node-types/session-results/getAllSessionResults")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllSessionResults())
             .toHaveLength(0)
     })

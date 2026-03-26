@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllGamingPlatforms} from "../../../../../src/data/node-types/gaming-platforms/getAllGamingPlatforms"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiGamingPlatformNode} from "../../../../../src/data/node-types/gaming-platforms/types/ApiGamingPlatformNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching GAMING PLATFORM collection from data source', () => {
     test('when there are no GAMING PLATFORMS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllGamingPlatforms} = await import("../../../../../src/data/node-types/gaming-platforms/getAllGamingPlatforms")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllGamingPlatforms())
             .toHaveLength(0)
     })
 
     test('when there are multiple GAMING PLATFORMS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.GAMING_PLATFORM} as ApiGamingPlatformNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllGamingPlatforms} = await import("../../../../../src/data/node-types/gaming-platforms/getAllGamingPlatforms")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllGamingPlatforms())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllGamingPlatforms} = await import("../../../../../src/data/node-types/gaming-platforms/getAllGamingPlatforms")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllGamingPlatforms())
             .toHaveLength(0)
     })

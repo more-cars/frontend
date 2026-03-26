@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllProgrammeEpisodes} from "../../../../../src/data/node-types/programme-episodes/getAllProgrammeEpisodes"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiProgrammeEpisodeNode} from "../../../../../src/data/node-types/programme-episodes/types/ApiProgrammeEpisodeNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching PROGRAMME EPISODE collection from data source', () => {
     test('when there are no PROGRAMME EPISODES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllProgrammeEpisodes} = await import("../../../../../src/data/node-types/programme-episodes/getAllProgrammeEpisodes")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllProgrammeEpisodes())
             .toHaveLength(0)
     })
 
     test('when there are multiple PROGRAMME EPISODES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.PROGRAMME_EPISODE} as ApiProgrammeEpisodeNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllProgrammeEpisodes} = await import("../../../../../src/data/node-types/programme-episodes/getAllProgrammeEpisodes")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllProgrammeEpisodes())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllProgrammeEpisodes} = await import("../../../../../src/data/node-types/programme-episodes/getAllProgrammeEpisodes")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllProgrammeEpisodes())
             .toHaveLength(0)
     })

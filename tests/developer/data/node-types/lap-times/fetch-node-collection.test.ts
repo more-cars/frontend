@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllLapTimes} from "../../../../../src/data/node-types/lap-times/getAllLapTimes"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiLapTimeNode} from "../../../../../src/data/node-types/lap-times/types/ApiLapTimeNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching LAP TIME collection from data source', () => {
     test('when there are no LAP TIMES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllLapTimes} = await import("../../../../../src/data/node-types/lap-times/getAllLapTimes")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllLapTimes())
             .toHaveLength(0)
     })
 
     test('when there are multiple LAP TIMES', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.LAP_TIME} as ApiLapTimeNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllLapTimes} = await import("../../../../../src/data/node-types/lap-times/getAllLapTimes")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllLapTimes())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllLapTimes} = await import("../../../../../src/data/node-types/lap-times/getAllLapTimes")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllLapTimes())
             .toHaveLength(0)
     })

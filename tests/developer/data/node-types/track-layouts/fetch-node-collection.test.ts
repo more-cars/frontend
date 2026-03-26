@@ -1,36 +1,41 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getAllTrackLayouts} from "../../../../../src/data/node-types/track-layouts/getAllTrackLayouts"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiTrackLayoutNode} from "../../../../../src/data/node-types/track-layouts/types/ApiTrackLayoutNode"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching TRACK LAYOUT collection from data source', () => {
     test('when there are no TRACK LAYOUTS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const apiResponse = {data: []}
 
-        const {getAllTrackLayouts} = await import("../../../../../src/data/node-types/track-layouts/getAllTrackLayouts")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllTrackLayouts())
             .toHaveLength(0)
     })
 
     test('when there are multiple TRACK LAYOUTS', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: [{}, {}, {}]}))
-        }))
+        const node = {type: ApiNodeType.TRACK_LAYOUT} as ApiTrackLayoutNode
+        const apiResponse = {data: [node, node, node]}
 
-        const {getAllTrackLayouts} = await import("../../../../../src/data/node-types/track-layouts/getAllTrackLayouts")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllTrackLayouts())
             .toHaveLength(3)
     })
 
     test('when the API does not respond', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => undefined)
-        }))
+        const apiResponse = undefined
 
-        const {getAllTrackLayouts} = await import("../../../../../src/data/node-types/track-layouts/getAllTrackLayouts")
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
         expect(await getAllTrackLayouts())
             .toHaveLength(0)
     })
