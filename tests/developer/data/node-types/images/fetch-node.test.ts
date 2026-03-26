@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getImageById} from "../../../../../src/data/node-types/images/getImageById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiImageNode} from "../../../../../src/data/node-types/images/types/ApiImageNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {ImageNode} from "../../../../../src/data/node-types/images/types/ImageNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching IMAGE node from data source', () => {
     })
 
     test('when there is a IMAGE', async () => {
-        const responseData = {
-            type: "images",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.IMAGE,
+            id: 12345678,
             attributes: {
-                name: "dummy 1"
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                name: "dummy",
+            },
+        } as ApiImageNode
 
-        const {getImageById} = await import("../../../../../src/data/node-types/images/getImageById")
-        expect(await getImageById(1))
-            .toEqual({id: 1, name: "dummy 1"})
+        const expectedDataNode = {
+            type: DataNodeType.IMAGE,
+            data: {
+                id: 12345678,
+                name: "dummy",
+            },
+        } as ImageNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getImageById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })

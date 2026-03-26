@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getBrandById} from "../../../../../src/data/node-types/brands/getBrandById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiBrandNode} from "../../../../../src/data/node-types/brands/types/ApiBrandNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {BrandNode} from "../../../../../src/data/node-types/brands/types/BrandNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching BRAND node from data source', () => {
     })
 
     test('when there is a BRAND', async () => {
-        const responseData = {
-            type: "brands",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.BRAND,
+            id: 12345678,
             attributes: {
-                name: "dummy 1"
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                name: "dummy",
+            },
+        } as ApiBrandNode
 
-        const {getBrandById} = await import("../../../../../src/data/node-types/brands/getBrandById")
-        expect(await getBrandById(1))
-            .toEqual({id: 1, name: "dummy 1"})
+        const expectedDataNode = {
+            type: DataNodeType.BRAND,
+            data: {
+                id: 12345678,
+                name: "dummy",
+            },
+        } as BrandNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getBrandById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })

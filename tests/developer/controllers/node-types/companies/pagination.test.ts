@@ -2,7 +2,7 @@ import {afterEach, describe, expect, test, vi} from "vitest"
 import {supertestGet} from "../../../supertestGet"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Pagination on the COMPANY overview page', () => {

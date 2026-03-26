@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getSessionResultById} from "../../../../../src/data/node-types/session-results/getSessionResultById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiSessionResultNode} from "../../../../../src/data/node-types/session-results/types/ApiSessionResultNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {SessionResultNode} from "../../../../../src/data/node-types/session-results/types/SessionResultNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching SESSION RESULT node from data source', () => {
     })
 
     test('when there is a SESSION RESULT', async () => {
-        const responseData = {
-            type: "session-results",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.SESSION_RESULT,
+            id: 12345678,
             attributes: {
-                name: "dummy 1"
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                position: 1,
+            },
+        } as ApiSessionResultNode
 
-        const {getSessionResultById} = await import("../../../../../src/data/node-types/session-results/getSessionResultById")
-        expect(await getSessionResultById(1))
-            .toEqual({id: 1, name: "dummy 1"})
+        const expectedDataNode = {
+            type: DataNodeType.SESSION_RESULT,
+            data: {
+                id: 12345678,
+                position: 1,
+            },
+        } as SessionResultNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getSessionResultById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })

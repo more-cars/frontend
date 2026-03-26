@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getRatingById} from "../../../../../src/data/node-types/ratings/getRatingById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiRatingNode} from "../../../../../src/data/node-types/ratings/types/ApiRatingNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {RatingNode} from "../../../../../src/data/node-types/ratings/types/RatingNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching RATING node from data source', () => {
     })
 
     test('when there is a RATING', async () => {
-        const responseData = {
-            type: "ratings",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.RATING,
+            id: 12345678,
             attributes: {
-                rating_value: 93
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                rating_value: 93,
+            },
+        } as ApiRatingNode
 
-        const {getRatingById} = await import("../../../../../src/data/node-types/ratings/getRatingById")
-        expect(await getRatingById(1))
-            .toEqual({id: 1, rating_value: 93})
+        const expectedDataNode = {
+            type: DataNodeType.RATING,
+            data: {
+                id: 12345678,
+                rating_value: 93,
+            },
+        } as RatingNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getRatingById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })

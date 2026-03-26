@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getProgrammeEpisodeById} from "../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiProgrammeEpisodeNode} from "../../../../../src/data/node-types/programme-episodes/types/ApiProgrammeEpisodeNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {ProgrammeEpisodeNode} from "../../../../../src/data/node-types/programme-episodes/types/ProgrammeEpisodeNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching PROGRAMME EPISODE node from data source', () => {
     })
 
     test('when there is a PROGRAMME EPISODE', async () => {
-        const responseData = {
-            type: "programme-episodes",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.PROGRAMME_EPISODE,
+            id: 12345678,
             attributes: {
-                title: "dummy 1"
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                title: "dummy",
+            },
+        } as ApiProgrammeEpisodeNode
 
-        const {getProgrammeEpisodeById} = await import("../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById")
-        expect(await getProgrammeEpisodeById(1))
-            .toEqual({id: 1, title: "dummy 1"})
+        const expectedDataNode = {
+            type: DataNodeType.PROGRAMME_EPISODE,
+            data: {
+                id: 12345678,
+                title: "dummy",
+            },
+        } as ProgrammeEpisodeNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getProgrammeEpisodeById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })

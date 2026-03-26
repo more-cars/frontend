@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getCarModelVariantById} from "../../../../../src/data/node-types/car-model-variants/getCarModelVariantById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiCarModelVariantNode} from "../../../../../src/data/node-types/car-model-variants/types/ApiCarModelVariantNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {CarModelVariantNode} from "../../../../../src/data/node-types/car-model-variants/types/CarModelVariantNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching CAR MODEL VARIANT node from data source', () => {
     })
 
     test('when there is a CAR MODEL VARIANT', async () => {
-        const responseData = {
-            type: "car-model-variants",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.CAR_MODEL_VARIANT,
+            id: 12345678,
             attributes: {
-                name: "dummy 1"
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                name: "dummy",
+            },
+        } as ApiCarModelVariantNode
 
-        const {getCarModelVariantById} = await import("../../../../../src/data/node-types/car-model-variants/getCarModelVariantById")
-        expect(await getCarModelVariantById(1))
-            .toEqual({id: 1, name: "dummy 1"})
+        const expectedDataNode = {
+            type: DataNodeType.CAR_MODEL_VARIANT,
+            data: {
+                id: 12345678,
+                name: "dummy",
+            },
+        } as CarModelVariantNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getCarModelVariantById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })

@@ -1,6 +1,10 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getCompanyById} from "../../../../../src/data/node-types/companies/getCompanyById"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import type {ApiCompanyNode} from "../../../../../src/data/node-types/companies/types/ApiCompanyNode"
+import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
+import type {CompanyNode} from "../../../../../src/data/node-types/companies/types/CompanyNode"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -18,19 +22,26 @@ describe('Fetching COMPANY node from data source', () => {
     })
 
     test('when there is a COMPANY', async () => {
-        const responseData = {
-            type: "companies",
-            id: 1,
+        const apiResponse = {
+            type: ApiNodeType.COMPANY,
+            id: 12345678,
             attributes: {
-                name: "dummy 1"
-            }
-        }
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+                name: "dummy",
+            },
+        } as ApiCompanyNode
 
-        const {getCompanyById} = await import("../../../../../src/data/node-types/companies/getCompanyById")
-        expect(await getCompanyById(1))
-            .toEqual({id: 1, name: "dummy 1"})
+        const expectedDataNode = {
+            type: DataNodeType.COMPANY,
+            data: {
+                id: 12345678,
+                name: "dummy",
+            },
+        } as CompanyNode
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getCompanyById(12345678))
+            .to.deep.equal(expectedDataNode)
     })
 })
