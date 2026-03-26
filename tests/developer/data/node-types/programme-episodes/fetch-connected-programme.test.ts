@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as node from "../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import {FakeProgrammeEpisode} from "../../../../_toolbox/fixtures/node-types/FakeProgrammeEpisode"
+import {getConnectedProgramme} from "../../../../../src/data/node-types/programme-episodes/getConnectedProgramme"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,42 +11,40 @@ afterEach(() => {
 
 describe('Fetching connected PROGRAMME from data source', () => {
     test('when there is no PROGRAMME connected', async () => {
-        // mocking the node
-        vi.doMock("../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById", () => ({
-            getProgrammeEpisodeById: vi.fn(() => ({
-                title: 'test'
-            }))
-        }))
+        const source = FakeProgrammeEpisode.data
+        const apiResponse = {data: null}
 
-        // mocking the relationship
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: null}))
-        }))
+        vi.spyOn(node, 'getProgrammeEpisodeById')
+            .mockImplementation(async () => (source))
 
-        const {getConnectedProgramme} = await import("../../../../../src/data/node-types/programme-episodes/getConnectedProgramme")
-        expect(await getConnectedProgramme(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedProgramme(12345678))
             .toEqual(null)
     })
 
     test('when there is a PROGRAMME connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
-            }))
-        }))
+        const source = FakeProgrammeEpisode.data
+        const target = {node_type: ApiNodeType.PROGRAMME, data: {id: 11111118}}
 
-        const {getConnectedProgramme} = await import("../../../../../src/data/node-types/programme-episodes/getConnectedProgramme")
-        expect(await getConnectedProgramme(1))
-            .toHaveProperty('partner_node.id', 2)
+        const apiResponse = {data: {partner_node: target}}
+
+        vi.spyOn(node, 'getProgrammeEpisodeById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedProgramme(12345678))
+            .toHaveProperty('partner_node.data.id', 11111118)
     })
 
     test('when the PROGRAMME EPISODE does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById", () => ({
-            getProgrammeEpisodeById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getProgrammeEpisodeById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedProgramme} = await import("../../../../../src/data/node-types/programme-episodes/getConnectedProgramme")
-        expect(await getConnectedProgramme(1))
+        expect(await getConnectedProgramme(12345678))
             .toEqual(null)
     })
 })
