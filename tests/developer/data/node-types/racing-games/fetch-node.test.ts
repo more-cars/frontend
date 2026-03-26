@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getRacingGameById} from "../../../../../src/data/node-types/racing-games/getRacingGameById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching RACING GAME node from data source', () => {
     test('when there is no RACING GAME', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getRacingGameById} = await import("../../../../../src/data/node-types/racing-games/getRacingGameById")
-        expect(await getRacingGameById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getRacingGameById(12345678))
             .toEqual(null)
     })
 

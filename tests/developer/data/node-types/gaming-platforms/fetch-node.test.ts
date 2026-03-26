@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getGamingPlatformById} from "../../../../../src/data/node-types/gaming-platforms/getGamingPlatformById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching GAMING PLATFORM node from data source', () => {
     test('when there is no GAMING PLATFORM', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getGamingPlatformById} = await import("../../../../../src/data/node-types/gaming-platforms/getGamingPlatformById")
-        expect(await getGamingPlatformById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getGamingPlatformById(12345678))
             .toEqual(null)
     })
 

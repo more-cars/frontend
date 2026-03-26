@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getModelCarById} from "../../../../../src/data/node-types/model-cars/getModelCarById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching MODEL CAR node from data source', () => {
     test('when there is no MODEL CAR', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getModelCarById} = await import("../../../../../src/data/node-types/model-cars/getModelCarById")
-        expect(await getModelCarById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getModelCarById(12345678))
             .toEqual(null)
     })
 

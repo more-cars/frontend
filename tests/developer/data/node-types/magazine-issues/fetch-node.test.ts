@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getMagazineIssueById} from "../../../../../src/data/node-types/magazine-issues/getMagazineIssueById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching MAGAZINE ISSUE node from data source', () => {
     test('when there is no MAGAZINE ISSUE', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getMagazineIssueById} = await import("../../../../../src/data/node-types/magazine-issues/getMagazineIssueById")
-        expect(await getMagazineIssueById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getMagazineIssueById(12345678))
             .toEqual(null)
     })
 

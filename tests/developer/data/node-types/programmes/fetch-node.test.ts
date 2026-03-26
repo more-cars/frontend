@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getProgrammeById} from "../../../../../src/data/node-types/programmes/getProgrammeById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching PROGRAMME node from data source', () => {
     test('when there is no PROGRAMME', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getProgrammeById} = await import("../../../../../src/data/node-types/programmes/getProgrammeById")
-        expect(await getProgrammeById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getProgrammeById(12345678))
             .toEqual(null)
     })
 

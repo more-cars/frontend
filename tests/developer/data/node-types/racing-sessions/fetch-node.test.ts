@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getRacingSessionById} from "../../../../../src/data/node-types/racing-sessions/getRacingSessionById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching RACING SESSION node from data source', () => {
     test('when there is no RACING SESSION', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getRacingSessionById} = await import("../../../../../src/data/node-types/racing-sessions/getRacingSessionById")
-        expect(await getRacingSessionById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getRacingSessionById(12345678))
             .toEqual(null)
     })
 

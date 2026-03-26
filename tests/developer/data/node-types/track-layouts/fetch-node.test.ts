@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getTrackLayoutById} from "../../../../../src/data/node-types/track-layouts/getTrackLayoutById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching TRACK LAYOUT node from data source', () => {
     test('when there is no TRACK LAYOUT', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getTrackLayoutById} = await import("../../../../../src/data/node-types/track-layouts/getTrackLayoutById")
-        expect(await getTrackLayoutById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getTrackLayoutById(12345678))
             .toEqual(null)
     })
 

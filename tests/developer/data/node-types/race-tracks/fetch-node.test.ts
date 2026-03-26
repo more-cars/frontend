@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getRaceTrackById} from "../../../../../src/data/node-types/race-tracks/getRaceTrackById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching RACE TRACK node from data source', () => {
     test('when there is no RACE TRACK', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getRaceTrackById} = await import("../../../../../src/data/node-types/race-tracks/getRaceTrackById")
-        expect(await getRaceTrackById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getRaceTrackById(12345678))
             .toEqual(null)
     })
 

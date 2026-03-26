@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getLapTimeById} from "../../../../../src/data/node-types/lap-times/getLapTimeById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching LAP TIME node from data source', () => {
     test('when there is no LAP TIME', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getLapTimeById} = await import("../../../../../src/data/node-types/lap-times/getLapTimeById")
-        expect(await getLapTimeById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getLapTimeById(12345678))
             .toEqual(null)
     })
 

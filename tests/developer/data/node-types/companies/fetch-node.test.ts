@@ -1,18 +1,19 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {getCompanyById} from "../../../../../src/data/node-types/companies/getCompanyById"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Fetching COMPANY node from data source', () => {
     test('when there is no COMPANY', async () => {
-        const responseData = null
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => (responseData))
-        }))
+        const apiResponse = null
 
-        const {getCompanyById} = await import("../../../../../src/data/node-types/companies/getCompanyById")
-        expect(await getCompanyById(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getCompanyById(12345678))
             .toEqual(null)
     })
 
