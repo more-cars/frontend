@@ -14,9 +14,9 @@ describe('Collect node collection for the SESSION RESULT overview page', () => {
 
     test('when there exist multiple SESSION RESULTS', async () => {
         vi.spyOn(SessionResultDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.SESSION_RESULT, data: {id: 1, position: 1}} as SessionResultNode,
-            {type: DataNodeType.SESSION_RESULT, data: {id: 2, position: 2}} as SessionResultNode,
-            {type: DataNodeType.SESSION_RESULT, data: {id: 3, position: 3}} as SessionResultNode,
+            {type: DataNodeType.SESSION_RESULT, data: {id: 11111118, position: 1}} as SessionResultNode,
+            {type: DataNodeType.SESSION_RESULT, data: {id: 12222228, position: 2}} as SessionResultNode,
+            {type: DataNodeType.SESSION_RESULT, data: {id: 13333338, position: 3}} as SessionResultNode,
         ])
 
         expect(await findAllNodes())

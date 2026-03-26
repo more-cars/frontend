@@ -14,9 +14,9 @@ describe('Collect node collection for the RATING overview page', () => {
 
     test('when there exist multiple RATINGS', async () => {
         vi.spyOn(RatingDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.RATING, data: {id: 1, rating_value: 93}} as RatingNode,
-            {type: DataNodeType.RATING, data: {id: 2, rating_value: 93}} as RatingNode,
-            {type: DataNodeType.RATING, data: {id: 3, rating_value: 93}} as RatingNode,
+            {type: DataNodeType.RATING, data: {id: 11111118, rating_value: 93}} as RatingNode,
+            {type: DataNodeType.RATING, data: {id: 12222228, rating_value: 93}} as RatingNode,
+            {type: DataNodeType.RATING, data: {id: 13333338, rating_value: 93}} as RatingNode,
         ])
 
         expect(await findAllNodes())

@@ -14,9 +14,9 @@ describe('Collect node collection for the PROGRAMME EPISODE overview page', () =
 
     test('when there exist multiple PROGRAMME EPISODES', async () => {
         vi.spyOn(ProgrammeEpisodeDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 1, title: "dummy 1"}} as ProgrammeEpisodeNode,
-            {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 2, title: "dummy 2"}} as ProgrammeEpisodeNode,
-            {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 3, title: "dummy 3"}} as ProgrammeEpisodeNode,
+            {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 11111118, title: "dummy 1"}} as ProgrammeEpisodeNode,
+            {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 12222228, title: "dummy 2"}} as ProgrammeEpisodeNode,
+            {type: DataNodeType.PROGRAMME_EPISODE, data: {id: 13333338, title: "dummy 3"}} as ProgrammeEpisodeNode,
         ])
 
         expect(await findAllNodes())

@@ -8,15 +8,15 @@ describe('Collect node for the MODEL CAR detail page', () => {
     test('when the MODEL CAR does not exist', async () => {
         vi.spyOn(ModelCarDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the MODEL CAR exists', async () => {
-        const node = {type: DataNodeType.MODEL_CAR, data: {id: 1, name: "dummy 1"}} as ModelCarNode
+        const node = {type: DataNodeType.MODEL_CAR, data: {id: 11111118, name: "dummy 1"}} as ModelCarNode
         vi.spyOn(ModelCarDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const modelCar = await findNodeById(1)
+        const modelCar = await findNodeById(11111118)
 
         expect(modelCar?.fields.id).toEqual(node.data.id)
         expect(modelCar?.fields.name).toEqual(node.data.name)

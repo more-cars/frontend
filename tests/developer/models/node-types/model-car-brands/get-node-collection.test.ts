@@ -14,9 +14,9 @@ describe('Collect node collection for the MODEL CAR BRAND overview page', () => 
 
     test('when there exist multiple MODEL CAR BRANDS', async () => {
         vi.spyOn(ModelCarBrandDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 1, name: "dummy 1"}} as ModelCarBrandNode,
-            {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 2, name: "dummy 2"}} as ModelCarBrandNode,
-            {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 3, name: "dummy 3"}} as ModelCarBrandNode,
+            {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 11111118, name: "dummy 1"}} as ModelCarBrandNode,
+            {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 12222228, name: "dummy 2"}} as ModelCarBrandNode,
+            {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 13333338, name: "dummy 3"}} as ModelCarBrandNode,
         ])
 
         expect(await findAllNodes())

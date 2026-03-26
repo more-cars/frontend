@@ -12,7 +12,7 @@ describe('Collect connected NDOES for the IMAGE detail page', () => {
     test('when no NODES are connected', async () => {
         vi.spyOn(ImageDataFacade, 'getConnectedNodes').mockResolvedValue([])
 
-        expect(await findConnectedNodes(1))
+        expect(await findConnectedNodes(12345678))
             .toHaveLength(0)
     })
 
@@ -40,7 +40,7 @@ describe('Collect connected NDOES for the IMAGE detail page', () => {
             } as ImageBelongsToNodeRelationship,
         ])
 
-        expect(await findConnectedNodes(1))
+        expect(await findConnectedNodes(12345678))
             .toHaveLength(2)
     })
 })

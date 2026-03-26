@@ -14,9 +14,9 @@ describe('Collect node collection for the RACE TRACK overview page', () => {
 
     test('when there exist multiple RACE TRACKS', async () => {
         vi.spyOn(RaceTrackDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.RACE_TRACK, data: {id: 1, name: "dummy 1"}} as RaceTrackNode,
-            {type: DataNodeType.RACE_TRACK, data: {id: 2, name: "dummy 2"}} as RaceTrackNode,
-            {type: DataNodeType.RACE_TRACK, data: {id: 3, name: "dummy 3"}} as RaceTrackNode,
+            {type: DataNodeType.RACE_TRACK, data: {id: 11111118, name: "dummy 1"}} as RaceTrackNode,
+            {type: DataNodeType.RACE_TRACK, data: {id: 12222228, name: "dummy 2"}} as RaceTrackNode,
+            {type: DataNodeType.RACE_TRACK, data: {id: 13333338, name: "dummy 3"}} as RaceTrackNode,
         ])
 
         expect(await findAllNodes())

@@ -14,9 +14,9 @@ describe('Collect node collection for the MAGAZINE overview page', () => {
 
     test('when there exist multiple MAGAZINES', async () => {
         vi.spyOn(MagazineDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.MAGAZINE, data: {id: 1, name: "dummy 1"}} as MagazineNode,
-            {type: DataNodeType.MAGAZINE, data: {id: 2, name: "dummy 2"}} as MagazineNode,
-            {type: DataNodeType.MAGAZINE, data: {id: 3, name: "dummy 3"}} as MagazineNode,
+            {type: DataNodeType.MAGAZINE, data: {id: 11111118, name: "dummy 1"}} as MagazineNode,
+            {type: DataNodeType.MAGAZINE, data: {id: 12222228, name: "dummy 2"}} as MagazineNode,
+            {type: DataNodeType.MAGAZINE, data: {id: 13333338, name: "dummy 3"}} as MagazineNode,
         ])
 
         expect(await findAllNodes())

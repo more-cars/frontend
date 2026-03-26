@@ -14,9 +14,9 @@ describe('Collect node collection for the MOTOR SHOW overview page', () => {
 
     test('when there exist multiple MOTOR SHOWS', async () => {
         vi.spyOn(MotorShowDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.MOTOR_SHOW, data: {id: 1, name: "dummy 1"}} as MotorShowNode,
-            {type: DataNodeType.MOTOR_SHOW, data: {id: 2, name: "dummy 2"}} as MotorShowNode,
-            {type: DataNodeType.MOTOR_SHOW, data: {id: 3, name: "dummy 3"}} as MotorShowNode,
+            {type: DataNodeType.MOTOR_SHOW, data: {id: 11111118, name: "dummy 1"}} as MotorShowNode,
+            {type: DataNodeType.MOTOR_SHOW, data: {id: 12222228, name: "dummy 2"}} as MotorShowNode,
+            {type: DataNodeType.MOTOR_SHOW, data: {id: 13333338, name: "dummy 3"}} as MotorShowNode,
         ])
 
         expect(await findAllNodes())

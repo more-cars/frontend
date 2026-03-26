@@ -14,9 +14,9 @@ describe('Collect node collection for the CAR MODEL VARIANT overview page', () =
 
     test('when there exist multiple CAR MODEL VARIANTS', async () => {
         vi.spyOn(CarModelVariantDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 1, name: "dummy 1"}} as CarModelVariantNode,
-            {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 2, name: "dummy 2"}} as CarModelVariantNode,
-            {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 3, name: "dummy 3"}} as CarModelVariantNode,
+            {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 11111118, name: "dummy 1"}} as CarModelVariantNode,
+            {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 12222228, name: "dummy 2"}} as CarModelVariantNode,
+            {type: DataNodeType.CAR_MODEL_VARIANT, data: {id: 13333338, name: "dummy 3"}} as CarModelVariantNode,
         ])
 
         expect(await findAllNodes())

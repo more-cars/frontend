@@ -14,9 +14,9 @@ describe('Collect node collection for the COMPANY overview page', () => {
 
     test('when there exist multiple COMPANIES', async () => {
         vi.spyOn(CompanyDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.COMPANY, data: {id: 1, name: "dummy 1"}} as CompanyNode,
-            {type: DataNodeType.COMPANY, data: {id: 2, name: "dummy 2"}} as CompanyNode,
-            {type: DataNodeType.COMPANY, data: {id: 3, name: "dummy 3"}} as CompanyNode,
+            {type: DataNodeType.COMPANY, data: {id: 11111118, name: "dummy 1"}} as CompanyNode,
+            {type: DataNodeType.COMPANY, data: {id: 12222228, name: "dummy 2"}} as CompanyNode,
+            {type: DataNodeType.COMPANY, data: {id: 13333338, name: "dummy 3"}} as CompanyNode,
         ])
 
         expect(await findAllNodes())

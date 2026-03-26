@@ -8,15 +8,15 @@ describe('Collect node for the SESSION RESULT detail page', () => {
     test('when the SESSION RESULT does not exist', async () => {
         vi.spyOn(SessionResultDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the SESSION RESULT exists', async () => {
-        const node = {type: DataNodeType.SESSION_RESULT, data: {id: 1, position: 1}} as SessionResultNode
+        const node = {type: DataNodeType.SESSION_RESULT, data: {id: 11111118, position: 1}} as SessionResultNode
         vi.spyOn(SessionResultDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const sessionResult = await findNodeById(1)
+        const sessionResult = await findNodeById(11111118)
 
         expect(sessionResult?.fields.id).toEqual(node.data.id)
         expect(sessionResult?.fields.position).toEqual(node.data.position)

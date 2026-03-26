@@ -8,15 +8,15 @@ describe('Collect node for the RACING EVENT detail page', () => {
     test('when the RACING EVENT does not exist', async () => {
         vi.spyOn(RacingEventDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the RACING EVENT exists', async () => {
-        const node = {type: DataNodeType.RACING_EVENT, data: {id: 1, name: "dummy 1"}} as RacingEventNode
+        const node = {type: DataNodeType.RACING_EVENT, data: {id: 11111118, name: "dummy 1"}} as RacingEventNode
         vi.spyOn(RacingEventDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const racingEvent = await findNodeById(1)
+        const racingEvent = await findNodeById(11111118)
 
         expect(racingEvent?.fields.id).toEqual(node.data.id)
         expect(racingEvent?.fields.name).toEqual(node.data.name)

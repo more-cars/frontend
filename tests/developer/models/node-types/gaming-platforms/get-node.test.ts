@@ -8,15 +8,15 @@ describe('Collect node for the GAMING PLATFORM detail page', () => {
     test('when the GAMING PLATFORM does not exist', async () => {
         vi.spyOn(GamingPlatformDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the GAMING PLATFORM exists', async () => {
-        const node = {type: DataNodeType.GAMING_PLATFORM, data: {id: 1, name: "dummy 1"}} as GamingPlatformNode
+        const node = {type: DataNodeType.GAMING_PLATFORM, data: {id: 11111118, name: "dummy 1"}} as GamingPlatformNode
         vi.spyOn(GamingPlatformDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const gamingPlatform = await findNodeById(1)
+        const gamingPlatform = await findNodeById(11111118)
 
         expect(gamingPlatform?.fields.id).toEqual(node.data.id)
         expect(gamingPlatform?.fields.name).toEqual(node.data.name)

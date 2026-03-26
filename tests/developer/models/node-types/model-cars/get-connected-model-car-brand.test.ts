@@ -1,22 +1,23 @@
 import {describe, expect, test, vi} from "vitest"
 import {ModelCarDataFacade} from "../../../../../src/data/ModelCarDataFacade"
 import {findConnectedModelCarBrand} from "../../../../../src/models/node-types/model-cars/findConnectedModelCarBrand"
+import {FakeModelCarBrand} from "../../../../_toolbox/fixtures/node-types/FakeModelCarBrand"
 import {ModelCarMadeByModelCarBrandRelationship} from "../../../../../src/data/node-types/model-cars/types/ModelCarMadeByModelCarBrandRelationship"
-import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 
 describe('Collect connected MODEL CAR BRAND for the MODEL CAR detail page', () => {
     test('when no MODEL CAR BRAND is connected', async () => {
         vi.spyOn(ModelCarDataFacade, 'getConnectedModelCarBrandNode').mockResolvedValue(null)
 
-        expect(await findConnectedModelCarBrand(1))
+        expect(await findConnectedModelCarBrand(12345678))
             .toEqual(null)
     })
 
     test('when there is a MODEL CAR BRAND connected', async () => {
-        const data = {partner_node: {type: DataNodeType.MODEL_CAR_BRAND, data: {id: 1, name: "dummy"}}} as ModelCarMadeByModelCarBrandRelationship
+        const data = {id: 11111118, name: "dummy", partner_node: FakeModelCarBrand.data} as unknown as ModelCarMadeByModelCarBrandRelationship
+
         vi.spyOn(ModelCarDataFacade, 'getConnectedModelCarBrandNode').mockResolvedValue(data)
 
-        expect(await findConnectedModelCarBrand(1))
-            .toHaveProperty('id', 1)
+        expect(await findConnectedModelCarBrand(12345678))
+            .toHaveProperty('fields.id', data.partner_node.data.id)
     })
 })

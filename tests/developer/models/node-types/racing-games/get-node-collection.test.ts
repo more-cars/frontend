@@ -14,9 +14,9 @@ describe('Collect node collection for the RACING GAME overview page', () => {
 
     test('when there exist multiple RACING GAMES', async () => {
         vi.spyOn(RacingGameDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.RACING_GAME, data: {id: 1, name: "dummy 1"}} as RacingGameNode,
-            {type: DataNodeType.RACING_GAME, data: {id: 2, name: "dummy 2"}} as RacingGameNode,
-            {type: DataNodeType.RACING_GAME, data: {id: 3, name: "dummy 3"}} as RacingGameNode,
+            {type: DataNodeType.RACING_GAME, data: {id: 11111118, name: "dummy 1"}} as RacingGameNode,
+            {type: DataNodeType.RACING_GAME, data: {id: 12222228, name: "dummy 2"}} as RacingGameNode,
+            {type: DataNodeType.RACING_GAME, data: {id: 13333338, name: "dummy 3"}} as RacingGameNode,
         ])
 
         expect(await findAllNodes())

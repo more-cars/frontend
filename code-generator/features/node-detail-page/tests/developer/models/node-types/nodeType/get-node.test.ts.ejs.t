@@ -11,15 +11,15 @@ describe('Collect node for the <%= h.changeCase.upper(nodeType) %> detail page',
     test('when the <%= h.changeCase.upper(nodeType) %> does not exist', async () => {
         vi.spyOn(<%= h.changeCase.pascal(nodeType) %>DataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the <%= h.changeCase.upper(nodeType) %> exists', async () => {
-        const node = {type: DataNodeType.<%= h.changeCase.constant(nodeType) %>, data: {id: 1, name: "dummy 1"}} as <%= h.changeCase.pascal(nodeType) %>Node
+        const node = {type: DataNodeType.<%= h.changeCase.constant(nodeType) %>, data: {id: 11111118, name: "dummy 1"}} as <%= h.changeCase.pascal(nodeType) %>Node
         vi.spyOn(<%= h.changeCase.pascal(nodeType) %>DataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const <%= h.changeCase.camel(nodeType) %> = await findNodeById(1)
+        const <%= h.changeCase.camel(nodeType) %> = await findNodeById(11111118)
 
         expect(<%= h.changeCase.camel(nodeType) %>?.fields.id).toEqual(node.data.id)
         expect(<%= h.changeCase.camel(nodeType) %>?.fields.name).toEqual(node.data.name)

@@ -14,9 +14,9 @@ describe('Collect node collection for the LAP TIME overview page', () => {
 
     test('when there exist multiple LAP TIMES', async () => {
         vi.spyOn(LapTimeDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.LAP_TIME, data: {id: 1, driver_name: "dummy 1"}} as LapTimeNode,
-            {type: DataNodeType.LAP_TIME, data: {id: 2, driver_name: "dummy 2"}} as LapTimeNode,
-            {type: DataNodeType.LAP_TIME, data: {id: 3, driver_name: "dummy 3"}} as LapTimeNode,
+            {type: DataNodeType.LAP_TIME, data: {id: 11111118, driver_name: "dummy 1"}} as LapTimeNode,
+            {type: DataNodeType.LAP_TIME, data: {id: 12222228, driver_name: "dummy 2"}} as LapTimeNode,
+            {type: DataNodeType.LAP_TIME, data: {id: 13333338, driver_name: "dummy 3"}} as LapTimeNode,
         ])
 
         expect(await findAllNodes())

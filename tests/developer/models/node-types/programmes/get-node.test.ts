@@ -8,15 +8,15 @@ describe('Collect node for the PROGRAMME detail page', () => {
     test('when the PROGRAMME does not exist', async () => {
         vi.spyOn(ProgrammeDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the PROGRAMME exists', async () => {
-        const node = {type: DataNodeType.PROGRAMME, data: {id: 1, name: "dummy 1"}} as ProgrammeNode
+        const node = {type: DataNodeType.PROGRAMME, data: {id: 11111118, name: "dummy 1"}} as ProgrammeNode
         vi.spyOn(ProgrammeDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const programme = await findNodeById(1)
+        const programme = await findNodeById(11111118)
 
         expect(programme?.fields.id).toEqual(node.data.id)
         expect(programme?.fields.name).toEqual(node.data.name)

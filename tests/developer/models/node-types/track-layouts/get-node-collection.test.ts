@@ -14,9 +14,9 @@ describe('Collect node collection for the TRACK LAYOUT overview page', () => {
 
     test('when there exist multiple TRACK LAYOUTS', async () => {
         vi.spyOn(TrackLayoutDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.TRACK_LAYOUT, data: {id: 1, name: "dummy 1"}} as TrackLayoutNode,
-            {type: DataNodeType.TRACK_LAYOUT, data: {id: 2, name: "dummy 2"}} as TrackLayoutNode,
-            {type: DataNodeType.TRACK_LAYOUT, data: {id: 3, name: "dummy 3"}} as TrackLayoutNode,
+            {type: DataNodeType.TRACK_LAYOUT, data: {id: 11111118, name: "dummy 1"}} as TrackLayoutNode,
+            {type: DataNodeType.TRACK_LAYOUT, data: {id: 12222228, name: "dummy 2"}} as TrackLayoutNode,
+            {type: DataNodeType.TRACK_LAYOUT, data: {id: 13333338, name: "dummy 3"}} as TrackLayoutNode,
         ])
 
         expect(await findAllNodes())

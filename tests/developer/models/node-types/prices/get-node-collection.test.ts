@@ -14,9 +14,9 @@ describe('Collect node collection for the PRICE overview page', () => {
 
     test('when there exist multiple PRICES', async () => {
         vi.spyOn(PriceDataFacade, 'getNodeCollection').mockResolvedValue([
-            {type: DataNodeType.PRICE, data: {id: 1, price: 59990}} as PriceNode,
-            {type: DataNodeType.PRICE, data: {id: 2, price: 58990}} as PriceNode,
-            {type: DataNodeType.PRICE, data: {id: 3, price: 57990}} as PriceNode,
+            {type: DataNodeType.PRICE, data: {id: 11111118, price: 59990}} as PriceNode,
+            {type: DataNodeType.PRICE, data: {id: 12222228, price: 58990}} as PriceNode,
+            {type: DataNodeType.PRICE, data: {id: 13333338, price: 57990}} as PriceNode,
         ])
 
         expect(await findAllNodes())

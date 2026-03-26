@@ -8,15 +8,15 @@ describe('Collect node for the RATING detail page', () => {
     test('when the RATING does not exist', async () => {
         vi.spyOn(RatingDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the RATING exists', async () => {
-        const node = {type: DataNodeType.RATING, data: {id: 1, rating_value: 93}} as RatingNode
+        const node = {type: DataNodeType.RATING, data: {id: 11111118, rating_value: 93}} as RatingNode
         vi.spyOn(RatingDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const rating = await findNodeById(1)
+        const rating = await findNodeById(11111118)
 
         expect(rating?.fields.id).toEqual(node.data.id)
         expect(rating?.fields.rating_value).toEqual(node.data.rating_value)

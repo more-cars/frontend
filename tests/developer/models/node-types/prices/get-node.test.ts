@@ -8,15 +8,15 @@ describe('Collect node for the PRICE detail page', () => {
     test('when the PRICE does not exist', async () => {
         vi.spyOn(PriceDataFacade, 'getNodeById').mockResolvedValue(null)
 
-        expect(await findNodeById(1))
+        expect(await findNodeById(12345678))
             .toEqual(null)
     })
 
     test('when the PRICE exists', async () => {
-        const node = {type: DataNodeType.PRICE, data: {id: 1, price: 59990}} as PriceNode
+        const node = {type: DataNodeType.PRICE, data: {id: 11111118, price: 59990}} as PriceNode
         vi.spyOn(PriceDataFacade, 'getNodeById').mockResolvedValue(node)
 
-        const price = await findNodeById(1)
+        const price = await findNodeById(11111118)
 
         expect(price?.fields.id).toEqual(node.data.id)
         expect(price?.fields.price).toEqual(node.data.price)
