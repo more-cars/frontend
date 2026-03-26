@@ -14,9 +14,6 @@ async function setupNodeEvents(on: Cypress.PluginEvents, config: Cypress.PluginC
         })
     )
 
-    config.env.BASIC_AUTH_USERNAME = process.env.BASIC_AUTH_USERNAME
-    config.env.BASIC_AUTH_PASSWORD = process.env.BASIC_AUTH_PASSWORD
-
     return config
 }
 
@@ -30,6 +27,8 @@ export default defineConfig({
         defaultCommandTimeout: 1000,
     },
     env: {
-        tags: "@implemented"
+        tags: "@implemented",
+        basicAuthUsername: process.env.BASIC_AUTH_USERNAME,
+        basicAuthPassword: process.env.BASIC_AUTH_PASSWORD,
     }
 })
