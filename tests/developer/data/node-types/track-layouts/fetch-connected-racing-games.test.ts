@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as node from "../../../../../src/data/node-types/track-layouts/getTrackLayoutById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import {getConnectedRacingGames} from "../../../../../src/data/node-types/track-layouts/getConnectedRacingGames"
+import {FakeTrackLayout} from "../../../../_toolbox/fixtures/node-types/FakeTrackLayout"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,38 +11,46 @@ afterEach(() => {
 
 describe('Fetching connected RACING GAMES from data source', () => {
     test('when there are no RACING GAMES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const source = FakeTrackLayout.data
+        const apiResponse = {data: []}
 
-        const {getConnectedRacingGames} = await import("../../../../../src/data/node-types/track-layouts/getConnectedRacingGames")
-        expect(await getConnectedRacingGames(1))
+        vi.spyOn(node, 'getTrackLayoutById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedRacingGames(12345678))
             .toHaveLength(0)
     })
 
     test('when there are multiple RACING GAMES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
-                ]
-            }))
-        }))
+        const source = FakeTrackLayout.data
+        const target = {node_type: ApiNodeType.IMAGE}
 
-        const {getConnectedRacingGames} = await import("../../../../../src/data/node-types/track-layouts/getConnectedRacingGames")
-        expect(await getConnectedRacingGames(1))
+        const apiResponse = {
+            data: [
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+            ]
+        }
+
+        vi.spyOn(node, 'getTrackLayoutById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedRacingGames(12345678))
             .toHaveLength(3)
     })
 
     test('when the TRACK LAYOUT does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/track-layouts/getTrackLayoutById", () => ({
-            getTrackLayoutById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getTrackLayoutById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedRacingGames} = await import("../../../../../src/data/node-types/track-layouts/getConnectedRacingGames")
-        expect(await getConnectedRacingGames(1))
+        expect(await getConnectedRacingGames(12345678))
             .toHaveLength(0)
     })
 })

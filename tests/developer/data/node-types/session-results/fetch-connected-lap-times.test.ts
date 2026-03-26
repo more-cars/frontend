@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as node from "../../../../../src/data/node-types/session-results/getSessionResultById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import {getConnectedLapTimes} from "../../../../../src/data/node-types/session-results/getConnectedLapTimes"
+import {FakeSessionResult} from "../../../../_toolbox/fixtures/node-types/FakeSessionResult"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,38 +11,46 @@ afterEach(() => {
 
 describe('Fetching connected LAP TIMES from data source', () => {
     test('when there are no LAP TIMES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const source = FakeSessionResult.data
+        const apiResponse = {data: []}
 
-        const {getConnectedLapTimes} = await import("../../../../../src/data/node-types/session-results/getConnectedLapTimes")
-        expect(await getConnectedLapTimes(1))
+        vi.spyOn(node, 'getSessionResultById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedLapTimes(12345678))
             .toHaveLength(0)
     })
 
     test('when there are multiple LAP TIMES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
-                ]
-            }))
-        }))
+        const source = FakeSessionResult.data
+        const target = {node_type: ApiNodeType.IMAGE}
 
-        const {getConnectedLapTimes} = await import("../../../../../src/data/node-types/session-results/getConnectedLapTimes")
-        expect(await getConnectedLapTimes(1))
+        const apiResponse = {
+            data: [
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+            ]
+        }
+
+        vi.spyOn(node, 'getSessionResultById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedLapTimes(12345678))
             .toHaveLength(3)
     })
 
     test('when the SESSION RESULT does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/session-results/getSessionResultById", () => ({
-            getSessionResultById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getSessionResultById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedLapTimes} = await import("../../../../../src/data/node-types/session-results/getConnectedLapTimes")
-        expect(await getConnectedLapTimes(1))
+        expect(await getConnectedLapTimes(12345678))
             .toHaveLength(0)
     })
 })

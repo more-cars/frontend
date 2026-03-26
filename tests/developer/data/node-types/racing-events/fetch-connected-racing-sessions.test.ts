@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as node from "../../../../../src/data/node-types/racing-events/getRacingEventById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import {FakeRacingEvent} from "../../../../_toolbox/fixtures/node-types/FakeRacingEvent"
+import {getConnectedRacingSessions} from "../../../../../src/data/node-types/racing-events/getConnectedRacingSessions"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,38 +11,46 @@ afterEach(() => {
 
 describe('Fetching connected RACING SESSIONS from data source', () => {
     test('when there are no RACING SESSIONS connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const source = FakeRacingEvent.data
+        const apiResponse = {data: []}
 
-        const {getConnectedRacingSessions} = await import("../../../../../src/data/node-types/racing-events/getConnectedRacingSessions")
-        expect(await getConnectedRacingSessions(1))
+        vi.spyOn(node, 'getRacingEventById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedRacingSessions(12345678))
             .toHaveLength(0)
     })
 
     test('when there are multiple RACING SESSIONS connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
-                ]
-            }))
-        }))
+        const source = FakeRacingEvent.data
+        const target = {node_type: ApiNodeType.IMAGE}
 
-        const {getConnectedRacingSessions} = await import("../../../../../src/data/node-types/racing-events/getConnectedRacingSessions")
-        expect(await getConnectedRacingSessions(1))
+        const apiResponse = {
+            data: [
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+            ]
+        }
+
+        vi.spyOn(node, 'getRacingEventById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedRacingSessions(12345678))
             .toHaveLength(3)
     })
 
     test('when the RACING EVENT does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/racing-events/getRacingEventById", () => ({
-            getRacingEventById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getRacingEventById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedRacingSessions} = await import("../../../../../src/data/node-types/racing-events/getConnectedRacingSessions")
-        expect(await getConnectedRacingSessions(1))
+        expect(await getConnectedRacingSessions(12345678))
             .toHaveLength(0)
     })
 })

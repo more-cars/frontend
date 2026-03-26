@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import * as node from "../../../../../src/data/node-types/magazines/getMagazineById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import {FakeMagazine} from "../../../../_toolbox/fixtures/node-types/FakeMagazine"
+import {getConnectedMagazineIssues} from "../../../../../src/data/node-types/magazines/getConnectedMagazineIssues"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,38 +11,46 @@ afterEach(() => {
 
 describe('Fetching connected MAGAZINE ISSUES from data source', () => {
     test('when there are no MAGAZINE ISSUES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: []}))
-        }))
+        const source = FakeMagazine.data
+        const apiResponse = {data: []}
 
-        const {getConnectedMagazineIssues} = await import("../../../../../src/data/node-types/magazines/getConnectedMagazineIssues")
-        expect(await getConnectedMagazineIssues(1))
+        vi.spyOn(node, 'getMagazineById')
+            .mockImplementation(async () => (source))
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedMagazineIssues(12345678))
             .toHaveLength(0)
     })
 
     test('when there are multiple MAGAZINE ISSUES connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: [
-                    {data: {partner_node: {data: {id: 1}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}},
-                    {data: {partner_node: {data: {id: 3}}, created_at: 'dummy', updated_at: 'dummy'}},
-                ]
-            }))
-        }))
+        const source = FakeMagazine.data
+        const target = {node_type: ApiNodeType.IMAGE}
 
-        const {getConnectedMagazineIssues} = await import("../../../../../src/data/node-types/magazines/getConnectedMagazineIssues")
-        expect(await getConnectedMagazineIssues(1))
+        const apiResponse = {
+            data: [
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+                {data: {partner_node: target}},
+            ]
+        }
+
+        vi.spyOn(node, 'getMagazineById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedMagazineIssues(12345678))
             .toHaveLength(3)
     })
 
     test('when the MAGAZINE does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/magazines/getMagazineById", () => ({
-            getMagazineById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getMagazineById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedMagazineIssues} = await import("../../../../../src/data/node-types/magazines/getConnectedMagazineIssues")
-        expect(await getConnectedMagazineIssues(1))
+        expect(await getConnectedMagazineIssues(12345678))
             .toHaveLength(0)
     })
 })
