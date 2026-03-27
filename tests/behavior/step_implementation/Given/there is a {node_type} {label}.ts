@@ -4,7 +4,7 @@ import {dasherize} from "inflection"
 
 Given('there is a {string} {string}', (nodeType: string, label: string) => {
     const nodeId = Math.ceil(Math.random() * 100000)
-    MockData.addNode(nodeId)
+    MockData.addNode(nodeId, nodeType)
 
     cy.wrap(nodeId)
         .as(`${dasherize(nodeType.toLowerCase())}_node_${label}`)
