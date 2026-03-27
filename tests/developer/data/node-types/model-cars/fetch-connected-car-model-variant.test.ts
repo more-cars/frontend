@@ -1,4 +1,9 @@
 import {afterEach, describe, expect, test, vi} from "vitest"
+import {FakeModelCar} from "../../../../_toolbox/fixtures/node-types/FakeModelCar"
+import * as node from "../../../../../src/data/node-types/model-cars/getModelCarById"
+import * as api from "../../../../../src/data/requestDataFromApi"
+import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
+import {getConnectedCarModelVariant} from "../../../../../src/data/node-types/model-cars/getConnectedCarModelVariant"
 
 afterEach(() => {
     vi.resetModules()
@@ -6,42 +11,40 @@ afterEach(() => {
 
 describe('Fetching connected CAR MODEL VARIANT from data source', () => {
     test('when there is no CAR MODEL VARIANT connected', async () => {
-        // mocking the node
-        vi.doMock("../../../../../src/data/node-types/model-cars/getModelCarById", () => ({
-            getModelCarById: vi.fn(() => ({
-                name: 'test'
-            }))
-        }))
+        const source = FakeModelCar.data
+        const apiResponse = {data: null}
 
-        // mocking the relationship
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({data: null}))
-        }))
+        vi.spyOn(node, 'getModelCarById')
+            .mockImplementation(async () => (source))
 
-        const {getConnectedCarModelVariant} = await import("../../../../../src/data/node-types/model-cars/getConnectedCarModelVariant")
-        expect(await getConnectedCarModelVariant(1))
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => (apiResponse))
+
+        expect(await getConnectedCarModelVariant(12345678))
             .toEqual(null)
     })
 
     test('when there is a CAR MODEL VARIANT connected', async () => {
-        vi.doMock("../../../../../src/data/requestDataFromApi", () => ({
-            requestDataFromApi: vi.fn(() => ({
-                data: {partner_node: {data: {id: 2}}, created_at: 'dummy', updated_at: 'dummy'}
-            }))
-        }))
+        const source = FakeModelCar.data
+        const target = {node_type: ApiNodeType.CAR_MODEL_VARIANT, data: {id: 11111118}}
 
-        const {getConnectedCarModelVariant} = await import("../../../../../src/data/node-types/model-cars/getConnectedCarModelVariant")
-        expect(await getConnectedCarModelVariant(1))
-            .toHaveProperty('partner_node.id', 2)
+        const apiResponse = {data: {partner_node: target}}
+
+        vi.spyOn(node, 'getModelCarById')
+            .mockImplementation(async () => source)
+
+        vi.spyOn(api, 'requestDataFromApi')
+            .mockImplementation(async () => apiResponse)
+
+        expect(await getConnectedCarModelVariant(12345678))
+            .toHaveProperty('partner_node.data.id', 11111118)
     })
 
     test('when the MODEL CAR does not exist', async () => {
-        vi.doMock("../../../../../src/data/node-types/model-cars/getModelCarById", () => ({
-            getModelCarById: vi.fn(() => null)
-        }))
+        vi.spyOn(node, 'getModelCarById')
+            .mockImplementation(async () => null)
 
-        const {getConnectedCarModelVariant} = await import("../../../../../src/data/node-types/model-cars/getConnectedCarModelVariant")
-        expect(await getConnectedCarModelVariant(1))
+        expect(await getConnectedCarModelVariant(12345678))
             .toEqual(null)
     })
 })
