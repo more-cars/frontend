@@ -1,6 +1,7 @@
 import express from "express"
-import {mockState, nodeRelationships, nodeState} from "./mockState"
 import {Response} from "express-serve-static-core"
+import {pascalCase} from "change-case"
+import {mockState, nodeRelationships, nodeState, typeOfNode} from "./mockState"
 
 const router = express.Router()
 
@@ -24,6 +25,14 @@ router.post("/__admin/node-state/:id/:state", (req, res) => {
     respondWithAllStates(res)
 })
 
+router.get("/__admin/node-type/:id/:nodeType", (req, res) => {
+    const {id, nodeType} = req.params
+
+    typeOfNode.set(Number(id), pascalCase(nodeType))
+
+    respondWithAllStates(res)
+})
+
 router.post("/__admin/node-relationships/:id/:count", (req, res) => {
     const {id, count} = req.params
 
@@ -35,13 +44,14 @@ router.post("/__admin/node-relationships/:id/:count", (req, res) => {
 router.post("/__admin/reset", (req, res) => {
     mockState.clear()
     nodeState.clear()
+    typeOfNode.clear()
     nodeRelationships.clear()
 
     respondWithAllStates(res)
 })
 
 function respondWithAllStates(res: Response) {
-    res.json([...mockState, ...nodeState, ...nodeRelationships])
+    res.json([...mockState, ...nodeState, ...typeOfNode, ...nodeRelationships])
 }
 
 export default router
