@@ -30,6 +30,10 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         const nodeId = Number(req.url.split('/')[2])
         const nodeType = typeOfNode.get(nodeId)
 
+        if (!nodeType) {
+            return null
+        }
+
         const nodeMock = context.api.mockResponseForOperation("get" + nodeType + "ById", {code: Number(200)})
 
         return nodeMock.mock
