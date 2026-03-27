@@ -89,8 +89,6 @@ export async function displayNode(req: express.Request, res: express.Response, n
             return MotorShowControllerFacade.showNode(req, res)
         case ControllerNodeType.IMAGE:
             return ImageControllerFacade.showNode(req, res)
-        default:
-            return notFoundError(res)
     }
 }
 
