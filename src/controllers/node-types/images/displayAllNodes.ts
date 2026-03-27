@@ -27,10 +27,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
 }
 
 async function getThumbnails(images: Image[]) {
-    const thumbnails = []
+    const thumbnails = new Map<number, Image | null>
 
     for (const image of images) {
-        thumbnails[image.fields.id] = image
+        thumbnails.set(image.fields.id, image)
     }
 
     return thumbnails
