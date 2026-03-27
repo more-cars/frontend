@@ -1,9 +1,10 @@
 import {Given} from "@badeball/cypress-cucumber-preprocessor"
-import {MockData} from "../../lib/MockData"
 import {dasherize} from "inflection"
+import {getRandomCanonicalNodeId} from "../../lib/getRandomCanonicalNodeId"
+import {MockData} from "../../lib/MockData"
 
 Given('there is a {string} {string}', (nodeType: string, label: string) => {
-    const nodeId = Math.ceil(Math.random() * 100000)
+    const nodeId = getRandomCanonicalNodeId()
     MockData.addNode(nodeId, nodeType)
 
     cy.wrap(nodeId)

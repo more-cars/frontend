@@ -1,6 +1,7 @@
 import {dasherize, underscore} from "inflection"
-import {mockState, nodeRelationships, nodeState, typeOfNode} from "./mockState"
 import {Context} from "openapi-backend"
+import {mockState, nodeRelationships, nodeState, typeOfNode} from "./mockState"
+import {getRandomCanonicalNodeId} from "./getRandomCanonicalNodeId"
 
 export function getResponseMock(context: Context, req: { url: string, query: { page: number } }) {
     const operationId = context.operation.operationId || 'UNKNOWN'
@@ -15,7 +16,7 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         const mockedNodes = []
         const nodeMock = nodeCollectionResponseMock.mock.data.pop()
         for (let i = 0; i < visibleNodes; i++) {
-            nodeMock.id = Math.ceil(Math.random() * 10000000)
+            nodeMock.id = getRandomCanonicalNodeId()
             mockedNodes.push(nodeMock)
         }
 
