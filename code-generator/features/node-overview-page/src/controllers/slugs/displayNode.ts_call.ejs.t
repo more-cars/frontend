@@ -5,4 +5,4 @@ before: ControllerNodeType.IMAGE
 skip_if: ControllerNodeType.<%= h.changeCase.constant(nodeType) %>
 ---
         case ControllerNodeType.<%= h.changeCase.constant(nodeType) %>:
-            return display<%= h.changeCase.pascal(nodeType) %>Node(req, res)
+            return <%= h.changeCase.pascal(nodeType) %>ControllerFacade.showNode(req, res)
