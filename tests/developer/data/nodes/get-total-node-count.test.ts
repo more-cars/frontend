@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import {getAllExpectedNodeTypes} from "../../../_toolbox/getAllExpectedNodeTypes"
 import * as api from "../../../../src/data/requestDataFromApi"
 import {getTotalNodeCount} from "../../../../src/data/nodes/getTotalNodeCount"
 import {convertStringToDataNodeType} from "../../../_toolbox/convertStringToNodeType"
 import {DataNodeType} from "../../../../src/data/types/DataNodeType"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching total node count', () => {
     test.each(
