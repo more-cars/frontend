@@ -1,5 +1,5 @@
 import {dasherize, underscore} from "inflection"
-import {mockState, nodeRelationships, nodeState} from "./mockState"
+import {mockState, nodeRelationships, nodeState, typeOfNode} from "./mockState"
 import {Context} from "openapi-backend"
 
 export function getResponseMock(context: Context, req: { url: string, query: { page: number } }) {
@@ -23,6 +23,15 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         nodeCollectionResponseMock.mock.meta.page.total_nodes = nodeCount
 
         return nodeCollectionResponseMock.mock
+    }
+
+    if (isGenericNodeOperation(operationId)) {
+        const nodeId = Number(req.url.split('/')[2])
+        const nodeType = typeOfNode.get(nodeId)
+
+        const nodeMock = context.api.mockResponseForOperation("get" + nodeType + "ById", {code: Number(200)})
+
+        return nodeMock.mock
     }
 
     if (isNodeOperation(operationId)) {
@@ -70,6 +79,10 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
 
 function isNodeTypeOperation(operationId: string) {
     return !(operationId.endsWith('Rel') || operationId.endsWith('ById'))
+}
+
+function isGenericNodeOperation(operationId: string) {
+    return operationId === 'getNodeById'
 }
 
 function isNodeOperation(operationId: string) {
