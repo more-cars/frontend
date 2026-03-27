@@ -7,7 +7,7 @@ block main
         include ../shared/nodes-not-found-warning
         +nodes-not-found-warning(node_type)
     else
-        section(data-testid="${node_type}-section")
+        section(data-testid=`${node_type}-section`)
             ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
                 each node in node_collection
                     - nodeType = node_type
