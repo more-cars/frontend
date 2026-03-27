@@ -1,12 +1,8 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAllSessionResults} from "../../../../../src/data/node-types/session-results/getAllSessionResults"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiSessionResultNode} from "../../../../../src/data/node-types/session-results/types/ApiSessionResultNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching SESSION RESULT collection from data source', () => {
     test('when there are no SESSION RESULTS', async () => {

@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import {FakeLapTime} from "../../../../_toolbox/fixtures/node-types/FakeLapTime"
 import * as node from "../../../../../src/data/node-types/lap-times/getLapTimeById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {getConnectedTrackLayout} from "../../../../../src/data/node-types/lap-times/getConnectedTrackLayout"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected TRACK LAYOUT from data source', () => {
     test('when there is no TRACK LAYOUT connected', async () => {

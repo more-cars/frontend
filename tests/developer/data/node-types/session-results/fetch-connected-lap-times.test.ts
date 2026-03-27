@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/session-results/getSessionResultById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {getConnectedLapTimes} from "../../../../../src/data/node-types/session-results/getConnectedLapTimes"
 import {FakeSessionResult} from "../../../../_toolbox/fixtures/node-types/FakeSessionResult"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected LAP TIMES from data source', () => {
     test('when there are no LAP TIMES connected', async () => {

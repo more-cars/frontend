@@ -1,12 +1,8 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAllTrackLayouts} from "../../../../../src/data/node-types/track-layouts/getAllTrackLayouts"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiTrackLayoutNode} from "../../../../../src/data/node-types/track-layouts/types/ApiTrackLayoutNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching TRACK LAYOUT collection from data source', () => {
     test('when there are no TRACK LAYOUTS', async () => {

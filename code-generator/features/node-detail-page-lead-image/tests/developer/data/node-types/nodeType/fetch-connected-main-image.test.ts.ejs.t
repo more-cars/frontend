@@ -1,16 +1,12 @@
 ---
 to: tests/developer/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/fetch-connected-main-image.test.ts
 ---
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import {Fake<%= h.changeCase.pascal(nodeType) %>} from "../../../../_toolbox/fixtures/node-types/Fake<%= h.changeCase.pascal(nodeType) %>"
 import * as node from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get<%= h.changeCase.pascal(nodeType) %>ById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getConnectedMainImage} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getConnectedMainImage"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected main IMAGE from data source', () => {
     test('when there is no main IMAGE connected', async () => {

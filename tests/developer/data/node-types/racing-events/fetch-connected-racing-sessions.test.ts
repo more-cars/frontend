@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/racing-events/getRacingEventById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeRacingEvent} from "../../../../_toolbox/fixtures/node-types/FakeRacingEvent"
 import {getConnectedRacingSessions} from "../../../../../src/data/node-types/racing-events/getConnectedRacingSessions"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected RACING SESSIONS from data source', () => {
     test('when there are no RACING SESSIONS connected', async () => {

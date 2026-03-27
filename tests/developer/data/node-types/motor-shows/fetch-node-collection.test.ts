@@ -1,12 +1,8 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAllMotorShows} from "../../../../../src/data/node-types/motor-shows/getAllMotorShows"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiMotorShowNode} from "../../../../../src/data/node-types/motor-shows/types/ApiMotorShowNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching MOTOR SHOW collection from data source', () => {
     test('when there are no MOTOR SHOWS', async () => {

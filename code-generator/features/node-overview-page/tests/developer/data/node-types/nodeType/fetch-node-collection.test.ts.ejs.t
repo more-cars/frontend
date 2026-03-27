@@ -1,15 +1,11 @@
 ---
 to: tests/developer/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/fetch-node-collection.test.ts
 ---
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getAll<%= h.changeCase.pascal(h.inflection.pluralize(nodeType)) %>"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {Api<%= h.changeCase.pascal(nodeType) %>Node} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/types/Api<%= h.changeCase.pascal(nodeType) %>Node"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching <%= h.changeCase.upper(nodeType) %> collection from data source', () => {
     test('when there are no <%= h.changeCase.upper(h.inflection.pluralize(nodeType)) %>', async () => {

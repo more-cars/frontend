@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeProgrammeEpisode} from "../../../../_toolbox/fixtures/node-types/FakeProgrammeEpisode"
 import {getConnectedSuccessor} from "../../../../../src/data/node-types/programme-episodes/getConnectedSuccessor"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected SUCCESSOR from data source', () => {
     test('when there is no SUCCESSOR connected', async () => {

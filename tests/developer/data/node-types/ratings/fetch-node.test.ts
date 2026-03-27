@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getRatingById} from "../../../../../src/data/node-types/ratings/getRatingById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiRatingNode} from "../../../../../src/data/node-types/ratings/types/ApiRatingNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {RatingNode} from "../../../../../src/data/node-types/ratings/types/RatingNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching RATING node from data source', () => {
     test('when there is no RATING', async () => {

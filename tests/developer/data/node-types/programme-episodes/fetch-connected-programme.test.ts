@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/programme-episodes/getProgrammeEpisodeById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeProgrammeEpisode} from "../../../../_toolbox/fixtures/node-types/FakeProgrammeEpisode"
 import {getConnectedProgramme} from "../../../../../src/data/node-types/programme-episodes/getConnectedProgramme"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected PROGRAMME from data source', () => {
     test('when there is no PROGRAMME connected', async () => {

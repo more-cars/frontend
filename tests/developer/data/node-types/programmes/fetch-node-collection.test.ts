@@ -1,12 +1,8 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAllProgrammes} from "../../../../../src/data/node-types/programmes/getAllProgrammes"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiProgrammeNode} from "../../../../../src/data/node-types/programmes/types/ApiProgrammeNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching PROGRAMME collection from data source', () => {
     test('when there are no PROGRAMMES', async () => {

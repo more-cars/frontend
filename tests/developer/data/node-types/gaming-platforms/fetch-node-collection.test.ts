@@ -1,12 +1,8 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAllGamingPlatforms} from "../../../../../src/data/node-types/gaming-platforms/getAllGamingPlatforms"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiGamingPlatformNode} from "../../../../../src/data/node-types/gaming-platforms/types/ApiGamingPlatformNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching GAMING PLATFORM collection from data source', () => {
     test('when there are no GAMING PLATFORMS', async () => {

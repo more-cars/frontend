@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getImageById} from "../../../../../src/data/node-types/images/getImageById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiImageNode} from "../../../../../src/data/node-types/images/types/ApiImageNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {ImageNode} from "../../../../../src/data/node-types/images/types/ImageNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching IMAGE node from data source', () => {
     test('when there is no IMAGE', async () => {

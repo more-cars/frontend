@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/racing-events/getRacingEventById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeRacingEvent} from "../../../../_toolbox/fixtures/node-types/FakeRacingEvent"
 import {getConnectedSuccessor} from "../../../../../src/data/node-types/racing-events/getConnectedSuccessor"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected successor from data source', () => {
     test('when there is no successor connected', async () => {

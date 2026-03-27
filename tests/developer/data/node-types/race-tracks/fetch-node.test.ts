@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getRaceTrackById} from "../../../../../src/data/node-types/race-tracks/getRaceTrackById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiRaceTrackNode} from "../../../../../src/data/node-types/race-tracks/types/ApiRaceTrackNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {RaceTrackNode} from "../../../../../src/data/node-types/race-tracks/types/RaceTrackNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching RACE TRACK node from data source', () => {
     test('when there is no RACE TRACK', async () => {

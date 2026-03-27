@@ -1,12 +1,8 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getAllCarModelVariants} from "../../../../../src/data/node-types/car-model-variants/getAllCarModelVariants"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiCarModelVariantNode} from "../../../../../src/data/node-types/car-model-variants/types/ApiCarModelVariantNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching CAR MODEL VARIANT collection from data source', () => {
     test('when there are no CAR MODEL VARIANTS', async () => {

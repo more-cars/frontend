@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getMagazineIssueById} from "../../../../../src/data/node-types/magazine-issues/getMagazineIssueById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiMagazineIssueNode} from "../../../../../src/data/node-types/magazine-issues/types/ApiMagazineIssueNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {MagazineIssueNode} from "../../../../../src/data/node-types/magazine-issues/types/MagazineIssueNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching MAGAZINE ISSUE node from data source', () => {
     test('when there is no MAGAZINE ISSUE', async () => {

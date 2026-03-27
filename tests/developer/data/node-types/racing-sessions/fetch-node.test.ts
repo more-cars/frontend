@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getRacingSessionById} from "../../../../../src/data/node-types/racing-sessions/getRacingSessionById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiRacingSessionNode} from "../../../../../src/data/node-types/racing-sessions/types/ApiRacingSessionNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {RacingSessionNode} from "../../../../../src/data/node-types/racing-sessions/types/RacingSessionNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching RACING SESSION node from data source', () => {
     test('when there is no RACING SESSION', async () => {

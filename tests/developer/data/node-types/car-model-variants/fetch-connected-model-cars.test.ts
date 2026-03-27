@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/car-model-variants/getCarModelVariantById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeCarModelVariant} from "../../../../_toolbox/fixtures/node-types/FakeCarModelVariant"
 import {getConnectedModelCars} from "../../../../../src/data/node-types/car-model-variants/getConnectedModelCars"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected MODEL CARS from data source', () => {
     test('when there are no MODEL CARS connected', async () => {

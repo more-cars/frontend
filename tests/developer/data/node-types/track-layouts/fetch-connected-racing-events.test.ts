@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/track-layouts/getTrackLayoutById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeTrackLayout} from "../../../../_toolbox/fixtures/node-types/FakeTrackLayout"
 import {getConnectedRacingEvents} from "../../../../../src/data/node-types/track-layouts/getConnectedRacingEvents"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected RACING EVENTS from data source', () => {
     test('when there are no RACING EVENTS connected', async () => {

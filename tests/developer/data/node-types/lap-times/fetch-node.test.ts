@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getLapTimeById} from "../../../../../src/data/node-types/lap-times/getLapTimeById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiLapTimeNode} from "../../../../../src/data/node-types/lap-times/types/ApiLapTimeNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {LapTimeNode} from "../../../../../src/data/node-types/lap-times/types/LapTimeNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching LAP TIME node from data source', () => {
     test('when there is no LAP TIME', async () => {

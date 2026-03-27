@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/gaming-platforms/getGamingPlatformById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import {FakeGamingPlatform} from "../../../../_toolbox/fixtures/node-types/FakeGamingPlatform"
 import {getConnectedRacingGames} from "../../../../../src/data/node-types/gaming-platforms/getConnectedRacingGames"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected RACING GAMES from data source', () => {
     test('when there are no RACING GAMES connected', async () => {

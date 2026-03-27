@@ -1,14 +1,10 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getBrandById} from "../../../../../src/data/node-types/brands/getBrandById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 import type {ApiBrandNode} from "../../../../../src/data/node-types/brands/types/ApiBrandNode"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
 import type {BrandNode} from "../../../../../src/data/node-types/brands/types/BrandNode"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching BRAND node from data source', () => {
     test('when there is no BRAND', async () => {

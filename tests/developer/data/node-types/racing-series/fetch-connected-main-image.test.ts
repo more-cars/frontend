@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import * as node from "../../../../../src/data/node-types/racing-series/getRacingSeriesById"
 import {getConnectedMainImage} from "../../../../../src/data/node-types/racing-series/getConnectedMainImage"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {FakeRacingSeries} from "../../../../_toolbox/fixtures/node-types/FakeRacingSeries"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
-
-afterEach(() => {
-    vi.resetModules()
-})
 
 describe('Fetching connected main IMAGE from data source', () => {
     test('when there is no main IMAGE connected', async () => {

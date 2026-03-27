@@ -1,13 +1,9 @@
-import {afterEach, describe, expect, test, vi} from "vitest"
+import {describe, expect, test, vi} from "vitest"
 import {FakeTrackLayout} from "../../../../_toolbox/fixtures/node-types/FakeTrackLayout"
 import * as node from "../../../../../src/data/node-types/track-layouts/getTrackLayoutById"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {getConnectedImages} from "../../../../../src/data/node-types/track-layouts/getConnectedImages"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
-
-afterEach(() => {
-    vi.resetAllMocks()
-})
 
 describe('Fetching connected IMAGES from data source', () => {
     test('when there are no IMAGES connected', async () => {
