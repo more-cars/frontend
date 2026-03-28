@@ -7,18 +7,14 @@ import {getProgrammeThumbnails} from "../programmes/getProgrammeThumbnails"
 import {getProgrammeEpisodeThumbnails} from "./getProgrammeEpisodeThumbnails"
 import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const programmeEpisodeId = parseInt(req.params.id)
     const programmeEpisode = await ProgrammeEpisodeModelFacade.getNodeById(programmeEpisodeId)
 
     if (!programmeEpisode) {
-        return res.render('templates/node-types/programme-episodes/programme-episode-not-found-page', {
-            page_title: `Programme Episode not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const programme = await ProgrammeEpisodeModelFacade.getConnectedProgramme(programmeEpisodeId)

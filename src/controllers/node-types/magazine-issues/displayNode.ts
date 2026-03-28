@@ -9,18 +9,14 @@ import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {getRatingThumbnails} from "../ratings/getRatingThumbnails"
 import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineIssueId = parseInt(req.params.id)
     const magazineIssue = await MagazineIssueModelFacade.getNodeById(magazineIssueId)
 
     if (!magazineIssue) {
-        return res.render('templates/node-types/magazine-issues/magazine-issue-not-found-page', {
-            page_title: `Magazine Issue not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const magazine = await MagazineIssueModelFacade.getConnectedMagazine(magazineIssueId)

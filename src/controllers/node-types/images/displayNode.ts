@@ -4,18 +4,14 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getNodeThumbnails} from "./getNodeThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const imageId = parseInt(req.params.id)
     const image = await ImageModelFacade.getNodeById(imageId)
 
     if (!image) {
-        return res.render('templates/node-types/images/image-not-found-page', {
-            page_title: `Image not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const nodes = await ImageModelFacade.getConnectedNodes(imageId)

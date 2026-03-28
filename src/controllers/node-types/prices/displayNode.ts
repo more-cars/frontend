@@ -4,18 +4,14 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const priceId = parseInt(req.params.id)
     const price = await PriceModelFacade.getNodeById(priceId)
 
     if (!price) {
-        return res.render('templates/node-types/prices/price-not-found-page', {
-            page_title: `Price not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const carModelVariant = await PriceModelFacade.getConnectedCarModelVariant(priceId)

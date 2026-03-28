@@ -4,18 +4,14 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingSeriesId = parseInt(req.params.id)
     const racingSeries = await RacingSeriesModelFacade.getNodeById(racingSeriesId)
 
     if (!racingSeries) {
-        return res.render('templates/node-types/racing-series/racing-series-not-found-page', {
-            page_title: `Racing Series not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const images = await RacingSeriesModelFacade.getConnectedImages(racingSeriesId)

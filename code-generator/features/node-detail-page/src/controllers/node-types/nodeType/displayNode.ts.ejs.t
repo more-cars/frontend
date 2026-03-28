@@ -6,18 +6,14 @@ import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const <%= h.changeCase.camel(nodeType) %>Id = parseInt(req.params.id)
     const <%= h.changeCase.camel(nodeType) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeById(<%= h.changeCase.camel(nodeType) %>Id)
 
     if (!<%= h.changeCase.camel(nodeType) %>) {
-        return res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-not-found-page', {
-            page_title: `<%= h.changeCase.title(nodeType) %> not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-detail-page', {

@@ -6,18 +6,14 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
 import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const lapTimeId = parseInt(req.params.id)
     const lapTime = await LapTimeModelFacade.getNodeById(lapTimeId)
 
     if (!lapTime) {
-        return res.render('templates/node-types/lap-times/lap-time-not-found-page', {
-            page_title: `Lap Time not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const trackLayout = await LapTimeModelFacade.getConnectedTrackLayout(lapTimeId)

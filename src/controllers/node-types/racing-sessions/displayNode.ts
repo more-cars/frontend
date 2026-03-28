@@ -5,18 +5,14 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
 import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingSessionId = parseInt(req.params.id)
     const racingSession = await RacingSessionModelFacade.getNodeById(racingSessionId)
 
     if (!racingSession) {
-        return res.render('templates/node-types/racing-sessions/racing-session-not-found-page', {
-            page_title: `Racing Session not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const racingEvent = await RacingSessionModelFacade.getConnectedRacingEvent(racingSessionId)

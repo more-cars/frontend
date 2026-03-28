@@ -5,18 +5,14 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const ratingId = parseInt(req.params.id)
     const rating = await RatingModelFacade.getNodeById(ratingId)
 
     if (!rating) {
-        return res.render('templates/node-types/ratings/rating-not-found-page', {
-            page_title: `Rating not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const carModelVariant = await RatingModelFacade.getConnectedCarModelVariant(ratingId)

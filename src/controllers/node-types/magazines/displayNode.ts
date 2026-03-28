@@ -4,18 +4,14 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineId = parseInt(req.params.id)
     const magazine = await MagazineModelFacade.getNodeById(magazineId)
 
     if (!magazine) {
-        return res.render('templates/node-types/magazines/magazine-not-found-page', {
-            page_title: `Magazine not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const magazineIssues = await MagazineModelFacade.getConnectedMagazineIssues(magazineId)

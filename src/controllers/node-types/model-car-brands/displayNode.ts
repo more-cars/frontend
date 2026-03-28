@@ -4,18 +4,14 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getModelCarThumbnails} from "../model-cars/getModelCarThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const modelCarBrandId = parseInt(req.params.id)
     const modelCarBrand = await ModelCarBrandModelFacade.getNodeById(modelCarBrandId)
 
     if (!modelCarBrand) {
-        return res.render('templates/node-types/model-car-brands/model-car-brand-not-found-page', {
-            page_title: `Model Car Brand not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const modelCars = await ModelCarBrandModelFacade.getConnectedModelCars(modelCarBrandId)

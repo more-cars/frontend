@@ -13,18 +13,14 @@ import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
 import {getMotorShowThumbnails} from "../motor-shows/getMotorShowThumbnails"
 import {getPriceThumbnails} from "../prices/getPriceThumbnails"
 import {getModelCarThumbnails} from "../model-cars/getModelCarThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
     const carModelVariant = await CarModelVariantModelFacade.getNodeById(carModelVariantId)
 
     if (!carModelVariant) {
-        return res.render('templates/node-types/car-model-variants/car-model-variant-not-found-page', {
-            page_title: `Car Model Variant not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const carModel = await CarModelVariantModelFacade.getConnectedCarModel(carModelVariantId)

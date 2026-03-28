@@ -6,18 +6,14 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
 import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
 import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayoutId = parseInt(req.params.id)
     const trackLayout = await TrackLayoutModelFacade.getNodeById(trackLayoutId)
 
     if (!trackLayout) {
-        return res.render('templates/node-types/track-layouts/track-layout-not-found-page', {
-            page_title: `Track Layout not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const raceTrack = await TrackLayoutModelFacade.getConnectedRaceTrack(trackLayoutId)

@@ -8,18 +8,14 @@ import {getCarModelThumbnails} from "./getCarModelThumbnails"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
 import {getProgrammeEpisodeThumbnails} from "../programme-episodes/getProgrammeEpisodeThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelId = parseInt(req.params.id)
     const carModel = await CarModelModelFacade.getNodeById(carModelId)
 
     if (!carModel) {
-        return res.render('templates/node-types/car-models/car-model-not-found-page', {
-            page_title: `Car Model not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const brand = await CarModelModelFacade.getConnectedBrand(carModelId)

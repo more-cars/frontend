@@ -9,18 +9,14 @@ import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
 import {getRacingSessionThumbnails} from "../racing-sessions/getRacingSessionThumbnails"
 import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingEventId = parseInt(req.params.id)
     const racingEvent = await RacingEventModelFacade.getNodeById(racingEventId)
 
     if (!racingEvent) {
-        return res.render('templates/node-types/racing-events/racing-event-not-found-page', {
-            page_title: `Racing Event not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const racingSeries = await RacingEventModelFacade.getConnectedRacingSeries(racingEventId)

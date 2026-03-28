@@ -6,18 +6,14 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
 import {getGamingPlatformThumbnails} from "../gaming-platforms/getGamingPlatformThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingGameId = parseInt(req.params.id)
     const racingGame = await RacingGameModelFacade.getNodeById(racingGameId)
 
     if (!racingGame) {
-        return res.render('templates/node-types/racing-games/racing-game-not-found-page', {
-            page_title: `Racing Game not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const carModelVariants = await RacingGameModelFacade.getConnectedCarModelVariants(racingGameId)

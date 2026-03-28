@@ -4,18 +4,14 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getBrandThumbnails} from "../brands/getBrandThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const companyId = parseInt(req.params.id)
     const company = await CompanyModelFacade.getNodeById(companyId)
 
     if (!company) {
-        return res.render('templates/node-types/companies/company-not-found-page', {
-            page_title: `Company not found`
-        }, (error, html) => {
-            res.statusCode = 404
-            res.send(html)
-        })
+        return sendResponse404(res)
     }
 
     const brands = await CompanyModelFacade.getConnectedBrands(companyId)
