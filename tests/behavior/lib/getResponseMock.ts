@@ -56,9 +56,9 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
 
     if (isNodeRelationshipOperation(operationId)) {
         const nodeId = Number(req.url.split('/')[2])
-        const mockItem = context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
+        const mockItemCollection = context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
 
-        if (Array.isArray(mockItem.data)) {
+        if (Array.isArray(mockItemCollection.data)) {
             const mockItems = []
 
             let relationshipCount = nodeRelationships.get(nodeId)
@@ -67,7 +67,10 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
             }
 
             for (let i = 0; i < relationshipCount; i++) {
-                mockItems.push(mockItem.data[0])
+                const mockItem = structuredClone(mockItemCollection.data[0])
+                mockItem.data.relationship_id = getRandomCanonicalNodeId()
+                mockItem.data.partner_node.data.id = getRandomCanonicalNodeId()
+                mockItems.push(mockItem)
             }
 
             return {
@@ -77,11 +80,14 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
             const relationshipCount = nodeRelationships.get(nodeId)
 
             if (relationshipCount === undefined || relationshipCount > 0) {
+                const mockItem = structuredClone(mockItemCollection.data)
+                mockItem.relationship_id = getRandomCanonicalNodeId()
+                mockItem.partner_node.data.id = getRandomCanonicalNodeId()
                 return {
-                    data: mockItem.data
+                    data: mockItem
                 }
             } else {
-                return
+                return null
             }
         }
     }
