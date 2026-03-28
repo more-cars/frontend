@@ -8,6 +8,10 @@ Then('the main headline should contain the {string} name', (nodeType: string) =>
         targetProperty = 'title'
     } else if (['rating'].includes(nodeType.toLowerCase())) {
         targetProperty = 'rating_value'
+    } else if (['price'].includes(nodeType.toLowerCase())) {
+        targetProperty = 'price'
+    } else if (['lap_time'].includes(nodeType.toLowerCase())) {
+        targetProperty = 'time'
     }
 
     cy.get(`[data-testid="fact-sheet"] [data-testid="${targetProperty}"] td`)
