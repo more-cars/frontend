@@ -32,6 +32,7 @@ import {convertDateTime} from "./views/lib/convertDateTime.ts"
 import {formatTime} from "./views/lib/formatTime.ts"
 import {ordinalizeNumber} from "./views/lib/ordinalize.ts"
 import {getNodeTypeIcon} from "./views/lib/getNodeTypeIcon"
+import {nodeTypeUrlPath} from "./views/lib/nodeTypeUrlPath"
 
 const app: Express = express()
 app.set('view engine', 'pug')
@@ -68,6 +69,7 @@ app.use('/', motorShows)
 app.use('/', images)
 
 app.locals.canonical = canonicalUrlPath
+app.locals.nodeTypePath = nodeTypeUrlPath
 app.locals.formatDate = convertDate
 app.locals.formatDateTime = convertDateTime
 app.locals.formatTime = formatTime

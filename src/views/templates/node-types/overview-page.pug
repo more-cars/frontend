@@ -18,7 +18,7 @@ block main
                     include ../shared/list-node-item
 
         include ../shared/pagination
-        +pagination('companies', pagination.page, pagination.total)
+        +pagination(node_type, pagination.page, pagination.total)
 
 block footer
     p Footer area...
