@@ -47,6 +47,11 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         if (!isNodeActive(nodeId)) {
             return null
         }
+
+        const nodeMock = context.api.mockResponseForOperation(operationId, {code: Number(200)})
+        nodeMock.mock.id = nodeId
+
+        return nodeMock.mock
     }
 
     if (isNodeRelationshipOperation(operationId)) {
