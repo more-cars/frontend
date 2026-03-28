@@ -15,9 +15,11 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
 
         const mockedNodes = []
         const nodeMock = nodeCollectionResponseMock.mock.data.pop()
+
         for (let i = 0; i < visibleNodes; i++) {
-            nodeMock.id = getRandomCanonicalNodeId()
-            mockedNodes.push(nodeMock)
+            const modifiedNode = structuredClone(nodeMock)
+            modifiedNode.id = getRandomCanonicalNodeId()
+            mockedNodes.push(modifiedNode)
         }
 
         nodeCollectionResponseMock.mock.data = mockedNodes
