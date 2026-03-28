@@ -11,7 +11,7 @@ export abstract class MockData {
     }
 
     static setNodeCount(nodeType: string, count: number) {
-        const url = `${getMockServerBaseUrl()}/node-type/${getNormalizedNodeTypePlural(nodeType)}/${count}`
+        const url = `${getMockServerBaseUrl()}/node-collection/${getNormalizedNodeTypePlural(nodeType)}/${count}`
         cy.request('POST', url)
     }
 
@@ -20,7 +20,7 @@ export abstract class MockData {
         cy.request('POST', url)
 
         url = `${getMockServerBaseUrl()}/node-type/${nodeId}/${nodeType}`
-        cy.request('GET', url) // TODO GET -> POST
+        cy.request('POST', url)
     }
 
     static removeNode(nodeId: number) {
