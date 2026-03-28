@@ -1,12 +1,8 @@
-if nodes.length > 0
-    section(data-testid="node-section" class="mb-8")
-        h2(class="text-2xl mb-2 border-b-2 border-lime-500") Nodes
-        p(class="mb-4") This image is connected to the following nodes:
-
-        ul
-            each nodeItem in nodes
-                - nodeData = nodeItem.fields
-                - nodeType = 'node'
-                - thumbnail = relationships.nodes.thumbnails.get(nodeData.id)
-                - nodeProperties = relationships.nodes.node_properties
-                include ../../shared/list-node-item
+- sectionHeadline = 'Nodes'
+- sectionIntro = `This image is connected to the following nodes.`
+- nodeType = 'node'
+- nodeUrlBasePath = 'nodes'
+- thumbnails = relationships.nodes.thumbnails
+- nodeProperties = relationships.nodes.node_properties
+- nodeItems = nodes
+include ../../shared/connected-nodes-section
