@@ -21,5 +21,6 @@ export enum ExpectedNodeType {
     Programme = "Programme",
     ProgrammeEpisode = "Programme Episode",
     MotorShow = "Motor Show",
+    Video = "Video",
     Image = "Image",
 }

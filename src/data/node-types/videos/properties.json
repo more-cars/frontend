@@ -1,0 +1,119 @@
+[
+  {
+    "name": "video_provider",
+    "label": "Video Provider",
+    "is_primary": true,
+    "mandatory": true,
+    "readonly": false,
+    "datatype": "string",
+    "example": "youtube"
+  },
+  {
+    "name": "external_id",
+    "label": "External ID",
+    "is_primary": false,
+    "mandatory": true,
+    "readonly": false,
+    "datatype": "string",
+    "example": "NqsBncRslsg"
+  },
+  {
+    "name": "title",
+    "label": "Title",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "P1 vs F40"
+  },
+  {
+    "name": "description",
+    "label": "Description",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "Drag Race - P1 vs F40"
+  },
+  {
+    "name": "creator",
+    "label": "Creator",
+    "is_primary": true,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "Lovecars"
+  },
+  {
+    "name": "license",
+    "label": "License",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "youtube"
+  },
+  {
+    "name": "tags",
+    "label": "Tags",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "F40, P1"
+  },
+  {
+    "name": "source",
+    "label": "Source",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "https://www.youtube.com/watch?v=NqsBncRslsg"
+  },
+  {
+    "name": "duration",
+    "label": "Length",
+    "is_primary": true,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "PT7M24S"
+  },
+  {
+    "name": "thumbnail_url_l",
+    "label": "Thumbnail (L)",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "https://i.ytimg.com/vi/NqsBncRslsg/maxresdefault.jpg"
+  },
+  {
+    "name": "thumbnail_url_m",
+    "label": "Thumbnail (M)",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "https://i.ytimg.com/vi/NqsBncRslsg/sddefault.jpg"
+  },
+  {
+    "name": "thumbnail_url_s",
+    "label": "Thumbnail (S)",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "https://i.ytimg.com/vi/NqsBncRslsg/mqdefault.jpg"
+  },
+  {
+    "name": "thumbnail_url_xs",
+    "label": "Thumbnail (XS)",
+    "is_primary": false,
+    "mandatory": false,
+    "readonly": true,
+    "datatype": "string",
+    "example": "https://i.ytimg.com/vi/NqsBncRslsg/default.jpg"
+  }
+]

@@ -24,6 +24,7 @@ import ratings from "./routes/ratings"
 import programmes from "./routes/programmes"
 import programmeEpisodes from "./routes/programme-episodes"
 import motorShows from "./routes/motor-shows"
+import videos from "./routes/videos"
 import images from "./routes/images"
 import {basicAuthentication} from "./basicAuthentication"
 import {canonicalUrlPath} from "./views/lib/canonicalUrlPath"
@@ -66,6 +67,7 @@ app.use('/', ratings)
 app.use('/', programmes)
 app.use('/', programmeEpisodes)
 app.use('/', motorShows)
+app.use('/', videos)
 app.use('/', images)
 
 app.locals.canonical = canonicalUrlPath

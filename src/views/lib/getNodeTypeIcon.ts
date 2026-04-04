@@ -24,6 +24,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.PROGRAMME, '📺'],
         [ControllerNodeType.PROGRAMME_EPISODE, '🎬️'],
         [ControllerNodeType.MOTOR_SHOW, '🎪'],
+        [ControllerNodeType.VIDEO, '📼'],
         [ControllerNodeType.IMAGE, '🖼️'],
     ])
 

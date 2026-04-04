@@ -22,5 +22,6 @@ export enum DataNodeType {
     PROGRAMME = 'programme',
     PROGRAMME_EPISODE = 'programme episode',
     MOTOR_SHOW = 'motor show',
+    VIDEO = 'video',
     IMAGE = 'image',
 }

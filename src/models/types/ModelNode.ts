@@ -20,6 +20,7 @@ import type {Rating} from "../node-types/ratings/types/Rating"
 import type {Programme} from "../node-types/programmes/types/Programme"
 import type {ProgrammeEpisode} from "../node-types/programme-episodes/types/ProgrammeEpisode"
 import type {MotorShow} from "../node-types/motor-shows/types/MotorShow"
+import type {Video} from "../node-types/videos/types/Video"
 import type {Image} from "../node-types/images/types/Image"
 
 export type ModelNode =
@@ -45,4 +46,5 @@ export type ModelNode =
     Programme |
     ProgrammeEpisode |
     MotorShow |
+    Video |
     Image
