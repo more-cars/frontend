@@ -24,6 +24,7 @@ import {RatingControllerFacade} from "../RatingControllerFacade"
 import {ProgrammeControllerFacade} from "../ProgrammeControllerFacade"
 import {ProgrammeEpisodeControllerFacade} from "../ProgrammeEpisodeControllerFacade"
 import {MotorShowControllerFacade} from "../MotorShowControllerFacade"
+import {VideoControllerFacade} from "../VideoControllerFacade"
 import {ImageControllerFacade} from "../ImageControllerFacade"
 
 function idIsNumeric(id: string) {
@@ -87,6 +88,8 @@ export async function displayNode(req: express.Request, res: express.Response, n
             return ProgrammeEpisodeControllerFacade.showNode(req, res)
         case ControllerNodeType.MOTOR_SHOW:
             return MotorShowControllerFacade.showNode(req, res)
+        case ControllerNodeType.VIDEO:
+            return VideoControllerFacade.showNode(req, res)
         case ControllerNodeType.IMAGE:
             return ImageControllerFacade.showNode(req, res)
     }

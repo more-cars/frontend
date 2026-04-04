@@ -3,6 +3,7 @@ extends ../../layouts/base/layout
 block main
     - item = node.data.fields
     - mainImage = node.main_image
+    - mainVideo = node.main_video
 
     div(class="grid grid-cols-2 gap-6 items-start")
         div(data-testid="main-area-primary")
@@ -12,7 +13,10 @@ block main
                         span(class="float-right text-5xl select-none") #{icon(node.type)}
                         span #{node.title}
                     p(class="text-sm") #{node.sub_title}
-                include ../shared/connected-main-image
+                if mainVideo
+                    include ../shared/connected-main-video
+                else
+                    include ../shared/connected-main-image
 
             include ../shared/fact-sheet
 

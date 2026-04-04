@@ -26,6 +26,7 @@ export function mapApiNodeTypeToDataNodeType(modelNodeType: ModelNodeType) {
         [ModelNodeType.PROGRAMME, ControllerNodeType.PROGRAMME],
         [ModelNodeType.PROGRAMME_EPISODE, ControllerNodeType.PROGRAMME_EPISODE],
         [ModelNodeType.MOTOR_SHOW, ControllerNodeType.MOTOR_SHOW],
+        [ModelNodeType.VIDEO, ControllerNodeType.VIDEO],
         [ModelNodeType.IMAGE, ControllerNodeType.IMAGE],
     ])
 
