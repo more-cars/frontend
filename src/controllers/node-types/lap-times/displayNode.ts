@@ -3,10 +3,8 @@ import {LapTimeModelFacade} from "../../../models/LapTimeModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
-import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
-import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const lapTimeId = parseInt(req.params.id)
@@ -35,17 +33,17 @@ export async function displayNode(req: express.Request, res: express.Response) {
             car_model_variant: {
                 item: carModelVariant,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
-                thumbnails: await getCarModelVariantThumbnails(carModelVariant ? [carModelVariant] : []),
+                thumbnails: await getNodeThumbnails(carModelVariant ? [carModelVariant] : []),
             },
             track_layout: {
                 item: trackLayout,
                 node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
-                thumbnails: await getTrackLayoutThumbnails(trackLayout ? [trackLayout] : []),
+                thumbnails: await getNodeThumbnails(trackLayout ? [trackLayout] : []),
             },
             session_result: {
                 item: sessionResult,
                 node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
-                thumbnails: await getSessionResultThumbnails(sessionResult ? [sessionResult] : []),
+                thumbnails: await getNodeThumbnails(sessionResult ? [sessionResult] : []),
             },
             images: {
                 items: images,

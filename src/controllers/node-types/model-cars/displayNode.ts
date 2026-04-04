@@ -3,9 +3,8 @@ import {ModelCarModelFacade} from "../../../models/ModelCarModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getModelCarBrandThumbnails} from "../model-car-brands/getModelCarBrandThumbnails"
-import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const modelCarId = parseInt(req.params.id)
@@ -33,12 +32,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             model_car_brand: {
                 item: modelCarBrand,
                 node_properties: getNodeProperties(DataNodeType.MODEL_CAR_BRAND),
-                thumbnails: await getModelCarBrandThumbnails(modelCarBrand ? [modelCarBrand] : []),
+                thumbnails: await getNodeThumbnails(modelCarBrand ? [modelCarBrand] : []),
             },
             car_model_variant: {
                 item: carModelVariant,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
-                thumbnails: await getCarModelVariantThumbnails(carModelVariant ? [carModelVariant] : []),
+                thumbnails: await getNodeThumbnails(carModelVariant ? [carModelVariant] : []),
             },
             images: {
                 items: images,

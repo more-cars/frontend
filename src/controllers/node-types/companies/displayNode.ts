@@ -3,8 +3,8 @@ import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getBrandThumbnails} from "../brands/getBrandThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const companyId = parseInt(req.params.id)
@@ -31,7 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             brands: {
                 items: brands,
                 node_properties: getNodeProperties(DataNodeType.BRAND),
-                thumbnails: await getBrandThumbnails(brands),
+                thumbnails: await getNodeThumbnails(brands),
             },
             images: {
                 items: images,

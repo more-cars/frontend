@@ -7,5 +7,5 @@ skip_if: "<%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>:"
             <%= h.changeCase.snake(h.inflection.pluralize(partnerNodeType)) %>: {
                 items: <%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>,
                 node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(partnerNodeType) %>),
-                thumbnails: await get<%= h.changeCase.pascal(partnerNodeType) %>Thumbnails(<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>),
+                thumbnails: await getNodeThumbnails(<%= h.changeCase.camel(h.inflection.pluralize(partnerNodeType)) %>),
             },

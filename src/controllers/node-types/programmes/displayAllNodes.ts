@@ -3,9 +3,9 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {ProgrammeModelFacade} from "../../../models/ProgrammeModelFacade"
-import {getProgrammeThumbnails} from "./getProgrammeThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.PROGRAMME,
         node_collection: programmes,
         node_titles: getAllNodeTitles(programmes, ProgrammeModelFacade.getNodeTitle),
-        thumbnails: await getProgrammeThumbnails(programmes),
+        thumbnails: await getNodeThumbnails(programmes),
         node_properties: getNodeProperties(DataNodeType.PROGRAMME),
         pagination: {
             page,

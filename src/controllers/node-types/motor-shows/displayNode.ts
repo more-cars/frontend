@@ -3,8 +3,8 @@ import {MotorShowModelFacade} from "../../../models/MotorShowModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const motorShowId = parseInt(req.params.id)
@@ -31,7 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             car_model_variants: {
                 items: carModelVariants,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
-                thumbnails: await getCarModelVariantThumbnails(carModelVariants),
+                thumbnails: await getNodeThumbnails(carModelVariants),
             },
             images: {
                 items: images,

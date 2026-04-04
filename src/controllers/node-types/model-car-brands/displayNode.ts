@@ -3,8 +3,8 @@ import {ModelCarBrandModelFacade} from "../../../models/ModelCarBrandModelFacade
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getModelCarThumbnails} from "../model-cars/getModelCarThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const modelCarBrandId = parseInt(req.params.id)
@@ -31,7 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             model_cars: {
                 items: modelCars,
                 node_properties: getNodeProperties(DataNodeType.MODEL_CAR),
-                thumbnails: await getModelCarThumbnails(modelCars),
+                thumbnails: await getNodeThumbnails(modelCars),
             },
             images: {
                 items: images,

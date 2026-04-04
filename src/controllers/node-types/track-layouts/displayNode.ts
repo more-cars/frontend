@@ -3,10 +3,8 @@ import {TrackLayoutModelFacade} from "../../../models/TrackLayoutModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getRaceTrackThumbnails} from "../race-tracks/getRaceTrackThumbnails"
-import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
-import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayoutId = parseInt(req.params.id)
@@ -35,17 +33,17 @@ export async function displayNode(req: express.Request, res: express.Response) {
             race_track: {
                 item: raceTrack,
                 node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
-                thumbnails: await getRaceTrackThumbnails(raceTrack ? [raceTrack] : []),
+                thumbnails: await getNodeThumbnails(raceTrack ? [raceTrack] : []),
             },
             racing_events: {
                 items: racingEvents,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
-                thumbnails: await getRacingEventThumbnails(racingEvents),
+                thumbnails: await getNodeThumbnails(racingEvents),
             },
             racing_games: {
                 items: racingGames,
                 node_properties: getNodeProperties(DataNodeType.RACING_GAME),
-                thumbnails: await getRacingGameThumbnails(racingGames),
+                thumbnails: await getNodeThumbnails(racingGames),
             },
             images: {
                 items: images,

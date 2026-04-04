@@ -1,4 +1,5 @@
 export enum DataNodeType {
+    NODE = '',
     COMPANY = 'company',
     BRAND = 'brand',
     CAR_MODEL = 'car model',

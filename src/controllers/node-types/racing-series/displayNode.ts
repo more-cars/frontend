@@ -3,8 +3,8 @@ import {RacingSeriesModelFacade} from "../../../models/RacingSeriesModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingSeriesId = parseInt(req.params.id)
@@ -31,7 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             racing_events: {
                 items: racingEvents,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
-                thumbnails: await getRacingEventThumbnails(racingEvents),
+                thumbnails: await getNodeThumbnails(racingEvents),
             },
             images: {
                 items: images,

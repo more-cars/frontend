@@ -6,6 +6,7 @@ import {DataNodeType} from "../../../data/types/DataNodeType"
 import {Image} from "../../../models/node-types/images/types/Image"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -17,7 +18,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.IMAGE,
         node_collection: images,
         node_titles: getAllNodeTitles(images, ImageModelFacade.getNodeTitle),
-        thumbnails: await getThumbnails(images),
+        thumbnails: await getNodeThumbnails(images),
         node_properties: getNodeProperties(DataNodeType.IMAGE),
         pagination: {
             page,

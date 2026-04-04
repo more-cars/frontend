@@ -3,9 +3,8 @@ import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
-import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const ratingId = parseInt(req.params.id)
@@ -33,12 +32,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             car_model_variant: {
                 item: carModelVariant,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
-                thumbnails: await getCarModelVariantThumbnails(carModelVariant ? [carModelVariant] : []),
+                thumbnails: await getNodeThumbnails(carModelVariant ? [carModelVariant] : []),
             },
             magazine_issue: {
                 item: magazineIssue,
                 node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
-                thumbnails: await getMagazineIssueThumbnails(magazineIssue ? [magazineIssue] : []),
+                thumbnails: await getNodeThumbnails(magazineIssue ? [magazineIssue] : []),
             },
             images: {
                 items: images,

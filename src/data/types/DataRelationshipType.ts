@@ -1,4 +1,6 @@
 export enum DataRelationshipType {
+    NODE_HAS_IMAGE = 'has image',
+    NODE_HAS_MAIN_IMAGE = 'has main image',
     COMPANY_HAS_MAIN_IMAGE = 'has main image',
     COMPANY_HAS_BRAND = 'has brand',
     COMPANY_HAS_IMAGE = 'has image',

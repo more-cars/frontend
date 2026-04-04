@@ -3,9 +3,9 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade"
-import {getMagazineIssueThumbnails} from "./getMagazineIssueThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.MAGAZINE_ISSUE,
         node_collection: magazineIssues,
         node_titles: getAllNodeTitles(magazineIssues, MagazineIssueModelFacade.getNodeTitle),
-        thumbnails: await getMagazineIssueThumbnails(magazineIssues),
+        thumbnails: await getNodeThumbnails(magazineIssues),
         node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
         pagination: {
             page,

@@ -3,9 +3,9 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {TrackLayoutModelFacade} from "../../../models/TrackLayoutModelFacade"
-import {getTrackLayoutThumbnails} from "./getTrackLayoutThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.TRACK_LAYOUT,
         node_collection: trackLayouts,
         node_titles: getAllNodeTitles(trackLayouts, TrackLayoutModelFacade.getNodeTitle),
-        thumbnails: await getTrackLayoutThumbnails(trackLayouts),
+        thumbnails: await getNodeThumbnails(trackLayouts),
         node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
         pagination: {
             page,

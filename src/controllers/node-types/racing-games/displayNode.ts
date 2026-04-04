@@ -3,10 +3,8 @@ import {RacingGameModelFacade} from "../../../models/RacingGameModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getCarModelVariantThumbnails} from "../car-model-variants/getCarModelVariantThumbnails"
-import {getTrackLayoutThumbnails} from "../track-layouts/getTrackLayoutThumbnails"
-import {getGamingPlatformThumbnails} from "../gaming-platforms/getGamingPlatformThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingGameId = parseInt(req.params.id)
@@ -35,17 +33,17 @@ export async function displayNode(req: express.Request, res: express.Response) {
             car_model_variants: {
                 items: carModelVariants,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
-                thumbnails: await getCarModelVariantThumbnails(carModelVariants),
+                thumbnails: await getNodeThumbnails(carModelVariants),
             },
             track_layouts: {
                 items: trackLayouts,
                 node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
-                thumbnails: await getTrackLayoutThumbnails(trackLayouts),
+                thumbnails: await getNodeThumbnails(trackLayouts),
             },
             gaming_platforms: {
                 items: gamingPlatforms,
                 node_properties: getNodeProperties(DataNodeType.GAMING_PLATFORM),
-                thumbnails: await getGamingPlatformThumbnails(gamingPlatforms),
+                thumbnails: await getNodeThumbnails(gamingPlatforms),
             },
             images: {
                 items: images,

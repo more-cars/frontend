@@ -1,4 +1,6 @@
 export enum ApiRelationshipType {
+    NODE_HAS_IMAGE = 'has-image',
+    NODE_HAS_PRIME_IMAGE = 'has-prime-image',
     COMPANY_HAS_MAIN_IMAGE = 'has-prime-image',
     COMPANY_HAS_BRAND = 'has-brand',
     COMPANY_HAS_IMAGE = 'has-image',

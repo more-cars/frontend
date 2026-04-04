@@ -3,9 +3,8 @@ import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getRacingEventThumbnails} from "../racing-events/getRacingEventThumbnails"
-import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingSessionId = parseInt(req.params.id)
@@ -33,12 +32,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             racing_event: {
                 item: racingEvent,
                 node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
-                thumbnails: await getRacingEventThumbnails(racingEvent ? [racingEvent] : []),
+                thumbnails: await getNodeThumbnails(racingEvent ? [racingEvent] : []),
             },
             session_results: {
                 items: sessionResults,
                 node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
-                thumbnails: await getSessionResultThumbnails(sessionResults),
+                thumbnails: await getNodeThumbnails(sessionResults),
             },
             images: {
                 items: images,

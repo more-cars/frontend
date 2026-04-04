@@ -3,8 +3,8 @@ import {ProgrammeModelFacade} from "../../../models/ProgrammeModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getProgrammeEpisodeThumbnails} from "../programme-episodes/getProgrammeEpisodeThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const programmeId = parseInt(req.params.id)
@@ -31,7 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             programme_episodes: {
                 items: programmeEpisodes,
                 node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
-                thumbnails: await getProgrammeEpisodeThumbnails(programmeEpisodes),
+                thumbnails: await getNodeThumbnails(programmeEpisodes),
             },
             images: {
                 items: images,

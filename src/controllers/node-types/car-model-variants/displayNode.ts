@@ -3,17 +3,8 @@ import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFa
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {getCarModelThumbnails} from "../car-models/getCarModelThumbnails"
-import {getMagazineIssueThumbnails} from "../magazine-issues/getMagazineIssueThumbnails"
-import {getRatingThumbnails} from "../ratings/getRatingThumbnails"
-import {getProgrammeEpisodeThumbnails} from "../programme-episodes/getProgrammeEpisodeThumbnails"
-import {getLapTimeThumbnails} from "../lap-times/getLapTimeThumbnails"
-import {getSessionResultThumbnails} from "../session-results/getSessionResultThumbnails"
-import {getRacingGameThumbnails} from "../racing-games/getRacingGameThumbnails"
-import {getMotorShowThumbnails} from "../motor-shows/getMotorShowThumbnails"
-import {getPriceThumbnails} from "../prices/getPriceThumbnails"
-import {getModelCarThumbnails} from "../model-cars/getModelCarThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const carModelVariantId = parseInt(req.params.id)
@@ -49,52 +40,52 @@ export async function displayNode(req: express.Request, res: express.Response) {
             car_model: {
                 item: carModel,
                 node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
-                thumbnails: await getCarModelThumbnails(carModel ? [carModel] : []),
+                thumbnails: await getNodeThumbnails(carModel ? [carModel] : []),
             },
             magazine_issues: {
                 items: magazineIssues,
                 node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
-                thumbnails: await getMagazineIssueThumbnails(magazineIssues),
+                thumbnails: await getNodeThumbnails(magazineIssues),
             },
             ratings: {
                 items: ratings,
                 node_properties: getNodeProperties(DataNodeType.RATING),
-                thumbnails: await getRatingThumbnails(ratings),
+                thumbnails: await getNodeThumbnails(ratings),
             },
             prices: {
                 items: prices,
                 node_properties: getNodeProperties(DataNodeType.PRICE),
-                thumbnails: await getPriceThumbnails(prices),
+                thumbnails: await getNodeThumbnails(prices),
             },
             programme_episodes: {
                 items: programmeEpisodes,
                 node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
-                thumbnails: await getProgrammeEpisodeThumbnails(programmeEpisodes),
+                thumbnails: await getNodeThumbnails(programmeEpisodes),
             },
             lap_times: {
                 items: lapTimes,
                 node_properties: getNodeProperties(DataNodeType.LAP_TIME),
-                thumbnails: await getLapTimeThumbnails(lapTimes),
+                thumbnails: await getNodeThumbnails(lapTimes),
             },
             session_results: {
                 items: sessionResults,
                 node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
-                thumbnails: await getSessionResultThumbnails(sessionResults),
+                thumbnails: await getNodeThumbnails(sessionResults),
             },
             racing_games: {
                 items: racingGames,
                 node_properties: getNodeProperties(DataNodeType.RACING_GAME),
-                thumbnails: await getRacingGameThumbnails(racingGames),
+                thumbnails: await getNodeThumbnails(racingGames),
             },
             model_cars: {
                 items: modelCars,
                 node_properties: getNodeProperties(DataNodeType.MODEL_CAR),
-                thumbnails: await getModelCarThumbnails(modelCars),
+                thumbnails: await getNodeThumbnails(modelCars),
             },
             motor_shows: {
                 items: motorShows,
                 node_properties: getNodeProperties(DataNodeType.MOTOR_SHOW),
-                thumbnails: await getMotorShowThumbnails(motorShows),
+                thumbnails: await getNodeThumbnails(motorShows),
             },
             images: {
                 items: images,
