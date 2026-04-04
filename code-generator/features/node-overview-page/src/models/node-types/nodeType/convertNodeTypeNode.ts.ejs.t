@@ -10,12 +10,12 @@ export function convert<%= h.changeCase.pascal(nodeType) %>Node(dataNode: <%= h.
     const <%= h.changeCase.camel(nodeType) %>: <%= h.changeCase.pascal(nodeType) %> = {
         type: ModelNodeType.<%= h.changeCase.constant(nodeType) %>,
         fields: {
-            id: dataNode.id,
+            id: dataNode.data.id,
 <% properties.forEach(prop => { -%>
-            <%= prop.name %>: dataNode.<%= prop.name %><% if(!prop.mandatory) { %> || null<% } %>,
+            <%= prop.name %>: dataNode.data.<%= prop.name %><% if(!prop.mandatory) { %> || null<% } %>,
 <% }) -%>
-            created_at: dataNode.created_at,
-            updated_at: dataNode.updated_at,
+            created_at: dataNode.data.created_at,
+            updated_at: dataNode.data.updated_at,
         }
     }
 

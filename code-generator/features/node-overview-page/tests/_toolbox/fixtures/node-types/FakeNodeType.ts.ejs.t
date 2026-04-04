@@ -13,15 +13,15 @@ export const Fake<%= h.changeCase.pascal(nodeType) %> = {
         fields: {
             id: faker.number.int({min: 12_000_000, max: 20_000_000}),
 <% const properties = JSON.parse(props) -%>
-<% for (prop in properties) { -%>
-<%    if (properties[prop].datatype === 'string') { -%>
-            <%= prop %>: faker.word.noun(),
-<%    } else if (properties[prop].datatype === 'number') { -%>
-            <%= prop %>: faker.number.int({min: 1000, max: 3000}),
-<%    } else if (properties[prop].datatype === 'boolean') { -%>
-            <%= prop %>: faker.datatype.boolean(),
+<% properties.forEach(prop => { -%>
+<%    if (prop.datatype === 'string') { -%>
+            <%= prop.name %>: faker.word.noun(),
+<%    } else if (prop.datatype === 'number') { -%>
+            <%= prop.name %>: faker.number.int({min: 1000, max: 3000}),
+<%    } else if (prop.datatype === 'boolean') { -%>
+            <%= prop.name %>: faker.datatype.boolean(),
 <%    } -%>
-<% } -%>
+<% }) -%>
             created_at: faker.date.past().toISOString(),
             updated_at: faker.date.past().toISOString(),
         },
@@ -31,17 +31,17 @@ export const Fake<%= h.changeCase.pascal(nodeType) %> = {
         type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,
         data: {
             id: faker.number.int({min: 12_000_000, max: 20_000_000}),
-<% const properties = JSON.parse(props) -%>
-<% for (prop in properties) { -%>
-<%    if (properties[prop].datatype === 'string') { -%>
-            <%= prop %>: faker.word.noun(),
-<%    } else if (properties[prop].datatype === 'number') { -%>
-            <%= prop %>: faker.number.int({min: 1000, max: 3000}),
-<%    } else if (properties[prop].datatype === 'boolean') { -%>
-            <%= prop %>: faker.datatype.boolean(),
+<% properties.forEach(prop => { -%>
+<%    if (prop.datatype === 'string') { -%>
+            <%= prop.name %>: faker.word.noun(),
+<%    } else if (prop.datatype === 'number') { -%>
+            <%= prop.name %>: faker.number.int({min: 1000, max: 3000}),
+<%    } else if (prop.datatype === 'boolean') { -%>
+            <%= prop.name %>: faker.datatype.boolean(),
 <%    } -%>
-<% } -%>
+<% }) -%>
             created_at: faker.date.past().toISOString(),
             updated_at: faker.date.past().toISOString(),
         },
     } satisfies <%= h.changeCase.pascal(nodeType) %>Node,
+}

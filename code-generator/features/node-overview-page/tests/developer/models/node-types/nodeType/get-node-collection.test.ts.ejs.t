@@ -30,7 +30,7 @@ describe('Collect node collection for the <%= h.changeCase.upper(nodeType) %> ov
         const dummyNodes = []
 
         for (let i = 0; i < 110; i++) {
-            dummyNodes.push({id: i, name: "dummy " + i} as <%= h.changeCase.pascal(nodeType) %>Node)
+            dummyNodes.push({type: DataNodeType.VIDEO, data: {id: i, name: "dummy " + i}} as <%= h.changeCase.pascal(nodeType) %>Node)
         }
 
         vi.spyOn(<%= h.changeCase.pascal(nodeType) %>DataFacade, 'getNodeCollection')
