@@ -1,6 +1,6 @@
+import type {ApiRelationshipType} from "../../../types/ApiRelationshipType"
 import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiRaceTrackNode} from "../../race-tracks/types/ApiRaceTrackNode"
-import type {ApiRelationshipType} from "../../../types/ApiRelationshipType"
 
 export type ApiTrackLayoutBelongsToRaceTrackRelationship = {
     data: {

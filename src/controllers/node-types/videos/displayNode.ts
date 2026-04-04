@@ -3,6 +3,7 @@ import {VideoModelFacade} from "../../../models/VideoModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
@@ -12,6 +13,8 @@ export async function displayNode(req: express.Request, res: express.Response) {
     if (!video) {
         return sendResponse404(res)
     }
+
+    const nodes = await VideoModelFacade.getConnectedNodes(videoId)
 
     res.render('templates/node-types/videos/video-detail-page', {
         page_title: `${video.fields.title} - Video`,
@@ -23,6 +26,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             node_properties: getNodeProperties(DataNodeType.VIDEO),
             main_video: video,
         },
-        relationships: {},
+        relationships: {
+            nodes: {
+                items: nodes,
+                node_properties: getNodeProperties(DataNodeType.BRAND),
+                thumbnails: await getNodeThumbnails(nodes),
+            },
+        },
     })
 }

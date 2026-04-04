@@ -1,14 +1,14 @@
 import type {ApiRelationshipType} from "../../../types/ApiRelationshipType"
 import type {ApiNodeType} from "../../../types/ApiNodeType"
-import type {ApiImageNode} from "./ApiImageNode"
+import type {ApiVideoNode} from "./ApiVideoNode"
 
-export type ApiImageBelongsToNodeRelationship = {
+export type ApiVideoBelongsToNodeRelationship = {
     data: {
         relationship_id: number
-        relationship_name: ApiRelationshipType.IMAGE_BELONGS_TO_NODE
+        relationship_name: ApiRelationshipType.VIDEO_BELONGS_TO_NODE
         start_node: {
-            node_type: ApiNodeType.IMAGE
-            data: ApiImageNode['attributes']
+            node_type: ApiNodeType.VIDEO
+            data: ApiVideoNode['attributes']
         }
         partner_node: {
             node_type: ApiNodeType

@@ -5,6 +5,7 @@ import type {Video} from "./node-types/videos/types/Video"
 import {getNodeTitle} from "./node-types/videos/getNodeTitle"
 import {findNodeById} from "./node-types/videos/findNodeById"
 import {getNodeSubTitle} from "./node-types/videos/getNodeSubTitle"
+import {findConnectedNodes} from "./node-types/videos/findConnectedNodes"
 
 export const VideoModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -25,5 +26,9 @@ export const VideoModelFacade = {
 
     getNodeSubTitle(node: Video) {
         return getNodeSubTitle(node)
+    },
+
+    async getConnectedNodes(id: number) {
+        return findConnectedNodes(id)
     },
 }
