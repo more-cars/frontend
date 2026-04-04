@@ -11,7 +11,7 @@ import type {MagazineNode} from "../../../../../src/data/node-types/magazines/ty
 
 describe('Fetching <%= h.changeCase.upper(nodeType) %> node from data source', () => {
     test('when there is no <%= h.changeCase.upper(nodeType) %>', async () => {
-        const responseData = null
+        const apiResponse = null
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))
@@ -27,7 +27,7 @@ describe('Fetching <%= h.changeCase.upper(nodeType) %> node from data source', (
             attributes: {
                 name: "dummy",
             },
-        } as ApiMagazineNode
+        } as Api<%= h.changeCase.pascal(nodeType) %>Node
 
         const expectedDataNode = {
             type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,
@@ -35,7 +35,7 @@ describe('Fetching <%= h.changeCase.upper(nodeType) %> node from data source', (
                 id: 12345678,
                 name: "dummy",
             },
-        } as MagazineNode
+        } as <%= h.changeCase.pascal(nodeType) %>Node
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))
