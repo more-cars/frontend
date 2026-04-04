@@ -13,7 +13,7 @@ block main
                     - nodeType = node_type
                     - nodeData = node.fields
                     - itemHeadline = node_titles.get(nodeData.id)
-                    - thumbnail = thumbnails.get(nodeData.id)
+                    - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : null
                     - nodeProperties = node_properties
                     include ../shared/list-node-item
 
