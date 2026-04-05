@@ -124,6 +124,7 @@ export enum ApiRelationshipType {
     PROGRAMME_EPISODE_COVERS_CAR_MODEL = 'covers-car-model',
     PROGRAMME_EPISODE_FEATURES_CAR_MODEL_VARIANT = 'features-car-model-variant',
     PROGRAMME_EPISODE_HAS_IMAGE = 'has-image',
+    PROGRAMME_EPISODE_HAS_VIDEO = 'has-video',
     MOTOR_SHOW_HAS_MAIN_IMAGE = 'has-main-image',
     MOTOR_SHOW_PRESENTS_CAR_MODEL_VARIANT = 'presents-car-model-variant',
     MOTOR_SHOW_HAS_IMAGE = 'has-image',
