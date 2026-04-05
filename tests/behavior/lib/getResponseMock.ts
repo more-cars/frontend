@@ -21,6 +21,8 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
             const modifiedNode = structuredClone(nodeMock)
             modifiedNode.id = getRandomCanonicalNodeId()
             mockedNodes.push(modifiedNode)
+            nodeState.set(modifiedNode.id, true)
+            typeOfNode.set(modifiedNode.id, nodeMock.type)
         }
 
         nodeCollectionResponseMock.mock.data = mockedNodes
