@@ -5,6 +5,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {getVideoThumbnails} from "../videos/getVideoThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const magazineId = parseInt(req.params.id)
@@ -16,6 +17,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
 
     const magazineIssues = await MagazineModelFacade.getConnectedMagazineIssues(magazineId)
     const images = await MagazineModelFacade.getConnectedImages(magazineId)
+    const videos = await MagazineModelFacade.getConnectedVideos(magazineId)
 
     res.render('templates/node-types/magazines/magazine-detail-page', {
         page_title: `${magazine.fields.name} - Magazine`,
@@ -36,6 +38,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             images: {
                 items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
+            videos: {
+                items: videos,
+                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                thumbnails: await getVideoThumbnails(videos),
             },
         },
     })

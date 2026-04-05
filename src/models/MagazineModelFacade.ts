@@ -8,6 +8,7 @@ import {getNodeSubTitle} from "./node-types/magazines/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/magazines/findConnectedMainImage"
 import {findConnectedMagazineIssues} from "./node-types/magazines/findConnectedMagazineIssues"
 import {findConnectedImages} from "./node-types/magazines/findConnectedImages"
+import {findConnectedVideos} from "./node-types/magazines/findConnectedVideos"
 
 export const MagazineModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -40,5 +41,9 @@ export const MagazineModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

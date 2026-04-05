@@ -98,6 +98,7 @@ export enum ApiRelationshipType {
     MAGAZINE_HAS_MAIN_IMAGE = 'has-prime-image',
     MAGAZINE_HAS_ISSUE = 'has-issue',
     MAGAZINE_HAS_IMAGE = 'has-image',
+    MAGAZINE_HAS_VIDEO = 'has-video',
     MAGAZINE_ISSUE_HAS_MAIN_IMAGE = 'has-prime-image',
     MAGAZINE_ISSUE_BELONGS_TO_MAGAZINE = 'belongs-to-magazine',
     MAGAZINE_ISSUE_FOLLOWS_ISSUE = 'follows-issue',
