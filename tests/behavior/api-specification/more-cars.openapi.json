@@ -35938,7 +35938,6 @@
       },
       "ImageBelongsToNode": {
         "type": "object",
-        "required": [],
         "properties": {
           "relationship_id": {
             "type": "integer",
@@ -35950,8 +35949,29 @@
             "readOnly": true,
             "example": "belongs-to-node"
           },
+          "start_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
           "partner_node": {
-            "$ref": "#/components/schemas/Node"
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "brands"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Node"
+              }
+            }
           },
           "created_at": {
             "type": "string",
@@ -36034,8 +36054,29 @@
             "readOnly": true,
             "example": "is-prime-image-of-node"
           },
+          "start_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "images"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
           "partner_node": {
-            "$ref": "#/components/schemas/Node"
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "brands"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Node"
+              }
+            }
           },
           "created_at": {
             "type": "string",
