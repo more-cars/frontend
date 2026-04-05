@@ -21,10 +21,6 @@ export async function getConnectedMainImage(id: number) {
         return null
     }
 
-    if (!apiData || !sourceNode) {
-        return null
-    }
-
     const relationship: <%= h.changeCase.pascal(nodeType) %>HasMainImageRelationship = {
         id,
         name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE,

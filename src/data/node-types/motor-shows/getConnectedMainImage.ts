@@ -18,10 +18,6 @@ export async function getConnectedMainImage(id: number) {
         return null
     }
 
-    if (!apiData || !sourceNode) {
-        return null
-    }
-
     const relationship: MotorShowHasMainImageRelationship = {
         id,
         name: DataRelationshipType.MOTOR_SHOW_HAS_MAIN_IMAGE,
