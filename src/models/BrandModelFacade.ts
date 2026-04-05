@@ -9,6 +9,7 @@ import {findConnectedCompany} from "./node-types/brands/findConnectedCompany"
 import {findConnectedCarModels} from "./node-types/brands/findConnectedCarModels"
 import {findConnectedImages} from "./node-types/brands/findConnectedImages"
 import {findConnectedMainImage} from "./node-types/brands/findConnectedMainImage"
+import {findConnectedVideos} from "./node-types/brands/findConnectedVideos"
 
 export const BrandModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -45,5 +46,9 @@ export const BrandModelFacade = {
 
     async getConnectedMainImage(id: number) {
         return findConnectedMainImage(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }
