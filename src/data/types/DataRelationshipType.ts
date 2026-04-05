@@ -16,6 +16,7 @@ export enum DataRelationshipType {
     CAR_MODEL_COVERED_BY_MAGAZINE_ISSUE = 'covered by magazine issue',
     CAR_MODEL_COVERED_BY_PROGRAMME_EPISODE = 'covered by programme episode',
     CAR_MODEL_HAS_IMAGE = 'has image',
+    CAR_MODEL_HAS_VIDEO = 'has video',
     CAR_MODEL_VARIANT_HAS_MAIN_IMAGE = 'has main image',
     CAR_MODEL_VARIANT_IS_VARIANT_OF = 'is variant of',
     CAR_MODEL_VARIANT_IS_PRESENTED_IN_MAGAZINE_ISSUE = 'is presented in magazine issue',
