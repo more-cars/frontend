@@ -8,6 +8,7 @@ import {getNodeSubTitle} from "./node-types/companies/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/companies/findConnectedMainImage"
 import {findConnectedBrands} from "./node-types/companies/findConnectedBrands"
 import {findConnectedImages} from "./node-types/companies/findConnectedImages"
+import {findConnectedVideos} from "./node-types/companies/findConnectedVideos"
 
 export const CompanyModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -40,5 +41,9 @@ export const CompanyModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

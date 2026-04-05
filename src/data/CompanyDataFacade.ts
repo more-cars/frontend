@@ -3,6 +3,7 @@ import {getCompanyById} from "./node-types/companies/getCompanyById"
 import {getConnectedMainImage} from "./node-types/companies/getConnectedMainImage"
 import {getConnectedBrands} from "./node-types/companies/getConnectedBrands"
 import {getConnectedImages} from "./node-types/companies/getConnectedImages"
+import {getConnectedVideos} from "./node-types/companies/getConnectedVideos"
 
 export const CompanyDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const CompanyDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }

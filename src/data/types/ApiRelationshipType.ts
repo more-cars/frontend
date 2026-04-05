@@ -4,6 +4,7 @@ export enum ApiRelationshipType {
     COMPANY_HAS_MAIN_IMAGE = 'has-prime-image',
     COMPANY_HAS_BRAND = 'has-brand',
     COMPANY_HAS_IMAGE = 'has-image',
+    COMPANY_HAS_VIDEO = 'has-video',
     BRAND_HAS_MAIN_IMAGE = 'has-prime-image',
     BRAND_BELONGS_TO_COMPANY = 'belongs-to-company',
     BRAND_HAS_CAR_MODEL = 'has-car-model',
