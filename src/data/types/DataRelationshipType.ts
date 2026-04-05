@@ -94,6 +94,7 @@ export enum DataRelationshipType {
     MODEL_CAR_BRAND_HAS_MAIN_IMAGE = 'has main image',
     MODEL_CAR_BRAND_CREATED_MODEL_CAR = 'created model car',
     MODEL_CAR_BRAND_HAS_IMAGE = 'has image',
+    MODEL_CAR_BRAND_HAS_VIDEO = 'has video',
     MAGAZINE_HAS_MAIN_IMAGE = 'has main image',
     MAGAZINE_HAS_ISSUE = 'has issue',
     MAGAZINE_HAS_IMAGE = 'has image',

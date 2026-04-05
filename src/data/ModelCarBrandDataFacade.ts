@@ -3,6 +3,7 @@ import {getModelCarBrandById} from "./node-types/model-car-brands/getModelCarBra
 import {getConnectedMainImage} from "./node-types/model-car-brands/getConnectedMainImage"
 import {getConnectedModelCars} from "./node-types/model-car-brands/getConnectedModelCars"
 import {getConnectedImages} from "./node-types/model-car-brands/getConnectedImages"
+import {getConnectedVideos} from "./node-types/model-car-brands/getConnectedVideos"
 
 export const ModelCarBrandDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const ModelCarBrandDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }
