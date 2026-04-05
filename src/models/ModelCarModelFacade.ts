@@ -9,6 +9,7 @@ import {findConnectedMainImage} from "./node-types/model-cars/findConnectedMainI
 import {findConnectedModelCarBrand} from "./node-types/model-cars/findConnectedModelCarBrand"
 import {findConnectedCarModelVariant} from "./node-types/model-cars/findConnectedCarModelVariant"
 import {findConnectedImages} from "./node-types/model-cars/findConnectedImages"
+import {findConnectedVideos} from "./node-types/model-cars/findConnectedVideos"
 
 export const ModelCarModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -45,5 +46,9 @@ export const ModelCarModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

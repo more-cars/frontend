@@ -5,6 +5,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {getVideoThumbnails} from "../videos/getVideoThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const modelCarId = parseInt(req.params.id)
@@ -17,6 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const modelCarBrand = await ModelCarModelFacade.getConnectedModelCarBrand(modelCarId)
     const carModelVariant = await ModelCarModelFacade.getConnectedCarModelVariant(modelCarId)
     const images = await ModelCarModelFacade.getConnectedImages(modelCarId)
+    const videos = await ModelCarModelFacade.getConnectedVideos(modelCarId)
 
     res.render('templates/node-types/model-cars/model-car-detail-page', {
         page_title: `${modelCar.fields.name} - Model Car`,
@@ -42,6 +44,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             images: {
                 items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
+            videos: {
+                items: videos,
+                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                thumbnails: await getVideoThumbnails(videos),
             },
         },
     })
