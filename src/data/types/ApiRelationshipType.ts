@@ -64,6 +64,7 @@ export enum ApiRelationshipType {
     RACING_SESSION_BELONGS_TO_RACING_EVENT = 'belongs-to-racing-event',
     RACING_SESSION_HAS_SESSION_RESULT = 'has-session-result',
     RACING_SESSION_HAS_IMAGE = 'has-image',
+    RACING_SESSION_HAS_VIDEO = 'has-video',
     SESSION_RESULT_HAS_MAIN_IMAGE = 'has-prime-image',
     SESSION_RESULT_BELONGS_TO_RACING_SESSION = 'belongs-to-racing-session',
     SESSION_RESULT_HAS_LAP_TIME = 'has-lap-time',

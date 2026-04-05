@@ -9,6 +9,7 @@ import {findConnectedMainImage} from "./node-types/racing-sessions/findConnected
 import {findConnectedRacingEvent} from "./node-types/racing-sessions/findConnectedRacingEvent"
 import {findConnectedImages} from "./node-types/racing-sessions/findConnectedImages"
 import {findConnectedSessionResults} from "./node-types/racing-sessions/findConnectedSessionResults"
+import {findConnectedVideos} from "./node-types/racing-sessions/findConnectedVideos"
 
 export const RacingSessionModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -45,5 +46,9 @@ export const RacingSessionModelFacade = {
 
     async getConnectedSessionResults(id: number) {
         return findConnectedSessionResults(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }
