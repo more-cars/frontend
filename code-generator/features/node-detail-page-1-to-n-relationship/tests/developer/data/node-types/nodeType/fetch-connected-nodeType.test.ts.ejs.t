@@ -5,7 +5,7 @@ import {describe, expect, test, vi} from "vitest"
 import {Fake<%= h.changeCase.pascal(nodeType) %>} from "../../../../_toolbox/fixtures/node-types/Fake<%= h.changeCase.pascal(nodeType) %>"
 import * as node from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get<%= h.changeCase.pascal(nodeType) %>ById"
 import * as api from "../../../../../src/data/requestDataFromApi"
-import {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(partnerNodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>"
+import {getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/getConnected<%= h.changeCase.pascal(h.inflection.pluralize(partnerNodeType)) %>"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
 
 describe('Fetching connected <%= h.changeCase.upper(h.inflection.pluralize(partnerNodeType)) %> from data source', () => {
