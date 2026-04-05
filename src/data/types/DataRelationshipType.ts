@@ -59,6 +59,7 @@ export enum DataRelationshipType {
     RACING_EVENT_HAS_RACING_SESSION = 'has racing session',
     RACING_EVENT_COVERED_BY_MAGAZINE_ISSUE = 'covered by magazine issue',
     RACING_EVENT_HAS_IMAGE = 'has image',
+    RACING_EVENT_HAS_VIDEO = 'has video',
     RACING_SESSION_HAS_MAIN_IMAGE = 'has main image',
     RACING_SESSION_BELONGS_TO_RACING_EVENT = 'belongs to racing event',
     RACING_SESSION_HAS_SESSION_RESULT = 'has session result',

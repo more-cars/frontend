@@ -14,6 +14,7 @@ import {findConnectedTrackLayout} from "./node-types/racing-events/findConnected
 import {findConnectedRacingSessions} from "./node-types/racing-events/findConnectedRacingSessions"
 import {findConnectedMagazineIssues} from "./node-types/racing-events/findConnectedMagazineIssues"
 import {findConnectedImages} from "./node-types/racing-events/findConnectedImages"
+import {findConnectedVideos} from "./node-types/racing-events/findConnectedVideos"
 
 export const RacingEventModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -70,5 +71,9 @@ export const RacingEventModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

@@ -9,6 +9,7 @@ import {getConnectedTrackLayout} from "./node-types/racing-events/getConnectedTr
 import {getConnectedRacingSessions} from "./node-types/racing-events/getConnectedRacingSessions"
 import {getConnectedMagazineIssues} from "./node-types/racing-events/getConnectedMagazineIssues"
 import {getConnectedImages} from "./node-types/racing-events/getConnectedImages"
+import {getConnectedVideos} from "./node-types/racing-events/getConnectedVideos"
 
 export const RacingEventDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -53,5 +54,9 @@ export const RacingEventDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }
