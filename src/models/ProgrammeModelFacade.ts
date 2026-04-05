@@ -8,6 +8,7 @@ import {getNodeSubTitle} from "./node-types/programmes/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/programmes/findConnectedMainImage"
 import {findConnectedProgrammeEpisodes} from "./node-types/programmes/findConnectedProgrammeEpisodes"
 import {findConnectedImages} from "./node-types/programmes/findConnectedImages"
+import {findConnectedVideos} from "./node-types/programmes/findConnectedVideos"
 
 export const ProgrammeModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -40,5 +41,9 @@ export const ProgrammeModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

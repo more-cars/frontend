@@ -116,6 +116,7 @@ export enum DataRelationshipType {
     PROGRAMME_HAS_MAIN_IMAGE = 'has main image',
     PROGRAMME_HAS_EPISODE = 'has episode',
     PROGRAMME_HAS_IMAGE = 'has image',
+    PROGRAMME_HAS_VIDEO = 'has video',
     PROGRAMME_EPISODE_HAS_MAIN_IMAGE = 'has main image',
     PROGRAMME_EPISODE_BELONGS_TO_PROGRAMME = 'belongs to programme',
     PROGRAMME_EPISODE_FOLLOWS_EPISODE = 'follows episode',
