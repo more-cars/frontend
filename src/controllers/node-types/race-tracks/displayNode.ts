@@ -5,6 +5,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {getVideoThumbnails} from "../videos/getVideoThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const raceTrackId = parseInt(req.params.id)
@@ -17,6 +18,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayouts = await RaceTrackModelFacade.getConnectedTrackLayouts(raceTrackId)
     const racingEvents = await RaceTrackModelFacade.getConnectedRacingEvents(raceTrackId)
     const images = await RaceTrackModelFacade.getConnectedImages(raceTrackId)
+    const videos = await RaceTrackModelFacade.getConnectedVideos(raceTrackId)
 
     res.render('templates/node-types/race-tracks/race-track-detail-page', {
         page_title: `${raceTrack.fields.name} - Race Track`,
@@ -42,6 +44,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             images: {
                 items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
+            videos: {
+                items: videos,
+                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                thumbnails: await getVideoThumbnails(videos),
             },
         },
     })

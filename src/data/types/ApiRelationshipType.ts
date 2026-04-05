@@ -39,6 +39,7 @@ export enum ApiRelationshipType {
     RACE_TRACK_HAS_LAYOUT = 'has-layout',
     RACE_TRACK_HOSTED_RACING_EVENT = 'hosted-racing-event',
     RACE_TRACK_HAS_IMAGE = 'has-image',
+    RACE_TRACK_HAS_VIDEO = 'has-video',
     TRACK_LAYOUT_HAS_MAIN_IMAGE = 'has-prime-image',
     TRACK_LAYOUT_BELONGS_TO_RACE_TRACK = 'belongs-to-race-track',
     TRACK_LAYOUT_WAS_USED_BY_RACING_EVENT = 'was-used-by-racing-event',
