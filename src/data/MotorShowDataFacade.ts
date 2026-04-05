@@ -3,6 +3,7 @@ import {getMotorShowById} from "./node-types/motor-shows/getMotorShowById"
 import {getConnectedMainImage} from "./node-types/motor-shows/getConnectedMainImage"
 import {getConnectedCarModelVariants} from "./node-types/motor-shows/getConnectedCarModelVariants"
 import {getConnectedImages} from "./node-types/motor-shows/getConnectedImages"
+import {getConnectedVideos} from "./node-types/motor-shows/getConnectedVideos"
 
 export const MotorShowDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const MotorShowDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }

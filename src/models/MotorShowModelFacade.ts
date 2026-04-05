@@ -8,6 +8,7 @@ import {getNodeSubTitle} from "./node-types/motor-shows/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/motor-shows/findConnectedMainImage"
 import {findConnectedCarModelVariants} from "./node-types/motor-shows/findConnectedCarModelVariants"
 import {findConnectedImages} from "./node-types/motor-shows/findConnectedImages"
+import {findConnectedVideos} from "./node-types/motor-shows/findConnectedVideos"
 
 export const MotorShowModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -40,5 +41,9 @@ export const MotorShowModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

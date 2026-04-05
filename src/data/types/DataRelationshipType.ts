@@ -128,6 +128,7 @@ export enum DataRelationshipType {
     MOTOR_SHOW_HAS_MAIN_IMAGE = 'has main image',
     MOTOR_SHOW_PRESENTS_CAR_MODEL_VARIANT = 'presents car model variant',
     MOTOR_SHOW_HAS_IMAGE = 'has image',
+    MOTOR_SHOW_HAS_VIDEO = 'has video',
     VIDEO_BELONGS_TO_NODE = 'belongs to node',
     IMAGE_BELONGS_TO_NODE = 'belongs to node',
 }
