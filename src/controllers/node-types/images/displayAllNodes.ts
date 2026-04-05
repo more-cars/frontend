@@ -3,10 +3,8 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
 import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {Image} from "../../../models/node-types/images/types/Image"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
-import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     const page = determinePaginationPageNumber(req)
@@ -18,21 +16,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.IMAGE,
         node_collection: images,
         node_titles: getAllNodeTitles(images, ImageModelFacade.getNodeTitle),
-        thumbnails: await getNodeThumbnails(images),
         node_properties: getNodeProperties(DataNodeType.IMAGE),
         pagination: {
             page,
             total: await ImageModelFacade.getTotalNodeCount(),
         },
     })
-}
-
-async function getThumbnails(images: Image[]) {
-    const thumbnails = new Map<number, Image | null>
-
-    for (const image of images) {
-        thumbnails.set(image.fields.id, image)
-    }
-
-    return thumbnails
 }
