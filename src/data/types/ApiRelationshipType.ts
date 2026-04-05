@@ -49,6 +49,7 @@ export enum ApiRelationshipType {
     RACING_SERIES_HAS_MAIN_IMAGE = 'has-prime-image',
     RACING_SERIES_HAS_RACING_EVENT = 'has-racing-event',
     RACING_SERIES_HAS_IMAGE = 'has-image',
+    RACING_SERIES_HAS_VIDEO = 'has-video',
     RACING_EVENT_HAS_MAIN_IMAGE = 'has-prime-image',
     RACING_EVENT_BELONGS_TO_RACING_SERIES = 'belongs-to-racing-series',
     RACING_EVENT_FOLLOWS_EVENT = 'follows-event',
