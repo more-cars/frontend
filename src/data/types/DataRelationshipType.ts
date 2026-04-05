@@ -75,6 +75,7 @@ export enum DataRelationshipType {
     LAP_TIME_BELONGS_TO_SESSION_RESULT = 'belongs to session result',
     LAP_TIME_ACHIEVED_WITH_CAR_MODEL_VARIANT = 'achieved with car model variant',
     LAP_TIME_HAS_IMAGE = 'has image',
+    LAP_TIME_HAS_VIDEO = 'has video',
     RACING_GAME_HAS_MAIN_IMAGE = 'has main image',
     RACING_GAME_FEATURES_CAR_MODEL_VARIANT = 'features car model variant',
     RACING_GAME_FEATURES_TRACK_LAYOUT = 'features track layout',
