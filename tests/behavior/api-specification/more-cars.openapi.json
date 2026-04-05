@@ -24788,7 +24788,7 @@
     },
     "/nodes/{node-ids}/has-prime-image": {
       "get": {
-        "operationId": "getPrimeImagesOfNodes",
+        "operationId": "getPrimeImagesOfNodesRel",
         "tags": [
           "Nodes"
         ],
@@ -35650,12 +35650,24 @@
             "readOnly": true,
             "example": "belongs-to-node"
           },
+          "start_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
+          },
           "partner_node": {
             "type": "object",
             "properties": {
               "node_type": {
                 "type": "string",
-                "example": "nodes"
+                "example": "brands"
               },
               "data": {
                 "$ref": "#/components/schemas/Node"
@@ -35711,12 +35723,24 @@
             "readOnly": true,
             "example": "is-main-video-of-node"
           },
+          "start_node": {
+            "type": "object",
+            "properties": {
+              "node_type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
+          },
           "partner_node": {
             "type": "object",
             "properties": {
               "node_type": {
                 "type": "string",
-                "example": "nodes"
+                "example": "brands"
               },
               "data": {
                 "$ref": "#/components/schemas/Node"
