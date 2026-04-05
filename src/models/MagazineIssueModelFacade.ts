@@ -14,6 +14,7 @@ import {findConnectedCarModelVariants} from "./node-types/magazine-issues/findCo
 import {findConnectedRatings} from "./node-types/magazine-issues/findConnectedRatings"
 import {findConnectedRacingEvents} from "./node-types/magazine-issues/findConnectedRacingEvents"
 import {findConnectedImages} from "./node-types/magazine-issues/findConnectedImages"
+import {findConnectedVideos} from "./node-types/magazine-issues/findConnectedVideos"
 
 export const MagazineIssueModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -70,5 +71,9 @@ export const MagazineIssueModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }
