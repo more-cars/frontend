@@ -5,6 +5,7 @@ import {getConnectedRaceTrack} from "./node-types/track-layouts/getConnectedRace
 import {getConnectedRacingEvents} from "./node-types/track-layouts/getConnectedRacingEvents"
 import {getConnectedRacingGames} from "./node-types/track-layouts/getConnectedRacingGames"
 import {getConnectedImages} from "./node-types/track-layouts/getConnectedImages"
+import {getConnectedVideos} from "./node-types/track-layouts/getConnectedVideos"
 
 export const TrackLayoutDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -33,5 +34,9 @@ export const TrackLayoutDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }

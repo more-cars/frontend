@@ -5,6 +5,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {getVideoThumbnails} from "../videos/getVideoThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayoutId = parseInt(req.params.id)
@@ -18,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const racingEvents = await TrackLayoutModelFacade.getConnectedRacingEvents(trackLayoutId)
     const racingGames = await TrackLayoutModelFacade.getConnectedRacingGames(trackLayoutId)
     const images = await TrackLayoutModelFacade.getConnectedImages(trackLayoutId)
+    const videos = await TrackLayoutModelFacade.getConnectedVideos(trackLayoutId)
 
     res.render('templates/node-types/track-layouts/track-layout-detail-page', {
         page_title: `${trackLayout.fields.name} - Track Layout`,
@@ -48,6 +50,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             images: {
                 items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
+            videos: {
+                items: videos,
+                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                thumbnails: await getVideoThumbnails(videos),
             },
         },
     })

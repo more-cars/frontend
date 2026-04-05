@@ -10,6 +10,7 @@ import {findConnectedRaceTrack} from "./node-types/track-layouts/findConnectedRa
 import {findConnectedRacingEvents} from "./node-types/track-layouts/findConnectedRacingEvents"
 import {findConnectedRacingGames} from "./node-types/track-layouts/findConnectedRacingGames"
 import {findConnectedImages} from "./node-types/track-layouts/findConnectedImages"
+import {findConnectedVideos} from "./node-types/track-layouts/findConnectedVideos"
 
 export const TrackLayoutModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -50,5 +51,9 @@ export const TrackLayoutModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }
