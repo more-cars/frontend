@@ -28,6 +28,7 @@ export enum DataRelationshipType {
     CAR_MODEL_VARIANT_HAS_SCALE_MODEL = 'has scale model',
     CAR_MODEL_VARIANT_PRESENTED_AT_MOTOR_SHOW = 'presented at motor show',
     CAR_MODEL_VARIANT_HAS_IMAGE = 'has image',
+    CAR_MODEL_VARIANT_HAS_VIDEO = 'has video',
     PRICE_HAS_MAIN_IMAGE = 'has main image',
     PRICE_FOR_CAR_MODEL_VARIANT = 'for car model variant',
     PRICE_HAS_IMAGE = 'has image',

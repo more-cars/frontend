@@ -12,6 +12,7 @@ import {getConnectedRacingGames} from "./node-types/car-model-variants/getConnec
 import {getConnectedModelCars} from "./node-types/car-model-variants/getConnectedModelCars"
 import {getConnectedMotorShows} from "./node-types/car-model-variants/getConnectedMotorShows"
 import {getConnectedImages} from "./node-types/car-model-variants/getConnectedImages"
+import {getConnectedVideos} from "./node-types/car-model-variants/getConnectedVideos"
 
 export const CarModelVariantDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -68,5 +69,9 @@ export const CarModelVariantDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }
