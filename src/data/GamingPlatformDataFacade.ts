@@ -3,6 +3,7 @@ import {getGamingPlatformById} from "./node-types/gaming-platforms/getGamingPlat
 import {getConnectedMainImage} from "./node-types/gaming-platforms/getConnectedMainImage"
 import {getConnectedRacingGames} from "./node-types/gaming-platforms/getConnectedRacingGames"
 import {getConnectedImages} from "./node-types/gaming-platforms/getConnectedImages"
+import {getConnectedVideos} from "./node-types/gaming-platforms/getConnectedVideos"
 
 export const GamingPlatformDataFacade = {
     async getNodeCollection(params?: { page: number }) {
@@ -23,5 +24,9 @@ export const GamingPlatformDataFacade = {
 
     async getConnectedImageNodes(id: number) {
         return getConnectedImages(id)
+    },
+
+    async getConnectedVideoNodes(id: number) {
+        return getConnectedVideos(id)
     },
 }
