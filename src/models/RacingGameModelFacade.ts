@@ -10,6 +10,7 @@ import {findConnectedCarModelVariants} from "./node-types/racing-games/findConne
 import {findConnectedTrackLayouts} from "./node-types/racing-games/findConnectedTrackLayouts"
 import {findConnectedGamingPlatforms} from "./node-types/racing-games/findConnectedGamingPlatforms"
 import {findConnectedImages} from "./node-types/racing-games/findConnectedImages"
+import {findConnectedVideos} from "./node-types/racing-games/findConnectedVideos"
 
 export const RacingGameModelFacade = {
     async getAllNodes(params: { page: number }) {
@@ -50,5 +51,9 @@ export const RacingGameModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
+    },
+
+    async getConnectedVideos(id: number) {
+        return findConnectedVideos(id)
     },
 }

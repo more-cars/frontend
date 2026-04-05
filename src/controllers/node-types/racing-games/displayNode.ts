@@ -5,6 +5,7 @@ import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {getVideoThumbnails} from "../videos/getVideoThumbnails"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const racingGameId = parseInt(req.params.id)
@@ -18,6 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const trackLayouts = await RacingGameModelFacade.getConnectedTrackLayouts(racingGameId)
     const gamingPlatforms = await RacingGameModelFacade.getConnectedGamingPlatforms(racingGameId)
     const images = await RacingGameModelFacade.getConnectedImages(racingGameId)
+    const videos = await RacingGameModelFacade.getConnectedVideos(racingGameId)
 
     res.render('templates/node-types/racing-games/racing-game-detail-page', {
         page_title: `${racingGame.fields.name} - Racing Game`,
@@ -48,6 +50,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             images: {
                 items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
+            },
+            videos: {
+                items: videos,
+                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                thumbnails: await getVideoThumbnails(videos),
             },
         },
     })
