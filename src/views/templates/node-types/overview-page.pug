@@ -7,18 +7,19 @@ block main
         include ../shared/nodes-not-found-warning
         +nodes-not-found-warning(node_type)
     else
-        section(data-testid=`${node_type}-section`)
-            ul(class="grid lg:grid-cols-2 gap-x-8 gap-y-2")
-                each node in node_collection
-                    - nodeType = node_type
-                    - nodeData = node.fields
-                    - itemHeadline = node_titles.get(nodeData.id)
-                    - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : null
-                    - nodeProperties = node_properties
-                    include ../shared/list-node-item
-
-        include ../shared/pagination
-        +pagination(node_type, pagination.page, pagination.total)
+        div(class="grid grid-cols-2 gap-6 items-start")
+            section(data-testid=`${node_type}-section`)
+                ul(class="mb-6 bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
+                    each node in node_collection
+                        - nodeType = node_type
+                        - nodeData = node.fields
+                        - itemHeadline = node_titles.get(nodeData.id)
+                        - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : null
+                        - nodeProperties = node_properties
+                        include ../shared/list-node-item
+            section(data-testid=`tools-section`)
+                include ../shared/pagination
+                +pagination(node_type, pagination.page, pagination.total)
 
 block footer
     p Footer area...
