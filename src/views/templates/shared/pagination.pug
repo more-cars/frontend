@@ -1,27 +1,58 @@
-mixin pagination(nodeType, currentPage, totalAmount)
-    if totalAmount > 100
-        nav(
-            class="columns-3 text-center"
-            aria-label="pagination"
-        )
-            ul
-                li
+mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastPage)
+    nav(
+        class="columns-7 text-center"
+        aria-label="pagination"
+    )
+        ul
+            li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
+                if currentPage > 2
+                    a(
+                        aria-label="first page"
+                        rel="first"
+                        class="block"
+                        href=`/${nodeTypePath(nodeType)}`
+                    ) «
+                else
+                    span(class="text-zinc-100") –
+
+            li
+                span(class="text-zinc-100") –
+
+            li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
+                if previousPage > 0
                     a(
                         aria-label="previous page"
                         rel="prev"
-                        class="block p-2 border-2 border-zinc-800 rounded-l-lg bg-zinc-100 hover:bg-zinc-400 disabled"
-                        href=`/${nodeTypePath(nodeType)}${currentPage > 2 ? '?page=' + (currentPage - 1) : ''}`
-                    ) previous page
-                li
-                    a(
-                        aria-current="page"
-                        class="block p-2 border-2 border-zinc-800 bg-zinc-100 hover:bg-zinc-400"
-                        href=`/${nodeTypePath(nodeType)}${currentPage > 1 ? '?page=' + (currentPage) : ''}`
-                    ) page #{currentPage}
-                li
+                        class="block"
+                        href=`/${nodeTypePath(nodeType)}?page=${previousPage}`
+                    ) #{previousPage}
+                else
+                    span(class="text-zinc-100") –
+
+            li(class="rounded-full py-2 border-2 border-zinc-100")
+                span #{currentPage}
+
+            li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
+                if nextPage > 1
                     a(
                         aria-label="next page"
                         rel="next"
-                        class="block p-2 border-2 border-zinc-800 rounded-r-lg bg-zinc-100 hover:bg-zinc-400"
-                        href=`/${nodeTypePath(nodeType)}?page=${currentPage + 1}`
-                    ) next page
+                        class="block"
+                        href=`/${nodeTypePath(nodeType)}?page=${nextPage}`
+                    ) #{nextPage}
+                else
+                    span(class="text-zinc-100") –
+
+            li
+                span(class="text-zinc-100") –
+
+            li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
+                if currentPage + 1 < lastPage
+                    a(
+                        aria-label="last page"
+                        rel="last"
+                        class="block"
+                        href=`/${nodeTypePath(nodeType)}?page=${lastPage}`
+                    ) »
+                else
+                    span(class="text-zinc-100") –

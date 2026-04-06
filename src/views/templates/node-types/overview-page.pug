@@ -17,9 +17,7 @@ block main
                         - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : null
                         - nodeProperties = node_properties
                         include ../shared/list-node-item
-            section(data-testid=`tools-section`)
-                include ../shared/pagination
-                +pagination(node_type, pagination.page, pagination.total)
+            include ../shared/search-tools
 
 block footer
     p Footer area...
