@@ -22,7 +22,7 @@ describe('Fetching connected BRANDS from data source', () => {
 
     test('when there are multiple BRANDS connected', async () => {
         const source = FakeCompany.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.BRAND}
 
         const apiResponse = {
             data: [

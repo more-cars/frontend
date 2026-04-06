@@ -22,7 +22,7 @@ describe('Fetching connected SESSION RESULTS from data source', () => {
 
     test('when there are multiple SESSION RESULTS connected', async () => {
         const source = FakeCarModelVariant.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.SESSION_RESULT}
 
         const apiResponse = {
             data: [

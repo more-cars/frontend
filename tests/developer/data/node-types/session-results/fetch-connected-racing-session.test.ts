@@ -22,7 +22,7 @@ describe('Fetching connected RACING SESSION from data source', () => {
 
     test('when there is a RACING SESSION connected', async () => {
         const source = FakeSessionResult.data
-        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
+        const target = {node_type: ApiNodeType.RACING_SESSION, data: {id: 11111118}}
 
         const apiResponse = {data: {partner_node: target}}
 

@@ -22,7 +22,7 @@ describe('Fetching connected TRACK LAYOUT from data source', () => {
 
     test('when there is a TRACK LAYOUT connected', async () => {
         const source = FakeLapTime.data
-        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
+        const target = {node_type: ApiNodeType.TRACK_LAYOUT, data: {id: 11111118}}
 
         const apiResponse = {data: {partner_node: target}}
 

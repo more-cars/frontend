@@ -22,7 +22,7 @@ describe('Fetching connected CAR MODEL VARIANTS from data source', () => {
 
     test('when there are multiple CAR MODEL VARIANTS connected', async () => {
         const source = FakeRacingGame.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.CAR_MODEL_VARIANT}
 
         const apiResponse = {
             data: [

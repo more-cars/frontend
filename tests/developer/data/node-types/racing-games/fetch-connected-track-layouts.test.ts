@@ -22,7 +22,7 @@ describe('Fetching connected TRACK LAYOUTS from data source', () => {
 
     test('when there are multiple TRACK LAYOUTS connected', async () => {
         const source = FakeRacingGame.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.TRACK_LAYOUT}
 
         const apiResponse = {
             data: [

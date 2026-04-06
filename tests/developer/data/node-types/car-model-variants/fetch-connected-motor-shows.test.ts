@@ -22,7 +22,7 @@ describe('Fetching connected MOTOR SHOWS from data source', () => {
 
     test('when there are multiple MOTOR SHOWS connected', async () => {
         const source = FakeCarModelVariant.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.MOTOR_SHOW}
 
         const apiResponse = {
             data: [

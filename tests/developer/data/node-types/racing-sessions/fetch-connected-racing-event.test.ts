@@ -22,7 +22,7 @@ describe('Fetching connected RACING EVENT from data source', () => {
 
     test('when there is a RACING EVENT connected', async () => {
         const source = FakeRacingSession.data
-        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
+        const target = {node_type: ApiNodeType.RACING_EVENT, data: {id: 11111118}}
 
         const apiResponse = {data: {partner_node: target}}
 

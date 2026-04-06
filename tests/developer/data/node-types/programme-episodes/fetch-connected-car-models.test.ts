@@ -22,7 +22,7 @@ describe('Fetching connected CAR MODELS from data source', () => {
 
     test('when there are multiple CAR MODELS connected', async () => {
         const source = FakeProgrammeEpisode.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.CAR_MODEL}
 
         const apiResponse = {
             data: [

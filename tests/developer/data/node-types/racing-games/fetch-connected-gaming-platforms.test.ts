@@ -22,7 +22,7 @@ describe('Fetching connected GAMING PLATFORMS from data source', () => {
 
     test('when there are multiple GAMING PLATFORMS connected', async () => {
         const source = FakeRacingGame.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.GAMING_PLATFORM}
 
         const apiResponse = {
             data: [

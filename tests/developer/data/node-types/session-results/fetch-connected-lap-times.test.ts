@@ -22,7 +22,7 @@ describe('Fetching connected LAP TIMES from data source', () => {
 
     test('when there are multiple LAP TIMES connected', async () => {
         const source = FakeSessionResult.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.LAP_TIME}
 
         const apiResponse = {
             data: [

@@ -22,7 +22,7 @@ describe('Fetching connected PROGRAMME EPISODES from data source', () => {
 
     test('when there are multiple PROGRAMME EPISODES connected', async () => {
         const source = FakeCarModel.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.PROGRAMME_EPISODE}
 
         const apiResponse = {
             data: [

@@ -22,7 +22,7 @@ describe('Fetching connected MAGAZINE ISSUES from data source', () => {
 
     test('when there are multiple MAGAZINE ISSUES connected', async () => {
         const source = FakeCarModel.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.MAGAZINE_ISSUE}
 
         const apiResponse = {
             data: [

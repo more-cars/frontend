@@ -22,7 +22,7 @@ describe('Fetching connected RATINGS from data source', () => {
 
     test('when there are multiple RATINGS connected', async () => {
         const source = FakeMagazineIssue.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.RATING}
 
         const apiResponse = {
             data: [

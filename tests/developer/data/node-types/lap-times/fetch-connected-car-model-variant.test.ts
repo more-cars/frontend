@@ -22,7 +22,7 @@ describe('Fetching connected CAR MODEL VARIANT from data source', () => {
 
     test('when there is a CAR MODEL VARIANT connected', async () => {
         const source = FakeLapTime.data
-        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
+        const target = {node_type: ApiNodeType.CAR_MODEL_VARIANT, data: {id: 11111118}}
 
         const apiResponse = {data: {partner_node: target}}
 

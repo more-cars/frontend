@@ -22,7 +22,7 @@ describe('Fetching connected PRICES from data source', () => {
 
     test('when there are multiple PRICES connected', async () => {
         const source = FakeCarModelVariant.data
-        const target = {node_type: ApiNodeType.IMAGE}
+        const target = {node_type: ApiNodeType.PRICE}
 
         const apiResponse = {
             data: [
