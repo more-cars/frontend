@@ -19,7 +19,7 @@ export async function getConnectedTrackLayout(id: number) {
     }
 
     const data: RacingEventUsedTheTrackLayoutRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RACING_EVENT_USED_THE_TRACK_LAYOUT,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_EVENT,

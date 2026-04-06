@@ -22,7 +22,7 @@ export async function getConnected<%= h.changeCase.pascal(partnerNodeType) %>(id
     }
 
     const data: <%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>,
         source_node: sourceNode,
         source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,

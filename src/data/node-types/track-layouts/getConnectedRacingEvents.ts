@@ -18,7 +18,7 @@ export async function getConnectedRacingEvents(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.TRACK_LAYOUT_WAS_USED_BY_RACING_EVENT,
             source_node: sourceNode,
             source_node_type: DataNodeType.TRACK_LAYOUT,

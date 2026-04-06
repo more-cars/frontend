@@ -19,7 +19,7 @@ export async function getConnectedPredecessor(id: number) {
     }
 
     const data: RacingEventFollowsEventRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RACING_EVENT_FOLLOWS_EVENT,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_EVENT,

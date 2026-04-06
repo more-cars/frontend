@@ -19,7 +19,7 @@ export async function getConnectedSuccessor(id: number) {
     }
 
     const data: ProgrammeEpisodeIsFollowedByEpisodeRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.PROGRAMME_EPISODE_IS_FOLLOWED_BY_EPISODE,
         source_node: sourceNode,
         source_node_type: DataNodeType.PROGRAMME_EPISODE,

@@ -19,7 +19,7 @@ export async function getConnectedProgramme(id: number) {
     }
 
     const data: ProgrammeEpisodeBelongsToProgrammeRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.PROGRAMME_EPISODE_BELONGS_TO_PROGRAMME,
         source_node: sourceNode,
         source_node_type: DataNodeType.PROGRAMME_EPISODE,

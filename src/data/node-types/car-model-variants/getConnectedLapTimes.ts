@@ -18,7 +18,7 @@ export async function getConnectedLapTimes(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.CAR_MODEL_VARIANT_ACHIEVED_LAP_TIME,
             source_node: sourceNode,
             source_node_type: DataNodeType.CAR_MODEL_VARIANT,

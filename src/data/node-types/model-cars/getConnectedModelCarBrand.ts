@@ -19,7 +19,7 @@ export async function getConnectedModelCarBrand(id: number) {
     }
 
     const data: ModelCarMadeByModelCarBrandRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.MODEL_CAR_MADE_BY_MODEL_CAR_BRAND,
         source_node: sourceNode,
         source_node_type: DataNodeType.MODEL_CAR,

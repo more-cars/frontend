@@ -18,7 +18,7 @@ export async function getConnectedRacingEvents(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.RACING_SERIES_HAS_RACING_EVENT,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACING_SERIES,

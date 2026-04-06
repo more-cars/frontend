@@ -19,7 +19,7 @@ export async function getConnectedCarModelVariant(id: number) {
     }
 
     const data: LapTimeAchievedWithCarModelVariantRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.LAP_TIME_ACHIEVED_WITH_CAR_MODEL_VARIANT,
         source_node: sourceNode,
         source_node_type: DataNodeType.LAP_TIME,

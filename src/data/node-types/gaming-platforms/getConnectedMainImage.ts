@@ -19,7 +19,7 @@ export async function getConnectedMainImage(id: number) {
     }
 
     const relationship: GamingPlatformHasMainImageRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.GAMING_PLATFORM_HAS_MAIN_IMAGE,
         source_node: sourceNode,
         source_node_type: DataNodeType.GAMING_PLATFORM,

@@ -19,7 +19,7 @@ export async function getConnectedSuccessor(id: number) {
     }
 
     const data: RacingEventIsFollowedByEventRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RACING_EVENT_IS_FOLLOWED_BY_EVENT,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_EVENT,

@@ -19,7 +19,7 @@ export async function getConnectedCarModel(id: number) {
     }
 
     const data: CarModelVariantIsVariantOfRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.CAR_MODEL_VARIANT_IS_VARIANT_OF,
         source_node: sourceNode,
         source_node_type: DataNodeType.CAR_MODEL_VARIANT,

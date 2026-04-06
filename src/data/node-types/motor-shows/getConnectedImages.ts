@@ -18,7 +18,7 @@ export async function getConnectedImages(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.MOTOR_SHOW_HAS_IMAGE,
             source_node: sourceNode,
             source_node_type: DataNodeType.MOTOR_SHOW,

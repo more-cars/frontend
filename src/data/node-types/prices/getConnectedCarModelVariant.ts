@@ -19,7 +19,7 @@ export async function getConnectedCarModelVariant(id: number) {
     }
 
     const data: PriceForCarModelVariantRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.PRICE_FOR_CAR_MODEL_VARIANT,
         source_node: sourceNode,
         source_node_type: DataNodeType.PRICE,

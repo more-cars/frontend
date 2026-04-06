@@ -18,7 +18,7 @@ export async function getConnectedModelCars(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.MODEL_CAR_BRAND_CREATED_MODEL_CAR,
             source_node: sourceNode,
             source_node_type: DataNodeType.MODEL_CAR_BRAND,

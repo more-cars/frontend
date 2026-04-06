@@ -19,7 +19,7 @@ export async function getConnectedPredecessor(id: number) {
     }
 
     const data: ProgrammeEpisodeFollowsEpisodeRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.PROGRAMME_EPISODE_FOLLOWS_EPISODE,
         source_node: sourceNode,
         source_node_type: DataNodeType.PROGRAMME_EPISODE,

@@ -19,7 +19,7 @@ export async function getConnectedRacingSession(id: number) {
     }
 
     const data: SessionResultBelongsToRacingSessionRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.SESSION_RESULT_BELONGS_TO_RACING_SESSION,
         source_node: sourceNode,
         source_node_type: DataNodeType.SESSION_RESULT,

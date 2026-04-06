@@ -18,7 +18,7 @@ export async function getConnectedBrands(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.COMPANY_HAS_BRAND,
             source_node: sourceNode,
             source_node_type: DataNodeType.COMPANY,

@@ -19,7 +19,7 @@ export async function getConnectedRaceTrack(id: number) {
     }
 
     const data: RacingEventTookPlaceAtRaceTrackRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RACING_EVENT_TOOK_PLACE_AT_RACE_TRACK,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_EVENT,

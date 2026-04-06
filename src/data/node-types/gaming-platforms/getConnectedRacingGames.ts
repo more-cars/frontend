@@ -18,7 +18,7 @@ export async function getConnectedRacingGames(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.GAMING_PLATFORM_FEATURES_RACING_GAME,
             source_node: sourceNode,
             source_node_type: DataNodeType.GAMING_PLATFORM,

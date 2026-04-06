@@ -19,7 +19,7 @@ export async function getConnectedSessionResult(id: number) {
     }
 
     const data: LapTimeBelongsToSessionResultRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.LAP_TIME_BELONGS_TO_SESSION_RESULT,
         source_node: sourceNode,
         source_node_type: DataNodeType.LAP_TIME,

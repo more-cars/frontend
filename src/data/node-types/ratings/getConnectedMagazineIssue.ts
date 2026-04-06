@@ -19,7 +19,7 @@ export async function getConnectedMagazineIssue(id: number) {
     }
 
     const data: RatingByMagazineIssueRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RATING_BY_MAGAZINE_ISSUE,
         source_node: sourceNode,
         source_node_type: DataNodeType.RATING,

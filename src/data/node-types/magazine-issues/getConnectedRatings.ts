@@ -18,7 +18,7 @@ export async function getConnectedRatings(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.MAGAZINE_ISSUE_REVIEWED_CAR_MODEL_VARIANT_WITH_RATING,
             source_node: sourceNode,
             source_node_type: DataNodeType.MAGAZINE_ISSUE,

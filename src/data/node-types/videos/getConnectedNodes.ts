@@ -19,7 +19,7 @@ export async function getConnectedNodes(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.VIDEO_BELONGS_TO_NODE,
             source_node: sourceNode,
             source_node_type: DataNodeType.VIDEO,

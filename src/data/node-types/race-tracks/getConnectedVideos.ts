@@ -18,7 +18,7 @@ export async function getConnectedVideos(id: number) {
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.RACE_TRACK_HAS_VIDEO,
             source_node: sourceNode,
             source_node_type: DataNodeType.RACE_TRACK,

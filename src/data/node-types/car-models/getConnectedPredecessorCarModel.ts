@@ -19,7 +19,7 @@ export async function getConnectedPredecessorCarModel(id: number) {
     }
 
     const data: CarModelIsSuccessorOfRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.CAR_MODEL_IS_SUCCESSOR_OF,
         source_node: sourceNode,
         source_node_type: DataNodeType.CAR_MODEL,

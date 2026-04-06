@@ -19,7 +19,7 @@ export async function getConnectedMainImage(id: number) {
     }
 
     const relationship: RaceTrackHasMainImageRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RACE_TRACK_HAS_MAIN_IMAGE,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACE_TRACK,

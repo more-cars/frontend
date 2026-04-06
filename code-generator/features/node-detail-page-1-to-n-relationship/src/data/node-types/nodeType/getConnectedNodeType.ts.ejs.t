@@ -21,7 +21,7 @@ export async function getConnected<%= h.changeCase.pascal(h.inflection.pluralize
 
     apiData.forEach(apiItem => {
         data.push({
-            id,
+            id: apiItem.data.relationship_id,
             name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_<%= h.changeCase.constant(relationshipName) %>,
             source_node: sourceNode,
             source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,

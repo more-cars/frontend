@@ -19,7 +19,7 @@ export async function getConnectedTrackLayout(id: number) {
     }
 
     const data: LapTimeAchievedOnTrackLayoutRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.LAP_TIME_ACHIEVED_ON_TRACK_LAYOUT,
         source_node: sourceNode,
         source_node_type: DataNodeType.LAP_TIME,

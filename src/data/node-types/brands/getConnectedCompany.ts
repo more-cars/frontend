@@ -19,7 +19,7 @@ export async function getConnectedCompany(id: number) {
     }
 
     const data: BrandBelongsToCompanyRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.BRAND_BELONGS_TO_COMPANY,
         source_node: sourceNode,
         source_node_type: DataNodeType.BRAND,

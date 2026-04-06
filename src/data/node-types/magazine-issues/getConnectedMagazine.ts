@@ -19,7 +19,7 @@ export async function getConnectedMagazine(id: number) {
     }
 
     const data: MagazineIssueBelongsToMagazineRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.MAGAZINE_ISSUE_BELONGS_TO_MAGAZINE,
         source_node: sourceNode,
         source_node_type: DataNodeType.MAGAZINE_ISSUE,

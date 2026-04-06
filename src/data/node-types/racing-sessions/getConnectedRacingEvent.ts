@@ -19,7 +19,7 @@ export async function getConnectedRacingEvent(id: number) {
     }
 
     const data: RacingSessionBelongsToRacingEventRelationship = {
-        id,
+        id: apiData.data.relationship_id,
         name: DataRelationshipType.RACING_SESSION_BELONGS_TO_RACING_EVENT,
         source_node: sourceNode,
         source_node_type: DataNodeType.RACING_SESSION,
