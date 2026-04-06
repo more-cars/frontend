@@ -8,7 +8,3 @@ li(class="mb-4 bg-white border border-zinc-200 rounded-xl" data-testid=`${nodeTy
             span(class="float-right pr-2 pt-1 select-none") #{icon(nodeType)}
             - item = nodeData
             include primary-properties
-
-//- The headline should only be valid for this concrete item, but it is a global variable.
-//- Therefore, deleting it here, so the headline is not accidentally used for a different node somewhere else.
-- itemHeadline = null
