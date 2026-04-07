@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/magazine-issues/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -17,7 +18,7 @@ import {findConnectedImages} from "./node-types/magazine-issues/findConnectedIma
 import {findConnectedVideos} from "./node-types/magazine-issues/findConnectedVideos"
 
 export const MagazineIssueModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

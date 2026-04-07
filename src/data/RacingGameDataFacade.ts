@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllRacingGames} from "./node-types/racing-games/getAllRacingGames"
 import {getRacingGameById} from "./node-types/racing-games/getRacingGameById"
 import {getConnectedMainImage} from "./node-types/racing-games/getConnectedMainImage"
@@ -8,7 +9,7 @@ import {getConnectedImages} from "./node-types/racing-games/getConnectedImages"
 import {getConnectedVideos} from "./node-types/racing-games/getConnectedVideos"
 
 export const RacingGameDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllRacingGames(params)
     },
 

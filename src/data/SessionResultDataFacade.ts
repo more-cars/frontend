@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllSessionResults} from "./node-types/session-results/getAllSessionResults"
 import {getSessionResultById} from "./node-types/session-results/getSessionResultById"
 import {getConnectedMainImage} from "./node-types/session-results/getConnectedMainImage"
@@ -7,7 +8,7 @@ import {getConnectedLapTimes} from "./node-types/session-results/getConnectedLap
 import {getConnectedCarModelVariant} from "./node-types/session-results/getConnectedCarModelVariant"
 
 export const SessionResultDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllSessionResults(params)
     },
 

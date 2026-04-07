@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/race-tracks/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -12,7 +13,7 @@ import {findConnectedRacingEvents} from "./node-types/race-tracks/findConnectedR
 import {findConnectedVideos} from "./node-types/race-tracks/findConnectedVideos"
 
 export const RaceTrackModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

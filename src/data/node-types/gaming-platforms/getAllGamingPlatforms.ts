@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "../../types/DataSearchParams"
 import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
 import {DataNodeType} from "../../types/DataNodeType"
 import type {ApiGamingPlatformNode} from "./types/ApiGamingPlatformNode"
@@ -5,7 +6,7 @@ import {requestDataFromApi} from "../../requestDataFromApi"
 import type {GamingPlatformNode} from "./types/GamingPlatformNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllGamingPlatforms(params?: { page: number }) {
+export async function getAllGamingPlatforms(params?: DataSearchParams) {
     const url = getApiRequestUrl(DataNodeType.GAMING_PLATFORM, params)
     const apiData: ApiGamingPlatformNode[] = (await requestDataFromApi(url))?.data || []
     const data: GamingPlatformNode[] = []

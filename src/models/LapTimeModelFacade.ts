@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/lap-times/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -13,7 +14,7 @@ import {findConnectedCarModelVariant} from "./node-types/lap-times/findConnected
 import {findConnectedVideos} from "./node-types/lap-times/findConnectedVideos"
 
 export const LapTimeModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

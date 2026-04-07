@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/gaming-platforms/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -11,7 +12,7 @@ import {findConnectedImages} from "./node-types/gaming-platforms/findConnectedIm
 import {findConnectedVideos} from "./node-types/gaming-platforms/findConnectedVideos"
 
 export const GamingPlatformModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

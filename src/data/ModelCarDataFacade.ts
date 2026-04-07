@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllModelCars} from "./node-types/model-cars/getAllModelCars"
 import {getModelCarById} from "./node-types/model-cars/getModelCarById"
 import {getConnectedMainImage} from "./node-types/model-cars/getConnectedMainImage"
@@ -7,7 +8,7 @@ import {getConnectedImages} from "./node-types/model-cars/getConnectedImages"
 import {getConnectedVideos} from "./node-types/model-cars/getConnectedVideos"
 
 export const ModelCarDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllModelCars(params)
     },
 

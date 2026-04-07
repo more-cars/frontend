@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllPrices} from "./node-types/prices/getAllPrices"
 import {getPriceById} from "./node-types/prices/getPriceById"
 import {getConnectedMainImage} from "./node-types/prices/getConnectedMainImage"
@@ -5,7 +6,7 @@ import {getConnectedCarModelVariant} from "./node-types/prices/getConnectedCarMo
 import {getConnectedImages} from "./node-types/prices/getConnectedImages"
 
 export const PriceDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllPrices(params)
     },
 

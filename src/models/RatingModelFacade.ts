@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/ratings/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -11,7 +12,7 @@ import {findConnectedMagazineIssue} from "./node-types/ratings/findConnectedMaga
 import {findConnectedImages} from "./node-types/ratings/findConnectedImages"
 
 export const RatingModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

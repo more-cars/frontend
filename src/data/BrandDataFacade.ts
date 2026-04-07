@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllBrands} from "./node-types/brands/getAllBrands"
 import {getBrandById} from "./node-types/brands/getBrandById"
 import {getConnectedCompany} from "./node-types/brands/getConnectedCompany"
@@ -7,7 +8,7 @@ import {getConnectedMainImage} from "./node-types/brands/getConnectedMainImage"
 import {getConnectedVideos} from "./node-types/brands/getConnectedVideos"
 
 export const BrandDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllBrands(params)
     },
 

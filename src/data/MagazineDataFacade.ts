@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllMagazines} from "./node-types/magazines/getAllMagazines"
 import {getMagazineById} from "./node-types/magazines/getMagazineById"
 import {getConnectedMainImage} from "./node-types/magazines/getConnectedMainImage"
@@ -6,7 +7,7 @@ import {getConnectedImages} from "./node-types/magazines/getConnectedImages"
 import {getConnectedVideos} from "./node-types/magazines/getConnectedVideos"
 
 export const MagazineDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllMagazines(params)
     },
 

@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/programme-episodes/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -15,7 +16,7 @@ import {findConnectedImages} from "./node-types/programme-episodes/findConnected
 import {findConnectedVideos} from "./node-types/programme-episodes/findConnectedVideos"
 
 export const ProgrammeEpisodeModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

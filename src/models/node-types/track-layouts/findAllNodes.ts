@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {TrackLayoutDataFacade} from "../../../data/TrackLayoutDataFacade"
 import {TrackLayout} from "./types/TrackLayout"
 import {convertTrackLayoutNode} from "./convertTrackLayoutNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await TrackLayoutDataFacade.getNodeCollection(params)
 
     const trackLayouts: TrackLayout[] = []

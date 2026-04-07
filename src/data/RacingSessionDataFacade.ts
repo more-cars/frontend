@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllRacingSessions} from "./node-types/racing-sessions/getAllRacingSessions"
 import {getRacingSessionById} from "./node-types/racing-sessions/getRacingSessionById"
 import {getConnectedMainImage} from "./node-types/racing-sessions/getConnectedMainImage"
@@ -7,7 +8,7 @@ import {getConnectedSessionResults} from "./node-types/racing-sessions/getConnec
 import {getConnectedVideos} from "./node-types/racing-sessions/getConnectedVideos"
 
 export const RacingSessionDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllRacingSessions(params)
     },
 

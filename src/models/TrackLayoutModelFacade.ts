@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/track-layouts/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -13,7 +14,7 @@ import {findConnectedImages} from "./node-types/track-layouts/findConnectedImage
 import {findConnectedVideos} from "./node-types/track-layouts/findConnectedVideos"
 
 export const TrackLayoutModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

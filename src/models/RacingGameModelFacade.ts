@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/racing-games/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -13,7 +14,7 @@ import {findConnectedImages} from "./node-types/racing-games/findConnectedImages
 import {findConnectedVideos} from "./node-types/racing-games/findConnectedVideos"
 
 export const RacingGameModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

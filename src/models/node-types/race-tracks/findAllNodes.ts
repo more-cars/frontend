@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {RaceTrackDataFacade} from "../../../data/RaceTrackDataFacade"
 import {RaceTrack} from "./types/RaceTrack"
 import {convertRaceTrackNode} from "./convertRaceTrackNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await RaceTrackDataFacade.getNodeCollection(params)
 
     const raceTracks: RaceTrack[] = []

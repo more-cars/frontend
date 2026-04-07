@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllLapTimes} from "./node-types/lap-times/getAllLapTimes"
 import {getLapTimeById} from "./node-types/lap-times/getLapTimeById"
 import {getConnectedMainImage} from "./node-types/lap-times/getConnectedMainImage"
@@ -8,7 +9,7 @@ import {getConnectedCarModelVariant} from "./node-types/lap-times/getConnectedCa
 import {getConnectedVideos} from "./node-types/lap-times/getConnectedVideos"
 
 export const LapTimeDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllLapTimes(params)
     },
 

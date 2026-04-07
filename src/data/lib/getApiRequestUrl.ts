@@ -1,12 +1,8 @@
-import {DataNodeType} from "../types/DataNodeType"
 import {dasherize, pluralize} from "inflection"
+import {DataNodeType} from "../types/DataNodeType"
+import type {DataSearchParams} from "../types/DataSearchParams"
 
-type UrlParams = {
-    page?: number,
-    sortByProperty?: string
-}
-
-export function getApiRequestUrl(nodeType: DataNodeType, params?: UrlParams) {
+export function getApiRequestUrl(nodeType: DataNodeType, params?: DataSearchParams) {
     const path = dasherize(pluralize(nodeType))
     const sortByProperty = params?.sortByProperty ?? 'name'
     const page = params?.page && params.page > 0 ? params.page : 1

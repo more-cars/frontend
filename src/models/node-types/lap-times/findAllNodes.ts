@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {LapTimeDataFacade} from "../../../data/LapTimeDataFacade"
 import {LapTime} from "./types/LapTime"
 import {convertLapTimeNode} from "./convertLapTimeNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await LapTimeDataFacade.getNodeCollection(params)
 
     const lapTimes: LapTime[] = []

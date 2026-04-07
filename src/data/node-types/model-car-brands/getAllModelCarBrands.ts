@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "../../types/DataSearchParams"
 import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
 import {DataNodeType} from "../../types/DataNodeType"
 import type {ApiModelCarBrandNode} from "./types/ApiModelCarBrandNode"
@@ -5,7 +6,7 @@ import {requestDataFromApi} from "../../requestDataFromApi"
 import type {ModelCarBrandNode} from "./types/ModelCarBrandNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllModelCarBrands(params?: { page: number }) {
+export async function getAllModelCarBrands(params?: DataSearchParams) {
     const url = getApiRequestUrl(DataNodeType.MODEL_CAR_BRAND, params)
     const apiData: ApiModelCarBrandNode[] = (await requestDataFromApi(url))?.data || []
     const data: ModelCarBrandNode[] = []

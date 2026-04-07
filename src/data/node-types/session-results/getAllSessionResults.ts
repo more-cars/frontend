@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "../../types/DataSearchParams"
 import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
 import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
@@ -5,9 +6,10 @@ import type {ApiSessionResultNode} from "./types/ApiSessionResultNode"
 import type {SessionResultNode} from "./types/SessionResultNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllSessionResults(params?: { page: number }) {
-    const urlParams = {page: params?.page, sortByProperty: 'position'}
-    const url = getApiRequestUrl(DataNodeType.SESSION_RESULT, urlParams)
+export async function getAllSessionResults(params?: DataSearchParams) {
+    const defaultParams: DataSearchParams = {sortByProperty: 'position'}
+    params = Object.assign({}, defaultParams, params)
+    const url = getApiRequestUrl(DataNodeType.SESSION_RESULT, params)
     const apiData: ApiSessionResultNode[] = (await requestDataFromApi(url))?.data || []
     const data: SessionResultNode[] = []
 

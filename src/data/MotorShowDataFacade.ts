@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllMotorShows} from "./node-types/motor-shows/getAllMotorShows"
 import {getMotorShowById} from "./node-types/motor-shows/getMotorShowById"
 import {getConnectedMainImage} from "./node-types/motor-shows/getConnectedMainImage"
@@ -6,7 +7,7 @@ import {getConnectedImages} from "./node-types/motor-shows/getConnectedImages"
 import {getConnectedVideos} from "./node-types/motor-shows/getConnectedVideos"
 
 export const MotorShowDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllMotorShows(params)
     },
 

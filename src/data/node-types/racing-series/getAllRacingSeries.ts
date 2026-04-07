@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "../../types/DataSearchParams"
 import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
 import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
@@ -5,7 +6,7 @@ import type {ApiRacingSeriesNode} from "./types/ApiRacingSeriesNode"
 import type {RacingSeriesNode} from "./types/RacingSeriesNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllRacingSeries(params?: { page: number }) {
+export async function getAllRacingSeries(params?: DataSearchParams) {
     const url = getApiRequestUrl(DataNodeType.RACING_SERIES, params)
     const apiData: ApiRacingSeriesNode[] = (await requestDataFromApi(url))?.data || []
     const data: RacingSeriesNode[] = []

@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {PriceDataFacade} from "../../../data/PriceDataFacade"
 import {Price} from "./types/Price"
 import {convertPriceNode} from "./convertPriceNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await PriceDataFacade.getNodeCollection(params)
 
     const prices: Price[] = []

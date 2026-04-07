@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "../../types/DataSearchParams"
 import {getApiRequestUrl} from "../../lib/getApiRequestUrl"
 import {DataNodeType} from "../../types/DataNodeType"
 import {requestDataFromApi} from "../../requestDataFromApi"
@@ -5,9 +6,10 @@ import type {ApiLapTimeNode} from "./types/ApiLapTimeNode"
 import type {LapTimeNode} from "./types/LapTimeNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllLapTimes(params?: { page: number }) {
-    const urlParams = {page: params?.page, sortByProperty: 'driver_name'}
-    const url = getApiRequestUrl(DataNodeType.LAP_TIME, urlParams)
+export async function getAllLapTimes(params?: DataSearchParams) {
+    const defaultParams: DataSearchParams = {sortByProperty: 'driver_name'}
+    params = Object.assign({}, defaultParams, params)
+    const url = getApiRequestUrl(DataNodeType.LAP_TIME, params)
     const apiData: ApiLapTimeNode[] = (await requestDataFromApi(url))?.data || []
     const data: LapTimeNode[] = []
 

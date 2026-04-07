@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {CarModelDataFacade} from "../../../data/CarModelDataFacade"
 import {CarModel} from "./types/CarModel"
 import {convertCarModelNode} from "./convertCarModelNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await CarModelDataFacade.getNodeCollection(params)
 
     const carModels: CarModel[] = []

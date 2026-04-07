@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {ImageDataFacade} from "../../../data/ImageDataFacade"
 import {Image} from "./types/Image"
 import {convertImageNode} from "./convertImageNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await ImageDataFacade.getNodeCollection(params)
 
     const images: Image[] = []

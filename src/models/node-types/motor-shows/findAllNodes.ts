@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {MotorShowDataFacade} from "../../../data/MotorShowDataFacade"
 import {MotorShow} from "./types/MotorShow"
 import {convertMotorShowNode} from "./convertMotorShowNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await MotorShowDataFacade.getNodeCollection(params)
 
     const motorShows: MotorShow[] = []

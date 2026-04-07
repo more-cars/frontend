@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllRatings} from "./node-types/ratings/getAllRatings"
 import {getRatingById} from "./node-types/ratings/getRatingById"
 import {getConnectedMainImage} from "./node-types/ratings/getConnectedMainImage"
@@ -6,7 +7,7 @@ import {getConnectedMagazineIssue} from "./node-types/ratings/getConnectedMagazi
 import {getConnectedImages} from "./node-types/ratings/getConnectedImages"
 
 export const RatingDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllRatings(params)
     },
 

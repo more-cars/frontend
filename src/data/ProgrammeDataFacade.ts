@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllProgrammes} from "./node-types/programmes/getAllProgrammes"
 import {getProgrammeById} from "./node-types/programmes/getProgrammeById"
 import {getConnectedMainImage} from "./node-types/programmes/getConnectedMainImage"
@@ -6,7 +7,7 @@ import {getConnectedImages} from "./node-types/programmes/getConnectedImages"
 import {getConnectedVideos} from "./node-types/programmes/getConnectedVideos"
 
 export const ProgrammeDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllProgrammes(params)
     },
 

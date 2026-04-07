@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllTrackLayouts} from "./node-types/track-layouts/getAllTrackLayouts"
 import {getTrackLayoutById} from "./node-types/track-layouts/getTrackLayoutById"
 import {getConnectedMainImage} from "./node-types/track-layouts/getConnectedMainImage"
@@ -8,7 +9,7 @@ import {getConnectedImages} from "./node-types/track-layouts/getConnectedImages"
 import {getConnectedVideos} from "./node-types/track-layouts/getConnectedVideos"
 
 export const TrackLayoutDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllTrackLayouts(params)
     },
 

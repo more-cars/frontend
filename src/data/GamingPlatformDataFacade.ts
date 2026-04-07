@@ -1,3 +1,4 @@
+import type {DataSearchParams} from "./types/DataSearchParams"
 import {getAllGamingPlatforms} from "./node-types/gaming-platforms/getAllGamingPlatforms"
 import {getGamingPlatformById} from "./node-types/gaming-platforms/getGamingPlatformById"
 import {getConnectedMainImage} from "./node-types/gaming-platforms/getConnectedMainImage"
@@ -6,7 +7,7 @@ import {getConnectedImages} from "./node-types/gaming-platforms/getConnectedImag
 import {getConnectedVideos} from "./node-types/gaming-platforms/getConnectedVideos"
 
 export const GamingPlatformDataFacade = {
-    async getNodeCollection(params?: { page: number }) {
+    async getNodeCollection(params?: DataSearchParams) {
         return getAllGamingPlatforms(params)
     },
 

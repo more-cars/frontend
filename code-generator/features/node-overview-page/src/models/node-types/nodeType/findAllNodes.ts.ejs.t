@@ -1,13 +1,14 @@
 ---
 to: src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/findAllNodes.ts
 ---
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {<%= h.changeCase.pascal(nodeType) %>DataFacade} from "../../../data/<%= h.changeCase.pascal(nodeType) %>DataFacade"
 import {<%= h.changeCase.pascal(nodeType) %>} from "./types/<%= h.changeCase.pascal(nodeType) %>"
 import {convert<%= h.changeCase.pascal(nodeType) %>Node} from "./convert<%= h.changeCase.pascal(nodeType) %>Node"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await <%= h.changeCase.pascal(nodeType) %>DataFacade.getNodeCollection(params)
 
     const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>: <%= h.changeCase.pascal(nodeType) %>[] = []

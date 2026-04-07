@@ -1,3 +1,4 @@
+import type {ModelSearchParams} from "./types/ModelSearchParams"
 import {findAllNodes} from "./node-types/session-results/findAllNodes"
 import {getTotalNodeCount} from "../data/nodes/getTotalNodeCount"
 import {DataNodeType} from "../data/types/DataNodeType"
@@ -12,7 +13,7 @@ import {findConnectedLapTimes} from "./node-types/session-results/findConnectedL
 import {findConnectedCarModelVariant} from "./node-types/session-results/findConnectedCarModelVariant"
 
 export const SessionResultModelFacade = {
-    async getAllNodes(params: { page: number }) {
+    async getAllNodes(params?: ModelSearchParams) {
         return findAllNodes(params)
     },
 

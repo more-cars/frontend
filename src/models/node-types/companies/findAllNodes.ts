@@ -1,10 +1,11 @@
+import type {ModelSearchParams} from "../../types/ModelSearchParams"
 import {CompanyDataFacade} from "../../../data/CompanyDataFacade"
 import {Company} from "./types/Company"
 import {convertCompanyNode} from "./convertCompanyNode"
 
 const nodeLimit = 100
 
-export async function findAllNodes(params?: { page: number }) {
+export async function findAllNodes(params?: ModelSearchParams) {
     const nodes = await CompanyDataFacade.getNodeCollection(params)
 
     const companies: Company[] = []
