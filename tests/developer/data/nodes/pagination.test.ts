@@ -20,7 +20,7 @@ describe('Assembling API URL with pagination information', () => {
             const url = getApiRequestUrl(convertStringToDataNodeType(nodeType), {page: pageIn})
 
             expect(url)
-                .to.equal(`/${convertStringToApiNodeType(nodeType)}?sort_by_property=name&page=${pageOut}`)
+                .to.equal(`/${convertStringToApiNodeType(nodeType)}?sort_by_property=name&sort_direction=asc&page=${pageOut}`)
         })
     })
 })
