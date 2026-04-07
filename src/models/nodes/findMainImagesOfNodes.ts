@@ -8,7 +8,7 @@ export async function findMainImagesOfNodes(ids: number[]) {
     const relations = await NodeDataFacade.getMainImagesOfNodes(ids)
 
     for (const relation of relations) {
-        images.set(relation.source_node.data.id, convertImageNode(relation.partner_node))
+        images.set(Number(relation.source_node.data.id), convertImageNode(relation.partner_node))
     }
 
     return images

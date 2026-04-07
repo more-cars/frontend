@@ -57,6 +57,31 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
         return nodeMock.mock
     }
 
+    if (isNodePrimeImagesOperation(operationId)) {
+        const nodeIds = (req.url.split('/')[2]).split(',')
+        const mockItemCollection = context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
+
+        if (Array.isArray(mockItemCollection.data)) {
+            const mockItems: never[] = []
+
+            nodeIds.forEach((nodeId) => {
+                const mockItem = structuredClone(mockItemCollection.data[0])
+                mockItem.data.relationship_id = getRandomCanonicalNodeId()
+                mockItem.data.start_node.data.id = nodeId
+                mockItem.data.partner_node.data.id = getRandomCanonicalNodeId()
+                // @ts-expect-error TS2345 TS2345
+                mockItems.push(mockItem)
+
+                nodeState.set(mockItem.data.partner_node.data.id, true)
+                typeOfNode.set(mockItem.data.partner_node.data.id, pascalCase(mockItem.data.partner_node.node_type))
+            })
+
+            return {
+                data: mockItems
+            }
+        }
+    }
+
     if (isNodeRelationshipOperation(operationId)) {
         const nodeId = Number(req.url.split('/')[2])
         const mockItemCollection = context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
@@ -74,6 +99,9 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
                 mockItem.data.relationship_id = getRandomCanonicalNodeId()
                 mockItem.data.partner_node.data.id = getRandomCanonicalNodeId()
                 mockItems.push(mockItem)
+
+                nodeState.set(mockItem.data.partner_node.data.id, true)
+                typeOfNode.set(mockItem.data.partner_node.data.id, pascalCase(mockItem.data.partner_node.node_type))
             }
 
             return {
@@ -86,6 +114,10 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
                 const mockItem = structuredClone(mockItemCollection.data)
                 mockItem.relationship_id = getRandomCanonicalNodeId()
                 mockItem.partner_node.data.id = getRandomCanonicalNodeId()
+
+                nodeState.set(mockItem.partner_node.data.id, true)
+                typeOfNode.set(mockItem.partner_node.data.id, pascalCase(mockItem.partner_node.node_type))
+
                 return {
                     data: mockItem
                 }
@@ -108,6 +140,10 @@ function isGenericNodeOperation(operationId: string) {
 
 function isNodeOperation(operationId: string) {
     return operationId.endsWith('ById')
+}
+
+function isNodePrimeImagesOperation(operationId: string) {
+    return operationId === 'getPrimeImagesOfNodesRel'
 }
 
 function isNodeRelationshipOperation(operationId: string) {
