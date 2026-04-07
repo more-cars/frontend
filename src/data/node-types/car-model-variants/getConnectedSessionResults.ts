@@ -3,7 +3,6 @@ import {getCarModelVariantById} from "./getCarModelVariantById"
 import type {ApiCarModelVariantAchievedSessionResultRelationship} from "./types/ApiCarModelVariantAchievedSessionResultRelationship"
 import type {CarModelVariantAchievedSessionResultRelationship} from "./types/CarModelVariantAchievedSessionResultRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {SessionResultNode} from "../session-results/types/SessionResultNode"
 
@@ -21,9 +20,7 @@ export async function getConnectedSessionResults(id: number) {
             id: apiItem.data.relationship_id,
             name: DataRelationshipType.CAR_MODEL_VARIANT_ACHIEVED_SESSION_RESULT,
             source_node: sourceNode,
-            source_node_type: DataNodeType.CAR_MODEL_VARIANT,
             partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as SessionResultNode,
-            partner_node_type: DataNodeType.SESSION_RESULT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,
         })

@@ -3,7 +3,6 @@ import type {ApiRacingEventBelongsToRacingSeriesRelationship} from "./types/ApiR
 import {getRacingEventById} from "./getRacingEventById"
 import type {RacingEventBelongsToRacingSeriesRelationship} from "./types/RacingEventBelongsToRacingSeriesRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {RacingSeriesNode} from "../racing-series/types/RacingSeriesNode"
 
@@ -22,9 +21,7 @@ export async function getConnectedRacingSeries(id: number) {
         id: apiData.data.relationship_id,
         name: DataRelationshipType.RACING_EVENT_BELONGS_TO_RACING_SERIES,
         source_node: sourceNode,
-        source_node_type: DataNodeType.RACING_EVENT,
         partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as RacingSeriesNode,
-        partner_node_type: DataNodeType.RACING_SERIES,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,
     }

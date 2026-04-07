@@ -3,7 +3,6 @@ import type {ApiBrandBelongsToCompanyRelationship} from "./types/ApiBrandBelongs
 import {getBrandById} from "./getBrandById"
 import type {BrandBelongsToCompanyRelationship} from "./types/BrandBelongsToCompanyRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {CompanyNode} from "../companies/types/CompanyNode"
 
@@ -22,9 +21,7 @@ export async function getConnectedCompany(id: number) {
         id: apiData.data.relationship_id,
         name: DataRelationshipType.BRAND_BELONGS_TO_COMPANY,
         source_node: sourceNode,
-        source_node_type: DataNodeType.BRAND,
         partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as CompanyNode,
-        partner_node_type: DataNodeType.COMPANY,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,
     }

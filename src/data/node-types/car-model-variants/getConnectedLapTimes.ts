@@ -3,7 +3,6 @@ import {getCarModelVariantById} from "./getCarModelVariantById"
 import type {ApiCarModelVariantAchievedLapTimeRelationship} from "./types/ApiCarModelVariantAchievedLapTimeRelationship"
 import type {CarModelVariantAchievedLapTimeRelationship} from "./types/CarModelVariantAchievedLapTimeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {LapTimeNode} from "../lap-times/types/LapTimeNode"
 
@@ -21,9 +20,7 @@ export async function getConnectedLapTimes(id: number) {
             id: apiItem.data.relationship_id,
             name: DataRelationshipType.CAR_MODEL_VARIANT_ACHIEVED_LAP_TIME,
             source_node: sourceNode,
-            source_node_type: DataNodeType.CAR_MODEL_VARIANT,
             partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as LapTimeNode,
-            partner_node_type: DataNodeType.LAP_TIME,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,
         })

@@ -3,7 +3,6 @@ import {getMagazineIssueById} from "./getMagazineIssueById"
 import type {ApiMagazineIssueCoversCarModelRelationship} from "./types/ApiMagazineIssueCoversCarModelRelationship"
 import type {MagazineIssueCoversCarModelRelationship} from "./types/MagazineIssueCoversCarModelRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {CarModelNode} from "../car-models/types/CarModelNode"
 
@@ -21,9 +20,7 @@ export async function getConnectedCarModels(id: number) {
             id: apiItem.data.relationship_id,
             name: DataRelationshipType.MAGAZINE_ISSUE_COVERS_CAR_MODEL,
             source_node: sourceNode,
-            source_node_type: DataNodeType.MAGAZINE_ISSUE,
             partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as CarModelNode,
-            partner_node_type: DataNodeType.CAR_MODEL,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,
         })

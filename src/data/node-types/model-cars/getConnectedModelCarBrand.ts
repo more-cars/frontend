@@ -3,7 +3,6 @@ import type {ApiModelCarMadeByModelCarBrandRelationship} from "./types/ApiModelC
 import {getModelCarById} from "./getModelCarById"
 import type {ModelCarMadeByModelCarBrandRelationship} from "./types/ModelCarMadeByModelCarBrandRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {ModelCarBrandNode} from "../model-car-brands/types/ModelCarBrandNode"
 
@@ -22,9 +21,7 @@ export async function getConnectedModelCarBrand(id: number) {
         id: apiData.data.relationship_id,
         name: DataRelationshipType.MODEL_CAR_MADE_BY_MODEL_CAR_BRAND,
         source_node: sourceNode,
-        source_node_type: DataNodeType.MODEL_CAR,
         partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ModelCarBrandNode,
-        partner_node_type: DataNodeType.MODEL_CAR_BRAND,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,
     }

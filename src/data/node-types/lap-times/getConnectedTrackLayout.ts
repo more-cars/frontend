@@ -3,7 +3,6 @@ import type {ApiLapTimeAchievedOnTrackLayoutRelationship} from "./types/ApiLapTi
 import {getLapTimeById} from "./getLapTimeById"
 import type {LapTimeAchievedOnTrackLayoutRelationship} from "./types/LapTimeAchievedOnTrackLayoutRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {TrackLayoutNode} from "../track-layouts/types/TrackLayoutNode"
 
@@ -22,9 +21,7 @@ export async function getConnectedTrackLayout(id: number) {
         id: apiData.data.relationship_id,
         name: DataRelationshipType.LAP_TIME_ACHIEVED_ON_TRACK_LAYOUT,
         source_node: sourceNode,
-        source_node_type: DataNodeType.LAP_TIME,
         partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as TrackLayoutNode,
-        partner_node_type: DataNodeType.TRACK_LAYOUT,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,
     }

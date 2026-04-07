@@ -3,7 +3,6 @@ import {getCarModelById} from "./getCarModelById"
 import type {ApiCarModelHasVariantRelationship} from "./types/ApiCarModelHasVariantRelationship"
 import type {CarModelHasVariantRelationship} from "./types/CarModelHasVariantRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {CarModelVariantNode} from "../car-model-variants/types/CarModelVariantNode"
 
@@ -21,9 +20,7 @@ export async function getConnectedCarModelVariants(id: number) {
             id: apiItem.data.relationship_id,
             name: DataRelationshipType.CAR_MODEL_HAS_VARIANT,
             source_node: sourceNode,
-            source_node_type: DataNodeType.CAR_MODEL,
             partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as CarModelVariantNode,
-            partner_node_type: DataNodeType.CAR_MODEL_VARIANT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,
         })

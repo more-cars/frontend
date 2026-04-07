@@ -3,7 +3,6 @@ import {getRaceTrackById} from "./getRaceTrackById"
 import type {ApiRaceTrackHostedRacingEventRelationship} from "./types/ApiRaceTrackHostedRacingEventRelationship"
 import type {RaceTrackHostedRacingEventRelationship} from "./types/RaceTrackHostedRacingEventRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {RacingEventNode} from "../racing-events/types/RacingEventNode"
 
@@ -21,9 +20,7 @@ export async function getConnectedRacingEvents(id: number) {
             id: apiItem.data.relationship_id,
             name: DataRelationshipType.RACE_TRACK_HOSTED_RACING_EVENT,
             source_node: sourceNode,
-            source_node_type: DataNodeType.RACE_TRACK,
             partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RacingEventNode,
-            partner_node_type: DataNodeType.RACING_EVENT,
             created_at: apiItem.data.created_at,
             updated_at: apiItem.data.updated_at,
         })

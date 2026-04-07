@@ -3,7 +3,6 @@ import type {ApiProgrammeEpisodeFollowsEpisodeRelationship} from "./types/ApiPro
 import {getProgrammeEpisodeById} from "./getProgrammeEpisodeById"
 import type {ProgrammeEpisodeFollowsEpisodeRelationship} from "./types/ProgrammeEpisodeFollowsEpisodeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
-import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
 import type {ProgrammeEpisodeNode} from "./types/ProgrammeEpisodeNode"
 
@@ -22,9 +21,7 @@ export async function getConnectedPredecessor(id: number) {
         id: apiData.data.relationship_id,
         name: DataRelationshipType.PROGRAMME_EPISODE_FOLLOWS_EPISODE,
         source_node: sourceNode,
-        source_node_type: DataNodeType.PROGRAMME_EPISODE,
         partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ProgrammeEpisodeNode,
-        partner_node_type: DataNodeType.PROGRAMME_EPISODE,
         created_at: apiData.data.created_at,
         updated_at: apiData.data.updated_at,
     }
