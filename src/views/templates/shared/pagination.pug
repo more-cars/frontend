@@ -19,7 +19,7 @@ mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastP
                 span(class="text-zinc-100") –
 
             li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
-                if previousPage > 0
+                if currentPage > 1
                     a(
                         aria-label="previous page"
                         rel="prev"
@@ -29,11 +29,11 @@ mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastP
                 else
                     span(class="text-zinc-100") –
 
-            li(class="rounded-full py-2 border-2 border-zinc-100")
+            li(class="rounded-full py-2 border-2 border-zinc-100" aria-current="page")
                 span #{currentPage}
 
             li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
-                if nextPage > 1
+                if currentPage < lastPage
                     a(
                         aria-label="next page"
                         rel="next"

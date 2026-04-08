@@ -2,7 +2,7 @@ section(data-testid="search-tools-section")
     div(class="bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
         - currentPage = pagination.page
         - firstPage = 1
-        - lastPage = Math.floor(pagination.total / 100) + 1
+        - lastPage = pagination.total % 100 === 0 ? Math.floor(pagination.total / 100) : Math.floor(pagination.total / 100) + 1
         - previousPage = currentPage < 2 ? 0 : currentPage - 1
         - nextPage = currentPage < lastPage ? currentPage + 1 : 0
         include ../shared/pagination
