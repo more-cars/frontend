@@ -1,0 +1,37 @@
+include node-type-group
+
++node-type-group('Core Data', [
+    node_types.get('car-model'),
+    node_types.get('car-model-variant'),
+    node_types.get('brand'),
+    node_types.get('company'),
+    node_types.get('price'),
+    node_types.get('rating'),
+])
+
++node-type-group('Motorsport', [
+    node_types.get('racing-series'),
+    node_types.get('racing-event'),
+    node_types.get('racing-session'),
+    node_types.get('session-result'),
+    node_types.get('race-track'),
+    node_types.get('track-layout'),
+    node_types.get('lap-time'),
+])
+
++node-type-group('Press & Media', [
+    node_types.get('magazine'),
+    node_types.get('magazine-issue'),
+    node_types.get('programme'),
+    node_types.get('programme-episode'),
+    node_types.get('motor-show'),
+    node_types.get('image'),
+    node_types.get('video'),
+])
+
++node-type-group('Gaming', [
+    node_types.get('racing-game'),
+    node_types.get('gaming-platform'),
+    node_types.get('model-car'),
+    node_types.get('model-car-brand'),
+])
