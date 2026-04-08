@@ -1,2 +1,6 @@
 section(data-testid="lead-image")
     img(src=`${mainImage && mainImage.fields && mainImage.fields.image_url_m ? mainImage.fields.image_url_m : '/g/no-image.webp'}` class="rounded-xl border-4 border-white")
+    if node.type !== 'image'
+        div(class="text-right text-sm p-2 pb-0 font-sans text-zinc-700 decoration-zinc-300 hover:decoration-zinc-700")
+            a(class="underline " href=`/images/${mainImage.fields.id}`) Photo
+            span  by #{mainImage.fields.creator} / #{mainImage.fields.license}
