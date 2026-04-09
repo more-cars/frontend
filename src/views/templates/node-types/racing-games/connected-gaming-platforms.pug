@@ -1,7 +1,9 @@
-- sectionHeadline = 'Gaming Platforms'
-- sectionIntro = `"${racingGame.name}" was released on the following platforms.`
-- nodeType = 'gaming-platform'
-- thumbnails = relationships.gaming_platforms.thumbnails
-- nodeProperties = relationships.gaming_platforms.node_properties
-- nodeItems = gamingPlatforms
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    gamingPlatforms,
+    'Gaming Platforms',
+    `"${racingGame.name}" was released on the following platforms.`,
+    'gaming-platform',
+    relationships.gaming_platforms.thumbnails,
+    relationships.gaming_platforms.node_properties,
+)

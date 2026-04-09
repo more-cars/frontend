@@ -1,6 +1,9 @@
-- sectionHeadline = 'Image Gallery'
-- sectionIntro = `There are ${images.length} images available for this node.`
-- nodeType = 'image'
-- nodeProperties = relationships.images.node_properties
-- nodeItems = images
 include connected-nodes-section
++connected-nodes-section(
+    images,
+    'Image Gallery',
+    `There are ${images.length} images available for this node.`,
+    'image',
+    relationships.images.thumbnails,
+    relationships.images.node_properties,
+)

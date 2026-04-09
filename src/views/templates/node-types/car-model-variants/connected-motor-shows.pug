@@ -1,7 +1,9 @@
-- sectionHeadline = 'Motor Shows'
-- sectionIntro = `The "${carModelVariant.name}" was presented at the following motor shows.`
-- nodeType = 'motor-show'
-- thumbnails = relationships.motor_shows.thumbnails
-- nodeProperties = relationships.motor_shows.node_properties
-- nodeItems = motorShows
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    motorShows,
+    'Motor Shows',
+    `The "${carModelVariant.name}" was presented at the following motor shows.`,
+    'motor-show',
+    relationships.motor_shows.thumbnails,
+    relationships.motor_shows.node_properties,
+)

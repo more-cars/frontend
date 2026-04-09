@@ -1,8 +1,11 @@
-- sectionHeadline = 'Successor'
-- sectionIntro = `The ${carModel.name} was succeeded by the following car model.`
-- nodeType = 'car-model'
-- thumbnails = relationships.successor.thumbnails
-- nodeProperties = relationships.successor.node_properties
-- nodeItems = [successor]
-- sectionName = 'successor'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [successor],
+    'Successor',
+    `The ${carModel.name} was succeeded by the following car model.`,
+    'car-model',
+    relationships.successor.thumbnails,
+    relationships.successor.node_properties,
+    null,
+    'successor',
+)

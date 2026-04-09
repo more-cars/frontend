@@ -1,7 +1,9 @@
-- sectionHeadline = 'Racing Games'
-- sectionIntro = `The ${carModelVariant.name} was featured in the following racing games.`
-- nodeType = 'racing-game'
-- thumbnails = relationships.racing_games.thumbnails
-- nodeProperties = relationships.racing_games.node_properties
-- nodeItems = racingGames
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    racingGames,
+    'Racing Games',
+    `The ${carModelVariant.name} was featured in the following racing games.`,
+    'racing-game',
+    relationships.racing_games.thumbnails,
+    relationships.racing_games.node_properties,
+)

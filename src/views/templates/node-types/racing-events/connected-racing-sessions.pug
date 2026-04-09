@@ -1,7 +1,9 @@
-- sectionHeadline = 'Racing Sessions'
-- sectionIntro = `The following sessions were part of the "${racingEvent.name}".`
-- nodeType = 'racing-session'
-- thumbnails = relationships.racing_sessions.thumbnails
-- nodeProperties = relationships.racing_sessions.node_properties
-- nodeItems = racingSessions
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    racingSessions,
+    'Racing Sessions',
+    `The following sessions were part of the "${racingEvent.name}".`,
+    'racing-session',
+    relationships.racing_sessions.thumbnails,
+    relationships.racing_sessions.node_properties,
+)

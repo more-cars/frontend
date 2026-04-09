@@ -1,7 +1,9 @@
-- sectionHeadline = 'Race Track'
-- sectionIntro = `The event ${racingEvent.name} took place at the following race track.`
-- nodeType = 'race-track'
-- thumbnails = relationships.race_track.thumbnails
-- nodeProperties = relationships.race_track.node_properties
-- nodeItems = [raceTrack]
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [raceTrack],
+    'Race Track',
+    `The event ${racingEvent.name} took place at the following race track.`,
+    'race-track',
+    relationships.race_track.thumbnails,
+    relationships.race_track.node_properties,
+)

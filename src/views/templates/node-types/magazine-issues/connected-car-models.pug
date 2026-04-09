@@ -1,7 +1,9 @@
-- sectionHeadline = 'Car Models'
-- sectionIntro = `This magazine issue covers the following car models.`
-- nodeType = 'car-model'
-- thumbnails = relationships.car_models.thumbnails
-- nodeProperties = relationships.car_models.node_properties
-- nodeItems = carModels
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    carModels,
+    'Car Models',
+    `This magazine issue covers the following car models.`,
+    'car-model',
+    relationships.car_models.thumbnails,
+    relationships.car_models.node_properties,
+)

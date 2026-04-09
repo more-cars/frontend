@@ -1,8 +1,11 @@
-- sectionHeadline = 'Predecessor'
-- sectionIntro = `The ${carModel.name} is the successor of the following car model.`
-- nodeType = 'car-model'
-- thumbnails = relationships.predecessor.thumbnails
-- nodeProperties = relationships.predecessor.node_properties
-- nodeItems = [predecessor]
-- sectionName = 'predecessor'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [predecessor],
+    'Predecessor',
+    `The ${carModel.name} is the successor of the following car model.`,
+    'car-model',
+    relationships.predecessor.thumbnails,
+    relationships.predecessor.node_properties,
+    null,
+    'predecessor',
+)

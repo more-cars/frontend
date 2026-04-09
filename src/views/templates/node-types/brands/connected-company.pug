@@ -1,7 +1,9 @@
-- sectionHeadline = 'Company'
-- sectionIntro = `The brand ${brand.name} is owned by the following company.`
-- nodeType = 'company'
-- thumbnails = relationships.company.thumbnails
-- nodeProperties = relationships.company.node_properties
-- nodeItems = [company]
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [company],
+    'Company',
+    `The brand ${brand.name} is owned by the following company.`,
+    'company',
+    relationships.company.thumbnails,
+    relationships.company.node_properties,
+)

@@ -1,8 +1,10 @@
-- sectionHeadline = 'Prices'
-- sectionIntro = `These were the official base prices for the "${carModelVariant.name}".`
-- nodeType = 'price'
-- thumbnails = relationships.prices.thumbnails
-- nodeProperties = relationships.prices.node_properties
-- nodeItems = prices
-- itemHeadlineProperty = 'price'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    prices,
+    'Prices',
+    `These were the official base prices for the "${carModelVariant.name}".`,
+    'price',
+    relationships.prices.thumbnails,
+    relationships.prices.node_properties,
+    'price',
+)

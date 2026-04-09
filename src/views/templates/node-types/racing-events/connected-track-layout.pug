@@ -1,7 +1,9 @@
-- sectionHeadline = 'Track Layout'
-- sectionIntro = `The event ${racingEvent.name} was performed on the following layout.`
-- nodeType = 'track-layout'
-- thumbnails = relationships.track_layout.thumbnails
-- nodeProperties = relationships.track_layout.node_properties
-- nodeItems = [trackLayout]
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [trackLayout],
+    'Track Layout',
+    `The event ${racingEvent.name} was performed on the following layout.`,
+    'track-layout',
+    relationships.track_layout.thumbnails,
+    relationships.track_layout.node_properties,
+)

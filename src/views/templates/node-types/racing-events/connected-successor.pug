@@ -1,8 +1,11 @@
-- sectionHeadline = 'Successor'
-- sectionIntro = `The ${racingEvent.name} took place before the following racing event.`
-- nodeType = 'racing-event'
-- thumbnails = relationships.successor.thumbnails
-- nodeProperties = relationships.successor.node_properties
-- nodeItems = [successor]
-- sectionName = 'successor'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [successor],
+    'Successor',
+    `The ${racingEvent.name} took place before the following racing event.`,
+    'racing-event',
+    relationships.successor.thumbnails,
+    relationships.successor.node_properties,
+    null,
+    'successor',
+)

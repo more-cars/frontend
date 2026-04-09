@@ -1,7 +1,9 @@
-- sectionHeadline = 'Car Models'
-- sectionIntro = `The following car models were created under the brand name ${brand.name}.`
-- nodeType = 'car-model'
-- thumbnails = relationships.car_models.thumbnails
-- nodeProperties = relationships.car_models.node_properties
-- nodeItems = carModels
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    carModels,
+    'Car Models',
+    `The following car models were created under the brand name ${brand.name}.`,
+    'car-model',
+    relationships.car_models.thumbnails,
+    relationships.car_models.node_properties,
+)

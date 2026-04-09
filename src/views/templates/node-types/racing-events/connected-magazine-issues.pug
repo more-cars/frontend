@@ -1,8 +1,10 @@
-- sectionHeadline = 'Magazine Issues'
-- sectionIntro = `The ${racingEvent.name} was covered by the following car magazines.`
-- nodeType = 'magazine-issue'
-- thumbnails = relationships.magazine_issues.thumbnails
-- nodeProperties = relationships.magazine_issues.node_properties
-- nodeItems = magazineIssues
-- itemHeadlineProperty = 'title'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    magazineIssues,
+    'Magazine Issues',
+    `The ${racingEvent.name} was covered by the following car magazines.`,
+    'magazine-issue',
+    relationships.magazine_issues.thumbnails,
+    relationships.magazine_issues.node_properties,
+    'title',
+)

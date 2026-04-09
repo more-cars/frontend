@@ -1,8 +1,10 @@
-- sectionHeadline = 'Session Results'
-- sectionIntro = `The following results were achieved in this racing session.`
-- nodeType = 'session-result'
-- thumbnails = relationships.session_results.thumbnails
-- nodeProperties = relationships.session_results.node_properties
-- nodeItems = sessionResults
-- itemHeadlineProperty = 'driver_name'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    sessionResults,
+    'Session Results',
+    `The following results were achieved in this racing session.`,
+    'session-result',
+    relationships.session_results.thumbnails,
+    relationships.session_results.node_properties,
+    'driver_name',
+)

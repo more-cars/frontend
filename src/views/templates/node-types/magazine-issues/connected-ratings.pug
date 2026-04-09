@@ -1,8 +1,10 @@
-- sectionHeadline = 'Ratings'
-- sectionIntro = `This issue gave the following ratings.`
-- nodeType = 'rating'
-- thumbnails = relationships.ratings.thumbnails
-- nodeProperties = relationships.ratings.node_properties
-- nodeItems = ratings
-- itemHeadlineProperty = 'rating_value'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    ratings,
+    'Ratings',
+    `This issue gave the following ratings.`,
+    'rating',
+    relationships.ratings.thumbnails,
+    relationships.ratings.node_properties,
+    'rating_value',
+)

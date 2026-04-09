@@ -1,8 +1,10 @@
-- sectionHeadline = 'Predecessor'
-- sectionIntro = `This episode follows:".`
-- nodeType = 'programme-episode'
-- thumbnails = relationships.predecessor.thumbnails
-- nodeProperties = relationships.predecessor.node_properties
-- nodeItems = [predecessor]
-- itemHeadlineProperty = 'title'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [predecessor],
+    'Predecessor',
+    `This episode follows:".`,
+    'programme-episode',
+    relationships.predecessor.thumbnails,
+    relationships.predecessor.node_properties,
+    'title',
+)

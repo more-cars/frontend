@@ -1,8 +1,10 @@
-- sectionHeadline = 'Session Results'
-- sectionIntro = `The ${carModelVariant.name} achieved the following motorsport results.`
-- nodeType = 'session-result'
-- thumbnails = relationships.session_results.thumbnails
-- nodeProperties = relationships.session_results.node_properties
-- nodeItems = sessionResults
-- itemHeadlineProperty = 'driver_name'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    sessionResults,
+    'Session Results',
+    `The ${carModelVariant.name} achieved the following motorsport results.`,
+    'session-result',
+    relationships.session_results.thumbnails,
+    relationships.session_results.node_properties,
+    'driver_name',
+)

@@ -1,9 +1,11 @@
-- sectionHeadline = 'Successor'
-- sectionIntro = `This issue is the predecessor of the following issue.`
-- nodeType = 'magazine-issue'
-- thumbnails = relationships.successor.thumbnails
-- nodeProperties = relationships.successor.node_properties
-- nodeItems = [successor]
-- itemHeadlineProperty = 'title'
-- sectionName = 'successor'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [successor],
+    'Successor',
+    `This issue is the predecessor of the following issue.`,
+    'magazine-issue',
+    relationships.successor.thumbnails,
+    relationships.successor.node_properties,
+    'title',
+    'successor',
+)

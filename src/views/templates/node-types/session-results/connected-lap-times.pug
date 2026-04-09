@@ -1,8 +1,10 @@
-- sectionHeadline = 'Lap Times'
-- sectionIntro = `The following lap times were achieved on the way to this session result.`
-- nodeType = 'lap-time'
-- thumbnails = relationships.lap_times.thumbnails
-- nodeProperties = relationships.lap_times.node_properties
-- nodeItems = lapTimes
-- itemHeadlineProperty = 'driver_name'
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    lapTimes,
+    'Lap Times',
+    `The following lap times were achieved on the way to this session result.`,
+    'lap-time',
+    relationships.lap_times.thumbnails,
+    relationships.lap_times.node_properties,
+    'driver_name',
+)

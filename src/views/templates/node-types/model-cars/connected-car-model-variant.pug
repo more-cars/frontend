@@ -1,7 +1,9 @@
-- sectionHeadline = 'Car Model Variant'
-- sectionIntro = `This scale model is based on the following car model variant.`
-- nodeType = 'car-model-variant'
-- thumbnails = relationships.car_model_variant.thumbnails
-- nodeProperties = relationships.car_model_variant.node_properties
-- nodeItems = [carModelVariant]
 include ../../shared/connected-nodes-section
++connected-nodes-section(
+    [carModelVariant],
+    'Car Model Variant',
+    `This scale model is based on the following car model variant.`,
+    'car-model-variant',
+    relationships.car_model_variant.thumbnails,
+    relationships.car_model_variant.node_properties,
+)
