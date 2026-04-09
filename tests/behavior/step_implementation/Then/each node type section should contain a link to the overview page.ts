@@ -2,7 +2,7 @@ import {Then} from "@badeball/cypress-cucumber-preprocessor"
 import {pluralize} from "inflection"
 
 Then('each node type section should contain a link to the overview page', () => {
-    cy.get(`ul[data-testid="node-types"] li`).each(nodeTypeSection => {
+    cy.get(`[data-testid="node-type-group-section"] li`).each(nodeTypeSection => {
         const nodeType = nodeTypeSection.attr('data-testid') || ''
         const anchor = cy.wrap(nodeTypeSection).find('a')
 
