@@ -23,7 +23,6 @@ describe('Requesting a TRACK LAYOUT detail page', () => {
             .toHaveBeenCalledTimes(1)
     })
 
-
     test('when the TRACK LAYOUT exists', async () => {
         vi.spyOn(NodeModelFacade, 'getNodeById')
             .mockImplementation(async () => (FakeTrackLayout.model))
