@@ -11,10 +11,9 @@ block main
             section(data-testid=`${node_type}-section`)
                 ul(class="mb-6 bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
                     each node in node_collection
-                        - nodeType = node_type
-                        - nodeData = node.fields
-                        - itemHeadline = node_titles.get(nodeData.id)
-                        - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : null
+                        - itemHeadline = node_titles.get(node.fields.id)
+                        - thumbnail = thumbnails ? thumbnails.get(node.fields.id) : null
                         - nodeProperties = node_properties
                         include ../shared/list-node-item
+                        +list-node-item(node, node_type, itemHeadline, thumbnail)
             include ../shared/search-tools

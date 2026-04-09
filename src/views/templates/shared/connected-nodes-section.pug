@@ -8,7 +8,7 @@ mixin connected-nodes-section(nodes, headline, introText, nodeType, thumbnails, 
 
             ul(class="max-h-150 overflow-y-auto")
                 each node in nodes
-                    - nodeData = node.fields
-                    - thumbnail = thumbnails ? thumbnails.get(nodeData.id) : nodeData
-                    - itemHeadline = itemHeadlineProperty ? nodeData[itemHeadlineProperty] : nodeData['name']
+                    - thumbnail = thumbnails ? thumbnails.get(node.fields.id) : null
+                    - itemHeadline = itemHeadlineProperty ? node.fields[itemHeadlineProperty] : null
                     include list-node-item
+                    +list-node-item(node, nodeType, itemHeadline, thumbnail)
