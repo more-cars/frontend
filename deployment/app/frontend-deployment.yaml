@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: frontend
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
           image: ghcr.io/more-cars/frontend:latest
           env:
             - name: API_URL
-              value: http:$(API_SERVICE_SERVICE_HOST):$(API_SERVICE_SERVICE_PORT)
+              value: http:$(API_SERVICE_HOST):$(API_SERVICE_PORT)
             - name: BASIC_AUTH_USERNAME
               valueFrom:
                 secretKeyRef:

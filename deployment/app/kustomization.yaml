@@ -11,7 +11,7 @@ patches:
   - path: deployment.patch.json
     target:
       kind: Deployment
-      name: frontend-deployment
+      name: frontend
   - path: http-route.patch.json
     target:
       kind: HTTPRoute
