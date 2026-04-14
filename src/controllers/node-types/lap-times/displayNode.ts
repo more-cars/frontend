@@ -22,7 +22,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const videos = await LapTimeModelFacade.getConnectedVideos(lapTimeId)
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
-        page_title: `${lapTime.fields.driver_name} - Lap Time`,
+        page_title: `${LapTimeModelFacade.getNodeTitle(lapTime)} - Lap Time`,
         node: {
             type: ControllerNodeType.LAP_TIME,
             data: lapTime,
