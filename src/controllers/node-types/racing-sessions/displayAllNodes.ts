@@ -1,6 +1,6 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
-import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
+import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"

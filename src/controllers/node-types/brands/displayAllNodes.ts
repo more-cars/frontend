@@ -3,7 +3,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
-import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
+import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 

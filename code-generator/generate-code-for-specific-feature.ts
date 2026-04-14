@@ -39,5 +39,5 @@ async function promptFeatureParameters(feature: string) {
 }
 
 function getNodeTypeProperties(nodeType: string) {
-    return require(`./node-type-properties/${dasherize(nodeType.toLowerCase())}-properties.json`)
+    return require(`../src/specification/node-types/${dasherize(nodeType.toLowerCase())}-properties.json`)
 }

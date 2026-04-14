@@ -6,7 +6,7 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
-import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
+import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {

@@ -4,7 +4,7 @@ import {VideoModelFacade} from "../../../models/VideoModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getVideoThumbnails} from "./getVideoThumbnails"
 import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
-import {getNodeProperties} from "../../../models/node-types/getNodeProperties"
+import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
