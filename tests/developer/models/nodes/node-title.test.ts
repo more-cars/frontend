@@ -15,6 +15,8 @@ describe('Node Title', () => {
                 title: 'dummy',
                 driver_name: 'dummy',
                 position: 1,
+                currency_code: 'EUR',
+                rating_value: 93,
             }
         }
 
