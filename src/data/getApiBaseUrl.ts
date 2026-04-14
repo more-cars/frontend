@@ -5,7 +5,5 @@ export function getApiBaseUrl() {
         throw new Error('Missing API URL')
     }
 
-    // TODO verify that URL is syntactically correct
-
     return url
 }
