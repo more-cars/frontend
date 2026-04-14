@@ -1,5 +1,6 @@
 import express from "express"
 import {PriceModelFacade} from "../../../models/PriceModelFacade"
+import {formatPrice} from "../../lib/formatPrice"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
@@ -18,7 +19,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await PriceModelFacade.getConnectedImages(priceId)
 
     res.render('templates/node-types/prices/price-detail-page', {
-        page_title: `${price.fields.price} - Price`,
+        page_title: `${formatPrice(price.fields.price, price.fields.currency_code)} - Car Price`,
         node: {
             type: ControllerNodeType.PRICE,
             data: price,
