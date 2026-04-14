@@ -1,7 +1,7 @@
 import http from 'http'
 import {app} from "./app"
 
-const PORT = process.env.FRONTEND_PORT || 4000
+const PORT = process.env.MC_FRONTEND_PORT || 4000
 const server = http.createServer(app)
 
 server.listen(PORT, () => {
