@@ -20,7 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const videos = await MagazineModelFacade.getConnectedVideos(magazineId)
 
     res.render('templates/node-types/magazines/magazine-detail-page', {
-        page_title: `${magazine.fields.name} - Magazine`,
+        page_title: `${MagazineModelFacade.getNodeTitle(magazine)} - Magazine`,
         node: {
             type: ControllerNodeType.MAGAZINE,
             data: magazine,
