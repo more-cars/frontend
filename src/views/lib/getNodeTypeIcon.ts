@@ -10,7 +10,7 @@ export function getNodeTypeIcon(nodeType: ControllerNodeType) {
         [ControllerNodeType.RACE_TRACK, '🛣️'],
         [ControllerNodeType.TRACK_LAYOUT, '⭖'],
         [ControllerNodeType.RACING_SERIES, '🏎️'],
-        [ControllerNodeType.RACING_EVENT, '🏞'],
+        [ControllerNodeType.RACING_EVENT, '🎫'],
         [ControllerNodeType.RACING_SESSION, '🚦'],
         [ControllerNodeType.SESSION_RESULT, '🏁'],
         [ControllerNodeType.LAP_TIME, '⏱️'],
