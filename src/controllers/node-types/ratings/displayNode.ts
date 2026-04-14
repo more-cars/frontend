@@ -1,5 +1,6 @@
 import express from "express"
 import {RatingModelFacade} from "../../../models/RatingModelFacade"
+import {formatRating} from "../../lib/formatRating"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
@@ -19,7 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const images = await RatingModelFacade.getConnectedImages(ratingId)
 
     res.render('templates/node-types/ratings/rating-detail-page', {
-        page_title: `${rating.fields.rating_value} - Rating`,
+        page_title: `${formatRating(rating.fields.rating_value, rating.fields.scale_maximum)} - Rating`,
         node: {
             type: ControllerNodeType.RATING,
             data: rating,

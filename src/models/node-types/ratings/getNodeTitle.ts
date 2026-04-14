@@ -1,5 +1,6 @@
 import type {Rating} from "./types/Rating"
+import {formatRating} from "../../../controllers/lib/formatRating"
 
 export function getNodeTitle(node: Rating) {
-    return `${node.fields.rating_value} / ${node.fields.scale_maximum} Points`
+    return formatRating(node.fields.rating_value, node.fields.scale_maximum)
 }
