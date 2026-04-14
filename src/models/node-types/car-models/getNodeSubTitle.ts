@@ -2,13 +2,32 @@ import {ordinalize} from "inflection"
 import type {CarModel} from "./types/CarModel"
 
 export function getNodeSubTitle(node: CarModel) {
-    let subTitle = `${node.fields.built_from} - ${node.fields.built_to}`
+    const builtFrom = node.fields.built_from
+    const builtTo = node.fields.built_to
+    const generation = node.fields.generation
+    const internalCode = node.fields.internal_code
 
-    if (node.fields.generation) {
-        subTitle += ` | ${ordinalize(node.fields.generation.toString())} generation`
+    const subtitle = []
+
+    if (builtFrom && builtTo) {
+        subtitle.push(`${builtFrom} - ${builtTo}`)
     }
 
-    subTitle += ` | ${node.fields.internal_code}`
+    if (builtFrom && !builtTo) {
+        subtitle.push(`since ${builtFrom}`)
+    }
 
-    return subTitle
+    if (!builtFrom && builtTo) {
+        subtitle.push(`until ${builtTo}`)
+    }
+
+    if (generation) {
+        subtitle.push(`${ordinalize(generation.toString())} generation`)
+    }
+
+    if (internalCode) {
+        subtitle.push(internalCode)
+    }
+
+    return subtitle.join(' | ')
 }
