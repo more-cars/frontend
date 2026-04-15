@@ -46,5 +46,13 @@
     "mandatory": false,
     "datatype": "string",
     "example": "51°32’0”N 13°55’10”E"
+  },
+  {
+    "name": "country_code",
+    "label": "Country",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DE"
   }
 ]

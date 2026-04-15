@@ -13,6 +13,7 @@ export function convertRaceTrackNode(dataNode: RaceTrackNode) {
             type: dataNode.data.type || null,
             location: dataNode.data.location || null,
             geo_position: dataNode.data.geo_position || null,
+            country_code: dataNode.data.country_code || null,
             created_at: dataNode.data.created_at,
             updated_at: dataNode.data.updated_at,
         }

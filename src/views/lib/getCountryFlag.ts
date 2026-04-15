@@ -1,5 +1,5 @@
 export function getCountryFlag(countryCode: string) {
-    if (!countryCode) {
+    if (!countryCode || countryCode === '--') {
         return null
     }
 

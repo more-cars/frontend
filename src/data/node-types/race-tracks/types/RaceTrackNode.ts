@@ -10,6 +10,7 @@ export type RaceTrackNode = {
         type?: string
         location?: string
         geo_position?: string
+        country_code?: string
         created_at: string
         updated_at: string
     }
