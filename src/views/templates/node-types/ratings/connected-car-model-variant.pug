@@ -1,9 +1,9 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    [carModelVariant],
+    [carModelVariant.item],
     'Car Model Variant',
-    `This rating was given to the following car model variant.`,
+    `This rating was awarded for the car model variant »${carModelVariant.item.fields.name}«.`,
     'car-model-variant',
-    relationships.car_model_variant.thumbnails,
-    relationships.car_model_variant.node_properties,
+    carModelVariant.thumbnails,
+    carModelVariant.node_properties,
 )

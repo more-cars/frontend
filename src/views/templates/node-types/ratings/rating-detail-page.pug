@@ -1,12 +1,12 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - rating = node.data
+    - rating = node.data.fields
 
-    - carModelVariant = relationships.car_model_variant.item
+    - carModelVariant = relationships.car_model_variant
     include connected-car-model-variant
 
-    - magazineIssue = relationships.magazine_issue.item
+    - magazineIssue = relationships.magazine_issue
     include connected-magazine-issue
 
     - images = relationships.images

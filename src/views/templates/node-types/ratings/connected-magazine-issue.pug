@@ -1,10 +1,10 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    [magazineIssue],
+    [magazineIssue.item],
     'Magazine Issue',
-    `This rating was given by the following car magazine issue.`,
+    `The following car magazine issue gave this rating to the »${carModelVariant.item.fields.name}«.`,
     'magazine-issue',
-    relationships.magazine_issue.thumbnails,
-    relationships.magazine_issue.node_properties,
+    magazineIssue.thumbnails,
+    magazineIssue.node_properties,
     'title',
 )
