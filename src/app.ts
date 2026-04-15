@@ -26,6 +26,7 @@ import programmeEpisodes from "./routes/programme-episodes"
 import motorShows from "./routes/motor-shows"
 import videos from "./routes/videos"
 import images from "./routes/images"
+import {analyticsMiddleware} from "./tracking/analyticsMiddleware"
 import {basicAuthentication} from "./basicAuthentication"
 import {canonicalUrlPath} from "./views/lib/canonicalUrlPath"
 import {convertDate} from "./views/lib/convertDate.ts"
@@ -40,6 +41,7 @@ const app: Express = express()
 app.set('view engine', 'pug')
 app.set('views', './src/views')
 
+app.use(analyticsMiddleware)
 app.use(basicAuthentication)
 app.use(express.static('public'))
 
