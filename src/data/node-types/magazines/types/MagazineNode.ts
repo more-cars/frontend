@@ -16,6 +16,7 @@ export type MagazineNode = {
         circulation_year?: number
         publisher?: string
         issn?: string
+        country_code?: string
         created_at: string
         updated_at: string
     }

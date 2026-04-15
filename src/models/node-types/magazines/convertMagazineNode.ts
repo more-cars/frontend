@@ -19,6 +19,7 @@ export function convertMagazineNode(dataNode: MagazineNode) {
             circulation_year: dataNode.data.circulation_year || null,
             publisher: dataNode.data.publisher || null,
             issn: dataNode.data.issn || null,
+            country_code: dataNode.data.country_code || null,
             created_at: dataNode.data.created_at,
             updated_at: dataNode.data.updated_at,
         }

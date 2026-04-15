@@ -94,5 +94,13 @@
     "mandatory": false,
     "datatype": "string",
     "example": "1350-9624"
+  },
+  {
+    "name": "country_code",
+    "label": "Country",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DE"
   }
 ]

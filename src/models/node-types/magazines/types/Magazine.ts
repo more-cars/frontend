@@ -16,6 +16,7 @@ export type Magazine = {
         circulation_year: number | null
         publisher: string | null
         issn: string | null
+        country_code: string | null
         created_at: string
         updated_at: string
     }
