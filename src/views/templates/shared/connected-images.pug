@@ -1,9 +1,12 @@
 include connected-nodes-section
+- introTextParts = []
+- if (images.items.length === 1) introTextParts.push(`There is currently one image attached to this node.`)
+- if (images.items.length > 1) introTextParts.push(`There are ${images.items.length} images attached to this node.`)
 +connected-nodes-section(
-    images,
+    images.items,
     'Image Gallery',
-    `There are ${images.length} images available for this node.`,
+    introTextParts.join(' '),
     'image',
-    relationships.images.thumbnails,
-    relationships.images.node_properties,
+    images.thumbnails,
+    images.node_properties,
 )
