@@ -7,6 +7,10 @@ import type {ImageNode} from "../node-types/images/types/ImageNode"
 import type {Node} from "./types/Node"
 
 export async function getMainImages(ids: number[]) {
+    if (ids.length === 0) {
+        return []
+    }
+
     const apiData = (await requestDataFromApi(`/nodes/${ids.join(',')}/has-prime-image`)).data as ApiNodeHasPrimeImageRelationship[] || []
     const data: NodeHasMainImageRelationship[] = []
 
