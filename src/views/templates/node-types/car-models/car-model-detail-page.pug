@@ -1,24 +1,24 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - carModel = node.data
+    - carModel = node.data.fields
 
-    - brand = relationships.brand.item
+    - brand = relationships.brand
     include connected-brand
 
-    - predecessor = relationships.predecessor.item
+    - predecessor = relationships.predecessor
     include connected-predecessor
 
-    - successor = relationships.successor.item
+    - successor = relationships.successor
     include connected-successor
 
-    - carModelVariants = relationships.car_model_variants.items
+    - carModelVariants = relationships.car_model_variants
     include connected-car-model-variants
 
-    - magazineIssues = relationships.magazine_issues.items
+    - magazineIssues = relationships.magazine_issues
     include connected-magazine-issues
 
-    - programmeEpisodes = relationships.programme_episodes.items
+    - programmeEpisodes = relationships.programme_episodes
     include connected-programme-episodes
 
     - images = relationships.images

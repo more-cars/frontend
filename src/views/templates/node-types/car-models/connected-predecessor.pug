@@ -1,11 +1,13 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (predecessor.item) introTextParts.push(`The »${carModel.name}« is the successor of the »${predecessor.item.fields.name}«.`)
 +connected-nodes-section(
-    [predecessor],
+    [predecessor.item],
     'Predecessor',
-    `The ${carModel.name} is the successor of the following car model.`,
+    introTextParts.join(' '),
     'car-model',
-    relationships.predecessor.thumbnails,
-    relationships.predecessor.node_properties,
+    predecessor.thumbnails,
+    predecessor.node_properties,
     null,
     'predecessor',
 )

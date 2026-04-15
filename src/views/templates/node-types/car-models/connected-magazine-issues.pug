@@ -1,10 +1,13 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (magazineIssues.items.length === 1) introTextParts.push(`More Cars knows of one magazine issue that has published an article about the »${carModel.name}«.`)
+- if (magazineIssues.items.length > 1) introTextParts.push(`More Cars knows of ${magazineIssues.items.length} magazine issues that had an article about the »${carModel.name}«.`)
 +connected-nodes-section(
-    magazineIssues,
+    magazineIssues.items,
     'Magazine Issues',
-    `The ${carModel.name} is presented in the following car magazine issues.`,
+    introTextParts.join(' '),
     'magazine-issue',
-    relationships.magazine_issues.thumbnails,
-    relationships.magazine_issues.node_properties,
+    magazineIssues.thumbnails,
+    magazineIssues.node_properties,
     'title',
 )
