@@ -10,6 +10,7 @@ export type MotorShowNode = {
         location?: string
         target_audience?: string
         focus?: string
+        country_code?: string
         created_at: string
         updated_at: string
     }

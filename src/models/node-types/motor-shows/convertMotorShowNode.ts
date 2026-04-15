@@ -13,6 +13,7 @@ export function convertMotorShowNode(dataNode: MotorShowNode) {
             location: dataNode.data.location || null,
             target_audience: dataNode.data.target_audience || null,
             focus: dataNode.data.focus || null,
+            country_code: dataNode.data.country_code || null,
             created_at: dataNode.data.created_at,
             updated_at: dataNode.data.updated_at,
         }
