@@ -13,6 +13,7 @@ export function convertRacingSeriesNode(dataNode: RacingSeriesNode) {
             defunct: dataNode.data.defunct || null,
             organized_by: dataNode.data.organized_by || null,
             vehicle_type: dataNode.data.vehicle_type || null,
+            country_code: dataNode.data.country_code || null,
             created_at: dataNode.data.created_at,
             updated_at: dataNode.data.updated_at,
         }

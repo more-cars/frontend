@@ -3,6 +3,10 @@ export function getCountryFlag(countryCode: string) {
         return null
     }
 
+    if (countryCode.toLowerCase() === 'world') {
+        return '🌍'
+    }
+
     const codePoints = countryCode
         .toUpperCase()
         .split('')

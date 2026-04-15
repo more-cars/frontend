@@ -46,5 +46,13 @@
     "mandatory": false,
     "datatype": "string",
     "example": "touring cars"
+  },
+  {
+    "name": "country_code",
+    "label": "Market",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DE"
   }
 ]

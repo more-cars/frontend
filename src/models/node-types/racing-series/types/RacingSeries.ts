@@ -10,6 +10,7 @@ export type RacingSeries = {
         defunct: number | null
         organized_by: string | null
         vehicle_type: string | null
+        country_code: string | null
         created_at: string
         updated_at: string
     }

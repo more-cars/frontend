@@ -10,6 +10,7 @@ export type RacingSeriesNode = {
         defunct?: number
         organized_by?: string
         vehicle_type?: string
+        country_code?: string
         created_at: string
         updated_at: string
     }
