@@ -1,7 +1,7 @@
 import type {Request} from "express"
 import axios from "axios"
 import crypto from "crypto"
-import {getAnalyticsHostname} from "./getAnalyticsHostname"
+import {getAnalyticsUrl} from "./getAnalyticsUrl"
 
 const MATOMO_SITE_ID = "1"
 
@@ -59,7 +59,7 @@ export async function trackVisit(req: Request, options: TrackOptions): Promise<v
     }
 
     await axios.post(
-        getAnalyticsHostname(),
+        getAnalyticsUrl(),
         new URLSearchParams(payload as Record<string, string>).toString(),
         {
             headers: {

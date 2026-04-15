@@ -38,8 +38,8 @@ async function createDeploymentPatchFile() {
             "op": "replace",
             "path": "/spec/template/spec/containers/0/env/0",
             "value": {
-                "name": "ANALYTICS_HOSTNAME",
-                "value": getHostname(targetCluster, targetEnvironment, 'analytics'),
+                "name": "ANALYTICS_URL",
+                "value": 'https://' + getHostname(targetCluster, targetEnvironment, 'analytics'),
             }
         }
     ]

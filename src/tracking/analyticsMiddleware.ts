@@ -3,7 +3,7 @@ import {trackVisit} from "./trackVisit"
 import {isAsset} from "./isAsset"
 
 export function analyticsMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
-    if (!process.env.ANALYTICS_HOSTNAME) {
+    if (!process.env.ANALYTICS_URL) {
         return next()
     }
 

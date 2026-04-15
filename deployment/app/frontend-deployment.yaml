@@ -19,7 +19,7 @@ spec:
           #image: docker.io/dennisgerike/more-cars-frontend:latest
           image: ghcr.io/more-cars/frontend:latest
           env:
-            - name: ANALYTICS_HOSTNAME
+            - name: ANALYTICS_URL
               value: https://analytics.default.more-cars.net
             - name: API_URL
               value: http:$(API_SERVICE_HOST):$(API_SERVICE_PORT)
