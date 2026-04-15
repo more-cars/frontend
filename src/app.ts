@@ -34,6 +34,7 @@ import {formatTime} from "./views/lib/formatTime.ts"
 import {ordinalizeNumber} from "./views/lib/ordinalize.ts"
 import {getNodeTypeIcon} from "./views/lib/getNodeTypeIcon"
 import {nodeTypeUrlPath} from "./views/lib/nodeTypeUrlPath"
+import {getCountryFlag} from "./views/lib/getCountryFlag"
 
 const app: Express = express()
 app.set('view engine', 'pug')
@@ -77,5 +78,6 @@ app.locals.formatDateTime = convertDateTime
 app.locals.formatTime = formatTime
 app.locals.ordinalize = ordinalizeNumber
 app.locals.icon = getNodeTypeIcon
+app.locals.countryFlag = getCountryFlag
 
 export {app}
