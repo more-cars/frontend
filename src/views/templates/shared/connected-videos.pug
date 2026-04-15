@@ -1,10 +1,13 @@
 include connected-nodes-section
+- introTextParts = []
+- if (videos.items.length === 1) introTextParts.push(`There is currently one video attached to this node.`)
+- if (videos.items.length > 1) introTextParts.push(`There are ${videos.items.length} videos attached to this node.`)
 +connected-nodes-section(
-    videos,
+    videos.items,
     'Videos',
-    `There are ${videos.length} videos available for this node.`,
+    introTextParts.join(' '),
     'video',
-    relationships.videos.thumbnails,
-    relationships.videos.node_properties,
+    videos.thumbnails,
+    videos.node_properties,
     'title',
 )
