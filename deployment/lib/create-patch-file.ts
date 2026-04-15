@@ -38,7 +38,7 @@ async function createDeploymentPatchFile() {
             "op": "replace",
             "path": "/spec/template/spec/containers/0/env/0",
             "value": {
-                "name": "URL",
+                "name": "ANALYTICS_HOSTNAME",
                 "value": getHostname(targetCluster, targetEnvironment, 'analytics'),
             }
         }
