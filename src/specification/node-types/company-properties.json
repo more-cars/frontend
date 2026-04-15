@@ -32,11 +32,27 @@
     "example": "Munich"
   },
   {
+    "name": "hq_country_code",
+    "label": "Country",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DE"
+  },
+  {
     "name": "legal_headquarters_location",
     "label": "Legal Headquarters",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
     "example": "Munich"
+  },
+  {
+    "name": "legal_hq_country_code",
+    "label": "Legal HQ Country",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DE"
   }
 ]

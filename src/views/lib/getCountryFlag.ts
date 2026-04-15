@@ -1,4 +1,8 @@
 export function getCountryFlag(countryCode: string) {
+    if (!countryCode) {
+        return null
+    }
+
     const codePoints = countryCode
         .toUpperCase()
         .split('')
