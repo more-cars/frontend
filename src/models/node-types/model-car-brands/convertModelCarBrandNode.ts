@@ -10,6 +10,7 @@ export function convertModelCarBrandNode(dataNode: ModelCarBrandNode) {
             name: dataNode.data.name,
             founded: dataNode.data.founded || null,
             defunct: dataNode.data.defunct || null,
+            country_code: dataNode.data.country_code || null,
             created_at: dataNode.data.created_at,
             updated_at: dataNode.data.updated_at,
         }

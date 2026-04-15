@@ -22,5 +22,13 @@
     "mandatory": false,
     "datatype": "number",
     "example": ""
+  },
+  {
+    "name": "country_code",
+    "label": "Country",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DE"
   }
 ]
