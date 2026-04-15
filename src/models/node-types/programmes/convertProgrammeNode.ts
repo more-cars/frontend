@@ -14,6 +14,7 @@ export function convertProgrammeNode(dataNode: ProgrammeNode) {
             total_seasons: dataNode.data.total_seasons || null,
             total_episodes: dataNode.data.total_episodes || null,
             regular_episode_running_time: dataNode.data.regular_episode_running_time || null,
+            country_code: dataNode.data.country_code || null,
             created_at: dataNode.data.created_at,
             updated_at: dataNode.data.updated_at,
         }
