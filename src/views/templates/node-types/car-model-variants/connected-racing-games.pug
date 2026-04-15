@@ -1,9 +1,12 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (racingGames.items.length === 1) introTextParts.push(`The »${carModelVariant.name}« was featured in the following racing game.`)
+- if (racingGames.items.length > 1) introTextParts.push(`The »${carModelVariant.name}« was featured in the following racing games.`)
 +connected-nodes-section(
-    racingGames,
+    racingGames.items,
     'Racing Games',
-    `The ${carModelVariant.name} was featured in the following racing games.`,
+    introTextParts.join(' '),
     'racing-game',
-    relationships.racing_games.thumbnails,
-    relationships.racing_games.node_properties,
+    racingGames.thumbnails,
+    racingGames.node_properties,
 )

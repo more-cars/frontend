@@ -1,10 +1,10 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    sessionResults,
+    sessionResults.items,
     'Session Results',
-    `The ${carModelVariant.name} achieved the following motorsport results.`,
+    `In motorsport events the »${carModelVariant.name}« achieved the following results.`,
     'session-result',
-    relationships.session_results.thumbnails,
-    relationships.session_results.node_properties,
+    sessionResults.thumbnails,
+    sessionResults.node_properties,
     'driver_name',
 )

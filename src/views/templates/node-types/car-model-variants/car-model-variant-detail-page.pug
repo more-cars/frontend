@@ -1,36 +1,36 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - carModelVariant = node.data
+    - carModelVariant = node.data.fields
 
-    - carModel = relationships.car_model.item
+    - carModel = relationships.car_model
     include connected-car-model
 
-    - magazineIssues = relationships.magazine_issues.items
+    - magazineIssues = relationships.magazine_issues
     include connected-magazine-issues
 
-    - ratings = relationships.ratings.items
+    - ratings = relationships.ratings
     include connected-ratings
 
-    - prices = relationships.prices.items
+    - prices = relationships.prices
     include connected-prices
 
-    - programmeEpisodes = relationships.programme_episodes.items
+    - programmeEpisodes = relationships.programme_episodes
     include connected-programme-episodes
 
-    - lapTimes = relationships.lap_times.items
+    - lapTimes = relationships.lap_times
     include connected-lap-times
 
-    - sessionResults = relationships.session_results.items
+    - sessionResults = relationships.session_results
     include connected-session-results
 
-    - racingGames = relationships.racing_games.items
+    - racingGames = relationships.racing_games
     include connected-racing-games
 
-    - modelCars = relationships.model_cars.items
+    - modelCars = relationships.model_cars
     include connected-model-cars
 
-    - motorShows = relationships.motor_shows.items
+    - motorShows = relationships.motor_shows
     include connected-motor-shows
 
     - images = relationships.images

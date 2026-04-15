@@ -1,10 +1,13 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (prices.items.length === 1) introTextParts.push(`The »${carModelVariant.name}« was officially sold for the following price.`)
+- if (prices.items.length > 1) introTextParts.push(`The »${carModelVariant.name}« was officially sold for the following prices.`)
 +connected-nodes-section(
-    prices,
+    prices.items,
     'Prices',
-    `These were the official base prices for the "${carModelVariant.name}".`,
+    introTextParts.join(' '),
     'price',
-    relationships.prices.thumbnails,
-    relationships.prices.node_properties,
+    prices.thumbnails,
+    prices.node_properties,
     'price',
 )

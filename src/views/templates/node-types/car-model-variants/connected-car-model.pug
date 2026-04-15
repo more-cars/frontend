@@ -1,9 +1,11 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (carModel.item) introTextParts.push(`The »${carModelVariant.name}« is one of the variants of the car model »${carModel.item.fields.name}«.`)
 +connected-nodes-section(
-    [carModel],
+    [carModel.item],
     'Car Model',
-    `The ${carModelVariant.name} is a variant of the following car model.`,
+    introTextParts.join(' '),
     'car-model',
-    relationships.car_model.thumbnails,
-    relationships.car_model.node_properties,
+    carModel.thumbnails,
+    carModel.node_properties,
 )

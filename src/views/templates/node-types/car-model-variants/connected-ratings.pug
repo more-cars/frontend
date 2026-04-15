@@ -1,10 +1,10 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    ratings,
+    ratings.items,
     'Ratings',
-    `The "${carModelVariant.name}" has the following "ratings".`,
+    `Car magazines have rated the »${carModelVariant.name}« as follows.`,
     'rating',
-    relationships.ratings.thumbnails,
-    relationships.ratings.node_properties,
+    ratings.thumbnails,
+    ratings.node_properties,
     'rating_value',
 )

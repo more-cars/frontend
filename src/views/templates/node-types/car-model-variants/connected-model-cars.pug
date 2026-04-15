@@ -1,9 +1,12 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (modelCars.items.length === 1) introTextParts.push(`The More Cars database knows about one scale model of the »${carModelVariant.name}«.`)
+- if (modelCars.items.length > 1) introTextParts.push(`The More Cars database knows about ${modelCars.items.length} scale models of the »${carModelVariant.name}«.`)
 +connected-nodes-section(
-    modelCars,
+    modelCars.items,
     'Model Cars',
-    `The "${carModelVariant.name}" has the following "model cars".`,
+    introTextParts.join(' '),
     'model-car',
-    relationships.model_cars.thumbnails,
-    relationships.model_cars.node_properties,
+    modelCars.thumbnails,
+    modelCars.node_properties,
 )

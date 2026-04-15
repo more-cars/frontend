@@ -1,9 +1,12 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (motorShows.items.length === 1) introTextParts.push(`The "${carModelVariant.name}" was presented at the following motor show.`)
+- if (motorShows.items.length > 1) introTextParts.push(`The "${carModelVariant.name}" was presented at the following motor shows.`)
 +connected-nodes-section(
-    motorShows,
+    motorShows.items,
     'Motor Shows',
-    `The "${carModelVariant.name}" was presented at the following motor shows.`,
+    introTextParts.join(' '),
     'motor-show',
-    relationships.motor_shows.thumbnails,
-    relationships.motor_shows.node_properties,
+    motorShows.thumbnails,
+    motorShows.node_properties,
 )

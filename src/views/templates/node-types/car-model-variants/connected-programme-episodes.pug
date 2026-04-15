@@ -1,10 +1,13 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (programmeEpisodes.items.length === 1) introTextParts.push(`More Cars knows of one car programme episode that has featured the »${carModelVariant.name}«.`)
+- if (programmeEpisodes.items.length > 1) introTextParts.push(`More Cars knows of the following car programme episodes which have featured the »${carModelVariant.name}«.`)
 +connected-nodes-section(
-    programmeEpisodes,
+    programmeEpisodes.items,
     'Programme Episodes',
-    `This car model variant was featured in the following car programme episodes.`,
+    introTextParts.join(' '),
     'programme-episode',
-    relationships.programme_episodes.thumbnails,
-    relationships.programme_episodes.node_properties,
+    programmeEpisodes.thumbnails,
+    programmeEpisodes.node_properties,
     'title',
 )

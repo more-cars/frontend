@@ -1,10 +1,13 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (lapTimes.items.length === 1) introTextParts.push(`The following lap time was achieved with the »${carModelVariant.name}«.`)
+- if (lapTimes.items.length > 1) introTextParts.push(`The following lap times were achieved with the »${carModelVariant.name}«.`)
 +connected-nodes-section(
-    lapTimes,
+    lapTimes.items,
     'Lap Times',
-    `The ${carModelVariant.name} has achieved the following lap times.`,
+    introTextParts.join(' '),
     'lap-time',
-    relationships.lap_times.thumbnails,
-    relationships.lap_times.node_properties,
+    lapTimes.thumbnails,
+    lapTimes.node_properties,
     'driver_name',
 )
