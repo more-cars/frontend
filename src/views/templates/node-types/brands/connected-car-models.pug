@@ -1,9 +1,9 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    carModels,
+    carModels.items,
     'Car Models',
-    `The following car models were created under the brand name ${brand.name}.`,
+    `More Cars knows of the following car models that were created under the brand name »${brand.name}«.`,
     'car-model',
-    relationships.car_models.thumbnails,
-    relationships.car_models.node_properties,
+    carModels.thumbnails,
+    carModels.node_properties,
 )

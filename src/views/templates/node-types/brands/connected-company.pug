@@ -1,9 +1,9 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    [company],
+    [company.item],
     'Company',
-    `The brand ${brand.name} is owned by the following company.`,
+    `The brand »${brand.name}« is owned by the company »${company.item.fields.name}«.`,
     'company',
-    relationships.company.thumbnails,
-    relationships.company.node_properties,
+    company.thumbnails,
+    company.node_properties,
 )

@@ -1,12 +1,12 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - brand = node.data
+    - brand = node.data.fields
 
-    - company = relationships.company.item
+    - company = relationships.company
     include connected-company
 
-    - carModels = relationships.car_models.items
+    - carModels = relationships.car_models
     include connected-car-models
 
     - images = relationships.images
