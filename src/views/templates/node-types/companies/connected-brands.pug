@@ -1,9 +1,13 @@
 include ../../shared/connected-nodes-section
+- const introTextParts = []
+- if (brands.items.length === 1) introTextParts.push(`The company »${company.name}« is the owner of the following car brand.`)
+- if (brands.items.length > 1) introTextParts.push(`The company »${company.name}« owns ${brands.items.length} different car brands.`)
+- if (brands.items.length > 1) introTextParts.push(`The oldest one is from ${brands.oldestBrand.fields.founded} and the newest from ${brands.newestBrand.fields.founded}.`)
 +connected-nodes-section(
-    brands,
+    brands.items,
     'Brand',
-    `The following brands are owned by the company ${company.name}.`,
+    introTextParts.join(' '),
     'brand',
-    relationships.brands.thumbnails,
-    relationships.brands.node_properties,
+    brands.thumbnails,
+    brands.node_properties,
 )

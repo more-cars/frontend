@@ -1,9 +1,9 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - company = node.data
+    - company = node.data.fields
 
-    - brands = relationships.brands.items
+    - brands = relationships.brands
     include connected-brands
 
     - images = relationships.images.items

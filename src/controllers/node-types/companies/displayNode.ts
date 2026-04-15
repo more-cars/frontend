@@ -34,6 +34,14 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: brands,
                 node_properties: getNodeProperties(DataNodeType.BRAND),
                 thumbnails: await getNodeThumbnails(brands),
+                oldestBrand: brands
+                    .filter(brand => brand.fields.founded)
+                    .toSorted((a, b) => (b.fields.founded || 0) - (a.fields.founded || 0))
+                    .pop(),
+                newestBrand: brands
+                    .filter(brand => brand.fields.founded)
+                    .toSorted((a, b) => (a.fields.founded || 0) - (b.fields.founded || 0))
+                    .pop(),
             },
             images: {
                 items: images,
