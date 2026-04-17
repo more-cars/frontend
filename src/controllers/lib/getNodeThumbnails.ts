@@ -4,7 +4,7 @@ import {Image} from "../../models/node-types/images/types/Image"
 import {NodeModelFacade} from "../../models/NodeModelFacade"
 
 export async function getNodeThumbnails(nodes: ModelNode[]) {
-    if (nodes[0].type === ModelNodeType.IMAGE) {
+    if (nodes.length > 0 && nodes[0].type === ModelNodeType.IMAGE) {
         const thumbnails = new Map<number, Image>()
 
         nodes.forEach(node => {

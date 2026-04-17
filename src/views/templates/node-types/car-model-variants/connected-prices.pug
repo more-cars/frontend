@@ -1,6 +1,6 @@
 include ../../shared/connected-nodes-section
 - introTextParts = []
-- if (prices.items.length === 1) introTextParts.push(`The »${carModelVariant.name}« was officially sold for the following price.`)
+- if (prices.items.length === 1) introTextParts.push(`The »${carModelVariant.name}« was officially sold for the following price in ${countryFlag(prices.items[0].fields.country_code)}.`)
 - if (prices.items.length > 1) introTextParts.push(`The »${carModelVariant.name}« was officially sold for the following prices.`)
 +connected-nodes-section(
     prices.items,

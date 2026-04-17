@@ -1,13 +1,12 @@
-mixin list-node-item(node, thumbnailImageNode)
-    - nodeData = node.fields
-    - item = nodeData
-    li(class="mb-4 last:mb-0 bg-white border border-zinc-200 rounded-xl" data-testid=`${node.type.replaceAll('_', '-')}-${nodeData.id}`)
+mixin list-node-item(node, nodeProperties, thumbnailImageNode)
+    li(class="mb-4 last:mb-0 bg-white border border-zinc-200 rounded-xl" data-testid=`${node.type.replaceAll('_', '-')}-${node.fields.id}`)
         div(class="grid grid-flow-col grid-cols-8 gap-4")
             include thumbnail
             +thumbnail(thumbnailImageNode)
 
             div(class="col-span-5")
-                a(class="inline-block font-sans text-lg mt-2 mr-4 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(nodeData.id, title(node))}`)
+                a(class="inline-block font-sans text-lg mt-2 mr-4 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(node.fields.id, title(node))}`)
                     span(aria-label="name") #{title(node)}
                 span(class="float-right pr-2 pt-1 select-none") #{icon(node.type.replaceAll('_', '-'))}
                 include primary-properties
+                +primary-properties(nodeProperties, node.fields)
