@@ -1,7 +1,7 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - image = node.data
+    - image = node.data.fields
 
-    - nodes = relationships.nodes.items
+    - nodes = relationships.nodes
     include connected-nodes
