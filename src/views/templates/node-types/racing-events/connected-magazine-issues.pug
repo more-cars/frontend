@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    magazineIssues,
+    magazineIssues.items,
     'Magazine Issues',
-    `The ${racingEvent.name} was covered by the following car magazines.`,
-    relationships.magazine_issues.thumbnails,
-    relationships.magazine_issues.node_properties,
+    `The following car magazine issues covered the event.`,
+    magazineIssues.thumbnails,
+    magazineIssues.node_properties,
 )

@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [trackLayout],
-    'Track Layout',
-    `The event ${racingEvent.name} was performed on the following layout.`,
-    relationships.track_layout.thumbnails,
-    relationships.track_layout.node_properties,
-)
+if trackLayout.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [trackLayout.item],
+        'Track Layout',
+        `This event was performed on the »${trackLayout.item.fields.name}« layout of the »${raceTrack.item.fields.name}«.`,
+        trackLayout.thumbnails,
+        trackLayout.node_properties,
+    )

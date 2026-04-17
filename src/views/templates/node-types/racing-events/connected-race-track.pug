@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [raceTrack],
-    'Race Track',
-    `The event ${racingEvent.name} took place at the following race track.`,
-    relationships.race_track.thumbnails,
-    relationships.race_track.node_properties,
-)
+if raceTrack.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [raceTrack.item],
+        'Race Track',
+        `The race track »${raceTrack.item.fields.name}« hosted this event.`,
+        raceTrack.thumbnails,
+        raceTrack.node_properties,
+    )

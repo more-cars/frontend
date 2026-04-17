@@ -1,27 +1,27 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - racingEvent = node.data
+    - racingEvent = node.data.fields
 
-    - racingSeries = relationships.racing_series.item
+    - racingSeries = relationships.racing_series
     include connected-racing-series
 
-    - predecessor = relationships.predecessor.item
-    include connected-predecessor
-
-    - successor = relationships.successor.item
-    include connected-successor
-
-    - raceTrack = relationships.race_track.item
-    include connected-race-track
-
-    - trackLayout = relationships.track_layout.item
-    include connected-track-layout
-
-    - racingSessions = relationships.racing_sessions.items
+    - racingSessions = relationships.racing_sessions
     include connected-racing-sessions
 
-    - magazineIssues = relationships.magazine_issues.items
+    - raceTrack = relationships.race_track
+    include connected-race-track
+
+    - trackLayout = relationships.track_layout
+    include connected-track-layout
+
+    - predecessor = relationships.predecessor
+    include connected-predecessor
+
+    - successor = relationships.successor
+    include connected-successor
+
+    - magazineIssues = relationships.magazine_issues
     include connected-magazine-issues
 
     - images = relationships.images

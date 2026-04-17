@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    racingSessions,
+    racingSessions.items,
     'Racing Sessions',
-    `The following sessions were part of the "${racingEvent.name}".`,
-    relationships.racing_sessions.thumbnails,
-    relationships.racing_sessions.node_properties,
+    `The following sessions were part of this event.`,
+    racingSessions.thumbnails,
+    racingSessions.node_properties,
 )

@@ -1,9 +1,10 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [predecessor],
-    'Predecessor',
-    `The ${racingEvent.name} took place after the following racing event.`,
-    relationships.predecessor.thumbnails,
-    relationships.predecessor.node_properties,
-    'predecessor',
-)
+if predecessor.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [predecessor.item],
+        'Predecessor',
+        `This event took place after the »${predecessor.item.fields.name}«.`,
+        predecessor.thumbnails,
+        predecessor.node_properties,
+        'predecessor',
+    )
