@@ -1,4 +1,4 @@
-mixin connected-nodes-section(nodes, headline, introText, nodeType, thumbnails, nodeProperties, itemHeadlineProperty, sectionName)
+mixin connected-nodes-section(nodes, headline, introText, nodeType, thumbnails, nodeProperties, sectionName)
     if nodes.length > 0 && nodes[0] !== null
         section(data-testid=`${sectionName || nodeType}-section` class="mb-6 bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
             hgroup
