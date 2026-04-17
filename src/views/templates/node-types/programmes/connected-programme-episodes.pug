@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    programmeEpisodes,
+    programmeEpisodes.items,
     'Programme Episodes',
-    `The "${programme.name}" has the following "programme episodes".`,
-    relationships.programme_episodes.thumbnails,
-    relationships.programme_episodes.node_properties,
+    `More Cars knows of the following episodes of the car programme »${programme.name}«.`,
+    programmeEpisodes.thumbnails,
+    programmeEpisodes.node_properties,
 )

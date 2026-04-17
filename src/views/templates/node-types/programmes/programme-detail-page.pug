@@ -1,9 +1,9 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - programme = node.data
+    - programme = node.data.fields
 
-    - programmeEpisodes = relationships.programme_episodes.items
+    - programmeEpisodes = relationships.programme_episodes
     include connected-programme-episodes
 
     - images = relationships.images
