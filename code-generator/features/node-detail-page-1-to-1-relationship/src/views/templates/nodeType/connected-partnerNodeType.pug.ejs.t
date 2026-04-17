@@ -6,7 +6,6 @@ include ../../shared/connected-nodes-section
     [<%= h.changeCase.camel(partnerNodeType) %>],
     '<%= h.changeCase.title(partnerNodeType) %>',
     `The "${<%= h.changeCase.camel(nodeType) %>.name}" has the following "<%= h.changeCase.lower(partnerNodeType) %>".`,
-    '<%= h.changeCase.kebab(partnerNodeType) %>',
     relationships.<%= h.changeCase.snake(partnerNodeType) %>.thumbnails,
     relationships.<%= h.changeCase.snake(partnerNodeType) %>.node_properties,
 )
