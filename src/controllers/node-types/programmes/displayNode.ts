@@ -15,6 +15,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const programmeEpisodes = await ProgrammeModelFacade.getConnectedProgrammeEpisodes(programmeId)
+    programmeEpisodes.sort((a, b) => (a.fields.original_air_date + "").localeCompare(b.fields.original_air_date + ""))
     const images = await ProgrammeModelFacade.getConnectedImages(programmeId)
     const videos = await ProgrammeModelFacade.getConnectedVideos(programmeId)
 

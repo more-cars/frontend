@@ -90,6 +90,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             images: {
                 items: images,
                 node_properties: getNodeProperties(DataNodeType.IMAGE),
+                thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
