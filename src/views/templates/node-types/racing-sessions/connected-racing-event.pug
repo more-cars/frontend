@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [racingEvent],
-    'Racing Event',
-    `This racing session was part of the following racing event.`,
-    relationships.racing_event.thumbnails,
-    relationships.racing_event.node_properties,
-)
+if racingEvent.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [racingEvent.item],
+        'Racing Event',
+        `This session was part of the racing event »${racingEvent.item.fields.name}«.`,
+        racingEvent.thumbnails,
+        racingEvent.node_properties,
+    )

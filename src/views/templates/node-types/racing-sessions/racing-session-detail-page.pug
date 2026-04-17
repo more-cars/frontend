@@ -1,12 +1,12 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - racingSession = node.data
+    - racingSession = node.data.fields
 
-    - racingEvent = relationships.racing_event.item
+    - racingEvent = relationships.racing_event
     include connected-racing-event
 
-    - sessionResults = relationships.session_results.items
+    - sessionResults = relationships.session_results
     include connected-session-results
 
     - images = relationships.images

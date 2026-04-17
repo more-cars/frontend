@@ -1,8 +1,13 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (racingSession.name === 'Grand Prix') introTextParts.push(`»${sessionResults.items[0].fields.driver_name}« won the Grand Prix.`)
+- if (racingSession.name === 'Race') introTextParts.push(`»${sessionResults.items[0].fields.driver_name}« won this race.`)
+- if (racingSession.name === 'Qualifying') introTextParts.push(`The qualifying session ended with the following results.`)
+- if (!['Grand Prix', 'Qualifying'].includes(racingSession.name)) introTextParts.push(`The session ended with the following results.`)
 +connected-nodes-section(
-    sessionResults,
+    sessionResults.items,
     'Session Results',
-    `The following results were achieved in this racing session.`,
-    relationships.session_results.thumbnails,
-    relationships.session_results.node_properties,
+    introTextParts.join(' '),
+    sessionResults.thumbnails,
+    sessionResults.node_properties,
 )
