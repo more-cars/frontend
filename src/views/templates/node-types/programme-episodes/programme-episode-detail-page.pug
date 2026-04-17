@@ -1,21 +1,21 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - programmeEpisode = node.data
+    - programmeEpisode = node.data.fields
 
-    - programme = relationships.programme.item
+    - programme = relationships.programme
     include connected-programme
 
-    - predecessor = relationships.predecessor.item
+    - predecessor = relationships.predecessor
     include connected-predecessor
 
-    - successor = relationships.successor.item
+    - successor = relationships.successor
     include connected-successor
 
-    - carModels = relationships.car_models.items
+    - carModels = relationships.car_models
     include connected-car-models
 
-    - carModelVariants = relationships.car_model_variants.items
+    - carModelVariants = relationships.car_model_variants
     include connected-car-model-variants
 
     - images = relationships.images

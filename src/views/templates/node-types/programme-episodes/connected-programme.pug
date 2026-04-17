@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [programme],
-    'Programme',
-    `This was an episode of the following car programme.`,
-    relationships.programme.thumbnails,
-    relationships.programme.node_properties,
-)
+if programme.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [programme.item],
+        'Programme',
+        `This is an episode of the car programme »${programme.item.fields.name}«.`,
+        programme.thumbnails,
+        programme.node_properties,
+    )

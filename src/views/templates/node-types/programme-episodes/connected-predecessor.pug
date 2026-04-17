@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [predecessor],
-    'Predecessor',
-    `This episode follows:".`,
-    relationships.predecessor.thumbnails,
-    relationships.predecessor.node_properties,
-)
+if predecessor.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [predecessor.item],
+        'Predecessor',
+        `The previous episode was »${predecessor.item.fields.title}«".`,
+        predecessor.thumbnails,
+        predecessor.node_properties,
+    )
