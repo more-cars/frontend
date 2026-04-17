@@ -1,6 +1,5 @@
 import express from "express"
 import {ProgrammeModelFacade} from "../../../models/ProgrammeModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -22,7 +21,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/programmes/programme-detail-page', {
         page_title: `${programme.fields.name} - Programme`,
         node: {
-            type: ControllerNodeType.PROGRAMME,
             data: programme,
             title: ProgrammeModelFacade.getNodeTitle(programme),
             sub_title: ProgrammeModelFacade.getNodeSubTitle(programme),

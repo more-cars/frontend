@@ -1,6 +1,5 @@
 import express from "express"
 import {BrandModelFacade} from "../../../models/BrandModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -23,7 +22,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/brands/brand-detail-page', {
         page_title: `${brand.fields.name} - Brand`,
         node: {
-            type: ControllerNodeType.BRAND,
             data: brand,
             title: BrandModelFacade.getNodeTitle(brand),
             sub_title: BrandModelFacade.getNodeSubTitle(brand),

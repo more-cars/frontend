@@ -1,6 +1,5 @@
 import express from "express"
 import {ModelCarModelFacade} from "../../../models/ModelCarModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -23,7 +22,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/model-cars/model-car-detail-page', {
         page_title: `${modelCar.fields.name} - Model Car`,
         node: {
-            type: ControllerNodeType.MODEL_CAR,
             data: modelCar,
             title: ModelCarModelFacade.getNodeTitle(modelCar),
             sub_title: ModelCarModelFacade.getNodeSubTitle(modelCar),

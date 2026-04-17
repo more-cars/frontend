@@ -1,6 +1,5 @@
 import express from "express"
 import {LapTimeModelFacade} from "../../../models/LapTimeModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -24,7 +23,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/lap-times/lap-time-detail-page', {
         page_title: `${LapTimeModelFacade.getNodeTitle(lapTime)} - Lap Time`,
         node: {
-            type: ControllerNodeType.LAP_TIME,
             data: lapTime,
             title: LapTimeModelFacade.getNodeTitle(lapTime),
             sub_title: LapTimeModelFacade.getNodeSubTitle(lapTime),

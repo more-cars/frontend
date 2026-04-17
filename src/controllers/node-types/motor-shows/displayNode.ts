@@ -1,6 +1,5 @@
 import express from "express"
 import {MotorShowModelFacade} from "../../../models/MotorShowModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -22,7 +21,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/motor-shows/motor-show-detail-page', {
         page_title: `${motorShow.fields.name} - Motor Show`,
         node: {
-            type: ControllerNodeType.MOTOR_SHOW,
             data: motorShow,
             title: MotorShowModelFacade.getNodeTitle(motorShow),
             sub_title: MotorShowModelFacade.getNodeSubTitle(motorShow),

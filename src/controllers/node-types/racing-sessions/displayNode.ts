@@ -1,7 +1,6 @@
 import express from "express"
 import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade"
 import {convertDate} from "../../../views/lib/convertDate"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -24,7 +23,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/racing-sessions/racing-session-detail-page', {
         page_title: `${racingSession.fields.name} - ${convertDate(racingSession.fields.start_date as string)} - Racing Session`,
         node: {
-            type: ControllerNodeType.RACING_SESSION,
             data: racingSession,
             title: RacingSessionModelFacade.getNodeTitle(racingSession),
             sub_title: RacingSessionModelFacade.getNodeSubTitle(racingSession),

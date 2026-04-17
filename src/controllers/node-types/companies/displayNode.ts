@@ -1,6 +1,5 @@
 import express from "express"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -22,7 +21,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/companies/company-detail-page', {
         page_title: `${company.fields.name} - Company`,
         node: {
-            type: ControllerNodeType.COMPANY,
             data: company,
             title: CompanyModelFacade.getNodeTitle(company),
             sub_title: CompanyModelFacade.getNodeSubTitle(company),

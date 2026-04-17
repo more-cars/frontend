@@ -1,6 +1,5 @@
 import express from "express"
 import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -28,7 +27,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/magazine-issues/magazine-issue-detail-page', {
         page_title: `${magazineIssue.fields.title} - Magazine Issue`,
         node: {
-            type: ControllerNodeType.MAGAZINE_ISSUE,
             data: magazineIssue,
             title: MagazineIssueModelFacade.getNodeTitle(magazineIssue),
             sub_title: MagazineIssueModelFacade.getNodeSubTitle(magazineIssue),

@@ -1,6 +1,5 @@
 import express from "express"
 import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -22,7 +21,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/session-results/session-result-detail-page', {
         page_title: `${SessionResultModelFacade.getNodeTitle(sessionResult)} - Session Result`,
         node: {
-            type: ControllerNodeType.SESSION_RESULT,
             data: sessionResult,
             title: SessionResultModelFacade.getNodeTitle(sessionResult),
             sub_title: SessionResultModelFacade.getNodeSubTitle(sessionResult),

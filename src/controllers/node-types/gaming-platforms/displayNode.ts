@@ -1,6 +1,5 @@
 import express from "express"
 import {GamingPlatformModelFacade} from "../../../models/GamingPlatformModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -22,7 +21,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/gaming-platforms/gaming-platform-detail-page', {
         page_title: `${gamingPlatform.fields.name} - Gaming Platform`,
         node: {
-            type: ControllerNodeType.GAMING_PLATFORM,
             data: gamingPlatform,
             title: GamingPlatformModelFacade.getNodeTitle(gamingPlatform),
             sub_title: GamingPlatformModelFacade.getNodeSubTitle(gamingPlatform),

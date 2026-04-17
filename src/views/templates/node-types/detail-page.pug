@@ -6,11 +6,11 @@ block main
     - mainVideo = node.main_video
 
     div(class="grid md:grid-cols-8 gap-6 items-start")
-        div(class=`${['image', 'video'].includes(node.type) ? 'col-span-5' : 'col-span-4'}` data-testid="main-area-primary")
+        div(class=`${['image', 'video'].includes(node.data.type) ? 'col-span-5' : 'col-span-4'}` data-testid="main-area-primary")
             div(class="mb-6 bg-zinc-100 p-4 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
                 hgroup(class="p-4 mb-4 border-y-3 border-lime-500 rounded-lg")
                     h1(class=`mb-1 text-3xl`)
-                        span(class="float-right text-5xl select-none") #{icon(node.type)}
+                        span(class="float-right text-5xl select-none") #{icon(node.data.type)}
                         span #{node.title}
                     p(class="text-sm") #{node.sub_title}
                 if mainVideo
@@ -20,5 +20,5 @@ block main
 
             include ../shared/fact-sheet
 
-        div(class=`${['image', 'video'].includes(node.type) ? 'col-span-3' : 'col-span-4'}` data-testid="main-area-secondary")
+        div(class=`${['image', 'video'].includes(node.data.type) ? 'col-span-3' : 'col-span-4'}` data-testid="main-area-secondary")
             block relationships

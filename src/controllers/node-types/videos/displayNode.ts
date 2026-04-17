@@ -1,6 +1,5 @@
 import express from "express"
 import {VideoModelFacade} from "../../../models/VideoModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
@@ -19,7 +18,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/videos/video-detail-page', {
         page_title: `${video.fields.title} - Video`,
         node: {
-            type: ControllerNodeType.VIDEO,
             data: video,
             title: VideoModelFacade.getNodeTitle(video),
             sub_title: VideoModelFacade.getNodeSubTitle(video),

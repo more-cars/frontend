@@ -1,7 +1,6 @@
 import express from "express"
 import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {formatRating} from "../../lib/formatRating"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -22,7 +21,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/ratings/rating-detail-page', {
         page_title: `${formatRating(rating.fields.rating_value, rating.fields.scale_maximum)} - Rating`,
         node: {
-            type: ControllerNodeType.RATING,
             data: rating,
             title: RatingModelFacade.getNodeTitle(rating),
             sub_title: RatingModelFacade.getNodeSubTitle(rating),

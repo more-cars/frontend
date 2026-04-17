@@ -1,6 +1,5 @@
 import express from "express"
 import {ProgrammeEpisodeModelFacade} from "../../../models/ProgrammeEpisodeModelFacade"
-import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -26,7 +25,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
     res.render('templates/node-types/programme-episodes/programme-episode-detail-page', {
         page_title: `${programmeEpisode.fields.title} - Programme Episode`,
         node: {
-            type: ControllerNodeType.PROGRAMME_EPISODE,
             data: programmeEpisode,
             title: ProgrammeEpisodeModelFacade.getNodeTitle(programmeEpisode),
             sub_title: ProgrammeEpisodeModelFacade.getNodeSubTitle(programmeEpisode),
