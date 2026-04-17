@@ -8,6 +8,5 @@ mixin connected-nodes-section(nodes, headline, introText, thumbnails, nodeProper
 
             ul(class="max-h-150 overflow-y-auto")
                 each node in nodes
-                    - thumbnail = thumbnails ? thumbnails.get(node.fields.id) : null
                     include list-node-item
-                    +list-node-item(node, thumbnail)
+                    +list-node-item(node, nodeProperties, thumbnails ? thumbnails.get(node.fields.id) : null)
