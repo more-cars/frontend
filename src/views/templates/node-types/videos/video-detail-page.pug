@@ -1,7 +1,7 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - video = node.data
+    - video = node.data.fields
 
-    - nodes = relationships.nodes.items
+    - nodes = relationships.nodes
     include connected-nodes

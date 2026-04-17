@@ -1,9 +1,12 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (nodes.items.length === 1) introTextParts.push(`This video is connected to the following node.`)
+- if (nodes.items.length > 1) introTextParts.push(`This video is connected to the following nodes.`)
 +connected-nodes-section(
-    nodes,
+    nodes.items,
     'Nodes',
-    `This video is connected to the following nodes.`,
-    relationships.nodes.thumbnails,
-    relationships.nodes.node_properties,
+    introTextParts.join(' '),
+    nodes.thumbnails,
+    nodes.node_properties,
     'node',
 )
