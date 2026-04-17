@@ -10,4 +10,4 @@ mixin connected-nodes-section(nodes, headline, introText, thumbnails, nodeProper
                 each node in nodes
                     - thumbnail = thumbnails ? thumbnails.get(node.fields.id) : null
                     include list-node-item
-                    +list-node-item(node, itemHeadline, thumbnail)
+                    +list-node-item(node, thumbnail)
