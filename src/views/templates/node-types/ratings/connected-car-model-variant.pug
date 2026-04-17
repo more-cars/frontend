@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [carModelVariant.item],
-    'Car Model Variant',
-    `This rating was awarded for the car model variant »${carModelVariant.item.fields.name}«.`,
-    carModelVariant.thumbnails,
-    carModelVariant.node_properties,
-)
+if carModelVariant.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [carModelVariant.item],
+        'Car Model Variant',
+        `This rating was awarded for the car model variant »${carModelVariant.item.fields.name}«.`,
+        carModelVariant.thumbnails,
+        carModelVariant.node_properties,
+    )

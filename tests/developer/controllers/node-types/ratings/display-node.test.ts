@@ -3,7 +3,6 @@ import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeRating} from "../../../../_toolbox/fixtures/node-types/FakeRating"
 import {RatingModelFacade} from "../../../../../src/models/RatingModelFacade"
-import {FakeCarModelVariant} from "../../../../_toolbox/fixtures/node-types/FakeCarModelVariant"
 import * as node from "../../../../../src/controllers/node-types/ratings/displayNode"
 
 afterEach(() => {
@@ -30,8 +29,6 @@ describe('Requesting a RATING detail page', () => {
             .mockImplementation(async () => (FakeRating.model))
         vi.spyOn(RatingModelFacade, 'getNodeById')
             .mockImplementation(async () => (FakeRating.model))
-        vi.spyOn(RatingModelFacade, 'getConnectedCarModelVariant')
-            .mockImplementation(async () => (FakeCarModelVariant.model))
 
         const spy = vi.spyOn(node, 'displayNode')
 

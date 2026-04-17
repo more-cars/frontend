@@ -1,11 +1,12 @@
-include ../../shared/connected-nodes-section
-- introTextParts = []
-- if (successor.item) introTextParts.push(`The successor of the »${carModel.name}« was the »${successor.item.fields.name}«.`)
-+connected-nodes-section(
-    [successor.item],
-    'Successor',
-    introTextParts.join(' '),
-    successor.thumbnails,
-    successor.node_properties,
-    'successor',
-)
+if successor.item
+    include ../../shared/connected-nodes-section
+    - introTextParts = []
+    - if (successor.item) introTextParts.push(`The successor of the »${carModel.name}« was the »${successor.item.fields.name}«.`)
+    +connected-nodes-section(
+        [successor.item],
+        'Successor',
+        introTextParts.join(' '),
+        successor.thumbnails,
+        successor.node_properties,
+        'successor',
+    )

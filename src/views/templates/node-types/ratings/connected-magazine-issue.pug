@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [magazineIssue.item],
-    'Magazine Issue',
-    `The following car magazine issue gave this rating to the »${carModelVariant.item.fields.name}«.`,
-    magazineIssue.thumbnails,
-    magazineIssue.node_properties,
-)
+if magazineIssue.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [magazineIssue.item],
+        'Magazine Issue',
+        `The following car magazine issue gave this rating to the »${carModelVariant.item.fields.name}«.`,
+        magazineIssue.thumbnails,
+        magazineIssue.node_properties,
+    )

@@ -1,7 +1,7 @@
 include ../../shared/connected-nodes-section
 - introTextParts = []
-- if (magazine) introTextParts.push(`The following car model variants are presented in this »${magazine.item.fields.name}« issue.`)
-- if (!magazine) introTextParts.push(`The following car model variants are presented in this issue.`)
+- if (magazine.item) introTextParts.push(`The following car model variants are presented in this »${magazine.item.fields.name}« issue.`)
+- if (!magazine.item) introTextParts.push(`The following car model variants are presented in this issue.`)
 +connected-nodes-section(
     carModelVariants.items,
     'Car Model Variants',

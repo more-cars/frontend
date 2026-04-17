@@ -1,9 +1,13 @@
 if magazine.item
     include ../../shared/connected-nodes-section
+    - introTextParts = []
+    - if (magazineIssue) introTextParts.push(`This issue is a release of the »${magazine.item.fields.name}« magazine and was published ${formatDate(magazineIssue.release_date)}.`)
+    - if (!magazineIssue) introTextParts.push(`This issue is a release of the »${magazine.item.fields.name}« magazine.`)
+    include ../../shared/connected-nodes-section
     +connected-nodes-section(
         [magazine.item],
         'Magazine',
-        `This issue is a release of the »${magazine.item.fields.name}« magazine and was published ${formatDate(magazineIssue.release_date)}.`,
+        introTextParts.join(' '),
         magazine.thumbnails,
         magazine.node_properties,
     )

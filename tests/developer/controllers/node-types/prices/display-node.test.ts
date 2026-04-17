@@ -3,7 +3,6 @@ import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakePrice} from "../../../../_toolbox/fixtures/node-types/FakePrice"
 import {PriceModelFacade} from "../../../../../src/models/PriceModelFacade"
-import {FakeCarModelVariant} from "../../../../_toolbox/fixtures/node-types/FakeCarModelVariant"
 import * as node from "../../../../../src/controllers/node-types/prices/displayNode"
 
 afterEach(() => {
@@ -30,8 +29,6 @@ describe('Requesting a PRICE detail page', () => {
             .mockImplementation(async () => (FakePrice.model))
         vi.spyOn(PriceModelFacade, 'getNodeById')
             .mockImplementation(async () => (FakePrice.model))
-        vi.spyOn(PriceModelFacade, 'getConnectedCarModelVariant')
-            .mockImplementation(async () => (FakeCarModelVariant.model))
 
         const spy = vi.spyOn(node, 'displayNode')
 
