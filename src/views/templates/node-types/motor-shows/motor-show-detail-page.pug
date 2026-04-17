@@ -1,9 +1,9 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - motorShow = node.data
+    - motorShow = node.data.fields
 
-    - carModelVariants = relationships.car_model_variants.items
+    - carModelVariants = relationships.car_model_variants
     include connected-car-model-variants
 
     - images = relationships.images
