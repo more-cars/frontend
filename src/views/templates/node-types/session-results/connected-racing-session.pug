@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [racingSession],
-    'Racing Session',
-    `${sessionResult.driver_name} achieved this result in the following racing session.`,
-    relationships.racing_session.thumbnails,
-    relationships.racing_session.node_properties,
-)
+if racingSession.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [racingSession.item],
+        'Racing Session',
+        `${sessionResult.driver_name} achieved this result in a »${racingSession.item.fields.name}« session.`,
+        racingSession.thumbnails,
+        racingSession.node_properties,
+    )

@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    lapTimes,
+    lapTimes.items,
     'Lap Times',
-    `The following lap times were achieved on the way to this session result.`,
-    relationships.lap_times.thumbnails,
-    relationships.lap_times.node_properties,
+    `The driver achieved the following lap times in this session.`,
+    lapTimes.thumbnails,
+    lapTimes.node_properties,
 )
