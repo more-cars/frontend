@@ -1,9 +1,13 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [predecessor],
-    'Predecessor',
-    `This issue is the successor of the following issue.`,
-    relationships.predecessor.thumbnails,
-    relationships.predecessor.node_properties,
-    'predecessor',
-)
+if predecessor.item
+    include ../../shared/connected-nodes-section
+    - introTextParts = []
+    - if (predecessor.item.fields.issue_number && predecessor.item.fields.issue_year) introTextParts.push(`The previous issue »${predecessor.item.fields.title}« was published ${formatDate(predecessor.item.fields.release_date)}.`)
+    - if (!predecessor.item.fields.issue_number || !predecessor.item.fields.issue_year) introTextParts.push(`The previous issue was »${predecessor.item.fields.title}«.`)
+    +connected-nodes-section(
+        [predecessor.item],
+        'Predecessor',
+        introTextParts.join(' '),
+        predecessor.thumbnails,
+        predecessor.node_properties,
+        'predecessor',
+    )

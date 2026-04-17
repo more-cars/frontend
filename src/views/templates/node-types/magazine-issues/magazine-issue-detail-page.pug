@@ -1,27 +1,27 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - magazineIssue = node.data
+    - magazineIssue = node.data.fields
 
-    - magazine = relationships.magazine.item
+    - magazine = relationships.magazine
     include connected-magazine
 
-    - predecessor = relationships.predecessor.item
-    include connected-predecessor
-
-    - successor = relationships.successor.item
-    include connected-successor
-
-    - carModels = relationships.car_models.items
-    include connected-car-models
-
-    - carModelVariants = relationships.car_model_variants.items
+    - carModelVariants = relationships.car_model_variants
     include connected-car-model-variants
 
-    - ratings = relationships.ratings.items
+    - carModels = relationships.car_models
+    include connected-car-models
+
+    - predecessor = relationships.predecessor
+    include connected-predecessor
+
+    - successor = relationships.successor
+    include connected-successor
+
+    - ratings = relationships.ratings
     include connected-ratings
 
-    - racingEvents = relationships.racing_events.items
+    - racingEvents = relationships.racing_events
     include connected-racing-events
 
     - images = relationships.images

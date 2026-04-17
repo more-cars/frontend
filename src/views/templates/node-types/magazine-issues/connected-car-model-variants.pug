@@ -1,8 +1,11 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (magazine) introTextParts.push(`The following car model variants are presented in this »${magazine.item.fields.name}« issue.`)
+- if (!magazine) introTextParts.push(`The following car model variants are presented in this issue.`)
 +connected-nodes-section(
-    carModelVariants,
+    carModelVariants.items,
     'Car Model Variants',
-    `The following cars are presented in this issue of the magazine.`,
-    relationships.car_model_variants.thumbnails,
-    relationships.car_model_variants.node_properties,
+    introTextParts.join(' '),
+    carModelVariants.thumbnails,
+    carModelVariants.node_properties,
 )

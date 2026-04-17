@@ -1,9 +1,13 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [successor],
-    'Successor',
-    `This issue is the predecessor of the following issue.`,
-    relationships.successor.thumbnails,
-    relationships.successor.node_properties,
-    'successor',
-)
+if successor.item
+    include ../../shared/connected-nodes-section
+    - introTextParts = []
+    - if (successor.item.fields.issue_number && successor.item.fields.issue_year) introTextParts.push(`The following issue »${successor.item.fields.issue_number}/${successor.item.fields.issue_year}« was published ${formatDate(successor.item.fields.release_date)}.`)
+    - if (!successor.item.fields.issue_number || !successor.item.fields.issue_year) introTextParts.push(`The following issue was »${successor.item.fields.title}«.`)
+    +connected-nodes-section(
+        [successor.item],
+        'Successor',
+        introTextParts.join(' '),
+        successor.thumbnails,
+        successor.node_properties,
+        'successor',
+    )

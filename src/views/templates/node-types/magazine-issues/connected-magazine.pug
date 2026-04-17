@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [magazine],
-    'Magazine',
-    `This issue belongs to the following magazine.`,
-    relationships.magazine.thumbnails,
-    relationships.magazine.node_properties,
-)
+if magazine.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [magazine.item],
+        'Magazine',
+        `This issue is a release of the »${magazine.item.fields.name}« magazine and was published ${formatDate(magazineIssue.release_date)}.`,
+        magazine.thumbnails,
+        magazine.node_properties,
+    )

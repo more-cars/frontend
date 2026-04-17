@@ -1,8 +1,11 @@
 include ../../shared/connected-nodes-section
+- introTextParts = []
+- if (magazine) introTextParts.push(`The »${magazine.item.fields.name}« gave the following ratings for the car model variants that were tested in this issue.`)
+- if (!magazine) introTextParts.push(`The following ratings were given for the car model variants that were tested in this issue.`)
 +connected-nodes-section(
-    ratings,
+    ratings.items,
     'Ratings',
-    `This issue gave the following ratings.`,
-    relationships.ratings.thumbnails,
-    relationships.ratings.node_properties,
+    introTextParts.join(' '),
+    ratings.thumbnails,
+    ratings.node_properties,
 )
