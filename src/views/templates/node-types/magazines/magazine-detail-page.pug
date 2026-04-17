@@ -1,9 +1,9 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - magazine = node.data
+    - magazine = node.data.fields
 
-    - magazineIssues = relationships.magazine_issues.items
+    - magazineIssues = relationships.magazine_issues
     include connected-magazine-issues
 
     - images = relationships.images
