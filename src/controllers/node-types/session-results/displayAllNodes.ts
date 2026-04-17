@@ -3,7 +3,6 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade"
-import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
@@ -16,7 +15,6 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         main_headline: 'All Session Results',
         node_type: ControllerNodeType.SESSION_RESULT,
         node_collection: sessionResults,
-        node_titles: getAllNodeTitles(sessionResults, SessionResultModelFacade.getNodeTitle),
         thumbnails: await getNodeThumbnails(sessionResults),
         node_properties: getNodeProperties(DataNodeType.SESSION_RESULT),
         pagination: {

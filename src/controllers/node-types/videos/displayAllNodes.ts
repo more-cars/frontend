@@ -3,7 +3,6 @@ import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNu
 import {VideoModelFacade} from "../../../models/VideoModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getVideoThumbnails} from "./getVideoThumbnails"
-import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 
@@ -17,7 +16,6 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.VIDEO,
         node_collection: videos,
         thumbnails: await getVideoThumbnails(videos),
-        node_titles: getAllNodeTitles(videos, VideoModelFacade.getNodeTitle),
         node_properties: getNodeProperties(DataNodeType.VIDEO),
         pagination: {
             page,

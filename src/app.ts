@@ -29,6 +29,7 @@ import images from "./routes/images"
 import {analyticsMiddleware} from "./tracking/analyticsMiddleware"
 import {basicAuthentication} from "./basicAuthentication"
 import {canonicalUrlPath} from "./views/lib/canonicalUrlPath"
+import {nodeTitle} from "./views/lib/nodeTitle"
 import {convertDate} from "./views/lib/convertDate.ts"
 import {convertDateTime} from "./views/lib/convertDateTime.ts"
 import {formatTime} from "./views/lib/formatTime.ts"
@@ -74,6 +75,7 @@ app.use('/', videos)
 app.use('/', images)
 
 app.locals.canonical = canonicalUrlPath
+app.locals.title = nodeTitle
 app.locals.nodeTypePath = nodeTypeUrlPath
 app.locals.formatDate = convertDate
 app.locals.formatDateTime = convertDateTime

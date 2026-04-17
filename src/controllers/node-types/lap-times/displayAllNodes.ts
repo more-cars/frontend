@@ -1,7 +1,6 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {LapTimeModelFacade} from "../../../models/LapTimeModelFacade"
-import {getAllNodeTitles} from "../../lib/getAllNodeTitles"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
@@ -16,7 +15,6 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         main_headline: 'All Lap Times',
         node_type: ControllerNodeType.LAP_TIME,
         node_collection: lapTimes,
-        node_titles: getAllNodeTitles(lapTimes, LapTimeModelFacade.getNodeTitle),
         thumbnails: await getNodeThumbnails(lapTimes),
         node_properties: getNodeProperties(DataNodeType.LAP_TIME),
         pagination: {
