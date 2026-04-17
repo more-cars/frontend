@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    racingEvents,
+    racingEvents.items,
     'Racing Events',
-    `The track layout "${trackLayout.name}" was used in the following racing events.`,
-    relationships.racing_events.thumbnails,
-    relationships.racing_events.node_properties,
+    `The »${trackLayout.name}« variant of the race track was used in the following motorsport events.`,
+    racingEvents.thumbnails,
+    racingEvents.node_properties,
 )

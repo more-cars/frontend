@@ -1,15 +1,15 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - trackLayout = node.data
+    - trackLayout = node.data.fields
 
-    - raceTrack = relationships.race_track.item
+    - raceTrack = relationships.race_track
     include connected-race-track
 
-    - racingEvents = relationships.racing_events.items
+    - racingEvents = relationships.racing_events
     include connected-racing-events
 
-    - racingGames = relationships.racing_games.items
+    - racingGames = relationships.racing_games
     include connected-racing-games
 
     - images = relationships.images

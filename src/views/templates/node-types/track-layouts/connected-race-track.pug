@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [raceTrack],
-    'Race Track',
-    `The "${trackLayout.name}" is one of the layouts that exist for the race track.`,
-    relationships.race_track.thumbnails,
-    relationships.race_track.node_properties,
-)
+if raceTrack.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [raceTrack.item],
+        'Race Track',
+        `The »${trackLayout.name}« is one layout of the »${raceTrack.item.fields.name}«.`,
+        raceTrack.thumbnails,
+        raceTrack.node_properties,
+    )
