@@ -2,8 +2,6 @@ extends ../../layouts/base/layout
 
 block main
     - item = node.data.fields
-    - mainImage = node.main_image
-    - mainVideo = node.main_video
 
     div(class="grid md:grid-cols-8 gap-6 items-start")
         div(class=`${['image', 'video'].includes(node.data.type) ? 'col-span-5' : 'col-span-4'}` data-testid="main-area-primary")
@@ -13,10 +11,27 @@ block main
                         span(class="float-right text-5xl select-none") #{icon(node.data.type.replaceAll('_', '-'))}
                         span #{node.title}
                     p(class="text-sm") #{node.sub_title}
-                if mainVideo
-                    include ../shared/connected-main-video
+
+                include ../shared/lead-image-section
+                include ../shared/lead-video-section
+                - leadImage = node.main_image
+                - leadVideo = node.main_video
+                - connectedImages = relationships.images?.items || []
+                - connectedVideos = relationships.videos?.items || []
+                if node.data.type === 'video'
+                    +lead-video-section(node.data)
+                else if node.data.type === 'image'
+                    +lead-image-section(node.data)
+                else if leadImage
+                    +lead-image-section(leadImage)
+                else if leadVideo
+                    +lead-image-section(leadVideo)
+                else if connectedImages.length > 0
+                    +lead-image-section(connectedImages[0])
+                else if connectedVideos.length > 0
+                    +lead-image-section(connectedVideos[0])
                 else
-                    include ../shared/connected-main-image
+                    +lead-image-section()
 
             include ../shared/fact-sheet
 

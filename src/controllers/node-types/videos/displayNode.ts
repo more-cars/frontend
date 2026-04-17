@@ -22,7 +22,6 @@ export async function displayNode(req: express.Request, res: express.Response) {
             title: VideoModelFacade.getNodeTitle(video),
             sub_title: VideoModelFacade.getNodeSubTitle(video),
             node_properties: getNodeProperties(DataNodeType.VIDEO),
-            main_video: video,
         },
         relationships: {
             nodes: {

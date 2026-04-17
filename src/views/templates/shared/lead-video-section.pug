@@ -1,0 +1,4 @@
+mixin lead-video-section(videoNode)
+    section(data-testid="lead-video")
+        div(class="w-full aspect-video")
+            iframe(class="w-full h-full" src=`https://www.youtube-nocookie.com/embed/${videoNode.fields.external_id}?rel=0`, allowfullscreen)
