@@ -3,6 +3,7 @@ import {NodeModelFacade} from "../../../../../src/models/NodeModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeBrand} from "../../../../_toolbox/fixtures/node-types/FakeBrand"
 import {BrandModelFacade} from "../../../../../src/models/BrandModelFacade"
+import {FakeCompany} from "../../../../_toolbox/fixtures/node-types/FakeCompany"
 import * as node from "../../../../../src/controllers/node-types/brands/displayNode"
 
 afterEach(() => {
@@ -28,6 +29,8 @@ describe('Requesting a BRAND detail page', () => {
             .mockImplementation(async () => (FakeBrand.model))
         vi.spyOn(BrandModelFacade, 'getNodeById')
             .mockImplementation(async () => (FakeBrand.model))
+        vi.spyOn(BrandModelFacade, 'getConnectedCompany')
+            .mockImplementation(async () => (FakeCompany.model))
 
         const spy = vi.spyOn(node, 'displayNode')
 
