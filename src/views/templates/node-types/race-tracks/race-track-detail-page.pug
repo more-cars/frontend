@@ -1,12 +1,12 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - raceTrack = node.data
+    - raceTrack = node.data.fields
 
-    - trackLayouts = relationships.track_layouts.items
+    - trackLayouts = relationships.track_layouts
     include connected-track-layouts
 
-    - racingEvents = relationships.racing_events.items
+    - racingEvents = relationships.racing_events
     include connected-racing-events
 
     - images = relationships.images
