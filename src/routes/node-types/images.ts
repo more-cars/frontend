@@ -1,5 +1,5 @@
 import express from "express"
-import {ImageControllerFacade} from "../controllers/ImageControllerFacade"
+import {ImageControllerFacade} from "../../controllers/ImageControllerFacade"
 
 const router = express.Router()
 

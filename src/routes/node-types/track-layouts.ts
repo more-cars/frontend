@@ -1,5 +1,5 @@
 import express from "express"
-import {TrackLayoutControllerFacade} from "../controllers/TrackLayoutControllerFacade"
+import {TrackLayoutControllerFacade} from "../../controllers/TrackLayoutControllerFacade"
 
 const router = express.Router()
 

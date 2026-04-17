@@ -1,5 +1,5 @@
 import express from "express"
-import {MotorShowControllerFacade} from "../controllers/MotorShowControllerFacade"
+import {MotorShowControllerFacade} from "../../controllers/MotorShowControllerFacade"
 
 const router = express.Router()
 

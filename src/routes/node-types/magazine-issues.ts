@@ -1,5 +1,5 @@
 import express from "express"
-import {MagazineIssueControllerFacade} from "../controllers/MagazineIssueControllerFacade"
+import {MagazineIssueControllerFacade} from "../../controllers/MagazineIssueControllerFacade"
 
 const router = express.Router()
 

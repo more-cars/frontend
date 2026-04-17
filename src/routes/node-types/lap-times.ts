@@ -1,5 +1,5 @@
 import express from "express"
-import {LapTimeControllerFacade} from "../controllers/LapTimeControllerFacade"
+import {LapTimeControllerFacade} from "../../controllers/LapTimeControllerFacade"
 
 const router = express.Router()
 

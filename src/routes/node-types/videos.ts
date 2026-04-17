@@ -1,5 +1,5 @@
 import express from "express"
-import {VideoControllerFacade} from "../controllers/VideoControllerFacade"
+import {VideoControllerFacade} from "../../controllers/VideoControllerFacade"
 
 const router = express.Router()
 

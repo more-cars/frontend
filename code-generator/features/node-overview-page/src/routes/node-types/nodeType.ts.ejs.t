@@ -1,8 +1,8 @@
 ---
-to: src/routes/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>.ts
+to: src/routes/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>.ts
 ---
 import express from "express"
-import {<%= h.changeCase.pascal(nodeType) %>ControllerFacade} from "../controllers/<%= h.changeCase.pascal(nodeType) %>ControllerFacade"
+import {<%= h.changeCase.pascal(nodeType) %>ControllerFacade} from "../../controllers/<%= h.changeCase.pascal(nodeType) %>ControllerFacade"
 
 const router = express.Router()
 

@@ -1,5 +1,5 @@
 import express from "express"
-import {RatingControllerFacade} from "../controllers/RatingControllerFacade"
+import {RatingControllerFacade} from "../../controllers/RatingControllerFacade"
 
 const router = express.Router()
 

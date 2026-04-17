@@ -1,5 +1,5 @@
 import express from "express"
-import {ProgrammeControllerFacade} from "../controllers/ProgrammeControllerFacade"
+import {ProgrammeControllerFacade} from "../../controllers/ProgrammeControllerFacade"
 
 const router = express.Router()
 

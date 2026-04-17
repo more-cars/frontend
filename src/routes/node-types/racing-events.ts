@@ -1,5 +1,5 @@
 import express from "express"
-import {RacingEventControllerFacade} from "../controllers/RacingEventControllerFacade"
+import {RacingEventControllerFacade} from "../../controllers/RacingEventControllerFacade"
 
 const router = express.Router()
 

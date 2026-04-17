@@ -1,5 +1,5 @@
 import express from "express"
-import {CompanyControllerFacade} from "../controllers/CompanyControllerFacade"
+import {CompanyControllerFacade} from "../../controllers/CompanyControllerFacade"
 
 const router = express.Router()
 
