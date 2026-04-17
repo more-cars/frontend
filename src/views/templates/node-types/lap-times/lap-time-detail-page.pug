@@ -1,15 +1,15 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - lapTime = node.data
+    - lapTime = node.data.fields
 
-    - carModelVariant = relationships.car_model_variant.item
+    - carModelVariant = relationships.car_model_variant
     include connected-car-model-variant
 
-    - trackLayout = relationships.track_layout.item
+    - trackLayout = relationships.track_layout
     include connected-track-layout
 
-    - sessionResult = relationships.session_result.item
+    - sessionResult = relationships.session_result
     include connected-session-result
 
     - images = relationships.images

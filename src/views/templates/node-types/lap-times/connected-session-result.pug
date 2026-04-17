@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [sessionResult],
-    'Session Result',
-    `This lap time was achieved in the context of the following session result.`,
-    relationships.session_result.thumbnails,
-    relationships.session_result.node_properties,
-)
+if sessionResult.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [sessionResult.item],
+        'Session Result',
+        `The lap time was achieved in the context of the following session result.`,
+        sessionResult.thumbnails,
+        sessionResult.node_properties,
+    )

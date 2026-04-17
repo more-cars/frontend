@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [trackLayout],
-    'Track Layout',
-    `The lap time was achieved on the following layout.`,
-    relationships.track_layout.thumbnails,
-    relationships.track_layout.node_properties,
-)
+if trackLayout.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [trackLayout.item],
+        'Track Layout',
+        `The lap time was achieved on the »${trackLayout.item.fields.name}« layout of the race track.`,
+        trackLayout.thumbnails,
+        trackLayout.node_properties,
+    )
