@@ -1,9 +1,9 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - racingSeries = node.data
+    - racingSeries = node.data.fields
 
-    - racingEvents = relationships.racing_events.items
+    - racingEvents = relationships.racing_events
     include connected-racing-events
 
     - images = relationships.images
