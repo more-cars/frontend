@@ -1,9 +1,17 @@
 section(data-testid="search-tools-section")
-    div(class="bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
-        - currentPage = pagination.page
-        - firstPage = 1
-        - lastPage = pagination.total % 100 === 0 ? Math.floor(pagination.total / 100) : Math.floor(pagination.total / 100) + 1
-        - previousPage = currentPage < 2 ? 0 : currentPage - 1
-        - nextPage = currentPage < lastPage ? currentPage + 1 : 0
-        include ../shared/pagination
-        +pagination(node_type, firstPage, previousPage, currentPage, nextPage, lastPage)
+    - currentPage = search_data.page
+    - firstPage = 1
+    - lastPage = search_data.total % 100 === 0 ? Math.floor(search_data.total / 100) : Math.floor(search_data.total / 100) + 1
+    - previousPage = currentPage < 2 ? 0 : currentPage - 1
+    - nextPage = currentPage < lastPage ? currentPage + 1 : 0
+    - sortByProperty = search_data.sort_by_property
+    - sortDirection = search_data.sort_direction
+
+    div(class="mb-4 bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
+        include ../shared/sort
+        +sort(node_type, sortByProperty, sortDirection)
+
+    if lastPage > firstPage
+        div(class="bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
+            include ../shared/pagination
+            +pagination(node_type, firstPage, previousPage, currentPage, nextPage, lastPage, sortByProperty, sortDirection)

@@ -1,13 +1,13 @@
 import express from "express"
-import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {ModelCarModelFacade} from "../../../models/ModelCarModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {determineSearchParams} from "../../lib/determineSearchParams"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = determinePaginationPageNumber(req)
-    const modelCars = await ModelCarModelFacade.getAllNodes({page})
+    const searchParams = determineSearchParams(req)
+    const modelCars = await ModelCarModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/model-cars/model-car-overview-page', {
         page_title: 'All Model Cars',
@@ -16,8 +16,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_collection: modelCars,
         thumbnails: await getNodeThumbnails(modelCars),
         node_properties: getNodeProperties(ControllerNodeType.MODEL_CAR),
-        pagination: {
-            page,
+        search_data: {
+            page: searchParams.page,
+            sort_by_property: searchParams.sortByProperty,
+            sort_direction: searchParams.sortDirection,
             total: await ModelCarModelFacade.getTotalNodeCount(),
         },
     })

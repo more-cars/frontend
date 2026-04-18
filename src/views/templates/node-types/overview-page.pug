@@ -1,15 +1,20 @@
 extends ../../layouts/base/layout
 
 block main
-    h1(class="text-center mb-8 text-3xl font-bold") #{main_headline}
+    h1(class="text-center mb-8 text-3xl border-b-2 border-lime-500") #{main_headline}
 
     if node_collection.length === 0
         include ../shared/nodes-not-found-warning
         +nodes-not-found-warning(node_type)
     else
         div(class="grid md:grid-cols-2 gap-6 items-start")
-            section(data-testid=`${node_type}-section`)
-                ul(class="mb-6 max-h-150 overflow-auto bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white")
+            section(class="bg-zinc-100 p-5 rounded-2xl outline-2 outline-zinc-100 border-4 border-white" data-testid=`${node_type}-section`)
+                - page = search_data.page
+                - total = search_data.total
+                - firstOnThisPage = (page-1) * 100 + 1
+                - lastOnThisPage = Math.min(page * 100, total)
+                p(class="mb-4 text-xl text-center font-sans") #{firstOnThisPage} - #{lastOnThisPage} of #{total}
+                ul(class="mb-6 max-h-150 overflow-auto ")
                     each node in node_collection
                         include ../shared/list-node-item
                         +list-node-item(node, node_properties, thumbnails ? thumbnails.get(node.fields.id) : null)

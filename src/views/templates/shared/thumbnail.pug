@@ -1,6 +1,6 @@
 mixin thumbnail(imageNode)
+    - cssClasses = "col-span-3 h-full object-scale-down rounded-l-lg"
     if imageNode && imageNode.fields && imageNode.fields['image_url_s']
-        - cssClasses = "col-span-3 h-full object-scale-down rounded-l-lg"
         img(src=`${imageNode.fields['image_url_s']}`
             class=`${cssClasses} bg-zinc-800`
             alt=""

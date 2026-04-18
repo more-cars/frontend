@@ -1,13 +1,13 @@
 import express from "express"
-import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {MagazineModelFacade} from "../../../models/MagazineModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {determineSearchParams} from "../../lib/determineSearchParams"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = determinePaginationPageNumber(req)
-    const magazines = await MagazineModelFacade.getAllNodes({page})
+    const searchParams = determineSearchParams(req)
+    const magazines = await MagazineModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/magazines/magazine-overview-page', {
         page_title: 'All Magazines',
@@ -16,8 +16,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_collection: magazines,
         thumbnails: await getNodeThumbnails(magazines),
         node_properties: getNodeProperties(ControllerNodeType.MAGAZINE),
-        pagination: {
-            page,
+        search_data: {
+            page: searchParams.page,
+            sort_by_property: searchParams.sortByProperty,
+            sort_direction: searchParams.sortDirection,
             total: await MagazineModelFacade.getTotalNodeCount(),
         },
     })

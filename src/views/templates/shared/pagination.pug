@@ -1,4 +1,4 @@
-mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastPage)
+mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastPage, sortByProperty, sortDirection)
     nav(
         class="columns-7 text-center"
         aria-label="pagination"
@@ -6,11 +6,14 @@ mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastP
         ul
             li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
                 if currentPage > 2
+                    - url = new URL('/', 'http://localhost')
+                    - sortByProperty ? url.searchParams.append('sort_by_property', sortByProperty) : null
+                    - sortDirection ? url.searchParams.append('sort_direction', sortDirection) : null
                     a(
                         aria-label="first page"
                         rel="first"
                         class="block"
-                        href=`/${nodeTypePath(nodeType)}`
+                        href=`/${nodeTypePath(nodeType)}${url.search}`
                     ) «
                 else
                     span(class="text-zinc-100") –
@@ -20,11 +23,15 @@ mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastP
 
             li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
                 if currentPage > 1
+                    - url = new URL('/', 'http://localhost')
+                    - sortByProperty ? url.searchParams.append('sort_by_property', sortByProperty) : null
+                    - sortDirection ? url.searchParams.append('sort_direction', sortDirection) : null
+                    - url.searchParams.append('page', previousPage)
                     a(
                         aria-label="previous page"
                         rel="prev"
                         class="block"
-                        href=`/${nodeTypePath(nodeType)}?page=${previousPage}`
+                        href=`/${nodeTypePath(nodeType)}${url.search}`
                     ) #{previousPage}
                 else
                     span(class="text-zinc-100") –
@@ -34,11 +41,15 @@ mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastP
 
             li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
                 if currentPage < lastPage
+                    - url = new URL('/', 'http://localhost')
+                    - sortByProperty ? url.searchParams.append('sort_by_property', sortByProperty) : null
+                    - sortDirection ? url.searchParams.append('sort_direction', sortDirection) : null
+                    - url.searchParams.append('page', nextPage)
                     a(
                         aria-label="next page"
                         rel="next"
                         class="block"
-                        href=`/${nodeTypePath(nodeType)}?page=${nextPage}`
+                        href=`/${nodeTypePath(nodeType)}${url.search}`
                     ) #{nextPage}
                 else
                     span(class="text-zinc-100") –
@@ -48,11 +59,15 @@ mixin pagination(nodeType, firstPage, previousPage, currentPage, nextPage, lastP
 
             li(class="rounded-full py-2 bg-white border-2 border-zinc-100 outline-2 outline-white hover:border-lime-200")
                 if currentPage + 1 < lastPage
+                    - url = new URL('/', 'http://localhost')
+                    - sortByProperty ? url.searchParams.append('sort_by_property', sortByProperty) : null
+                    - sortDirection ? url.searchParams.append('sort_direction', sortDirection) : null
+                    - url.searchParams.append('page', lastPage)
                     a(
                         aria-label="last page"
                         rel="last"
                         class="block"
-                        href=`/${nodeTypePath(nodeType)}?page=${lastPage}`
+                        href=`/${nodeTypePath(nodeType)}${url.search}`
                     ) »
                 else
                     span(class="text-zinc-100") –

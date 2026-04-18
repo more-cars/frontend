@@ -1,13 +1,13 @@
 import express from "express"
-import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {RacingSeriesModelFacade} from "../../../models/RacingSeriesModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {determineSearchParams} from "../../lib/determineSearchParams"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = determinePaginationPageNumber(req)
-    const racingSeries = await RacingSeriesModelFacade.getAllNodes({page})
+    const searchParams = determineSearchParams(req)
+    const racingSeries = await RacingSeriesModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/racing-series/racing-series-overview-page', {
         page_title: 'All Racing Series',
@@ -16,8 +16,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_collection: racingSeries,
         thumbnails: await getNodeThumbnails(racingSeries),
         node_properties: getNodeProperties(ControllerNodeType.RACING_SERIES),
-        pagination: {
-            page,
+        search_data: {
+            page: searchParams.page,
+            sort_by_property: searchParams.sortByProperty,
+            sort_direction: searchParams.sortDirection,
             total: await RacingSeriesModelFacade.getTotalNodeCount(),
         },
     })

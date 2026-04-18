@@ -1,13 +1,13 @@
 import express from "express"
-import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {RacingGameModelFacade} from "../../../models/RacingGameModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {determineSearchParams} from "../../lib/determineSearchParams"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = determinePaginationPageNumber(req)
-    const racingGames = await RacingGameModelFacade.getAllNodes({page})
+    const searchParams = determineSearchParams(req)
+    const racingGames = await RacingGameModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/racing-games/racing-game-overview-page', {
         page_title: 'All Racing Games',
@@ -16,8 +16,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_collection: racingGames,
         thumbnails: await getNodeThumbnails(racingGames),
         node_properties: getNodeProperties(ControllerNodeType.RACING_GAME),
-        pagination: {
-            page,
+        search_data: {
+            page: searchParams.page,
+            sort_by_property: searchParams.sortByProperty,
+            sort_direction: searchParams.sortDirection,
             total: await RacingGameModelFacade.getTotalNodeCount(),
         },
     })
