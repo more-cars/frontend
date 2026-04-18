@@ -1,6 +1,6 @@
 mixin thumbnail(imageNode)
     if imageNode && imageNode.fields && imageNode.fields['image_url_s']
         - url = imageNode.fields['image_url_s']
-        img(src=`${url}` class="col-span-3 h-full object-scale-down rounded-l-lg bg-zinc-800")
+        img(src=`${url}` class="col-span-3 h-full object-scale-down rounded-l-lg bg-zinc-800" loading="lazy")
     else
         img(src='/g/no-image.webp' class="col-span-3 h-full object-scale-down rounded-l-lg")
