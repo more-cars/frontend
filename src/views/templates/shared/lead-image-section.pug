@@ -1,12 +1,17 @@
 mixin lead-image-section(imageNode, hideLicense)
     section(data-testid="lead-image")
-        figure
+        figure(class="relative w-fit")
             if imageNode && imageNode.type === 'video' && imageNode.fields && imageNode.fields.thumbnail_url_m
                 img(src=`${imageNode.fields.thumbnail_url_m}` class="w-full rounded-xl border-4 border-white")
                 if !hideLicense
                     figcaption(class="text-right text-sm p-2 -mb-4 font-sans text-zinc-700 decoration-zinc-300 hover:decoration-zinc-700")
                         a(class="underline" href=`/videos/${imageNode.fields.id}`) Video
                         span  by #{imageNode.fields.creator} / #{imageNode.fields.license.replace('youtube', 'YouTube')}
+
+            else if node.data.type === 'rating'
+                img(src=`${imageNode && imageNode.fields && imageNode.fields.image_url_l ? imageNode.fields.image_url_l : '/g/no-image.webp'}` class="w-full rounded-xl border-4 border-white contrast-50 saturate-0 brightness-125 blur-[2px]")
+                if !hideLicense
+                    figcaption(class="absolute inset-0 flex items-center justify-center text-8xl font-sans text-zinc-100 text-shadow-lg/20") #{node.sub_title.replace('≙', '').replace('Percent', '')} %
 
             else if imageNode && imageNode && imageNode.fields && imageNode.fields.image_url_l
                 img(src=`${imageNode.fields.image_url_l}` class="w-full rounded-xl border-4 border-white")

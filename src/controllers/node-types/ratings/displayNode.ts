@@ -3,8 +3,9 @@ import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {formatRating} from "../../lib/formatRating"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {DataNodeType} from "../../../data/types/DataNodeType"
-import {sendResponse404} from "../../responses/sendResponse404"
+import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const ratingId = parseInt(req.params.id)
@@ -25,7 +26,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             title: RatingModelFacade.getNodeTitle(rating),
             sub_title: RatingModelFacade.getNodeSubTitle(rating),
             node_properties: getNodeProperties(DataNodeType.RATING),
-            main_image: await RatingModelFacade.getConnectedMainImage(ratingId),
+            main_image: carModelVariant ? await CarModelVariantModelFacade.getConnectedMainImage(carModelVariant.fields.id) : null,
         },
         relationships: {
             car_model_variant: {
