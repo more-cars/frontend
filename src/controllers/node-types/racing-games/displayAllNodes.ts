@@ -1,9 +1,8 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
-import {RacingGameModelFacade} from "../../../models/RacingGameModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {RacingGameModelFacade} from "../../../models/RacingGameModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
@@ -16,7 +15,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.RACING_GAME,
         node_collection: racingGames,
         thumbnails: await getNodeThumbnails(racingGames),
-        node_properties: getNodeProperties(DataNodeType.RACING_GAME),
+        node_properties: getNodeProperties(ControllerNodeType.RACING_GAME),
         pagination: {
             page,
             total: await RacingGameModelFacade.getTotalNodeCount(),

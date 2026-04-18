@@ -1,7 +1,7 @@
 import express from "express"
 import {ImageModelFacade} from "../../../models/ImageModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
@@ -21,12 +21,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: image,
             title: ImageModelFacade.getNodeTitle(image),
             sub_title: ImageModelFacade.getNodeSubTitle(image),
-            node_properties: getNodeProperties(DataNodeType.IMAGE),
+            node_properties: getNodeProperties(ControllerNodeType.IMAGE),
         },
         relationships: {
             nodes: {
                 items: nodes,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL),
                 thumbnails: await getNodeThumbnails(nodes),
             },
         },

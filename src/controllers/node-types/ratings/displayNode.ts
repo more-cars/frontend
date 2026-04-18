@@ -2,7 +2,7 @@ import express from "express"
 import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {formatRating} from "../../lib/formatRating"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
@@ -25,23 +25,23 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: rating,
             title: RatingModelFacade.getNodeTitle(rating),
             sub_title: RatingModelFacade.getNodeSubTitle(rating),
-            node_properties: getNodeProperties(DataNodeType.RATING),
+            node_properties: getNodeProperties(ControllerNodeType.RATING),
             main_image: carModelVariant ? await CarModelVariantModelFacade.getConnectedMainImage(carModelVariant.fields.id) : null,
         },
         relationships: {
             car_model_variant: {
                 item: carModelVariant,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getNodeThumbnails(carModelVariant ? [carModelVariant] : []),
             },
             magazine_issue: {
                 item: magazineIssue,
-                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                node_properties: getNodeProperties(ControllerNodeType.MAGAZINE_ISSUE),
                 thumbnails: await getNodeThumbnails(magazineIssue ? [magazineIssue] : []),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
         },

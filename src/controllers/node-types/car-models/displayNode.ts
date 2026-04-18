@@ -1,7 +1,7 @@
 import express from "express"
 import {CarModelModelFacade} from "../../../models/CarModelModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -29,48 +29,48 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: carModel,
             title: CarModelModelFacade.getNodeTitle(carModel),
             sub_title: CarModelModelFacade.getNodeSubTitle(carModel),
-            node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+            node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL),
             main_image: await CarModelModelFacade.getConnectedMainImage(carModelId),
         },
         relationships: {
             brand: {
                 item: brand,
-                node_properties: getNodeProperties(DataNodeType.BRAND),
+                node_properties: getNodeProperties(ControllerNodeType.BRAND),
                 thumbnails: await getNodeThumbnails(brand ? [brand] : []),
             },
             predecessor: {
                 item: predecessor,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL),
                 thumbnails: await getNodeThumbnails(predecessor ? [predecessor] : []),
             },
             successor: {
                 item: successor,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL),
                 thumbnails: await getNodeThumbnails(successor ? [successor] : []),
             },
             car_model_variants: {
                 items: carModelVariants,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getNodeThumbnails(carModelVariants),
             },
             magazine_issues: {
                 items: magazineIssues,
-                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                node_properties: getNodeProperties(ControllerNodeType.MAGAZINE_ISSUE),
                 thumbnails: await getNodeThumbnails(magazineIssues),
             },
             programme_episodes: {
                 items: programmeEpisodes,
-                node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
+                node_properties: getNodeProperties(ControllerNodeType.PROGRAMME_EPISODE),
                 thumbnails: await getNodeThumbnails(programmeEpisodes),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },

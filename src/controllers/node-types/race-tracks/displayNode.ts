@@ -1,7 +1,7 @@
 import express from "express"
 import {RaceTrackModelFacade} from "../../../models/RaceTrackModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -25,28 +25,28 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: raceTrack,
             title: RaceTrackModelFacade.getNodeTitle(raceTrack),
             sub_title: RaceTrackModelFacade.getNodeSubTitle(raceTrack),
-            node_properties: getNodeProperties(DataNodeType.RACE_TRACK),
+            node_properties: getNodeProperties(ControllerNodeType.RACE_TRACK),
             main_image: await RaceTrackModelFacade.getConnectedMainImage(raceTrackId),
         },
         relationships: {
             track_layouts: {
                 items: await RaceTrackModelFacade.getConnectedTrackLayouts(raceTrackId),
-                node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
+                node_properties: getNodeProperties(ControllerNodeType.TRACK_LAYOUT),
                 thumbnails: await getNodeThumbnails(trackLayouts),
             },
             racing_events: {
                 items: racingEvents,
-                node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
+                node_properties: getNodeProperties(ControllerNodeType.RACING_EVENT),
                 thumbnails: await getNodeThumbnails(racingEvents),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },

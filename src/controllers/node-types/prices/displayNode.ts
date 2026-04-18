@@ -2,7 +2,7 @@ import express from "express"
 import {PriceModelFacade} from "../../../models/PriceModelFacade"
 import {formatPrice} from "../../lib/formatPrice"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
@@ -23,18 +23,18 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: price,
             title: PriceModelFacade.getNodeTitle(price),
             sub_title: PriceModelFacade.getNodeSubTitle(price),
-            node_properties: getNodeProperties(DataNodeType.PRICE),
+            node_properties: getNodeProperties(ControllerNodeType.PRICE),
             main_image: await PriceModelFacade.getConnectedMainImage(priceId),
         },
         relationships: {
             car_model_variant: {
                 item: carModelVariant,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getNodeThumbnails(carModelVariant ? [carModelVariant] : []),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
         },

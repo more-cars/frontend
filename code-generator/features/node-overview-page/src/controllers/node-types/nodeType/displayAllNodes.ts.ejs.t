@@ -17,7 +17,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         main_headline: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
         node_type: ControllerNodeType.<%= h.changeCase.constant(nodeType) %>,
         node_collection: <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>,
-        node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
+        node_properties: getNodeProperties(ControllerNodeType.<%= h.changeCase.constant(nodeType) %>),
         pagination: {
             page,
             total: await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getTotalNodeCount(),

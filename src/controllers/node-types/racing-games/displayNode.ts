@@ -1,7 +1,7 @@
 import express from "express"
 import {RacingGameModelFacade} from "../../../models/RacingGameModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -26,33 +26,33 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: racingGame,
             title: RacingGameModelFacade.getNodeTitle(racingGame),
             sub_title: RacingGameModelFacade.getNodeSubTitle(racingGame),
-            node_properties: getNodeProperties(DataNodeType.RACING_GAME),
+            node_properties: getNodeProperties(ControllerNodeType.RACING_GAME),
             main_image: await RacingGameModelFacade.getConnectedMainImage(racingGameId),
         },
         relationships: {
             car_model_variants: {
                 items: carModelVariants,
-                node_properties: getNodeProperties(DataNodeType.CAR_MODEL_VARIANT),
+                node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getNodeThumbnails(carModelVariants),
             },
             track_layouts: {
                 items: trackLayouts,
-                node_properties: getNodeProperties(DataNodeType.TRACK_LAYOUT),
+                node_properties: getNodeProperties(ControllerNodeType.TRACK_LAYOUT),
                 thumbnails: await getNodeThumbnails(trackLayouts),
             },
             gaming_platforms: {
                 items: gamingPlatforms,
-                node_properties: getNodeProperties(DataNodeType.GAMING_PLATFORM),
+                node_properties: getNodeProperties(ControllerNodeType.GAMING_PLATFORM),
                 thumbnails: await getNodeThumbnails(gamingPlatforms),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },

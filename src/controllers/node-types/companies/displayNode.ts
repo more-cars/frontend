@@ -1,7 +1,7 @@
 import express from "express"
 import {CompanyModelFacade} from "../../../models/CompanyModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -24,13 +24,13 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: company,
             title: CompanyModelFacade.getNodeTitle(company),
             sub_title: CompanyModelFacade.getNodeSubTitle(company),
-            node_properties: getNodeProperties(DataNodeType.COMPANY),
+            node_properties: getNodeProperties(ControllerNodeType.COMPANY),
             main_image: await CompanyModelFacade.getConnectedMainImage(companyId),
         },
         relationships: {
             brands: {
                 items: brands,
-                node_properties: getNodeProperties(DataNodeType.BRAND),
+                node_properties: getNodeProperties(ControllerNodeType.BRAND),
                 thumbnails: await getNodeThumbnails(brands),
                 oldestBrand: brands
                     .filter(brand => brand.fields.founded)
@@ -43,12 +43,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },

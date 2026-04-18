@@ -1,9 +1,8 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
-import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {RatingModelFacade} from "../../../models/RatingModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
@@ -16,7 +15,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.RATING,
         node_collection: ratings,
         thumbnails: await getNodeThumbnails(ratings),
-        node_properties: getNodeProperties(DataNodeType.RATING),
+        node_properties: getNodeProperties(ControllerNodeType.RATING),
         pagination: {
             page,
             total: await RatingModelFacade.getTotalNodeCount(),

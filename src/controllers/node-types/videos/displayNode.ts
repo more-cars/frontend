@@ -1,7 +1,7 @@
 import express from "express"
 import {VideoModelFacade} from "../../../models/VideoModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
 
@@ -21,12 +21,12 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: video,
             title: VideoModelFacade.getNodeTitle(video),
             sub_title: VideoModelFacade.getNodeSubTitle(video),
-            node_properties: getNodeProperties(DataNodeType.VIDEO),
+            node_properties: getNodeProperties(ControllerNodeType.VIDEO),
         },
         relationships: {
             nodes: {
                 items: nodes,
-                node_properties: getNodeProperties(DataNodeType.BRAND),
+                node_properties: getNodeProperties(ControllerNodeType.BRAND),
                 thumbnails: await getNodeThumbnails(nodes),
             },
         },

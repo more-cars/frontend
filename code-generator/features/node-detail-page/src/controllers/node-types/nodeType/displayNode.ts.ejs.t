@@ -4,7 +4,7 @@ to: src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nod
 import express from "express"
 import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 
 export async function displayNode(req: express.Request, res: express.Response) {
@@ -21,7 +21,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: <%= h.changeCase.camel(nodeType) %>,
             title: <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeTitle(<%= h.changeCase.camel(nodeType) %>),
             sub_title: <%= h.changeCase.pascal(nodeType) %>ModelFacade.getNodeSubTitle(<%= h.changeCase.camel(nodeType) %>),
-            node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(nodeType) %>),
+            node_properties: getNodeProperties(ControllerNodeType.<%= h.changeCase.constant(nodeType) %>),
         },
         relationships: {
         },

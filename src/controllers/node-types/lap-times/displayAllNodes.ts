@@ -2,7 +2,6 @@ import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {LapTimeModelFacade} from "../../../models/LapTimeModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
@@ -16,7 +15,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.LAP_TIME,
         node_collection: lapTimes,
         thumbnails: await getNodeThumbnails(lapTimes),
-        node_properties: getNodeProperties(DataNodeType.LAP_TIME),
+        node_properties: getNodeProperties(ControllerNodeType.LAP_TIME),
         pagination: {
             page,
             total: await LapTimeModelFacade.getTotalNodeCount(),

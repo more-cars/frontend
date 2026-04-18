@@ -1,7 +1,7 @@
 import express from "express"
 import {MagazineModelFacade} from "../../../models/MagazineModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -24,23 +24,23 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: magazine,
             title: MagazineModelFacade.getNodeTitle(magazine),
             sub_title: MagazineModelFacade.getNodeSubTitle(magazine),
-            node_properties: getNodeProperties(DataNodeType.MAGAZINE),
+            node_properties: getNodeProperties(ControllerNodeType.MAGAZINE),
             main_image: await MagazineModelFacade.getConnectedMainImage(magazineId),
         },
         relationships: {
             magazine_issues: {
                 items: magazineIssues,
-                node_properties: getNodeProperties(DataNodeType.MAGAZINE_ISSUE),
+                node_properties: getNodeProperties(ControllerNodeType.MAGAZINE_ISSUE),
                 thumbnails: await getNodeThumbnails(magazineIssues),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },

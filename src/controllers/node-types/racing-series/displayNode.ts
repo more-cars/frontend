@@ -1,7 +1,7 @@
 import express from "express"
 import {RacingSeriesModelFacade} from "../../../models/RacingSeriesModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -24,23 +24,23 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: racingSeries,
             title: RacingSeriesModelFacade.getNodeTitle(racingSeries),
             sub_title: RacingSeriesModelFacade.getNodeSubTitle(racingSeries),
-            node_properties: getNodeProperties(DataNodeType.RACING_SERIES),
+            node_properties: getNodeProperties(ControllerNodeType.RACING_SERIES),
             main_image: await RacingSeriesModelFacade.getConnectedMainImage(racingSeriesId),
         },
         relationships: {
             racing_events: {
                 items: racingEvents,
-                node_properties: getNodeProperties(DataNodeType.RACING_EVENT),
+                node_properties: getNodeProperties(ControllerNodeType.RACING_EVENT),
                 thumbnails: await getNodeThumbnails(racingEvents),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
                 thumbnails: await getNodeThumbnails(images),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },

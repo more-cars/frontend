@@ -1,9 +1,8 @@
 import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
-import {ModelCarModelFacade} from "../../../models/ModelCarModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {ModelCarModelFacade} from "../../../models/ModelCarModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
@@ -16,7 +15,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.MODEL_CAR,
         node_collection: modelCars,
         thumbnails: await getNodeThumbnails(modelCars),
-        node_properties: getNodeProperties(DataNodeType.MODEL_CAR),
+        node_properties: getNodeProperties(ControllerNodeType.MODEL_CAR),
         pagination: {
             page,
             total: await ModelCarModelFacade.getTotalNodeCount(),

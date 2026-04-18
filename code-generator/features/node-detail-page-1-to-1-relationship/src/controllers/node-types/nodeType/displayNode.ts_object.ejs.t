@@ -6,6 +6,6 @@ skip_if: "<%= h.changeCase.snake(partnerNodeType) %>:"
 ---
             <%= h.changeCase.snake(partnerNodeType) %>: {
                 item: <%= h.changeCase.camel(partnerNodeType) %>,
-                node_properties: getNodeProperties(DataNodeType.<%= h.changeCase.constant(partnerNodeType) %>),
+                node_properties: getNodeProperties(ControllerNodeType.<%= h.changeCase.constant(partnerNodeType) %>),
                 thumbnails: await getNodeThumbnails(<%= h.changeCase.camel(partnerNodeType) %> ? [<%= h.changeCase.camel(partnerNodeType) %>] : []),
             },

@@ -1,6 +1,5 @@
 import {readFileSync} from "fs"
-import {dasherize} from "inflection"
-import {DataNodeType} from "../data/types/DataNodeType"
+import type {ControllerNodeType} from "../controllers/types/ControllerNodeType"
 
 type NodeProperty = {
     name: string
@@ -11,7 +10,7 @@ type NodeProperty = {
     example: string
 }
 
-export function getNodeProperties(nodeType: DataNodeType) {
+export function getNodeProperties(nodeType: ControllerNodeType) {
     const staticProperties: NodeProperty[] = [
         {
             name: "id",
@@ -38,7 +37,7 @@ export function getNodeProperties(nodeType: DataNodeType) {
     ]
 
     const nodeSpecificProperties = JSON.parse(
-        readFileSync(`${__dirname}/node-types/${dasherize(nodeType.toLowerCase())}-properties.json`, 'utf-8')
+        readFileSync(`${__dirname}/node-types/${nodeType}-properties.json`, 'utf-8')
     ) as NodeProperty[]
 
     return [...staticProperties].concat(nodeSpecificProperties)

@@ -2,7 +2,6 @@ import express from "express"
 import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
 import {GamingPlatformModelFacade} from "../../../models/GamingPlatformModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 
@@ -16,7 +15,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.GAMING_PLATFORM,
         node_collection: gamingPlatforms,
         thumbnails: await getNodeThumbnails(gamingPlatforms),
-        node_properties: getNodeProperties(DataNodeType.GAMING_PLATFORM),
+        node_properties: getNodeProperties(ControllerNodeType.GAMING_PLATFORM),
         pagination: {
             page,
             total: await GamingPlatformModelFacade.getTotalNodeCount(),

@@ -1,7 +1,7 @@
 import express from "express"
 import {ProgrammeModelFacade} from "../../../models/ProgrammeModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
+import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
@@ -25,22 +25,22 @@ export async function displayNode(req: express.Request, res: express.Response) {
             data: programme,
             title: ProgrammeModelFacade.getNodeTitle(programme),
             sub_title: ProgrammeModelFacade.getNodeSubTitle(programme),
-            node_properties: getNodeProperties(DataNodeType.PROGRAMME),
+            node_properties: getNodeProperties(ControllerNodeType.PROGRAMME),
             main_image: await ProgrammeModelFacade.getConnectedMainImage(programmeId),
         },
         relationships: {
             programme_episodes: {
                 items: programmeEpisodes,
-                node_properties: getNodeProperties(DataNodeType.PROGRAMME_EPISODE),
+                node_properties: getNodeProperties(ControllerNodeType.PROGRAMME_EPISODE),
                 thumbnails: await getNodeThumbnails(programmeEpisodes),
             },
             images: {
                 items: images,
-                node_properties: getNodeProperties(DataNodeType.IMAGE),
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
             },
             videos: {
                 items: videos,
-                node_properties: getNodeProperties(DataNodeType.VIDEO),
+                node_properties: getNodeProperties(ControllerNodeType.VIDEO),
                 thumbnails: await getVideoThumbnails(videos),
             },
         },
