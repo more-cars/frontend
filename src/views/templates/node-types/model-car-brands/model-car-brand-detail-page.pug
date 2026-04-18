@@ -1,9 +1,9 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - modelCarBrand = node.data
+    - modelCarBrand = node.data.fields
 
-    - modelCars = relationships.model_cars.items
+    - modelCars = relationships.model_cars
     include connected-model-cars
 
     - images = relationships.images

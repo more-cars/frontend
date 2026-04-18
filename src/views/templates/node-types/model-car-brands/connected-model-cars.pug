@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    modelCars,
+    modelCars.items,
     'Model Cars',
-    `The following scale model were created by ${modelCarBrand.name}.`,
-    relationships.model_cars.thumbnails,
-    relationships.model_cars.node_properties,
+    `»${modelCarBrand.name}« created, among others the following scale models.`,
+    modelCars.thumbnails,
+    modelCars.node_properties,
 )
