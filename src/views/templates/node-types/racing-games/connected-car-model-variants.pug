@@ -1,8 +1,8 @@
 include ../../shared/connected-nodes-section
 +connected-nodes-section(
-    carModelVariants,
+    carModelVariants.items,
     'Car Model Variants',
-    `The following cars are available in "${racingGame.name}".`,
-    relationships.car_model_variants.thumbnails,
-    relationships.car_model_variants.node_properties,
+    `The following cars are available in the racing game »${racingGame.name}«.`,
+    carModelVariants.thumbnails,
+    carModelVariants.node_properties,
 )

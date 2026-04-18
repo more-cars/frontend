@@ -1,15 +1,15 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - racingGame = node.data
+    - racingGame = node.data.fields
 
-    - carModelVariants = relationships.car_model_variants.items
+    - carModelVariants = relationships.car_model_variants
     include connected-car-model-variants
 
-    - trackLayouts = relationships.track_layouts.items
+    - trackLayouts = relationships.track_layouts
     include connected-track-layouts
 
-    - gamingPlatforms = relationships.gaming_platforms.items
+    - gamingPlatforms = relationships.gaming_platforms
     include connected-gaming-platforms
 
     - images = relationships.images
