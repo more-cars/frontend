@@ -4,9 +4,10 @@ mixin list-node-item(node, nodeProperties, thumbnailImageNode)
             include thumbnail
             +thumbnail(thumbnailImageNode)
 
-            div(class="col-span-5")
-                a(class="inline-block font-sans text-lg mt-2 mr-4 underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(node.fields.id, title(node))}`)
-                    span(aria-label="name") #{title(node)}
-                span(class="float-right pr-2 pt-1 select-none") #{icon(node.type.replaceAll('_', '-'))}
-                include primary-properties
-                +primary-properties(nodeProperties, node.fields)
+            div(class="col-span-5 flex")
+                div(class="grow mr-2 mt-2")
+                    a(class="inline-block font-sans text-lg underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(node.fields.id, title(node))}`)
+                        span(aria-label="name") #{title(node)}
+                    include primary-properties
+                    +primary-properties(nodeProperties, node.fields)
+                div(class="mt-2 mr-3 select-none") #{icon(node.type.replaceAll('_', '-'))}
