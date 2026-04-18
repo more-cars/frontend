@@ -1,13 +1,13 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - modelCar = node.data
+    - modelCar = node.data.fields
 
-    - modelCarBrand = relationships.model_car_brand.item
-    include connected-model-car-brand
-
-    - carModelVariant = relationships.car_model_variant.item
+    - carModelVariant = relationships.car_model_variant
     include connected-car-model-variant
+
+    - modelCarBrand = relationships.model_car_brand
+    include connected-model-car-brand
 
     - images = relationships.images
     include ../../shared/connected-images

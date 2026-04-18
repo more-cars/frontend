@@ -1,8 +1,12 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [carModelVariant],
-    'Car Model Variant',
-    `This scale model is based on the following car model variant.`,
-    relationships.car_model_variant.thumbnails,
-    relationships.car_model_variant.node_properties,
-)
+if carModelVariant.item
+    include ../../shared/connected-nodes-section
+    - introTextParts = []
+    - if (modelCar.scale) introTextParts.push(`This ${modelCar.scale} scale model is based on the real »${carModelVariant.item.fields.name}«.`)
+    - if (!modelCar.scale) introTextParts.push(`This scale model is based on the real »${carModelVariant.item.fields.name}«.`)
+    +connected-nodes-section(
+        [carModelVariant.item],
+        'Car Model Variant',
+        introTextParts.join(' '),
+        carModelVariant.thumbnails,
+        carModelVariant.node_properties,
+    )

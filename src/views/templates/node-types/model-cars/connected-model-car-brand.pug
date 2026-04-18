@@ -1,8 +1,9 @@
-include ../../shared/connected-nodes-section
-+connected-nodes-section(
-    [modelCarBrand],
-    'Model Car Brand',
-    `This scale model was created by the following brand.`,
-    relationships.model_car_brand.thumbnails,
-    relationships.model_car_brand.node_properties,
-)
+if modelCarBrand.item
+    include ../../shared/connected-nodes-section
+    +connected-nodes-section(
+        [modelCarBrand.item],
+        'Model Car Brand',
+        `This is a scale model from »${modelCarBrand.item.fields.name}«.`,
+        modelCarBrand.thumbnails,
+        modelCarBrand.node_properties,
+    )
