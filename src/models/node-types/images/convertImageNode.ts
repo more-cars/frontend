@@ -31,9 +31,14 @@ export function convertImageNode(dataNode: ImageNode) {
     if (image.fields.image_provider === 'wikimedia') {
         if (image.fields.image_url_s) {
             image.fields.image_url_s = image.fields.image_url_s.replace('/320px-', '/330px-')
+            image.fields.image_url_s = image.fields.image_url_s.replace('/960px-', '/330px-')
         }
         if (image.fields.image_url_m) {
-            image.fields.image_url_m = image.fields.image_url_m.replace('/640px-', '/960px-')
+            image.fields.image_url_m = image.fields.image_url_m.replace('/640px-', '/500px-')
+            image.fields.image_url_m = image.fields.image_url_m.replace('/960px-', '/500px-')
+        }
+        if (image.fields.image_url_l) {
+            image.fields.image_url_l = image.fields.image_url_l.replace('/960px-', '/1280px-')
         }
     }
 
