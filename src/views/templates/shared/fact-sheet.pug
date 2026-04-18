@@ -16,7 +16,7 @@ section(data-testid="fact-sheet" class="bg-zinc-100 p-5 rounded-2xl outline-2 ou
             - const nodeSpecificProperties = node.node_properties.filter(prop => !['id', 'created_at', 'updated_at'].includes(prop.name))
             each prop in nodeSpecificProperties
                 - const propertyLabel = prop.label
-                - const propertyValue = item[prop.name] ? item[prop.name] : ''
+                - const propertyValue = item[prop.name] !== null ? item[prop.name] : ''
                 tr(data-testid=`${prop.name}`)
                     td(class="w-1/3 p-2 font-bold text-right text-zinc-600") #{propertyLabel}
                     td(class="p-2 rounded-md border text-zinc-700 border-zinc-300 bg-zinc-50 wrap-break-word") #{propertyValue}
