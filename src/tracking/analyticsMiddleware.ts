@@ -11,17 +11,6 @@ export function analyticsMiddleware(req: express.Request, res: express.Response,
         return next()
     }
 
-    console.log({
-        protocol: req.protocol,
-        host: req.get("host"),
-        originalUrl: req.originalUrl,
-        forwarded: req.headers['x-forwarded-for'],
-        ip: req.ip,
-        userAgent: req.headers["user-agent"],
-        path: req.path,
-        url: req.url,
-    })
-
     trackVisit(req, {
         action: req.path
     }).catch(() => {
