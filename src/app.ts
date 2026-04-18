@@ -10,6 +10,7 @@ import {registerNodeTypeRoutes} from "./routes/registerNodeTypeRoutes"
 const app: Express = express()
 app.set('view engine', 'pug')
 app.set('views', './src/views')
+app.set('trust proxy', true) // needed, so the tracking still works with Kubernetes+Gateway+HTTPRoute
 
 app.use(analyticsMiddleware)
 app.use(basicAuthentication)

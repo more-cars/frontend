@@ -42,7 +42,7 @@ export async function trackVisit(req: Request, options: TrackOptions): Promise<v
         // action
         action_name: options.action,
         url: options.url || `${req.protocol}://${req.get("host")}${req.originalUrl}`
-    };
+    }
 
     if (options.userId) {
         payload.uid = options.userId
