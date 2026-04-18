@@ -1,15 +1,52 @@
 mixin primary-properties(nodeProperties, item)
-    ul(data-testid="prime-data" class="mb-2")
+    ul(data-testid="prime-data" class="mb-2 mr-6")
+        - ignoredProps = ['engine_configuration', 'built_to', 'defunct', 'date_to', 'date_until', 'closed', 'year_to', 'aired_until_year', 'issue_number', 'season_episode_number']
         each prop in nodeProperties
-            if prop.is_primary && prop.name !== "name" && item[prop.name] && !prop.name.endsWith('_unit') && prop.name !== 'engine_configuration'
+            if prop.is_primary && item[prop.name] && !ignoredProps.includes(prop.name) && !prop.name.endsWith('_unit')
                 li(class="text-xs inline-block pl-1 pr-2 border-l-3 border-lime-500")
                     if ['country_code', 'hq_country_code', 'legal_hq_country_code'].includes(prop.name)
-                        span #{countryFlag(item['country_code'] || item['hq_country_code'] || item['legal_hq_country_code'])}
+                        span  #{countryFlag(item['country_code'] || item['hq_country_code'] || item['legal_hq_country_code'])}
+                    else if prop.name === 'built_from'
+                        span  #{item['built_from']}-#{item['built_to']}
+                    else if prop.name === 'founded'
+                        span  #{item['founded']}-#{item['defunct']}
+                    else if prop.name === 'opened'
+                        span  #{item['opened']}-#{item['closed']}
+                    else if prop.name === 'year_from'
+                        span  #{item['year_from']}-#{item['year_to']}
+                    else if prop.name === 'aired_from_year'
+                        span  #{item['aired_from_year']}-#{item['aired_until_year']}
+                    else if prop.name === 'date'
+                        span  #{formatDate(item['date'])}
+                    else if prop.name === 'date_from'
+                        span  #{formatDate(item['date_from'])} - #{formatDate(item['date_to'] || item['date_until'])}
+                    else if prop.name === 'start_date'
+                        span  #{formatDate(item['start_date'])}
+                    else if prop.name === 'issue_year'
+                        span  #{item['issue_number']}/#{item['issue_year']}
+                    else if prop.name === 'season_number'
+                        span  S#{item['season_number']}E#{item['season_episode_number']}
+                    else if prop.name === 'original_air_date'
+                        span  #{formatDate(item['original_air_date'])}
+                    else if prop.name === 'generation'
+                        span  #{ordinalize(item['generation'])} gen
+                    else if prop.name === 'race_number'
+                        span  ##{item['race_number']}
+                    else if prop.name === 'consecutive_number'
+                        span  ##{item['consecutive_number']}
+                    else if prop.name === 'pages'
+                        span  #{item['pages']} pages
+                    else if prop.name === 'total_seasons'
+                        span  #{item['total_seasons']} seasons
+                    else if prop.name === 'total_episodes'
+                        span  #{item['total_episodes']} episodes
+                    else if prop.name === 'round'
+                        span  #{ordinalize(item['round'])} round
+                    else if prop.name === 'duration'
+                        span  #{formatTime(item['duration'])}
                     else if prop.name === 'cylinders'
-                        b Engine:
                         span  #{item['engine_configuration']}#{item['cylinders']}
                     else
-                        b #{prop.label}:
                         if item[prop.name + '_unit']
                             span  #{item[prop.name]} #{item[prop.name + '_unit']}
                         else

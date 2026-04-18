@@ -2,7 +2,7 @@
   {
     "name": "price",
     "label": "Price",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": true,
     "datatype": "number",
     "example": "59990"
@@ -18,7 +18,7 @@
   {
     "name": "currency_code",
     "label": "Currency",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": true,
     "datatype": "string",
     "example": "EUR"

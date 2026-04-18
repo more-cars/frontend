@@ -2,7 +2,7 @@
   {
     "name": "rating_value",
     "label": "Rating",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": true,
     "datatype": "number",
     "example": "93"
@@ -10,7 +10,7 @@
   {
     "name": "scale_minimum",
     "label": "Scale Minimum",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": true,
     "datatype": "number",
     "example": "0"
@@ -18,7 +18,7 @@
   {
     "name": "scale_maximum",
     "label": "Scale Maximum",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": true,
     "datatype": "number",
     "example": "100"

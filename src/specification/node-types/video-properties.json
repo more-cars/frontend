@@ -1,23 +1,5 @@
 [
   {
-    "name": "video_provider",
-    "label": "Video Provider",
-    "is_primary": true,
-    "mandatory": true,
-    "readonly": false,
-    "datatype": "string",
-    "example": "youtube"
-  },
-  {
-    "name": "external_id",
-    "label": "External ID",
-    "is_primary": false,
-    "mandatory": true,
-    "readonly": false,
-    "datatype": "string",
-    "example": "NqsBncRslsg"
-  },
-  {
     "name": "title",
     "label": "Title",
     "is_primary": false,
@@ -115,5 +97,23 @@
     "readonly": true,
     "datatype": "string",
     "example": "https://i.ytimg.com/vi/NqsBncRslsg/default.jpg"
+  },
+  {
+    "name": "video_provider",
+    "label": "Video Provider",
+    "is_primary": true,
+    "mandatory": true,
+    "readonly": false,
+    "datatype": "string",
+    "example": "youtube"
+  },
+  {
+    "name": "external_id",
+    "label": "External ID",
+    "is_primary": false,
+    "mandatory": true,
+    "readonly": false,
+    "datatype": "string",
+    "example": "NqsBncRslsg"
   }
 ]

@@ -2,7 +2,7 @@
   {
     "name": "name",
     "label": "Name",
-    "is_primary": true,
+    "is_primary": false,
     "mandatory": true,
     "datatype": "string",
     "example": "Grand Prix"
@@ -42,7 +42,7 @@
   {
     "name": "distance",
     "label": "Distance",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": false,
     "datatype": "number",
     "example": "61"
@@ -50,7 +50,7 @@
   {
     "name": "distance_unit",
     "label": "Distance (Unit)",
-    "is_primary": false,
+    "is_primary": true,
     "mandatory": false,
     "datatype": "string",
     "example": "laps"
