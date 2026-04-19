@@ -22,7 +22,7 @@ export function getPageParam(req: express.Request) {
 }
 
 export function getSortByPropertyParam(req: express.Request, nodeType: ControllerNodeType) {
-    const sortByProperty = req.query.sort_by_property as string
+    const sortByProperty = (req.query.sort_by_property as string).toLowerCase()
 
     if (!sortByProperty) {
         return undefined
@@ -36,7 +36,7 @@ export function getSortByPropertyParam(req: express.Request, nodeType: Controlle
 }
 
 export function getSortDirectionParam(req: express.Request) {
-    const sortDirection = req.query.sort_direction as string
+    const sortDirection = (req.query.sort_direction as string).toLowerCase()
 
     if (!sortDirection) {
         return undefined
