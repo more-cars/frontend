@@ -2,15 +2,14 @@
 to: src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/displayAllNodes.ts
 ---
 import express from "express"
-import {determinePaginationPageNumber} from "../../lib/determinePaginationPageNumber"
+import {determineSearchParams} from "../../lib/determineSearchParams"
 import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
-import {DataNodeType} from "../../../data/types/DataNodeType"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const page = determinePaginationPageNumber(req)
-    const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getAllNodes({page})
+    const searchParams = determineSearchParams(req)
+    const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-overview-page', {
         page_title: 'All <%= h.changeCase.title(h.inflection.pluralize(nodeType)) %>',
@@ -18,8 +17,10 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         node_type: ControllerNodeType.<%= h.changeCase.constant(nodeType) %>,
         node_collection: <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %>,
         node_properties: getNodeProperties(ControllerNodeType.<%= h.changeCase.constant(nodeType) %>),
-        pagination: {
-            page,
+        search_data: {
+            page: searchParams.page,
+            sort_by_property: searchParams.sortByProperty,
+            sort_direction: searchParams.sortDirection,
             total: await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getTotalNodeCount(),
         },
     })
