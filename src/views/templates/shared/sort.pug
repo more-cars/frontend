@@ -6,3 +6,5 @@ mixin sort(nodeType, sortByProperty, sortDirection)
                 a(class="" href=`/${nodeTypePath(node_type)}?sort_by_property=${prop.name}&sort_direction=desc`) ⬇️
                 span(class=`grow ${prop.name === sortByProperty ? 'font-bold' : ''}`) #{prop.label}
                 a(class="" href=`/${nodeTypePath(node_type)}?sort_by_property=${prop.name}&sort_direction=asc`) ⬆️
+        li(class="flex mt-4 px-2 py-1 bg-white border-2 border-zinc-100 outline-2 outline-white rounded-xl hover:border-lime-200")
+            a(class="grow" href=`/${nodeTypePath(node_type)}`) Reset Sorting
