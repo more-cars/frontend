@@ -1,5 +1,5 @@
 mixin sort(nodeType, sortByProperty, sortDirection)
-    h2(class="text-xl text-center") Sort nodes by
+    h2(class="text-xl text-center") Sort #{nodeTypeLabelPlural(nodeType)} by:
     ul(class="mt-4 text-center")
         each prop in node_properties
             li(class=`flex px-2 py-1 mb-2 bg-white border-2 ${search_data.sort_by_property === prop.name ? 'border-orange-300' : 'border-zinc-100'} outline-2 outline-white rounded-xl hover:border-lime-300`)

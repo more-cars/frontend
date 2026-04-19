@@ -2,6 +2,7 @@ import {Express} from "express"
 import {canonicalUrlPath} from "../views/lib/canonicalUrlPath"
 import {nodeTitle} from "../views/lib/nodeTitle"
 import {nodeTypeUrlPath} from "../views/lib/nodeTypeUrlPath"
+import {getNodeTypeLabelPlural} from "../views/lib/getNodeTypeLabelPlural"
 import {convertDate} from "../views/lib/convertDate"
 import {convertDateTime} from "../views/lib/convertDateTime"
 import {formatTime} from "../views/lib/formatTime"
@@ -14,6 +15,7 @@ export function registerViewHelpers(app: Express) {
     app.locals.canonical = canonicalUrlPath
     app.locals.title = nodeTitle
     app.locals.nodeTypePath = nodeTypeUrlPath
+    app.locals.nodeTypeLabelPlural = getNodeTypeLabelPlural
     app.locals.formatDate = convertDate
     app.locals.formatDateTime = convertDateTime
     app.locals.formatTime = formatTime
