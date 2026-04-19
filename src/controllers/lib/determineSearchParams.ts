@@ -25,7 +25,7 @@ export function getSortByPropertyParam(req: express.Request, nodeType: Controlle
     const sortByProperty = (req.query.sort_by_property as string || '').toLowerCase()
 
     if (!sortByProperty) {
-        return undefined
+        return
     }
 
     if (!getNodeProperties(nodeType).find(prop => prop.name === sortByProperty)) {
@@ -39,7 +39,7 @@ export function getSortDirectionParam(req: express.Request) {
     const sortDirection = (req.query.sort_direction as string || '').toLowerCase()
 
     if (!sortDirection) {
-        return undefined
+        return
     }
 
     if (!['desc', 'asc'].includes(sortDirection)) {

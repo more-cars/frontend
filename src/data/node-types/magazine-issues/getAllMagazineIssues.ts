@@ -6,10 +6,8 @@ import {requestDataFromApi} from "../../requestDataFromApi"
 import type {MagazineIssueNode} from "./types/MagazineIssueNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllMagazineIssues(params?: DataSearchParams) {
-    if (!params?.sortByProperty) {
-        params = {sortByProperty: 'title'}
-    }
+export async function getAllMagazineIssues(params: DataSearchParams = {}) {
+    params.sortByProperty ??= 'title'
 
     const url = getApiRequestUrl(DataNodeType.MAGAZINE_ISSUE, params)
     const apiData: ApiMagazineIssueNode[] = (await requestDataFromApi(url))?.data || []

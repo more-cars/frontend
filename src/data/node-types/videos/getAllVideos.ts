@@ -6,10 +6,8 @@ import {requestDataFromApi} from "../../requestDataFromApi"
 import type {VideoNode} from "./types/VideoNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllVideos(params?: DataSearchParams) {
-    if (!params?.sortByProperty) {
-        params = {sortByProperty: 'title'}
-    }
+export async function getAllVideos(params: DataSearchParams = {}) {
+    params.sortByProperty ??= 'title'
 
     const url = getApiRequestUrl(DataNodeType.VIDEO, params)
     const apiData: ApiVideoNode[] = (await requestDataFromApi(url))?.data || []

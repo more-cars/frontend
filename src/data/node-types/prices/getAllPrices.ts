@@ -6,10 +6,8 @@ import {requestDataFromApi} from "../../requestDataFromApi"
 import type {PriceNode} from "./types/PriceNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
-export async function getAllPrices(params?: DataSearchParams) {
-    if (!params?.sortByProperty) {
-        params = {sortByProperty: 'price'}
-    }
+export async function getAllPrices(params: DataSearchParams = {}) {
+    params.sortByProperty ??= 'price'
 
     const url = getApiRequestUrl(DataNodeType.PRICE, params)
     const apiData: ApiPriceNode[] = (await requestDataFromApi(url))?.data || []
