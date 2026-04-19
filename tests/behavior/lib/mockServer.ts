@@ -10,8 +10,7 @@ const api = new OpenAPIBackend({
             const mock = getResponseMock(context, req)
 
             if (mock === null) {
-                res.status(404)
-                    .json(context.api.mockResponseForOperation(context.operation.operationId as string, {code: 404}).mock)
+                return res.status(404).json(context.api.mockResponseForOperation(context.operation.operationId as string, {code: 404}).mock)
             }
 
             res.status(200).json(mock)
