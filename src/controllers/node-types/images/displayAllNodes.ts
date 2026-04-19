@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.IMAGE)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const images = await ImageModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/images/image-overview-page', {

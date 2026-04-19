@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {SessionResultModelFacade} from "../../../models/SessionResultModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.SESSION_RESULT)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const sessionResults = await SessionResultModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/session-results/session-result-overview-page', {

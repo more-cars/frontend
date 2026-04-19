@@ -6,9 +6,17 @@ import {determineSearchParams} from "../../lib/determineSearchParams"
 import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.<%= h.changeCase.constant(nodeType) %>)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const <%= h.changeCase.camel(h.inflection.pluralize(nodeType)) %> = await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/<%= h.changeCase.kebab(nodeType) %>-overview-page', {

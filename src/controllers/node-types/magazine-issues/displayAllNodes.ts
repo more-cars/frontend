@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.MAGAZINE_ISSUE)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const magazineIssues = await MagazineIssueModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/magazine-issues/magazine-issue-overview-page', {

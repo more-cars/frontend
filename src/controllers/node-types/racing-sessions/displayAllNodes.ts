@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {RacingSessionModelFacade} from "../../../models/RacingSessionModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.RACING_SESSION)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const racingSessions = await RacingSessionModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/racing-sessions/racing-session-overview-page', {

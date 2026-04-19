@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {ProgrammeEpisodeModelFacade} from "../../../models/ProgrammeEpisodeModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.PROGRAMME_EPISODE)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const programmeEpisodes = await ProgrammeEpisodeModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/programme-episodes/programme-episode-overview-page', {

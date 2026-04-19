@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {CarModelVariantModelFacade} from "../../../models/CarModelVariantModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.CAR_MODEL_VARIANT)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const carModelVariants = await CarModelVariantModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/car-model-variants/car-model-variant-overview-page', {

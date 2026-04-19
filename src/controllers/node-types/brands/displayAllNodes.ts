@@ -4,9 +4,17 @@ import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.BRAND)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const brands = await BrandModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/brands/brand-overview-page', {

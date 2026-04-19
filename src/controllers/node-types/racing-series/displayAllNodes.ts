@@ -4,9 +4,17 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {RacingSeriesModelFacade} from "../../../models/RacingSeriesModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
+import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
-    const searchParams = determineSearchParams(req)
+    let searchParams
+    try {
+        searchParams = determineSearchParams(req, ControllerNodeType.RACING_SERIES)
+    } catch (error) {
+        console.error(error)
+        return sendResponse400(res)
+    }
+
     const racingSeries = await RacingSeriesModelFacade.getAllNodes(searchParams)
 
     res.render('templates/node-types/racing-series/racing-series-overview-page', {
