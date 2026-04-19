@@ -7,8 +7,10 @@ import type {SessionResultNode} from "./types/SessionResultNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllSessionResults(params?: DataSearchParams) {
-    const defaultParams: DataSearchParams = {sortByProperty: 'position'}
-    params = Object.assign({}, defaultParams, params)
+    if (!params?.sortByProperty) {
+        params = {sortByProperty: 'position'}
+    }
+
     const url = getApiRequestUrl(DataNodeType.SESSION_RESULT, params)
     const apiData: ApiSessionResultNode[] = (await requestDataFromApi(url))?.data || []
     const data: SessionResultNode[] = []

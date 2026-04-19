@@ -7,8 +7,10 @@ import type {ProgrammeEpisodeNode} from "./types/ProgrammeEpisodeNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllProgrammeEpisodes(params?: DataSearchParams) {
-    const defaultParams: DataSearchParams = {sortByProperty: 'title'}
-    params = Object.assign({}, defaultParams, params)
+    if (!params?.sortByProperty) {
+        params = {sortByProperty: 'title'}
+    }
+
     const url = getApiRequestUrl(DataNodeType.PROGRAMME_EPISODE, params)
     const apiData: ApiProgrammeEpisodeNode[] = (await requestDataFromApi(url))?.data || []
     const data: ProgrammeEpisodeNode[] = []

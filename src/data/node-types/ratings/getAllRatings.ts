@@ -7,8 +7,10 @@ import type {RatingNode} from "./types/RatingNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getAllRatings(params?: DataSearchParams) {
-    const defaultParams: DataSearchParams = {sortByProperty: 'rating_value'}
-    params = Object.assign({}, defaultParams, params)
+    if (!params?.sortByProperty) {
+        params = {sortByProperty: 'rating_value'}
+    }
+
     const url = getApiRequestUrl(DataNodeType.RATING, params)
     const apiData: ApiRatingNode[] = (await requestDataFromApi(url))?.data || []
     const data: RatingNode[] = []
