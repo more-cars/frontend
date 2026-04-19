@@ -4,5 +4,6 @@ import {LegalPagesControllerFacade} from "../controllers/LegalPagesControllerFac
 const router = express.Router()
 
 router.get('/contact', LegalPagesControllerFacade.contact)
+router.get('/privacy', LegalPagesControllerFacade.privacy)
 
 export default router
