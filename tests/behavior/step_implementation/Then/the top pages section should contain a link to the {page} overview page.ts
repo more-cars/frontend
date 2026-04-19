@@ -2,7 +2,7 @@ import {Then} from "@badeball/cypress-cucumber-preprocessor"
 import {getNormalizedNodeTypePlural} from "../../lib/getNormalizedNodeTypePlural"
 
 Then('the top pages section should contain a link to the {string} overview page', (target: string) => {
-    cy.get(`footer h5`)
+    cy.get(`footer h2`)
         .contains('top pages', {matchCase: false})
         .parent()
         .find('a')
