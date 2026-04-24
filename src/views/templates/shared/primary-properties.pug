@@ -3,7 +3,9 @@ mixin primary-properties(nodeProperties, item)
         each prop in nodeProperties
             if search_data && search_data.sort_by_property === prop.name
                 li(class="text-xs inline-block pl-1 pr-2 border-l-3 border-orange-500")
-                    if item[prop.name + '_unit']
+                    if prop.name === 'total_production'
+                        span  #{formatNumber(item[prop.name])}
+                    else if item[prop.name + '_unit']
                         span  #{item[prop.name]} #{item[prop.name + '_unit']}
                     else
                         span  #{item[prop.name]}

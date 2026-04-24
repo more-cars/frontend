@@ -10,6 +10,7 @@ import {getAge} from "../views/lib/getAge"
 import {ordinalizeNumber} from "../views/lib/ordinalize"
 import {getNodeTypeIcon} from "../views/lib/getNodeTypeIcon"
 import {getCountryFlag} from "../views/lib/getCountryFlag"
+import {formatNumber} from "../views/lib/formatNumber"
 
 export function registerViewHelpers(app: Express) {
     app.locals.canonical = canonicalUrlPath
@@ -23,4 +24,5 @@ export function registerViewHelpers(app: Express) {
     app.locals.ordinalize = ordinalizeNumber
     app.locals.icon = getNodeTypeIcon
     app.locals.countryFlag = getCountryFlag
+    app.locals.formatNumber = formatNumber
 }
