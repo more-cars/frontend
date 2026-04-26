@@ -7,7 +7,7 @@ mixin list-node-item(node, nodeProperties, thumbnailImageNode)
             div(class="col-span-5 flex")
                 div(class="grow mr-2 mt-2")
                     a(class="inline-block font-sans text-lg underline decoration-zinc-300 hover:decoration-zinc-800" href=`/${canonical(node.fields.id, title(node))}`)
-                        span(aria-label="name") #{title(node)}
+                        span #{title(node)}
                     include primary-properties
                     +primary-properties(nodeProperties, node.fields)
                 div(class="mt-2 mr-3 select-none") #{icon(node.type.replaceAll('_', '-'))}
