@@ -13,8 +13,6 @@ export function analyticsMiddleware(req: express.Request, res: express.Response,
 
     trackVisit(req, {
         action: req.path
-    }).catch(() => {
-        console.error('Matomo Logging Error')
     })
 
     next()
