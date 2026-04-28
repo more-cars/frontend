@@ -64,5 +64,7 @@ export function trackVisit(req: Request, options: TrackOptions) {
         },
         body: new URLSearchParams(payload as Record<string, string>).toString(),
         signal: AbortSignal.timeout(1000),
+    }).catch(() => {
+        /* empty */
     })
 }
