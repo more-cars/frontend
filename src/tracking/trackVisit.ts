@@ -1,11 +1,8 @@
-import http from "http"
-import axios from "axios"
 import crypto from "crypto"
 import type {Request} from "express"
 import {getAnalyticsUrl} from "./getAnalyticsUrl"
 
 const MATOMO_SITE_ID = "1"
-const agent = new http.Agent({keepAlive: true})
 
 type MatomoEvent = {
     category: string
@@ -60,15 +57,12 @@ export function trackVisit(req: Request, options: TrackOptions) {
         }
     }
 
-    axios.post(
-        getAnalyticsUrl(),
-        new URLSearchParams(payload as Record<string, string>).toString(),
-        {
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            httpAgent: agent,
-            timeout: 1000
-        }
-    )
+    fetch(getAnalyticsUrl(), {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams(payload as Record<string, string>).toString(),
+        signal: AbortSignal.timeout(1000),
+    })
 }
