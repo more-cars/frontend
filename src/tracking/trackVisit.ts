@@ -20,9 +20,9 @@ type TrackOptions = {
 
 export function trackVisit(req: Request, options: TrackOptions) {
     console.log(req.headers)
-    console.log(req.socket.localAddress)
     console.log(req.socket.remoteAddress)
     const ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0] || req.socket.remoteAddress || ""
+    console.log(ip)
     const userAgent = req.headers["user-agent"] || ""
     const visitorId = crypto
         .createHash("md5")
