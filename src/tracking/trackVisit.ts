@@ -19,9 +19,7 @@ type TrackOptions = {
 }
 
 export function trackVisit(req: Request, options: TrackOptions) {
-    console.log(req.headers)
     const ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0] || req.socket.remoteAddress || ""
-    console.log(ip)
     const userAgent = req.headers["user-agent"] || ""
     const visitorId = crypto
         .createHash("md5")
@@ -58,7 +56,7 @@ export function trackVisit(req: Request, options: TrackOptions) {
             payload.e_v = options.event.value
         }
     }
-    console.log(payload)
+
     fetch(getAnalyticsUrl(), {
         method: 'POST',
         headers: {
