@@ -4,6 +4,7 @@ import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
+import {sendResponse200} from "../../responses/sendResponse200"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const sessionResultId = parseInt(req.params.id)
@@ -49,5 +50,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 thumbnails: await getNodeThumbnails(images),
             },
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }

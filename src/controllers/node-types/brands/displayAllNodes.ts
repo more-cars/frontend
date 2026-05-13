@@ -1,9 +1,10 @@
 import express from "express"
 import {determineSearchParams} from "../../lib/determineSearchParams"
-import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {BrandModelFacade} from "../../../models/BrandModelFacade"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
+import {sendResponse200} from "../../responses/sendResponse200"
 import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
@@ -30,5 +31,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
             sort_direction: searchParams.sortDirection,
             total: await BrandModelFacade.getTotalNodeCount(),
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }

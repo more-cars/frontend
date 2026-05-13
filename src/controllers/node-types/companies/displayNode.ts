@@ -5,6 +5,7 @@ import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {sendResponse404} from "../../responses/sendResponse404"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getVideoThumbnails} from "../videos/getVideoThumbnails"
+import {sendResponse200} from "../../responses/sendResponse200"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const companyId = parseInt(req.params.id)
@@ -52,5 +53,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 thumbnails: await getVideoThumbnails(videos),
             },
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }

@@ -5,6 +5,7 @@ import {RaceTrackModelFacade} from "../../../models/RaceTrackModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
+import {sendResponse200} from "../../responses/sendResponse200"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     let searchParams
@@ -30,5 +31,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
             sort_direction: searchParams.sortDirection,
             total: await RaceTrackModelFacade.getTotalNodeCount(),
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }

@@ -3,9 +3,10 @@ to: src/controllers/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nod
 ---
 import express from "express"
 import {determineSearchParams} from "../../lib/determineSearchParams"
-import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
+import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../models/<%= h.changeCase.pascal(nodeType) %>ModelFacade"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
+import {sendResponse200} from "../../responses/sendResponse200"
 import {sendResponse400} from "../../responses/sendResponse400"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
@@ -31,5 +32,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
             sort_direction: searchParams.sortDirection,
             total: await <%= h.changeCase.pascal(nodeType) %>ModelFacade.getTotalNodeCount(),
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }

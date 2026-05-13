@@ -5,6 +5,7 @@ import {MagazineIssueModelFacade} from "../../../models/MagazineIssueModelFacade
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {determineSearchParams} from "../../lib/determineSearchParams"
 import {sendResponse400} from "../../responses/sendResponse400"
+import {sendResponse200} from "../../responses/sendResponse200"
 
 export async function displayAllNodes(req: express.Request, res: express.Response) {
     let searchParams
@@ -30,5 +31,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
             sort_direction: searchParams.sortDirection,
             total: await MagazineIssueModelFacade.getTotalNodeCount(),
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }

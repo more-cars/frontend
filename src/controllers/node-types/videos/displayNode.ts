@@ -4,6 +4,7 @@ import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {sendResponse404} from "../../responses/sendResponse404"
+import {sendResponse200} from "../../responses/sendResponse200"
 
 export async function displayNode(req: express.Request, res: express.Response) {
     const videoId = parseInt(req.params.id)
@@ -30,5 +31,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 thumbnails: await getNodeThumbnails(nodes),
             },
         },
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }
