@@ -3,6 +3,7 @@ import type {CarModelVariant} from "../../models/node-types/car-model-variants/t
 import {CarModelVariantModelFacade} from "../../models/CarModelVariantModelFacade"
 import {getNodeThumbnails} from "../lib/getNodeThumbnails"
 import {getAllNodeTypeInformation} from "./getAllNodeTypeInformation"
+import {sendResponse200} from "../responses/sendResponse200"
 
 export async function display(req: express.Request, res: express.Response) {
     const latestCarModelVariants: CarModelVariant[] = []
@@ -25,5 +26,7 @@ export async function display(req: express.Request, res: express.Response) {
         node_types: await getAllNodeTypeInformation(),
         latest_additions: latestCarModelVariants,
         thumbnails,
+    }, (_, html) => {
+        sendResponse200(html, res)
     })
 }
