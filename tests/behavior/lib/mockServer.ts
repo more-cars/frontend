@@ -16,6 +16,9 @@ const api = new OpenAPIBackend({
             res.status(200).json(mock)
         },
     },
+    ajvOpts: {
+        validateFormats: false
+    }
 })
 api.init()
 
