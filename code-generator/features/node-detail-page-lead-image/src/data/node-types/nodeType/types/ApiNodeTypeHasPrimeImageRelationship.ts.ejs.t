@@ -6,14 +6,22 @@ import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiImageNode} from "../../images/types/ApiImageNode"
 
 export type Api<%= h.changeCase.pascal(nodeType) %>HasPrimeImageRelationship = {
+    links: {
+        self: string
+    }
     data: {
-        relationship_id: number
-        relationship_name: ApiRelationshipType.<%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE
-        partner_node: {
-            node_type: ApiNodeType.IMAGE
-            data: ApiImageNode['attributes']
+        type: ApiNodeType.IMAGE
+        id: number
+        attributes: Record<string, string | number | boolean | null>
+        data: {
+            relationship_id: number
+            relationship_name: ApiRelationshipType.<%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE
+            partner_node: {
+                node_type: ApiNodeType.IMAGE
+                data: ApiImageNode['attributes']
+            }
+            created_at: string
+            updated_at: string
         }
-        created_at: string
-        updated_at: string
     }
 }

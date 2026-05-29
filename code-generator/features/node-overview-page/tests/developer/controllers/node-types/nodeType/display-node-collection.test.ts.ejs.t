@@ -7,6 +7,8 @@ import {<%= h.changeCase.pascal(nodeType) %>ModelFacade} from "../../../../../sr
 import {supertestGet} from "../../../supertestGet"
 import {Fake<%= h.changeCase.pascal(nodeType) %>} from "../../../../_toolbox/fixtures/node-types/Fake<%= h.changeCase.pascal(nodeType) %>"
 import type {<%= h.changeCase.pascal(nodeType) %>} from "../../../../../src/models/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/types/<%= h.changeCase.pascal(nodeType) %>"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -40,6 +42,9 @@ describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () 
             ] satisfies <%= h.changeCase.pascal(nodeType) %>[])
 
         const response = await supertestGet('/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>')
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         expect(response.statusCode)
             .toBe(200)

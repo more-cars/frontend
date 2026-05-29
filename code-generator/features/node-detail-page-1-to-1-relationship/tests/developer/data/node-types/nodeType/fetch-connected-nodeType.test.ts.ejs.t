@@ -25,9 +25,9 @@ describe('Fetching connected <%= h.changeCase.upper(partnerNodeType) %> from dat
 
     test('when there is a <%= h.changeCase.upper(partnerNodeType) %> connected', async () => {
         const source = Fake<%= h.changeCase.pascal(nodeType) %>.data
-        const target = {node_type: ApiNodeType.<%= h.changeCase.constant(partnerNodeType) %>, data: {id: 11111118}}
+        const target = {type: ApiNodeType.<%= h.changeCase.constant(partnerNodeType) %>, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'get<%= h.changeCase.pascal(nodeType) %>ById')
             .mockImplementation(async () => source)

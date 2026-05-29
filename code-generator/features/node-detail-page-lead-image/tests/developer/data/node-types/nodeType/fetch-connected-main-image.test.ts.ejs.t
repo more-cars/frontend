@@ -25,9 +25,9 @@ describe('Fetching connected main IMAGE from data source', () => {
 
     test('when there is a main IMAGE connected', async () => {
         const source = Fake<%= h.changeCase.pascal(nodeType) %>.data
-        const target = {node_type: ApiNodeType.IMAGE, data: {id: 11111118}}
+        const target = {type: ApiNodeType.IMAGE, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'get<%= h.changeCase.pascal(nodeType) %>ById')
             .mockImplementation(async () => source)

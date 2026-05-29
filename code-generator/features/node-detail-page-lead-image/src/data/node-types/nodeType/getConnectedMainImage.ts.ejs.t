@@ -8,6 +8,7 @@ import type {<%= h.changeCase.pascal(nodeType) %>HasMainImageRelationship} from 
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {DataNodeType} from "../../types/DataNodeType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {
@@ -22,14 +23,17 @@ export async function getConnectedMainImage(id: number) {
     }
 
     const relationship: <%= h.changeCase.pascal(nodeType) %>HasMainImageRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.<%= h.changeCase.constant(nodeType) %>_HAS_MAIN_IMAGE,
         source_node: sourceNode,
         source_node_type: DataNodeType.<%= h.changeCase.constant(nodeType) %>,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ImageNode,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as ImageNode,
         partner_node_type: DataNodeType.IMAGE,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return relationship
