@@ -4,6 +4,7 @@ import type {ApiRaceTrackHostedRacingEventRelationship} from "./types/ApiRaceTra
 import type {RaceTrackHostedRacingEventRelationship} from "./types/RaceTrackHostedRacingEventRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {RacingEventNode} from "../racing-events/types/RacingEventNode"
 
 export async function getConnectedRacingEvents(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedRacingEvents(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/race-tracks/${id}/hosted-racing-event`)).data as ApiRaceTrackHostedRacingEventRelationship[]
+    const apiData = (await requestDataFromApi(`/race-tracks/${id}/hosted-racing-event`)) as ApiRaceTrackHostedRacingEventRelationship
     const data: RaceTrackHostedRacingEventRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.RACE_TRACK_HOSTED_RACING_EVENT,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RacingEventNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as RacingEventNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

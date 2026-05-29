@@ -4,6 +4,7 @@ import type {ApiRacingGameFeaturesCarModelVariantRelationship} from "./types/Api
 import type {RacingGameFeaturesCarModelVariantRelationship} from "./types/RacingGameFeaturesCarModelVariantRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {CarModelVariantNode} from "../car-model-variants/types/CarModelVariantNode"
 
 export async function getConnectedCarModelVariants(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedCarModelVariants(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/racing-games/${id}/features-car-model-variant`)).data as ApiRacingGameFeaturesCarModelVariantRelationship[]
+    const apiData = (await requestDataFromApi(`/racing-games/${id}/features-car-model-variant`)) as ApiRacingGameFeaturesCarModelVariantRelationship
     const data: RacingGameFeaturesCarModelVariantRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.RACING_GAME_FEATURES_CAR_MODEL_VARIANT,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as CarModelVariantNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as CarModelVariantNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

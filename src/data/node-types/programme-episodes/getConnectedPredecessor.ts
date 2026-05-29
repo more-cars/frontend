@@ -4,6 +4,7 @@ import {getProgrammeEpisodeById} from "./getProgrammeEpisodeById"
 import type {ProgrammeEpisodeFollowsEpisodeRelationship} from "./types/ProgrammeEpisodeFollowsEpisodeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {ProgrammeEpisodeNode} from "./types/ProgrammeEpisodeNode"
 
 export async function getConnectedPredecessor(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedPredecessor(id: number) {
     }
 
     const data: ProgrammeEpisodeFollowsEpisodeRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.PROGRAMME_EPISODE_FOLLOWS_EPISODE,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ProgrammeEpisodeNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as ProgrammeEpisodeNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

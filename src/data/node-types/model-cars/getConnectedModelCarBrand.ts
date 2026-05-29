@@ -4,6 +4,7 @@ import {getModelCarById} from "./getModelCarById"
 import type {ModelCarMadeByModelCarBrandRelationship} from "./types/ModelCarMadeByModelCarBrandRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {ModelCarBrandNode} from "../model-car-brands/types/ModelCarBrandNode"
 
 export async function getConnectedModelCarBrand(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedModelCarBrand(id: number) {
     }
 
     const data: ModelCarMadeByModelCarBrandRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.MODEL_CAR_MADE_BY_MODEL_CAR_BRAND,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ModelCarBrandNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as ModelCarBrandNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

@@ -4,6 +4,7 @@ import type {ApiCarModelVariantReviewedByMagazineIssueWithRatingRelationship} fr
 import type {CarModelVariantReviewedByMagazineIssueWithRatingRelationship} from "./types/CarModelVariantReviewedByMagazineIssueWithRatingRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {RatingNode} from "../ratings/types/RatingNode"
 
 export async function getConnectedRatings(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedRatings(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/car-model-variants/${id}/reviewed-by-magazine-issue-with-rating`)).data as ApiCarModelVariantReviewedByMagazineIssueWithRatingRelationship[]
+    const apiData = (await requestDataFromApi(`/car-model-variants/${id}/reviewed-by-magazine-issue-with-rating`)) as ApiCarModelVariantReviewedByMagazineIssueWithRatingRelationship
     const data: CarModelVariantReviewedByMagazineIssueWithRatingRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.CAR_MODEL_VARIANT_REVIEWED_BY_MAGAZINE_ISSUE_WITH_RATING,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RatingNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as RatingNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

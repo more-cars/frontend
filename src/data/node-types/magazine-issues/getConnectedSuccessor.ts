@@ -4,6 +4,7 @@ import {getMagazineIssueById} from "./getMagazineIssueById"
 import type {MagazineIssueFollowedByIssueRelationship} from "./types/MagazineIssueFollowedByIssueRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {MagazineIssueNode} from "./types/MagazineIssueNode"
 
 export async function getConnectedSuccessor(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedSuccessor(id: number) {
     }
 
     const data: MagazineIssueFollowedByIssueRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.MAGAZINE_ISSUE_FOLLOWED_BY_ISSUE,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as MagazineIssueNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as MagazineIssueNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

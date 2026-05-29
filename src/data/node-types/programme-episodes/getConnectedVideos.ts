@@ -4,6 +4,7 @@ import type {ApiProgrammeEpisodeHasVideoRelationship} from "./types/ApiProgramme
 import type {ProgrammeEpisodeHasVideoRelationship} from "./types/ProgrammeEpisodeHasVideoRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {VideoNode} from "../videos/types/VideoNode"
 
 export async function getConnectedVideos(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedVideos(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/programme-episodes/${id}/has-video`)).data as ApiProgrammeEpisodeHasVideoRelationship[]
+    const apiData = (await requestDataFromApi(`/programme-episodes/${id}/has-video`)) as ApiProgrammeEpisodeHasVideoRelationship
     const data: ProgrammeEpisodeHasVideoRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.PROGRAMME_EPISODE_HAS_VIDEO,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as VideoNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as VideoNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

@@ -3,14 +3,22 @@ import type {ApiTrackLayoutNode} from "../../track-layouts/types/ApiTrackLayoutN
 import type {ApiRelationshipType} from "../../../types/ApiRelationshipType"
 
 export type ApiLapTimeAchievedOnTrackLayoutRelationship = {
+    links: {
+        self: string
+    }
     data: {
-        relationship_id: number
-        relationship_name: ApiRelationshipType.LAP_TIME_ACHIEVED_ON_TRACK_LAYOUT
-        partner_node: {
-            node_type: ApiNodeType.TRACK_LAYOUT
-            data: ApiTrackLayoutNode['attributes']
+        type: ApiNodeType.LAP_TIME
+        id: number
+        attributes: Record<string, string | number | boolean | null>
+        data: {
+            relationship_id: number
+            relationship_name: ApiRelationshipType.LAP_TIME_ACHIEVED_ON_TRACK_LAYOUT
+            partner_node: {
+                node_type: ApiNodeType.TRACK_LAYOUT
+                data: ApiTrackLayoutNode['attributes']
+            }
+            created_at: string
+            updated_at: string
         }
-        created_at: string
-        updated_at: string
     }
 }

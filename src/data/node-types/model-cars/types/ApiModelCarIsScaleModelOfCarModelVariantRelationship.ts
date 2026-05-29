@@ -3,14 +3,22 @@ import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiCarModelVariantNode} from "../../car-model-variants/types/ApiCarModelVariantNode"
 
 export type ApiModelCarIsScaleModelOfCarModelVariantRelationship = {
+    links: {
+        self: string
+    }
     data: {
-        relationship_id: number
-        relationship_name: ApiRelationshipType.MODEL_CAR_IS_SCALE_MODEL_OF_CAR_MODEL_VARIANT
-        partner_node: {
-            node_type: ApiNodeType.CAR_MODEL_VARIANT
-            data: ApiCarModelVariantNode['attributes']
+        type: ApiNodeType.MODEL_CAR
+        id: number
+        attributes: Record<string, string | number | boolean | null>
+        data: {
+            relationship_id: number
+            relationship_name: ApiRelationshipType.MODEL_CAR_IS_SCALE_MODEL_OF_CAR_MODEL_VARIANT
+            partner_node: {
+                node_type: ApiNodeType.CAR_MODEL_VARIANT
+                data: ApiCarModelVariantNode['attributes']
+            }
+            created_at: string
+            updated_at: string
         }
-        created_at: string
-        updated_at: string
     }
 }

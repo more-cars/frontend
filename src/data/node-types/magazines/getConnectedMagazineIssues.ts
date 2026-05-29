@@ -4,6 +4,7 @@ import type {ApiMagazineHasIssueRelationship} from "./types/ApiMagazineHasIssueR
 import type {MagazineHasIssueRelationship} from "./types/MagazineHasIssueRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {MagazineIssueNode} from "../magazine-issues/types/MagazineIssueNode"
 
 export async function getConnectedMagazineIssues(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedMagazineIssues(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/magazines/${id}/has-issue`)).data as ApiMagazineHasIssueRelationship[]
+    const apiData = (await requestDataFromApi(`/magazines/${id}/has-issue`)) as ApiMagazineHasIssueRelationship
     const data: MagazineHasIssueRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.MAGAZINE_HAS_ISSUE,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as MagazineIssueNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as MagazineIssueNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

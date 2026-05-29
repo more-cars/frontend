@@ -4,6 +4,7 @@ import type {ApiRacingSeriesHasImageRelationship} from "./types/ApiRacingSeriesH
 import type {RacingSeriesHasImageRelationship} from "./types/RacingSeriesHasImageRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedImages(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedImages(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/racing-series/${id}/has-image`)).data as ApiRacingSeriesHasImageRelationship[]
+    const apiData = (await requestDataFromApi(`/racing-series/${id}/has-image`)) as ApiRacingSeriesHasImageRelationship
     const data: RacingSeriesHasImageRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.RACING_SERIES_HAS_IMAGE,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as ImageNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as ImageNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

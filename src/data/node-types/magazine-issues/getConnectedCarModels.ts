@@ -4,6 +4,7 @@ import type {ApiMagazineIssueCoversCarModelRelationship} from "./types/ApiMagazi
 import type {MagazineIssueCoversCarModelRelationship} from "./types/MagazineIssueCoversCarModelRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {CarModelNode} from "../car-models/types/CarModelNode"
 
 export async function getConnectedCarModels(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedCarModels(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/magazine-issues/${id}/covers-car-model`)).data as ApiMagazineIssueCoversCarModelRelationship[]
+    const apiData = (await requestDataFromApi(`/magazine-issues/${id}/covers-car-model`)) as ApiMagazineIssueCoversCarModelRelationship
     const data: MagazineIssueCoversCarModelRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.MAGAZINE_ISSUE_COVERS_CAR_MODEL,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as CarModelNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as CarModelNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

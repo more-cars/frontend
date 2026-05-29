@@ -4,6 +4,7 @@ import {getRacingEventById} from "./getRacingEventById"
 import type {RacingEventBelongsToRacingSeriesRelationship} from "./types/RacingEventBelongsToRacingSeriesRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {RacingSeriesNode} from "../racing-series/types/RacingSeriesNode"
 
 export async function getConnectedRacingSeries(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedRacingSeries(id: number) {
     }
 
     const data: RacingEventBelongsToRacingSeriesRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.RACING_EVENT_BELONGS_TO_RACING_SERIES,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as RacingSeriesNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as RacingSeriesNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

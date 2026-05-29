@@ -4,6 +4,7 @@ import {getProgrammeEpisodeById} from "./getProgrammeEpisodeById"
 import type {ProgrammeEpisodeBelongsToProgrammeRelationship} from "./types/ProgrammeEpisodeBelongsToProgrammeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {ProgrammeNode} from "../programmes/types/ProgrammeNode"
 
 export async function getConnectedProgramme(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedProgramme(id: number) {
     }
 
     const data: ProgrammeEpisodeBelongsToProgrammeRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.PROGRAMME_EPISODE_BELONGS_TO_PROGRAMME,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as ProgrammeNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as ProgrammeNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

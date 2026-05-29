@@ -4,6 +4,7 @@ import {getRacingEventById} from "./getRacingEventById"
 import type {RacingEventUsedTheTrackLayoutRelationship} from "./types/RacingEventUsedTheTrackLayoutRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {TrackLayoutNode} from "../track-layouts/types/TrackLayoutNode"
 
 export async function getConnectedTrackLayout(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedTrackLayout(id: number) {
     }
 
     const data: RacingEventUsedTheTrackLayoutRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.RACING_EVENT_USED_THE_TRACK_LAYOUT,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as TrackLayoutNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as TrackLayoutNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

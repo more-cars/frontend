@@ -3,14 +3,22 @@ import type {ApiRacingEventNode} from "./ApiRacingEventNode"
 import type {ApiRelationshipType} from "../../../types/ApiRelationshipType"
 
 export type ApiRacingEventIsFollowedByEventRelationship = {
+    links: {
+        self: string
+    }
     data: {
-        relationship_id: number
-        relationship_name: ApiRelationshipType.RACING_EVENT_IS_FOLLOWED_BY_EVENT
-        partner_node: {
-            node_type: ApiNodeType.RACING_EVENT
-            data: ApiRacingEventNode['attributes']
+        type: ApiNodeType.RACING_EVENT
+        id: number
+        attributes: Record<string, string | number | boolean | null>
+        data: {
+            relationship_id: number
+            relationship_name: ApiRelationshipType.RACING_EVENT_IS_FOLLOWED_BY_EVENT
+            partner_node: {
+                node_type: ApiNodeType.RACING_EVENT
+                data: ApiRacingEventNode['attributes']
+            }
+            created_at: string
+            updated_at: string
         }
-        created_at: string
-        updated_at: string
     }
 }

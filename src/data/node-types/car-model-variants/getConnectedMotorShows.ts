@@ -4,6 +4,7 @@ import type {ApiCarModelVariantPresentedAtMotorShowRelationship} from "./types/A
 import type {CarModelVariantPresentedAtMotorShowRelationship} from "./types/CarModelVariantPresentedAtMotorShowRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {MotorShowNode} from "../motor-shows/types/MotorShowNode"
 
 export async function getConnectedMotorShows(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedMotorShows(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/car-model-variants/${id}/presented-at-motor-show`)).data as ApiCarModelVariantPresentedAtMotorShowRelationship[]
+    const apiData = (await requestDataFromApi(`/car-model-variants/${id}/presented-at-motor-show`)) as ApiCarModelVariantPresentedAtMotorShowRelationship
     const data: CarModelVariantPresentedAtMotorShowRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.CAR_MODEL_VARIANT_PRESENTED_AT_MOTOR_SHOW,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as MotorShowNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as MotorShowNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

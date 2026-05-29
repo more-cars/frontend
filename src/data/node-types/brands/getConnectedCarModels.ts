@@ -5,6 +5,7 @@ import {getBrandById} from "./getBrandById"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import type {CarModelNode} from "../car-models/types/CarModelNode"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 
 export async function getConnectedCarModels(id: number) {
     const sourceNode = await getBrandById(id)
@@ -12,17 +13,20 @@ export async function getConnectedCarModels(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/brands/${id}/has-car-model`)).data as ApiBrandHasCarModelRelationship[]
+    const apiData = (await requestDataFromApi(`/brands/${id}/has-car-model`)) as ApiBrandHasCarModelRelationship
     const data: BrandHasCarModelRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.BRAND_HAS_CAR_MODEL,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as CarModelNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as CarModelNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

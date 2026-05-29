@@ -4,6 +4,7 @@ import {ApiCarModelIsSuccessorOfRelationship} from "./types/ApiCarModelIsSuccess
 import {CarModelIsSuccessorOfRelationship} from "./types/CarModelIsSuccessorOfRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {CarModelNode} from "./types/CarModelNode"
 
 export async function getConnectedPredecessorCarModel(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedPredecessorCarModel(id: number) {
     }
 
     const data: CarModelIsSuccessorOfRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.CAR_MODEL_IS_SUCCESSOR_OF,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as CarModelNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as CarModelNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

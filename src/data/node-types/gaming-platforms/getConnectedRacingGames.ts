@@ -4,6 +4,7 @@ import type {ApiGamingPlatformFeaturesRacingGameRelationship} from "./types/ApiG
 import type {GamingPlatformFeaturesRacingGameRelationship} from "./types/GamingPlatformFeaturesRacingGameRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {RacingGameNode} from "../racing-games/types/RacingGameNode"
 
 export async function getConnectedRacingGames(id: number) {
@@ -12,17 +13,20 @@ export async function getConnectedRacingGames(id: number) {
         return []
     }
 
-    const apiData = (await requestDataFromApi(`/gaming-platforms/${id}/features-racing-game`)).data as ApiGamingPlatformFeaturesRacingGameRelationship[]
+    const apiData = (await requestDataFromApi(`/gaming-platforms/${id}/features-racing-game`)) as ApiGamingPlatformFeaturesRacingGameRelationship
     const data: GamingPlatformFeaturesRacingGameRelationship[] = []
 
-    apiData.forEach(apiItem => {
+    apiData.data.forEach(apiItem => {
         data.push({
-            id: apiItem.data.relationship_id,
+            id: apiItem.data?.relationship_id,
             name: DataRelationshipType.GAMING_PLATFORM_FEATURES_RACING_GAME,
             source_node: sourceNode,
-            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data.partner_node) as RacingGameNode,
-            created_at: apiItem.data.created_at,
-            updated_at: apiItem.data.updated_at,
+            partner_node: convertApiRelationshipNodeToDataNode(apiItem.data?.partner_node || {
+                node_type: convertStringToApiNodeType(apiItem.type),
+                data: {...apiItem.attributes, id: apiItem.id},
+            }) as RacingGameNode,
+            created_at: apiItem.data?.created_at,
+            updated_at: apiItem.data?.updated_at,
         })
     })
 

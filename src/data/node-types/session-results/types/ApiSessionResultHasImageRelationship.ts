@@ -3,14 +3,22 @@ import type {ApiImageNode} from "../../images/types/ApiImageNode"
 import type {ApiRelationshipType} from "../../../types/ApiRelationshipType"
 
 export type ApiSessionResultHasImageRelationship = {
-    data: {
-        relationship_id: number
-        relationship_name: ApiRelationshipType.SESSION_RESULT_HAS_IMAGE
-        partner_node: {
-            node_type: ApiNodeType.IMAGE
-            data: ApiImageNode['attributes']
-        }
-        created_at: string
-        updated_at: string
+    links: {
+        self: string
     }
+    data: {
+        type: ApiNodeType.SESSION_RESULT
+        id: number
+        attributes: Record<string, string | number | boolean | null>
+        data: {
+            relationship_id: number
+            relationship_name: ApiRelationshipType.SESSION_RESULT_HAS_IMAGE
+            partner_node: {
+                node_type: ApiNodeType.IMAGE
+                data: ApiImageNode['attributes']
+            }
+            created_at: string
+            updated_at: string
+        }
+    }[]
 }

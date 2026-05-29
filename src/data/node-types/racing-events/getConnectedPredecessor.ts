@@ -4,6 +4,7 @@ import {getRacingEventById} from "./getRacingEventById"
 import type {RacingEventFollowsEventRelationship} from "./types/RacingEventFollowsEventRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {RacingEventNode} from "./types/RacingEventNode"
 
 export async function getConnectedPredecessor(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedPredecessor(id: number) {
     }
 
     const data: RacingEventFollowsEventRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.RACING_EVENT_FOLLOWS_EVENT,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as RacingEventNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as RacingEventNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

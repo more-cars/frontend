@@ -3,11 +3,7 @@ import type {ApiNodeType} from "../types/ApiNodeType"
 
 export function convertApiRelationshipNodeToDataNode(apiNode: {
     node_type: ApiNodeType
-    data: {
-        [key: string]: string | number | boolean | null
-        created_at: string
-        updated_at: string
-    }
+    data: Record<string, string | number | boolean | null>
 }) {
     return {
         type: mapApiNodeTypeToDataNodeType(apiNode.node_type),

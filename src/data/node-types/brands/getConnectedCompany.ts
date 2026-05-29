@@ -4,6 +4,7 @@ import {getBrandById} from "./getBrandById"
 import type {BrandBelongsToCompanyRelationship} from "./types/BrandBelongsToCompanyRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
+import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
 import type {CompanyNode} from "../companies/types/CompanyNode"
 
 export async function getConnectedCompany(id: number) {
@@ -18,12 +19,15 @@ export async function getConnectedCompany(id: number) {
     }
 
     const data: BrandBelongsToCompanyRelationship = {
-        id: apiData.data.relationship_id,
+        id: apiData.data.data?.relationship_id,
         name: DataRelationshipType.BRAND_BELONGS_TO_COMPANY,
         source_node: sourceNode,
-        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.partner_node) as CompanyNode,
-        created_at: apiData.data.created_at,
-        updated_at: apiData.data.updated_at,
+        partner_node: convertApiRelationshipNodeToDataNode(apiData.data.data?.partner_node || {
+            node_type: convertStringToApiNodeType(apiData.data.type),
+            data: {...apiData.data.attributes, id: apiData.data.id},
+        }) as CompanyNode,
+        created_at: apiData.data.data?.created_at,
+        updated_at: apiData.data.data?.updated_at,
     }
 
     return data

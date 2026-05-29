@@ -3,14 +3,22 @@ import type {ApiNodeType} from "../../../types/ApiNodeType"
 import type {ApiRatingNode} from "../../ratings/types/ApiRatingNode"
 
 export type ApiMagazineIssueReviewedCarModelVariantWithRatingRelationship = {
-    data: {
-        relationship_id: number
-        relationship_name: ApiRelationshipType.MAGAZINE_ISSUE_REVIEWED_CAR_MODEL_VARIANT_WITH_RATING
-        partner_node: {
-            node_type: ApiNodeType.RATING
-            data: ApiRatingNode['attributes']
-        }
-        created_at: string
-        updated_at: string
+    links: {
+        self: string
     }
+    data: {
+        type: ApiNodeType.MAGAZINE_ISSUE
+        id: number
+        attributes: Record<string, string | number | boolean | null>
+        data: {
+            relationship_id: number
+            relationship_name: ApiRelationshipType.MAGAZINE_ISSUE_REVIEWED_CAR_MODEL_VARIANT_WITH_RATING
+            partner_node: {
+                node_type: ApiNodeType.RATING
+                data: ApiRatingNode['attributes']
+            }
+            created_at: string
+            updated_at: string
+        }
+    }[]
 }
