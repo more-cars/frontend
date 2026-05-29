@@ -4,6 +4,8 @@ import {MagazineModelFacade} from "../../../../../src/models/MagazineModelFacade
 import {supertestGet} from "../../../supertestGet"
 import {FakeMagazine} from "../../../../_toolbox/fixtures/node-types/FakeMagazine"
 import type {Magazine} from "../../../../../src/models/node-types/magazines/types/Magazine"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the MAGAZINE overview page', () => {
                 FakeMagazine.model,
                 FakeMagazine.model,
             ] satisfies Magazine[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/magazines')
 

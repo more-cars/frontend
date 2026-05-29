@@ -22,9 +22,9 @@ describe('Fetching connected predecessor from data source', () => {
 
     test('when there is a predecessor connected', async () => {
         const source = FakeRacingEvent.data
-        const target = {node_type: ApiNodeType.RACING_EVENT, data: {id: 11111118}}
+        const target = {type: ApiNodeType.RACING_EVENT, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getRacingEventById')
             .mockImplementation(async () => source)

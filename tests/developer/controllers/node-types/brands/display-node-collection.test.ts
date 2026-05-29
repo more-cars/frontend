@@ -4,6 +4,8 @@ import {BrandModelFacade} from "../../../../../src/models/BrandModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeBrand} from "../../../../_toolbox/fixtures/node-types/FakeBrand"
 import type {Brand} from "../../../../../src/models/node-types/brands/types/Brand"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the BRAND overview page', () => {
                 FakeBrand.model,
                 FakeBrand.model,
             ] satisfies Brand[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/brands')
 

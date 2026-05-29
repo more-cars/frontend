@@ -22,9 +22,9 @@ describe('Fetching connected MAGAZINE ISSUE from data source', () => {
 
     test('when there is a MAGAZINE ISSUE connected', async () => {
         const source = FakeRating.data
-        const target = {node_type: ApiNodeType.MAGAZINE_ISSUE, data: {id: 11111118}}
+        const target = {type: ApiNodeType.MAGAZINE_ISSUE, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getRatingById')
             .mockImplementation(async () => source)

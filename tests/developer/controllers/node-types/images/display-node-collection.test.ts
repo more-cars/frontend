@@ -3,6 +3,7 @@ import {ImageControllerFacade} from "../../../../../src/controllers/ImageControl
 import {ImageModelFacade} from "../../../../../src/models/ImageModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeImage} from "../../../../_toolbox/fixtures/node-types/FakeImage"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
 import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
@@ -35,6 +36,9 @@ describe('Requesting the IMAGE overview page', () => {
                 FakeImage.model,
                 FakeImage.model,
             ] satisfies Image[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/images')
 

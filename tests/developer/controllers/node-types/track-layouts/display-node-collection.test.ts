@@ -4,6 +4,8 @@ import {TrackLayoutModelFacade} from "../../../../../src/models/TrackLayoutModel
 import {supertestGet} from "../../../supertestGet"
 import {FakeTrackLayout} from "../../../../_toolbox/fixtures/node-types/FakeTrackLayout"
 import type {TrackLayout} from "../../../../../src/models/node-types/track-layouts/types/TrackLayout"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the TRACK LAYOUT overview page', () => {
                 FakeTrackLayout.model,
                 FakeTrackLayout.model,
             ] satisfies TrackLayout[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/track-layouts')
 

@@ -22,9 +22,9 @@ describe('Fetching connected SESSION RESULT from data source', () => {
 
     test('when there is a SESSION RESULT connected', async () => {
         const source = FakeLapTime.data
-        const target = {node_type: ApiNodeType.SESSION_RESULT, data: {id: 11111118}}
+        const target = {type: ApiNodeType.SESSION_RESULT, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getLapTimeById')
             .mockImplementation(async () => source)

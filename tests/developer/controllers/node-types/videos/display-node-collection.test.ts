@@ -4,6 +4,8 @@ import {VideoModelFacade} from "../../../../../src/models/VideoModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeVideo} from "../../../../_toolbox/fixtures/node-types/FakeVideo"
 import type {Video} from "../../../../../src/models/node-types/videos/types/Video"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the VIDEO overview page', () => {
                 FakeVideo.model,
                 FakeVideo.model,
             ] satisfies Video[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/videos')
 

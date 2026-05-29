@@ -4,6 +4,8 @@ import {GamingPlatformModelFacade} from "../../../../../src/models/GamingPlatfor
 import {supertestGet} from "../../../supertestGet"
 import {FakeGamingPlatform} from "../../../../_toolbox/fixtures/node-types/FakeGamingPlatform"
 import type {GamingPlatform} from "../../../../../src/models/node-types/gaming-platforms/types/GamingPlatform"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the GAMING PLATFORM overview page', () => {
                 FakeGamingPlatform.model,
                 FakeGamingPlatform.model,
             ] satisfies GamingPlatform[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/gaming-platforms')
 

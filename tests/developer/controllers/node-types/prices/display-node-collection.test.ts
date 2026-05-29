@@ -4,6 +4,8 @@ import {PriceControllerFacade} from "../../../../../src/controllers/PriceControl
 import {PriceModelFacade} from "../../../../../src/models/PriceModelFacade"
 import {FakePrice} from "../../../../_toolbox/fixtures/node-types/FakePrice"
 import type {Price} from "../../../../../src/models/node-types/prices/types/Price"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the PRICE overview page', () => {
                 FakePrice.model,
                 FakePrice.model,
             ] satisfies Price[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/prices')
 

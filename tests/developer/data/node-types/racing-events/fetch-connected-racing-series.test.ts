@@ -22,9 +22,9 @@ describe('Fetching connected RACING SERIES from data source', () => {
 
     test('when there is a RACING SERIES connected', async () => {
         const source = FakeRacingEvent.data
-        const target = {node_type: ApiNodeType.RACING_SERIES, data: {id: 11111118}}
+        const target = {type: ApiNodeType.RACING_SERIES, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getRacingEventById')
             .mockImplementation(async () => source)

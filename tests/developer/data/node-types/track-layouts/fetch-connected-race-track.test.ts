@@ -22,9 +22,9 @@ describe('Fetching connected RACE TRACK from data source', () => {
 
     test('when there is a RACE TRACK connected', async () => {
         const source = FakeTrackLayout.data
-        const target = {node_type: ApiNodeType.RACE_TRACK, data: {id: 11111118}}
+        const target = {type: ApiNodeType.RACE_TRACK, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getTrackLayoutById')
             .mockImplementation(async () => source)

@@ -4,6 +4,8 @@ import {SessionResultModelFacade} from "../../../../../src/models/SessionResultM
 import {supertestGet} from "../../../supertestGet"
 import {FakeSessionResult} from "../../../../_toolbox/fixtures/node-types/FakeSessionResult"
 import type {SessionResult} from "../../../../../src/models/node-types/session-results/types/SessionResult"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the SESSION RESULT overview page', () => {
                 FakeSessionResult.model,
                 FakeSessionResult.model,
             ] satisfies SessionResult[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/session-results')
 

@@ -4,6 +4,8 @@ import {LapTimeModelFacade} from "../../../../../src/models/LapTimeModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeLapTime} from "../../../../_toolbox/fixtures/node-types/FakeLapTime"
 import type {LapTime} from "../../../../../src/models/node-types/lap-times/types/LapTime"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -34,6 +36,9 @@ describe('Requesting the LAP TIME overview page', () => {
                 FakeLapTime.model,
                 FakeLapTime.model,
             ] satisfies LapTime[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/lap-times')
 

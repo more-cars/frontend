@@ -22,9 +22,9 @@ describe('Fetching connected COMPANY from data source', () => {
 
     test('when there is a COMPANY connected', async () => {
         const source = FakeBrand.data
-        const target = {node_type: ApiNodeType.COMPANY, data: {id: 11111118}}
+        const target = {type: ApiNodeType.COMPANY, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getBrandById')
             .mockImplementation(async () => source)

@@ -4,6 +4,8 @@ import {CompanyModelFacade} from "../../../../../src/models/CompanyModelFacade"
 import {supertestGet} from "../../../supertestGet"
 import {FakeCompany} from "../../../../_toolbox/fixtures/node-types/FakeCompany"
 import type {Company} from "../../../../../src/models/node-types/companies/types/Company"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -34,6 +36,9 @@ describe('Requesting the Company overview page', () => {
                 FakeCompany.model,
                 FakeCompany.model,
             ] satisfies Company[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/companies')
 

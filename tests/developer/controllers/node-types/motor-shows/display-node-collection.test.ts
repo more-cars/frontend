@@ -4,6 +4,8 @@ import {MotorShowModelFacade} from "../../../../../src/models/MotorShowModelFaca
 import {supertestGet} from "../../../supertestGet"
 import {FakeMotorShow} from "../../../../_toolbox/fixtures/node-types/FakeMotorShow"
 import type {MotorShow} from "../../../../../src/models/node-types/motor-shows/types/MotorShow"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the MOTOR SHOW overview page', () => {
                 FakeMotorShow.model,
                 FakeMotorShow.model,
             ] satisfies MotorShow[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/motor-shows')
 

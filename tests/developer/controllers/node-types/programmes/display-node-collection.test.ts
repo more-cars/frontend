@@ -4,6 +4,8 @@ import {ProgrammeModelFacade} from "../../../../../src/models/ProgrammeModelFaca
 import {supertestGet} from "../../../supertestGet"
 import {FakeProgramme} from "../../../../_toolbox/fixtures/node-types/FakeProgramme"
 import type {Programme} from "../../../../../src/models/node-types/programmes/types/Programme"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the PROGRAMME overview page', () => {
                 FakeProgramme.model,
                 FakeProgramme.model,
             ] satisfies Programme[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/programmes')
 

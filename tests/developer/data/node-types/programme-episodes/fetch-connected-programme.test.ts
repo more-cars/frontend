@@ -22,9 +22,9 @@ describe('Fetching connected PROGRAMME from data source', () => {
 
     test('when there is a PROGRAMME connected', async () => {
         const source = FakeProgrammeEpisode.data
-        const target = {node_type: ApiNodeType.PROGRAMME, data: {id: 11111118}}
+        const target = {type: ApiNodeType.PROGRAMME, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getProgrammeEpisodeById')
             .mockImplementation(async () => source)

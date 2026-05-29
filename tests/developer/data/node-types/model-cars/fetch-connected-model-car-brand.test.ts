@@ -22,9 +22,9 @@ describe('Fetching connected MODEL CAR BRAND from data source', () => {
 
     test('when there is a MODEL CAR BRAND connected', async () => {
         const source = FakeModelCar.data
-        const target = {node_type: ApiNodeType.MODEL_CAR_BRAND, data: {id: 11111118}}
+        const target = {type: ApiNodeType.MODEL_CAR_BRAND, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getModelCarById')
             .mockImplementation(async () => source)

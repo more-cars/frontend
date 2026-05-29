@@ -4,6 +4,8 @@ import {RacingGameModelFacade} from "../../../../../src/models/RacingGameModelFa
 import {supertestGet} from "../../../supertestGet"
 import {FakeRacingGame} from "../../../../_toolbox/fixtures/node-types/FakeRacingGame"
 import type {RacingGame} from "../../../../../src/models/node-types/racing-games/types/RacingGame"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the RACING GAME overview page', () => {
                 FakeRacingGame.model,
                 FakeRacingGame.model,
             ] satisfies RacingGame[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/racing-games')
 

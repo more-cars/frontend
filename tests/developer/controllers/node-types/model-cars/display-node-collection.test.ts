@@ -4,6 +4,8 @@ import {ModelCarModelFacade} from "../../../../../src/models/ModelCarModelFacade
 import {supertestGet} from "../../../supertestGet"
 import {FakeModelCar} from "../../../../_toolbox/fixtures/node-types/FakeModelCar"
 import type {ModelCar} from "../../../../../src/models/node-types/model-cars/types/ModelCar"
+import * as node from "../../../../../src/controllers/lib/getNodeThumbnails"
+import type {Image} from "../../../../../src/models/node-types/images/types/Image"
 
 afterEach(() => {
     vi.resetAllMocks()
@@ -35,6 +37,9 @@ describe('Requesting the MODEL CAR overview page', () => {
                 FakeModelCar.model,
                 FakeModelCar.model,
             ] satisfies ModelCar[])
+
+        vi.spyOn(node, 'getNodeThumbnails')
+            .mockImplementation(async () => new Map<number, Image>)
 
         const response = await supertestGet('/model-cars')
 

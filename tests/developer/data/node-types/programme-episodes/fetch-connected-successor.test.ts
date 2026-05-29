@@ -22,9 +22,9 @@ describe('Fetching connected SUCCESSOR from data source', () => {
 
     test('when there is a SUCCESSOR connected', async () => {
         const source = FakeProgrammeEpisode.data
-        const target = {node_type: ApiNodeType.PROGRAMME_EPISODE, data: {id: 11111118}}
+        const target = {type: ApiNodeType.PROGRAMME_EPISODE, id: 11111118, attributes: {}}
 
-        const apiResponse = {data: {partner_node: target}}
+        const apiResponse = {data: target}
 
         vi.spyOn(node, 'getProgrammeEpisodeById')
             .mockImplementation(async () => source)
