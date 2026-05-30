@@ -66,20 +66,19 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
 
             nodeIds.forEach((nodeId) => {
                 const mockItem = structuredClone(mockItemCollection.data[0])
-                mockItem.data.relationship_id = getRandomCanonicalNodeId()
-                mockItem.data.start_node.data.id = nodeId
-                mockItem.data.partner_node.data.id = getRandomCanonicalNodeId()
+                mockItem.attributes.start_node_id = Number(nodeId)
+                mockItem.id = getRandomCanonicalNodeId()
                 // @ts-expect-error TS2345 TS2345
                 mockItems.push(mockItem)
 
-                nodeState.set(mockItem.data.partner_node.data.id, true)
-                typeOfNode.set(mockItem.data.partner_node.data.id, pascalCase(mockItem.data.partner_node.node_type))
+                nodeState.set(mockItem.id, true)
+                typeOfNode.set(mockItem.id, 'Image')
             })
 
-            return {
-                data: mockItems
-            }
+            mockItemCollection.data = mockItems
         }
+
+        return mockItemCollection
     }
 
     if (isNodeRelationshipOperation(operationId)) {
