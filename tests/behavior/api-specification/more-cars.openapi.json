@@ -26507,7 +26507,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Brand"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "brands"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Brand"
+              }
+            }
           }
         }
       },
@@ -26526,7 +26539,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Brand"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "brands"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Brand"
+                }
+              }
             }
           }
         }
@@ -26548,7 +26574,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -26567,7 +26606,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -26589,7 +26641,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -26610,7 +26675,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -26629,7 +26707,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -26651,7 +26742,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -26792,7 +26896,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Company"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "companies"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Company"
+              }
+            }
           }
         }
       },
@@ -26813,7 +26930,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModel"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
           }
         }
       },
@@ -26832,7 +26962,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModel"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-models"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModel"
+                }
+              }
             }
           }
         }
@@ -26854,7 +26997,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -26873,7 +27029,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -26895,7 +27064,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -26916,7 +27098,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -26935,7 +27130,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -26957,7 +27165,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -27092,7 +27313,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Brand"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "brands"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Brand"
+              }
+            }
           }
         }
       },
@@ -27113,7 +27347,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModel"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
           }
         }
       },
@@ -27134,7 +27381,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModel"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
           }
         }
       },
@@ -27155,7 +27415,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -27174,7 +27447,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModelVariant"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-model-variants"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModelVariant"
+                }
+              }
             }
           }
         }
@@ -27196,7 +27482,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -27215,7 +27514,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MagazineIssue"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "magazine-issues"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/MagazineIssue"
+                }
+              }
             }
           }
         }
@@ -27237,7 +27549,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ProgrammeEpisode"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
           }
         }
       },
@@ -27256,7 +27581,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ProgrammeEpisode"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "programme-episodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ProgrammeEpisode"
+                }
+              }
             }
           }
         }
@@ -27278,7 +27616,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -27297,7 +27648,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -27319,7 +27683,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -27340,7 +27717,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -27359,7 +27749,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -27381,7 +27784,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -27826,7 +28242,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModel"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
           }
         }
       },
@@ -27847,7 +28276,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/SessionResult"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "session-results"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/SessionResult"
+              }
+            }
           }
         }
       },
@@ -27866,7 +28308,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SessionResult"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "session-results"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/SessionResult"
+                }
+              }
             }
           }
         }
@@ -27888,7 +28343,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/LapTime"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "lap-times"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/LapTime"
+              }
+            }
           }
         }
       },
@@ -27907,7 +28375,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LapTime"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "lap-times"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/LapTime"
+                }
+              }
             }
           }
         }
@@ -27929,7 +28410,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -27948,7 +28442,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MagazineIssue"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "magazine-issues"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/MagazineIssue"
+                }
+              }
             }
           }
         }
@@ -27970,7 +28477,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Rating"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "ratings"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Rating"
+              }
+            }
           }
         }
       },
@@ -27989,7 +28509,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Rating"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ratings"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Rating"
+                }
+              }
             }
           }
         }
@@ -28011,7 +28544,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ProgrammeEpisode"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
           }
         }
       },
@@ -28030,7 +28576,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ProgrammeEpisode"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "programme-episodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ProgrammeEpisode"
+                }
+              }
             }
           }
         }
@@ -28052,7 +28611,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingGame"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-games"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingGame"
+              }
+            }
           }
         }
       },
@@ -28071,7 +28643,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingGame"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-games"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingGame"
+                }
+              }
             }
           }
         }
@@ -28093,7 +28678,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ModelCar"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "model-cars"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ModelCar"
+              }
+            }
           }
         }
       },
@@ -28112,7 +28710,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ModelCar"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "model-cars"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ModelCar"
+                }
+              }
             }
           }
         }
@@ -28134,7 +28745,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MotorShow"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "motor-shows"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MotorShow"
+              }
+            }
           }
         }
       },
@@ -28153,7 +28777,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MotorShow"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "motor-shows"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/MotorShow"
+                }
+              }
             }
           }
         }
@@ -28175,7 +28812,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Price"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "prices"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Price"
+              }
+            }
           }
         }
       },
@@ -28194,7 +28844,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Price"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "prices"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
             }
           }
         }
@@ -28216,7 +28879,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Book"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "books"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Book"
+              }
+            }
           }
         }
       },
@@ -28235,7 +28911,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Book"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "books"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
             }
           }
         }
@@ -28257,7 +28946,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -28276,7 +28978,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -28298,7 +29013,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -28319,7 +29047,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -28338,7 +29079,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -28360,7 +29114,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -28519,7 +29286,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -28540,7 +29320,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -28559,7 +29352,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -28581,7 +29387,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -28726,7 +29545,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/TrackLayout"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "track-layouts"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/TrackLayout"
+              }
+            }
           }
         }
       },
@@ -28745,7 +29577,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TrackLayout"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "track-layouts"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/TrackLayout"
+                }
+              }
             }
           }
         }
@@ -28767,7 +29612,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -28786,7 +29644,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingEvent"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-events"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingEvent"
+                }
+              }
             }
           }
         }
@@ -28808,7 +29679,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -28827,7 +29711,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -28849,7 +29746,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -28870,7 +29780,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -28889,7 +29812,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -28911,7 +29847,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -29089,7 +30038,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RaceTrack"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "race-tracks"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RaceTrack"
+              }
+            }
           }
         }
       },
@@ -29110,7 +30072,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -29129,7 +30104,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingEvent"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-events"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingEvent"
+                }
+              }
             }
           }
         }
@@ -29151,7 +30139,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/LapTime"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "lap-times"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/LapTime"
+              }
+            }
           }
         }
       },
@@ -29170,7 +30171,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LapTime"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "lap-times"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/LapTime"
+                }
+              }
             }
           }
         }
@@ -29192,7 +30206,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingGame"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-games"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingGame"
+              }
+            }
           }
         }
       },
@@ -29211,7 +30238,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingGame"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-games"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingGame"
+                }
+              }
             }
           }
         }
@@ -29233,7 +30273,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -29252,7 +30305,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -29274,7 +30340,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -29295,7 +30374,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -29314,7 +30406,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -29336,7 +30441,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -29488,7 +30606,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -29507,7 +30638,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingEvent"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-events"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingEvent"
+                }
+              }
             }
           }
         }
@@ -29529,7 +30673,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -29548,7 +30705,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -29570,7 +30740,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -29591,7 +30774,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -29610,7 +30806,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -29632,7 +30841,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -29759,7 +30981,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingSeries"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-series"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingSeries"
+              }
+            }
           }
         }
       },
@@ -29780,7 +31015,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -29801,7 +31049,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -29822,7 +31083,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RaceTrack"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "race-tracks"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RaceTrack"
+              }
+            }
           }
         }
       },
@@ -29843,7 +31117,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/TrackLayout"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "track-layouts"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/TrackLayout"
+              }
+            }
           }
         }
       },
@@ -29864,7 +31151,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingSession"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-sessions"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingSession"
+              }
+            }
           }
         }
       },
@@ -29883,7 +31183,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingSession"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-sessions"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingSession"
+                }
+              }
             }
           }
         }
@@ -29905,7 +31218,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -29924,7 +31250,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MagazineIssue"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "magazine-issues"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/MagazineIssue"
+                }
+              }
             }
           }
         }
@@ -29946,7 +31285,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -29965,7 +31317,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -29987,7 +31352,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30008,7 +31386,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -30027,7 +31418,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -30049,7 +31453,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -30192,7 +31609,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -30213,7 +31643,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/SessionResult"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "session-results"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/SessionResult"
+              }
+            }
           }
         }
       },
@@ -30232,7 +31675,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SessionResult"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "session-results"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/SessionResult"
+                }
+              }
             }
           }
         }
@@ -30254,7 +31710,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30273,7 +31742,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -30295,7 +31777,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30316,7 +31811,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -30335,7 +31843,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -30357,7 +31878,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -30514,7 +32048,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingSession"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-sessions"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingSession"
+              }
+            }
           }
         }
       },
@@ -30535,7 +32082,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/LapTime"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "lap-times"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/LapTime"
+              }
+            }
           }
         }
       },
@@ -30554,7 +32114,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LapTime"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "lap-times"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/LapTime"
+                }
+              }
             }
           }
         }
@@ -30576,7 +32149,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -30597,7 +32183,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30616,7 +32215,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -30638,7 +32250,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30762,7 +32387,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/SessionResult"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "session-results"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/SessionResult"
+              }
+            }
           }
         }
       },
@@ -30783,7 +32421,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/TrackLayout"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "track-layouts"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/TrackLayout"
+              }
+            }
           }
         }
       },
@@ -30804,7 +32455,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -30825,7 +32489,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -30846,7 +32523,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30865,7 +32555,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -30887,7 +32590,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -30908,7 +32624,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -30927,7 +32656,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -30949,7 +32691,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31070,7 +32825,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -31089,7 +32857,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModelVariant"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-model-variants"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModelVariant"
+                }
+              }
             }
           }
         }
@@ -31111,7 +32892,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/TrackLayout"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "track-layouts"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/TrackLayout"
+              }
+            }
           }
         }
       },
@@ -31130,7 +32924,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TrackLayout"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "track-layouts"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/TrackLayout"
+                }
+              }
             }
           }
         }
@@ -31152,7 +32959,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/GamingPlatform"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "gaming-platforms"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/GamingPlatform"
+              }
+            }
           }
         }
       },
@@ -31171,7 +32991,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GamingPlatform"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "gaming-platforms"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/GamingPlatform"
+                }
+              }
             }
           }
         }
@@ -31193,7 +33026,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -31212,7 +33058,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -31234,7 +33093,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -31255,7 +33127,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31274,7 +33159,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -31296,7 +33194,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31413,7 +33324,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingGame"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-games"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingGame"
+              }
+            }
           }
         }
       },
@@ -31432,7 +33356,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingGame"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-games"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingGame"
+                }
+              }
             }
           }
         }
@@ -31454,7 +33391,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -31473,7 +33423,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -31495,7 +33458,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -31516,7 +33492,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31535,7 +33524,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -31557,7 +33559,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31693,7 +33708,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -31714,7 +33742,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ModelCarBrand"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "model-car-brands"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ModelCarBrand"
+              }
+            }
           }
         }
       },
@@ -31735,7 +33776,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -31754,7 +33808,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -31776,7 +33843,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -31797,7 +33877,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31816,7 +33909,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -31838,7 +33944,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -31962,7 +34081,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ModelCar"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "model-cars"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ModelCar"
+              }
+            }
           }
         }
       },
@@ -31981,7 +34113,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ModelCar"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "model-cars"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ModelCar"
+                }
+              }
             }
           }
         }
@@ -32003,7 +34148,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -32022,7 +34180,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -32044,7 +34215,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -32065,7 +34249,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -32084,7 +34281,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -32106,7 +34316,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -32311,7 +34534,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -32330,7 +34566,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MagazineIssue"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "magazine-issues"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/MagazineIssue"
+                }
+              }
             }
           }
         }
@@ -32352,7 +34601,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -32371,7 +34633,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -32393,7 +34668,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -32414,7 +34702,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -32433,7 +34734,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -32455,7 +34769,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -32606,7 +34933,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Magazine"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazines"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Magazine"
+              }
+            }
           }
         }
       },
@@ -32627,7 +34967,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -32648,7 +35001,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -32669,7 +35035,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModel"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
           }
         }
       },
@@ -32688,7 +35067,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModel"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-models"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModel"
+                }
+              }
             }
           }
         }
@@ -32710,7 +35102,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -32729,7 +35134,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModelVariant"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-model-variants"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModelVariant"
+                }
+              }
             }
           }
         }
@@ -32751,7 +35169,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Rating"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "ratings"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Rating"
+              }
+            }
           }
         }
       },
@@ -32770,7 +35201,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Rating"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "ratings"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Rating"
+                }
+              }
             }
           }
         }
@@ -32792,7 +35236,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/RacingEvent"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "racing-events"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/RacingEvent"
+              }
+            }
           }
         }
       },
@@ -32811,7 +35268,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RacingEvent"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "racing-events"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/RacingEvent"
+                }
+              }
             }
           }
         }
@@ -32833,7 +35303,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/LapTime"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "lap-times"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/LapTime"
+              }
+            }
           }
         }
       },
@@ -32852,7 +35335,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LapTime"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "lap-times"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/LapTime"
+                }
+              }
             }
           }
         }
@@ -32874,7 +35370,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -32893,7 +35402,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -32915,7 +35437,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -32936,7 +35471,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -32955,7 +35503,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -32977,7 +35538,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -33112,7 +35686,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/MagazineIssue"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "magazine-issues"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/MagazineIssue"
+              }
+            }
           }
         }
       },
@@ -33133,7 +35720,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -33154,7 +35754,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -33173,7 +35786,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -33195,7 +35821,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -33339,7 +35978,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ProgrammeEpisode"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
           }
         }
       },
@@ -33358,7 +36010,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ProgrammeEpisode"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "programme-episodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ProgrammeEpisode"
+                }
+              }
             }
           }
         }
@@ -33380,7 +36045,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -33399,7 +36077,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -33421,7 +36112,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -33442,7 +36146,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -33461,7 +36178,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -33483,7 +36213,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -33616,7 +36359,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Programme"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "programmes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Programme"
+              }
+            }
           }
         }
       },
@@ -33637,7 +36393,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ProgrammeEpisode"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
           }
         }
       },
@@ -33658,7 +36427,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ProgrammeEpisode"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "programme-episodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/ProgrammeEpisode"
+              }
+            }
           }
         }
       },
@@ -33679,7 +36461,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModel"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-models"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModel"
+              }
+            }
           }
         }
       },
@@ -33698,7 +36493,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModel"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-models"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModel"
+                }
+              }
             }
           }
         }
@@ -33720,7 +36528,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -33739,7 +36560,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModelVariant"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-model-variants"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModelVariant"
+                }
+              }
             }
           }
         }
@@ -33761,7 +36595,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -33780,7 +36627,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -33802,7 +36662,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -33823,7 +36696,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -33842,7 +36728,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -33864,7 +36763,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -34019,7 +36931,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -34038,7 +36963,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModelVariant"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-model-variants"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModelVariant"
+                }
+              }
             }
           }
         }
@@ -34060,7 +36998,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -34079,7 +37030,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -34101,7 +37065,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -34122,7 +37099,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -34141,7 +37131,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -34163,7 +37166,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -34303,7 +37319,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/CarModelVariant"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "car-model-variants"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/CarModelVariant"
+              }
+            }
           }
         }
       },
@@ -34322,7 +37351,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CarModelVariant"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "car-model-variants"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/CarModelVariant"
+                }
+              }
             }
           }
         }
@@ -34344,7 +37386,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -34363,7 +37418,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "images"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Image"
+                }
+              }
             }
           }
         }
@@ -34385,7 +37453,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Image"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "images"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
           }
         }
       },
@@ -34406,7 +37487,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -34425,7 +37519,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Video"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "videos"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Video"
+                }
+              }
             }
           }
         }
@@ -34447,7 +37554,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Video"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "videos"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Video"
+              }
+            }
           }
         }
       },
@@ -34655,7 +37775,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Node"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "nodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Node"
+              }
+            }
           }
         }
       },
@@ -34674,7 +37807,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Node"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "nodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Node"
+                }
+              }
             }
           }
         }
@@ -34696,7 +37842,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Node"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "nodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Node"
+              }
+            }
           }
         }
       },
@@ -34715,7 +37874,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Node"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "nodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Node"
+                }
+              }
             }
           }
         }
@@ -34899,7 +38071,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Node"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "nodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Node"
+              }
+            }
           }
         }
       },
@@ -34918,7 +38103,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Node"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "nodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Node"
+                }
+              }
             }
           }
         }
@@ -34940,7 +38138,20 @@
             }
           },
           "data": {
-            "$ref": "#/components/schemas/Node"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "nodes"
+              },
+              "id": {
+                "type": "integer",
+                "example": "87654321"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/Node"
+              }
+            }
           }
         }
       },
@@ -34959,7 +38170,20 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Node"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "nodes"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": "87654321"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/Node"
+                }
+              }
             }
           }
         }
