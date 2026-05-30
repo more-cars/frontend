@@ -95,35 +95,32 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
 
             for (let i = 0; i < relationshipCount; i++) {
                 const mockItem = structuredClone(mockItemCollection.data[0])
-                mockItem.data.relationship_id = getRandomCanonicalNodeId()
-                mockItem.data.partner_node.data.id = getRandomCanonicalNodeId()
+                mockItem.id = getRandomCanonicalNodeId()
                 mockItems.push(mockItem)
 
-                nodeState.set(mockItem.data.partner_node.data.id, true)
-                typeOfNode.set(mockItem.data.partner_node.data.id, pascalCase(mockItem.data.partner_node.node_type))
+                nodeState.set(mockItem.id, true)
+                typeOfNode.set(mockItem.id, pascalCase(mockItem.type))
             }
 
-            return {
-                data: mockItems
-            }
+            mockItemCollection.data = mockItems
+
         } else {
             const relationshipCount = nodeRelationships.get(nodeId)
 
             if (relationshipCount === undefined || relationshipCount > 0) {
                 const mockItem = structuredClone(mockItemCollection.data)
-                mockItem.relationship_id = getRandomCanonicalNodeId()
-                mockItem.partner_node.data.id = getRandomCanonicalNodeId()
+                mockItem.id = getRandomCanonicalNodeId()
 
-                nodeState.set(mockItem.partner_node.data.id, true)
-                typeOfNode.set(mockItem.partner_node.data.id, pascalCase(mockItem.partner_node.node_type))
+                nodeState.set(mockItem.id, true)
+                typeOfNode.set(mockItem.id, pascalCase(mockItem.type))
 
-                return {
-                    data: mockItem
-                }
+                mockItemCollection.data = mockItem
             } else {
                 return null
             }
         }
+
+        return mockItemCollection
     }
 
     return context.api.mockResponseForOperation(operationId, {code: Number(200)}).mock
