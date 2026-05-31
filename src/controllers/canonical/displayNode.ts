@@ -24,8 +24,9 @@ import {RatingControllerFacade} from "../RatingControllerFacade"
 import {ProgrammeControllerFacade} from "../ProgrammeControllerFacade"
 import {ProgrammeEpisodeControllerFacade} from "../ProgrammeEpisodeControllerFacade"
 import {MotorShowControllerFacade} from "../MotorShowControllerFacade"
-import {VideoControllerFacade} from "../VideoControllerFacade"
+import {BookControllerFacade} from "../BookControllerFacade"
 import {ImageControllerFacade} from "../ImageControllerFacade"
+import {VideoControllerFacade} from "../VideoControllerFacade"
 
 function idIsNumeric(id: string) {
     return (/^\d+$/.test(id))
@@ -88,17 +89,19 @@ export async function displayNode(req: express.Request, res: express.Response, n
             return ProgrammeEpisodeControllerFacade.showNode(req, res)
         case ControllerNodeType.MOTOR_SHOW:
             return MotorShowControllerFacade.showNode(req, res)
-        case ControllerNodeType.VIDEO:
-            return VideoControllerFacade.showNode(req, res)
+        case ControllerNodeType.BOOK:
+            return BookControllerFacade.showNode(req, res)
         case ControllerNodeType.IMAGE:
             return ImageControllerFacade.showNode(req, res)
+        case ControllerNodeType.VIDEO:
+            return VideoControllerFacade.showNode(req, res)
     }
 }
 
 function notFoundError(res: express.Response) {
     return res.render('templates/nodes/node-not-found-page', {
         page_title: `Node not found`
-    }, (error, html) => {
+    }, (_, html) => {
         res.statusCode = 404
         res.send(html)
     })
