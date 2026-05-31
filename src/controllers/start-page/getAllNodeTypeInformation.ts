@@ -24,8 +24,9 @@ import {RatingModelFacade} from "../../models/RatingModelFacade"
 import {ProgrammeModelFacade} from "../../models/ProgrammeModelFacade"
 import {ProgrammeEpisodeModelFacade} from "../../models/ProgrammeEpisodeModelFacade"
 import {MotorShowModelFacade} from "../../models/MotorShowModelFacade"
-import {VideoModelFacade} from "../../models/VideoModelFacade"
+import {BookModelFacade} from "../../models/BookModelFacade"
 import {ImageModelFacade} from "../../models/ImageModelFacade"
+import {VideoModelFacade} from "../../models/VideoModelFacade"
 
 export async function getAllNodeTypeInformation() {
     return new Map<ControllerNodeType, NodeTypeInformation>([
@@ -51,7 +52,8 @@ export async function getAllNodeTypeInformation() {
         [ControllerNodeType.PROGRAMME, getNodeTypeInformation(DataNodeType.PROGRAMME, await ProgrammeModelFacade.getTotalNodeCount())],
         [ControllerNodeType.PROGRAMME_EPISODE, getNodeTypeInformation(DataNodeType.PROGRAMME_EPISODE, await ProgrammeEpisodeModelFacade.getTotalNodeCount())],
         [ControllerNodeType.MOTOR_SHOW, getNodeTypeInformation(DataNodeType.MOTOR_SHOW, await MotorShowModelFacade.getTotalNodeCount())],
-        [ControllerNodeType.VIDEO, getNodeTypeInformation(DataNodeType.VIDEO, await VideoModelFacade.getTotalNodeCount())],
+        [ControllerNodeType.BOOK, getNodeTypeInformation(DataNodeType.BOOK, await BookModelFacade.getTotalNodeCount())],
         [ControllerNodeType.IMAGE, getNodeTypeInformation(DataNodeType.IMAGE, await ImageModelFacade.getTotalNodeCount())],
+        [ControllerNodeType.VIDEO, getNodeTypeInformation(DataNodeType.VIDEO, await VideoModelFacade.getTotalNodeCount())],
     ])
 }

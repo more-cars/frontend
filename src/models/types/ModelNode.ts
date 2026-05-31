@@ -20,8 +20,9 @@ import type {Rating} from "../node-types/ratings/types/Rating"
 import type {Programme} from "../node-types/programmes/types/Programme"
 import type {ProgrammeEpisode} from "../node-types/programme-episodes/types/ProgrammeEpisode"
 import type {MotorShow} from "../node-types/motor-shows/types/MotorShow"
-import type {Video} from "../node-types/videos/types/Video"
+import type {Book} from "../node-types/books/types/Book"
 import type {Image} from "../node-types/images/types/Image"
+import type {Video} from "../node-types/videos/types/Video"
 
 export type ModelNode =
     Company |
@@ -46,5 +47,6 @@ export type ModelNode =
     Programme |
     ProgrammeEpisode |
     MotorShow |
-    Video |
-    Image
+    Book |
+    Image |
+    Video

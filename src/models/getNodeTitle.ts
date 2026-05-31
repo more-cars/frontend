@@ -22,8 +22,9 @@ import {RatingModelFacade} from "./RatingModelFacade"
 import {ProgrammeEpisodeModelFacade} from "./ProgrammeEpisodeModelFacade"
 import {ProgrammeModelFacade} from "./ProgrammeModelFacade"
 import {MotorShowModelFacade} from "./MotorShowModelFacade"
-import {VideoModelFacade} from "./VideoModelFacade"
+import {BookModelFacade} from "./BookModelFacade"
 import {ImageModelFacade} from "./ImageModelFacade"
+import {VideoModelFacade} from "./VideoModelFacade"
 
 export function getNodeTitle(node: ModelNode) {
     switch (node.type) {
@@ -71,9 +72,11 @@ export function getNodeTitle(node: ModelNode) {
             return ProgrammeEpisodeModelFacade.getNodeTitle(node)
         case ModelNodeType.MOTOR_SHOW:
             return MotorShowModelFacade.getNodeTitle(node)
-        case ModelNodeType.VIDEO:
-            return VideoModelFacade.getNodeTitle(node)
+        case ModelNodeType.BOOK:
+            return BookModelFacade.getNodeTitle(node)
         case ModelNodeType.IMAGE:
             return ImageModelFacade.getNodeTitle(node)
+        case ModelNodeType.VIDEO:
+            return VideoModelFacade.getNodeTitle(node)
     }
 }

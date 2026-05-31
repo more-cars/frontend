@@ -22,6 +22,7 @@ import {RatingModelFacade} from "../RatingModelFacade"
 import {ProgrammeModelFacade} from "../ProgrammeModelFacade"
 import {ProgrammeEpisodeModelFacade} from "../ProgrammeEpisodeModelFacade"
 import {MotorShowModelFacade} from "../MotorShowModelFacade"
+import {BookModelFacade} from "../BookModelFacade"
 import {ImageModelFacade} from "../ImageModelFacade"
 import {VideoModelFacade} from "../VideoModelFacade"
 
@@ -53,6 +54,7 @@ export function getNodeTypeModelFacade(nodeType: ModelNodeType) {
         [ModelNodeType.PROGRAMME, ProgrammeModelFacade as ModelFacade],
         [ModelNodeType.PROGRAMME_EPISODE, ProgrammeEpisodeModelFacade as ModelFacade],
         [ModelNodeType.MOTOR_SHOW, MotorShowModelFacade as ModelFacade],
+        [ModelNodeType.BOOK, BookModelFacade as ModelFacade],
         [ModelNodeType.IMAGE, ImageModelFacade as ModelFacade],
         [ModelNodeType.VIDEO, VideoModelFacade as ModelFacade],
     ])

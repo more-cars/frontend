@@ -22,8 +22,9 @@ import {convertRatingNode} from "../node-types/ratings/convertRatingNode"
 import {convertProgrammeNode} from "../node-types/programmes/convertProgrammeNode"
 import {convertProgrammeEpisodeNode} from "../node-types/programme-episodes/convertProgrammeEpisodeNode"
 import {convertMotorShowNode} from "../node-types/motor-shows/convertMotorShowNode"
-import {convertVideoNode} from "../node-types/videos/convertVideoNode"
+import {convertBookNode} from "../node-types/books/convertBookNode"
 import {convertImageNode} from "../node-types/images/convertImageNode"
+import {convertVideoNode} from "../node-types/videos/convertVideoNode"
 
 export function convertDataNodeToModelNode(node: DataNode) {
     switch (node.type) {
@@ -71,9 +72,11 @@ export function convertDataNodeToModelNode(node: DataNode) {
             return convertProgrammeEpisodeNode(node)
         case DataNodeType.MOTOR_SHOW:
             return convertMotorShowNode(node)
-        case DataNodeType.VIDEO:
-            return convertVideoNode(node)
+        case DataNodeType.BOOK:
+            return convertBookNode(node)
         case DataNodeType.IMAGE:
             return convertImageNode(node)
+        case DataNodeType.VIDEO:
+            return convertVideoNode(node)
     }
 }
