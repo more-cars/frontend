@@ -5,9 +5,9 @@ import {describe, expect, test, vi} from "vitest"
 import * as api from "../../../../../src/data/requestDataFromApi"
 import {get<%= h.changeCase.pascal(nodeType) %>ById} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/get<%= h.changeCase.pascal(nodeType) %>ById"
 import {ApiNodeType} from "../../../../../src/data/types/ApiNodeType"
-import type {ApiMagazineNode} from "../../../../../src/data/node-types/magazines/types/ApiMagazineNode"
+import type {Api<%= h.changeCase.pascal(nodeType) %>Node} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/types/Api<%= h.changeCase.pascal(nodeType) %>Node"
 import {DataNodeType} from "../../../../../src/data/types/DataNodeType"
-import type {MagazineNode} from "../../../../../src/data/node-types/magazines/types/MagazineNode"
+import type {<%= h.changeCase.pascal(nodeType) %>Node} from "../../../../../src/data/node-types/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>/types/<%= h.changeCase.pascal(nodeType) %>Node"
 
 describe('Fetching <%= h.changeCase.upper(nodeType) %> node from data source', () => {
     test('when there is no <%= h.changeCase.upper(nodeType) %>', async () => {

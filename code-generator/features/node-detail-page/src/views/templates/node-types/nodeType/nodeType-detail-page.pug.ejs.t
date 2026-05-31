@@ -4,4 +4,4 @@ to: src/views/templates/node-types/<%= h.changeCase.kebab(h.inflection.pluralize
 extends ../../node-types/detail-page
 
 block relationships
-    - <%= h.changeCase.camel(nodeType) %> = node.data
+    - <%= h.changeCase.camel(nodeType) %> = node.data.fields

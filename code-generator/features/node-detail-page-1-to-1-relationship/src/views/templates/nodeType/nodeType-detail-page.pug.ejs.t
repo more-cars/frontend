@@ -5,5 +5,5 @@ after: "block relationships\n"
 skip_if: relationships.<%= h.changeCase.snake(partnerNodeType) %>.item
 ---
 
-    - <%= h.changeCase.camel(partnerNodeType) %> = relationships.<%= h.changeCase.snake(partnerNodeType) %>.item
+    - <%= h.changeCase.camel(partnerNodeType) %> = relationships.<%= h.changeCase.snake(partnerNodeType) %>
     include connected-<%= h.changeCase.kebab(partnerNodeType) %>
