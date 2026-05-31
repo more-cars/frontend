@@ -1,4 +1,7 @@
 extends ../../node-types/detail-page
 
 block relationships
-    - book = node.data
+    - book = node.data.fields
+
+    - carModelVariants = relationships.car_model_variants
+    include connected-car-model-variants
