@@ -37,10 +37,10 @@ describe('Requesting the BOOK overview page', () => {
                 FakeBook.model,
             ] satisfies Book[])
 
-        const response = await supertestGet('/books')
-
         vi.spyOn(node, 'getNodeThumbnails')
             .mockImplementation(async () => new Map<number, Image>)
+
+        const response = await supertestGet('/books')
 
         expect(response.statusCode)
             .toBe(200)

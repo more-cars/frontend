@@ -16,7 +16,7 @@ describe('Collect connected <%= h.changeCase.upper(partnerNodeType) %> for the <
     })
 
     test('when there is a <%= h.changeCase.upper(partnerNodeType) %> connected', async () => {
-        const data = {partner_node: {id: 11111118, name: "dummy", partner_node: Fake<%= h.changeCase.pascal(partnerNodeType) %>.data}} as unknown as <%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship
+        const data = {id: 11111118, name: "dummy", partner_node: Fake<%= h.changeCase.pascal(partnerNodeType) %>.data} as unknown as <%= h.changeCase.pascal(nodeType) %><%= h.changeCase.pascal(relationshipName) %>Relationship
 
         vi.spyOn(<%= h.changeCase.pascal(nodeType) %>DataFacade, 'getConnected<%= h.changeCase.pascal(partnerNodeType) %>Node').mockResolvedValue(data)
 

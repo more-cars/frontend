@@ -40,10 +40,10 @@ describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () 
                 Fake<%= h.changeCase.pascal(nodeType) %>.model,
             ] satisfies <%= h.changeCase.pascal(nodeType) %>[])
 
-        const response = await supertestGet('/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>')
-
         vi.spyOn(node, 'getNodeThumbnails')
             .mockImplementation(async () => new Map<number, Image>)
+
+        const response = await supertestGet('/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>')
 
         expect(response.statusCode)
             .toBe(200)

@@ -13,7 +13,7 @@ describe('Collect connected main IMAGE for the BOOK detail page', () => {
     })
 
     test('when there is a main IMAGE connected', async () => {
-        const data = {partner_node: {id: 11111118, name: "dummy", partner_node: FakeImage.data}} as unknown as BookHasMainImageRelationship
+        const data = {id: 11111118, name: "dummy", partner_node: FakeImage.data} as unknown as BookHasMainImageRelationship
 
         vi.spyOn(BookDataFacade, 'getConnectedMainImageNode').mockResolvedValue(data)
 

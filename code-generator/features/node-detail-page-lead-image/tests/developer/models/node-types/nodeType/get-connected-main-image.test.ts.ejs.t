@@ -16,7 +16,7 @@ describe('Collect connected main IMAGE for the <%= h.changeCase.upper(nodeType) 
     })
 
     test('when there is a main IMAGE connected', async () => {
-        const data = {partner_node: {id: 11111118, name: "dummy", partner_node: FakeImage.data}} as unknown as <%= h.changeCase.pascal(nodeType) %>HasMainImageRelationship
+        const data = {id: 11111118, name: "dummy", partner_node: FakeImage.data} as unknown as <%= h.changeCase.pascal(nodeType) %>HasMainImageRelationship
 
         vi.spyOn(<%= h.changeCase.pascal(nodeType) %>DataFacade, 'getConnectedMainImageNode').mockResolvedValue(data)
 

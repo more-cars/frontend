@@ -13,7 +13,7 @@ describe('Collect connected MAGAZINE ISSUE for the LAP TIME detail page', () => 
     })
 
     test('when there is a MAGAZINE ISSUE connected', async () => {
-        const data = {partner_node: {id: 11111118, name: "dummy", partner_node: FakeMagazineIssue.data}} as unknown as LapTimeDocumentedInMagazineIssueRelationship
+        const data = {id: 11111118, name: "dummy", partner_node: FakeMagazineIssue.data} as unknown as LapTimeDocumentedInMagazineIssueRelationship
 
         vi.spyOn(LapTimeDataFacade, 'getConnectedMagazineIssueNode').mockResolvedValue(data)
 
