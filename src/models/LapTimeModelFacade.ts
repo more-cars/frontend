@@ -7,10 +7,11 @@ import type {LapTime} from "./node-types/lap-times/types/LapTime"
 import {getNodeTitle} from "./node-types/lap-times/getNodeTitle"
 import {getNodeSubTitle} from "./node-types/lap-times/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/lap-times/findConnectedMainImage"
+import {findConnectedCarModelVariant} from "./node-types/lap-times/findConnectedCarModelVariant"
+import {findConnectedMagazineIssue} from "./node-types/lap-times/findConnectedMagazineIssue"
 import {findConnectedTrackLayout} from "./node-types/lap-times/findConnectedTrackLayout"
 import {findConnectedSessionResult} from "./node-types/lap-times/findConnectedSessionResult"
 import {findConnectedImages} from "./node-types/lap-times/findConnectedImages"
-import {findConnectedCarModelVariant} from "./node-types/lap-times/findConnectedCarModelVariant"
 import {findConnectedVideos} from "./node-types/lap-times/findConnectedVideos"
 
 export const LapTimeModelFacade = {
@@ -38,6 +39,14 @@ export const LapTimeModelFacade = {
         return findConnectedMainImage(id)
     },
 
+    async getConnectedCarModelVariant(id: number) {
+        return findConnectedCarModelVariant(id)
+    },
+
+    async getConnectedMagazineIssue(id: number) {
+        return findConnectedMagazineIssue(id)
+    },
+
     async getConnectedTrackLayout(id: number) {
         return findConnectedTrackLayout(id)
     },
@@ -48,10 +57,6 @@ export const LapTimeModelFacade = {
 
     async getConnectedImages(id: number) {
         return findConnectedImages(id)
-    },
-
-    async getConnectedCarModelVariant(id: number) {
-        return findConnectedCarModelVariant(id)
     },
 
     async getConnectedVideos(id: number) {

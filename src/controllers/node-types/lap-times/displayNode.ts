@@ -16,6 +16,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const carModelVariant = await LapTimeModelFacade.getConnectedCarModelVariant(lapTimeId)
+    const magazineIssue = await LapTimeModelFacade.getConnectedMagazineIssue(lapTimeId)
     const trackLayout = await LapTimeModelFacade.getConnectedTrackLayout(lapTimeId)
     const sessionResult = await LapTimeModelFacade.getConnectedSessionResult(lapTimeId)
     const images = await LapTimeModelFacade.getConnectedImages(lapTimeId)
@@ -35,6 +36,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 item: carModelVariant,
                 node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL_VARIANT),
                 thumbnails: await getNodeThumbnails(carModelVariant ? [carModelVariant] : []),
+            },
+            magazine_issue: {
+                item: magazineIssue,
+                node_properties: getNodeProperties(ControllerNodeType.MAGAZINE_ISSUE),
+                thumbnails: await getNodeThumbnails(magazineIssue ? [magazineIssue] : []),
             },
             track_layout: {
                 item: trackLayout,

@@ -1,0 +1,10 @@
+include ../../shared/connected-nodes-section
+- introTextParts = []
+- introTextParts.push(`The lap time was documented in the following car magazine issue.`)
++connected-nodes-section(
+    [magazineIssue.item],
+    'Magazine Issue',
+    introTextParts.join(' '),
+    magazineIssue.thumbnails,
+    magazineIssue.node_properties,
+)
