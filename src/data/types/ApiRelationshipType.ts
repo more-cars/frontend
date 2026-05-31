@@ -131,6 +131,7 @@ export enum ApiRelationshipType {
     MOTOR_SHOW_HAS_VIDEO = 'has-video',
     BOOK_HAS_MAIN_IMAGE = 'has-main-image',
     BOOK_COVERS_CAR_MODEL_VARIANT = 'covers-car-model-variant',
+    BOOK_HAS_IMAGE = 'has-image',
     IMAGE_BELONGS_TO_NODE = 'belongs-to-node',
     VIDEO_BELONGS_TO_NODE = 'belongs-to-node',
 }

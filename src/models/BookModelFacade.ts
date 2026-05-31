@@ -8,6 +8,7 @@ import {findNodeById} from "./node-types/books/findNodeById"
 import {getNodeSubTitle} from "./node-types/books/getNodeSubTitle"
 import {findConnectedMainImage} from "./node-types/books/findConnectedMainImage"
 import {findConnectedCarModelVariants} from "./node-types/books/findConnectedCarModelVariants"
+import {findConnectedImages} from "./node-types/books/findConnectedImages"
 
 export const BookModelFacade = {
     async getAllNodes(params?: ModelSearchParams) {
@@ -36,5 +37,9 @@ export const BookModelFacade = {
 
     async getConnectedCarModelVariants(id: number) {
         return findConnectedCarModelVariants(id)
+    },
+
+    async getConnectedImages(id: number) {
+        return findConnectedImages(id)
     },
 }

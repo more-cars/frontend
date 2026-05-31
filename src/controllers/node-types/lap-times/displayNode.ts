@@ -15,10 +15,10 @@ export async function displayNode(req: express.Request, res: express.Response) {
         return sendResponse404(res)
     }
 
+    const carModelVariant = await LapTimeModelFacade.getConnectedCarModelVariant(lapTimeId)
     const trackLayout = await LapTimeModelFacade.getConnectedTrackLayout(lapTimeId)
     const sessionResult = await LapTimeModelFacade.getConnectedSessionResult(lapTimeId)
     const images = await LapTimeModelFacade.getConnectedImages(lapTimeId)
-    const carModelVariant = await LapTimeModelFacade.getConnectedCarModelVariant(lapTimeId)
     const videos = await LapTimeModelFacade.getConnectedVideos(lapTimeId)
 
     res.render('templates/node-types/lap-times/lap-time-detail-page', {

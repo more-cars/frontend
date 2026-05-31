@@ -15,6 +15,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     }
 
     const carModelVariants = await BookModelFacade.getConnectedCarModelVariants(bookId)
+    const images = await BookModelFacade.getConnectedImages(bookId)
 
     res.render('templates/node-types/books/book-detail-page', {
         page_title: `${book.fields.title} - Book`,
@@ -26,6 +27,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
             main_image: await BookModelFacade.getConnectedMainImage(bookId),
         },
         relationships: {
+            images: {
+                items: images,
+                node_properties: getNodeProperties(ControllerNodeType.IMAGE),
+                thumbnails: await getNodeThumbnails(images),
+            },
             car_model_variants: {
                 items: carModelVariants,
                 node_properties: getNodeProperties(ControllerNodeType.CAR_MODEL_VARIANT),
