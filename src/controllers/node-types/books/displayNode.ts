@@ -20,6 +20,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
             title: BookModelFacade.getNodeTitle(book),
             sub_title: BookModelFacade.getNodeSubTitle(book),
             node_properties: getNodeProperties(ControllerNodeType.BOOK),
+            main_image: await BookModelFacade.getConnectedMainImage(bookId),
         },
         relationships: {},
     }, (_, html) => {
