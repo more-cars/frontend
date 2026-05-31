@@ -2,6 +2,7 @@ import express from "express"
 import {determineSearchParams} from "../../lib/determineSearchParams"
 import {ControllerNodeType} from "../../types/ControllerNodeType"
 import {BookModelFacade} from "../../../models/BookModelFacade"
+import {getNodeThumbnails} from "../../lib/getNodeThumbnails"
 import {getNodeProperties} from "../../../specification/getNodeProperties"
 import {sendResponse200} from "../../responses/sendResponse200"
 import {sendResponse400} from "../../responses/sendResponse400"
@@ -22,6 +23,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
         main_headline: 'All Books',
         node_type: ControllerNodeType.BOOK,
         node_collection: books,
+        thumbnails: await getNodeThumbnails(books),
         node_properties: getNodeProperties(ControllerNodeType.BOOK),
         search_data: {
             page: searchParams.page,
