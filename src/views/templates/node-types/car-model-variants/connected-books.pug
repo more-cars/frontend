@@ -1,0 +1,10 @@
+include ../../shared/connected-nodes-section
+- introTextParts = []
+- introTextParts.push(`The "${carModelVariant.name}" has the following "books".`)
++connected-nodes-section(
+    books.items,
+    'Books',
+    introTextParts.join(' '),
+    books.thumbnails,
+    books.node_properties,
+)

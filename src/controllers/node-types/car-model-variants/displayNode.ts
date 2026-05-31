@@ -25,6 +25,7 @@ export async function displayNode(req: express.Request, res: express.Response) {
     const racingGames = await CarModelVariantModelFacade.getConnectedRacingGames(carModelVariantId)
     const modelCars = await CarModelVariantModelFacade.getConnectedModelCars(carModelVariantId)
     const motorShows = await CarModelVariantModelFacade.getConnectedMotorShows(carModelVariantId)
+    const books = await CarModelVariantModelFacade.getConnectedBooks(carModelVariantId)
     const images = await CarModelVariantModelFacade.getConnectedImages(carModelVariantId)
     const videos = await CarModelVariantModelFacade.getConnectedVideos(carModelVariantId)
 
@@ -87,6 +88,11 @@ export async function displayNode(req: express.Request, res: express.Response) {
                 items: motorShows,
                 node_properties: getNodeProperties(ControllerNodeType.MOTOR_SHOW),
                 thumbnails: await getNodeThumbnails(motorShows),
+            },
+            books: {
+                items: books,
+                node_properties: getNodeProperties(ControllerNodeType.BOOK),
+                thumbnails: await getNodeThumbnails(books),
             },
             images: {
                 items: images,
