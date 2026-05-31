@@ -1,0 +1,58 @@
+[
+  {
+    "name": "title",
+    "label": "Title",
+    "is_primary": false,
+    "mandatory": true,
+    "datatype": "string",
+    "example": "Living the Supercar Dream"
+  },
+  {
+    "name": "author",
+    "label": "Author",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Tim Burton"
+  },
+  {
+    "name": "publisher",
+    "label": "Publisher",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "Blink Publishing"
+  },
+  {
+    "name": "year_of_publication",
+    "label": "Year of Publication",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "number",
+    "example": 2016
+  },
+  {
+    "name": "isbn",
+    "label": "ISBN",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "9783868528893"
+  },
+  {
+    "name": "pages",
+    "label": "Pages",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "number",
+    "example": 256
+  },
+  {
+    "name": "language",
+    "label": "Language",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "en"
+  }
+]
