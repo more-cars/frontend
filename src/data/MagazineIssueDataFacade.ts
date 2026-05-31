@@ -9,6 +9,7 @@ import {getConnectedCarModels} from "./node-types/magazine-issues/getConnectedCa
 import {getConnectedCarModelVariants} from "./node-types/magazine-issues/getConnectedCarModelVariants"
 import {getConnectedRatings} from "./node-types/magazine-issues/getConnectedRatings"
 import {getConnectedRacingEvents} from "./node-types/magazine-issues/getConnectedRacingEvents"
+import {getConnectedLapTimes} from "./node-types/magazine-issues/getConnectedLapTimes"
 import {getConnectedImages} from "./node-types/magazine-issues/getConnectedImages"
 import {getConnectedVideos} from "./node-types/magazine-issues/getConnectedVideos"
 
@@ -51,6 +52,10 @@ export const MagazineIssueDataFacade = {
 
     async getConnectedRacingEventNodes(id: number) {
         return getConnectedRacingEvents(id)
+    },
+
+    async getConnectedLapTimeNodes(id: number) {
+        return getConnectedLapTimes(id)
     },
 
     async getConnectedImageNodes(id: number) {

@@ -1,0 +1,14 @@
+import {MagazineIssueDataFacade} from "../../../data/MagazineIssueDataFacade"
+import {LapTime} from "../lap-times/types/LapTime"
+import {convertLapTimeNode} from "../lap-times/convertLapTimeNode"
+
+export async function findConnectedLapTimes(id: number) {
+    const relations = await MagazineIssueDataFacade.getConnectedLapTimeNodes(id)
+    const lapTimes: LapTime[] = []
+
+    for (const relation of relations) {
+        lapTimes.push(convertLapTimeNode(relation.partner_node))
+    }
+
+    return [...lapTimes].sort((a, b) => (a.fields.time + "").localeCompare(b.fields.time + ""))
+}

@@ -14,6 +14,7 @@ import {findConnectedCarModels} from "./node-types/magazine-issues/findConnected
 import {findConnectedCarModelVariants} from "./node-types/magazine-issues/findConnectedCarModelVariants"
 import {findConnectedRatings} from "./node-types/magazine-issues/findConnectedRatings"
 import {findConnectedRacingEvents} from "./node-types/magazine-issues/findConnectedRacingEvents"
+import {findConnectedLapTimes} from "./node-types/magazine-issues/findConnectedLapTimes"
 import {findConnectedImages} from "./node-types/magazine-issues/findConnectedImages"
 import {findConnectedVideos} from "./node-types/magazine-issues/findConnectedVideos"
 
@@ -68,6 +69,10 @@ export const MagazineIssueModelFacade = {
 
     async getConnectedRacingEvents(id: number) {
         return findConnectedRacingEvents(id)
+    },
+
+    async getConnectedLapTimes(id: number) {
+        return findConnectedLapTimes(id)
     },
 
     async getConnectedImages(id: number) {
