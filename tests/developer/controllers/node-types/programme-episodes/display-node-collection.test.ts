@@ -49,4 +49,11 @@ describe('Requesting the PROGRAMME EPISODE overview page', () => {
         expect(spy)
             .toHaveBeenCalledTimes(1)
     })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/programme-episodes?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
+    })
 })

@@ -27,7 +27,6 @@ describe('Requesting the MAGAZINE ISSUE overview page', () => {
             .toHaveBeenCalledTimes(1)
     })
 
-
     test('when there exist multiple MAGAZINE ISSUES', async () => {
         const spy = vi.spyOn(MagazineIssueControllerFacade, 'showAllNodes')
 
@@ -48,5 +47,12 @@ describe('Requesting the MAGAZINE ISSUE overview page', () => {
 
         expect(spy)
             .toHaveBeenCalledTimes(1)
+    })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/magazine-issues?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
     })
 })

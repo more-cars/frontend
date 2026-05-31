@@ -27,7 +27,6 @@ describe('Requesting the VIDEO overview page', () => {
             .toHaveBeenCalledTimes(1)
     })
 
-
     test('when there exist multiple VIDEOS', async () => {
         const spy = vi.spyOn(VideoControllerFacade, 'showAllNodes')
 
@@ -48,5 +47,12 @@ describe('Requesting the VIDEO overview page', () => {
 
         expect(spy)
             .toHaveBeenCalledTimes(1)
+    })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/videos?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
     })
 })

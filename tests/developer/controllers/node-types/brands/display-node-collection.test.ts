@@ -27,7 +27,6 @@ describe('Requesting the BRAND overview page', () => {
             .toHaveBeenCalledTimes(1)
     })
 
-
     test('when there exist multiple BRANDS', async () => {
         const spy = vi.spyOn(BrandControllerFacade, 'showAllNodes')
 
@@ -48,5 +47,12 @@ describe('Requesting the BRAND overview page', () => {
 
         expect(spy)
             .toHaveBeenCalledTimes(1)
+    })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/brands?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
     })
 })

@@ -49,4 +49,11 @@ describe('Requesting the MODEL CAR overview page', () => {
         expect(spy)
             .toHaveBeenCalledTimes(1)
     })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/model-cars?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
+    })
 })

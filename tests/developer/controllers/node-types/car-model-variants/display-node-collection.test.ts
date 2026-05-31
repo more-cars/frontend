@@ -27,7 +27,6 @@ describe('Requesting the CAR MODEL VARIANT overview page', () => {
             .toHaveBeenCalledTimes(1)
     })
 
-
     test('when there exist multiple CAR MODEL VARIANTS', async () => {
         const spy = vi.spyOn(CarModelVariantControllerFacade, 'showAllNodes')
 
@@ -48,5 +47,12 @@ describe('Requesting the CAR MODEL VARIANT overview page', () => {
 
         expect(spy)
             .toHaveBeenCalledTimes(1)
+    })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/car-model-variants?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
     })
 })

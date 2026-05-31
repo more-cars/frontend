@@ -30,7 +30,6 @@ describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () 
             .toHaveBeenCalledTimes(1)
     })
 
-
     test('when there exist multiple <%= h.changeCase.upper(h.inflection.pluralize(nodeType)) %>', async () => {
         const spy = vi.spyOn(<%= h.changeCase.pascal(nodeType) %>ControllerFacade, 'showAllNodes')
 
@@ -51,5 +50,12 @@ describe('Requesting the <%= h.changeCase.upper(nodeType) %> overview page', () 
 
         expect(spy)
             .toHaveBeenCalledTimes(1)
+    })
+
+    test('when the search params are invalid', async () => {
+        const response = await supertestGet('/<%= h.changeCase.kebab(h.inflection.pluralize(nodeType)) %>?sort_direction=blubb')
+
+        expect(response.statusCode)
+            .toBe(400)
     })
 })
