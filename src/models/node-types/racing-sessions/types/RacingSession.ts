@@ -7,8 +7,7 @@ export type RacingSession = {
         name: string
         start_date: string | null
         start_time: string | null
-        duration: number | null
-        duration_unit: string | null
+        duration: string | null
         distance: number | null
         distance_unit: string | null
         created_at: string

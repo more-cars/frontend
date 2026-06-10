@@ -4,7 +4,6 @@ import {convertDate} from "../../../views/lib/convertDate"
 export function getNodeSubTitle(node: RacingSession) {
     const startDate = node.fields.start_date
     const duration = node.fields.duration
-    const duration_unit = node.fields.duration_unit
     const distance = node.fields.distance
     const distance_unit = node.fields.distance_unit
 
@@ -15,7 +14,7 @@ export function getNodeSubTitle(node: RacingSession) {
     }
 
     if (duration) {
-        subtitleParts.push(`${duration} ${duration_unit}`)
+        subtitleParts.push(`${duration}`)
     }
 
     if (distance) {

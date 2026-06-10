@@ -7,8 +7,7 @@ export type ApiRacingSessionNode = {
         name: string
         start_date?: string
         start_time?: string
-        duration?: number
-        duration_unit?: string
+        duration?: string
         distance?: number
         distance_unit?: string
         created_at: string

@@ -28,16 +28,8 @@
     "label": "Duration",
     "is_primary": true,
     "mandatory": false,
-    "datatype": "number",
-    "example": "120"
-  },
-  {
-    "name": "duration_unit",
-    "label": "Duration (Unit)",
-    "is_primary": true,
-    "mandatory": false,
     "datatype": "string",
-    "example": "min"
+    "example": "PT120M"
   },
   {
     "name": "distance",

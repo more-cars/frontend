@@ -11,7 +11,6 @@ export function convertRacingSessionNode(dataNode: RacingSessionNode) {
             start_date: dataNode.data.start_date || null,
             start_time: dataNode.data.start_time || null,
             duration: dataNode.data.duration || null,
-            duration_unit: dataNode.data.duration_unit || null,
             distance: dataNode.data.distance || null,
             distance_unit: dataNode.data.distance_unit || null,
             created_at: dataNode.data.created_at,
