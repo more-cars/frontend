@@ -21,7 +21,7 @@ block main
                 if node.data.type === 'video'
                     +lead-video-section(node.data)
                 else if node.data.type === 'image'
-                    +lead-image-section(node.data)
+                    +lead-image-section(node.data, true)
                 else if leadImage
                     +lead-image-section(leadImage)
                 else if leadVideo
