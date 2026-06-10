@@ -1,6 +1,6 @@
 import type {LapTime} from "./types/LapTime"
-import {formatTimeShort} from "../../../views/lib/formatTime"
+import {formatDuration} from "../../../views/lib/formatDuration"
 
 export function getNodeTitle(node: LapTime) {
-    return formatTimeShort(node.fields.time)
+    return formatDuration(node.fields.time)
 }

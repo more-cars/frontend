@@ -1,5 +1,6 @@
 import type {RacingSession} from "./types/RacingSession"
 import {convertDate} from "../../../views/lib/convertDate"
+import {formatDuration} from "../../../views/lib/formatDuration"
 
 export function getNodeSubTitle(node: RacingSession) {
     const startDate = node.fields.start_date
@@ -14,7 +15,7 @@ export function getNodeSubTitle(node: RacingSession) {
     }
 
     if (duration) {
-        subtitleParts.push(`${duration}`)
+        subtitleParts.push(`${formatDuration(duration)}`)
     }
 
     if (distance) {

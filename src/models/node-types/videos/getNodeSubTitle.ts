@@ -1,5 +1,5 @@
 import type {Video} from "./types/Video"
-import {formatTimeShort} from "../../../views/lib/formatTime"
+import {formatDuration} from "../../../views/lib/formatDuration"
 
 export function getNodeSubTitle(node: Video) {
     const creator = node.fields.creator
@@ -21,7 +21,7 @@ export function getNodeSubTitle(node: Video) {
     }
 
     if (duration) {
-        subtitleParts.push(formatTimeShort(duration))
+        subtitleParts.push(formatDuration(duration))
     }
 
     return subtitleParts.join(' | ')

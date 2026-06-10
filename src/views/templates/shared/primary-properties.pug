@@ -51,7 +51,7 @@ mixin primary-properties(nodeProperties, item)
                     else if prop.name === 'round'
                         span  #{ordinalize(item['round'])} round
                     else if prop.name === 'duration'
-                        span  #{formatTime(item['duration'])}
+                        span  #{formatDuration(item['duration'])}
                     else if prop.name === 'cylinders'
                         span  #{item['engine_configuration']}#{item['cylinders']}
                     else

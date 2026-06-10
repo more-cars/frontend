@@ -5,7 +5,7 @@ import {nodeTypeUrlPath} from "../views/lib/nodeTypeUrlPath"
 import {getNodeTypeLabelPlural} from "../views/lib/getNodeTypeLabelPlural"
 import {convertDate} from "../views/lib/convertDate"
 import {convertDateTime} from "../views/lib/convertDateTime"
-import {formatTime} from "../views/lib/formatTime"
+import {formatDuration} from "../views/lib/formatDuration"
 import {getAge} from "../views/lib/getAge"
 import {ordinalizeNumber} from "../views/lib/ordinalize"
 import {getNodeTypeIcon} from "../views/lib/getNodeTypeIcon"
@@ -19,7 +19,7 @@ export function registerViewHelpers(app: Express) {
     app.locals.nodeTypeLabelPlural = getNodeTypeLabelPlural
     app.locals.formatDate = convertDate
     app.locals.formatDateTime = convertDateTime
-    app.locals.formatTime = formatTime
+    app.locals.formatDuration = formatDuration
     app.locals.age = getAge
     app.locals.ordinalize = ordinalizeNumber
     app.locals.icon = getNodeTypeIcon
