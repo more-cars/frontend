@@ -13,8 +13,10 @@ export type ApiCarModelVariantNode = {
         doors?: number
         weight?: number
         weight_unit?: string
+        weight_norm?: string
         max_power?: number
         max_power_unit?: string
+        max_power_norm?: string
         max_torque?: number
         max_torque_unit?: string
         cylinders?: number
@@ -27,8 +29,10 @@ export type ApiCarModelVariantNode = {
         energy_source_2?: string
         consumption?: number
         consumption_unit?: string
+        consumption_norm?: string
         consumption_2?: number
         consumption_2_unit?: string
+        consumption_2_norm?: string
         energy_capacity?: number
         energy_capacity_unit?: string
         energy_capacity_2?: number

@@ -72,6 +72,14 @@
     "example": "kg"
   },
   {
+    "name": "weight_norm",
+    "label": "Weight (Norm)",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "EG"
+  },
+  {
     "name": "max_power",
     "label": "Max. Power",
     "is_primary": true,
@@ -86,6 +94,14 @@
     "mandatory": false,
     "datatype": "string",
     "example": "PS"
+  },
+  {
+    "name": "max_power_norm",
+    "label": "Max. Power (Norm)",
+    "is_primary": true,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "DIN"
   },
   {
     "name": "max_torque",
@@ -181,7 +197,15 @@
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",
-    "example": "l"
+    "example": "L/100 km"
+  },
+  {
+    "name": "consumption_norm",
+    "label": "Consumption (Norm)",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": "WLTP"
   },
   {
     "name": "consumption_2",
@@ -193,7 +217,15 @@
   },
   {
     "name": "consumption_2_unit",
-    "label": "2nd Engine Consumption",
+    "label": "2nd Engine Consumption (Unit)",
+    "is_primary": false,
+    "mandatory": false,
+    "datatype": "string",
+    "example": ""
+  },
+  {
+    "name": "consumption_2_norm",
+    "label": "2nd Engine Consumption (Norm)",
     "is_primary": false,
     "mandatory": false,
     "datatype": "string",

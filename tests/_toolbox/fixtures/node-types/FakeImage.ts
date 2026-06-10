@@ -10,7 +10,7 @@ export const FakeImage = {
         fields: {
             id: faker.number.int({min: 12_000_000, max: 20_000_000}),
             external_id: faker.string.uuid(),
-            image_provider: faker.lorem.word(),
+            image_provider: 'wikimedia',
             name: faker.commerce.productName(),
             description: faker.commerce.productDescription(),
             creator: faker.person.fullName(),
@@ -34,7 +34,7 @@ export const FakeImage = {
         data: {
             id: faker.number.int({min: 12_000_000, max: 20_000_000}),
             external_id: faker.string.uuid(),
-            image_provider: faker.lorem.word(),
+            image_provider: 'wikimedia',
             name: faker.commerce.productName(),
             description: faker.commerce.productDescription(),
             creator: faker.person.fullName(),
