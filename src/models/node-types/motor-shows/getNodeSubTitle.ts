@@ -1,5 +1,5 @@
 import type {MotorShow} from "./types/MotorShow"
-import {convertDate} from "../../../views/lib/convertDate"
+import {formatDate} from "../../../views/lib/formatDate"
 
 export function getNodeSubTitle(node: MotorShow) {
     const from = node.fields.date_from
@@ -8,15 +8,15 @@ export function getNodeSubTitle(node: MotorShow) {
     const subtitleParts = []
 
     if (from && until) {
-        subtitleParts.push(`${convertDate(from)} - ${convertDate(until)}`)
+        subtitleParts.push(`${formatDate(from)} - ${formatDate(until)}`)
     }
 
     if (from && !until) {
-        subtitleParts.push(`from ${convertDate(from)}`)
+        subtitleParts.push(`from ${formatDate(from)}`)
     }
 
     if (!from && until) {
-        subtitleParts.push(`until ${convertDate(until)}`)
+        subtitleParts.push(`until ${formatDate(until)}`)
     }
 
     return subtitleParts.join(' | ')

@@ -1,4 +1,4 @@
-import {convertDate} from "../../../views/lib/convertDate"
+import {formatDate} from "../../../views/lib/formatDate"
 import type {RacingEvent} from "./types/RacingEvent"
 
 export function getNodeSubTitle(node: RacingEvent) {
@@ -13,15 +13,15 @@ export function getNodeSubTitle(node: RacingEvent) {
     }
 
     if (dateFrom && dateTo) {
-        subtitleParts.push(`${convertDate(dateFrom)} - ${convertDate(dateTo)}`)
+        subtitleParts.push(`${formatDate(dateFrom)} - ${formatDate(dateTo)}`)
     }
 
     if (dateFrom && !dateTo) {
-        subtitleParts.push(`Start: ${convertDate(dateFrom)}`)
+        subtitleParts.push(`Start: ${formatDate(dateFrom)}`)
     }
 
     if (!dateFrom && dateTo) {
-        subtitleParts.push(`End: ${convertDate(dateTo)}`)
+        subtitleParts.push(`End: ${formatDate(dateTo)}`)
     }
 
     return subtitleParts.join(' | ')

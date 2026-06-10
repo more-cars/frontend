@@ -1,5 +1,5 @@
 import type {ProgrammeEpisode} from "./types/ProgrammeEpisode"
-import {convertDate} from "../../../views/lib/convertDate"
+import {formatDate} from "../../../views/lib/formatDate"
 
 export function getNodeSubTitle(node: ProgrammeEpisode) {
     const date = node.fields.original_air_date
@@ -9,7 +9,7 @@ export function getNodeSubTitle(node: ProgrammeEpisode) {
     const subtitleParts = []
 
     if (date) {
-        subtitleParts.push(convertDate(date))
+        subtitleParts.push(formatDate(date))
     }
 
     if (season) {
