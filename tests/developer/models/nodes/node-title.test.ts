@@ -17,6 +17,7 @@ describe('Node Title', () => {
                 position: 1,
                 currency_code: 'EUR',
                 rating_value: 93,
+                time: 'PT1M33.333S',
             }
         }
 
