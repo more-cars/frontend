@@ -1,21 +1,28 @@
-import {DateTime, Duration} from "luxon"
-
 export function calculateAndFormatAge(date: string) {
-    const startDate = DateTime.fromISO(date, {zone: "utc"})
-    const endDate = DateTime.now()
-    const diff = endDate.diff(startDate, ['years', 'months', 'weeks', 'days', 'hours'])
+    const startDate = Temporal.Instant.from(date).toZonedDateTimeISO('UTC')
+    const endDate = Temporal.Now.zonedDateTimeISO('UTC')
 
-    if (diff.equals(Duration.fromMillis(0))) {
+    if (startDate.epochMilliseconds === endDate.epochMilliseconds) {
         return null
     }
 
-    if (diff.toMillis() < 1000 * 60 * 60) {
+    const diff = endDate.since(startDate, {
+        largestUnit: 'year',
+        smallestUnit: 'hour',
+        roundingMode: 'trunc',
+    })
+
+    if (diff.blank) {
         return '<1 hour'
     }
 
-    return diff.toHuman({
-        unitDisplay: "long",
-        maximumFractionDigits: 0,
-        showZeros: false,
+    const formatter = new Intl.DurationFormat('en', {style: 'long'})
+
+    return formatter.format({
+        years: diff.years,
+        months: diff.months,
+        weeks: Math.floor(diff.days / 7),
+        days: diff.days % 7,
+        hours: diff.hours,
     })
 }

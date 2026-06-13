@@ -1,5 +1,4 @@
 import {describe, expect, test, vi} from 'vitest'
-import {DateTime} from "luxon"
 import {calculateAndFormatAge} from "../../../src/views/lib/calculateAndFormatAge"
 
 describe('Calculate age', () => {
@@ -14,10 +13,10 @@ describe('Calculate age', () => {
         ['2025-07-05T19:00:00.000Z', '2025-07-12T20:00:00.000Z', '1 week, 1 hour'],
         ['2025-06-27T16:00:00.000Z', '2025-07-12T20:00:00.000Z', '2 weeks, 1 day, 4 hours'],
         ['2018-06-27T16:00:00.000Z', '2025-07-12T20:00:00.000Z', '7 years, 2 weeks, 1 day, 4 hours'],
-    ])('$2', async (startDateTime, now, expectedAge) => {
-        vi.spyOn(DateTime, 'now')
+    ])('$2', (startDateTime, now, expectedAge) => {
+        vi.spyOn(Temporal.Now, 'zonedDateTimeISO')
             .mockImplementation(() => {
-                return DateTime.fromISO(now, {zone: "utc"}) as DateTime<true>
+                return Temporal.Instant.from(now).toZonedDateTimeISO('UTC')
             })
 
         const age = calculateAndFormatAge(startDateTime)
