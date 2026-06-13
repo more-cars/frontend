@@ -6,7 +6,7 @@ import {getNodeTypeLabelPlural} from "../views/lib/getNodeTypeLabelPlural"
 import {formatDate} from "../views/lib/formatDate"
 import {formatDateTime} from "../views/lib/formatDateTime"
 import {formatDuration} from "../views/lib/formatDuration"
-import {getAge} from "../views/lib/getAge"
+import {calculateAndFormatAge} from "../views/lib/calculateAndFormatAge"
 import {ordinalizeNumber} from "../views/lib/ordinalize"
 import {getNodeTypeIcon} from "../views/lib/getNodeTypeIcon"
 import {getCountryFlag} from "../views/lib/getCountryFlag"
@@ -20,7 +20,7 @@ export function registerViewHelpers(app: Express) {
     app.locals.formatDate = formatDate
     app.locals.formatDateTime = formatDateTime
     app.locals.formatDuration = formatDuration
-    app.locals.age = getAge
+    app.locals.age = calculateAndFormatAge
     app.locals.ordinalize = ordinalizeNumber
     app.locals.icon = getNodeTypeIcon
     app.locals.countryFlag = getCountryFlag
