@@ -7,6 +7,7 @@ import {analyticsMiddleware} from "./tracking/analyticsMiddleware"
 import {basicAuthentication} from "./basicAuthentication"
 import {registerViewHelpers} from "./routes/registerViewHelpers"
 import {registerNodeTypeRoutes} from "./routes/registerNodeTypeRoutes"
+import {notFound} from "./routes/notFound"
 
 const app = express()
 
@@ -25,5 +26,7 @@ app.use('/', canonicalAndRedirectUrls)
 app.use('/', startPage)
 app.use('/', legal)
 registerNodeTypeRoutes(app)
+
+app.use(notFound)
 
 export {app}
