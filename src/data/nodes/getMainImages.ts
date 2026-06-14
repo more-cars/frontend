@@ -11,16 +11,21 @@ export async function getMainImages(ids: number[]) {
         return []
     }
 
-    const response = (await requestDataFromApi(`/nodes/${ids.join(',')}/has-prime-image`)) as ApiNodeHasPrimeImageRelationship
+    const chunkSize = 100
     const data: NodeHasMainImageRelationship[] = []
 
-    response.data.forEach(apiItem => {
-        data.push({
-            name: DataRelationshipType.NODE_HAS_MAIN_IMAGE,
-            source_node_id: apiItem.data?.start_node.data.id || apiItem.attributes.start_node_id,
-            partner_node: convertApiRelationshipNodeToDataNode({data: apiItem.attributes, node_type: ApiNodeType.IMAGE}) as ImageNode,
+    for (let i = 0; i < ids.length; i += chunkSize) {
+        const chunk = ids.slice(i, i + chunkSize)
+        const response = (await requestDataFromApi(`/nodes/${chunk.join(',')}/has-prime-image`)) as ApiNodeHasPrimeImageRelationship
+
+        response.data.forEach(apiItem => {
+            data.push({
+                name: DataRelationshipType.NODE_HAS_MAIN_IMAGE,
+                source_node_id: apiItem.data?.start_node.data.id || apiItem.attributes.start_node_id,
+                partner_node: convertApiRelationshipNodeToDataNode({data: apiItem.attributes, node_type: ApiNodeType.IMAGE}) as ImageNode,
+            })
         })
-    })
+    }
 
     return data
 }
