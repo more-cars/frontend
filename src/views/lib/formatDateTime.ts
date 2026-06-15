@@ -5,7 +5,8 @@ export function formatDateTime(isoDateTime: string) {
             .from(isoDateTime)
             .toLocaleString('en', {
                 dateStyle: 'medium',
-                timeStyle: 'short'
+                timeStyle: 'short',
+                timeZone: 'UTC',
             })
     } catch {
         return isoDateTime
