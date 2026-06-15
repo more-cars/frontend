@@ -4,32 +4,32 @@ import {getMockServerBaseUrl} from "./getMockServerBaseUrl"
 /**
  * These functions allow a Cypress test (e.g. a "Given" step) to manipulate the data in the API mock server.
  */
-export abstract class MockData {
-    static reset() {
+export const MockData = {
+    reset() {
         const url = `${getMockServerBaseUrl()}/reset`
         cy.request('POST', url)
-    }
+    },
 
-    static setNodeCount(nodeType: string, count: number) {
+    setNodeCount(nodeType: string, count: number) {
         const url = `${getMockServerBaseUrl()}/node-collection/${getNormalizedNodeTypePlural(nodeType)}/${count}`
         cy.request('POST', url)
-    }
+    },
 
-    static addNode(nodeId: number, nodeType: string) {
+    addNode(nodeId: number, nodeType: string) {
         let url = `${getMockServerBaseUrl()}/node-state/${nodeId}/true`
         cy.request('POST', url)
 
         url = `${getMockServerBaseUrl()}/node-type/${nodeId}/${nodeType}`
         cy.request('POST', url)
-    }
+    },
 
-    static removeNode(nodeId: number) {
+    removeNode(nodeId: number) {
         const url = `${getMockServerBaseUrl()}/node-state/${nodeId}/false`
         cy.request('POST', url)
-    }
+    },
 
-    static removeNodeRelationships(nodeId: number) {
+    removeNodeRelationships(nodeId: number) {
         const url = `${getMockServerBaseUrl()}/node-relationships/${nodeId}/0`
         cy.request('POST', url)
-    }
+    },
 }

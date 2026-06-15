@@ -13,7 +13,7 @@ Then('all {string}s in the list should be unique', (nodeType: string) => {
     })
 })
 
-export function removeDuplicates(input: Array<string>) {
+export function removeDuplicates(input: string[]) {
     // creating a SET automatically removes the duplicates
     const inputSet = new Set(input)
 
