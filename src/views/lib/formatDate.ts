@@ -1,6 +1,12 @@
 export function formatDate(isoDate: string) {
-    return Temporal.PlainDate.from(isoDate)
-        .toLocaleString('en', {
-            dateStyle: 'medium'
-        })
+    try {
+        return Temporal
+            .PlainDate
+            .from(isoDate)
+            .toLocaleString('en', {
+                dateStyle: 'medium'
+            })
+    } catch {
+        return isoDate
+    }
 }

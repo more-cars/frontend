@@ -1,4 +1,10 @@
 export function formatDuration(isoDuration: string) {
-    return Temporal.Duration.from(isoDuration)
-        .toLocaleString('en')
+    try {
+        return Temporal
+            .Duration
+            .from(isoDuration)
+            .toLocaleString('en')
+    } catch {
+        return isoDuration
+    }
 }
