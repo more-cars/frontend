@@ -11,8 +11,7 @@ export async function displayAllNodes(req: express.Request, res: express.Respons
     let searchParams
     try {
         searchParams = determineSearchParams(req, ControllerNodeType.MODEL_CAR_BRAND)
-    } catch (error) {
-        console.error(error)
+    } catch {
         return sendResponse400(res)
     }
 

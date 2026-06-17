@@ -8,7 +8,7 @@ export async function ready(req: express.Request, res: express.Response) {
         await fetch(process.env.API_URL as string)
         res.status(200)
         res.send("ready")
-    } catch (e) {
+    } catch {
         res.status(503)
         res.send("not ready")
     }
