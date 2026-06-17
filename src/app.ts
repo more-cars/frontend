@@ -1,5 +1,6 @@
 import express from "express"
 import compression from 'compression'
+import health from "./routes/health"
 import canonicalAndRedirectUrls from "./routes/canonical-and-redirect-urls"
 import startPage from "./routes/startPage.ts"
 import legal from "./routes/legal"
@@ -22,6 +23,7 @@ app.use(basicAuthentication)
 registerViewHelpers(app)
 
 app.use(express.static('public'))
+app.use('/', health)
 app.use('/', canonicalAndRedirectUrls)
 app.use('/', startPage)
 app.use('/', legal)
