@@ -335,7 +335,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/companies/{company-id}/relationships/has-brand": {
       "post": {
         "operationId": "createCompanyHasBrandRel",
         "tags": [
@@ -466,7 +468,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/companies/{company-id}/relationships/has-image": {
       "post": {
         "operationId": "createCompanyHasImageRel",
         "tags": [
@@ -597,7 +601,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/companies/{company-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createCompanyHasPrimeImageRel",
         "tags": [
@@ -728,7 +734,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/companies/{company-id}/relationships/has-video": {
       "post": {
         "operationId": "createCompanyHasVideoRel",
         "tags": [
@@ -866,7 +874,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/companies/{company-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createCompanyHasMainVideoRel",
         "tags": [
@@ -1242,7 +1252,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/brands/{brand-id}/relationships/belongs-to-company": {
       "post": {
         "operationId": "createBrandBelongsToCompanyRel",
         "tags": [
@@ -1373,7 +1385,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/brands/{brand-id}/relationships/has-car-model": {
       "post": {
         "operationId": "createBrandHasCarModelRel",
         "tags": [
@@ -1504,7 +1518,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/brands/{brand-id}/relationships/has-image": {
       "post": {
         "operationId": "createBrandHasImageRel",
         "tags": [
@@ -1635,7 +1651,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/brands/{brand-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createBrandHasPrimeImageRel",
         "tags": [
@@ -1766,7 +1784,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/brands/{brand-id}/relationships/has-video": {
       "post": {
         "operationId": "createBrandHasVideoRel",
         "tags": [
@@ -1897,7 +1917,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/brands/{brand-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createBrandHasMainVideoRel",
         "tags": [
@@ -2273,7 +2295,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/belongs-to-brand": {
       "post": {
         "operationId": "createCarModelBelongsToBrandRel",
         "tags": [
@@ -2404,7 +2428,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/has-successor": {
       "post": {
         "operationId": "createCarModelHasSuccessorRel",
         "tags": [
@@ -2542,7 +2568,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/is-successor-of": {
       "post": {
         "operationId": "createCarModelIsSuccessorOfRel",
         "tags": [
@@ -2683,7 +2711,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/has-variant": {
       "post": {
         "operationId": "createCarModelHasVariantRel",
         "tags": [
@@ -2814,7 +2844,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/covered-by-magazine-issue": {
       "post": {
         "operationId": "createCarModelCoveredByMagazineIssueRel",
         "tags": [
@@ -2945,7 +2977,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/covered-by-programme-episode": {
       "post": {
         "operationId": "createCarModelCoveredByProgrammeEpisodeRel",
         "tags": [
@@ -3076,7 +3110,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/has-image": {
       "post": {
         "operationId": "createCarModelHasImageRel",
         "tags": [
@@ -3207,7 +3243,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createCarModelHasPrimeImageRel",
         "tags": [
@@ -3338,7 +3376,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/has-video": {
       "post": {
         "operationId": "createCarModelHasVideoRel",
         "tags": [
@@ -3476,7 +3516,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-models/{car-model-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createCarModelHasMainVideoRel",
         "tags": [
@@ -3852,7 +3894,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/is-variant-of": {
       "post": {
         "operationId": "createCarModelVariantIsVariantOfRel",
         "tags": [
@@ -3983,7 +4027,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/achieved-session-result": {
       "post": {
         "operationId": "createCarModelVariantAchievedSessionResultRel",
         "tags": [
@@ -4114,7 +4160,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/achieved-lap-time": {
       "post": {
         "operationId": "createCarModelVariantAchievedLapTimeRel",
         "tags": [
@@ -4245,7 +4293,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/is-presented-in-magazine-issue": {
       "post": {
         "operationId": "createCarModelVariantIsPresentedInMagazineIssueRel",
         "tags": [
@@ -4376,7 +4426,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/reviewed-by-magazine-issue-with-rating": {
       "post": {
         "operationId": "createCarModelVariantReviewedByMagazineIssueWithRatingRel",
         "tags": [
@@ -4507,7 +4559,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/featured-in-programme-episode": {
       "post": {
         "operationId": "createCarModelVariantFeaturedInProgrammeEpisodeRel",
         "tags": [
@@ -4638,7 +4692,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/is-featured-in-racing-game": {
       "post": {
         "operationId": "createCarModelVariantIsFeaturedInRacingGameRel",
         "tags": [
@@ -4769,7 +4825,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/has-scale-model": {
       "post": {
         "operationId": "createCarModelVariantHasScaleModelRel",
         "tags": [
@@ -4900,7 +4958,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/presented-at-motor-show": {
       "post": {
         "operationId": "createCarModelVariantPresentedAtMotorShowRel",
         "tags": [
@@ -5031,7 +5091,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/has-price": {
       "post": {
         "operationId": "createCarModelVariantHasPriceRel",
         "tags": [
@@ -5162,7 +5224,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/is-covered-by-book": {
       "post": {
         "operationId": "createCarModelVariantIsCoveredByBookRel",
         "tags": [
@@ -5293,7 +5357,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/has-image": {
       "post": {
         "operationId": "createCarModelVariantHasImageRel",
         "tags": [
@@ -5424,7 +5490,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createCarModelVariantHasPrimeImageRel",
         "tags": [
@@ -5555,7 +5623,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/has-video": {
       "post": {
         "operationId": "createCarModelVariantHasVideoRel",
         "tags": [
@@ -5693,7 +5763,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/car-model-variants/{car-model-variant-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createCarModelVariantHasMainVideoRel",
         "tags": [
@@ -6072,7 +6144,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/prices/{price-id}/relationships/for-car-model-variant": {
       "post": {
         "operationId": "createPriceForCarModelVariantRel",
         "tags": [
@@ -6203,7 +6277,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/prices/{price-id}/relationships/has-image": {
       "post": {
         "operationId": "createPriceHasImageRel",
         "tags": [
@@ -6341,7 +6417,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/prices/{price-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createPriceHasPrimeImageRel",
         "tags": [
@@ -6717,7 +6795,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/race-tracks/{race-track-id}/relationships/has-layout": {
       "post": {
         "operationId": "createRaceTrackHasLayoutRel",
         "tags": [
@@ -6848,7 +6928,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/race-tracks/{race-track-id}/relationships/hosted-racing-event": {
       "post": {
         "operationId": "createRaceTrackHostedRacingEventRel",
         "tags": [
@@ -6979,7 +7061,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/race-tracks/{race-track-id}/relationships/has-image": {
       "post": {
         "operationId": "createRaceTrackHasImageRel",
         "tags": [
@@ -7110,7 +7194,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/race-tracks/{race-track-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createRaceTrackHasPrimeImageRel",
         "tags": [
@@ -7248,7 +7334,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/race-tracks/{race-track-id}/relationships/has-video": {
       "post": {
         "operationId": "createRaceTrackHasVideoRel",
         "tags": [
@@ -7386,7 +7474,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/race-tracks/{race-track-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createRaceTrackHasMainVideoRel",
         "tags": [
@@ -7769,7 +7859,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/belongs-to-race-track": {
       "post": {
         "operationId": "createTrackLayoutBelongsToRaceTrackRel",
         "tags": [
@@ -7900,7 +7992,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/was-used-by-racing-event": {
       "post": {
         "operationId": "createTrackLayoutWasUsedByRacingEventRel",
         "tags": [
@@ -8031,7 +8125,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/has-lap-time": {
       "post": {
         "operationId": "createTrackLayoutHasLapTimeRel",
         "tags": [
@@ -8162,7 +8258,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/is-featured-in-racing-game": {
       "post": {
         "operationId": "createTrackLayoutIsFeaturedInRacingGameRel",
         "tags": [
@@ -8293,7 +8391,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/has-image": {
       "post": {
         "operationId": "createTrackLayoutHasImageRel",
         "tags": [
@@ -8424,7 +8524,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createTrackLayoutHasPrimeImageRel",
         "tags": [
@@ -8555,7 +8657,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/has-video": {
       "post": {
         "operationId": "createTrackLayoutHasVideoRel",
         "tags": [
@@ -8693,7 +8797,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/track-layouts/{track-layout-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createTrackLayoutHasMainVideoRel",
         "tags": [
@@ -9076,7 +9182,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-series/{racing-series-id}/relationships/has-racing-event": {
       "post": {
         "operationId": "createRacingSeriesHasRacingEventRel",
         "tags": [
@@ -9207,7 +9315,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-series/{racing-series-id}/relationships/has-image": {
       "post": {
         "operationId": "createRacingSeriesHasImageRel",
         "tags": [
@@ -9338,7 +9448,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-series/{racing-series-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createRacingSeriesHasPrimeImageRel",
         "tags": [
@@ -9469,7 +9581,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-series/{racing-series-id}/relationships/has-video": {
       "post": {
         "operationId": "createRacingSeriesHasVideoRel",
         "tags": [
@@ -9607,7 +9721,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-series/{racing-series-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createRacingSeriesHasMainVideoRel",
         "tags": [
@@ -9983,7 +10099,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/belongs-to-racing-series": {
       "post": {
         "operationId": "createRacingEventBelongsToRacingSeriesRel",
         "tags": [
@@ -10114,7 +10232,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/is-followed-by-event": {
       "post": {
         "operationId": "createRacingEventIsFollowedByEventRel",
         "tags": [
@@ -10255,7 +10375,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/follows-event": {
       "post": {
         "operationId": "createRacingEventFollowsEventRel",
         "tags": [
@@ -10396,7 +10518,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/took-place-at-race-track": {
       "post": {
         "operationId": "createRacingEventTookPlaceAtRaceTrackRel",
         "tags": [
@@ -10527,7 +10651,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/used-the-track-layout": {
       "post": {
         "operationId": "createRacingEventUsedTheTrackLayoutRel",
         "tags": [
@@ -10658,7 +10784,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/has-racing-session": {
       "post": {
         "operationId": "createRacingEventHasRacingSessionRel",
         "tags": [
@@ -10789,7 +10917,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/covered-by-magazine-issue": {
       "post": {
         "operationId": "createRacingEventCoveredByMagazineIssueRel",
         "tags": [
@@ -10920,7 +11050,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/has-image": {
       "post": {
         "operationId": "createRacingEventHasImageRel",
         "tags": [
@@ -11051,7 +11183,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createRacingEventHasPrimeImageRel",
         "tags": [
@@ -11182,7 +11316,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/has-video": {
       "post": {
         "operationId": "createRacingEventHasVideoRel",
         "tags": [
@@ -11320,7 +11456,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-events/{racing-event-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createRacingEventHasMainVideoRel",
         "tags": [
@@ -11696,7 +11834,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-sessions/{racing-session-id}/relationships/belongs-to-racing-event": {
       "post": {
         "operationId": "createRacingSessionBelongsToRacingEventRel",
         "tags": [
@@ -11827,7 +11967,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-sessions/{racing-session-id}/relationships/has-session-result": {
       "post": {
         "operationId": "createRacingSessionHasSessionResultRel",
         "tags": [
@@ -11958,7 +12100,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-sessions/{racing-session-id}/relationships/has-image": {
       "post": {
         "operationId": "createRacingSessionHasImageRel",
         "tags": [
@@ -12089,7 +12233,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-sessions/{racing-session-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createRacingSessionHasPrimeImageRel",
         "tags": [
@@ -12220,7 +12366,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-sessions/{racing-session-id}/relationships/has-video": {
       "post": {
         "operationId": "createRacingSessionHasVideoRel",
         "tags": [
@@ -12358,7 +12506,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-sessions/{racing-session-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createRacingSessionHasMainVideoRel",
         "tags": [
@@ -12735,7 +12885,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/session-results/{session-result-id}/relationships/belongs-to-racing-session": {
       "post": {
         "operationId": "createSessionResultBelongsToRacingSessionRel",
         "tags": [
@@ -12866,7 +13018,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/session-results/{session-result-id}/relationships/has-lap-time": {
       "post": {
         "operationId": "createSessionResultHasLapTimeRel",
         "tags": [
@@ -12997,7 +13151,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/session-results/{session-result-id}/relationships/achieved-with-car-model-variant": {
       "post": {
         "operationId": "createSessionResultAchievedWithCarModelVariantRel",
         "tags": [
@@ -13128,7 +13284,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/session-results/{session-result-id}/relationships/has-image": {
       "post": {
         "operationId": "createSessionResultHasImageRel",
         "tags": [
@@ -13259,7 +13417,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/session-results/{session-result-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createSessionResultHasPrimeImageRel",
         "tags": [
@@ -13636,7 +13796,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/belongs-to-session-result": {
       "post": {
         "operationId": "createLapTimeBelongsToSessionResultRel",
         "tags": [
@@ -13767,7 +13929,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/achieved-on-track-layout": {
       "post": {
         "operationId": "createLapTimeAchievedOnTrackLayoutRel",
         "tags": [
@@ -13944,7 +14108,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/achieved-with-car-model-variant": {
       "delete": {
         "operationId": "deleteLapTimeAchievedWithCarModelVariantRel",
         "tags": [
@@ -14029,7 +14195,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/documented-in-magazine-issue": {
       "post": {
         "operationId": "createLapTimeDocumentedInMagazineIssueRel",
         "tags": [
@@ -14160,7 +14328,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/has-image": {
       "post": {
         "operationId": "createLapTimeHasImageRel",
         "tags": [
@@ -14291,7 +14461,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createLapTimeHasPrimeImageRel",
         "tags": [
@@ -14422,7 +14594,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/has-video": {
       "post": {
         "operationId": "createLapTimeHasVideoRel",
         "tags": [
@@ -14560,7 +14734,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/lap-times/{lap-time-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createLapTimeHasMainVideoRel",
         "tags": [
@@ -14936,7 +15112,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/features-car-model-variant": {
       "post": {
         "operationId": "createRacingGameFeaturesCarModelVariantRel",
         "tags": [
@@ -15067,7 +15245,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/features-track-layout": {
       "post": {
         "operationId": "createRacingGameFeaturesTrackLayoutRel",
         "tags": [
@@ -15198,7 +15378,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/released-on-gaming-platform": {
       "post": {
         "operationId": "createRacingGameReleasedOnGamingPlatformRel",
         "tags": [
@@ -15329,7 +15511,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/has-image": {
       "post": {
         "operationId": "createRacingGameHasImageRel",
         "tags": [
@@ -15460,7 +15644,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createRacingGameHasPrimeImageRel",
         "tags": [
@@ -15591,7 +15777,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/has-video": {
       "post": {
         "operationId": "createRacingGameHasVideoRel",
         "tags": [
@@ -15729,7 +15917,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/racing-games/{racing-game-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createRacingGameHasMainVideoRel",
         "tags": [
@@ -16105,7 +16295,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/gaming-platforms/{gaming-platform-id}/relationships/features-racing-game": {
       "post": {
         "operationId": "createGamingPlatformFeaturesRacingGameRel",
         "tags": [
@@ -16236,7 +16428,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/gaming-platforms/{gaming-platform-id}/relationships/has-image": {
       "post": {
         "operationId": "createGamingPlatformHasImageRel",
         "tags": [
@@ -16367,7 +16561,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/gaming-platforms/{gaming-platform-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createGamingPlatformHasPrimeImageRel",
         "tags": [
@@ -16498,7 +16694,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/gaming-platforms/{gaming-platform-id}/relationships/has-video": {
       "post": {
         "operationId": "createGamingPlatformHasVideoRel",
         "tags": [
@@ -16636,7 +16834,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/gaming-platforms/{gaming-platform-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createGamingPlatformHasMainVideoRel",
         "tags": [
@@ -17012,7 +17212,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-cars/{model-car-id}/relationships/is-scale-model-of-car-model-variant": {
       "post": {
         "operationId": "createModelCarIsScaleModelOfCarModelVariantRel",
         "tags": [
@@ -17143,7 +17345,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-cars/{model-car-id}/relationships/made-by-model-car-brand": {
       "post": {
         "operationId": "createModelCarMadeByModelCarBrandRel",
         "tags": [
@@ -17274,7 +17478,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-cars/{model-car-id}/relationships/has-image": {
       "post": {
         "operationId": "createModelCarHasImageRel",
         "tags": [
@@ -17405,7 +17611,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-cars/{model-car-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createModelCarHasPrimeImageRel",
         "tags": [
@@ -17536,7 +17744,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-cars/{model-car-id}/relationships/has-video": {
       "post": {
         "operationId": "createModelCarHasVideoRel",
         "tags": [
@@ -17674,7 +17884,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-cars/{model-car-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createModelCarHasMainVideoRel",
         "tags": [
@@ -18050,7 +18262,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-car-brands/{model-car-brand-id}/relationships/created-model-car": {
       "post": {
         "operationId": "createModelCarBrandCreatedModelCarRel",
         "tags": [
@@ -18181,7 +18395,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-car-brands/{model-car-brand-id}/relationships/has-image": {
       "post": {
         "operationId": "createModelCarBrandHasImageRel",
         "tags": [
@@ -18312,7 +18528,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-car-brands/{model-car-brand-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createModelCarBrandHasPrimeImageRel",
         "tags": [
@@ -18443,7 +18661,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-car-brands/{model-car-brand-id}/relationships/has-video": {
       "post": {
         "operationId": "createModelCarBrandHasVideoRel",
         "tags": [
@@ -18581,7 +18801,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/model-car-brands/{model-car-brand-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createModelCarBrandHasMainVideoRel",
         "tags": [
@@ -18957,7 +19179,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazines/{magazine-id}/relationships/has-issue": {
       "post": {
         "operationId": "createMagazineHasIssueRel",
         "tags": [
@@ -19088,7 +19312,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazines/{magazine-id}/relationships/has-image": {
       "post": {
         "operationId": "createMagazineHasImageRel",
         "tags": [
@@ -19219,7 +19445,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazines/{magazine-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createMagazineHasPrimeImageRel",
         "tags": [
@@ -19350,7 +19578,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazines/{magazine-id}/relationships/has-video": {
       "post": {
         "operationId": "createMagazineHasVideoRel",
         "tags": [
@@ -19488,7 +19718,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazines/{magazine-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createMagazineHasMainVideoRel",
         "tags": [
@@ -19864,7 +20096,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/belongs-to-magazine": {
       "post": {
         "operationId": "createMagazineIssueBelongsToMagazineRel",
         "tags": [
@@ -19995,7 +20229,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/follows-issue": {
       "post": {
         "operationId": "createMagazineIssueFollowsIssueRel",
         "tags": [
@@ -20136,7 +20372,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/followed-by-issue": {
       "post": {
         "operationId": "createMagazineIssueFollowedByIssueRel",
         "tags": [
@@ -20277,7 +20515,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/covers-car-model": {
       "post": {
         "operationId": "createMagazineIssueCoversCarModelRel",
         "tags": [
@@ -20408,7 +20648,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/presents-car-model-variant": {
       "post": {
         "operationId": "createMagazineIssuePresentsCarModelVariantRel",
         "tags": [
@@ -20539,7 +20781,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/reviewed-car-model-variant-with-rating": {
       "post": {
         "operationId": "createMagazineIssueReviewedCarModelVariantWithRatingRel",
         "tags": [
@@ -20670,7 +20914,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/covers-racing-event": {
       "post": {
         "operationId": "createMagazineIssueCoversRacingEventRel",
         "tags": [
@@ -20801,7 +21047,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/documents-lap-time": {
       "post": {
         "operationId": "createMagazineIssueDocumentsLapTimeRel",
         "tags": [
@@ -20932,7 +21180,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/has-image": {
       "post": {
         "operationId": "createMagazineIssueHasImageRel",
         "tags": [
@@ -21063,7 +21313,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createMagazineIssueHasPrimeImageRel",
         "tags": [
@@ -21194,7 +21446,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/has-video": {
       "post": {
         "operationId": "createMagazineIssueHasVideoRel",
         "tags": [
@@ -21332,7 +21586,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/magazine-issues/{magazine-issue-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createMagazineIssueHasMainVideoRel",
         "tags": [
@@ -21718,7 +21974,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/ratings/{rating-id}/relationships/by-magazine-issue": {
       "post": {
         "operationId": "createRatingByMagazineIssueRel",
         "tags": [
@@ -21849,7 +22107,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/ratings/{rating-id}/relationships/for-car-model-variant": {
       "post": {
         "operationId": "createRatingForCarModelVariantRel",
         "tags": [
@@ -21980,7 +22240,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/ratings/{rating-id}/relationships/has-image": {
       "post": {
         "operationId": "createRatingHasImageRel",
         "tags": [
@@ -22111,7 +22373,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/ratings/{rating-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createRatingHasPrimeImageRel",
         "tags": [
@@ -22487,7 +22751,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programmes/{programme-id}/relationships/has-episode": {
       "post": {
         "operationId": "createProgrammeHasEpisodeRel",
         "tags": [
@@ -22618,7 +22884,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programmes/{programme-id}/relationships/has-image": {
       "post": {
         "operationId": "createProgrammeHasImageRel",
         "tags": [
@@ -22749,7 +23017,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programmes/{programme-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createProgrammeHasPrimeImageRel",
         "tags": [
@@ -22880,7 +23150,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programmes/{programme-id}/relationships/has-video": {
       "post": {
         "operationId": "createProgrammeHasVideoRel",
         "tags": [
@@ -23018,7 +23290,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programmes/{programme-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createProgrammeHasMainVideoRel",
         "tags": [
@@ -23394,7 +23668,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/belongs-to-programme": {
       "post": {
         "operationId": "createProgrammeEpisodeBelongsToProgrammeRel",
         "tags": [
@@ -23525,7 +23801,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/follows-episode": {
       "post": {
         "operationId": "createProgrammeEpisodeFollowsEpisodeRel",
         "tags": [
@@ -23666,7 +23944,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/is-followed-by-episode": {
       "post": {
         "operationId": "createProgrammeEpisodeIsFollowedByEpisodeRel",
         "tags": [
@@ -23807,7 +24087,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/covers-car-model": {
       "post": {
         "operationId": "createProgrammeEpisodeCoversCarModelRel",
         "tags": [
@@ -23938,7 +24220,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/features-car-model-variant": {
       "post": {
         "operationId": "createProgrammeEpisodeFeaturesCarModelVariantRel",
         "tags": [
@@ -24069,7 +24353,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/has-image": {
       "post": {
         "operationId": "createProgrammeEpisodeHasImageRel",
         "tags": [
@@ -24200,7 +24486,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createProgrammeEpisodeHasPrimeImageRel",
         "tags": [
@@ -24331,7 +24619,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/has-video": {
       "post": {
         "operationId": "createProgrammeEpisodeHasVideoRel",
         "tags": [
@@ -24462,7 +24752,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/programme-episodes/{programme-episode-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createProgrammeEpisodeHasMainVideoRel",
         "tags": [
@@ -24838,7 +25130,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/motor-shows/{motor-show-id}/relationships/presents-car-model-variant": {
       "post": {
         "operationId": "createMotorShowPresentsCarModelVariantRel",
         "tags": [
@@ -24969,7 +25263,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/motor-shows/{motor-show-id}/relationships/has-image": {
       "post": {
         "operationId": "createMotorShowHasImageRel",
         "tags": [
@@ -25100,7 +25396,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/motor-shows/{motor-show-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createMotorShowHasPrimeImageRel",
         "tags": [
@@ -25231,7 +25529,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/motor-shows/{motor-show-id}/relationships/has-video": {
       "post": {
         "operationId": "createMotorShowHasVideoRel",
         "tags": [
@@ -25369,7 +25669,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/motor-shows/{motor-show-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createMotorShowHasMainVideoRel",
         "tags": [
@@ -25752,7 +26054,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/books/{book-id}/relationships/covers-car-model-variant": {
       "post": {
         "operationId": "createBookCoversCarModelVariantRel",
         "tags": [
@@ -25883,7 +26187,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/books/{book-id}/relationships/has-image": {
       "post": {
         "operationId": "createBookHasImageRel",
         "tags": [
@@ -26021,7 +26327,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/books/{book-id}/relationships/has-prime-image": {
       "post": {
         "operationId": "createBookHasPrimeImageRel",
         "tags": [
@@ -26159,7 +26467,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/books/{book-id}/relationships/has-video": {
       "post": {
         "operationId": "createBookHasVideoRel",
         "tags": [
@@ -26297,7 +26607,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/books/{book-id}/relationships/has-main-video": {
       "post": {
         "operationId": "createBookHasMainVideoRel",
         "tags": [
@@ -26651,7 +26963,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/images/{image-id}/relationships/belongs-to-node": {
       "post": {
         "operationId": "createImageBelongsToNodeRel",
         "tags": [
@@ -26799,7 +27113,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/images/{image-id}/relationships/is-prime-image-of-node": {
       "post": {
         "operationId": "createImageIsPrimeImageOfNodeRel",
         "tags": [
@@ -27146,7 +27462,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/videos/{video-id}/relationships/belongs-to-node": {
       "post": {
         "operationId": "createVideoBelongsToNodeRel",
         "tags": [
@@ -27277,7 +27595,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/videos/{video-id}/relationships/is-main-video-of-node": {
       "post": {
         "operationId": "createVideoIsMainVideoOfNodeRel",
         "tags": [
