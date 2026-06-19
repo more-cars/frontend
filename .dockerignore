@@ -2,8 +2,11 @@
 .env*
 .git*
 .idea
+.npmrc
+code-generator
 deployment
-eslint.config.mjs
+frontend-specification
+frontend-ticket-generator
 node_modules
-specification
+src
 test-reports
