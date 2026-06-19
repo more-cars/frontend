@@ -8,5 +8,4 @@ deployment
 frontend-specification
 frontend-ticket-generator
 node_modules
-src
 test-reports
