@@ -4,7 +4,7 @@ import {getLapTimeById} from "./getLapTimeById"
 import type {LapTimeAchievedOnTrackLayoutRelationship} from "./types/LapTimeAchievedOnTrackLayoutRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {TrackLayoutNode} from "../track-layouts/types/TrackLayoutNode"
 
 export async function getConnectedTrackLayout(id: number) {

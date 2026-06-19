@@ -4,7 +4,7 @@ import type {ApiRacingSeriesHasImageRelationship} from "./types/ApiRacingSeriesH
 import type {RacingSeriesHasImageRelationship} from "./types/RacingSeriesHasImageRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedImages(id: number) {

@@ -4,7 +4,7 @@ import type {ApiMagazineIssueHasImageRelationship} from "./types/ApiMagazineIssu
 import type {MagazineIssueHasImageRelationship} from "./types/MagazineIssueHasImageRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedImages(id: number) {

@@ -4,7 +4,7 @@ import {getLapTimeById} from "./getLapTimeById"
 import type {LapTimeBelongsToSessionResultRelationship} from "./types/LapTimeBelongsToSessionResultRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {SessionResultNode} from "../session-results/types/SessionResultNode"
 
 export async function getConnectedSessionResult(id: number) {

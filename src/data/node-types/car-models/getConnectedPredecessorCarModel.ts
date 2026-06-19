@@ -4,7 +4,7 @@ import {ApiCarModelIsSuccessorOfRelationship} from "./types/ApiCarModelIsSuccess
 import {CarModelIsSuccessorOfRelationship} from "./types/CarModelIsSuccessorOfRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {CarModelNode} from "./types/CarModelNode"
 
 export async function getConnectedPredecessorCarModel(id: number) {

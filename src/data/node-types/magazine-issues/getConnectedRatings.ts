@@ -4,7 +4,7 @@ import type {ApiMagazineIssueReviewedCarModelVariantWithRatingRelationship} from
 import type {MagazineIssueReviewedCarModelVariantWithRatingRelationship} from "./types/MagazineIssueReviewedCarModelVariantWithRatingRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {RatingNode} from "../ratings/types/RatingNode"
 
 export async function getConnectedRatings(id: number) {

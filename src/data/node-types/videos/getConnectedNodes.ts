@@ -4,7 +4,7 @@ import type {ApiVideoBelongsToNodeRelationship} from "./types/ApiVideoBelongsToN
 import type {VideoBelongsToNodeRelationship} from "./types/VideoBelongsToNodeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {DataNode} from "../../types/DataNode"
 
 export async function getConnectedNodes(id: number) {

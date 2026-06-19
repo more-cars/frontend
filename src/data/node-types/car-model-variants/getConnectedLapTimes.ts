@@ -4,7 +4,7 @@ import type {ApiCarModelVariantAchievedLapTimeRelationship} from "./types/ApiCar
 import type {CarModelVariantAchievedLapTimeRelationship} from "./types/CarModelVariantAchievedLapTimeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {LapTimeNode} from "../lap-times/types/LapTimeNode"
 
 export async function getConnectedLapTimes(id: number) {

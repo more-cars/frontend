@@ -4,7 +4,7 @@ import type {ApiCarModelHasPrimeImageRelationship} from "./types/ApiCarModelHasP
 import {getCarModelById} from "./getCarModelById"
 import type {CarModelHasMainImageRelationship} from "./types/CarModelHasMainImageRelationship"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {

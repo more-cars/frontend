@@ -4,7 +4,7 @@ import type {ApiImageBelongsToNodeRelationship} from "./types/ApiImageBelongsToN
 import type {ImageBelongsToNodeRelationship} from "./types/ImageBelongsToNodeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {DataNode} from "../../types/DataNode"
 
 export async function getConnectedNodes(id: number) {

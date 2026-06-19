@@ -4,7 +4,7 @@ import type {ApiRacingEventHasPrimeImageRelationship} from "./types/ApiRacingEve
 import type {RacingEventHasMainImageRelationship} from "./types/RacingEventHasMainImageRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {

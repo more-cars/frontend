@@ -4,7 +4,7 @@ import type {ApiProgrammeEpisodeHasPrimeImageRelationship} from "./types/ApiProg
 import type {ProgrammeEpisodeHasMainImageRelationship} from "./types/ProgrammeEpisodeHasMainImageRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ImageNode} from "../images/types/ImageNode"
 
 export async function getConnectedMainImage(id: number) {

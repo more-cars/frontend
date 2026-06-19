@@ -4,7 +4,7 @@ import type {ApiMagazineHasIssueRelationship} from "./types/ApiMagazineHasIssueR
 import type {MagazineHasIssueRelationship} from "./types/MagazineHasIssueRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {MagazineIssueNode} from "../magazine-issues/types/MagazineIssueNode"
 
 export async function getConnectedMagazineIssues(id: number) {

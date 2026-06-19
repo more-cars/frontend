@@ -4,7 +4,7 @@ import type {ApiCarModelVariantIsCoveredByBookRelationship} from "./types/ApiCar
 import type {CarModelVariantIsCoveredByBookRelationship} from "./types/CarModelVariantIsCoveredByBookRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {BookNode} from "../books/types/BookNode"
 
 export async function getConnectedBooks(id: number) {

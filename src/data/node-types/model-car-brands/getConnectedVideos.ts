@@ -4,7 +4,7 @@ import type {ApiModelCarBrandHasVideoRelationship} from "./types/ApiModelCarBran
 import type {ModelCarBrandHasVideoRelationship} from "./types/ModelCarBrandHasVideoRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {VideoNode} from "../videos/types/VideoNode"
 
 export async function getConnectedVideos(id: number) {

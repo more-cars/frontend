@@ -4,7 +4,7 @@ import type {ApiRaceTrackHasLayoutRelationship} from "./types/ApiRaceTrackHasLay
 import type {RaceTrackHasLayoutRelationship} from "./types/RaceTrackHasLayoutRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {TrackLayoutNode} from "../track-layouts/types/TrackLayoutNode"
 
 export async function getConnectedTrackLayouts(id: number) {

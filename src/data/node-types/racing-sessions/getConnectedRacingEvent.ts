@@ -4,7 +4,7 @@ import {getRacingSessionById} from "./getRacingSessionById"
 import type {RacingSessionBelongsToRacingEventRelationship} from "./types/RacingSessionBelongsToRacingEventRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {RacingEventNode} from "../racing-events/types/RacingEventNode"
 
 export async function getConnectedRacingEvent(id: number) {

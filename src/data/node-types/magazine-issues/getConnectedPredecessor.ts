@@ -4,7 +4,7 @@ import {getMagazineIssueById} from "./getMagazineIssueById"
 import type {MagazineIssueFollowsIssueRelationship} from "./types/MagazineIssueFollowsIssueRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {MagazineIssueNode} from "../magazine-issues/types/MagazineIssueNode"
 
 export async function getConnectedPredecessor(id: number) {

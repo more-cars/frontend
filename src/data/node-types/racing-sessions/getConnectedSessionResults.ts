@@ -4,7 +4,7 @@ import type {ApiRacingSessionHasSessionResultRelationship} from "./types/ApiRaci
 import type {RacingSessionHasSessionResultRelationship} from "./types/RacingSessionHasSessionResultRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {SessionResultNode} from "../session-results/types/SessionResultNode"
 
 export async function getConnectedSessionResults(id: number) {

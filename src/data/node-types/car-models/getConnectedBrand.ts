@@ -4,7 +4,7 @@ import {getCarModelById} from "./getCarModelById"
 import type {CarModelBelongsToBrandRelationship} from "./types/CarModelBelongsToBrandRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {BrandNode} from "../brands/types/BrandNode"
 
 export async function getConnectedBrand(id: number) {

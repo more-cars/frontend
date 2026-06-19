@@ -4,7 +4,7 @@ import type {ApiCarModelVariantPresentedAtMotorShowRelationship} from "./types/A
 import type {CarModelVariantPresentedAtMotorShowRelationship} from "./types/CarModelVariantPresentedAtMotorShowRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {MotorShowNode} from "../motor-shows/types/MotorShowNode"
 
 export async function getConnectedMotorShows(id: number) {

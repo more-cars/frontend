@@ -4,7 +4,7 @@ import type {ApiCarModelVariantFeaturedInProgrammeEpisodeRelationship} from "./t
 import type {CarModelVariantFeaturedInProgrammeEpisodeRelationship} from "./types/CarModelVariantFeaturedInProgrammeEpisodeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ProgrammeEpisodeNode} from "../programme-episodes/types/ProgrammeEpisodeNode"
 
 export async function getConnectedProgrammeEpisodes(id: number) {

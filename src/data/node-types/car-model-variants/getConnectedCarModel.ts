@@ -4,7 +4,7 @@ import {getCarModelVariantById} from "./getCarModelVariantById"
 import type {CarModelVariantIsVariantOfRelationship} from "./types/CarModelVariantIsVariantOfRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {CarModelNode} from "../car-models/types/CarModelNode"
 
 export async function getConnectedCarModel(id: number) {

@@ -4,7 +4,7 @@ import {getProgrammeEpisodeById} from "./getProgrammeEpisodeById"
 import type {ProgrammeEpisodeBelongsToProgrammeRelationship} from "./types/ProgrammeEpisodeBelongsToProgrammeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ProgrammeNode} from "../programmes/types/ProgrammeNode"
 
 export async function getConnectedProgramme(id: number) {

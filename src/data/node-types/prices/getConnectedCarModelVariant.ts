@@ -4,7 +4,7 @@ import {getPriceById} from "./getPriceById"
 import type {PriceForCarModelVariantRelationship} from "./types/PriceForCarModelVariantRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {CarModelVariantNode} from "../car-model-variants/types/CarModelVariantNode"
 
 export async function getConnectedCarModelVariant(id: number) {

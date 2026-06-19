@@ -4,7 +4,7 @@ import type {ApiCarModelVariantHasPriceRelationship} from "./types/ApiCarModelVa
 import type {CarModelVariantHasPriceRelationship} from "./types/CarModelVariantHasPriceRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {PriceNode} from "../prices/types/PriceNode"
 
 export async function getConnectedPrices(id: number) {

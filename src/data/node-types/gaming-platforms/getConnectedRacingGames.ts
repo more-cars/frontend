@@ -4,7 +4,7 @@ import type {ApiGamingPlatformFeaturesRacingGameRelationship} from "./types/ApiG
 import type {GamingPlatformFeaturesRacingGameRelationship} from "./types/GamingPlatformFeaturesRacingGameRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {RacingGameNode} from "../racing-games/types/RacingGameNode"
 
 export async function getConnectedRacingGames(id: number) {

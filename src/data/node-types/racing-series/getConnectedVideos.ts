@@ -4,7 +4,7 @@ import type {ApiRacingSeriesHasVideoRelationship} from "./types/ApiRacingSeriesH
 import type {RacingSeriesHasVideoRelationship} from "./types/RacingSeriesHasVideoRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {VideoNode} from "../videos/types/VideoNode"
 
 export async function getConnectedVideos(id: number) {

@@ -4,7 +4,7 @@ import type {ApiCarModelVariantIsFeaturedInRacingGameRelationship} from "./types
 import type {CarModelVariantIsFeaturedInRacingGameRelationship} from "./types/CarModelVariantIsFeaturedInRacingGameRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {RacingGameNode} from "../racing-games/types/RacingGameNode"
 
 export async function getConnectedRacingGames(id: number) {

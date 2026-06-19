@@ -4,7 +4,7 @@ import {getRacingEventById} from "./getRacingEventById"
 import type {RacingEventFollowsEventRelationship} from "./types/RacingEventFollowsEventRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {RacingEventNode} from "./types/RacingEventNode"
 
 export async function getConnectedPredecessor(id: number) {

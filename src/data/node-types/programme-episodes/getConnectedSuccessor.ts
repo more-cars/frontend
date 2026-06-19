@@ -4,7 +4,7 @@ import {getProgrammeEpisodeById} from "./getProgrammeEpisodeById"
 import type {ProgrammeEpisodeIsFollowedByEpisodeRelationship} from "./types/ProgrammeEpisodeIsFollowedByEpisodeRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {ProgrammeEpisodeNode} from "../programme-episodes/types/ProgrammeEpisodeNode"
 
 export async function getConnectedSuccessor(id: number) {

@@ -4,7 +4,7 @@ import {getRatingById} from "./getRatingById"
 import type {RatingByMagazineIssueRelationship} from "./types/RatingByMagazineIssueRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {MagazineIssueNode} from "../magazine-issues/types/MagazineIssueNode"
 
 export async function getConnectedMagazineIssue(id: number) {

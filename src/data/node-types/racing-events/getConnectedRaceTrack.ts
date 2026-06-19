@@ -4,7 +4,7 @@ import {getRacingEventById} from "./getRacingEventById"
 import type {RacingEventTookPlaceAtRaceTrackRelationship} from "./types/RacingEventTookPlaceAtRaceTrackRelationship"
 import {DataRelationshipType} from "../../types/DataRelationshipType"
 import {convertApiRelationshipNodeToDataNode} from "../../lib/convertApiRelationshipNodeToDataNode"
-import {convertStringToApiNodeType} from "../../../../tests/_toolbox/convertStringToNodeType"
+import {convertStringToApiNodeType} from "../../lib/convertStringToApiNodeType"
 import type {RaceTrackNode} from "../race-tracks/types/RaceTrackNode"
 
 export async function getConnectedRaceTrack(id: number) {
