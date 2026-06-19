@@ -9,6 +9,7 @@ node_modules
 public/stylesheets
 test-reports
 _temp*
+/dist/
 
 # config files
 .env
