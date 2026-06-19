@@ -4,10 +4,10 @@ SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=$(dirname "$SCRIPT")
 
 echo 🟢 Starting API mock server
-node --env-file=.env -r ts-node/register "$SCRIPT_PATH"/lib/mockServer.ts &
+TS_NODE_PROJECT=tsconfig.app.json node --env-file=.env -r ts-node/register "$SCRIPT_PATH"/lib/mockServer.ts &
 
 echo 🟢 Starting frontend application...
-API_URL=http://localhost:3003 API_CACHE_DISABLED=true MC_FRONTEND_PORT=4003 node -r ts-node/register "$SCRIPT_PATH"/../../src/server.ts &
+TS_NODE_PROJECT=tsconfig.app.json API_URL=http://localhost:3003 API_CACHE_DISABLED=true MC_FRONTEND_PORT=4003 node -r ts-node/register "$SCRIPT_PATH"/../../src/server.ts &
 
 echo 🟢 Starting behavior tests...
 CYPRESS_filterSpecs=true CYPRESS_omitFiltered=true CYPRESS_BASE_URL=http://localhost:4003 API_CACHE_DISABLED=true npx cypress run

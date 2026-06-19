@@ -1,6 +1,6 @@
 import express from "express"
 import {OpenAPIBackend} from "openapi-backend"
-import adminRoutes from "./adminRoutes.ts"
+import adminRoutes from "./adminRoutes"
 import {getResponseMock} from "./getResponseMock"
 
 const api = new OpenAPIBackend({
