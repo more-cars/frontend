@@ -1,5 +1,5 @@
 import express from "express"
-import {StartPageControllerFacade} from "../controllers/StartPageControllerFacade.ts"
+import {StartPageControllerFacade} from "../controllers/StartPageControllerFacade"
 
 const router = express.Router()
 

@@ -1,6 +1,6 @@
 import express from "express"
-import {contact} from "./legal/contact.ts"
-import {privacy} from "./legal/privacy.ts"
+import {contact} from "./legal/contact"
+import {privacy} from "./legal/privacy"
 
 export const LegalPagesControllerFacade = {
     async contact(req: express.Request, res: express.Response) {

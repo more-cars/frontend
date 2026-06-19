@@ -2,7 +2,7 @@ import express from "express"
 import compression from 'compression'
 import health from "./routes/health"
 import canonicalAndRedirectUrls from "./routes/canonical-and-redirect-urls"
-import startPage from "./routes/startPage.ts"
+import startPage from "./routes/startPage"
 import legal from "./routes/legal"
 import {analyticsMiddleware} from "./tracking/analyticsMiddleware"
 import {basicAuthentication} from "./basicAuthentication"
