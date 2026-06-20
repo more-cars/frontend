@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
   - ../../../app
+  - frontend-http-public-route.yaml
+  - frontend-https-public-route.yaml
   - namespace.yaml
 
 namespace: prod
