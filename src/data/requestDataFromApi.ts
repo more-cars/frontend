@@ -1,37 +1,41 @@
-import Axios from 'axios'
-import {setupCache} from 'axios-cache-interceptor'
-import https from 'https'
+import {Agent, fetch} from 'undici'
 import {getApiBaseUrl} from "./getApiBaseUrl"
 
-const axios =
-    process.env.API_CACHE_DISABLED
-        ? Axios.create()
-        : setupCache(Axios.create())
+// TODO reimplement response caching
+// const axios =
+//     process.env.API_CACHE_DISABLED
+//         ? Axios.create()
+//         : setupCache(Axios.create())
 
-// Normally, the frontend and the REST API run in the same cluster, the same environment, the same network.
-// They don't need to encrypt their communication - they can use plain HTTP.
-// But the frontend has the option to switch to a different API, which might not be in the same network.
-// Now, HTTPS is mandatory for every request.
-// When the API is deployed locally (e.g. in Minikube) it will not have a valid TLS certificate.
-// Axios will not accept requests with invalid certificates and will fail them.
-// The following option tells Axios to ignore invalid certificates.
-axios.defaults.httpsAgent = new https.Agent({
-    rejectUnauthorized: false
+// allowing invalid certs (e.g. Minikube cluster)
+const agent = new Agent({
+    connect: {
+        rejectUnauthorized: false,
+    },
 })
 
 export async function requestDataFromApi(path: string) {
+    const username = process.env.API_BASIC_AUTH_USERNAME as string
+    const password = process.env.API_BASIC_AUTH_PASSWORD as string
+    const credentials = btoa(`${username}:${password}`)
+
     try {
-        const response = await axios
-            .get(`${getApiBaseUrl()}${path}`, {
-                auth: {
-                    username: process.env.API_BASIC_AUTH_USERNAME as string,
-                    password: process.env.API_BASIC_AUTH_PASSWORD as string,
-                }
-            })
-        return response.data
+        const response = await fetch(`${getApiBaseUrl()}${path}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Basic ${credentials}`,
+                'Content-Type': 'application/json',
+            },
+            dispatcher: agent,
+        })
+
+        const responseBody = await response.text()
+        try {
+            return JSON.parse(responseBody)
+        } catch {
+            return responseBody
+        }
     } catch (e) {
         console.error(`Error: ${e}`)
     }
-
-    return false
 }
