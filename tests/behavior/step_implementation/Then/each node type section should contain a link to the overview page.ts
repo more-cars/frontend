@@ -8,7 +8,7 @@ Then('each node type section should contain a link to the overview page', () => 
         const anchor = cy.wrap(nodeTypeSection).find('a')
 
         anchor.then(a => {
-            assert.equal(
+            assert.strictEqual(
                 a.attr('href'),
                 '/' + pluralize(nodeType),
                 `link is supposed to be ${'/' + pluralize(nodeType)}, but is ${a.attr('href')}`,

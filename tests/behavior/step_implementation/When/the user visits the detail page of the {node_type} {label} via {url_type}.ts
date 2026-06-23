@@ -1,6 +1,7 @@
 import {When} from "@badeball/cypress-cucumber-preprocessor"
-import {getNormalizedNodeTypePlural} from "../../lib/getNormalizedNodeTypePlural"
 import {dasherize} from "inflection"
+import assert from "assert"
+import {getNormalizedNodeTypePlural} from "../../lib/getNormalizedNodeTypePlural"
 
 When('the user visits the detail page of the {string} {string} via {string}', (nodeType: string, label: string, urlType: 'Canonical URL' | 'Short URL' | 'Node Type URL') => {
     cy.get(`@${dasherize(nodeType.toLowerCase())}_node_${label}`).then(id => {
