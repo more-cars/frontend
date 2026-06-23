@@ -1,5 +1,4 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
-import assert from "assert"
 
 Then('the about section should contain a link to {string}', (target: string) => {
     switch (target.toLowerCase()) {

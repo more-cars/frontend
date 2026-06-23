@@ -1,5 +1,4 @@
 import {When} from "@badeball/cypress-cucumber-preprocessor"
-import assert from "assert"
 
 When('the user visits a {string}', (pageType: string) => {
     switch (pageType.toLowerCase()) {

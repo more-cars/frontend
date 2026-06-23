@@ -1,5 +1,4 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
-import assert from "assert"
 import {pluralize} from "inflection"
 
 Then('each node type section should contain a link to the overview page', () => {

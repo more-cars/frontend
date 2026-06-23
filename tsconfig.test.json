@@ -3,7 +3,8 @@
     "target": "ESNext",
     "module": "commonjs",
     "types": [
-      "node"
+      "node",
+      "cypress"
     ],
     "esModuleInterop": true,
     "resolveJsonModule": true,

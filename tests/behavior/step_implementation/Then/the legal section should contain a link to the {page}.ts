@@ -1,5 +1,4 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
-import assert from "assert"
 
 Then('the legal section should contain a link to the {string}', (target: string) => {
     switch (target) {
