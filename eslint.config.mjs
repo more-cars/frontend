@@ -15,9 +15,21 @@ export default defineConfig(
             "no-restricted-syntax": [
                 "error",
                 {
-                    "selector": "CallExpression[callee.object.name='assert'][callee.property.name=/^(equal|strictEqual|deepEqual|deepStrictEqual)$/][arguments.length<3]",
-                    "message": "Assertions must include a descriptive error message"
-                }
+                    "selector": "CallExpression[callee.name='assert'][arguments.length<2]",
+                    "message": "Avoid assert(value). Provide explicit assertion and message."
+                },
+                {
+                    "selector": "CallExpression[callee.object.name='assert'][callee.property.name!='fail'][arguments.length<3]",
+                    "message": "Assertions must include a descriptive error message."
+                },
+                {
+                    "selector": "CallExpression[callee.object.name='assert'][callee.property.name='equal']",
+                    "message": "Use assert.strictEqual instead of assert.equal"
+                },
+                {
+                    "selector": "CallExpression[callee.object.name='assert'][callee.property.name='strictEqual'] Literal[value=true]",
+                    "message": "Avoid boolean comparisons in assertions. Explain intent."
+                },
             ]
         }
     }
