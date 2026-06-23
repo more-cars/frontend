@@ -1,4 +1,5 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
+import assert from "assert"
 import {pluralize} from "inflection"
 
 Then('each node type section should contain a link to the overview page', () => {
@@ -7,7 +8,11 @@ Then('each node type section should contain a link to the overview page', () => 
         const anchor = cy.wrap(nodeTypeSection).find('a')
 
         anchor.then(a => {
-            assert.equal(a.attr('href'), '/' + pluralize(nodeType))
+            assert.equal(
+                a.attr('href'),
+                '/' + pluralize(nodeType),
+                `link is supposed to be ${'/' + pluralize(nodeType)}, but is ${a.attr('href')}`,
+            )
         })
     })
 })
