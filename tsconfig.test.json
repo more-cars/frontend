@@ -17,6 +17,7 @@
     }
   },
   "include": [
-    "tests/**/*"
+    "tests/**/*",
+    "node_modules/cypress/types/cypress-global-vars.d.ts"
   ]
 }
