@@ -30,6 +30,14 @@ export default defineConfig(
                     "selector": "CallExpression[callee.object.name='assert'][callee.property.name='strictEqual'] Literal[value=true]",
                     "message": "Avoid boolean comparisons in assertions. Explain intent."
                 },
+            ],
+            "@typescript-eslint/no-unused-vars": [
+                "error",
+                {
+                    "argsIgnorePattern": "^_",
+                    "varsIgnorePattern": "^_",
+                    "caughtErrorsIgnorePattern": "^_"
+                }
             ]
         }
     }

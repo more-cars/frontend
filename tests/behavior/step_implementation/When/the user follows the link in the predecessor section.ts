@@ -1,6 +1,6 @@
 import {When} from "@badeball/cypress-cucumber-preprocessor"
 
-When('the user follows the link in the {string} predecessor section', (nodeType: string) => {
+When('the user follows the link in the {string} predecessor section', (_nodeType: string) => {
     cy.get("section[data-testid='predecessor-section'] a")
         .click()
 })

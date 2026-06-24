@@ -1,6 +1,6 @@
 import {Then} from "@badeball/cypress-cucumber-preprocessor"
 
-Then('the page should contain a photo of the {string}', (nodeType: string) => {
+Then('the page should contain a photo of the {string}', (_nodeType: string) => {
     cy.get('[aria-label="image"]')
         .should('be.visible')
 

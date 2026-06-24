@@ -5,6 +5,7 @@
 .npmrc
 code-generator
 deployment
+dist
 frontend-specification
 frontend-ticket-generator
 node_modules
