@@ -8,7 +8,7 @@ import type {ModelCarNode} from "../../../../../src/data/node-types/model-cars/t
 
 describe('Fetching MODEL CAR node from data source', () => {
     test('when there is no MODEL CAR', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

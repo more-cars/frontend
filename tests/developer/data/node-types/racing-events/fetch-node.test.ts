@@ -8,7 +8,7 @@ import type {RacingEventNode} from "../../../../../src/data/node-types/racing-ev
 
 describe('Fetching RACING EVENT node from data source', () => {
     test('when there is no RACING EVENT', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

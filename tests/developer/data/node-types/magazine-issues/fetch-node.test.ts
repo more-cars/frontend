@@ -8,7 +8,7 @@ import type {MagazineIssueNode} from "../../../../../src/data/node-types/magazin
 
 describe('Fetching MAGAZINE ISSUE node from data source', () => {
     test('when there is no MAGAZINE ISSUE', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

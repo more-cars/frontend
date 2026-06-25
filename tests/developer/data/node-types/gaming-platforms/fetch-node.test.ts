@@ -8,7 +8,7 @@ import type {GamingPlatformNode} from "../../../../../src/data/node-types/gaming
 
 describe('Fetching GAMING PLATFORM node from data source', () => {
     test('when there is no GAMING PLATFORM', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

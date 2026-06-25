@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {ApiImageNode} from "./types/ApiImageNode"
 import type {ImageNode} from "./types/ImageNode"
-import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getImageById(id: number) {
-    const apiData = (await requestDataFromApi(`/images/${id}`)) as ApiImageNode
+    const apiData = (await requestDataFromApi(`/images/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as ImageNode
+    return convertApiNodeToDataNode(apiData as ApiImageNode) as ImageNode
 }

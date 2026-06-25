@@ -8,7 +8,7 @@ import type {VideoNode} from "../../../../../src/data/node-types/videos/types/Vi
 
 describe('Fetching VIDEO node from data source', () => {
     test('when there is no VIDEO', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

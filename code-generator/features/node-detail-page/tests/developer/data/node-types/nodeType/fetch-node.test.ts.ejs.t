@@ -11,7 +11,7 @@ import type {<%= h.changeCase.pascal(nodeType) %>Node} from "../../../../../src/
 
 describe('Fetching <%= h.changeCase.upper(nodeType) %> node from data source', () => {
     test('when there is no <%= h.changeCase.upper(nodeType) %>', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

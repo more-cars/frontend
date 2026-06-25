@@ -8,7 +8,7 @@ import type {RatingNode} from "../../../../../src/data/node-types/ratings/types/
 
 describe('Fetching RATING node from data source', () => {
     test('when there is no RATING', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

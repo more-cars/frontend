@@ -8,7 +8,7 @@ import type {RacingGameNode} from "../../../../../src/data/node-types/racing-gam
 
 describe('Fetching RACING GAME node from data source', () => {
     test('when there is no RACING GAME', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

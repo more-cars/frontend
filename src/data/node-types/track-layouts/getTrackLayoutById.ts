@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {ApiTrackLayoutNode} from "./types/ApiTrackLayoutNode"
 import type {TrackLayoutNode} from "./types/TrackLayoutNode"
-import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getTrackLayoutById(id: number) {
-    const apiData = (await requestDataFromApi(`/track-layouts/${id}`)) as ApiTrackLayoutNode
+    const apiData = (await requestDataFromApi(`/track-layouts/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as TrackLayoutNode
+    return convertApiNodeToDataNode(apiData as ApiTrackLayoutNode) as TrackLayoutNode
 }

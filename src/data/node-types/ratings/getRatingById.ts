@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
-import type {ApiRatingNode} from "./types/ApiRatingNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
+import type {ApiRatingNode} from "./types/ApiRatingNode"
 import type {RatingNode} from "./types/RatingNode"
 
 export async function getRatingById(id: number) {
-    const apiData = (await requestDataFromApi(`/ratings/${id}`)) as ApiRatingNode
+    const apiData = (await requestDataFromApi(`/ratings/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as RatingNode
+    return convertApiNodeToDataNode(apiData as ApiRatingNode) as RatingNode
 }

@@ -8,7 +8,7 @@ import type {ModelCarBrandNode} from "../../../../../src/data/node-types/model-c
 
 describe('Fetching MODEL CAR BRAND node from data source', () => {
     test('when there is no MODEL CAR BRAND', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

@@ -8,7 +8,7 @@ import type {PriceNode} from "../../../../../src/data/node-types/prices/types/Pr
 
 describe('Fetching PRICE node from data source', () => {
     test('when there is no PRICE', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

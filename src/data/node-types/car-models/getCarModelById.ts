@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
-import type {ApiCarModelNode} from "./types/ApiCarModelNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
+import type {ApiCarModelNode} from "./types/ApiCarModelNode"
 import type {CarModelNode} from "./types/CarModelNode"
 
 export async function getCarModelById(id: number) {
-    const apiData = (await requestDataFromApi(`/car-models/${id}`)) as ApiCarModelNode
+    const apiData = (await requestDataFromApi(`/car-models/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as CarModelNode
+    return convertApiNodeToDataNode(apiData as ApiCarModelNode) as CarModelNode
 }

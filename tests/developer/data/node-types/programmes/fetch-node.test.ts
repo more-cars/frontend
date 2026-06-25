@@ -8,7 +8,7 @@ import type {ProgrammeNode} from "../../../../../src/data/node-types/programmes/
 
 describe('Fetching PROGRAMME node from data source', () => {
     test('when there is no PROGRAMME', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

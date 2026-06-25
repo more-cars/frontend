@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
-import type {ApiBrandNode} from "./types/ApiBrandNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
+import type {ApiBrandNode} from "./types/ApiBrandNode"
 import type {BrandNode} from "./types/BrandNode"
 
 export async function getBrandById(id: number) {
-    const apiData = (await requestDataFromApi(`/brands/${id}`)) as ApiBrandNode
+    const apiData = (await requestDataFromApi(`/brands/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as BrandNode
+    return convertApiNodeToDataNode(apiData as ApiBrandNode) as BrandNode
 }

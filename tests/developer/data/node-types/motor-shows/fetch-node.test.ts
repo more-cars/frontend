@@ -8,7 +8,7 @@ import type {MotorShowNode} from "../../../../../src/data/node-types/motor-shows
 
 describe('Fetching MOTOR SHOW node from data source', () => {
     test('when there is no MOTOR SHOW', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

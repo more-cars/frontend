@@ -8,7 +8,7 @@ import type {BrandNode} from "../../../../../src/data/node-types/brands/types/Br
 
 describe('Fetching BRAND node from data source', () => {
     test('when there is no BRAND', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

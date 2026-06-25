@@ -8,7 +8,7 @@ import type {CompanyNode} from "../../../../../src/data/node-types/companies/typ
 
 describe('Fetching COMPANY node from data source', () => {
     test('when there is no COMPANY', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

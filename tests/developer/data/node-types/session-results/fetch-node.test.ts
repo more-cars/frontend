@@ -8,7 +8,7 @@ import type {SessionResultNode} from "../../../../../src/data/node-types/session
 
 describe('Fetching SESSION RESULT node from data source', () => {
     test('when there is no SESSION RESULT', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

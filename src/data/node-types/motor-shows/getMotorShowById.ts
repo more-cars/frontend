@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
-import type {ApiMotorShowNode} from "./types/ApiMotorShowNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
+import type {ApiMotorShowNode} from "./types/ApiMotorShowNode"
 import type {MotorShowNode} from "./types/MotorShowNode"
 
 export async function getMotorShowById(id: number) {
-    const apiData = (await requestDataFromApi(`/motor-shows/${id}`)) as ApiMotorShowNode
+    const apiData = (await requestDataFromApi(`/motor-shows/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as MotorShowNode
+    return convertApiNodeToDataNode(apiData as ApiMotorShowNode) as MotorShowNode
 }

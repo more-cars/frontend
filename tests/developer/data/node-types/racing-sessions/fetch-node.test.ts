@@ -8,7 +8,7 @@ import type {RacingSessionNode} from "../../../../../src/data/node-types/racing-
 
 describe('Fetching RACING SESSION node from data source', () => {
     test('when there is no RACING SESSION', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

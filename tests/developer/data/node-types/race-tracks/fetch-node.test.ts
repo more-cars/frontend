@@ -8,7 +8,7 @@ import type {RaceTrackNode} from "../../../../../src/data/node-types/race-tracks
 
 describe('Fetching RACE TRACK node from data source', () => {
     test('when there is no RACE TRACK', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

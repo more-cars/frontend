@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {ApiRaceTrackNode} from "./types/ApiRaceTrackNode"
 import type {RaceTrackNode} from "./types/RaceTrackNode"
-import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getRaceTrackById(id: number) {
-    const apiData = (await requestDataFromApi(`/race-tracks/${id}`)) as ApiRaceTrackNode
+    const apiData = (await requestDataFromApi(`/race-tracks/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as RaceTrackNode
+    return convertApiNodeToDataNode(apiData as ApiRaceTrackNode) as RaceTrackNode
 }

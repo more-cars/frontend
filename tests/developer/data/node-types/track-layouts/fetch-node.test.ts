@@ -8,7 +8,7 @@ import type {TrackLayoutNode} from "../../../../../src/data/node-types/track-lay
 
 describe('Fetching TRACK LAYOUT node from data source', () => {
     test('when there is no TRACK LAYOUT', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

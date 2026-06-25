@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
+import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 import type {ApiRacingEventNode} from "./types/ApiRacingEventNode"
 import type {RacingEventNode} from "./types/RacingEventNode"
-import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
 
 export async function getRacingEventById(id: number) {
-    const apiData = (await requestDataFromApi(`/racing-events/${id}`)) as ApiRacingEventNode
+    const apiData = (await requestDataFromApi(`/racing-events/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as RacingEventNode
+    return convertApiNodeToDataNode(apiData as ApiRacingEventNode) as RacingEventNode
 }

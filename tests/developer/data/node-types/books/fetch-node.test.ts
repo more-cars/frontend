@@ -8,7 +8,7 @@ import type {BookNode} from "../../../../../src/data/node-types/books/types/Book
 
 describe('Fetching BOOK node from data source', () => {
     test('when there is no BOOK', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

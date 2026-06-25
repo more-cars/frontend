@@ -8,7 +8,7 @@ import type {ImageNode} from "../../../../../src/data/node-types/images/types/Im
 
 describe('Fetching IMAGE node from data source', () => {
     test('when there is no IMAGE', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

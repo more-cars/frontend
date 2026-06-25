@@ -8,7 +8,7 @@ import type {LapTimeNode} from "../../../../../src/data/node-types/lap-times/typ
 
 describe('Fetching LAP TIME node from data source', () => {
     test('when there is no LAP TIME', async () => {
-        const apiResponse = null
+        const apiResponse = {errors: []}
 
         vi.spyOn(api, 'requestDataFromApi')
             .mockImplementation(async () => (apiResponse))

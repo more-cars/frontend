@@ -1,14 +1,14 @@
 import {requestDataFromApi} from "../../requestDataFromApi"
-import type {ApiMagazineNode} from "./types/ApiMagazineNode"
 import {convertApiNodeToDataNode} from "../../lib/convertApiNodeToDataNode"
+import type {ApiMagazineNode} from "./types/ApiMagazineNode"
 import type {MagazineNode} from "./types/MagazineNode"
 
 export async function getMagazineById(id: number) {
-    const apiData = (await requestDataFromApi(`/magazines/${id}`)) as ApiMagazineNode
+    const apiData = (await requestDataFromApi(`/magazines/${id}`))
 
-    if (!apiData) {
+    if (!apiData || apiData?.errors) {
         return null
     }
 
-    return convertApiNodeToDataNode(apiData) as MagazineNode
+    return convertApiNodeToDataNode(apiData as ApiMagazineNode) as MagazineNode
 }
