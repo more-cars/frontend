@@ -1,4 +1,4 @@
-import {dasherize, singularize, underscore} from "inflection"
+import {dasherize, underscore} from "inflection"
 import {pascalCase} from "change-case"
 import {Context} from "openapi-backend"
 import {mockState, nodeRelationships, nodeState, typeOfNode} from "./mockState"
@@ -33,7 +33,7 @@ export function getResponseMock(context: Context, req: { url: string, query: { p
 
     if (isGenericNodeOperation(operationId)) {
         const nodeId = Number(req.url.split('/')[2])
-        const nodeType = pascalCase(singularize(typeOfNode.get(nodeId) || 'brands')).replace('RacingSery', 'RacingSeries')
+        const nodeType = typeOfNode.get(nodeId) || 'Brand'
 
         if (!nodeType) {
             return null

@@ -5,6 +5,7 @@ import {MockData} from "../../lib/MockData"
 
 Given('there is no {string} {string}', (nodeType: string, label: string) => {
     const nodeId = getRandomCanonicalNodeId()
+    MockData.addNode(nodeId, nodeType)
     MockData.removeNode(nodeId)
 
     cy.wrap(nodeId)
