@@ -7,6 +7,11 @@ resources:
   - frontend-service.yaml
   - frontend-deployment.yaml
 
+secretGenerator:
+  - name: frontend.basic-auth-credentials
+    envs:
+      - .env.secret.basic-auth
+
 patches:
   - path: deployment.patch.json
     target:

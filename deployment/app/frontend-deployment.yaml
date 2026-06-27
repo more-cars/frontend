@@ -27,26 +27,26 @@ spec:
               valueFrom:
                 secretKeyRef:
                   optional: true
-                  name: basic-auth
+                  name: frontend.basic-auth-credentials
                   key: username
             - name: BASIC_AUTH_PASSWORD
               valueFrom:
                 secretKeyRef:
                   optional: true
-                  name: basic-auth
+                  name: frontend.basic-auth-credentials
                   key: password
             - name: API_BASIC_AUTH_USERNAME
               valueFrom:
                 secretKeyRef:
                   optional: true
-                  name: basic-auth
-                  key: username
+                  name: frontend.basic-auth-credentials
+                  key: api_username
             - name: API_BASIC_AUTH_PASSWORD
               valueFrom:
                 secretKeyRef:
                   optional: true
-                  name: basic-auth
-                  key: password
+                  name: frontend.basic-auth-credentials
+                  key: api_password
           resources:
             requests:
               cpu: "30m"

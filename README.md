@@ -105,10 +105,10 @@ In Minikube and GKE the credentials are expected as `Kubernetes secrets`.
 They can be created resp. replaced with the following command.
 
 ```
-kubectl delete secret basic-auth \
+kubectl delete secret frontend-basic-auth-credentials \
 --ignore-not-found \
 --namespace=<NAMESPACE> && \
-kubectl create secret generic basic-auth \
+kubectl create secret generic frontend-basic-auth-credentials \
 --from-literal=username='<USERNAME>' \
 --from-literal=password='<PASSWORD>' \
 --namespace=<NAMESPACE>
