@@ -14,10 +14,10 @@ async function promptUser() {
         default: 'frontend',
         choices: [
             {
-                value: 'frontend',
+                value: 'frontend-rc',
             },
             {
-                value: 'frontend-rc',
+                value: 'frontend',
             },
         ],
     })
