@@ -9,6 +9,7 @@ spec:
 
   hostnames:
     - more-cars.net
+    - www.more-cars.net
 
   rules:
     - filters:
