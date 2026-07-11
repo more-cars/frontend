@@ -6,6 +6,9 @@ resources:
   - frontend-https-route.yaml
   - frontend-service.yaml
   - frontend-deployment.yaml
+  - oauth2-proxy-deployment.yaml
+  - oauth2-proxy-service.yaml
+  - oauth2-proxy-health-check.yaml
 
 patches:
   - path: deployment.patch.json
@@ -20,3 +23,7 @@ patches:
     target:
       kind: HTTPRoute
       name: frontend-https
+  - path: oauth2-proxy-deployment.patch.json
+    target:
+      kind: Deployment
+      name: oauth2-proxy-frontend
