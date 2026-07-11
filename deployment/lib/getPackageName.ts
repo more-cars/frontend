@@ -11,7 +11,7 @@ export async function getPackageName(override: string | undefined) {
 async function promptUser() {
     return select({
         message: 'Which package should be deployed?',
-        default: 'frontend',
+        default: 'frontend-rc',
         choices: [
             {
                 value: 'frontend-rc',
