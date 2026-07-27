@@ -15,15 +15,10 @@ const agent = new Agent({
 })
 
 export async function requestDataFromApi(path: string) {
-    const username = process.env.API_BASIC_AUTH_USERNAME as string
-    const password = process.env.API_BASIC_AUTH_PASSWORD as string
-    const credentials = btoa(`${username}:${password}`)
-
     try {
         const response = await fetch(`${getApiBaseUrl()}${path}`, {
             method: 'GET',
             headers: {
-                'Authorization': `Basic ${credentials}`,
                 'Content-Type': 'application/json',
             },
             dispatcher: agent,

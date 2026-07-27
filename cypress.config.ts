@@ -28,7 +28,5 @@ export default defineConfig({
     },
     env: {
         tags: "@implemented",
-        basicAuthUsername: process.env.BASIC_AUTH_USERNAME,
-        basicAuthPassword: process.env.BASIC_AUTH_PASSWORD,
     }
 })

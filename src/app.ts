@@ -5,7 +5,6 @@ import canonicalAndRedirectUrls from "./routes/canonical-and-redirect-urls"
 import startPage from "./routes/startPage"
 import legal from "./routes/legal"
 import {analyticsMiddleware} from "./tracking/analyticsMiddleware"
-import {basicAuthentication} from "./basicAuthentication"
 import {registerViewHelpers} from "./routes/registerViewHelpers"
 import {registerNodeTypeRoutes} from "./routes/registerNodeTypeRoutes"
 import {notFound} from "./routes/notFound"
@@ -18,7 +17,6 @@ app.set('trust proxy', true) // needed, so the tracking still works with Kuberne
 
 app.use(compression())
 app.use(analyticsMiddleware)
-app.use(basicAuthentication)
 
 registerViewHelpers(app)
 

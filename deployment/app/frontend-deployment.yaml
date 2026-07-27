@@ -23,30 +23,6 @@ spec:
               value: https://analytics.default.more-cars.net
             - name: API_URL
               value: http://$(API_SERVICE_HOST):$(API_SERVICE_PORT)
-            - name: BASIC_AUTH_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  optional: true
-                  name: frontend.basic-auth-credentials
-                  key: username
-            - name: BASIC_AUTH_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  optional: true
-                  name: frontend.basic-auth-credentials
-                  key: password
-            - name: API_BASIC_AUTH_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  optional: true
-                  name: frontend.basic-auth-credentials
-                  key: api_username
-            - name: API_BASIC_AUTH_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  optional: true
-                  name: frontend.basic-auth-credentials
-                  key: api_password
           resources:
             requests:
               cpu: "30m"
