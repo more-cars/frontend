@@ -4,7 +4,8 @@ kind: Kustomization
 resources:
   - ../../../app
   - frontend-http-public-route.yaml
-  - frontend-https-public-route.yaml
+  - frontend-https-public-apex-route.yaml
+  - frontend-https-public-www-route.yaml
   - namespace.yaml
 
 namespace: prod

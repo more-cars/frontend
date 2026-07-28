@@ -3,17 +3,26 @@ kind: HTTPRoute
 metadata:
   name: frontend-public-http
 spec:
-  parentRefs:
-    - name: more-cars-gateway
-      sectionName: more-cars-public-http
-
   hostnames:
     - more-cars.net
     - www.more-cars.net
-
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: more-cars-gateway
+      sectionName: more-cars-public-http
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: more-cars-gateway
+      sectionName: more-cars-public-www-http
   rules:
     - filters:
-        - type: RequestRedirect
-          requestRedirect:
+        - requestRedirect:
+            hostname: more-cars.net
             scheme: https
             statusCode: 301
+          type: RequestRedirect
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
