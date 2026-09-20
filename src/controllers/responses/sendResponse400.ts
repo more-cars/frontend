@@ -6,7 +6,7 @@ export function sendResponse400(res: express.Response) {
     }, (error, html) => {
         res.status(400)
         res.set('Content-Type', 'text/html; charset=utf-8')
-        res.set('Content-Security-Policy', "default-src 'self'; img-src 'self' data: upload.wikimedia.org live.staticflickr.com i.ytimg.com; frame-src www.youtube-nocookie.com")
+        res.set('Content-Security-Policy', "default-src 'self'; img-src 'self' data: upload.wikimedia.org thumb.wikimedia.org live.staticflickr.com i.ytimg.com; frame-src www.youtube-nocookie.com")
         res.set('Strict-Transport-Security', 'max-age=63072000')
         res.set('X-Content-Type-Options', 'nosniff')
         res.set('X-Frame-Options', 'DENY')
