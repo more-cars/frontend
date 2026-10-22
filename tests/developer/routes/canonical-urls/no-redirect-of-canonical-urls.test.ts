@@ -3,7 +3,7 @@ import {supertestGet} from "../../supertestGet"
 import {CanonicalUrlControllerFacade} from "../../../../src/controllers/CanonicalUrlControllerFacade"
 
 afterEach(() => {
-    vi.resetModules()
+    vi.resetAllMocks()
 })
 
 describe('Canonical URLs are not redirected', () => {
