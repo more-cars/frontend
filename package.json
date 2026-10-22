@@ -74,5 +74,5 @@
     "stats:lines-of-code:src": "sloc src/",
     "stats:lines-of-code:test": "sloc tests/"
   },
-  "version": "2.1.0"
+  "version": "2.1.11"
 }
